@@ -1,11 +1,12 @@
 "use client";
 
 import {
-  ArrowUp,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
+  CircleAlert,
   Clock,
+  Copy,
   Diff,
   FileText,
   Folder,
@@ -25,9 +26,35 @@ import {
   Search,
   SquarePen,
   SquareTerminal,
-  Terminal,
+  Zap,
 } from "lucide-react";
 import { type ComponentType, useState } from "react";
+import {
+  Composer,
+  ComposerAccessChip,
+  ComposerEffortSlider,
+  ComposerIconButton,
+  ComposerModelPicker,
+  ComposerSendButton,
+  ComposerTextarea,
+  ComposerToolbar,
+} from "@/components/motion/agent-composer";
+import {
+  Thread,
+  ThreadActionBar,
+  ThreadActionButton,
+  ThreadCardButton,
+  ThreadCollapse,
+  ThreadCommandRow,
+  ThreadDiffCard,
+  ThreadDiffRow,
+  ThreadInlineCode,
+  ThreadMessage,
+  ThreadThinking,
+  ThreadToolCall,
+  ThreadTurnHeader,
+  ThreadUserMessage,
+} from "@/components/motion/agent-thread";
 import {
   useWorkbench,
   Workbench,
@@ -187,74 +214,101 @@ function SidebarContent() {
   );
 }
 
+const EFFORT_LABELS = ["Minimal", "Low", "Standard", "High", "Max"];
+
+/** Main column composed from the agent-thread and agent-composer blocks — the full app shape. */
 function MainContent() {
+  const [draft, setDraft] = useState("");
+  const [effort, setEffort] = useState(3); // "High"
+  const [logOpen, setLogOpen] = useState(true);
+
   return (
     <>
-      <div className="mx-auto flex w-full max-w-[768px] flex-1 flex-col gap-4 overflow-y-auto px-4 py-6">
-        <div className="flex justify-end">
-          <div className="max-w-[85%] rounded-3xl bg-black/5 px-4 py-2.5 text-sm text-foreground dark:bg-white/10">
-            Can you look into why our build cache keeps missing on CI?
-          </div>
-        </div>
+      <div className="flex-1 overflow-y-auto pt-[54px] pb-4">
+        <Thread>
+          <ThreadUserMessage>Read the handoff doc and prep the release.</ThreadUserMessage>
 
-        <div className="flex flex-col gap-3">
-          <p className="text-sm leading-relaxed text-foreground/90">
-            Sure — I&apos;ll trace the cache key generation across the pipeline and check whether
-            the restore step is matching on the right inputs. Build caches usually miss for one of
-            a few reasons: a key that includes something non-deterministic, a path that changed
-            between jobs, or a restore step running before the key is even computed.
-          </p>
-          <div className="flex w-fit items-center gap-2 rounded-lg bg-black/5 px-3 py-2 text-xs text-foreground/70 dark:bg-white/10">
-            <Terminal className="h-3.5 w-3.5" />
-            <span>Read 3 files, ran 2 commands</span>
+          <div className="group/turn flex flex-col">
+            <ThreadTurnHeader open={logOpen} onOpenChange={setLogOpen}>
+              Worked for 2m 4s
+            </ThreadTurnHeader>
+            <ThreadCollapse open={logOpen}>
+              <ThreadThinking label="Thought for 8s">
+                Validating the build first keeps the riskier deploy steps behind a checkpoint.
+              </ThreadThinking>
+              <ThreadToolCall icon={<Globe className="h-4 w-4" />}>
+                Searched the web · 2 searches
+              </ThreadToolCall>
+            </ThreadCollapse>
+            <ThreadMessage>
+              <p>
+                Pulled the handoff notes at <ThreadInlineCode>efd14fb</ThreadInlineCode> and staged
+                the release diff below.
+              </p>
+            </ThreadMessage>
+            <ThreadDiffCard
+              icon={<SquarePen className="h-5 w-5" />}
+              title="Edited 3 files"
+              added={29}
+              removed={5}
+              actions={
+                <>
+                  <ThreadCardButton variant="ghost">Undo</ThreadCardButton>
+                  <ThreadCardButton>Review</ThreadCardButton>
+                </>
+              }
+            >
+              <ThreadDiffRow path="backend/pom.xml" added={23} removed={0} />
+              <ThreadDiffRow path="CHANGELOG.md" added={2} removed={0} />
+            </ThreadDiffCard>
+            <ThreadCommandRow icon={<SquareTerminal className="h-4 w-4" />} running>
+              Running <span className="font-mono text-[13px]">./mvnw -q verify</span>
+            </ThreadCommandRow>
+            <ThreadActionBar timestamp="Thu 22:09">
+              <ThreadActionButton aria-label="Copy">
+                <Copy className="h-3.5 w-3.5" />
+              </ThreadActionButton>
+            </ThreadActionBar>
           </div>
-          <p className="flex flex-wrap items-center gap-2 text-sm text-foreground/90">
-            <span>Found it — the lockfile hash included a build timestamp. Patched the key builder.</span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-black/5 px-2 py-0.5 text-xs dark:bg-white/10">
-              <span className="text-success">+162</span>
-              <span className="text-destructive">−6</span>
-            </span>
-          </p>
-        </div>
+        </Thread>
       </div>
 
       <div className="px-4 pb-4">
-        <div
-          className="rounded-[22px] bg-white/90 backdrop-blur dark:bg-neutral-800/90"
-          style={{
-            boxShadow:
-              "0 0 0 0.5px rgba(0,0,0,0.08), 0 3px 8px rgba(0,0,0,0.06), 0 0 20px rgba(0,0,0,0.05)",
-          }}
-        >
-          <div className="px-4 pt-3 pb-2 text-sm text-muted-foreground">
-            Describe a follow-up change…
-          </div>
-          <div className="flex items-center justify-between px-3 pb-3">
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                aria-label="Add attachment"
-                className="flex h-7 w-7 items-center justify-center rounded-full text-foreground/60 hover:bg-black/5 dark:hover:bg-white/10"
-              >
-                <Plus className="h-4 w-4" />
-              </button>
-              <span className="rounded-full bg-orange-500/10 px-2.5 py-1 text-xs font-medium text-orange-600 dark:text-orange-400">
-                Full access
-              </span>
-            </div>
-            <div className="flex items-center gap-2.5 text-muted-foreground">
-              <span className="text-xs">5.6 · High</span>
+        <Composer>
+          <ComposerTextarea
+            value={draft}
+            onChange={setDraft}
+            placeholder="Describe your next change…"
+            aria-label="Message"
+          />
+          <ComposerToolbar>
+            <ComposerIconButton aria-label="Add files and more">
+              <Plus className="h-4 w-4" />
+            </ComposerIconButton>
+            <ComposerAccessChip icon={<CircleAlert className="h-4 w-4" />}>
+              Full access
+            </ComposerAccessChip>
+            <div className="ml-auto" />
+            <ComposerModelPicker label={`5.6 · ${EFFORT_LABELS[effort]}`}>
+              <div className="flex items-center justify-between px-2 pt-1 text-muted-foreground text-xs">
+                <span>Reasoning effort</span>
+                <Zap className="h-3.5 w-3.5" />
+              </div>
+              <div className="px-2 pt-1 pb-2">
+                <ComposerEffortSlider
+                  value={effort}
+                  onChange={setEffort}
+                  labels={EFFORT_LABELS}
+                  aria-label="Reasoning effort"
+                />
+              </div>
+            </ComposerModelPicker>
+            <ComposerIconButton aria-label="Dictate">
               <Mic className="h-4 w-4" />
-              <button
-                type="button"
-                aria-label="Send message"
-                className="flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background"
-              >
-                <ArrowUp className="h-4 w-4" />
-              </button>
-            </div>
-          </div>
-        </div>
+            </ComposerIconButton>
+            <ComposerSendButton disabled={draft.trim().length === 0} />
+          </ComposerToolbar>
+        </Composer>
       </div>
     </>
   );
