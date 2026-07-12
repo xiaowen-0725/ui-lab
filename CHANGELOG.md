@@ -6,6 +6,9 @@
 
 ## [Unreleased]
 
+### 新增
+- **`agent-workbench`(Agent 工作台)block**:三栏式 Agent 应用外壳,半透明可拖宽侧栏 + 会话主列 + 右侧工具面板,支持拖到底关闭、弹簧展开/折叠、键盘调宽,以及横跨全宽的 46px 顶部工具栏覆盖层,并带右上角置顶摘要浮层卡片(环境信息示例)。
+
 ## [0.1.0] - 2026-07-12
 
 首个版本 —— 基于开源项目 [beUI](https://github.com/starc007/ui-components)(MIT)fork,改造成**中文优先的双语动效组件参考库**「组件实验室 / UI Lab」,并上线 Vercel。

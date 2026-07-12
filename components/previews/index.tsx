@@ -47,6 +47,9 @@ export const previews: Record<string, ComponentType> = {
       (m) => m.AvailabilitySchedulerPreview,
     ),
   ),
+  "blocks/agent-workbench": dynamic(() =>
+    import("./blocks/agent-workbench.preview").then((m) => m.AgentWorkbenchPreview),
+  ),
   "motion/table": dynamic(() =>
     import("./motion/table.preview").then((m) => m.TablePreview),
   ),

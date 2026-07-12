@@ -714,6 +714,31 @@ export const registry: CategoryEntry[] = [
     descriptionZh: "基于 UI Lab 动效原语组合而成、可直接用于产品的复合组件。",
     components: [
       {
+        slug: "agent-workbench",
+        name: "Agent Workbench",
+        nameZh: "Agent 工作台",
+        description:
+          "Three-pane agent app shell: a resizable translucent sidebar, thread column and utility panel with drag-to-close, spring open/collapse, and a full-width 46px toolbar overlay. Includes a pinned summary card overlay.",
+        descriptionZh:
+          "三栏式 Agent 应用外壳:半透明可拖宽侧栏、会话主列与右侧工具面板,支持拖到底关闭、弹簧展开/折叠,以及横跨全宽的 46px 顶部工具栏。并内置置顶摘要浮层卡片。",
+        file: "components/motion/agent-workbench/index.tsx",
+        extraFiles: [
+          "components/motion/agent-workbench/resize-handle.tsx",
+          "components/motion/agent-workbench/summary-card.tsx",
+        ],
+        badge: "new",
+        launchedAt: "2026-07-12",
+        keywords: [
+          "agent workbench react",
+          "three pane layout react",
+          "resizable sidebar react",
+          "app shell component",
+          "codex style app shell",
+          "ai chat workbench",
+          "split pane layout",
+        ],
+      },
+      {
         slug: "availability-scheduler",
         name: "Availability Scheduler",
         nameZh: "可用时间编辑器",
