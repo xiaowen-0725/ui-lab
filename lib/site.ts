@@ -4,10 +4,12 @@ export const SITE_URL = (
 ).replace(/\/$/, "");
 
 /**
- * Source repository URL shown in the header / footer. Set NEXT_PUBLIC_REPO_URL
- * once this library has its own repo; until then it points at a placeholder.
+ * Source repository URL shown in the header / footer. Override per environment
+ * via NEXT_PUBLIC_REPO_URL.
  */
-export const REPO_URL = process.env.NEXT_PUBLIC_REPO_URL ?? "#";
+export const REPO_URL =
+  process.env.NEXT_PUBLIC_REPO_URL ??
+  "https://github.com/xiaowen-0725/ui-lab";
 
 /**
  * shadcn registry name. This is what consumers reference as the install
