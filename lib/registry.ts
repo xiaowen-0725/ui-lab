@@ -714,6 +714,30 @@ export const registry: CategoryEntry[] = [
     descriptionZh: "基于 UI Lab 动效原语组合而成、可直接用于产品的复合组件。",
     components: [
       {
+        slug: "agent-composer",
+        name: "Agent Composer",
+        nameZh: "Agent 输入台",
+        description:
+          "AI agent chat composer with context chips, access chip, model picker with a segmented reasoning-effort slider, and a morphing send/stop button, plus an add menu and a voice dictation bar.",
+        descriptionZh:
+          "AI agent 聊天输入台组件族:上下文 chips、权限 chip、内置分段推理力度滑杆的模型选择器,以及可变形的发送/停止按钮,并带添加菜单与语音听写态。",
+        file: "components/motion/agent-composer/index.tsx",
+        extraFiles: ["components/motion/agent-composer/effort-slider.tsx"],
+        badge: "new",
+        launchedAt: "2026-07-12",
+        keywords: [
+          "agent composer react",
+          "ai chat input react",
+          "prompt input component",
+          "chat composer react",
+          "reasoning effort slider",
+          "model picker react",
+          "voice dictation bar",
+          "attachment menu",
+          "codex style composer",
+        ],
+      },
+      {
         slug: "agent-workbench",
         name: "Agent Workbench",
         nameZh: "Agent 工作台",
