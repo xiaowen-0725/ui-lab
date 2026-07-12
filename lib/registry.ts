@@ -714,6 +714,83 @@ export const registry: CategoryEntry[] = [
     descriptionZh: "基于 UI Lab 动效原语组合而成、可直接用于产品的复合组件。",
     components: [
       {
+        slug: "agent-trace",
+        name: "Agent Trace",
+        nameZh: "Agent 执行轨迹",
+        description:
+          "Activity rail for agent runs: kind-styled step nodes on a hairline rail, live steps with pulse ring and cadenced shimmer, raw-output expand, parallel tool groups, and nested sub-agent mini traces.",
+        descriptionZh:
+          "Agent 执行轨迹组件族:发丝竖轨上按类型着装的步骤节点、带脉冲环与节奏扫光的进行中步骤、原始输出展开、并行工具组,以及可嵌套展开的子 Agent 迷你轨迹。",
+        file: "components/motion/agent-trace/index.tsx",
+        badge: "new",
+        launchedAt: "2026-07-12",
+        keywords: [
+          "agent trace react",
+          "activity rail component",
+          "agent steps timeline",
+          "nested subagent trace",
+          "tool execution trace",
+          "claude code style trace",
+        ],
+      },
+      {
+        slug: "streaming-json",
+        name: "Streaming JSON",
+        nameZh: "流式结构化输出",
+        description:
+          "Tolerant syntax-colored rendering for partial JSON as it streams in: an incremental tokenizer that survives unclosed strings, fade-in for freshly arrived spans, a streaming caret, and a function-call wrapper.",
+        descriptionZh:
+          "流式结构化输出组件族:对不完整 JSON 容错的分色渲染——可承受未闭合字符串的增量 tokenizer、仅对新到片段做淡入、流式光标,以及函数调用外壳。",
+        file: "components/motion/streaming-json/index.tsx",
+        badge: "new",
+        launchedAt: "2026-07-12",
+        keywords: [
+          "streaming json react",
+          "partial json renderer",
+          "tool call arguments stream",
+          "structured output component",
+          "json syntax highlight stream",
+        ],
+      },
+      {
+        slug: "citations",
+        name: "Citations",
+        nameZh: "引用与来源",
+        description:
+          "Inline citation chips with a hover source-preview popover, plus source cards and a staggered source list for the answer footer.",
+        descriptionZh:
+          "引用与来源组件族:行内引用角标(悬停弹出来源预览浮层)、来源卡片,以及答案尾部带级联进场的来源列表。",
+        file: "components/motion/citations/index.tsx",
+        badge: "new",
+        launchedAt: "2026-07-12",
+        keywords: [
+          "inline citation react",
+          "source preview popover",
+          "citation chip component",
+          "ai answer sources list",
+          "perplexity style citations",
+        ],
+      },
+      {
+        slug: "voice-orb",
+        name: "Voice Orb",
+        nameZh: "语音律动球",
+        description:
+          "Immersive voice-mode orb: one continuous gradient sphere whose breathing, hue drift, echo rings and thinking sheen follow idle / listening / thinking / speaking states.",
+        descriptionZh:
+          "沉浸式语音模式光球:单一连续渐变球体,呼吸、色相漂移、回声环与思考高光随待机/聆听/思考/说话四态切换。",
+        file: "components/motion/voice-orb/index.tsx",
+        badge: "new",
+        launchedAt: "2026-07-12",
+        keywords: [
+          "voice orb react",
+          "voice assistant animation",
+          "ai voice mode ui",
+          "breathing orb component",
+          "voice mode sphere",
+        ],
+      },
+      {
         slug: "activity-stats",
         name: "Activity Stats",
         nameZh: "活动统计",
