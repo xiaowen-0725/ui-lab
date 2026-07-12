@@ -76,9 +76,17 @@ next-intl 路由化:`/` = 中文(默认 locale)、`/en/*` = 英文,`localePrefix
 - shadcn registry 名在 `lib/site.ts` 的 `REGISTRY_NAME`(现为 `"uilab"` → 安装命名空间 `@uilab`);所有安装地址用 `SITE_URL`(默认 `localhost:3000`,部署时设 `NEXT_PUBLIC_SITE_URL` 即全站切换)。**改这一处,全站安装命令跟着变** —— 别再散落硬编码 `@beui`/`beui.dev`。
 - `app/r/*` 端点的路径形状(`/r/{name}.json`、`/r/{name}/raw`)是 shadcn 契约,别重命名或破坏。
 
-## 更新日志
+## 更新日志与发版
 
-值得注意的变更(收/删组件、改约定、品牌或结构调整)追加到 `CHANGELOG.md` 的 `[Unreleased]` 段;发布时整体归入带日期的版本号。日常琐碎改动不必记。
+值得注意的变更(收/删组件、改约定、品牌或结构调整)追加到 `CHANGELOG.md` 的 `[Unreleased]` 段,按「新增 / 变更 / 修复 / 移除」分类;日常琐碎改动不必记。
+
+发版三步:
+
+1. 把 `[Unreleased]` 整段挪到新标题 `[x.y.z] - YYYY-MM-DD` 下,顶部留一个空的 `[Unreleased]`。
+2. `package.json` 的 `version` 同步改成 `x.y.z`。
+3. 打 tag:`git tag vx.y.z && git push --tags`。
+
+版本号语义:收组件/加功能进 minor(`0.x.0`),改约定/破坏性调整进主版本,纯修复进 patch(`0.0.x`)。
 
 ## 提交
 
