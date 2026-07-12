@@ -1,0 +1,76 @@
+{
+  "common": {
+    "preview": "预览",
+    "usage": "用法",
+    "source": "源码",
+    "copy": "复制",
+    "copied": "已复制",
+    "install": "安装",
+    "search": "搜索",
+    "back": "返回"
+  },
+  "nav": {
+    "brand": "组件实验室",
+    "components": "组件",
+    "blocks": "区块",
+    "playground": "演练场",
+    "sponsors": "赞助",
+    "pro": "Pro",
+    "customize": "自定义",
+    "customizeTheme": "自定义主题",
+    "github": "Github",
+    "starOnGithub": "在 GitHub 上加星",
+    "starOnGithubCount": "在 GitHub 上加星,{count} stars"
+  },
+  "category": {
+    "new": "新增",
+    "all": "全部{name}"
+  },
+  "search": {
+    "trigger": "搜索",
+    "placeholder": "搜索组件…",
+    "aria": "搜索组件",
+    "pages": "页面"
+  },
+  "sidebar": {
+    "intro": "入门",
+    "guides": "指南",
+    "home": "首页",
+    "aiAgents": "AI 接入",
+    "motionGuides": "动效指南"
+  },
+  "hero": {
+    "badge": "{count} 个组件 · Tailwind 4 + React 19",
+    "headline": ["面向 React 与 Next.js", "的动效组件库"],
+    "subtitle": "基于 Framer Motion 与 Tailwind 的可复制动效组件,开源免费。",
+    "browse": "浏览组件",
+    "aiAgents": "AI 接入"
+  },
+  "landing": {
+    "installNote": "基于 Framer Motion 构建,通过 shadcn 分发。",
+    "browseAll": "浏览全部",
+    "newEyebrow": "新增",
+    "newTitle": "最近上新",
+    "componentsEyebrow": "组件",
+    "componentsTitle": "动效基础组件"
+  },
+  "detail": {
+    "tabPreview": "预览",
+    "tabUsage": "用法",
+    "tabCode": "代码",
+    "install": "安装",
+    "installHint": "用 shadcn CLI 添加,或手动复制源码。",
+    "apiReference": "API 参考",
+    "relatedComponents": "相关组件"
+  },
+  "footer": {
+    "tagline": "面向 React 与 Next.js 的动效组件参考库,可通过 shadcn 注册表复制使用。",
+    "components": "组件",
+    "blocks": "区块",
+    "links": "链接",
+    "viewAll": "查看全部({count})",
+    "browseAll": "浏览全部",
+    "github": "GitHub",
+    "copyright": "© 2026 组件实验室 · MIT 协议"
+  }
+}

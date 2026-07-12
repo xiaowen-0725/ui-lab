@@ -1,0 +1,76 @@
+{
+  "common": {
+    "preview": "Preview",
+    "usage": "Usage",
+    "source": "Source",
+    "copy": "Copy",
+    "copied": "Copied",
+    "install": "Install",
+    "search": "Search",
+    "back": "Back"
+  },
+  "nav": {
+    "brand": "UI Lab",
+    "components": "Components",
+    "blocks": "Blocks",
+    "playground": "Playground",
+    "sponsors": "Sponsors",
+    "pro": "Pro",
+    "customize": "Customize",
+    "customizeTheme": "Customize theme",
+    "github": "Github",
+    "starOnGithub": "Star on GitHub",
+    "starOnGithubCount": "Star on GitHub, {count} stars"
+  },
+  "category": {
+    "new": "New",
+    "all": "All {name}"
+  },
+  "search": {
+    "trigger": "Search",
+    "placeholder": "Search components…",
+    "aria": "Search components",
+    "pages": "Pages"
+  },
+  "sidebar": {
+    "intro": "Intro",
+    "guides": "Guides",
+    "home": "Home",
+    "aiAgents": "AI Agents",
+    "motionGuides": "Motion Guides"
+  },
+  "hero": {
+    "badge": "{count} components · Tailwind 4 + React 19",
+    "headline": ["The motion toolkit", "for React & Next.js"],
+    "subtitle": "Copy-paste animated components built on Framer Motion and Tailwind. Free and open source.",
+    "browse": "Browse components",
+    "aiAgents": "AI agents"
+  },
+  "landing": {
+    "installNote": "Built on Framer Motion. Distributed via shadcn.",
+    "browseAll": "Browse all",
+    "newEyebrow": "New",
+    "newTitle": "Recently launched",
+    "componentsEyebrow": "Components",
+    "componentsTitle": "Motion primitives"
+  },
+  "detail": {
+    "tabPreview": "Preview",
+    "tabUsage": "Usage",
+    "tabCode": "Code",
+    "install": "Install",
+    "installHint": "Add it with the shadcn CLI, or copy the source manually.",
+    "apiReference": "API Reference",
+    "relatedComponents": "Related components"
+  },
+  "footer": {
+    "tagline": "A motion component reference for React & Next.js. Copy-paste via the shadcn registry.",
+    "components": "Components",
+    "blocks": "Blocks",
+    "links": "Links",
+    "viewAll": "View all ({count})",
+    "browseAll": "Browse all",
+    "github": "GitHub",
+    "copyright": "© 2026 UI Lab · MIT License"
+  }
+}
