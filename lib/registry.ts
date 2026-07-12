@@ -714,6 +714,46 @@ export const registry: CategoryEntry[] = [
     descriptionZh: "基于 UI Lab 动效原语组合而成、可直接用于产品的复合组件。",
     components: [
       {
+        slug: "activity-stats",
+        name: "Activity Stats",
+        nameZh: "活动统计",
+        description:
+          "Usage-summary widgets: a connected stats bar for headline metrics, a GitHub-style contribution heatmap with a color-mix intensity scale and column-cascade entrance, and a text period switch.",
+        descriptionZh:
+          "使用量统计组件族:用于关键指标的连体统计条、基于 color-mix 强度色阶与逐列级联淡入的 GitHub 风格贡献热力图,以及纯文本周期切换器。",
+        file: "components/motion/activity-stats/index.tsx",
+        badge: "new",
+        launchedAt: "2026-07-12",
+        keywords: [
+          "activity stats react",
+          "contribution heatmap react",
+          "github style activity graph",
+          "stats summary bar",
+          "usage dashboard component",
+          "codex style activity heatmap",
+        ],
+      },
+      {
+        slug: "settings-panel",
+        name: "Settings Panel",
+        nameZh: "设置面板",
+        description:
+          "Preference-form building blocks: a titled settings group with hairline-divided rows, a hex color field with auto-contrasting text, a text field, a preset-picker button and a ghost header action.",
+        descriptionZh:
+          "偏好设置表单组件族:带发丝分隔行的带标题设置分组、文字自动反差的十六进制颜色输入胶囊、文本框、预设选择按钮,以及头部幽灵操作按钮。",
+        file: "components/motion/settings-panel/index.tsx",
+        badge: "new",
+        launchedAt: "2026-07-12",
+        keywords: [
+          "settings form react",
+          "preferences panel",
+          "color picker field",
+          "settings group component",
+          "theme editor react",
+          "codex style settings panel",
+        ],
+      },
+      {
         slug: "agent-thread",
         name: "Agent Thread",
         nameZh: "Agent 会话流",
