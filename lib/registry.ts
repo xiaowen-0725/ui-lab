@@ -714,6 +714,34 @@ export const registry: CategoryEntry[] = [
     descriptionZh: "基于 UI Lab 动效原语组合而成、可直接用于产品的复合组件。",
     components: [
       {
+        slug: "agent-thread",
+        name: "Agent Thread",
+        nameZh: "Agent 会话流",
+        description:
+          "AI agent conversation stream: user message pills, turn headers, markdown typography, thinking & tool-call status rows, approval card, streaming caret, file & diff artifact cards with expand animation, command rows, and hover-revealed turn actions.",
+        descriptionZh:
+          "AI agent 会话流组件族:用户消息 pill、回合头、Markdown 排版容器、思考与工具调用状态行、审批请求卡、流式输出光标、带展开动画的文件与变更产物卡、命令执行行,以及悬停显现的回合操作栏。",
+        file: "components/motion/agent-thread/index.tsx",
+        extraFiles: [
+          "components/motion/agent-thread/cards.tsx",
+          "components/motion/agent-thread/status.tsx",
+        ],
+        badge: "new",
+        launchedAt: "2026-07-12",
+        keywords: [
+          "agent thread react",
+          "ai chat messages react",
+          "conversation stream component",
+          "tool call cards react",
+          "diff card component",
+          "agent status states",
+          "reasoning indicator",
+          "tool call status",
+          "approval card",
+          "codex style thread",
+        ],
+      },
+      {
         slug: "agent-composer",
         name: "Agent Composer",
         nameZh: "Agent 输入台",

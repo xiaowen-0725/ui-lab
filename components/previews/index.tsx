@@ -50,6 +50,9 @@ export const previews: Record<string, ComponentType> = {
   "blocks/agent-workbench": dynamic(() =>
     import("./blocks/agent-workbench.preview").then((m) => m.AgentWorkbenchPreview),
   ),
+  "blocks/agent-thread": dynamic(() =>
+    import("./blocks/agent-thread.preview").then((m) => m.AgentThreadPreview),
+  ),
   "blocks/agent-composer": dynamic(() =>
     import("./blocks/agent-composer.preview").then((m) => m.AgentComposerPreview),
   ),
