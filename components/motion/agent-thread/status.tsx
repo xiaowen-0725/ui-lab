@@ -1,9 +1,9 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
-import { motion, useReducedMotion } from "motion/react";
+import { ArrowDown, Check, ChevronLeft, ChevronRight, CircleAlert } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { type ReactNode, useLayoutEffect, useRef, useState } from "react";
-import { EASE_OUT } from "@/lib/ease";
+import { EASE_OUT, SPRING_PANEL } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 import { ThreadCard, ThreadCardButton, ThreadShimmerText } from "./cards";
 
@@ -284,5 +284,283 @@ export function ThreadApprovalCard({
         </div>
       ) : null}
     </ThreadCard>
+  );
+}
+
+export interface ThreadElicitationProps {
+  /** 20px icon rendered in a 40px rounded slot, e.g. `<MessageCircleQuestion className="h-5 w-5" />`. */
+  icon?: ReactNode;
+  prompt: ReactNode;
+  options: { value: string; label: ReactNode; description?: ReactNode }[];
+  /** Selected option value; `null`/`undefined` means still awaiting an answer. */
+  value?: string | null;
+  onSelect?: (value: string) => void;
+  className?: string;
+}
+
+/**
+ * Blocking clarification picker — the agent pauses on an ambiguous request
+ * and offers a fixed set of answers instead of free text. Built on
+ * `ThreadCard`, matching `ThreadApprovalCard`'s header row (icon slot plus a
+ * medium-weight prompt). Once `value` is set the whole list locks: the
+ * matching option gets a primary ring and a trailing check, the rest dim —
+ * the same pending → resolved shape as `ThreadApprovalCard`, but for an
+ * N-way choice instead of approve/deny.
+ */
+export function ThreadElicitation({
+  icon,
+  prompt,
+  options,
+  value = null,
+  onSelect,
+  className,
+}: ThreadElicitationProps) {
+  return (
+    <ThreadCard className={className}>
+      <div className="flex items-center gap-3 px-3 py-2.5">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-black/5 dark:bg-white/10">
+          {icon}
+        </span>
+        <div className="min-w-0 flex-1 font-medium text-sm">{prompt}</div>
+      </div>
+      <div className="flex flex-col gap-1 px-3 pb-3">
+        {options.map((option) => {
+          const selected = value === option.value;
+          const locked = value !== null;
+          return (
+            <button
+              key={option.value}
+              type="button"
+              disabled={locked}
+              onClick={() => onSelect?.(option.value)}
+              className={cn(
+                "flex w-full items-start gap-2 rounded-lg border border-black/10 px-3 py-2 text-left text-sm transition-colors",
+                "hover:bg-black/[0.03] disabled:pointer-events-none dark:border-white/10 dark:hover:bg-white/5",
+                selected && "border-[#339CFF] ring-1 ring-[#339CFF]/30",
+                locked && !selected && "opacity-50",
+              )}
+            >
+              <span className="min-w-0 flex-1">
+                <span className="block">{option.label}</span>
+                {option.description ? (
+                  <span className="block text-[13px] text-muted-foreground">
+                    {option.description}
+                  </span>
+                ) : null}
+              </span>
+              {selected ? <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#339CFF]" /> : null}
+            </button>
+          );
+        })}
+      </div>
+    </ThreadCard>
+  );
+}
+
+export interface ThreadErrorStateProps {
+  message: ReactNode;
+  detail?: ReactNode;
+  onRetry?: () => void;
+  retryLabel?: ReactNode;
+  className?: string;
+}
+
+/**
+ * Inline error row — a failed tool call, request or turn surfaced as a
+ * red-tinted banner with a retry action. Not built on `ThreadCard`: the
+ * failure isn't a browsable artifact, just a transient state to recover
+ * from. `onRetry` renders a `ThreadCardButton`, so retrying matches every
+ * other card's action styling.
+ */
+export function ThreadErrorState({
+  message,
+  detail,
+  onRetry,
+  retryLabel = "Retry",
+  className,
+}: ThreadErrorStateProps) {
+  return (
+    <div
+      className={cn(
+        "flex items-start gap-2.5 rounded-xl border border-red-500/25 bg-red-500/[0.06] px-3 py-2.5 text-sm",
+        className,
+      )}
+    >
+      <CircleAlert className="mt-0.5 h-4 w-4 shrink-0 text-red-500 dark:text-[#FA423E]" />
+      <div className="min-w-0 flex-1">
+        <div className="text-foreground">{message}</div>
+        {detail ? <div className="text-[13px] text-muted-foreground">{detail}</div> : null}
+      </div>
+      {onRetry ? (
+        <ThreadCardButton onClick={onRetry} className="shrink-0">
+          {retryLabel}
+        </ThreadCardButton>
+      ) : null}
+    </div>
+  );
+}
+
+export interface ThreadSystemBannerProps {
+  icon?: ReactNode;
+  children?: ReactNode;
+  className?: string;
+}
+
+/** Centered pill for low-emphasis system notices — e.g. "Model switched to
+ * 5.6" — dropped inline in the stream without a `ThreadItem` entrance
+ * wrapper (it's a passive notice, not a message). */
+export function ThreadSystemBanner({ icon, children, className }: ThreadSystemBannerProps) {
+  return (
+    <div
+      className={cn(
+        "mx-auto my-2 flex w-fit items-center gap-1.5 rounded-full bg-black/5 px-3 py-1 text-muted-foreground text-xs dark:bg-white/5",
+        className,
+      )}
+    >
+      {icon ? (
+        <span className="flex h-3 w-3 shrink-0 items-center justify-center">{icon}</span>
+      ) : null}
+      {children}
+    </div>
+  );
+}
+
+export interface ThreadBranchSwitcherProps {
+  /** 1-based position of the branch currently shown. */
+  index: number;
+  count: number;
+  onPrev?: () => void;
+  onNext?: () => void;
+  className?: string;
+}
+
+/**
+ * Prev/next control for switching between sibling response branches (e.g.
+ * regenerated replies) — small chevron buttons flanking a tabular-nums
+ * "2/3" readout, disabled past either end. The readout crossfades with a
+ * short y-shift on change (`AnimatePresence mode="popLayout"`), reduced to
+ * an instant swap under `useReducedMotion()`.
+ */
+export function ThreadBranchSwitcher({
+  index,
+  count,
+  onPrev,
+  onNext,
+  className,
+}: ThreadBranchSwitcherProps) {
+  const reduce = useReducedMotion() ?? false;
+
+  return (
+    <div className={cn("flex items-center gap-0.5 text-muted-foreground text-xs", className)}>
+      <button
+        type="button"
+        aria-label="Previous branch"
+        disabled={index <= 1}
+        onClick={onPrev}
+        className="flex h-5 w-5 items-center justify-center rounded hover:bg-black/5 disabled:pointer-events-none disabled:opacity-30 dark:hover:bg-white/10"
+      >
+        <ChevronLeft className="h-3 w-3" />
+      </button>
+      <span className="relative inline-flex h-4 min-w-[2.5ch] items-center justify-center overflow-hidden tabular-nums">
+        <AnimatePresence mode="popLayout" initial={false}>
+          <motion.span
+            key={`${index}/${count}`}
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, y: -4 }}
+            transition={{ duration: 0.15, ease: EASE_OUT }}
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            {index}/{count}
+          </motion.span>
+        </AnimatePresence>
+      </span>
+      <button
+        type="button"
+        aria-label="Next branch"
+        disabled={index >= count}
+        onClick={onNext}
+        className="flex h-5 w-5 items-center justify-center rounded hover:bg-black/5 disabled:pointer-events-none disabled:opacity-30 dark:hover:bg-white/10"
+      >
+        <ChevronRight className="h-3 w-3" />
+      </button>
+    </div>
+  );
+}
+
+export interface ThreadSuggestionsProps {
+  suggestions: { value: string; label: ReactNode }[];
+  onSelect?: (value: string) => void;
+  className?: string;
+}
+
+/**
+ * Row of tappable follow-up prompts offered after an agent turn. Each chip
+ * stagger-fades in (opacity plus a 4px rise, staggered 0.05s per index) so
+ * the row reads as offered rather than dumped in all at once, reduced to an
+ * instant render under `useReducedMotion()`.
+ */
+export function ThreadSuggestions({ suggestions, onSelect, className }: ThreadSuggestionsProps) {
+  const reduce = useReducedMotion() ?? false;
+
+  return (
+    <div className={cn("flex flex-wrap gap-1.5 py-2", className)}>
+      {suggestions.map((suggestion, i) => (
+        <motion.span
+          key={suggestion.value}
+          initial={reduce ? { opacity: 0 } : { opacity: 0, y: 4 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2, ease: EASE_OUT, delay: reduce ? 0 : i * 0.05 }}
+        >
+          <button
+            type="button"
+            onClick={() => onSelect?.(suggestion.value)}
+            className="h-7 rounded-full border border-black/10 px-3 text-[13px] text-muted-foreground transition-colors hover:border-black/20 hover:text-foreground dark:border-white/10 dark:hover:border-white/20"
+          >
+            {suggestion.label}
+          </button>
+        </motion.span>
+      ))}
+    </div>
+  );
+}
+
+export interface ThreadScrollPillProps {
+  open: boolean;
+  count?: number;
+  onClick?: () => void;
+  className?: string;
+}
+
+/**
+ * "New messages" pill for auto-scrolling thread containers. Needs a
+ * `relative` ancestor to anchor against — toggle `open` when the user has
+ * scrolled away from the bottom while new content streams in below (see the
+ * preview). Springs up from the bottom edge (`SPRING_PANEL`), reduced to an
+ * opacity-only fade under `useReducedMotion()`.
+ */
+export function ThreadScrollPill({ open, count, onClick, className }: ThreadScrollPillProps) {
+  const reduce = useReducedMotion() ?? false;
+
+  return (
+    <AnimatePresence>
+      {open ? (
+        <motion.button
+          type="button"
+          onClick={onClick}
+          initial={reduce ? { opacity: 0 } : { opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={reduce ? { opacity: 0 } : { opacity: 0, y: 8 }}
+          transition={reduce ? { duration: 0.15, ease: EASE_OUT } : SPRING_PANEL}
+          className={cn(
+            "absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1 rounded-full bg-neutral-900 px-3 py-1.5 text-white text-xs shadow-lg dark:bg-white dark:text-neutral-900",
+            className,
+          )}
+        >
+          <ArrowDown className="h-3 w-3" />
+          {count !== undefined ? `${count} new messages` : null}
+        </motion.button>
+      ) : null}
+    </AnimatePresence>
   );
 }

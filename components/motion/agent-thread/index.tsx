@@ -19,7 +19,13 @@ export {
 } from "./cards";
 export {
   ThreadApprovalCard,
+  ThreadBranchSwitcher,
+  ThreadElicitation,
+  ThreadErrorState,
+  ThreadScrollPill,
   ThreadStreamingCaret,
+  ThreadSuggestions,
+  ThreadSystemBanner,
   ThreadThinking,
   ThreadToolCall,
 } from "./status";

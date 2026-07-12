@@ -3,9 +3,11 @@
 import {
   CircleAlert,
   CircleX,
+  FileText,
   FolderGit2,
   GitBranch,
   Globe,
+  Image as ImageIcon,
   Laptop,
   ListTodo,
   Mic,
@@ -19,8 +21,11 @@ import { useEffect, useRef, useState } from "react";
 import {
   Composer,
   ComposerAccessChip,
+  ComposerAttachmentChip,
+  ComposerAttachments,
   ComposerChip,
   ComposerContextBar,
+  ComposerContextGauge,
   ComposerDictation,
   ComposerEffortSlider,
   ComposerIconButton,
@@ -74,6 +79,10 @@ export function AgentComposerPreview() {
   const [addOpen, setAddOpen] = useState(false);
   const [recording, setRecording] = useState(false);
   const [seconds, setSeconds] = useState(0);
+  const [attachments, setAttachments] = useState([
+    { id: "spec", name: "spec.md", meta: "12 KB", icon: <FileText className="h-3.5 w-3.5" /> },
+    { id: "mockup", name: "mockup.png", meta: "1.2 MB", icon: <ImageIcon className="h-3.5 w-3.5" /> },
+  ]);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -209,6 +218,19 @@ export function AgentComposerPreview() {
             </ComposerChip>
           </ComposerContextBar>
           <Composer>
+            <ComposerAttachments>
+              <AnimatePresence>
+                {attachments.map((file) => (
+                  <ComposerAttachmentChip
+                    key={file.id}
+                    icon={file.icon}
+                    name={file.name}
+                    meta={file.meta}
+                    onRemove={() => setAttachments((prev) => prev.filter((f) => f.id !== file.id))}
+                  />
+                ))}
+              </AnimatePresence>
+            </ComposerAttachments>
             <ComposerTextarea
               value={value}
               onChange={setValue}
@@ -243,6 +265,7 @@ export function AgentComposerPreview() {
                       Full access
                     </ComposerAccessChip>
                     <div className="ml-auto" />
+                    <ComposerContextGauge used={64000} limit={200000} />
                     <ComposerModelPicker
                       label={`5.6 · ${EFFORT_LABELS[effort]}`}
                       open={pickerOpen}

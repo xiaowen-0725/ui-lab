@@ -5,6 +5,8 @@ import {
   Copy,
   FileText,
   Globe,
+  Info,
+  MessageCircleQuestion,
   Plus,
   Share2,
   ShieldAlert,
@@ -27,16 +29,22 @@ import {
   ThreadActionBar,
   ThreadActionButton,
   ThreadApprovalCard,
+  ThreadBranchSwitcher,
   ThreadCardButton,
   ThreadCodeBlock,
   ThreadCollapse,
   ThreadCommandRow,
   ThreadDiffCard,
   ThreadDiffRow,
+  ThreadElicitation,
+  ThreadErrorState,
   ThreadFileCard,
   ThreadInlineCode,
   ThreadItem,
   ThreadMessage,
+  ThreadScrollPill,
+  ThreadSuggestions,
+  ThreadSystemBanner,
   ThreadThinking,
   ThreadToolCall,
   ThreadTurnHeader,
@@ -299,18 +307,87 @@ function ApprovalScene() {
   );
 }
 
-type Scene = "streaming" | "done" | "approval";
+/** State-row gallery: branch switching, a system notice, a blocking
+ * clarification picker, an error/retry row and suggested follow-ups. */
+function StatesScene() {
+  const [branchIndex, setBranchIndex] = useState(2);
+  const branchCount = 3;
+  const [envChoice, setEnvChoice] = useState<string | null>(null);
+
+  const envOptions = [
+    { value: "staging", label: "Staging", description: "Safe to break, resets nightly" },
+    { value: "production", label: "Production", description: "Live traffic — needs approval" },
+    { value: "local", label: "Local", description: "Your machine only" },
+  ];
+
+  const suggestions = [
+    { value: "logs", label: "Show me the logs" },
+    { value: "retry", label: "Retry the search" },
+    { value: "skip", label: "Skip this step" },
+  ];
+
+  return (
+    <Thread>
+      <ThreadItem>
+        <div className="flex flex-col items-end gap-1">
+          <ThreadUserMessage>Target the staging environment for this run.</ThreadUserMessage>
+          <ThreadBranchSwitcher
+            index={branchIndex}
+            count={branchCount}
+            onPrev={() => setBranchIndex((i) => Math.max(1, i - 1))}
+            onNext={() => setBranchIndex((i) => Math.min(branchCount, i + 1))}
+          />
+        </div>
+      </ThreadItem>
+
+      <ThreadSystemBanner icon={<Info className="h-3 w-3" />}>
+        Model switched to 5.6
+      </ThreadSystemBanner>
+
+      <ThreadItem>
+        <ThreadElicitation
+          icon={<MessageCircleQuestion className="h-5 w-5" />}
+          prompt="Which environment should I target?"
+          options={envOptions}
+          value={envChoice}
+          onSelect={setEnvChoice}
+        />
+      </ThreadItem>
+
+      <ThreadItem>
+        <ThreadErrorState message="Network error while calling the search tool." onRetry={() => {}} />
+      </ThreadItem>
+
+      <ThreadItem>
+        <ThreadSuggestions suggestions={suggestions} onSelect={() => {}} />
+      </ThreadItem>
+    </Thread>
+  );
+}
+
+type Scene = "streaming" | "done" | "approval" | "states";
 
 const SCENES: Array<{ id: Scene; label: string }> = [
   { id: "streaming", label: "Streaming" },
   { id: "done", label: "Done" },
   { id: "approval", label: "Approval" },
+  { id: "states", label: "States" },
 ];
 
 export function AgentThreadPreview() {
   const reduce = useReducedMotion() ?? false;
   const [scene, setScene] = useState<Scene>("streaming");
   const [reply, setReply] = useState("");
+  const [pillOpen, setPillOpen] = useState(false);
+
+  useEffect(() => {
+    if (scene !== "states") {
+      setPillOpen(false);
+      return;
+    }
+    const id = setTimeout(() => setPillOpen(true), 1200);
+    return () => clearTimeout(id);
+  }, [scene]);
 
   const sceneMotion = {
     initial: reduce ? { opacity: 0 } : { opacity: 0, y: 4 },
@@ -341,18 +418,21 @@ export function AgentThreadPreview() {
         ))}
       </div>
       <div className="relative flex h-full flex-col">
-        <div className="flex-1 overflow-y-auto py-6">
+        <div className="relative flex-1 overflow-y-auto py-6">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div key={scene} {...sceneMotion}>
               {scene === "streaming" ? (
                 <StreamingScene />
               ) : scene === "done" ? (
                 <DoneScene />
-              ) : (
+              ) : scene === "approval" ? (
                 <ApprovalScene />
+              ) : (
+                <StatesScene />
               )}
             </motion.div>
           </AnimatePresence>
+          <ThreadScrollPill open={pillOpen} count={2} onClick={() => setPillOpen(false)} />
         </div>
 
         <div className="px-6 pb-6">

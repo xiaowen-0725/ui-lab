@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUp, ChevronDown } from "lucide-react";
+import { ArrowUp, ChevronDown, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   type KeyboardEvent,
@@ -647,6 +647,127 @@ export function ComposerDictation({
       >
         <span className="block h-2.5 w-2.5 rounded-[2px] bg-current" />
       </button>
+    </div>
+  );
+}
+
+export interface ComposerAttachmentsProps {
+  className?: string;
+  children?: ReactNode;
+}
+
+/**
+ * Row of attachment chips shown above `ComposerTextarea` — a plain
+ * flex-wrap container. Wrap the mapped `ComposerAttachmentChip` list in the
+ * caller's own `AnimatePresence` to animate removal (see the preview); this
+ * component only supplies the layout.
+ */
+export function ComposerAttachments({ className, children }: ComposerAttachmentsProps) {
+  return <div className={cn("flex flex-wrap gap-1.5 px-4 pt-3", className)}>{children}</div>;
+}
+
+export interface ComposerAttachmentChipProps {
+  /** 14px icon, e.g. `<FileText className="h-3.5 w-3.5" />`. */
+  icon?: ReactNode;
+  name: ReactNode;
+  /** Muted trailing detail, e.g. a file size. */
+  meta?: ReactNode;
+  onRemove?: () => void;
+  className?: string;
+}
+
+/**
+ * One attached file/image chip inside `ComposerAttachments`. Carries
+ * `layout` so sibling chips reflow smoothly when one is added or removed;
+ * the removal transition itself is the caller's responsibility (wrap the
+ * list in `AnimatePresence`).
+ */
+export function ComposerAttachmentChip({
+  icon,
+  name,
+  meta,
+  onRemove,
+  className,
+}: ComposerAttachmentChipProps) {
+  return (
+    <motion.div
+      layout
+      className={cn(
+        "group/att flex items-center gap-1.5 rounded-lg border border-black/10 bg-black/[0.03] py-1 pr-1 pl-2 text-[13px] dark:border-white/10 dark:bg-white/5",
+        className,
+      )}
+    >
+      {icon ? (
+        <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center text-muted-foreground">
+          {icon}
+        </span>
+      ) : null}
+      <span className="max-w-40 truncate text-foreground">{name}</span>
+      {meta ? <span className="text-muted-foreground text-xs">{meta}</span> : null}
+      {onRemove ? (
+        <button
+          type="button"
+          aria-label={typeof name === "string" ? `Remove ${name}` : "Remove attachment"}
+          onClick={onRemove}
+          className="flex h-5 w-5 shrink-0 items-center justify-center rounded hover:bg-black/10 dark:hover:bg-white/10"
+        >
+          <X className="h-3 w-3" />
+        </button>
+      ) : null}
+    </motion.div>
+  );
+}
+
+export interface ComposerContextGaugeProps {
+  used: number;
+  limit: number;
+  /** Defaults to a K-abbreviated "32K / 200K" readout. */
+  formatLabel?: (used: number, limit: number) => ReactNode;
+  className?: string;
+}
+
+function formatContextK(n: number) {
+  return n >= 1000 ? `${Math.round(n / 1000)}K` : `${n}`;
+}
+
+function defaultContextLabel(used: number, limit: number) {
+  return `${formatContextK(used)} / ${formatContextK(limit)}`;
+}
+
+/**
+ * Token-budget gauge for the toolbar or a `ComposerContextBar` — a thin
+ * track filled to `used / limit`, colored blue under 80%, orange from
+ * 80–95%, red past that. The fill width animates with `SPRING_PANEL`,
+ * reduced to an instant cut under `useReducedMotion()`.
+ */
+export function ComposerContextGauge({
+  used,
+  limit,
+  formatLabel = defaultContextLabel,
+  className,
+}: ComposerContextGaugeProps) {
+  const reduce = useReducedMotion() ?? false;
+  const ratio = limit > 0 ? Math.min(Math.max(used / limit, 0), 1) : 0;
+  const tone = ratio < 0.8 ? "safe" : ratio < 0.95 ? "warn" : "crit";
+
+  return (
+    <div className={cn("flex items-center gap-1.5", className)}>
+      <div className="h-1 w-16 overflow-hidden rounded-full bg-black/10 dark:bg-white/10">
+        <motion.div
+          initial={false}
+          animate={{ width: `${ratio * 100}%` }}
+          transition={reduce ? { duration: 0.15, ease: EASE_OUT } : SPRING_PANEL}
+          className={cn(
+            "h-full rounded-full",
+            tone === "safe" && "bg-[#339CFF]",
+            tone === "warn" && "bg-[#e25507] dark:bg-[#ff8549]",
+            tone === "crit" && "bg-red-500 dark:bg-[#FA423E]",
+          )}
+        />
+      </div>
+      <span className="text-muted-foreground text-xs tabular-nums">
+        {formatLabel(used, limit)}
+      </span>
     </div>
   );
 }
