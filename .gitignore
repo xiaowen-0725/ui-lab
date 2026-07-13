@@ -45,3 +45,8 @@ next-env.d.ts
 .claude/
 .env
 .env*
+
+# 对抗全局 gitignore 的 `docs` 规则——站点源码目录必须入库
+!components/app/docs/
+!app/*/docs/
+!app/\[locale\]/docs/
