@@ -9,9 +9,9 @@ import { REPO_URL, SITE_URL } from "@/lib/site";
 
 export const SITE = SITE_URL;
 export const SITE_NAME = "UI Lab";
-export const SITE_TAGLINE = "A motion component reference for React & Next.js";
+export const SITE_TAGLINE = "A visual vocabulary for the web — components, blocks & design styles";
 export const SITE_DESCRIPTION =
-  "A motion component reference library for React and Next.js. Animated, shadcn-compatible components built on Framer Motion and Tailwind CSS — copy the source or install with the shadcn CLI.";
+  "A visual vocabulary for the web: animated shadcn-compatible components, product blocks, and a design-style explorer with copy-ready AI prompts. Copy the source or install with the shadcn CLI.";
 export const AUTHOR = "UI Lab";
 
 const abs = (path: string) => (path.startsWith("http") ? path : `${SITE}${path}`);

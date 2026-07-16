@@ -50,3 +50,6 @@ next-env.d.ts
 !components/app/docs/
 !app/*/docs/
 !app/\[locale\]/docs/
+
+# Browser-automation artifacts (screenshots, snapshots)
+.playwright-mcp/

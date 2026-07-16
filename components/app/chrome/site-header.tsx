@@ -14,6 +14,7 @@ import { usePreferences } from "@/components/app/preferences/preferences-provide
 import { PressLink } from "@/components/app/press-link";
 import { SiteSearch } from "@/components/app/chrome/site-search";
 import { Tooltip } from "@/components/motion/tooltip";
+import { NAV_SPACES, isSpaceActive } from "@/lib/nav";
 import { REPO_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -35,13 +36,7 @@ export function SiteHeader({
   const [scrolled, setScrolled] = useState(false);
   const { setPanelOpen } = usePreferences();
   const pathname = usePathname();
-  const isComponents =
-    pathname.startsWith("/components/motion") ||
-    (pathname.startsWith("/components") &&
-      !pathname.startsWith("/components/blocks"));
-  const isBlocks = pathname.startsWith("/components/blocks");
   const isComponentsRoute = pathname.startsWith("/components");
-  const isPlayground = pathname.startsWith("/playground");
   const formattedStarCount =
     typeof githubStarCount === "number"
       ? formatStarCount(githubStarCount)
@@ -85,39 +80,20 @@ export function SiteHeader({
             <span>{t("brand")}</span>
           </Link>
           <nav className="hidden items-center gap-0.5 md:flex">
-            <Link
-              href="/components/motion"
-              className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
-                isComponents
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              {t("components")}
-            </Link>
-            <Link
-              href="/components/blocks"
-              className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
-                isBlocks
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              {t("blocks")}
-            </Link>
-            <Link
-              href="/playground"
-              className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
-                isPlayground
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              {t("playground")}
-            </Link>
+            {NAV_SPACES.map((space) => (
+              <Link
+                key={space.key}
+                href={space.href}
+                className={cn(
+                  "rounded-md px-3 py-1.5 text-sm transition-colors",
+                  isSpaceActive(space, pathname)
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                {t(space.key)}
+              </Link>
+            ))}
           </nav>
         </div>
 

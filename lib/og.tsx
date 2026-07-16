@@ -21,7 +21,7 @@ type OgOptions = {
 // Satori-safe styles only (flexbox; every multi-child node sets display:flex).
 export function ogImage({
   title = "UI Lab",
-  description = "A motion component reference for React & Next.js. Built on Framer Motion and Tailwind.",
+  description = "A visual vocabulary for the web — components, blocks & design styles. Built on Framer Motion and Tailwind.",
   label = "Motion components",
   command = "npx shadcn add @uilab/...",
 }: OgOptions = {}): ReactElement {

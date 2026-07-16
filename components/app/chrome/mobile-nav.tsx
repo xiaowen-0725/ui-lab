@@ -1,16 +1,19 @@
 "use client";
 
 import { Menu } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { usePathname } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
 import { SidebarNav } from "@/components/app/chrome/site-sidebar";
 import { BottomSheet } from "@/components/motion/bottom-sheet";
 import { Button } from "@/components/motion/button";
+import { NAV_SPACES, isSpaceActive } from "@/lib/nav";
 import { cn } from "@/lib/utils";
 
 /** Mobile nav: a header hamburger that opens the sidebar list in UI Lab's own bottom sheet. */
 export function MobileNav() {
+  const t = useTranslations("nav");
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
@@ -40,42 +43,21 @@ export function MobileNav() {
       >
         <div className="flex flex-col gap-5 pt-2">
           <nav className="flex flex-wrap gap-1">
-            <Link
-              href="/components/motion"
-              onClick={() => setOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
-                pathname.startsWith("/components/motion") || (pathname.startsWith("/components") && !pathname.startsWith("/components/blocks"))
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              Components
-            </Link>
-            <Link
-              href="/components/blocks"
-              onClick={() => setOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
-                pathname.startsWith("/components/blocks")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              Blocks
-            </Link>
-            <Link
-              href="/playground"
-              onClick={() => setOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
-                pathname.startsWith("/playground")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              Playground
-            </Link>
+            {NAV_SPACES.map((space) => (
+              <Link
+                key={space.key}
+                href={space.href}
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "rounded-md px-3 py-1.5 text-sm transition-colors",
+                  isSpaceActive(space, pathname)
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                {t(space.key)}
+              </Link>
+            ))}
           </nav>
           <SidebarNav onNavigate={() => setOpen(false)} />
         </div>

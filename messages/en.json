@@ -13,6 +13,7 @@
     "brand": "UI Lab",
     "components": "Components",
     "blocks": "Blocks",
+    "styles": "Styles",
     "playground": "Playground",
     "sponsors": "Sponsors",
     "pro": "Pro",
@@ -40,9 +41,9 @@
     "motionGuides": "Motion Guides"
   },
   "hero": {
-    "badge": "{count} components · Tailwind 4 + React 19",
-    "headline": ["The motion toolkit", "for React & Next.js"],
-    "subtitle": "Copy-paste animated components built on Framer Motion and Tailwind. Free and open source.",
+    "badge": "{count} components · {styles} styles · Tailwind 4 + React 19",
+    "headline": ["The visual vocabulary", "for building the web"],
+    "subtitle": "Live samples of motion components, blocks and design styles. See them, copy the source, or take the words to tell your AI.",
     "browse": "Browse components",
     "aiAgents": "AI agents"
   },
@@ -52,7 +53,41 @@
     "newEyebrow": "New",
     "newTitle": "Recently launched",
     "componentsEyebrow": "Components",
-    "componentsTitle": "Motion primitives"
+    "componentsTitle": "Motion primitives",
+    "spacesEyebrow": "Explore",
+    "spacesTitle": "Start here",
+    "spaceComponentsDesc": "Motion primitives, copy-paste ready.",
+    "spaceBlocksDesc": "Composite product blocks.",
+    "spaceStylesDesc": "See a style, take the words for AI.",
+    "spacePlaygroundDesc": "Tune motion parameters live."
+  },
+  "styles": {
+    "eyebrow": "Styles",
+    "title": "Design styles you have to see",
+    "intro": "The same page, dressed in different styles. Recognize the one you want, then copy \"say this to AI\" straight into your AI tool.",
+    "aliases": "Also known as",
+    "bestFor": "Best for",
+    "promptTitle": "Say this to AI",
+    "promptHint": "Style name + concrete visual moves + forbidden list beats naming the style alone.",
+    "langZh": "中文",
+    "langEn": "English",
+    "recipeTitle": "Core recipe",
+    "demoBrand": "Polaris",
+    "demoNavProduct": "Product",
+    "demoNavPricing": "Pricing",
+    "demoNavDocs": "Docs",
+    "demoNavCta": "Sign in",
+    "demoBadge": "New in 2.0",
+    "demoTitle": "Turn ideas into websites",
+    "demoSubtitle": "Describe the feeling you want. It handles the rest.",
+    "demoPrimary": "Get started",
+    "demoSecondary": "See examples",
+    "demoCardOneTitle": "Fast",
+    "demoCardOneBody": "From description to live in minutes.",
+    "demoCardTwoTitle": "Beautiful",
+    "demoCardTwoBody": "You pick the style, we hand you the words.",
+    "demoStatValue": "4.9",
+    "demoStatLabel": "User rating"
   },
   "detail": {
     "tabPreview": "Preview",
@@ -64,7 +99,7 @@
     "relatedComponents": "Related components"
   },
   "footer": {
-    "tagline": "A motion component reference for React & Next.js. Copy-paste via the shadcn registry.",
+    "tagline": "A visual vocabulary for the web — components, blocks & design styles. Copy-paste via the shadcn registry.",
     "components": "Components",
     "blocks": "Blocks",
     "links": "Links",

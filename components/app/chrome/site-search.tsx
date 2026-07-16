@@ -1,6 +1,6 @@
 "use client";
 
-import { CircleDashed, FileText, Search } from "lucide-react";
+import { CircleDashed, FileText, Palette, Search } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -12,6 +12,7 @@ import {
 } from "@/components/motion/command-palette";
 import { NewBadge } from "@/components/app/docs/new-badge";
 import { registry } from "@/lib/registry";
+import { STYLES } from "@/lib/styles";
 import { localizedName } from "@/lib/i18n-content";
 
 const PAGES = [
@@ -29,6 +30,7 @@ export function SiteSearch({ className }: { className?: string }) {
   const locale = useLocale() as Locale;
   const t = useTranslations("search");
   const tSidebar = useTranslations("sidebar");
+  const tNav = useTranslations("nav");
   const [open, setOpen] = useState(false);
 
   const items = useMemo<CommandItem[]>(
@@ -51,6 +53,21 @@ export function SiteSearch({ className }: { className?: string }) {
           onSelect: () => router.push(`/components/${cat.slug}/${comp.slug}`),
         })),
       ),
+      // Styles are searchable by every alias — typing "毛玻璃" lands on
+      // glassmorphism. The vocabulary layer is the point of the module.
+      ...STYLES.map((style) => ({
+        id: `style-${style.slug}`,
+        label: localizedName(style, locale),
+        group: tNav("styles"),
+        keywords: [
+          style.slug,
+          style.name,
+          style.nameZh,
+          ...style.aliases,
+        ].filter(Boolean),
+        icon: Palette,
+        onSelect: () => router.push(`/styles?style=${style.slug}`),
+      })),
       ...PAGES.map((page) => ({
         id: page.slug,
         label: tSidebar(page.labelKey),
@@ -60,7 +77,7 @@ export function SiteSearch({ className }: { className?: string }) {
         onSelect: () => router.push(page.href),
       })),
     ],
-    [router, locale, t, tSidebar],
+    [router, locale, t, tSidebar, tNav],
   );
 
   return (

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { OG_SIZE, ogImage } from "@/lib/og";
 
 export const runtime = "edge";
-export const alt = "UI Lab · A motion component reference for React & Next.js";
+export const alt = "UI Lab · A visual vocabulary for the web — components, blocks & design styles";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 

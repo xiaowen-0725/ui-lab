@@ -347,7 +347,8 @@ export async function buildShadcnRegistry(): Promise<ShadcnRegistry> {
 export async function buildIndex() {
   return {
     name: "UI Lab",
-    description: "A motion component reference for React and Next.js.",
+    description:
+      "A visual vocabulary for the web — components, blocks and design styles.",
     site: SITE_URL,
     endpoints: {
       llms: `${SITE_URL}/llms.txt`,

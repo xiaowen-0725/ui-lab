@@ -8,6 +8,7 @@ import { Link } from "@/i18n/navigation";
 import { PressLink } from "@/components/app/press-link";
 import { TextReveal } from "@/components/motion/text-reveal";
 import { INSTALLABLE_COUNT } from "@/lib/registry";
+import { STYLES } from "@/lib/styles";
 
 const STAGGER = 0.09;
 const START = 0.12;
@@ -33,7 +34,7 @@ export function Hero() {
       >
         <div className="mb-7 inline-flex min-h-9 items-center gap-2 rounded-full border border-border bg-card px-3 text-xs font-medium text-foreground">
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-          {t("badge", { count: INSTALLABLE_COUNT })}
+          {t("badge", { count: INSTALLABLE_COUNT, styles: STYLES.length })}
         </div>
       </motion.div>
 

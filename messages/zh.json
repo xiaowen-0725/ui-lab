@@ -13,6 +13,7 @@
     "brand": "组件实验室",
     "components": "组件",
     "blocks": "区块",
+    "styles": "风格",
     "playground": "演练场",
     "sponsors": "赞助",
     "pro": "Pro",
@@ -40,9 +41,9 @@
     "motionGuides": "动效指南"
   },
   "hero": {
-    "badge": "{count} 个组件 · Tailwind 4 + React 19",
-    "headline": ["面向 React 与 Next.js", "的动效组件库"],
-    "subtitle": "基于 Framer Motion 与 Tailwind 的可复制动效组件,开源免费。",
+    "badge": "{count} 个组件 · {styles} 种风格 · Tailwind 4 + React 19",
+    "headline": ["看得见的", "前端视觉词汇表"],
+    "subtitle": "动效组件、复合区块、设计风格的活样本。肉眼感受,复制源码,或拿走「对 AI 这样说」。",
     "browse": "浏览组件",
     "aiAgents": "AI 接入"
   },
@@ -52,7 +53,41 @@
     "newEyebrow": "新增",
     "newTitle": "最近上新",
     "componentsEyebrow": "组件",
-    "componentsTitle": "动效基础组件"
+    "componentsTitle": "动效基础组件",
+    "spacesEyebrow": "导览",
+    "spacesTitle": "从这里开始逛",
+    "spaceComponentsDesc": "动效基础组件,复制即用。",
+    "spaceBlocksDesc": "成套的复合产品区块。",
+    "spaceStylesDesc": "看到风格,拿走「对 AI 的说法」。",
+    "spacePlaygroundDesc": "现场调参,感受动效手感。"
+  },
+  "styles": {
+    "eyebrow": "风格",
+    "title": "看到才知道的设计风格",
+    "intro": "同一份页面,换上不同的风格。认出你想要的那种,复制「对 AI 这样说」,直接粘给你的 AI 工具。",
+    "aliases": "别名",
+    "bestFor": "适用场景",
+    "promptTitle": "对 AI 这样说",
+    "promptHint": "风格名 + 具体视觉手段 + 禁止项,比只报风格名更稳。",
+    "langZh": "中文",
+    "langEn": "English",
+    "recipeTitle": "核心配方",
+    "demoBrand": "北极星",
+    "demoNavProduct": "产品",
+    "demoNavPricing": "定价",
+    "demoNavDocs": "文档",
+    "demoNavCta": "登录",
+    "demoBadge": "全新 2.0",
+    "demoTitle": "把想法直接做成网站",
+    "demoSubtitle": "描述你想要的感觉,剩下的交给它。",
+    "demoPrimary": "开始使用",
+    "demoSecondary": "看看示例",
+    "demoCardOneTitle": "极快",
+    "demoCardOneBody": "从描述到上线只要几分钟。",
+    "demoCardTwoTitle": "好看",
+    "demoCardTwoBody": "风格由你挑,词汇由我们给。",
+    "demoStatValue": "4.9",
+    "demoStatLabel": "用户评分"
   },
   "detail": {
     "tabPreview": "预览",
@@ -64,7 +99,7 @@
     "relatedComponents": "相关组件"
   },
   "footer": {
-    "tagline": "面向 React 与 Next.js 的动效组件参考库,可通过 shadcn 注册表复制使用。",
+    "tagline": "看得见的前端视觉词汇表:组件、区块与设计风格的活样本,可通过 shadcn 注册表复制使用。",
     "components": "组件",
     "blocks": "区块",
     "links": "链接",

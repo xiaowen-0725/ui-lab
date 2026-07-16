@@ -22,7 +22,7 @@ export async function GET(request: Request) {
   const description = clampText(
     component?.description ??
       category?.description ??
-      "A motion component reference for React & Next.js. Built on Framer Motion and Tailwind.",
+      "A visual vocabulary for the web — components, blocks & design styles. Built on Framer Motion and Tailwind.",
     OG_DESCRIPTION_LIMIT,
   );
   const label = component

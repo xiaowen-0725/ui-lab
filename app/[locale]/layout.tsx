@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
   title: {
-    default: `${SITE_NAME} · A motion component reference for React & Next.js`,
+    default: `${SITE_NAME} · A visual vocabulary for the web — components, blocks & design styles`,
     template: `%s · ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `${SITE_NAME} · A motion component reference for React & Next.js`,
+    title: `${SITE_NAME} · A visual vocabulary for the web — components, blocks & design styles`,
     description: SITE_DESCRIPTION,
     type: "website",
     url: "/",
@@ -62,13 +62,13 @@ export const metadata: Metadata = {
         url: "/api/og",
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} · A motion component reference for React & Next.js`,
+        alt: `${SITE_NAME} · A visual vocabulary for the web — components, blocks & design styles`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} · A motion component reference for React & Next.js`,
+    title: `${SITE_NAME} · A visual vocabulary for the web — components, blocks & design styles`,
     description: SITE_DESCRIPTION,
     images: ["/api/og"],
   },

@@ -5,6 +5,7 @@ import { registry } from "@/lib/registry";
 import { Hero } from "@/components/app/landing/hero";
 import { InstallCommand } from "@/components/app/docs/install-command";
 import { LandingComponentCard } from "@/components/app/landing/landing-component-card";
+import { SpaceCards } from "@/components/app/landing/space-cards";
 import { SiteFooter } from "@/components/app/chrome/site-footer";
 
 const CURATED: { category: string; slug: string }[] = [
@@ -108,6 +109,15 @@ export default async function Home() {
           {t("installNote")}
         </p>
         <InstallCommand />
+      </section>
+
+      <section className="mx-auto max-w-7xl border-t border-border px-4 pb-16 pt-14">
+        <SectionHeader
+          eyebrow={t("spacesEyebrow")}
+          title={t("spacesTitle")}
+          browseAllLabel={t("browseAll")}
+        />
+        <SpaceCards />
       </section>
 
       {newComponents.length ? (

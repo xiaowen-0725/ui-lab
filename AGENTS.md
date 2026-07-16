@@ -1,8 +1,14 @@
 # 组件实验室 (UI Lab) — Agent 指南
 
-一个**中文优先的双语**动效组件参考库 + 文档站,组件以 shadcn 兼容的 registry 端点「复制源码」方式分发。基于开源项目 beUI(starc007/ui-components,MIT)fork,个人自用、本地运行、尚未部署。
+一个**中文优先的双语**「前端视觉词汇表」:收集一切"只能看、说不出"的前端事物(动效组件、复合区块、设计风格……),让人肉眼感受、让 AI 拿到准确的话。组件以 shadcn 兼容的 registry 端点「复制源码」方式分发。基于开源项目 beUI(starc007/ui-components,MIT)fork,个人自用、本地运行、尚未部署。
 
 技术栈:Next.js 15(App Router)· React 19 · Tailwind CSS 4 · motion(framer-motion)v11 · next-intl v4 · TypeScript strict · Bun · Biome。
+
+## 愿景与条目公式
+
+站点解决"设计说不出来"的翻译问题:非专业人士看到 → 认出 → 复制「对 AI 这样说」。全站条目遵循统一公式:**活样本 + 名字(中英 + 别名)+「对 AI 这样说」prompt + 可选配方**。prompt 的写法是"具名风格 + 具体视觉手段 + 禁止项(FORBIDDEN)",负面约束比正面形容词更能防住 AI 的平庸默认值。
+
+主题按**顶级模块**扩展(现有:组件 / 区块 / 风格 / 演练场;规划中:配色方案、字体排印、页面区块等)。加新主题三步:顶级路由 `app/[locale]/<theme>/` → `lib/nav.ts` 注册空间(所有导航面自动跟上)→ 首页 `SpaceCards` 补一条描述文案(`landing.space*Desc`)。每个主题的数据真源独立建 `lib/<theme>.ts`,不塞进 `lib/registry.ts`。
 
 ## 命令
 
@@ -23,6 +29,9 @@ bun run check           # 上面三项一起 —— 提交前跑
 - `components/previews/` — 每个组件的演示,注册在 `components/previews/index.tsx`。预览也随 registry 分发。
 - `components/app/` — 站点外壳(顶栏、hero、dock、代码块),**不属于组件库**。
 - `lib/registry.ts` — **组件目录的真源**(slug、文件、示例、中英文名/描述)。现有组件查这里,别在本文档里找清单。两个分类:`motion`(显示名「组件」,基础组件)和 `blocks`(复合产品组件,发 `registry:block`)。
+- `lib/nav.ts` — **顶级空间导航真源**(`NAV_SPACES` + `isSpaceActive`)。site-header、mobile-nav、首页入口卡都消费它;加新空间只改这里。
+- `lib/styles.ts` — **「风格」模块数据真源**:每个风格 = 皮肤 CSS 变量(`--st-*`)+ 别名 + 适用场景 + 中英 prompt + 配方。
+- `components/app/styles/` — 风格换皮对比器(`/styles` 页面),属站点功能,**不入 registry**。
 - `lib/registry-server.ts` — 构建 registry item,会跟随每个文件的 `@/` 与相对 import 把依赖一起打包。所以内部 import 是安全且鼓励的(import `@/lib/ease` 就会连 `lib/ease.ts` 一起发)。
 - `lib/site.ts` — 站点常量:`SITE_URL`、`REPO_URL`、`REGISTRY_NAME`(命名空间源头,见「分发」)。
 - `lib/ease.ts` — 所有 motion token。
