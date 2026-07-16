@@ -7,63 +7,110 @@ import { CopyButton } from "@/components/app/docs/copy-button";
 import { StyleDemo } from "@/components/app/styles/style-demo";
 import type { Locale } from "@/i18n/routing";
 import { localizedDescription, localizedName } from "@/lib/i18n-content";
-import { STYLE_GROUPS, STYLES } from "@/lib/styles";
+import {
+  PALETTE_GROUPS,
+  PALETTES,
+  type PaletteColors,
+  paletteToSkin,
+} from "@/lib/palettes";
 import { cn } from "@/lib/utils";
 
-/** Skin-swap comparator: one fixed demo scene, N styles, plus the vocabulary panel. */
-export function StylesExplorer() {
-  const t = useTranslations("styles");
+const ROLE_LABEL_KEYS: Record<keyof PaletteColors, string> = {
+  bg: "roleBg",
+  surface: "roleSurface",
+  border: "roleBorder",
+  text: "roleText",
+  muted: "roleMuted",
+  primary: "rolePrimary",
+  primaryFg: "rolePrimaryFg",
+  accent: "roleAccent",
+};
+
+const ROLE_ORDER = Object.keys(ROLE_LABEL_KEYS) as (keyof PaletteColors)[];
+
+/** One role of the palette: swatch + label + hex; clicking copies the hex. */
+function ColorChip({ label, value }: { label: string; value: string }) {
+  const tCommon = useTranslations("common");
+  const [copied, setCopied] = useState(false);
+
+  return (
+    <button
+      type="button"
+      onClick={async () => {
+        await navigator.clipboard.writeText(value);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1200);
+      }}
+      className="flex items-center gap-2 rounded-xl border border-border bg-card/20 px-2.5 py-1.5 text-left transition-colors hover:border-(--color-border-strong)"
+    >
+      <span
+        aria-hidden="true"
+        className="h-6 w-6 shrink-0 rounded-md border border-border"
+        style={{ background: value }}
+      />
+      <span className="flex flex-col leading-tight">
+        <span className="text-xs text-foreground">{label}</span>
+        <span className="font-mono text-[0.65rem] uppercase text-muted-foreground">
+          {copied ? tCommon("copied") : value}
+        </span>
+      </span>
+    </button>
+  );
+}
+
+/** Palette comparator: the shared demo scene re-colored, plus per-role swatches. */
+export function PalettesExplorer() {
+  const t = useTranslations("palettes");
   const locale = useLocale() as Locale;
   const searchParams = useSearchParams();
-  const paramSlug = searchParams.get("style");
+  const paramSlug = searchParams.get("palette");
   const [slug, setSlug] = useState(
     () =>
-      (paramSlug && STYLES.some((s) => s.slug === paramSlug)
+      (paramSlug && PALETTES.some((p) => p.slug === paramSlug)
         ? paramSlug
-        : undefined) ?? STYLES[0]?.slug,
+        : undefined) ?? PALETTES[0]?.slug,
   );
   const [promptLang, setPromptLang] = useState<"zh" | "en">(
     locale === "zh" ? "zh" : "en",
   );
 
-  // Follow in-app navigations (e.g. picking a style from site search while
-  // already on this page). Manual switches below use replaceState, which
-  // doesn't touch useSearchParams — no loop.
+  // Follow in-app navigations (e.g. site search while already on this page).
+  // Manual switches use replaceState, which doesn't touch useSearchParams.
   useEffect(() => {
-    if (paramSlug && STYLES.some((s) => s.slug === paramSlug)) {
+    if (paramSlug && PALETTES.some((p) => p.slug === paramSlug)) {
       setSlug(paramSlug);
     }
   }, [paramSlug]);
 
-  const selectStyle = (nextSlug: string) => {
-    setSlug(nextSlug);
-    window.history.replaceState(null, "", `?style=${nextSlug}`);
-  };
-
-  const active = STYLES.find((s) => s.slug === slug) ?? STYLES[0];
+  const active = PALETTES.find((p) => p.slug === slug) ?? PALETTES[0];
   if (!active) return null;
 
   const prompt = promptLang === "zh" ? active.promptZh : active.promptEn;
   const recipe = locale === "zh" ? active.recipeZh : active.recipe;
 
+  const selectPalette = (nextSlug: string) => {
+    setSlug(nextSlug);
+    window.history.replaceState(null, "", `?palette=${nextSlug}`);
+  };
+
   return (
     <div>
       <div className="flex flex-col gap-3">
-        {STYLE_GROUPS.map((group) => {
-          const groupStyles = STYLES.filter((s) => s.group === group.key);
-          if (!groupStyles.length) return null;
+        {PALETTE_GROUPS.map((group) => {
+          const groupPalettes = PALETTES.filter((p) => p.group === group.key);
+          if (!groupPalettes.length) return null;
           return (
             <div key={group.key} className="flex flex-wrap items-center gap-2">
               <span className="w-16 shrink-0 text-[0.65rem] font-medium uppercase tracking-[0.16em] text-muted-foreground/70">
                 {locale === "zh" ? group.labelZh : group.label}
               </span>
-              {groupStyles.map((style) => {
-                const isActive = style.slug === active.slug;
+              {groupPalettes.map((palette) => {
+                const isActive = palette.slug === active.slug;
                 return (
                   <button
-                    key={style.slug}
+                    key={palette.slug}
                     type="button"
-                    onClick={() => selectStyle(style.slug)}
+                    onClick={() => selectPalette(palette.slug)}
                     aria-pressed={isActive}
                     className={cn(
                       "flex items-center gap-2 rounded-2xl border px-3 py-1.5 text-sm transition-colors",
@@ -74,15 +121,24 @@ export function StylesExplorer() {
                   >
                     <span
                       aria-hidden="true"
-                      className="relative h-4.5 w-4.5 overflow-hidden rounded-md border border-border"
-                      style={{ background: style.skin.vars["--st-page-bg"] }}
+                      className="flex h-4.5 w-4.5 flex-col overflow-hidden rounded-md border border-border"
                     >
                       <span
-                        className="absolute bottom-0.5 right-0.5 h-1.5 w-1.5 rounded-full"
-                        style={{ background: style.skin.vars["--st-accent"] }}
+                        className="h-1/2"
+                        style={{ background: palette.colors.bg }}
                       />
+                      <span className="flex h-1/2">
+                        <span
+                          className="w-1/2"
+                          style={{ background: palette.colors.primary }}
+                        />
+                        <span
+                          className="w-1/2"
+                          style={{ background: palette.colors.accent }}
+                        />
+                      </span>
                     </span>
-                    {localizedName(style, locale)}
+                    {localizedName(palette, locale)}
                   </button>
                 );
               })}
@@ -92,7 +148,23 @@ export function StylesExplorer() {
       </div>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22.5rem] lg:items-start">
-        <StyleDemo skin={active.skin} className="min-h-105" />
+        <div className="flex flex-col gap-4">
+          <StyleDemo skin={paletteToSkin(active)} className="min-h-105" />
+          <div>
+            <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              {t("swatches")}
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {ROLE_ORDER.map((role) => (
+                <ColorChip
+                  key={role}
+                  label={t(ROLE_LABEL_KEYS[role])}
+                  value={active.colors[role]}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
 
         <aside className="flex flex-col gap-6 rounded-3xl border border-border bg-card/20 p-6">
           <div>
@@ -162,7 +234,7 @@ export function StylesExplorer() {
               <CopyButton
                 text={prompt}
                 className="absolute right-2 top-2"
-                eventName="copy_style_prompt"
+                eventName="copy_palette_prompt"
                 eventLabel={`${active.slug}-${promptLang}`}
               />
               <p className="whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground">

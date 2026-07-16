@@ -1,6 +1,6 @@
 "use client";
 
-import { CircleDashed, FileText, Palette, Search } from "lucide-react";
+import { CircleDashed, Droplets, FileText, Palette, Search } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -12,6 +12,7 @@ import {
 } from "@/components/motion/command-palette";
 import { NewBadge } from "@/components/app/docs/new-badge";
 import { registry } from "@/lib/registry";
+import { PALETTES } from "@/lib/palettes";
 import { STYLES } from "@/lib/styles";
 import { localizedName } from "@/lib/i18n-content";
 
@@ -67,6 +68,19 @@ export function SiteSearch({ className }: { className?: string }) {
         ].filter(Boolean),
         icon: Palette,
         onSelect: () => router.push(`/styles?style=${style.slug}`),
+      })),
+      ...PALETTES.map((palette) => ({
+        id: `palette-${palette.slug}`,
+        label: localizedName(palette, locale),
+        group: tNav("palettes"),
+        keywords: [
+          palette.slug,
+          palette.name,
+          palette.nameZh,
+          ...palette.aliases,
+        ].filter(Boolean),
+        icon: Droplets,
+        onSelect: () => router.push(`/palettes?palette=${palette.slug}`),
       })),
       ...PAGES.map((page) => ({
         id: page.slug,

@@ -1,0 +1,163 @@
+import type { PaletteEntry } from "./types";
+
+// 深色系组:低亮度背景 + 高对比文字,靠一点点色相或金属色做记忆点。
+
+export const darkPalettes: PaletteEntry[] = [
+  {
+    slug: "dark-luxe",
+    name: "Dark Luxe",
+    nameZh: "暗黑奢华",
+    group: "dark",
+    aliases: ["黑金配色", "Dark Luxe", "轻奢暗色", "Black & Gold"],
+    description:
+      "Black lacquer and champagne gold — the hush of a five-star lobby after the last guest has gone up.",
+    descriptionZh: "黑漆与香槟金——五星酒店大堂打烊后的那种静。",
+    bestFor: "Luxury hotels and members clubs, jewelry and watch brands, whisky and cigar labels, high-end concierge services",
+    bestForZh: "高端酒店/会所、珠宝腕表品牌、威士忌/雪茄品牌、高端会员服务",
+    promptZh:
+      "请用暗黑奢华(Dark Luxe)配色:黑金基调,像威士忌吧台或五星酒店大堂的夜色。背景 #0D0D10(近黑,不用纯黑)、卡片 #17171C、描边 #2A2A32;正文 #EDEAE2(暖白,不用纯白)、次要文字 #9B978C;主按钮 #C8A24B(香槟金)配深炭字 #141410,这是签名组合;点缀色 #E8DFC8(浅金),只用在徽标、分隔线或数字上。金色只做点睛,不做大面积填充。禁止:明亮底色、糖果色、大面积铺金、廉价荧光色、纯黑 #000 或纯白 #fff。",
+    promptEn:
+      "Use a Dark Luxe palette: black-and-gold, the hush of a whisky bar or a five-star hotel lobby after hours. Background #0D0D10 (near-black, never pure black), cards #17171C, borders #2A2A32; body text #EDEAE2 (warm white, never pure white), secondary text #9B978C; primary buttons in champagne gold #C8A24B with deep charcoal text #141410 — this pairing is the signature move; accent #E8DFC8 (pale gold), reserved for badges, dividers, or numerals. Gold is punctuation, not paint — keep it small. Forbidden: bright backgrounds, candy colors, large gold fills, cheap neon, pure #000 or #fff.",
+    recipeZh: [
+      "60-30-10:近黑背景 60%,卡片与留白 30%,香槟金主色 + 浅金点缀合计 ≤10%",
+      "深色底不用纯黑:#0D0D10 留一丝暖色温度,比 #000 更有质感也更不刺眼",
+      "文字不用纯白:#EDEAE2 与背景对比度约 15:1,清晰又不发白刺眼",
+      "主按钮 #C8A24B 配深炭字 #141410 而非白字,金底配黑字才是奢侈品的语感",
+      "点缀金 #E8DFC8 一屏最多两处(如价格数字、图标描边),金多了就俗",
+    ],
+    recipe: [
+      "60-30-10: near-black background 60%, cards and whitespace 30%, champagne-gold primary plus pale-gold accent ≤10% combined",
+      "Dark backgrounds should never go pure black: #0D0D10 keeps a whisper of warmth, reading richer than #000 and easier on the eyes",
+      "Body text should never go pure white: #EDEAE2 gives ~15:1 contrast on the background — crisp without glaring",
+      "Pair the #C8A24B button with deep charcoal text #141410, not white — gold-on-dark-text is the luxury-brand accent",
+      "Limit the #E8DFC8 accent to two spots per screen (a price, an icon stroke) — more than that reads cheap",
+    ],
+    colors: {
+      bg: "#0D0D10",
+      surface: "#17171C",
+      border: "#2A2A32",
+      text: "#EDEAE2",
+      muted: "#9B978C",
+      primary: "#C8A24B",
+      primaryFg: "#141410",
+      accent: "#E8DFC8",
+    },
+  },
+  {
+    slug: "midnight",
+    name: "Midnight Blue",
+    nameZh: "午夜蓝",
+    group: "dark",
+    aliases: ["午夜蓝", "Midnight Blue", "深蓝暗色", "deep navy"],
+    description: "Coding at 2am under a single desk lamp — deep, trustworthy blue with an observatory hush.",
+    descriptionZh: "凌晨两点独自写代码的蓝,像天文台的寂静,深邃又让人信任。",
+    bestFor: "Developer tools, fintech products, SaaS dashboards, security software",
+    bestForZh: "开发者工具、金融科技、SaaS 仪表盘、安全产品",
+    promptZh:
+      "请用午夜蓝(Midnight)配色:深邃可信赖的蓝,像深夜写代码或天文台的静。背景 #0B1220(深靛蓝,不用纯黑)、卡片 #131C2E、描边 #24314D;正文 #E4EAF5(冷白,不用纯白)、次要文字 #8DA0BF;主按钮 #4C7DFF(电光蓝)配近白字 #F2F6FF;点缀色 #8FB8FF(亮蓝),用于图标、链接和状态提示。整体色相集中在蓝色系,靠明度拉开层次。禁止:暖橙大面积使用、纯黑背景、灰紫渐变、蓝字配蓝底导致的低对比。",
+    promptEn:
+      "Use a Midnight Blue palette: deep, trustworthy blue with the hush of coding at 2am or an observatory at night. Background #0B1220 (deep indigo, never pure black), cards #131C2E, borders #24314D; body text #E4EAF5 (cool white, never pure white), secondary text #8DA0BF; primary buttons in electric blue #4C7DFF with near-white text #F2F6FF; accent #8FB8FF (bright blue), for icons, links, and status hints. Keep the whole palette inside the blue family and separate layers by lightness. Forbidden: large warm-orange areas, pure black backgrounds, gray-purple gradients, low-contrast blue-on-blue text.",
+    recipeZh: [
+      "60-30-10:深靛蓝背景 60%,卡片与留白 30%,电光蓝主色 + 亮蓝点缀合计 ≤10%",
+      "深色底不用纯黑:#0B1220 带一点靛紫温度,比纯黑更有科技感也更耐看",
+      "文字不用纯白:#E4EAF5 对比度约 13:1,冷白不刺眼,呼应“深夜”的静",
+      "主按钮 #4C7DFF 配近白字 #F2F6FF,不要用同色系深蓝字,避免可读性塌陷",
+      "点缀 #8FB8FF 只用于交互态(悬停、链接、状态点),不做大色块",
+    ],
+    recipe: [
+      "60-30-10: deep-indigo background 60%, cards and whitespace 30%, electric-blue primary plus bright-blue accent ≤10% combined",
+      "Dark backgrounds should never go pure black: #0B1220 carries a touch of indigo warmth, reading more deliberate than flat black",
+      "Body text should never go pure white: #E4EAF5 gives ~13:1 contrast — cool and legible without glare",
+      "Pair the #4C7DFF button with near-white text #F2F6FF, never a same-family dark blue, or readability collapses",
+      "Reserve #8FB8FF for interactive states — hover, links, status dots — never as a large fill",
+    ],
+    colors: {
+      bg: "#0B1220",
+      surface: "#131C2E",
+      border: "#24314D",
+      text: "#E4EAF5",
+      muted: "#8DA0BF",
+      primary: "#4C7DFF",
+      primaryFg: "#F2F6FF",
+      accent: "#8FB8FF",
+    },
+  },
+  {
+    slug: "forest-night",
+    name: "Forest Night",
+    nameZh: "墨绿夜",
+    group: "dark",
+    aliases: ["墨绿配色", "Forest Night", "深绿金", "绿金暗色"],
+    description: "A forest after rain, moss and lantern light — quiet but unmistakably alive.",
+    descriptionZh: "雨后的森林夜色,苔藓与灯笼微光,沉静却有生命力。",
+    bestFor: "Eco and outdoor brands, specialty coffee and tea, wellness and nature-healing products, bookstores",
+    bestForZh: "环保/户外品牌、精品咖啡/茶、自然疗愈类产品、书店",
+    promptZh:
+      "请用墨绿夜(Forest Night)配色:雨后森林的夜色,苔藓与灯笼微光,沉静但有生命力。背景 #0E1512(墨绿黑,不用纯黑)、卡片 #16211C、描边 #27352E;正文 #E3EBE5(冷白微绿,不用纯白)、次要文字 #8FA598;主按钮 #3E9B6E(森林绿)配浅绿白字 #EAF6EF;点缀色 #D9B44A(苔金),用于图标、徽标或强调数字,是绿色主调里的一点灯笼光。禁止:荧光绿、蓝紫科技感配色、明亮底色、粉色点缀。",
+    promptEn:
+      "Use a Forest Night palette: a forest after rain, moss and lantern light, quiet but alive. Background #0E1512 (near-black forest green, never pure black), cards #16211C, borders #27352E; body text #E3EBE5 (cool, faintly green white, never pure white), secondary text #8FA598; primary buttons in forest green #3E9B6E with pale mint-white text #EAF6EF; accent #D9B44A (mossy gold), used for icons, badges, or emphasized numerals — one lantern glow inside the green. Forbidden: neon green, blue-purple tech tones, bright backgrounds, pink accents.",
+    recipeZh: [
+      "60-30-10:墨绿黑背景 60%,卡片与留白 30%,森林绿主色 + 苔金点缀合计 ≤10%",
+      "深色底不用纯黑:#0E1512 带绿色温度,像林间夜色而非纯粹的暗",
+      "文字不用纯白:#E3EBE5 微带绿相,对比度约 13:1,呼应森林基调又不刺眼",
+      "苔金 #D9B44A 是唯一的暖色出口,一屏一到两处(图标、数字),多了就抢了绿的主场",
+      "主按钮 #3E9B6E 配浅绿白字 #EAF6EF,不用纯白,保持整体统一在绿色家族里",
+    ],
+    recipe: [
+      "60-30-10: near-black forest-green background 60%, cards and whitespace 30%, forest-green primary plus mossy-gold accent ≤10% combined",
+      "Dark backgrounds should never go pure black: #0E1512 carries a green undertone, reading like a forest night rather than flat dark",
+      "Body text should never go pure white: #E3EBE5 leans faintly green at ~13:1 contrast, staying in family without glare",
+      "Mossy gold #D9B44A is the only warm note — one or two per screen (an icon, a number); more than that steals the scene from green",
+      "Pair the #3E9B6E button with pale mint-white text #EAF6EF, not pure white, to keep everything inside the green family",
+    ],
+    colors: {
+      bg: "#0E1512",
+      surface: "#16211C",
+      border: "#27352E",
+      text: "#E3EBE5",
+      muted: "#8FA598",
+      primary: "#3E9B6E",
+      primaryFg: "#EAF6EF",
+      accent: "#D9B44A",
+    },
+  },
+  {
+    slug: "mono-slate",
+    name: "Mono Slate",
+    nameZh: "炭黑单色",
+    group: "dark",
+    aliases: ["单色暗色", "Monochrome Dark", "炭黑灰阶", "黑白极简"],
+    description: "No color at all — black-and-white-photography restraint that lets the content speak.",
+    descriptionZh: "没有一丝彩色的克制,像黑白摄影,让内容自己说话。",
+    bestFor: "Photography and design portfolios, fashion brands, writing platforms, minimalist tools",
+    bestForZh: "摄影/设计作品集、时尚品牌、写作平台、极简工具",
+    promptZh:
+      "请用炭黑单色(Mono Slate)配色:完全无彩色的克制,像黑白摄影,让内容本身说话。背景 #111113(炭黑,不用纯黑)、卡片 #1A1A1D、描边 #2A2A2E;正文 #EAEAEC(近白灰,不用纯白)、次要文字 #909095;主按钮 #E5E5E8(浅灰白)配深炭字 #131316,白底黑字的反转是这套配色的签名;点缀色 #A0A0A8(中灰),仅作细微强调。整套配色只有灰阶,没有任何色相。禁止:任何彩色元素(这是无彩配色)、纯黑 #000 底、彩色阴影、彩色渐变。",
+    promptEn:
+      "Use a Mono Slate palette: total colorlessness, black-and-white-photography restraint that lets the content speak. Background #111113 (charcoal, never pure black), cards #1A1A1D, borders #2A2A2E; body text #EAEAEC (near-white gray, never pure white), secondary text #909095; primary buttons in light gray-white #E5E5E8 with deep charcoal text #131316 — the signature move is this light-on-dark inversion; accent #A0A0A8 (mid-gray), used only for subtle emphasis. The whole palette lives on the grayscale — no hue anywhere. Forbidden: any colored element (this is an achromatic palette), pure #000 backgrounds, colored shadows, color gradients.",
+    recipeZh: [
+      "60-30-10:炭黑背景 60%,卡片与留白 30%,浅灰白主色 + 中灰点缀合计 ≤10%",
+      "深色底不用纯黑:#111113 留一点灰度呼吸感,比 #000 更耐看不闷",
+      "文字不用纯白:#EAEAEC 对比度约 14:1,清晰但不刺眼发白",
+      "主按钮反转成浅灰白 #E5E5E8 配深炭字 #131316,是整套配色里唯一的“亮块”,对比感全靠明度而非色相",
+      "点缀 #A0A0A8 只做次要强调(如时间戳、序号),绝不引入任何彩色去“救场”",
+    ],
+    recipe: [
+      "60-30-10: charcoal background 60%, cards and whitespace 30%, light gray-white primary plus mid-gray accent ≤10% combined",
+      "Dark backgrounds should never go pure black: #111113 keeps a breath of grayscale, less flat and airless than #000",
+      "Body text should never go pure white: #EAEAEC gives ~14:1 contrast — legible without glaring",
+      "Invert the primary button to light gray-white #E5E5E8 on deep charcoal text #131316 — the single 'bright block' in the palette, built on lightness alone, never hue",
+      "Reserve #A0A0A8 for minor emphasis (timestamps, index numbers) — never reach for color to rescue a flat moment",
+    ],
+    colors: {
+      bg: "#111113",
+      surface: "#1A1A1D",
+      border: "#2A2A2E",
+      text: "#EAEAEC",
+      muted: "#909095",
+      primary: "#E5E5E8",
+      primaryFg: "#131316",
+      accent: "#A0A0A8",
+    },
+  },
+];

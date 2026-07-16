@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import type { CSSProperties } from "react";
 import { EASE_OUT_CSS } from "@/lib/ease";
-import type { StyleEntry } from "@/lib/styles";
+import type { StyleSkin } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 
 // Skins swap by animating the CSS properties themselves (color/border/radius/
@@ -72,12 +72,13 @@ const secondaryBtnStyle: CSSProperties = {
   transition: SKIN_TRANSITION,
 };
 
-/** The fixed landing-card scene every style skins — the comparison canvas. */
+/** The fixed landing-card scene every skin dresses — the comparison canvas
+ * shared by the styles and palettes explorers. */
 export function StyleDemo({
-  entry,
+  skin,
   className,
 }: {
-  entry: StyleEntry;
+  skin: StyleSkin;
   className?: string;
 }) {
   const t = useTranslations("styles");
@@ -85,7 +86,7 @@ export function StyleDemo({
   return (
     <div
       style={{
-        ...(entry.skin.vars as CSSProperties),
+        ...(skin.vars as CSSProperties),
         background: "var(--st-page-bg)",
         color: "var(--st-page-fg)",
         fontFamily: "var(--st-font, inherit)",
@@ -101,7 +102,7 @@ export function StyleDemo({
         <div
           className="absolute inset-0"
           style={{
-            opacity: entry.skin.backdrop === "aurora" ? 1 : 0,
+            opacity: skin.backdrop === "aurora" ? 1 : 0,
             transition: `opacity 480ms ${EASE_OUT_CSS}`,
           }}
         >
@@ -112,7 +113,7 @@ export function StyleDemo({
         <div
           className="absolute inset-0"
           style={{
-            opacity: entry.skin.backdrop === "grid" ? 1 : 0,
+            opacity: skin.backdrop === "grid" ? 1 : 0,
             transition: `opacity 480ms ${EASE_OUT_CSS}`,
             backgroundImage:
               "linear-gradient(color-mix(in srgb, var(--st-accent) 18%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--st-accent) 18%, transparent) 1px, transparent 1px)",
@@ -123,7 +124,7 @@ export function StyleDemo({
         <div
           className="absolute inset-0"
           style={{
-            opacity: entry.skin.backdrop === "scanlines" ? 1 : 0,
+            opacity: skin.backdrop === "scanlines" ? 1 : 0,
             transition: `opacity 480ms ${EASE_OUT_CSS}`,
             backgroundImage:
               "repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.28) 0px, rgba(0, 0, 0, 0.28) 1px, transparent 1px, transparent 3px)",
@@ -209,7 +210,7 @@ export function StyleDemo({
           <div
             className={cn(
               "flex flex-col gap-1.5 p-5",
-              entry.skin.layout === "bento" && "sm:col-span-2 sm:row-span-2 sm:justify-end",
+              skin.layout === "bento" && "sm:col-span-2 sm:row-span-2 sm:justify-end",
             )}
             style={cardStyle}
           >

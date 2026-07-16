@@ -8,6 +8,7 @@ import type { LucideIcon } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { EASE_OUT_CSS } from "@/lib/ease";
 import { NAV_SPACES, type NavSpace } from "@/lib/nav";
+import { PALETTES } from "@/lib/palettes";
 import { STYLES } from "@/lib/styles";
 
 const SPACE_META: Record<
@@ -17,8 +18,26 @@ const SPACE_META: Record<
   components: { icon: Component, descKey: "spaceComponentsDesc" },
   blocks: { icon: LayoutGrid, descKey: "spaceBlocksDesc" },
   styles: { icon: null, descKey: "spaceStylesDesc" },
+  palettes: { icon: null, descKey: "spacePalettesDesc" },
   playground: { icon: SlidersHorizontal, descKey: "spacePlaygroundDesc" },
 };
+
+/** The palettes card's icon slot: the lead palette's roles as a tiny quad. */
+function PalettesMiniPreview() {
+  const colors = PALETTES[0]?.colors;
+  if (!colors) return null;
+  return (
+    <span
+      aria-hidden="true"
+      className="grid h-9 w-9 grid-cols-2 overflow-hidden rounded-lg border border-border"
+    >
+      <span style={{ background: colors.bg }} />
+      <span style={{ background: colors.primary }} />
+      <span style={{ background: colors.accent }} />
+      <span style={{ background: colors.text }} />
+    </span>
+  );
+}
 
 // Cycle a handful of skins, not the whole catalog — the card is a teaser.
 const PREVIEW_STYLES = STYLES.slice(0, 3);
@@ -68,7 +87,7 @@ export function SpaceCards() {
   const tLanding = useTranslations("landing");
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
       {NAV_SPACES.map((space) => {
         const meta = SPACE_META[space.key];
         const Icon = meta.icon;
@@ -82,6 +101,8 @@ export function SpaceCards() {
               <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card/40 text-muted-foreground transition-colors group-hover:text-foreground">
                 <Icon className="h-4 w-4" />
               </span>
+            ) : space.key === "palettes" ? (
+              <PalettesMiniPreview />
             ) : (
               <StylesMiniPreview />
             )}
