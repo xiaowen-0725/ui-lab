@@ -1,6 +1,13 @@
 "use client";
 
-import { CircleDashed, Droplets, FileText, Palette, Search } from "lucide-react";
+import {
+  CircleDashed,
+  Droplets,
+  FileText,
+  Palette,
+  PanelsTopLeft,
+  Search,
+} from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -13,6 +20,7 @@ import {
 import { NewBadge } from "@/components/app/docs/new-badge";
 import { registry } from "@/lib/registry";
 import { PALETTES } from "@/lib/palettes";
+import { SECTIONS } from "@/lib/sections";
 import { STYLES } from "@/lib/styles";
 import { localizedName } from "@/lib/i18n-content";
 
@@ -81,6 +89,19 @@ export function SiteSearch({ className }: { className?: string }) {
         ].filter(Boolean),
         icon: Droplets,
         onSelect: () => router.push(`/palettes?palette=${palette.slug}`),
+      })),
+      ...SECTIONS.map((section) => ({
+        id: `section-${section.slug}`,
+        label: localizedName(section, locale),
+        group: tNav("sections"),
+        keywords: [
+          section.slug,
+          section.name,
+          section.nameZh,
+          ...section.aliases,
+        ].filter(Boolean),
+        icon: PanelsTopLeft,
+        onSelect: () => router.push(`/sections?section=${section.slug}`),
       })),
       ...PAGES.map((page) => ({
         id: page.slug,

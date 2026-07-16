@@ -15,6 +15,7 @@
     "blocks": "区块",
     "styles": "风格",
     "palettes": "配色",
+    "sections": "落地页",
     "playground": "演练场",
     "sponsors": "赞助",
     "pro": "Pro",
@@ -61,7 +62,21 @@
     "spaceBlocksDesc": "成套的复合产品区块。",
     "spaceStylesDesc": "看到风格,拿走「对 AI 的说法」。",
     "spacePalettesDesc": "认出你想要的那组颜色,连色值一起带走。",
+    "spaceSectionsDesc": "落地页解剖图:开头那块原来叫 hero。",
     "spacePlaygroundDesc": "现场调参,感受动效手感。"
+  },
+  "sections": {
+    "eyebrow": "落地页",
+    "title": "一张落地页的解剖图",
+    "intro": "从导航栏到页脚,按从上到下的顺序认识每一块:它叫什么、长什么样、什么时候用哪种形态,以及怎么对 AI 说。",
+    "variants": "形态",
+    "aliases": "别名",
+    "bestFor": "适用场景",
+    "promptTitle": "对 AI 这样说",
+    "promptHint": "区块名 + 结构清单 + 禁止项,按形态各有一段。",
+    "langZh": "中文",
+    "langEn": "English",
+    "recipeTitle": "结构要点"
   },
   "palettes": {
     "eyebrow": "配色",

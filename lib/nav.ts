@@ -4,7 +4,7 @@
 
 export type NavSpace = {
   /** Label key under the "nav" messages namespace. */
-  key: "components" | "blocks" | "styles" | "palettes" | "playground";
+  key: "components" | "blocks" | "styles" | "palettes" | "sections" | "playground";
   /** Route the nav item links to. */
   href: string;
   /** Pathname prefix that marks this space active. */
@@ -23,6 +23,7 @@ export const NAV_SPACES: readonly NavSpace[] = [
   { key: "blocks", href: "/components/blocks", match: "/components/blocks" },
   { key: "styles", href: "/styles", match: "/styles" },
   { key: "palettes", href: "/palettes", match: "/palettes" },
+  { key: "sections", href: "/sections", match: "/sections" },
   { key: "playground", href: "/playground", match: "/playground" },
 ];
 

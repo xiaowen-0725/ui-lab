@@ -15,6 +15,7 @@
     "blocks": "Blocks",
     "styles": "Styles",
     "palettes": "Palettes",
+    "sections": "Sections",
     "playground": "Playground",
     "sponsors": "Sponsors",
     "pro": "Pro",
@@ -61,7 +62,21 @@
     "spaceBlocksDesc": "Composite product blocks.",
     "spaceStylesDesc": "See a style, take the words for AI.",
     "spacePalettesDesc": "Recognize the colors you want, hexes included.",
+    "spaceSectionsDesc": "Landing-page anatomy: that top block is a hero.",
     "spacePlaygroundDesc": "Tune motion parameters live."
+  },
+  "sections": {
+    "eyebrow": "Sections",
+    "title": "The anatomy of a landing page",
+    "intro": "From navbar to footer, meet every block in top-to-bottom order: what it's called, what it looks like, when to pick which shape, and how to say it to AI.",
+    "variants": "Shapes",
+    "aliases": "Also known as",
+    "bestFor": "Best for",
+    "promptTitle": "Say this to AI",
+    "promptHint": "Section name + structure checklist + forbidden list, one per shape.",
+    "langZh": "中文",
+    "langEn": "English",
+    "recipeTitle": "Structure notes"
   },
   "palettes": {
     "eyebrow": "Palettes",

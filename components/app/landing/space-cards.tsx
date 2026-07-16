@@ -1,6 +1,12 @@
 "use client";
 
-import { ArrowUpRight, Component, LayoutGrid, SlidersHorizontal } from "lucide-react";
+import {
+  ArrowUpRight,
+  Component,
+  LayoutGrid,
+  PanelsTopLeft,
+  SlidersHorizontal,
+} from "lucide-react";
 import { useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
@@ -19,6 +25,7 @@ const SPACE_META: Record<
   blocks: { icon: LayoutGrid, descKey: "spaceBlocksDesc" },
   styles: { icon: null, descKey: "spaceStylesDesc" },
   palettes: { icon: null, descKey: "spacePalettesDesc" },
+  sections: { icon: PanelsTopLeft, descKey: "spaceSectionsDesc" },
   playground: { icon: SlidersHorizontal, descKey: "spacePlaygroundDesc" },
 };
 
@@ -87,7 +94,7 @@ export function SpaceCards() {
   const tLanding = useTranslations("landing");
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {NAV_SPACES.map((space) => {
         const meta = SPACE_META[space.key];
         const Icon = meta.icon;
