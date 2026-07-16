@@ -31,6 +31,7 @@ import {
   ThreadApprovalCard,
   ThreadBranchSwitcher,
   ThreadCardButton,
+  ThreadCheckpoint,
   ThreadCodeBlock,
   ThreadCollapse,
   ThreadCommandRow,
@@ -50,6 +51,7 @@ import {
   ThreadThinking,
   ThreadToolCall,
   ThreadTurnHeader,
+  ThreadUsage,
   ThreadUserMessage,
 } from "@/components/motion/agent-thread";
 import { EASE_OUT } from "@/lib/ease";
@@ -239,8 +241,18 @@ function DoneScene() {
               <Share2 className="h-3.5 w-3.5" />
             </ThreadActionButton>
           </ThreadActionBar>
+          <ThreadUsage
+            cost={0.024}
+            inputTokens={12300}
+            outputTokens={1200}
+            duration="8.4s"
+            cacheHitRate={0.78}
+            className="pb-1"
+          />
         </div>
       </ThreadItem>
+
+      <ThreadCheckpoint timestamp="22:10" onRestore={() => {}} />
 
       <ThreadItem>
         <ThreadUserMessage>What branch are we on?</ThreadUserMessage>

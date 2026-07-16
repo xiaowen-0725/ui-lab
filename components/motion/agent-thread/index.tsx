@@ -20,6 +20,7 @@ export {
 export {
   ThreadApprovalCard,
   ThreadBranchSwitcher,
+  ThreadCheckpoint,
   ThreadElicitation,
   ThreadErrorState,
   ThreadScrollPill,
@@ -30,6 +31,7 @@ export {
   ThreadTaskList,
   ThreadThinking,
   ThreadToolCall,
+  ThreadUsage,
 } from "./status";
 
 export interface ThreadProps {

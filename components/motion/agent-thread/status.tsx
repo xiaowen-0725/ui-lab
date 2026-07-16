@@ -1,8 +1,8 @@
 "use client";
 
-import { ArrowDown, Check, ChevronLeft, ChevronRight, CircleAlert } from "lucide-react";
+import { ArrowDown, Check, ChevronLeft, ChevronRight, CircleAlert, History } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { type ReactNode, useLayoutEffect, useRef, useState } from "react";
+import { Fragment, type ReactNode, useLayoutEffect, useRef, useState } from "react";
 import { EASE_OUT, SPRING_PANEL } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 import { ThreadCard, ThreadCardButton, ThreadShimmerText } from "./cards";
@@ -674,5 +674,139 @@ export function ThreadScrollPill({ open, count, onClick, className }: ThreadScro
         </motion.button>
       ) : null}
     </AnimatePresence>
+  );
+}
+
+export interface ThreadCheckpointProps {
+  /** @default "Checkpoint" */
+  label?: ReactNode;
+  timestamp?: ReactNode;
+  onRestore?: () => void;
+  /** @default "Restore" */
+  restoreLabel?: ReactNode;
+  className?: string;
+}
+
+/**
+ * Rollback marker dividing the stream at a point the user can restore to —
+ * a hairline rule on either side of a pill carrying a history icon, the
+ * checkpoint label and an optional timestamp. When `onRestore` is passed, a
+ * trailing text button ("Restore") is appended inside the same pill.
+ */
+export function ThreadCheckpoint({
+  label = "Checkpoint",
+  timestamp,
+  onRestore,
+  restoreLabel = "Restore",
+  className,
+}: ThreadCheckpointProps) {
+  return (
+    <div className={cn("relative flex items-center gap-3 py-2", className)}>
+      <span className="h-px flex-1 bg-black/5 dark:bg-white/[0.06]" />
+      <span className="flex h-6 items-center gap-1.5 rounded-full border border-black/10 px-2.5 text-xs text-muted-foreground dark:border-white/10">
+        <History className="h-3 w-3" />
+        {label}
+        {timestamp !== undefined && timestamp !== null ? (
+          <span className="text-muted-foreground/70">{timestamp}</span>
+        ) : null}
+        {onRestore ? (
+          <button
+            type="button"
+            onClick={onRestore}
+            className="text-xs transition-colors hover:text-foreground"
+          >
+            {restoreLabel}
+          </button>
+        ) : null}
+      </span>
+      <span className="h-px flex-1 bg-black/5 dark:bg-white/[0.06]" />
+    </div>
+  );
+}
+
+/** <0.01 keeps 4 decimal places, otherwise 3 — trailing zeros are trimmed either way (e.g. 0.003 → "$0.003", not "$0.0030"). */
+function formatUsageCost(cost: number): string {
+  const decimals = cost < 0.01 ? 4 : 3;
+  const trimmed = cost.toFixed(decimals).replace(/0+$/, "").replace(/\.$/, "");
+  return `$${trimmed}`;
+}
+
+/** K/M abbreviation for a raw token count; values under 1000 render as-is. */
+function formatUsageTokenCount(count: number): string {
+  if (count >= 1_000_000) return `${(count / 1_000_000).toFixed(1)}M`;
+  if (count >= 1000) return `${(count / 1000).toFixed(1)}K`;
+  return `${count}`;
+}
+
+export interface ThreadUsageProps {
+  cost?: number;
+  inputTokens?: number;
+  outputTokens?: number;
+  duration?: ReactNode;
+  cacheHitRate?: number;
+  className?: string;
+  children?: ReactNode;
+}
+
+/**
+ * Per-message usage/cost line — cost, input/output token counts, duration
+ * and cache-hit rate, each shown only when its prop is present and joined
+ * by a muted middle dot. Meant to live alongside `ThreadActionBar` in the
+ * same hover group; the component itself renders unconditionally, so pass
+ * e.g. `"opacity-0 group-hover/turn:opacity-100"` in `className` if you want
+ * it to reveal on turn hover the way the action bar does.
+ */
+export function ThreadUsage({
+  cost,
+  inputTokens,
+  outputTokens,
+  duration,
+  cacheHitRate,
+  className,
+  children,
+}: ThreadUsageProps) {
+  const fragments: { key: string; node: ReactNode }[] = [];
+
+  if (cost !== undefined) {
+    fragments.push({ key: "cost", node: formatUsageCost(cost) });
+  }
+
+  if (inputTokens !== undefined || outputTokens !== undefined) {
+    const inStr = inputTokens !== undefined ? `${formatUsageTokenCount(inputTokens)} in` : null;
+    const outStr = outputTokens !== undefined ? `${formatUsageTokenCount(outputTokens)} out` : null;
+    fragments.push({
+      key: "tokens",
+      node: inStr && outStr ? `${inStr} / ${outStr}` : (inStr ?? outStr),
+    });
+  }
+
+  if (duration !== undefined && duration !== null) {
+    fragments.push({ key: "duration", node: duration });
+  }
+
+  if (cacheHitRate !== undefined) {
+    fragments.push({ key: "cache", node: `cache ${Math.round(cacheHitRate * 100)}%` });
+  }
+
+  if (children !== undefined && children !== null) {
+    fragments.push({ key: "children", node: children });
+  }
+
+  if (fragments.length === 0) return null;
+
+  return (
+    <div
+      className={cn(
+        "flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-muted-foreground/80 tabular-nums",
+        className,
+      )}
+    >
+      {fragments.map((fragment, i) => (
+        <Fragment key={fragment.key}>
+          {i > 0 ? <span className="text-muted-foreground/40">·</span> : null}
+          <span>{fragment.node}</span>
+        </Fragment>
+      ))}
+    </div>
   );
 }

@@ -3,12 +3,19 @@
 import { FileSearch, ListChecks, RotateCcw, Search, Wrench } from "lucide-react";
 import { useReducedMotion } from "motion/react";
 import { type ComponentType, useEffect, useState } from "react";
-import { Trace, TraceGroup, TraceStep, TraceSubagent } from "@/components/motion/agent-trace";
+import {
+  Trace,
+  TraceCostBadge,
+  TraceGroup,
+  TraceStep,
+  TraceSubagent,
+  TraceSummary,
+} from "@/components/motion/agent-trace";
 import { cn } from "@/lib/utils";
 
-const TOTAL_STEPS = 6;
-/** Fixed reveal delays (ms) for steps 1..6 — a 600ms cadence, no timers based on Date.now/Math.random. */
-const REVEAL_DELAYS = [0, 600, 1200, 1800, 2400, 3000];
+const TOTAL_STEPS = 7;
+/** Fixed reveal delays (ms) for steps 1..7 — a 600ms cadence, no timers based on Date.now/Math.random. */
+const REVEAL_DELAYS = [0, 600, 1200, 1800, 2400, 3000, 3600];
 /** How long the live "Writing summary…" step stays active before settling in place. */
 const WRITING_DURATION = 2400;
 
@@ -50,10 +57,11 @@ function GroupRow({ icon: Icon, label, meta, slow }: GroupRowProps) {
 /**
  * Scripted playback of an agent execution trace — plan, tool call with an
  * expandable raw-JSON result, a nested sub-agent delegation, a parallel
- * tool group, a live step that settles in place once "done", and a final
- * summary step. Steps mount on a fixed 600ms cadence; "Replay" restarts the
- * script. `useReducedMotion()` skips the staged reveal and renders every
- * step in its settled end state instead.
+ * tool group, a live step that settles in place once "done", a final
+ * "Task complete" step and a trailing run-summary row. Steps mount on a
+ * fixed 600ms cadence; "Replay" restarts the script. `useReducedMotion()`
+ * skips the staged reveal and renders every step (plus the summary) in its
+ * settled end state instead.
  */
 export function AgentTracePreview() {
   const reduce = useReducedMotion() ?? false;
@@ -111,7 +119,12 @@ export function AgentTracePreview() {
             icon={<Search className="h-[13px] w-[13px]" />}
             label="Search docs"
             detail="3 files matched"
-            meta="0.4s"
+            meta={
+              <span className="flex items-center gap-1.5">
+                <span>0.4s</span>
+                <TraceCostBadge tokens={1240} cost={0.003} />
+              </span>
+            }
           >
             <div className="whitespace-pre-wrap rounded-lg bg-black/[0.04] p-2 font-mono text-xs dark:bg-white/5">
               {RAW_JSON}
@@ -147,6 +160,10 @@ export function AgentTracePreview() {
         ) : null}
 
         {visibleCount >= 6 ? <TraceStep kind="done" label="Task complete" /> : null}
+
+        {visibleCount >= 7 ? (
+          <TraceSummary duration="12.8s" tokens={48200} cost={0.089} />
+        ) : null}
       </Trace>
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, ChevronRight, RefreshCw, Sparkles, Wrench } from "lucide-react";
+import { Check, ChevronRight, Clock, RefreshCw, Sparkles, Wrench } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { type ComponentType, type ReactNode, useLayoutEffect, useRef, useState } from "react";
 import { EASE_OUT } from "@/lib/ease";
@@ -223,6 +223,51 @@ export function TraceStep({
   );
 }
 
+/** <0.01 keeps 4 decimal places, otherwise 3 — trailing zeros are trimmed either way (e.g. 0.003 → "$0.003", not "$0.0030"). */
+function formatTraceCost(cost: number): string {
+  const decimals = cost < 0.01 ? 4 : 3;
+  const trimmed = cost.toFixed(decimals).replace(/0+$/, "").replace(/\.$/, "");
+  return `$${trimmed}`;
+}
+
+/** K/M abbreviation for a raw token count; values under 1000 render as-is. */
+function formatTraceTokenCount(count: number): string {
+  if (count >= 1_000_000) return `${(count / 1_000_000).toFixed(1)}M`;
+  if (count >= 1000) return `${(count / 1000).toFixed(1)}K`;
+  return `${count}`;
+}
+
+export interface TraceCostBadgeProps {
+  tokens?: number;
+  cost?: number;
+  className?: string;
+}
+
+/**
+ * Compact usage pill sized for a `TraceStep`'s `meta` slot — token count
+ * and/or cost, joined by a middle dot when both are passed. Deliberately
+ * reimplements its own K/M and price formatting rather than importing the
+ * thread block's, keeping this block self-contained.
+ */
+export function TraceCostBadge({ tokens, cost, className }: TraceCostBadgeProps) {
+  const fragments: string[] = [];
+  if (tokens !== undefined) fragments.push(`${formatTraceTokenCount(tokens)} tok`);
+  if (cost !== undefined) fragments.push(formatTraceCost(cost));
+
+  if (fragments.length === 0) return null;
+
+  return (
+    <span
+      className={cn(
+        "inline-flex h-[18px] items-center gap-1 rounded-full bg-black/5 px-1.5 text-[10px] tabular-nums text-muted-foreground dark:bg-white/10",
+        className,
+      )}
+    >
+      {fragments.join(" · ")}
+    </span>
+  );
+}
+
 export interface TraceGroupProps {
   /** Header line, e.g. "Running 3 tools in parallel". */
   label: ReactNode;
@@ -335,6 +380,46 @@ export function TraceSubagent({
           <Trace>{children}</Trace>
         </div>
       </motion.div>
+    </motion.div>
+  );
+}
+
+export interface TraceSummaryProps {
+  duration?: ReactNode;
+  tokens?: number;
+  cost?: number;
+  className?: string;
+  children?: ReactNode;
+}
+
+/**
+ * Run-summary tail row appended below a trace's last step — total duration,
+ * token count and cost, ruled off from the steps above. Mounts with the
+ * same opacity + slide entrance as `TraceStep` (`EASE_OUT`, 0.25s), reduced
+ * to an opacity-only fade under `useReducedMotion()`.
+ */
+export function TraceSummary({ duration, tokens, cost, className, children }: TraceSummaryProps) {
+  const reduce = useReducedMotion() ?? false;
+
+  return (
+    <motion.div
+      initial={reduce ? { opacity: 0 } : { opacity: 0, y: 4 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: reduce ? 0.15 : 0.25, ease: EASE_OUT }}
+      className={cn(
+        "ml-9 mt-1 flex items-center gap-3 border-t-[0.5px] border-black/10 pt-2 text-xs text-muted-foreground dark:border-white/10",
+        className,
+      )}
+    >
+      {duration !== undefined && duration !== null ? (
+        <span className="flex items-center gap-1">
+          <Clock className="h-3 w-3" />
+          {duration}
+        </span>
+      ) : null}
+      {tokens !== undefined ? <span>{formatTraceTokenCount(tokens)} tokens</span> : null}
+      {cost !== undefined ? <span>{formatTraceCost(cost)}</span> : null}
+      {children}
     </motion.div>
   );
 }

@@ -714,6 +714,25 @@ export const registry: CategoryEntry[] = [
     descriptionZh: "基于 UI Lab 动效原语组合而成、可直接用于产品的复合组件。",
     components: [
       {
+        slug: "thread-list",
+        name: "Thread List",
+        nameZh: "会话列表",
+        description:
+          "Sidebar conversation list: section headers with action slots, 30px rows with unread dots and time metas that swap to hover actions, and an active pill that glides between rows via shared layout.",
+        descriptionZh:
+          "侧栏会话列表:带操作槽的分组标题、30px 行(未读圆点、时间与悬停操作钮互换),以及用共享布局在行间平滑滑动的选中底块。",
+        file: "components/motion/thread-list/index.tsx",
+        badge: "new",
+        launchedAt: "2026-07-16",
+        keywords: [
+          "thread list react",
+          "conversation list sidebar",
+          "chat history list",
+          "shared layout active indicator",
+          "sidebar rows hover actions",
+        ],
+      },
+      {
         slug: "artifact-panel",
         name: "Artifact Panel",
         nameZh: "制品画布面板",
