@@ -6,6 +6,8 @@
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-07-16
+
 ### 新增
 - **`artifact-panel`(制品画布面板)block**:AI 产物的画布侧栏组件族,发丝面板壳(ArtifactPanel/Header/Action)+ 预览/代码双视图切换(ArtifactViewToggle,内容交叉淡切)+ 版本导航(ArtifactVersionNav,‹ v2/3 › 数字淡切 + 可选 Restore);preview 为"左对话右画布"分屏,三个版本内容随导航联动。
 - **`agent-inbox`(Agent 审批收件箱)block**:人机协同审批队列,容器卡带动态计数徽章(AgentInbox)+ 风险分级请求项(InboxItem,low/medium/high 徽章、过期时间、Details 测高展开、批准/拒绝原地落定)+ 操作回执卡(ActionReceipt,影响范围 + ±diff 统计 + Undo);preview 批准后实时追加完成态回执并联动计数。
