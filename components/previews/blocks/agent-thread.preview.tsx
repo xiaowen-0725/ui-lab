@@ -45,6 +45,8 @@ import {
   ThreadScrollPill,
   ThreadSuggestions,
   ThreadSystemBanner,
+  ThreadTask,
+  ThreadTaskList,
   ThreadThinking,
   ThreadToolCall,
   ThreadTurnHeader,
@@ -100,6 +102,12 @@ function StreamingScene() {
         <div className="group/turn flex flex-col">
           <ThreadTurnHeader working>{`Working… · ${seconds}s`}</ThreadTurnHeader>
           <ThreadThinking thinking label="Thinking…" />
+          <ThreadTaskList title="Release prep" progress="1/4">
+            <ThreadTask status="done">Read handoff doc</ThreadTask>
+            <ThreadTask status="active">Draft launch steps</ThreadTask>
+            <ThreadTask status="pending">Verify build</ThreadTask>
+            <ThreadTask status="pending">Stage the diff</ThreadTask>
+          </ThreadTaskList>
           <ThreadToolCall
             status="running"
             icon={<Globe className="h-4 w-4" />}

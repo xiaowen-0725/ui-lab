@@ -13,6 +13,7 @@ import {
   Mic,
   Paperclip,
   Plus,
+  ShieldCheck,
   Target,
   Zap,
 } from "lucide-react";
@@ -23,6 +24,7 @@ import {
   ComposerAccessChip,
   ComposerAttachmentChip,
   ComposerAttachments,
+  ComposerAutonomyDial,
   ComposerChip,
   ComposerContextBar,
   ComposerContextGauge,
@@ -40,6 +42,7 @@ import {
 import { EASE_OUT } from "@/lib/ease";
 
 const EFFORT_LABELS = ["Minimal", "Low", "Standard", "High", "Max"];
+const AUTONOMY_LABELS = ["Suggest only", "Ask first", "Scoped auto", "Full auto"];
 const RUN_DURATION_MS = 3000;
 
 /** Desktop-wallpaper backdrop behind the (transparent) composer shell. */
@@ -75,6 +78,7 @@ export function AgentComposerPreview() {
   const [value, setValue] = useState("");
   const [running, setRunning] = useState(false);
   const [effort, setEffort] = useState(3); // "High"
+  const [autonomy, setAutonomy] = useState(1); // "Ask first"
   const [pickerOpen, setPickerOpen] = useState(false);
   const [addOpen, setAddOpen] = useState(false);
   const [recording, setRecording] = useState(false);
@@ -261,8 +265,11 @@ export function AgentComposerPreview() {
                     {...rowMotion}
                   >
                     {addMenu}
-                    <ComposerAccessChip icon={<CircleAlert className="h-4 w-4" />}>
-                      Full access
+                    <ComposerAccessChip
+                      icon={<CircleAlert className="h-4 w-4" />}
+                      tone={autonomy === AUTONOMY_LABELS.length - 1 ? "warning" : "default"}
+                    >
+                      {AUTONOMY_LABELS[autonomy]}
                     </ComposerAccessChip>
                     <div className="ml-auto" />
                     <ComposerContextGauge used={64000} limit={200000} />
@@ -282,6 +289,20 @@ export function AgentComposerPreview() {
                           labels={EFFORT_LABELS}
                           aria-label="Reasoning effort"
                         />
+                      </div>
+                      <div className="mt-1 border-t-[0.5px] border-black/5 pt-1 dark:border-white/[0.06]">
+                        <div className="flex items-center justify-between px-2 text-muted-foreground text-xs">
+                          <span>Autonomy</span>
+                          <ShieldCheck className="h-3.5 w-3.5" />
+                        </div>
+                        <div className="px-2 pb-2">
+                          <ComposerAutonomyDial
+                            value={autonomy}
+                            onChange={setAutonomy}
+                            labels={AUTONOMY_LABELS}
+                            aria-label="Autonomy"
+                          />
+                        </div>
                       </div>
                     </ComposerModelPicker>
                     <ComposerIconButton aria-label="Dictate" onClick={startRecording}>

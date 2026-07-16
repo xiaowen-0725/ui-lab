@@ -14,6 +14,7 @@ import {
 import { EASE_OUT, SPRING_PANEL } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 
+export { ComposerAutonomyDial } from "./autonomy-dial";
 export { ComposerEffortSlider } from "./effort-slider";
 
 export interface ComposerProps {

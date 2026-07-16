@@ -26,6 +26,8 @@ export {
   ThreadStreamingCaret,
   ThreadSuggestions,
   ThreadSystemBanner,
+  ThreadTask,
+  ThreadTaskList,
   ThreadThinking,
   ThreadToolCall,
 } from "./status";

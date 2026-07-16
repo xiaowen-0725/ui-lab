@@ -525,6 +525,118 @@ export function ThreadSuggestions({ suggestions, onSelect, className }: ThreadSu
   );
 }
 
+export type ThreadTaskStatus = "pending" | "active" | "done";
+
+export interface ThreadTaskListProps {
+  title?: ReactNode;
+  /** Short counter, e.g. "2/5". Swaps with a `popLayout` crossfade when it changes. */
+  progress?: ReactNode;
+  className?: string;
+  children?: ReactNode;
+}
+
+/**
+ * Checklist card for a long-running agent task, built on `ThreadCard` so it
+ * shares the hairline ring and tint with the file/diff/approval cards. The
+ * optional title row pairs a medium-weight label with a tabular-nums
+ * progress readout on the trailing edge; the readout crossfades with a
+ * short y-shift on change (`AnimatePresence mode="popLayout"`, mirroring
+ * `ThreadBranchSwitcher`'s counter), reduced to an opacity-only swap under
+ * `useReducedMotion()`. Compose `ThreadTask` rows as `children`.
+ */
+export function ThreadTaskList({ title, progress, className, children }: ThreadTaskListProps) {
+  const reduce = useReducedMotion() ?? false;
+
+  return (
+    <ThreadCard className={cn("px-3 py-2", className)}>
+      {title !== undefined ? (
+        <div className="flex items-center justify-between pb-1">
+          <span className="font-medium text-[13px]">{title}</span>
+          {progress !== undefined ? (
+            <span className="relative inline-flex h-4 min-w-[2.5ch] items-center justify-center overflow-hidden text-muted-foreground text-xs tabular-nums">
+              <AnimatePresence mode="popLayout" initial={false}>
+                <motion.span
+                  key={String(progress)}
+                  initial={reduce ? { opacity: 0 } : { opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={reduce ? { opacity: 0 } : { opacity: 0, y: -4 }}
+                  transition={{ duration: 0.15, ease: EASE_OUT }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  {progress}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+          ) : null}
+        </div>
+      ) : null}
+      <div className="flex flex-col">{children}</div>
+    </ThreadCard>
+  );
+}
+
+export interface ThreadTaskProps {
+  status?: ThreadTaskStatus;
+  className?: string;
+  children?: ReactNode;
+}
+
+/**
+ * Single row inside a `ThreadTaskList` — a 16px status slot followed by the
+ * task's label. `pending` is a hollow ring, `active` is a solid blue dot
+ * wrapped in a pulsing ring (frozen, not removed, under
+ * `useReducedMotion()`) and its label runs through `ThreadShimmerText`,
+ * `done` is a check mark. The icon swap itself is a springy scale pop
+ * (`SPRING_PANEL`, `AnimatePresence mode="wait"`), reduced to a plain
+ * opacity cut. `done` text stays muted rather than a celebratory color —
+ * finishing a step should read as quiet progress, not an event.
+ */
+export function ThreadTask({ status = "pending", className, children }: ThreadTaskProps) {
+  const reduce = useReducedMotion() ?? false;
+
+  return (
+    <div className={cn("flex items-center gap-2 py-1 text-sm", className)}>
+      <span className="relative flex h-4 w-4 shrink-0 items-center justify-center">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={status}
+            initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.5 }}
+            transition={reduce ? { duration: 0.15, ease: EASE_OUT } : SPRING_PANEL}
+            className="flex items-center justify-center"
+          >
+            {status === "done" ? (
+              <Check className="h-3.5 w-3.5 text-emerald-600 dark:text-[#40C977]" />
+            ) : status === "active" ? (
+              <span className="relative flex h-2 w-2 items-center justify-center">
+                {reduce ? (
+                  <span aria-hidden className="absolute inset-0 rounded-full bg-[#339CFF] opacity-25" />
+                ) : (
+                  <motion.span
+                    aria-hidden
+                    className="absolute inset-0 rounded-full bg-[#339CFF]"
+                    animate={{ scale: [1, 1.8], opacity: [0.5, 0] }}
+                    transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
+                  />
+                )}
+                <span className="h-2 w-2 rounded-full bg-[#339CFF]" />
+              </span>
+            ) : (
+              <span className="h-3.5 w-3.5 rounded-full border-[1.5px] border-black/20 dark:border-white/20" />
+            )}
+          </motion.span>
+        </AnimatePresence>
+      </span>
+      {status === "active" ? (
+        <ThreadShimmerText>{children}</ThreadShimmerText>
+      ) : (
+        <span className="text-muted-foreground">{children}</span>
+      )}
+    </div>
+  );
+}
+
 export interface ThreadScrollPillProps {
   open: boolean;
   count?: number;
