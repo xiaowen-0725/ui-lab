@@ -4,6 +4,12 @@ import type { ComponentType } from "react";
 // Every preview is a client component dragging the library + motion with it.
 // Lazy chunks keep a page's JS limited to the previews it actually renders.
 export const previews: Record<string, ComponentType> = {
+  "blocks/artifact-panel": dynamic(() =>
+    import("./blocks/artifact-panel.preview").then((m) => m.ArtifactPanelPreview),
+  ),
+  "blocks/agent-inbox": dynamic(() =>
+    import("./blocks/agent-inbox.preview").then((m) => m.AgentInboxPreview),
+  ),
   "blocks/agent-trace": dynamic(() =>
     import("./blocks/agent-trace.preview").then((m) => m.AgentTracePreview),
   ),

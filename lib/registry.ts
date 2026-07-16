@@ -714,6 +714,45 @@ export const registry: CategoryEntry[] = [
     descriptionZh: "基于 UI Lab 动效原语组合而成、可直接用于产品的复合组件。",
     components: [
       {
+        slug: "artifact-panel",
+        name: "Artifact Panel",
+        nameZh: "制品画布面板",
+        description:
+          "Side-pane canvas for AI-generated artifacts: hairline panel shell, header with action cluster, preview/code view toggle with cross-fade, and a version navigator with restore.",
+        descriptionZh:
+          "AI 产物的画布侧栏:发丝面板壳、带操作簇的头部、交叉淡切的预览/代码双视图切换,以及带恢复按钮的版本导航。",
+        file: "components/motion/artifact-panel/index.tsx",
+        badge: "new",
+        launchedAt: "2026-07-14",
+        keywords: [
+          "artifact panel react",
+          "ai canvas component",
+          "side pane preview code",
+          "artifact version history",
+          "canvas split view chat",
+        ],
+      },
+      {
+        slug: "agent-inbox",
+        name: "Agent Inbox",
+        nameZh: "Agent 审批收件箱",
+        description:
+          "Human-in-the-loop approval queue: risk-tiered request items with expiry and detail expand, approve/deny flows that settle in place, and an action receipt card with scope, diff stats and undo.",
+        descriptionZh:
+          "人机协同审批队列:带风险分级与过期时间的请求项、可展开详情、原地落定的批准/拒绝流转,以及带影响范围、增删统计与撤销的操作回执卡。",
+        file: "components/motion/agent-inbox/index.tsx",
+        badge: "new",
+        launchedAt: "2026-07-14",
+        keywords: [
+          "human in the loop react",
+          "approval queue component",
+          "agent approval inbox",
+          "action receipt card",
+          "hitl ui component",
+          "risk badge component",
+        ],
+      },
+      {
         slug: "agent-trace",
         name: "Agent Trace",
         nameZh: "Agent 执行轨迹",
@@ -867,7 +906,10 @@ export const registry: CategoryEntry[] = [
         descriptionZh:
           "AI agent 聊天输入台组件族:上下文 chips、权限 chip、内置分段推理力度滑杆的模型选择器,以及可变形的发送/停止按钮,并带添加菜单与语音听写态。",
         file: "components/motion/agent-composer/index.tsx",
-        extraFiles: ["components/motion/agent-composer/effort-slider.tsx"],
+        extraFiles: [
+          "components/motion/agent-composer/effort-slider.tsx",
+          "components/motion/agent-composer/autonomy-dial.tsx",
+        ],
         badge: "new",
         launchedAt: "2026-07-12",
         keywords: [
