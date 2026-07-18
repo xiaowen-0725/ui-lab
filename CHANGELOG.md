@@ -7,6 +7,9 @@
 ## [Unreleased]
 
 ### 新增
+- **七个动效组件,移植自 motion-anything**(nexu-io,Apache-2.0;上游效果多源自 reactbits.dev,经作者授权再分发):`text-scramble`(文字解密,视口/悬停/text 变化触发,解码中宽度稳定)、`webgl-background`(fragment-shader 背景族六 variant:极光/丝绸/等离子/光芒射线/像素爆裂(点击涟漪)/抖动噪点,GLSL 原样移植,内建通用 WebGL runner,降级为静态帧或 CSS 渐变)、`star-border`(星光描边包裹器,纯 CSS 锥形渐变环绕光)、`bounce-cards`(弹跳卡组,错峰 spring 扇形展开)、`glare-hover`(眩光悬停,斜向光带扫过,触屏不渲染)、`skeleton`(骨架屏,className 塑形 + 微光扫过)。另原创 `scroll-hint`(滚动提示,鼠标轮廓/chevron 两形态;上游同名条目是无再分发授权的 Lottie 参考卡,故自行实现)。全部按库约定处理 reduced-motion。
+- **接入 emilkowalski/skills 开发技能包**(MIT,经 `npx skills` 与 mattpocock 技能同机制安装):动画词汇表、Emil 设计工程指南、Apple 设计原则、find/improve/review 三个动画审计工作流——用于开发期给 agent 提供动效品味约束,不进站点内容。
+- **「设计系统」模块(`/layouts`)**:把同一套完整 Agent 工作台换上不同产品语言的沉浸式展示。现含 **Graphite / 石墨** 基准深浅双态与 Nightflight、Stark、Paper、Terracotta、Indigo 五套成品皮肤；基色经 `makeWbSkin()` 派生完整 42 项 `--wb-*` 契约、舞台语义色与字体。浏览器画框内由 `agent-workbench`、`thread-list`、`agent-thread`、`agent-composer`、`artifact-panel` 真组件拼成三栏任务场景,保留拖拽/折叠/面板/卡片与弹层交互,输入发送后追加用户消息、处理中 shimmer 和双语固定回复;线程文件卡可打开右侧产物区,切换预览/源码并导航或恢复历史版本;下方线框解剖图与舞台区域悬停联动,点击直达组件文档。每条设计系统包含中英名/别名/描述、可应用的 `--wb-*`/站点语义皮肤、完整「对 AI 这样说」与可复制 `DESIGN.md`;数据真源 `lib/layouts/design-systems.ts`,`?ds=` 深链接入。
 - **「落地页」模块(`/sections`)**:视觉词汇表的第三个主题——一张落地页的解剖图。**10 种区块类型、19 个形态变体**,切换条按页面从上到下的解剖顺序编号排列(01 导航栏 → 10 页脚);每个变体是真实渲染的双语活样本(非数据换皮),配「什么时候用哪种形态」的取舍说明和形态级「对 AI 这样说」(结构清单 + 禁止项)。数据真源 `lib/sections/`,demo 注册表按 `slug/variant` 索引;导航/首页入口卡/站内搜索(搜「头图」→首屏、「Social Proof」→客户标墙)/`?section=` 深链/sitemap 全量接入。
 
 ## [0.5.0] - 2026-07-16

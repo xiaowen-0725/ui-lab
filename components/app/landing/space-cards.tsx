@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  AppWindow,
   ArrowUpRight,
   Component,
   LayoutGrid,
@@ -26,6 +27,7 @@ const SPACE_META: Record<
   styles: { icon: null, descKey: "spaceStylesDesc" },
   palettes: { icon: null, descKey: "spacePalettesDesc" },
   sections: { icon: PanelsTopLeft, descKey: "spaceSectionsDesc" },
+  layouts: { icon: AppWindow, descKey: "spaceLayoutsDesc" },
   playground: { icon: SlidersHorizontal, descKey: "spacePlaygroundDesc" },
 };
 
