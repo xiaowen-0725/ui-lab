@@ -7,6 +7,7 @@
 ## [Unreleased]
 
 ### 新增
+- **设计系统展馆工作台的脚本化会话回放**:`/layouts` 里 composer 发送后,不再是单句固定回复,而是播放一段多节拍 agent 回合动画——处理中秒数跳动 → 思考 shimmer 落定摘要 → 联网搜索(running→done)→ 读文件 → 流式吐字带光标 → 产出文件卡 → 变更 diff 卡 → 运行命令 → 审批卡(pending→自动批准)→ 落定,固定延时数组驱动、逐拍揭示。以默认关闭的 `scriptedReplay` prop 接入,仅展馆开启;`/studio` 生成器保持原有静态场景与"改刻度不重挂"性质不变。reduced-motion 下直接显最终态,timer 全程清理不串台。
 - **registry 分发 `--wb-*` token 默认值**:7 个 agent 线组件(agent-thread/agent-composer/agent-workbench/agent-trace/agent-inbox/thread-list/artifact-panel)的 `/r/{slug}.json` 现带 shadcn `cssVars.light`/`cssVars.dark`(各 42 项),`npx shadcn add` 安装即带正确着色 token,不必手抄 globals.css。真源仍是 `app/globals.css`;`check-registry` 新增运行时解析比对,globals 与 `lib/registry-wb-tokens.ts` 任一漂移即 check 失败。其余 77 个安装目标不含 cssVars。
 
 ## [0.8.0] - 2026-07-18

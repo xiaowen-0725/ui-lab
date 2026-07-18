@@ -25,6 +25,7 @@ import { AnimatePresence, useReducedMotion } from "motion/react";
 import { useLocale } from "next-intl";
 import {
   type CSSProperties,
+  type ReactNode,
   useEffect,
   useRef,
   useState,
@@ -60,6 +61,7 @@ import {
   ThreadItem,
   ThreadMessage,
   ThreadShimmerText,
+  ThreadStreamingCaret,
   ThreadThinking,
   ThreadToolCall,
   ThreadTurnHeader,
@@ -96,6 +98,7 @@ import type { AnatomyId } from "./anatomy-map";
 interface WorkbenchStageProps {
   entry: DesignSystemEntry;
   activeAnatomy: AnatomyId | null;
+  scriptedReplay?: boolean;
   className?: string;
 }
 
@@ -103,6 +106,9 @@ interface SubmittedMessage {
   id: number;
   prompt: string;
   status: "processing" | "done";
+  replayStep?: number;
+  replayChunk?: number;
+  elapsedSeconds?: number;
 }
 
 interface Attachment {
@@ -110,6 +116,12 @@ interface Attachment {
   name: string;
   meta: string;
 }
+
+const SCRIPTED_REPLAY_DELAYS = [0, 700, 1500, 2400, 3200, 4200, 5100, 6000, 7000, 7800, 8400];
+const SCRIPTED_STREAM_DELAYS = [4500, 4800];
+const SCRIPTED_ELAPSED_DELAYS = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000];
+const SCRIPTED_REPLAY_FINAL_STEP = SCRIPTED_REPLAY_DELAYS.length;
+const SCRIPTED_REPLAY_FINAL_CHUNK = SCRIPTED_STREAM_DELAYS.length + 1;
 
 const COPY = {
   zh: {
@@ -154,6 +166,32 @@ const COPY = {
     timestamp: "刚刚",
     processing: "正在处理…",
     cannedReply: "收到。我已记录这项后续工作，并把它加入当前发布清单。",
+    replayWorking: "处理中",
+    replayWorkedFor: "工作了 8 秒",
+    replayThinking: "思考中…",
+    replayThoughtLabel: "思考了 1 秒",
+    replayThought: "先读上下文再动手，把有风险的一步留到审批点后。",
+    replaySearching: "正在搜索网页",
+    replaySearched: "搜索了网页",
+    replaySearchDetail: "3 个结果",
+    replayReading: "正在读取 handoff.md",
+    replayRead: "读取了 handoff.md",
+    replayResponse: [
+      "我已读完上下文并完成搜索。",
+      "变更和生成物已经整理在下面。",
+      "最后一步会在审批落定后完成。",
+    ],
+    replayFileTitle: "SUMMARY.md",
+    replayFileSubtitle: "生成摘要 · Markdown",
+    replayDiffTitle: "修改了 2 个文件",
+    replayCommandRunning: "正在运行",
+    replayCommandDone: "已运行",
+    replayApprovalTitle: "需要审批",
+    replayApprovalApprovedTitle: "审批已落定",
+    replayApprovalDescription: "允许创建版本标签并完成这轮发布准备。",
+    replayApprove: "批准",
+    replayDeny: "拒绝",
+    replayApproved: "已批准",
     project: "ui-components",
     local: "本地",
     branch: "main",
@@ -252,6 +290,32 @@ const COPY = {
     timestamp: "just now",
     processing: "Processing…",
     cannedReply: "Got it. I recorded that follow-up and added it to the current release checklist.",
+    replayWorking: "Working",
+    replayWorkedFor: "Worked for 8s",
+    replayThinking: "Thinking…",
+    replayThoughtLabel: "Thought for 1s",
+    replayThought: "Read the context first, then keep the risky step behind an approval point.",
+    replaySearching: "Searching the web",
+    replaySearched: "Searched the web",
+    replaySearchDetail: "3 results",
+    replayReading: "Reading handoff.md",
+    replayRead: "Read handoff.md",
+    replayResponse: [
+      "I read the context and completed the search. ",
+      "The changes and generated artifact are organized below. ",
+      "The final step will settle after approval.",
+    ],
+    replayFileTitle: "SUMMARY.md",
+    replayFileSubtitle: "Generated summary · Markdown",
+    replayDiffTitle: "Edited 2 files",
+    replayCommandRunning: "Running",
+    replayCommandDone: "Ran",
+    replayApprovalTitle: "Approval required",
+    replayApprovalApprovedTitle: "Approval resolved",
+    replayApprovalDescription: "Allow creating the version tag and completing this release pass.",
+    replayApprove: "Approve",
+    replayDeny: "Deny",
+    replayApproved: "Approved",
     project: "ui-components",
     local: "Local",
     branch: "main",
@@ -614,8 +678,223 @@ function ReleaseArtifactPanel({
   );
 }
 
+function ReplayReveal({
+  reduce,
+  children,
+  className,
+}: {
+  reduce: boolean;
+  children: ReactNode;
+  className?: string;
+}) {
+  return reduce ? (
+    <div className={className}>{children}</div>
+  ) : (
+    <ThreadItem className={className}>{children}</ThreadItem>
+  );
+}
+
+function ScriptedReplayTurn({
+  copy,
+  message,
+  reduce,
+  onOpenArtifact,
+  className,
+}: {
+  copy: StageCopy;
+  message: SubmittedMessage;
+  reduce: boolean;
+  onOpenArtifact: () => void;
+  className?: string;
+}) {
+  const step = message.replayStep ?? 0;
+  const complete = step >= SCRIPTED_REPLAY_FINAL_STEP;
+  const [turnOpen, setTurnOpen] = useState(true);
+  const [thoughtOpen, setThoughtOpen] = useState(!complete);
+  const [approvalStatus, setApprovalStatus] = useState<"pending" | "approved" | "denied">(
+    complete ? "approved" : "pending",
+  );
+  const displayedApprovalStatus = complete ? "approved" : approvalStatus;
+
+  useEffect(() => {
+    if (!complete) return;
+    setThoughtOpen(false);
+    setApprovalStatus("approved");
+  }, [complete]);
+
+  return (
+    <div className={cn("group/turn flex flex-col", className)}>
+      {step >= 1 ? (
+        <ThreadTurnHeader
+          open={turnOpen}
+          onOpenChange={setTurnOpen}
+          working={!complete}
+        >
+          {complete
+            ? copy.replayWorkedFor
+            : `${copy.replayWorking} · ${message.elapsedSeconds ?? 0}s`}
+        </ThreadTurnHeader>
+      ) : null}
+
+      {step >= 2 ? (
+        <ThreadCollapse open={turnOpen}>
+          <ReplayReveal reduce={reduce}>
+            <ThreadThinking
+              thinking={step === 2}
+              label={step === 2 ? copy.replayThinking : copy.replayThoughtLabel}
+              open={complete ? false : thoughtOpen}
+              onOpenChange={setThoughtOpen}
+            >
+              {step >= 3 ? copy.replayThought : null}
+            </ThreadThinking>
+          </ReplayReveal>
+
+          {step >= 4 ? (
+            <ReplayReveal reduce={reduce}>
+              <ThreadToolCall
+                status={step === 4 ? "running" : "done"}
+                icon={<Globe className="h-4 w-4" />}
+                detail={
+                  step >= 5 ? (
+                    <span className="font-mono [font-family:var(--font-mono)] text-[12px]">
+                      {copy.replaySearchDetail}
+                    </span>
+                  ) : undefined
+                }
+              >
+                {step === 4 ? copy.replaySearching : copy.replaySearched}
+              </ThreadToolCall>
+            </ReplayReveal>
+          ) : null}
+
+          {step >= 5 ? (
+            <ReplayReveal reduce={reduce}>
+              <ThreadToolCall
+                status={step === 5 ? "running" : "done"}
+                icon={<FileText className="h-4 w-4" />}
+              >
+                {step === 5 ? copy.replayReading : copy.replayRead}
+              </ThreadToolCall>
+            </ReplayReveal>
+          ) : null}
+        </ThreadCollapse>
+      ) : null}
+
+      {step >= 6 ? (
+        <ReplayReveal reduce={reduce}>
+          <ThreadMessage className="py-1">
+            {copy.replayResponse.slice(0, message.replayChunk ?? 1).map((sentence) => (
+              <span key={sentence}>{sentence}</span>
+            ))}
+            {step === 6 ? <ThreadStreamingCaret /> : null}
+          </ThreadMessage>
+        </ReplayReveal>
+      ) : null}
+
+      {step >= 7 ? (
+        <ReplayReveal reduce={reduce}>
+          <ThreadFileCard
+            icon={<FileText className="h-6 w-6" />}
+            title={copy.replayFileTitle}
+            subtitle={copy.replayFileSubtitle}
+            action={<ThreadCardButton onClick={onOpenArtifact}>{copy.open}</ThreadCardButton>}
+          />
+        </ReplayReveal>
+      ) : null}
+
+      {step >= 8 ? (
+        <ReplayReveal reduce={reduce}>
+          <ThreadDiffCard
+            icon={<SquarePen className="h-5 w-5" />}
+            title={copy.replayDiffTitle}
+            added={18}
+            removed={4}
+            actions={
+              <>
+                <ThreadCardButton variant="ghost">{copy.undo}</ThreadCardButton>
+                <ThreadCardButton>{copy.review}</ThreadCardButton>
+              </>
+            }
+          >
+            <ThreadDiffRow
+              path="components/app/layouts/workbench-stage.tsx"
+              added={14}
+              removed={3}
+              className="font-mono [font-family:var(--font-mono)]"
+            />
+            <ThreadDiffRow
+              path="SUMMARY.md"
+              added={4}
+              removed={1}
+              className="font-mono [font-family:var(--font-mono)]"
+            />
+          </ThreadDiffCard>
+        </ReplayReveal>
+      ) : null}
+
+      {step >= 9 ? (
+        <ReplayReveal reduce={reduce}>
+          <ThreadCommandRow
+            icon={<SquareTerminal className="h-4 w-4" />}
+            running={step === 9}
+            className="font-mono [font-family:var(--font-mono)]"
+          >
+            {step === 9 ? copy.replayCommandRunning : copy.replayCommandDone}{" "}
+            <ThreadInlineCode className="[font-family:var(--font-mono)]">
+              bun run check
+            </ThreadInlineCode>
+          </ThreadCommandRow>
+        </ReplayReveal>
+      ) : null}
+
+      {step >= 10 ? (
+        <ReplayReveal reduce={reduce}>
+          <ThreadApprovalCard
+            icon={<ShieldCheck className="h-5 w-5" />}
+            title={
+              displayedApprovalStatus === "approved"
+                ? copy.replayApprovalApprovedTitle
+                : copy.replayApprovalTitle
+            }
+            description={copy.replayApprovalDescription}
+            command="git tag v0.6.0"
+            status={displayedApprovalStatus}
+            approveLabel={copy.replayApprove}
+            denyLabel={copy.replayDeny}
+            onApprove={() => setApprovalStatus("approved")}
+            onDeny={() => setApprovalStatus("denied")}
+            resolution={
+              displayedApprovalStatus === "approved" ? (
+                <span className="inline-flex items-center gap-1">
+                  <CheckCircle2 className="h-3.5 w-3.5" />
+                  {copy.replayApproved}
+                </span>
+              ) : displayedApprovalStatus === "denied" ? (
+                copy.replayDeny
+              ) : undefined
+            }
+          />
+        </ReplayReveal>
+      ) : null}
+
+      {complete ? (
+        <ThreadActionBar timestamp={copy.timestamp}>
+          <ThreadActionButton aria-label={copy.copied}>
+            <Copy className="h-3.5 w-3.5" />
+          </ThreadActionButton>
+        </ThreadActionBar>
+      ) : null}
+    </div>
+  );
+}
+
 /** A real, resizable three-pane workbench with a finished scenario and repeatable simulated sends. */
-export function WorkbenchStage({ entry, activeAnatomy, className }: WorkbenchStageProps) {
+export function WorkbenchStage({
+  entry,
+  activeAnatomy,
+  scriptedReplay = false,
+  className,
+}: WorkbenchStageProps) {
   const locale = useLocale() as Locale;
   const copy = COPY[locale];
   const reduce = useReducedMotion() ?? false;
@@ -632,12 +911,14 @@ export function WorkbenchStage({ entry, activeAnatomy, className }: WorkbenchSta
     { id: "handoff", name: copy.attachment, meta: copy.attachmentMeta },
   ]);
   const messageIdRef = useRef(0);
-  const timersRef = useRef<Map<number, ReturnType<typeof setTimeout>>>(new Map());
+  const timersRef = useRef<Map<number, Set<ReturnType<typeof setTimeout>>>>(new Map());
   const threadEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     return () => {
-      for (const timer of timersRef.current.values()) clearTimeout(timer);
+      for (const timers of timersRef.current.values()) {
+        for (const timer of timers) clearTimeout(timer);
+      }
       timersRef.current.clear();
     };
   }, []);
@@ -656,18 +937,92 @@ export function WorkbenchStage({ entry, activeAnatomy, className }: WorkbenchSta
 
     messageIdRef.current += 1;
     const id = messageIdRef.current;
-    setMessages((current) => [...current, { id, prompt, status: "processing" }]);
+
+    if (!scriptedReplay) {
+      setMessages((current) => [...current, { id, prompt, status: "processing" }]);
+      setDraft("");
+
+      const timer = setTimeout(() => {
+        setMessages((current) =>
+          current.map((message) =>
+            message.id === id ? { ...message, status: "done" } : message,
+          ),
+        );
+        timersRef.current.delete(id);
+      }, 2000);
+      timersRef.current.set(id, new Set([timer]));
+      return;
+    }
+
+    for (const timers of timersRef.current.values()) {
+      for (const timer of timers) clearTimeout(timer);
+    }
+    timersRef.current.clear();
+
+    setMessages((current) => [
+      ...current.map((message) =>
+        message.replayStep !== undefined && message.status === "processing"
+          ? {
+              ...message,
+              status: "done" as const,
+              replayStep: SCRIPTED_REPLAY_FINAL_STEP,
+              replayChunk: SCRIPTED_REPLAY_FINAL_CHUNK,
+              elapsedSeconds: SCRIPTED_ELAPSED_DELAYS.length,
+            }
+          : message,
+      ),
+      {
+        id,
+        prompt,
+        status: reduce ? "done" : "processing",
+        replayStep: reduce ? SCRIPTED_REPLAY_FINAL_STEP : 0,
+        replayChunk: reduce ? SCRIPTED_REPLAY_FINAL_CHUNK : 0,
+        elapsedSeconds: reduce ? SCRIPTED_ELAPSED_DELAYS.length : 0,
+      },
+    ]);
     setDraft("");
 
-    const timer = setTimeout(() => {
-      setMessages((current) =>
-        current.map((message) =>
-          message.id === id ? { ...message, status: "done" } : message,
-        ),
-      );
-      timersRef.current.delete(id);
-    }, 2000);
-    timersRef.current.set(id, timer);
+    if (reduce) return;
+
+    const schedule = (delay: number, update: (message: SubmittedMessage) => SubmittedMessage) => {
+      const timer = setTimeout(() => {
+        setMessages((current) =>
+          current.map((message) => (message.id === id ? update(message) : message)),
+        );
+
+        const timers = timersRef.current.get(id);
+        timers?.delete(timer);
+        if (timers?.size === 0) timersRef.current.delete(id);
+      }, delay);
+
+      const timers = timersRef.current.get(id) ?? new Set<ReturnType<typeof setTimeout>>();
+      timers.add(timer);
+      timersRef.current.set(id, timers);
+    };
+
+    SCRIPTED_REPLAY_DELAYS.forEach((delay, index) => {
+      const replayStep = index + 1;
+      schedule(delay, (message) => ({
+        ...message,
+        status: replayStep === SCRIPTED_REPLAY_FINAL_STEP ? "done" : "processing",
+        replayStep,
+        replayChunk:
+          replayStep >= 7
+            ? SCRIPTED_REPLAY_FINAL_CHUNK
+            : replayStep === 6
+              ? 1
+              : message.replayChunk,
+      }));
+    });
+
+    SCRIPTED_STREAM_DELAYS.forEach((delay, index) => {
+      const replayChunk = index + 2;
+      schedule(delay, (message) => ({ ...message, replayChunk }));
+    });
+
+    SCRIPTED_ELAPSED_DELAYS.forEach((delay, index) => {
+      schedule(delay, (message) => ({ ...message, elapsedSeconds: index + 1 }));
+    });
   };
 
   const addAttachment = (attachment: Attachment) => {
@@ -893,7 +1248,14 @@ export function WorkbenchStage({ entry, activeAnatomy, className }: WorkbenchSta
                   {messages.map((message) => (
                     <ThreadItem key={message.id}>
                       <ThreadUserMessage>{message.prompt}</ThreadUserMessage>
-                      {message.status === "processing" ? (
+                      {scriptedReplay && message.replayStep !== undefined ? (
+                        <ScriptedReplayTurn
+                          copy={copy}
+                          message={message}
+                          reduce={reduce}
+                          onOpenArtifact={() => setPanelOpen(true)}
+                        />
+                      ) : message.status === "processing" ? (
                         <div className="py-2 text-sm">
                           <ThreadShimmerText>{copy.processing}</ThreadShimmerText>
                         </div>

@@ -71,7 +71,7 @@ export function LayoutsExplorer({ className }: { className?: string }) {
   return (
     <div className={cn("flex flex-col gap-8", className)}>
       <div>
-        <WorkbenchStage entry={active} activeAnatomy={activeAnatomy} />
+        <WorkbenchStage entry={active} activeAnatomy={activeAnatomy} scriptedReplay />
         <p className="mt-3 text-xs leading-relaxed text-muted-foreground/80">
           {t("stageHint")}
         </p>
