@@ -3,8 +3,11 @@
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+import { IconsExplorer } from "@/components/app/atoms/icons-explorer";
+import { LinesExplorer } from "@/components/app/atoms/lines-explorer";
 import { MotionExplorer } from "@/components/app/atoms/motion-explorer";
 import { ShapeExplorer } from "@/components/app/atoms/shape-explorer";
+import { SpacingExplorer } from "@/components/app/atoms/spacing-explorer";
 import { TypographyExplorer } from "@/components/app/atoms/typography-explorer";
 import { ATOM_CATEGORIES } from "@/lib/atoms";
 import type { AtomCategorySlug } from "@/lib/atoms";
@@ -59,6 +62,9 @@ export function AtomsExplorer() {
         {category === "motion" ? <MotionExplorer /> : null}
         {category === "shape" ? <ShapeExplorer /> : null}
         {category === "typography" ? <TypographyExplorer /> : null}
+        {category === "spacing" ? <SpacingExplorer /> : null}
+        {category === "lines" ? <LinesExplorer /> : null}
+        {category === "icons" ? <IconsExplorer /> : null}
       </div>
     </div>
   );

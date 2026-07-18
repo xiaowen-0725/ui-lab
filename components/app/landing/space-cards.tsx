@@ -5,6 +5,7 @@ import {
   ArrowUpRight,
   Atom,
   Component,
+  Hammer,
   LayoutGrid,
   PanelsTopLeft,
   SlidersHorizontal,
@@ -30,6 +31,7 @@ const SPACE_META: Record<
   sections: { icon: PanelsTopLeft, descKey: "spaceSectionsDesc" },
   layouts: { icon: AppWindow, descKey: "spaceLayoutsDesc" },
   atoms: { icon: Atom, descKey: "spaceAtomsDesc" },
+  studio: { icon: Hammer, descKey: "spaceStudioDesc" },
   playground: { icon: SlidersHorizontal, descKey: "spacePlaygroundDesc" },
 };
 

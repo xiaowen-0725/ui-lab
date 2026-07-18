@@ -3,16 +3,20 @@
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { AtomCard } from "@/components/app/atoms/atom-card";
+import { AtomExportActions } from "@/components/app/atoms/atom-export-actions";
 import { CopyValue } from "@/components/app/atoms/copy-value";
 import type { Locale } from "@/i18n/routing";
 import {
   FONT_PAIRS,
   fontPairCssValue,
+  createTypographyExports,
   TYPE_SCALE,
   typeScaleCssValue,
 } from "@/lib/atoms";
 import type { FontPairAtom } from "@/lib/atoms";
 import { cn } from "@/lib/utils";
+
+const TYPOGRAPHY_EXPORTS = createTypographyExports(FONT_PAIRS, TYPE_SCALE);
 
 const COPY = {
   zh: {
@@ -194,12 +198,17 @@ export function TypographyExplorer() {
       </section>
 
       <section aria-labelledby="type-values-title">
-        <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          {t("entryList")}
-        </p>
-        <h2 id="type-values-title" className="mt-2 text-2xl font-semibold text-foreground">
-          {t("typeValuesTitle")}
-        </h2>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              {t("entryList")}
+            </p>
+            <h2 id="type-values-title" className="mt-2 text-2xl font-semibold text-foreground">
+              {t("typeValuesTitle")}
+            </h2>
+          </div>
+          <AtomExportActions bundle={TYPOGRAPHY_EXPORTS} category="typography" />
+        </div>
 
         <h3 className="mt-6 text-sm font-semibold text-foreground">{t("fontPairs")}</h3>
         <div className="mt-3 grid gap-4 lg:grid-cols-2 xl:grid-cols-3">

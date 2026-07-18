@@ -7,12 +7,13 @@ import { useTheme } from "next-themes";
 import { useState } from "react";
 import type { ReactNode } from "react";
 import { AtomCard } from "@/components/app/atoms/atom-card";
+import { AtomExportActions } from "@/components/app/atoms/atom-export-actions";
 import {
   CopyValue,
   useCopyFeedback,
 } from "@/components/app/atoms/copy-value";
 import type { Locale } from "@/i18n/routing";
-import { RADII, SHADOWS } from "@/lib/atoms";
+import { createShapeExports, RADII, SHADOWS } from "@/lib/atoms";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { cn } from "@/lib/utils";
 
@@ -32,6 +33,8 @@ const COPY = {
     placeholder: "Enter project name",
   },
 } as const;
+
+const SHAPE_EXPORTS = createShapeExports(RADII, SHADOWS);
 
 function ShadowSurface({
   shadow,
@@ -216,12 +219,17 @@ export function ShapeExplorer() {
       </section>
 
       <section aria-labelledby="shape-values-title">
-        <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          {t("entryList")}
-        </p>
-        <h2 id="shape-values-title" className="mt-2 text-2xl font-semibold text-foreground">
-          {t("shapeValuesTitle")}
-        </h2>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              {t("entryList")}
+            </p>
+            <h2 id="shape-values-title" className="mt-2 text-2xl font-semibold text-foreground">
+              {t("shapeValuesTitle")}
+            </h2>
+          </div>
+          <AtomExportActions bundle={SHAPE_EXPORTS} category="shape" />
+        </div>
 
         <h3 className="mt-6 text-sm font-semibold text-foreground">{t("radii")}</h3>
         <div className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -14,6 +14,7 @@ export function AtomCard({
   whenUseZh,
   sample,
   value,
+  valueLabel,
   note,
   noteZh,
   className,
@@ -26,6 +27,7 @@ export function AtomCard({
   whenUseZh: string;
   sample: ReactNode;
   value: ReactNode;
+  valueLabel?: string;
   note?: string;
   noteZh?: string;
   className?: string;
@@ -63,7 +65,7 @@ export function AtomCard({
         ))}
       </div>
       <p className="mt-4 text-[0.65rem] font-medium uppercase tracking-[0.16em] text-muted-foreground/70">
-        {t("valueLabel")}
+        {valueLabel ?? t("valueLabel")}
       </p>
       <div className="mt-2">{value}</div>
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground">

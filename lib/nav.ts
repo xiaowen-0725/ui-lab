@@ -12,6 +12,7 @@ export type NavSpace = {
     | "sections"
     | "layouts"
     | "atoms"
+    | "studio"
     | "playground";
   /** Route the nav item links to. */
   href: string;
@@ -34,6 +35,7 @@ export const NAV_SPACES: readonly NavSpace[] = [
   { key: "sections", href: "/sections", match: "/sections" },
   { key: "layouts", href: "/layouts", match: "/layouts" },
   { key: "atoms", href: "/atoms", match: "/atoms" },
+  { key: "studio", href: "/studio", match: "/studio" },
   { key: "playground", href: "/playground", match: "/playground" },
 ];
 

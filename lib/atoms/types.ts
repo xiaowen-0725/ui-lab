@@ -84,7 +84,68 @@ export type TypeScaleAtom = {
   letterSpacing: string;
 };
 
-export type AtomCategorySlug = "motion" | "shape" | "typography";
+export type SpacingAtom = {
+  slug: string;
+  name: string;
+  nameZh: string;
+  aliases: readonly string[];
+  whenUse: string;
+  whenUseZh: string;
+  pixels: number;
+};
+
+export type DensityAtom = {
+  slug: string;
+  name: string;
+  nameZh: string;
+  aliases: readonly string[];
+  whenUse: string;
+  whenUseZh: string;
+  rowHeight: number;
+  padding: number;
+};
+
+export type LineAtom = {
+  slug: string;
+  name: string;
+  nameZh: string;
+  aliases: readonly string[];
+  whenUse: string;
+  whenUseZh: string;
+  property: "border" | "box-shadow" | "outline";
+  light: string;
+  dark: string;
+  offset?: string;
+};
+
+export type IconStyleAtom = {
+  slug: string;
+  name: string;
+  nameZh: string;
+  aliases: readonly string[];
+  whenUse: string;
+  whenUseZh: string;
+  spec: string;
+  specZh: string;
+  rendering:
+    | {
+        mode: "stroke";
+        strokeWidth: number;
+        linecap: "round";
+        linejoin: "miter" | "round";
+      }
+    | { mode: "fill" }
+    | { mode: "duotone"; secondaryOpacity: number }
+    | { mode: "pixel"; grid: 16 };
+};
+
+export type AtomCategorySlug =
+  | "motion"
+  | "shape"
+  | "typography"
+  | "spacing"
+  | "lines"
+  | "icons";
 
 export type AtomSearchItem = {
   slug: string;

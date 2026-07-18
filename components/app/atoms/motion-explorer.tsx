@@ -5,10 +5,12 @@ import { motion, useReducedMotion } from "motion/react";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { AtomCard } from "@/components/app/atoms/atom-card";
+import { AtomExportActions } from "@/components/app/atoms/atom-export-actions";
 import { CopyValue } from "@/components/app/atoms/copy-value";
 import type { Locale } from "@/i18n/routing";
 import {
   curveCssValue,
+  createMotionExports,
   durationCssValue,
   MOTION_CURVES,
   MOTION_DURATIONS,
@@ -16,6 +18,12 @@ import {
   springJsValue,
 } from "@/lib/atoms";
 import type { MotionCurveAtom, MotionSpringAtom } from "@/lib/atoms";
+
+const MOTION_EXPORTS = createMotionExports(
+  MOTION_CURVES,
+  MOTION_SPRINGS,
+  MOTION_DURATIONS,
+);
 
 function CurveGraph({ curve }: { curve: MotionCurveAtom["value"] }) {
   const [x1, y1, x2, y2] = curve;
@@ -194,12 +202,17 @@ export function MotionExplorer() {
       </section>
 
       <section aria-labelledby="motion-values-title">
-        <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          {t("entryList")}
-        </p>
-        <h2 id="motion-values-title" className="mt-2 text-2xl font-semibold text-foreground">
-          {t("motionValuesTitle")}
-        </h2>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              {t("entryList")}
+            </p>
+            <h2 id="motion-values-title" className="mt-2 text-2xl font-semibold text-foreground">
+              {t("motionValuesTitle")}
+            </h2>
+          </div>
+          <AtomExportActions bundle={MOTION_EXPORTS} category="motion" />
+        </div>
 
         <h3 className="mt-6 text-sm font-semibold text-foreground">{t("curves")}</h3>
         <div className="mt-3 grid gap-4 lg:grid-cols-3">
