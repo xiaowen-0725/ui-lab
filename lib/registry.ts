@@ -704,6 +704,135 @@ export const registry: CategoryEntry[] = [
           "loading indicator",
         ],
       },
+      {
+        slug: "text-scramble",
+        name: "Text Scramble",
+        nameZh: "文字解密",
+        description:
+          "Scrambled glyphs resolve left-to-right into the real text — on view, on hover, or whenever the text prop changes. Width stays stable mid-scramble; reduced-motion shows the final text instantly.",
+        descriptionZh:
+          "随机字符从左到右逐个解析为真实文本——进入视口、悬停或 text 变化时播放。解码过程中宽度不抖动,「减少动效」偏好下直接显示最终文本。",
+        file: "components/motion/text-scramble.tsx",
+        badge: "new",
+        launchedAt: "2026-07-17",
+        keywords: [
+          "text scramble react",
+          "decrypted text effect",
+          "decode on hover",
+          "matrix text reveal",
+          "glyph shuffle text",
+        ],
+      },
+      {
+        slug: "webgl-background",
+        name: "WebGL Background",
+        nameZh: "WebGL 着色器背景",
+        description:
+          "Fragment-shader hero backgrounds (aurora, silk, plasma, light rays, pixel blast with click ripples, dither) behind a single typed variant prop. Reduced-motion renders one static frame; no WebGL falls back to a matching CSS gradient.",
+        descriptionZh:
+          "基于 fragment shader 的主视觉背景(极光、丝绸、等离子、光芒射线、像素爆裂(点击涟漪)、抖动噪点),单一类型化 variant 属性切换。「减少动效」偏好下渲染静态一帧;无 WebGL 时回退为同色系 CSS 渐变。",
+        file: "components/motion/webgl-background.tsx",
+        badge: "new",
+        launchedAt: "2026-07-17",
+        keywords: [
+          "webgl shader background",
+          "aurora background react",
+          "silk shader effect",
+          "plasma background",
+          "glsl hero background react",
+        ],
+      },
+      {
+        slug: "star-border",
+        name: "Star Border",
+        nameZh: "星光描边",
+        description:
+          "A slow light orbits the border of a CTA button or card — a pure-CSS conic-gradient wrapper with color, speed and thickness props. Reduced-motion freezes it into a static ring.",
+        descriptionZh:
+          "一束缓慢的光沿按钮或卡片边框环绕运行——纯 CSS 锥形渐变包裹器,可调光色、速度与描边厚度。「减少动效」偏好下静止为固定描边。",
+        file: "components/motion/star-border.tsx",
+        badge: "new",
+        launchedAt: "2026-07-17",
+        keywords: [
+          "star border button",
+          "animated border react",
+          "orbiting border light",
+          "glowing border cta",
+          "conic gradient border",
+        ],
+      },
+      {
+        slug: "bounce-cards",
+        name: "Bounce Cards",
+        nameZh: "弹跳卡组",
+        description:
+          "A stacked deck of cards fans open with a staggered spring bounce when it enters the view. Spacing, rotation and stagger are tunable; reduced-motion keeps the fanned layout and only fades in.",
+        descriptionZh:
+          "一叠卡片进入视口时错峰弹跳着扇形展开。间距、旋转与错峰节奏可调;「减少动效」偏好下保留扇形布局,仅做透明度渐入。",
+        file: "components/motion/bounce-cards.tsx",
+        badge: "new",
+        launchedAt: "2026-07-17",
+        keywords: [
+          "bounce cards react",
+          "card stack fan out",
+          "staggered card entrance",
+          "spring card deck",
+        ],
+      },
+      {
+        slug: "glare-hover",
+        name: "Glare Hover",
+        nameZh: "眩光悬停",
+        description:
+          "A diagonal band of light sweeps across a card or button on hover. Color, angle and duration props; touch devices skip it, reduced-motion swaps the sweep for a soft opacity highlight.",
+        descriptionZh:
+          "悬停时一道斜向光带扫过卡片或按钮表面。光色、角度、时长可调;触屏设备不渲染,「减少动效」偏好下换成轻微透明度高亮。",
+        file: "components/motion/glare-hover.tsx",
+        badge: "new",
+        launchedAt: "2026-07-17",
+        keywords: [
+          "glare hover effect",
+          "light sweep card",
+          "sheen hover react",
+          "shine sweep button",
+        ],
+      },
+      {
+        slug: "skeleton",
+        name: "Skeleton",
+        nameZh: "骨架屏",
+        description:
+          "Loading placeholder block with a soft shimmer sweep — shape it entirely with className, compose avatars, text bars and image blocks. Reduced-motion swaps the sweep for a calm opacity pulse.",
+        descriptionZh:
+          "内容加载占位块,自带柔和微光扫过——形状完全由 className 决定,可组合出头像、文本条、图块。「减少动效」偏好下换成平缓的透明度脉冲。",
+        file: "components/motion/skeleton.tsx",
+        badge: "new",
+        launchedAt: "2026-07-17",
+        keywords: [
+          "skeleton loading react",
+          "shimmer placeholder",
+          "loading skeleton component",
+          "content placeholder",
+        ],
+      },
+      {
+        slug: "scroll-hint",
+        name: "Scroll Hint",
+        nameZh: "滚动提示",
+        description:
+          "A hero-section scroll-down indicator in two shapes: a mouse outline with a dropping dot, or a pair of pulsing chevrons. currentColor sizing, optional label, reduced-motion shows the static glyph.",
+        descriptionZh:
+          "首屏底部的向下滚动指示器,两种形态:鼠标轮廓内圆点下落,或两枚 chevron 依次脉冲。跟随 currentColor,可带文字标签,「减少动效」偏好下静态显示。",
+        file: "components/motion/scroll-hint.tsx",
+        badge: "new",
+        launchedAt: "2026-07-17",
+        keywords: [
+          "scroll down indicator",
+          "scroll hint react",
+          "mouse scroll icon animated",
+          "hero scroll cue",
+        ],
+      },
     ],
   },
   {

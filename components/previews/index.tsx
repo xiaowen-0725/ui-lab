@@ -261,6 +261,29 @@ export const previews: Record<string, ComponentType> = {
   "motion/loader": dynamic(() =>
     import("./motion/loader.preview").then((m) => m.LoaderPreview),
   ),
+  "motion/text-scramble": dynamic(() =>
+    import("./motion/text-scramble.preview").then((m) => m.TextScramblePreview),
+  ),
+  "motion/webgl-background": dynamic(() =>
+    import("./motion/webgl-background.preview").then(
+      (m) => m.WebGLBackgroundPreview,
+    ),
+  ),
+  "motion/star-border": dynamic(() =>
+    import("./motion/star-border.preview").then((m) => m.StarBorderPreview),
+  ),
+  "motion/bounce-cards": dynamic(() =>
+    import("./motion/bounce-cards.preview").then((m) => m.BounceCardsPreview),
+  ),
+  "motion/glare-hover": dynamic(() =>
+    import("./motion/glare-hover.preview").then((m) => m.GlareHoverPreview),
+  ),
+  "motion/skeleton": dynamic(() =>
+    import("./motion/skeleton.preview").then((m) => m.SkeletonPreview),
+  ),
+  "motion/scroll-hint": dynamic(() =>
+    import("./motion/scroll-hint.preview").then((m) => m.ScrollHintPreview),
+  ),
 };
 
 export function getPreview(category: string, slug: string) {
