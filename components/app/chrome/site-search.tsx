@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Atom,
   CircleDashed,
   Droplets,
   FileText,
@@ -20,6 +21,7 @@ import {
 import { NewBadge } from "@/components/app/docs/new-badge";
 import { registry } from "@/lib/registry";
 import { PALETTES } from "@/lib/palettes";
+import { ATOM_SEARCH_ITEMS } from "@/lib/atoms";
 import { SECTIONS } from "@/lib/sections";
 import { STYLES } from "@/lib/styles";
 import { localizedName } from "@/lib/i18n-content";
@@ -102,6 +104,19 @@ export function SiteSearch({ className }: { className?: string }) {
         ].filter(Boolean),
         icon: PanelsTopLeft,
         onSelect: () => router.push(`/sections?section=${section.slug}`),
+      })),
+      ...ATOM_SEARCH_ITEMS.map((atom) => ({
+        id: `atom-${atom.category}-${atom.slug}`,
+        label: locale === "zh" ? atom.nameZh : atom.name,
+        group: tNav("atoms"),
+        keywords: [
+          atom.slug,
+          atom.name,
+          atom.nameZh,
+          ...atom.aliases,
+        ].filter(Boolean),
+        icon: Atom,
+        onSelect: () => router.push(`/atoms?cat=${atom.category}#${atom.slug}`),
       })),
       ...PAGES.map((page) => ({
         id: page.slug,

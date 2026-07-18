@@ -3,6 +3,7 @@
 import {
   AppWindow,
   ArrowUpRight,
+  Atom,
   Component,
   LayoutGrid,
   PanelsTopLeft,
@@ -28,6 +29,7 @@ const SPACE_META: Record<
   palettes: { icon: null, descKey: "spacePalettesDesc" },
   sections: { icon: PanelsTopLeft, descKey: "spaceSectionsDesc" },
   layouts: { icon: AppWindow, descKey: "spaceLayoutsDesc" },
+  atoms: { icon: Atom, descKey: "spaceAtomsDesc" },
   playground: { icon: SlidersHorizontal, descKey: "spacePlaygroundDesc" },
 };
 
