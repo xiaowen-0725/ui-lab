@@ -7,6 +7,7 @@ import {
   Component,
   Hammer,
   LayoutGrid,
+  MoveVertical,
   PanelsTopLeft,
   SlidersHorizontal,
 } from "lucide-react";
@@ -29,6 +30,7 @@ const SPACE_META: Record<
   styles: { icon: null, descKey: "spaceStylesDesc" },
   palettes: { icon: null, descKey: "spacePalettesDesc" },
   sections: { icon: PanelsTopLeft, descKey: "spaceSectionsDesc" },
+  scroll: { icon: MoveVertical, descKey: "spaceScrollDesc" },
   layouts: { icon: AppWindow, descKey: "spaceLayoutsDesc" },
   atoms: { icon: Atom, descKey: "spaceAtomsDesc" },
   studio: { icon: Hammer, descKey: "spaceStudioDesc" },

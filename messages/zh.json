@@ -16,6 +16,7 @@
     "styles": "风格",
     "palettes": "配色",
     "sections": "落地页",
+    "scroll": "滚动",
     "layouts": "设计系统",
     "atoms": "原子",
     "studio": "工坊",
@@ -66,6 +67,7 @@
     "spaceStylesDesc": "看到风格,拿走「对 AI 的说法」。",
     "spacePalettesDesc": "认出你想要的那组颜色,连色值一起带走。",
     "spaceSectionsDesc": "落地页解剖图:开头那块原来叫 hero。",
+    "spaceScrollDesc": "在独立画框里看懂八种滚动叙事手法。",
     "spaceLayoutsDesc": "把完整 Agent 工作台换上不同产品的设计语言。",
     "spaceAtomsDesc": "曲线、圆角、间距、描边、字体、图标与背景，一处复制真值。",
     "spaceStudioDesc": "拨动原子刻度，生成并导出你自己的设计系统。",
@@ -211,6 +213,19 @@
     "langZh": "中文",
     "langEn": "English",
     "recipeTitle": "结构要点"
+  },
+  "scroll": {
+    "eyebrow": "滚动叙事",
+    "title": "滚动时，页面可以怎么讲故事",
+    "intro": "八种常见但不容易叫出名字的滚动手法。每个活样本都关在自己的设备画框里，带上准确名称、适用场景、可复制配方和对 AI 的说法。",
+    "isolationHint": "页面滚动不会驱动样本；请把指针移进画框，在画框内部滚动。",
+    "scrollInside": "↕ 在框内滚动",
+    "liveDemo": "活样本",
+    "whenUse": "何时用",
+    "recipeTitle": "可复制配方",
+    "promptTitle": "对 AI 这样说",
+    "langZh": "中文",
+    "langEn": "English"
   },
   "layouts": {
     "eyebrow": "设计系统",

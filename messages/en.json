@@ -16,6 +16,7 @@
     "styles": "Styles",
     "palettes": "Palettes",
     "sections": "Sections",
+    "scroll": "Scroll",
     "layouts": "Design Systems",
     "atoms": "Atoms",
     "studio": "Studio",
@@ -66,6 +67,7 @@
     "spaceStylesDesc": "See a style, take the words for AI.",
     "spacePalettesDesc": "Recognize the colors you want, hexes included.",
     "spaceSectionsDesc": "Landing-page anatomy: that top block is a hero.",
+    "spaceScrollDesc": "See eight scroll narratives inside isolated live viewports.",
     "spaceLayoutsDesc": "Dress a complete Agent workbench in different product languages.",
     "spaceAtomsDesc": "Curves, radii, spacing, lines, type, icons, and backgrounds — copy the truth in one place.",
     "spaceStudioDesc": "Dial in the atoms, then export your own design system.",
@@ -211,6 +213,19 @@
     "langZh": "中文",
     "langEn": "English",
     "recipeTitle": "Structure notes"
+  },
+  "scroll": {
+    "eyebrow": "Scroll storytelling",
+    "title": "Ways a page can tell a story while you scroll",
+    "intro": "Eight familiar scroll techniques that are hard to name. Every live sample stays inside its own device viewport, paired with precise names, use cases, a copy-ready recipe, and words for AI.",
+    "isolationHint": "Page scroll does not drive the samples. Move your pointer into a frame and scroll inside it.",
+    "scrollInside": "↕ Scroll inside",
+    "liveDemo": "Live sample",
+    "whenUse": "When to use",
+    "recipeTitle": "Copy-ready recipe",
+    "promptTitle": "Say this to AI",
+    "langZh": "中文",
+    "langEn": "English"
   },
   "layouts": {
     "eyebrow": "Design Systems",

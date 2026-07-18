@@ -5,6 +5,7 @@ import {
   CircleDashed,
   Droplets,
   FileText,
+  MoveVertical,
   Palette,
   PanelsTopLeft,
   Search,
@@ -24,6 +25,7 @@ import { registry } from "@/lib/registry";
 import { PALETTES } from "@/lib/palettes";
 import { ATOM_SEARCH_ITEMS } from "@/lib/atoms";
 import { SECTIONS } from "@/lib/sections";
+import { SCROLL_PATTERNS } from "@/lib/scroll";
 import { STYLES } from "@/lib/styles";
 import { localizedName } from "@/lib/i18n-content";
 
@@ -105,6 +107,19 @@ export function SiteSearch({ className }: { className?: string }) {
         ].filter(Boolean),
         icon: PanelsTopLeft,
         onSelect: () => router.push(`/sections?section=${section.slug}`),
+      })),
+      ...SCROLL_PATTERNS.map((pattern) => ({
+        id: `scroll-${pattern.slug}`,
+        label: localizedName(pattern, locale),
+        group: tNav("scroll"),
+        keywords: [
+          pattern.slug,
+          pattern.name,
+          pattern.nameZh,
+          ...pattern.aliases,
+        ].filter(Boolean),
+        icon: MoveVertical,
+        onSelect: () => router.push(`/scroll#${pattern.slug}`),
       })),
       ...ATOM_SEARCH_ITEMS.map((atom) => ({
         id: `atom-${atom.category}-${atom.slug}`,

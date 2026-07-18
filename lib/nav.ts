@@ -10,6 +10,7 @@ export type NavSpace = {
     | "styles"
     | "palettes"
     | "sections"
+    | "scroll"
     | "layouts"
     | "atoms"
     | "studio"
@@ -33,6 +34,7 @@ export const NAV_SPACES: readonly NavSpace[] = [
   { key: "styles", href: "/styles", match: "/styles" },
   { key: "palettes", href: "/palettes", match: "/palettes" },
   { key: "sections", href: "/sections", match: "/sections" },
+  { key: "scroll", href: "/scroll", match: "/scroll" },
   { key: "layouts", href: "/layouts", match: "/layouts" },
   { key: "atoms", href: "/atoms", match: "/atoms" },
   { key: "studio", href: "/studio", match: "/studio" },
