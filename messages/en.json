@@ -176,7 +176,7 @@
     "sampleSecondary": "Secondary",
     "sampleCardTitle": "System status",
     "sampleCardBody": "Color, typography, and geometry tokens are working together across one component set.",
-    "sampleInput": "Enter a project name…",
+    "sampleInput": "Sample input…",
     "sampleBadge": "Synced",
     "sampleRowTitle": "Review design tokens",
     "sampleRowMeta": "Every configuration is applied",
