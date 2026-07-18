@@ -200,7 +200,7 @@ const COPY = {
       },
       {
         label: "准备发布",
-        intro: "沉浸式 Agent 工作台展示已完成，六套皮肤共享同一套任务结构与交互。",
+        intro: "沉浸式 Agent 工作台展示已完成，所有皮肤共享同一套任务结构与交互。",
         highlights: [
           "完整 Agent 线程与上下文输入台",
           "产物预览 / Markdown 源码双视图",
@@ -298,7 +298,7 @@ const COPY = {
       },
       {
         label: "Ready to ship",
-        intro: "The immersive Agent workbench showcase is complete, with one task structure and interaction model shared by all six skins.",
+        intro: "The immersive Agent workbench showcase is complete, with one task structure and interaction model shared by every skin.",
         highlights: [
           "Complete Agent thread and context-aware composer",
           "Artifact preview and raw Markdown views",
@@ -619,6 +619,7 @@ export function WorkbenchStage({ entry, activeAnatomy, className }: WorkbenchSta
   const locale = useLocale() as Locale;
   const copy = COPY[locale];
   const reduce = useReducedMotion() ?? false;
+  const hasAuroraBackdrop = entry.skin.backdrop === "aurora";
   const [draft, setDraft] = useState("");
   const [effort, setEffort] = useState(3);
   const [modelOpen, setModelOpen] = useState(false);
@@ -680,13 +681,56 @@ export function WorkbenchStage({ entry, activeAnatomy, className }: WorkbenchSta
     <section aria-label={copy.stageLabel} className={cn("min-w-0", className)}>
       <div
         data-workbench-scheme={entry.skin.scheme}
+        data-workbench-frost={entry.skin.frost ? "" : undefined}
         style={skinStyle(entry)}
         className={cn(
           "overflow-hidden rounded-3xl border border-border bg-background text-foreground shadow-sm",
+          hasAuroraBackdrop && "relative isolate",
           entry.skin.scheme === "dark" && "dark",
         )}
       >
-        <div className="flex h-10 items-center gap-2 border-b border-border bg-card/50 px-4">
+        {hasAuroraBackdrop ? (
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-white"
+          >
+            <div
+              className="-left-[14%] -top-[18%] absolute h-[62%] w-[64%] rounded-full blur-[72px]"
+              style={{
+                background:
+                  "radial-gradient(circle, rgb(125 211 252 / 0.55) 0%, rgb(125 211 252 / 0.2) 48%, transparent 72%)",
+              }}
+            />
+            <div
+              className="-right-[16%] -top-[12%] absolute h-[60%] w-[62%] rounded-full blur-[76px]"
+              style={{
+                background:
+                  "radial-gradient(circle, rgb(196 181 253 / 0.5) 0%, rgb(196 181 253 / 0.18) 48%, transparent 72%)",
+              }}
+            />
+            <div
+              className="-bottom-[20%] -left-[10%] absolute h-[58%] w-[60%] rounded-full blur-[80px]"
+              style={{
+                background:
+                  "radial-gradient(circle, rgb(249 168 212 / 0.45) 0%, rgb(249 168 212 / 0.16) 48%, transparent 72%)",
+              }}
+            />
+            <div
+              className="-bottom-[18%] -right-[12%] absolute h-[60%] w-[64%] rounded-full blur-[78px]"
+              style={{
+                background:
+                  "radial-gradient(circle, rgb(110 231 183 / 0.45) 0%, rgb(110 231 183 / 0.16) 48%, transparent 72%)",
+              }}
+            />
+          </div>
+        ) : null}
+
+        <div
+          className={cn(
+            "flex h-10 items-center gap-2 border-b border-border bg-card/50 px-4",
+            hasAuroraBackdrop && "relative z-10",
+          )}
+        >
           <span className="flex gap-1.5" aria-hidden="true">
             <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
@@ -698,7 +742,12 @@ export function WorkbenchStage({ entry, activeAnatomy, className }: WorkbenchSta
           <span className="w-[42px]" aria-hidden="true" />
         </div>
 
-        <div className="h-[720px] min-h-0 bg-background text-foreground">
+        <div
+          className={cn(
+            "h-[720px] min-h-0 bg-background text-foreground",
+            hasAuroraBackdrop && "relative z-10",
+          )}
+        >
           <Workbench
             defaultSidebarOpen
             panelOpen={panelOpen}

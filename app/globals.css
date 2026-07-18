@@ -160,6 +160,37 @@
     );
 }
 
+/* Frost workbench surfaces. The resizable pane shells keep overflow visible
+   for their drag handles, so the sidebar glass is applied one container in. */
+[data-workbench-frost]
+    aside[class*="bg-[var(--wb-surface-translucent)]"] {
+    background-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+[data-workbench-frost]
+    aside[class*="bg-[var(--wb-surface-translucent)]"]
+    > .absolute.inset-0.overflow-hidden {
+    background-color: var(--wb-surface-translucent);
+}
+
+[data-workbench-frost]
+    aside[class*="bg-[var(--wb-surface-translucent)]"]
+    > .absolute.inset-0.overflow-hidden,
+[data-workbench-frost]
+    [data-anatomy="panel"]
+    > [class*="bg-[var(--wb-surface)]"],
+[data-workbench-frost]
+    [data-anatomy="composer"]
+    [class*="bg-[var(--wb-surface-composer)]"],
+[data-workbench-frost]
+    [data-anatomy="thread"]
+    [class*="bg-[var(--wb-card)]"] {
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+}
+
 /* Color theme presets (full token sets) are injected at runtime from
    lib/themes.ts via PreferencesProvider, keyed by data-theme on <html>. */
 

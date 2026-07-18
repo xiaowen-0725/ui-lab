@@ -38,6 +38,10 @@ export type WorkbenchSkin = {
   scheme: "light" | "dark" | "auto";
   /** Display-only font stacks; no webfonts are loaded by this module. */
   fonts?: { body?: string; display?: string; mono?: string };
+  /** Optional decorative field rendered behind the workbench surfaces. */
+  backdrop?: "aurora" | "none";
+  /** Enables scoped backdrop blur on translucent workbench surfaces. */
+  frost?: boolean;
 };
 
 export type DesignSystemEntry = {
