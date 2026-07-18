@@ -5,6 +5,7 @@ import {
   CircleDashed,
   Droplets,
   FileText,
+  LayoutTemplate,
   MoveVertical,
   Palette,
   PanelsTopLeft,
@@ -23,6 +24,7 @@ import {
 import { NewBadge } from "@/components/app/docs/new-badge";
 import { registry } from "@/lib/registry";
 import { PALETTES } from "@/lib/palettes";
+import { LAYOUT_PATTERNS } from "@/lib/patterns";
 import { ATOM_SEARCH_ITEMS } from "@/lib/atoms";
 import { SECTIONS } from "@/lib/sections";
 import { SCROLL_PATTERNS } from "@/lib/scroll";
@@ -107,6 +109,19 @@ export function SiteSearch({ className }: { className?: string }) {
         ].filter(Boolean),
         icon: PanelsTopLeft,
         onSelect: () => router.push(`/sections?section=${section.slug}`),
+      })),
+      ...LAYOUT_PATTERNS.map((pattern) => ({
+        id: `pattern-${pattern.slug}`,
+        label: localizedName(pattern, locale),
+        group: tNav("patterns"),
+        keywords: [
+          pattern.slug,
+          pattern.name,
+          pattern.nameZh,
+          ...pattern.aliases,
+        ].filter(Boolean),
+        icon: LayoutTemplate,
+        onSelect: () => router.push(`/patterns#${pattern.slug}`),
       })),
       ...SCROLL_PATTERNS.map((pattern) => ({
         id: `scroll-${pattern.slug}`,

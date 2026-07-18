@@ -12,6 +12,7 @@ export type NavSpace = {
     | "sections"
     | "scroll"
     | "layouts"
+    | "patterns"
     | "atoms"
     | "studio"
     | "playground";
@@ -36,6 +37,7 @@ export const NAV_SPACES: readonly NavSpace[] = [
   { key: "sections", href: "/sections", match: "/sections" },
   { key: "scroll", href: "/scroll", match: "/scroll" },
   { key: "layouts", href: "/layouts", match: "/layouts" },
+  { key: "patterns", href: "/patterns", match: "/patterns" },
   { key: "atoms", href: "/atoms", match: "/atoms" },
   { key: "studio", href: "/studio", match: "/studio" },
   { key: "playground", href: "/playground", match: "/playground" },
