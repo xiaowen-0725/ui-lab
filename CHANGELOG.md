@@ -6,6 +6,9 @@
 
 ## [Unreleased]
 
+### 新增
+- **registry 分发 `--wb-*` token 默认值**:7 个 agent 线组件(agent-thread/agent-composer/agent-workbench/agent-trace/agent-inbox/thread-list/artifact-panel)的 `/r/{slug}.json` 现带 shadcn `cssVars.light`/`cssVars.dark`(各 42 项),`npx shadcn add` 安装即带正确着色 token,不必手抄 globals.css。真源仍是 `app/globals.css`;`check-registry` 新增运行时解析比对,globals 与 `lib/registry-wb-tokens.ts` 任一漂移即 check 失败。其余 77 个安装目标不含 cssVars。
+
 ## [0.8.0] - 2026-07-18
 
 ### 新增

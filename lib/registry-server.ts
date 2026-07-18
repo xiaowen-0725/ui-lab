@@ -1,4 +1,5 @@
 import { allComponents, findCategory, registry } from "@/lib/registry";
+import { WB_TOKENS_DARK, WB_TOKENS_LIGHT } from "@/lib/registry-wb-tokens";
 import { pageUrlFor, withSignature } from "@/lib/signature";
 import { REGISTRY_NAME, SITE_URL } from "@/lib/site";
 import { readOptionalSourceFile, readSourceFile, resolveSourceImport, type SourceFile } from "@/lib/source-files";
@@ -42,6 +43,10 @@ export type ShadcnRegistryItem = {
   dependencies: string[];
   registryDependencies: string[];
   files: ShadcnRegistryFile[];
+  cssVars?: {
+    light?: Record<string, string>;
+    dark?: Record<string, string>;
+  };
 };
 
 export type ShadcnRegistry = {
@@ -65,6 +70,15 @@ export type RegistryTarget = {
 const STATIC_IMPORT_RE = /\b(?:import|export)\s+(?:type\s+)?(?:[^'";]*?\s+from\s*)?["']([^"']+)["']/g;
 const DYNAMIC_IMPORT_RE = /\bimport\s*\(\s*["']([^"']+)["']\s*\)/g;
 const SHADCN_DEP_SKIP = new Set(["next", "react", "react-dom"]);
+const WB_TOKEN_REGISTRY_SLUGS = new Set([
+  "agent-thread",
+  "agent-composer",
+  "agent-workbench",
+  "agent-trace",
+  "agent-inbox",
+  "thread-list",
+  "artifact-panel",
+]);
 
 function parseDeps(source: string) {
   const external = new Set<string>();
@@ -314,6 +328,9 @@ export async function buildShadcnItem(
     author: "UI Lab",
     dependencies,
     registryDependencies: [],
+    ...(WB_TOKEN_REGISTRY_SLUGS.has(comp.slug)
+      ? { cssVars: { light: WB_TOKENS_LIGHT, dark: WB_TOKENS_DARK } }
+      : {}),
     files: uniqueByPath(
       graph.files.map((file) => {
         if (!includeContent) return shadcnFile(file.path);
