@@ -6,6 +6,8 @@
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-07-18
+
 ### 新增
 - **七个动效组件,移植自 motion-anything**(nexu-io,Apache-2.0;上游效果多源自 reactbits.dev,经作者授权再分发):`text-scramble`(文字解密,视口/悬停/text 变化触发,解码中宽度稳定)、`webgl-background`(fragment-shader 背景族六 variant:极光/丝绸/等离子/光芒射线/像素爆裂(点击涟漪)/抖动噪点,GLSL 原样移植,内建通用 WebGL runner,降级为静态帧或 CSS 渐变)、`star-border`(星光描边包裹器,纯 CSS 锥形渐变环绕光)、`bounce-cards`(弹跳卡组,错峰 spring 扇形展开)、`glare-hover`(眩光悬停,斜向光带扫过,触屏不渲染)、`skeleton`(骨架屏,className 塑形 + 微光扫过)。另原创 `scroll-hint`(滚动提示,鼠标轮廓/chevron 两形态;上游同名条目是无再分发授权的 Lottie 参考卡,故自行实现)。全部按库约定处理 reduced-motion。
 - **接入 emilkowalski/skills 开发技能包**(MIT,经 `npx skills` 与 mattpocock 技能同机制安装):动画词汇表、Emil 设计工程指南、Apple 设计原则、find/improve/review 三个动画审计工作流——用于开发期给 agent 提供动效品味约束,不进站点内容。
