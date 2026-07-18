@@ -33,10 +33,10 @@ export interface ComposerEffortSliderProps {
 /**
  * Segmented reasoning-effort slider. Snaps to one of `labels.length` evenly
  * spaced steps via drag (pointer capture) or the keyboard (ArrowLeft/Right,
- * Home/End). Reaching the last step dresses the fill in a slow gradient
- * shimmer, breathes a violet glow around the thumb and sends out a pair of
- * staggered ripple rings — all skipped under `useReducedMotion()`, which
- * also drops the spring glide in favor of an instant snap.
+ * Home/End). Reaching the last step bounces the thumb once and sends out a
+ * pair of accent-token ripple rings — both skipped under
+ * `useReducedMotion()`, which also drops the spring glide in favor of an
+ * instant snap.
  */
 export function ComposerEffortSlider({
   value,
@@ -188,10 +188,9 @@ export function ComposerEffortSlider({
       onPointerCancel={endDrag}
       onKeyDown={onKeyDown}
       className={cn(
-        "relative h-6 w-[200px] touch-none select-none overflow-visible rounded-full bg-black/5 outline-none",
-        "shadow-[inset_0_0_0_0.5px_rgba(0,0,0,0.06)]",
-        "dark:bg-white/10 dark:shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.08)]",
-        "focus-visible:ring-2 focus-visible:ring-[#339CFF]/50",
+        "relative h-6 w-[200px] touch-none select-none overflow-visible rounded-full bg-[var(--wb-inset-strong)] outline-none",
+        "shadow-[inset_0_0_0_0.5px_var(--wb-control-hairline)]",
+        "focus-visible:ring-2 focus-visible:ring-[var(--wb-accent)]/50",
         disabled && "pointer-events-none opacity-50",
         className,
       )}
@@ -200,27 +199,9 @@ export function ComposerEffortSlider({
       <motion.div
         aria-hidden
         className="absolute inset-y-0 left-0 rounded-full"
-        style={
-          isMax
-            ? {
-                backgroundImage: "linear-gradient(90deg, #339CFF, #8b5cf6, #d946ef)",
-                backgroundSize: "200% 100%",
-              }
-            : { backgroundColor: "#339CFF" }
-        }
-        animate={
-          isMax && !reduce
-            ? { width: thumbCenter, backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }
-            : { width: thumbCenter }
-        }
-        transition={
-          isMax && !reduce
-            ? {
-                width: glideTransition,
-                backgroundPosition: { duration: 3, repeat: Infinity, ease: "linear" },
-              }
-            : glideTransition
-        }
+        style={{ backgroundColor: "var(--wb-accent)" }}
+        animate={{ width: thumbCenter }}
+        transition={glideTransition}
       />
 
       {/* tick dots */}
@@ -230,7 +211,9 @@ export function ComposerEffortSlider({
           aria-hidden
           className={cn(
             "-translate-x-1/2 -translate-y-1/2 absolute top-1/2 h-1 w-1 rounded-full",
-            index <= clampedValue ? "bg-white/50" : "bg-black/20 dark:bg-white/30",
+            index <= clampedValue
+              ? "bg-[var(--wb-accent-fg)]/50"
+              : "bg-[var(--wb-control-tick)]",
           )}
           style={{ left: centerFor(index) }}
         />
@@ -239,10 +222,11 @@ export function ComposerEffortSlider({
       {/* thumb */}
       <motion.div
         aria-hidden
-        className="absolute top-0 h-7 w-7 rounded-full bg-white"
+        className="absolute top-0 h-7 w-7 rounded-full bg-[var(--wb-accent-fg)]"
         style={{
           y: "-2px",
-          boxShadow: "0 0 0 0.5px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.24)",
+          boxShadow:
+            "0 0 0 0.5px var(--wb-control-hairline), 0 1px 4px color-mix(in srgb, var(--wb-inverse) 24%, transparent)",
         }}
         animate={{ left: thumbCenter, x: "-50%", scale: thumbScale }}
         transition={{
@@ -253,13 +237,6 @@ export function ComposerEffortSlider({
       >
         {isMax && !reduce ? (
           <>
-            <motion.span
-              aria-hidden
-              className="pointer-events-none absolute inset-0 rounded-full"
-              style={{ boxShadow: "0 0 12px 2px rgba(139,92,246,0.5)" }}
-              animate={{ opacity: [0.35, 0.65, 0.35] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-            />
             <RippleRing delay={0} />
             <RippleRing delay={0.9} />
           </>
@@ -274,7 +251,8 @@ function RippleRing({ delay }: { delay: number }) {
   return (
     <motion.span
       aria-hidden
-      className="pointer-events-none absolute inset-0 rounded-full border-2 border-violet-400/60"
+      className="pointer-events-none absolute inset-0 rounded-full border-2"
+      style={{ borderColor: "color-mix(in srgb, var(--wb-accent) 60%, transparent)" }}
       initial={{ scale: 1, opacity: 0.6 }}
       animate={{ scale: 2.4, opacity: 0 }}
       transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut", delay }}

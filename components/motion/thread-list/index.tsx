@@ -111,17 +111,17 @@ export function ThreadListItem({
         aria-current={active || undefined}
         className={cn(
           "relative flex w-full min-w-0 items-center gap-2 rounded-lg px-2 text-left text-sm",
-          !active && "hover:bg-black/[0.03] dark:hover:bg-white/5",
+          !active && "hover:bg-[var(--wb-hover-subtle)]",
         )}
       >
         {active ? (
           reduce ? (
-            <span aria-hidden className="absolute inset-0 rounded-lg bg-black/5 dark:bg-white/10" />
+            <span aria-hidden className="absolute inset-0 rounded-lg bg-[var(--wb-inset-strong)]" />
           ) : (
             <motion.span
               aria-hidden
               layoutId="active"
-              className="absolute inset-0 rounded-lg bg-black/5 dark:bg-white/10"
+              className="absolute inset-0 rounded-lg bg-[var(--wb-inset-strong)]"
               transition={SPRING_PANEL}
             />
           )
@@ -143,7 +143,7 @@ export function ThreadListItem({
         </span>
 
         {unread ? (
-          <span className="relative z-10 h-1.5 w-1.5 shrink-0 rounded-full bg-[#339CFF]" />
+          <span className="relative z-10 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--wb-accent)]" />
         ) : null}
 
         {hasMeta ? (
@@ -188,7 +188,7 @@ export function ThreadListAction({
       aria-label={ariaLabel}
       onClick={onClick}
       className={cn(
-        "flex h-5 w-5 items-center justify-center rounded text-muted-foreground transition-colors hover:bg-black/10 hover:text-foreground dark:hover:bg-white/15",
+        "flex h-5 w-5 items-center justify-center rounded text-muted-foreground transition-colors hover:bg-[var(--wb-hover-stronger)] hover:text-foreground",
         className,
       )}
     >

@@ -28,32 +28,12 @@ export interface ComposerAutonomyDialProps {
   disabled?: boolean;
 }
 
-/**
- * True once `document.documentElement` carries Tailwind's `dark` class.
- * Tracked with a `MutationObserver` rather than a `next-themes` import — the
- * amber tier needs a concrete hex to hand to `motion`'s `backgroundColor`
- * animation, which can't resolve a CSS custom property, and this keeps the
- * component dependency-free like its siblings.
- */
-function useIsDarkMode() {
-  const [dark, setDark] = useState(false);
-  useEffect(() => {
-    const root = document.documentElement;
-    const update = () => setDark(root.classList.contains("dark"));
-    update();
-    const observer = new MutationObserver(update);
-    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
-  return dark;
-}
-
 /** Blue for the low tiers, amber for the one below max, red at max — the
  * fill climbs like risk does as the dial approaches unsupervised action. */
-function fillColorFor(index: number, maxIndex: number, dark: boolean) {
-  if (maxIndex <= 0 || index >= maxIndex) return "#FA423E";
-  if (index === maxIndex - 1) return dark ? "#ff8549" : "#e25507";
-  return "#339CFF";
+function fillColorFor(index: number, maxIndex: number) {
+  if (maxIndex <= 0 || index >= maxIndex) return "var(--wb-danger-strong)";
+  if (index === maxIndex - 1) return "var(--wb-warning)";
+  return "var(--wb-accent)";
 }
 
 /**
@@ -79,7 +59,6 @@ export function ComposerAutonomyDial({
   disabled = false,
 }: ComposerAutonomyDialProps) {
   const reduce = useReducedMotion() ?? false;
-  const dark = useIsDarkMode();
   const trackRef = useRef<HTMLDivElement>(null);
   const [trackWidth, setTrackWidth] = useState(0);
   // False until the frame carrying the first real measurement has painted —
@@ -186,7 +165,7 @@ export function ComposerAutonomyDial({
 
   const thumbCenter = centerFor(clampedValue);
   const thumbScale = reduce ? 1 : dragging ? 1.08 : 1;
-  const fillColor = fillColorFor(clampedValue, maxIndex, dark);
+  const fillColor = fillColorFor(clampedValue, maxIndex);
   // Instant placement until the first measured frame has painted, and always
   // under reduced motion; spring glide otherwise.
   const glideTransition = !ready || reduce ? { duration: 0 } : SPRING_PANEL;
@@ -210,10 +189,9 @@ export function ComposerAutonomyDial({
         onPointerCancel={endDrag}
         onKeyDown={onKeyDown}
         className={cn(
-          "relative h-6 w-[200px] touch-none select-none overflow-visible rounded-full bg-black/5 outline-none",
-          "shadow-[inset_0_0_0_0.5px_rgba(0,0,0,0.06)]",
-          "dark:bg-white/10 dark:shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.08)]",
-          "focus-visible:ring-2 focus-visible:ring-[#339CFF]/50",
+          "relative h-6 w-[200px] touch-none select-none overflow-visible rounded-full bg-[var(--wb-inset-strong)] outline-none",
+          "shadow-[inset_0_0_0_0.5px_var(--wb-control-hairline)]",
+          "focus-visible:ring-2 focus-visible:ring-[var(--wb-accent)]/50",
           disabled && "pointer-events-none opacity-50",
         )}
       >
@@ -233,7 +211,9 @@ export function ComposerAutonomyDial({
             aria-hidden
             className={cn(
               "-translate-x-1/2 -translate-y-1/2 absolute top-1/2 h-1 w-1 rounded-full",
-              index <= clampedValue ? "bg-white/50" : "bg-black/20 dark:bg-white/30",
+              index <= clampedValue
+                ? "bg-[var(--wb-accent-fg)]/50"
+                : "bg-[var(--wb-control-tick)]",
             )}
             style={{ left: centerFor(index) }}
           />
@@ -242,7 +222,7 @@ export function ComposerAutonomyDial({
         {/* thumb */}
         <motion.div
           aria-hidden
-          className="absolute top-0 h-7 w-7 rounded-full bg-white"
+          className="absolute top-0 h-7 w-7 rounded-full bg-[var(--wb-accent-fg)]"
           style={{
             y: "-2px",
             boxShadow: "0 0 0 0.5px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.24)",
@@ -259,13 +239,19 @@ export function ComposerAutonomyDial({
               <span
                 aria-hidden
                 className="pointer-events-none absolute inset-0 rounded-full"
-                style={{ boxShadow: "0 0 0 3px rgba(250,66,62,0.5)" }}
+                style={{
+                  boxShadow:
+                    "0 0 0 3px color-mix(in srgb, var(--wb-danger-strong) 50%, transparent)",
+                }}
               />
             ) : (
               <motion.span
                 aria-hidden
                 className="pointer-events-none absolute inset-0 rounded-full"
-                style={{ boxShadow: "0 0 0 3px rgba(250,66,62,0.25)" }}
+                style={{
+                  boxShadow:
+                    "0 0 0 3px color-mix(in srgb, var(--wb-danger-strong) 25%, transparent)",
+                }}
                 animate={{ opacity: [0.4, 0.8, 0.4] }}
                 transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
               />
@@ -283,7 +269,7 @@ export function ComposerAutonomyDial({
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: -4 }}
             transition={{ duration: 0.15, ease: EASE_OUT }}
-            className={cn("inline-block", isMax && "text-[#FA423E] dark:text-[#FA423E]")}
+            className={cn("inline-block", isMax && "text-[var(--wb-danger-strong)]")}
           >
             {labels[clampedValue]}
           </motion.span>

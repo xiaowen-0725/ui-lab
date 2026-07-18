@@ -35,11 +35,10 @@ export function WorkbenchSummaryCard({ open, className, children }: WorkbenchSum
           style={{
             transformOrigin: "top right",
             boxShadow:
-              "0 0 0 0.5px var(--wsc-hairline), 0 3px 7.5px rgba(0,0,0,0.04), 0 0 20px rgba(0,0,0,0.05)",
+              "0 0 0 0.5px var(--wb-hairline-subtle), 0 3px 7.5px rgba(0,0,0,0.04), 0 0 20px rgba(0,0,0,0.05)",
           }}
           className={cn(
-            "absolute right-4 top-[54px] z-20 w-[260px] overflow-hidden rounded-3xl bg-white/95 pt-2.5 backdrop-blur-xl",
-            "[--wsc-hairline:rgba(0,0,0,0.08)] dark:bg-neutral-800/95 dark:[--wsc-hairline:rgba(255,255,255,0.1)]",
+            "absolute right-4 top-[54px] z-20 w-[260px] overflow-hidden rounded-3xl bg-[var(--wb-surface-raised)] pt-2.5 backdrop-blur-xl",
             className,
           )}
         >
@@ -72,7 +71,7 @@ export function WorkbenchSummarySection({
   return (
     <section
       className={cn(
-        "flex flex-col border-black/10 border-b-[0.5px] px-2 pb-3 last:border-0 dark:border-white/10",
+        "flex flex-col border-[var(--wb-border)] border-b-[0.5px] px-2 pb-3 last:border-0",
         className,
       )}
     >

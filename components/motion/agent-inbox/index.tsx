@@ -24,7 +24,7 @@ function InboxActionButton({ variant = "ghost", onClick, children }: InboxAction
       className={cn(
         "flex h-7 items-center rounded-lg text-sm transition-colors",
         variant === "ghost" &&
-          "px-2 text-muted-foreground hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10",
+          "px-2 text-muted-foreground hover:bg-[var(--wb-hover)] hover:text-foreground",
         variant === "primary" && "bg-foreground px-3 text-background transition-opacity hover:opacity-85",
       )}
     >
@@ -42,7 +42,7 @@ function InboxCountBadge({ count }: InboxCountBadgeProps) {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <span className="relative inline-flex h-5 min-w-5 items-center justify-center overflow-hidden rounded-full bg-[#339CFF]/15 px-1.5 text-xs font-medium text-[#339CFF] tabular-nums">
+    <span className="relative inline-flex h-5 min-w-5 items-center justify-center overflow-hidden rounded-full bg-[var(--wb-accent)]/15 px-1.5 text-xs font-medium text-[var(--wb-accent)] tabular-nums">
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={count}
@@ -81,19 +81,18 @@ export interface AgentInboxProps {
 export function AgentInbox({ title, count, action, className, children }: AgentInboxProps) {
   return (
     <div
-      style={{ boxShadow: "0 0 0 0.5px var(--inbox-hairline)" }}
+      style={{ boxShadow: "0 0 0 0.5px var(--wb-hairline)" }}
       className={cn(
-        "flex flex-col overflow-hidden rounded-2xl bg-white",
-        "[--inbox-hairline:rgba(0,0,0,0.08)] dark:bg-neutral-900 dark:[--inbox-hairline:rgba(255,255,255,0.157)]",
+        "flex flex-col overflow-hidden rounded-2xl bg-[var(--wb-surface)]",
         className,
       )}
     >
-      <div className="flex h-11 shrink-0 items-center gap-2 border-black/5 border-b-[0.5px] px-4 dark:border-white/[0.06]">
+      <div className="flex h-11 shrink-0 items-center gap-2 border-[var(--wb-divider)] border-b-[0.5px] px-4">
         {title ? <span className="text-sm font-medium">{title}</span> : null}
         {count !== undefined ? <InboxCountBadge count={count} /> : null}
         {action ? <div className="ml-auto shrink-0">{action}</div> : null}
       </div>
-      <div className="flex flex-col [&>*+*]:border-black/5 [&>*+*]:border-t-[0.5px] dark:[&>*+*]:border-white/[0.06]">
+      <div className="flex flex-col [&>*+*]:border-[var(--wb-divider)] [&>*+*]:border-t-[0.5px]">
         {children}
       </div>
     </div>
@@ -111,9 +110,9 @@ export function InboxRiskBadge({ risk, className }: InboxRiskBadgeProps) {
     <span
       className={cn(
         "inline-flex h-4.5 items-center rounded-full px-1.5 text-[10px] font-medium uppercase tracking-wide",
-        risk === "low" && "bg-black/5 text-muted-foreground dark:bg-white/10",
-        risk === "medium" && "bg-[#e25507]/10 text-[#e25507] dark:text-[#ff8549]",
-        risk === "high" && "bg-red-500/10 text-red-500 dark:text-[#FA423E]",
+        risk === "low" && "bg-[var(--wb-inset-strong)] text-muted-foreground",
+        risk === "medium" && "bg-[var(--wb-warning-surface)]/10 text-[var(--wb-warning)]",
+        risk === "high" && "bg-[var(--wb-danger-surface)]/10 text-[var(--wb-danger)]",
         className,
       )}
     >
@@ -215,7 +214,7 @@ export function InboxItem({
               type="button"
               aria-expanded={detailsOpen}
               onClick={() => setDetailsOpen((open) => !open)}
-              className="-mx-1 mt-1 inline-flex items-center gap-1 self-start rounded-md px-1 text-muted-foreground text-xs transition-colors hover:bg-black/5 dark:hover:bg-white/10"
+              className="-mx-1 mt-1 inline-flex items-center gap-1 self-start rounded-md px-1 text-muted-foreground text-xs transition-colors hover:bg-[var(--wb-hover)]"
             >
               Details
               <motion.span
@@ -254,7 +253,7 @@ export function InboxItem({
         <div
           className={cn(
             "mt-2 text-[13px]",
-            status === "approved" && "text-emerald-600 dark:text-[#40C977]",
+            status === "approved" && "text-[var(--wb-success)]",
             status === "denied" && "text-muted-foreground",
             status === "expired" && "text-muted-foreground/60 italic",
           )}
@@ -303,15 +302,14 @@ export function ActionReceipt({
 }: ActionReceiptProps) {
   return (
     <div
-      style={{ boxShadow: "0 0 0 0.5px var(--receipt-hairline)" }}
+      style={{ boxShadow: "0 0 0 0.5px var(--wb-hairline)" }}
       className={cn(
-        "rounded-xl bg-black/[0.02] p-3",
-        "[--receipt-hairline:rgba(0,0,0,0.08)] dark:bg-white/[0.03] dark:[--receipt-hairline:rgba(255,255,255,0.157)]",
+        "rounded-xl bg-[var(--wb-inset-faint)] p-3",
         className,
       )}
     >
       <div className="flex items-center gap-2">
-        <span className="flex h-4 w-4 shrink-0 items-center justify-center text-emerald-600 dark:text-[#40C977]">
+        <span className="flex h-4 w-4 shrink-0 items-center justify-center text-[var(--wb-success)]">
           {icon ?? <Check className="h-4 w-4" />}
         </span>
         <span className="font-medium text-sm">{title}</span>
@@ -323,10 +321,10 @@ export function ActionReceipt({
       {added !== undefined || removed !== undefined ? (
         <div className="mt-1 flex gap-1.5 text-[13px]">
           {added !== undefined ? (
-            <span className="text-emerald-600 dark:text-[#40C977]">+{added}</span>
+            <span className="text-[var(--wb-success)]">+{added}</span>
           ) : null}
           {removed !== undefined ? (
-            <span className="text-red-500 dark:text-[#FA423E]">−{removed}</span>
+            <span className="text-[var(--wb-danger)]">−{removed}</span>
           ) : null}
         </div>
       ) : null}
@@ -336,7 +334,7 @@ export function ActionReceipt({
           <button
             type="button"
             onClick={onUndo}
-            className="flex h-6 items-center rounded-md px-2 text-muted-foreground text-xs transition-colors hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10"
+            className="flex h-6 items-center rounded-md px-2 text-muted-foreground text-xs transition-colors hover:bg-[var(--wb-hover)] hover:text-foreground"
           >
             {undoLabel}
           </button>

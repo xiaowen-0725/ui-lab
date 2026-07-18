@@ -89,7 +89,7 @@ export interface ThreadUserMessageProps {
 export function ThreadUserMessage({ className, children }: ThreadUserMessageProps) {
   return (
     <div className={cn("group flex w-full flex-col items-end gap-1 py-3", className)}>
-      <div className="max-w-[77%] overflow-hidden break-words rounded-2xl bg-black/5 px-3 py-2 text-sm leading-[22px] dark:bg-white/5">
+      <div className="max-w-[77%] overflow-hidden break-words rounded-2xl bg-[var(--wb-inset)] px-3 py-2 text-sm leading-[22px]">
         {children}
       </div>
     </div>
@@ -140,7 +140,7 @@ export function ThreadTurnHeader({
       aria-expanded={open}
       onClick={toggle}
       className={cn(
-        "-mx-1 my-3 inline-flex items-center gap-1 self-start rounded-lg px-1 text-sm text-muted-foreground transition-colors hover:bg-black/5 dark:hover:bg-white/10",
+        "-mx-1 my-3 inline-flex items-center gap-1 self-start rounded-lg px-1 text-sm text-muted-foreground transition-colors hover:bg-[var(--wb-hover)]",
         className,
       )}
     >
@@ -243,7 +243,7 @@ export function ThreadInlineCode({ className, children }: ThreadInlineCodeProps)
   return (
     <span
       className={cn(
-        "rounded-[6px] bg-black/[0.07] px-1.5 py-px font-mono text-[0.92em] dark:bg-white/10",
+        "rounded-[6px] bg-[var(--wb-code-inline)] px-1.5 py-px font-mono text-[0.92em]",
         className,
       )}
     >
@@ -266,7 +266,7 @@ export function ThreadCodeBlock({ label, className, children }: ThreadCodeBlockP
       {label ? (
         <span className="absolute top-2 right-3 text-muted-foreground text-xs">{label}</span>
       ) : null}
-      <pre className="overflow-x-auto whitespace-pre rounded-xl bg-black/[0.04] p-3 font-mono text-sm leading-[22px] dark:bg-white/5">
+      <pre className="overflow-x-auto whitespace-pre rounded-xl bg-[var(--wb-code-block)] p-3 font-mono text-sm leading-[22px]">
         <code>{children}</code>
       </pre>
     </div>
@@ -321,7 +321,7 @@ export function ThreadActionButton({
       aria-label={ariaLabel}
       onClick={onClick}
       className={cn(
-        "flex h-6 w-6 items-center justify-center rounded-md transition-colors hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10",
+        "flex h-6 w-6 items-center justify-center rounded-md transition-colors hover:bg-[var(--wb-hover)] hover:text-foreground",
         className,
       )}
     >

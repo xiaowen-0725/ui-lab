@@ -59,7 +59,7 @@ export function ThreadToolCall({
           <span
             className={cn(
               "flex h-4 w-4 shrink-0 items-center justify-center",
-              error && "text-red-500 dark:text-[#FA423E]",
+              error && "text-[var(--wb-danger)]",
             )}
           >
             {icon}
@@ -69,7 +69,7 @@ export function ThreadToolCall({
       {running ? (
         <ThreadShimmerText>{children}</ThreadShimmerText>
       ) : (
-        <span className={cn(error && "text-red-500 dark:text-[#FA423E]")}>{children}</span>
+        <span className={cn(error && "text-[var(--wb-danger)]")}>{children}</span>
       )}
       {detail !== undefined && detail !== null ? (
         <span className="min-w-0 truncate">{detail}</span>
@@ -143,7 +143,7 @@ export function ThreadThinking({
         disabled={!expandable}
         aria-expanded={expandable ? open : undefined}
         onClick={toggle}
-        className="-mx-1 my-1 inline-flex items-center gap-1 self-start rounded-lg px-1 text-sm text-muted-foreground transition-colors hover:bg-black/5 disabled:pointer-events-none dark:hover:bg-white/10"
+        className="-mx-1 my-1 inline-flex items-center gap-1 self-start rounded-lg px-1 text-sm text-muted-foreground transition-colors hover:bg-[var(--wb-hover)] disabled:pointer-events-none"
       >
         {thinking ? <ThreadShimmerText>{label}</ThreadShimmerText> : label}
         {expandable ? (
@@ -167,7 +167,7 @@ export function ThreadThinking({
         >
           <div
             ref={contentRef}
-            className="border-black/10 border-l-2 py-1 pl-3 text-[13px] text-muted-foreground leading-[20px] dark:border-white/10"
+            className="border-[var(--wb-border)] border-l-2 py-1 pl-3 text-[13px] text-muted-foreground leading-[20px]"
           >
             {children}
           </div>
@@ -247,7 +247,7 @@ export function ThreadApprovalCard({
   return (
     <ThreadCard className={className}>
       <div className="flex items-center gap-3 px-3 py-2.5">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-black/5 dark:bg-white/10">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--wb-inset-strong)]">
           {icon}
         </span>
         <div className="min-w-0 flex-1">
@@ -269,7 +269,7 @@ export function ThreadApprovalCard({
               className={cn(
                 "text-[13px]",
                 status === "approved"
-                  ? "text-emerald-600 dark:text-[#40C977]"
+                  ? "text-[var(--wb-success)]"
                   : "text-muted-foreground",
               )}
             >
@@ -279,7 +279,7 @@ export function ThreadApprovalCard({
         </div>
       </div>
       {command ? (
-        <div className="mx-3 mb-3 rounded-lg bg-black/[0.04] px-3 py-2 font-mono text-[13px] dark:bg-white/5">
+        <div className="mx-3 mb-3 rounded-lg bg-[var(--wb-code-block)] px-3 py-2 font-mono text-[13px]">
           {command}
         </div>
       ) : null}
@@ -318,7 +318,7 @@ export function ThreadElicitation({
   return (
     <ThreadCard className={className}>
       <div className="flex items-center gap-3 px-3 py-2.5">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-black/5 dark:bg-white/10">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--wb-inset-strong)]">
           {icon}
         </span>
         <div className="min-w-0 flex-1 font-medium text-sm">{prompt}</div>
@@ -334,9 +334,9 @@ export function ThreadElicitation({
               disabled={locked}
               onClick={() => onSelect?.(option.value)}
               className={cn(
-                "flex w-full items-start gap-2 rounded-lg border border-black/10 px-3 py-2 text-left text-sm transition-colors",
-                "hover:bg-black/[0.03] disabled:pointer-events-none dark:border-white/10 dark:hover:bg-white/5",
-                selected && "border-[#339CFF] ring-1 ring-[#339CFF]/30",
+                "flex w-full items-start gap-2 rounded-lg border border-[var(--wb-border)] px-3 py-2 text-left text-sm transition-colors",
+                "hover:bg-[var(--wb-hover-subtle)] disabled:pointer-events-none",
+                selected && "border-[var(--wb-accent)] ring-1 ring-[var(--wb-accent)]/30",
                 locked && !selected && "opacity-50",
               )}
             >
@@ -348,7 +348,9 @@ export function ThreadElicitation({
                   </span>
                 ) : null}
               </span>
-              {selected ? <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#339CFF]" /> : null}
+              {selected ? (
+                <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--wb-accent)]" />
+              ) : null}
             </button>
           );
         })}
@@ -382,11 +384,11 @@ export function ThreadErrorState({
   return (
     <div
       className={cn(
-        "flex items-start gap-2.5 rounded-xl border border-red-500/25 bg-red-500/[0.06] px-3 py-2.5 text-sm",
+        "flex items-start gap-2.5 rounded-xl border border-[var(--wb-danger-surface)]/25 bg-[var(--wb-danger-surface)]/[0.06] px-3 py-2.5 text-sm",
         className,
       )}
     >
-      <CircleAlert className="mt-0.5 h-4 w-4 shrink-0 text-red-500 dark:text-[#FA423E]" />
+      <CircleAlert className="mt-0.5 h-4 w-4 shrink-0 text-[var(--wb-danger)]" />
       <div className="min-w-0 flex-1">
         <div className="text-foreground">{message}</div>
         {detail ? <div className="text-[13px] text-muted-foreground">{detail}</div> : null}
@@ -413,7 +415,7 @@ export function ThreadSystemBanner({ icon, children, className }: ThreadSystemBa
   return (
     <div
       className={cn(
-        "mx-auto my-2 flex w-fit items-center gap-1.5 rounded-full bg-black/5 px-3 py-1 text-muted-foreground text-xs dark:bg-white/5",
+        "mx-auto my-2 flex w-fit items-center gap-1.5 rounded-full bg-[var(--wb-inset)] px-3 py-1 text-muted-foreground text-xs",
         className,
       )}
     >
@@ -457,7 +459,7 @@ export function ThreadBranchSwitcher({
         aria-label="Previous branch"
         disabled={index <= 1}
         onClick={onPrev}
-        className="flex h-5 w-5 items-center justify-center rounded hover:bg-black/5 disabled:pointer-events-none disabled:opacity-30 dark:hover:bg-white/10"
+        className="flex h-5 w-5 items-center justify-center rounded hover:bg-[var(--wb-hover)] disabled:pointer-events-none disabled:opacity-30"
       >
         <ChevronLeft className="h-3 w-3" />
       </button>
@@ -480,7 +482,7 @@ export function ThreadBranchSwitcher({
         aria-label="Next branch"
         disabled={index >= count}
         onClick={onNext}
-        className="flex h-5 w-5 items-center justify-center rounded hover:bg-black/5 disabled:pointer-events-none disabled:opacity-30 dark:hover:bg-white/10"
+        className="flex h-5 w-5 items-center justify-center rounded hover:bg-[var(--wb-hover)] disabled:pointer-events-none disabled:opacity-30"
       >
         <ChevronRight className="h-3 w-3" />
       </button>
@@ -515,7 +517,7 @@ export function ThreadSuggestions({ suggestions, onSelect, className }: ThreadSu
           <button
             type="button"
             onClick={() => onSelect?.(suggestion.value)}
-            className="h-7 rounded-full border border-black/10 px-3 text-[13px] text-muted-foreground transition-colors hover:border-black/20 hover:text-foreground dark:border-white/10 dark:hover:border-white/20"
+            className="h-7 rounded-full border border-[var(--wb-border)] px-3 text-[13px] text-muted-foreground transition-colors hover:border-[var(--wb-border-emphasis)] hover:text-foreground"
           >
             {suggestion.label}
           </button>
@@ -607,23 +609,26 @@ export function ThreadTask({ status = "pending", className, children }: ThreadTa
             className="flex items-center justify-center"
           >
             {status === "done" ? (
-              <Check className="h-3.5 w-3.5 text-emerald-600 dark:text-[#40C977]" />
+              <Check className="h-3.5 w-3.5 text-[var(--wb-success)]" />
             ) : status === "active" ? (
               <span className="relative flex h-2 w-2 items-center justify-center">
                 {reduce ? (
-                  <span aria-hidden className="absolute inset-0 rounded-full bg-[#339CFF] opacity-25" />
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 rounded-full bg-[var(--wb-accent)] opacity-25"
+                  />
                 ) : (
                   <motion.span
                     aria-hidden
-                    className="absolute inset-0 rounded-full bg-[#339CFF]"
+                    className="absolute inset-0 rounded-full bg-[var(--wb-accent)]"
                     animate={{ scale: [1, 1.8], opacity: [0.5, 0] }}
                     transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
                   />
                 )}
-                <span className="h-2 w-2 rounded-full bg-[#339CFF]" />
+                <span className="h-2 w-2 rounded-full bg-[var(--wb-accent)]" />
               </span>
             ) : (
-              <span className="h-3.5 w-3.5 rounded-full border-[1.5px] border-black/20 dark:border-white/20" />
+              <span className="h-3.5 w-3.5 rounded-full border-[1.5px] border-[var(--wb-border-emphasis)]" />
             )}
           </motion.span>
         </AnimatePresence>
@@ -665,7 +670,7 @@ export function ThreadScrollPill({ open, count, onClick, className }: ThreadScro
           exit={reduce ? { opacity: 0 } : { opacity: 0, y: 8 }}
           transition={reduce ? { duration: 0.15, ease: EASE_OUT } : SPRING_PANEL}
           className={cn(
-            "absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1 rounded-full bg-neutral-900 px-3 py-1.5 text-white text-xs shadow-lg dark:bg-white dark:text-neutral-900",
+            "absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1 rounded-full bg-[var(--wb-inverse)] px-3 py-1.5 text-[var(--wb-inverse-fg)] text-xs shadow-lg",
             className,
           )}
         >
@@ -702,8 +707,8 @@ export function ThreadCheckpoint({
 }: ThreadCheckpointProps) {
   return (
     <div className={cn("relative flex items-center gap-3 py-2", className)}>
-      <span className="h-px flex-1 bg-black/5 dark:bg-white/[0.06]" />
-      <span className="flex h-6 items-center gap-1.5 rounded-full border border-black/10 px-2.5 text-xs text-muted-foreground dark:border-white/10">
+      <span className="h-px flex-1 bg-[var(--wb-divider)]" />
+      <span className="flex h-6 items-center gap-1.5 rounded-full border border-[var(--wb-border)] px-2.5 text-xs text-muted-foreground">
         <History className="h-3 w-3" />
         {label}
         {timestamp !== undefined && timestamp !== null ? (
@@ -719,7 +724,7 @@ export function ThreadCheckpoint({
           </button>
         ) : null}
       </span>
-      <span className="h-px flex-1 bg-black/5 dark:bg-white/[0.06]" />
+      <span className="h-px flex-1 bg-[var(--wb-divider)]" />
     </div>
   );
 }

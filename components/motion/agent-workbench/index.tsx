@@ -325,7 +325,7 @@ export function WorkbenchSidebar({ className, children }: WorkbenchSidebarProps)
         // overflow stays visible so the resize handle can straddle the edge
         // (z-10 keeps that overhang hit-testable above the main column);
         // clipping happens one div down.
-        "relative isolate z-10 shrink-0 overflow-visible bg-white/60 backdrop-blur-xl dark:bg-neutral-900/60",
+        "relative isolate z-10 shrink-0 overflow-visible bg-[var(--wb-surface-translucent)] backdrop-blur-xl",
         className,
       )}
     >
@@ -365,7 +365,7 @@ export function WorkbenchMain({ className, children }: WorkbenchMainProps) {
   return (
     <main
       className={cn(
-        "relative flex min-h-0 min-w-0 flex-1 flex-col bg-white dark:bg-neutral-900",
+        "relative flex min-h-0 min-w-0 flex-1 flex-col bg-[var(--wb-surface)]",
         className,
       )}
     >
@@ -409,7 +409,7 @@ export function WorkbenchPanel({ className, children }: WorkbenchPanelProps) {
         opacity: reduce ? { duration: 0.15, ease: EASE_OUT } : SPRING_PANEL,
       }}
       className={cn(
-        "relative isolate z-10 shrink-0 overflow-visible border-black/8 border-l bg-white dark:border-white/10 dark:bg-neutral-900",
+        "relative isolate z-10 shrink-0 overflow-visible border-[var(--wb-border-subtle)] border-l bg-[var(--wb-surface)]",
         className,
       )}
     >

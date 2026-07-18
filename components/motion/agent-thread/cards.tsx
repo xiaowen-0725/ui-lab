@@ -32,14 +32,13 @@ export function ThreadShimmerText({ className, children }: ThreadShimmerTextProp
     <motion.span
       style={{
         backgroundImage:
-          "linear-gradient(90deg, var(--tst-dim) 0%, var(--tst-dim) 40%, var(--tst-bright) 50%, var(--tst-dim) 60%, var(--tst-dim) 100%)",
+          "linear-gradient(90deg, var(--wb-shimmer-dim) 0%, var(--wb-shimmer-dim) 40%, var(--wb-shimmer-bright) 50%, var(--wb-shimmer-dim) 60%, var(--wb-shimmer-dim) 100%)",
         backgroundSize: "200% 100%",
       }}
       animate={{ backgroundPosition: ["100% 0%", "-100% 0%"] }}
       transition={{ duration: 1, repeat: Infinity, repeatDelay: 2, ease: "linear" }}
       className={cn(
         "bg-clip-text text-transparent",
-        "[--tst-dim:rgba(0,0,0,0.40)] [--tst-bright:rgba(0,0,0,0.85)] dark:[--tst-dim:rgba(255,255,255,0.40)] dark:[--tst-bright:rgba(255,255,255,0.95)]",
         className,
       )}
     >
@@ -62,10 +61,9 @@ export interface ThreadCardProps {
 export function ThreadCard({ className, children }: ThreadCardProps) {
   return (
     <div
-      style={{ boxShadow: "0 0 0 0.5px var(--thread-hairline)" }}
+      style={{ boxShadow: "0 0 0 0.5px var(--wb-hairline)" }}
       className={cn(
-        "my-1 flex max-w-full flex-col overflow-hidden rounded-xl bg-black/[0.03]",
-        "[--thread-hairline:rgba(0,0,0,0.08)] dark:bg-neutral-800/50 dark:[--thread-hairline:rgba(255,255,255,0.157)]",
+        "my-1 flex max-w-full flex-col overflow-hidden rounded-xl bg-[var(--wb-card)]",
         className,
       )}
     >
@@ -99,9 +97,9 @@ export function ThreadCardButton({
       className={cn(
         "flex h-7 items-center gap-1 rounded-lg text-sm transition-colors",
         variant === "outline" &&
-          "border border-black/10 px-2 hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/10",
+          "border border-[var(--wb-border)] px-2 hover:bg-[var(--wb-hover)]",
         variant === "ghost" &&
-          "px-2 text-muted-foreground hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10",
+          "px-2 text-muted-foreground hover:bg-[var(--wb-hover)] hover:text-foreground",
         variant === "primary" &&
           "bg-foreground px-3 text-background transition-opacity hover:opacity-85",
         className,
@@ -136,7 +134,7 @@ export function ThreadFileCard({
   return (
     <ThreadCard className={className}>
       <div className="flex items-center gap-3 px-3 py-2.5">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-black/5 dark:bg-white/10">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--wb-inset-strong)]">
           {icon}
         </span>
         <div className="min-w-0 flex-1">
@@ -177,7 +175,7 @@ export function ThreadDiffRow({ path, added, removed, className, children }: Thr
   return (
     <div
       className={cn(
-        "flex h-9 items-center justify-between gap-3 border-black/5 border-t-[0.5px] px-3 text-sm dark:border-white/[0.06]",
+        "flex h-9 items-center justify-between gap-3 border-[var(--wb-divider)] border-t-[0.5px] px-3 text-sm",
         className,
       )}
     >
@@ -185,10 +183,10 @@ export function ThreadDiffRow({ path, added, removed, className, children }: Thr
       {added !== undefined || removed !== undefined ? (
         <div className="flex shrink-0 gap-1.5 text-[13px]">
           {added !== undefined ? (
-            <span className="text-emerald-600 dark:text-[#40C977]">+{added}</span>
+            <span className="text-[var(--wb-success)]">+{added}</span>
           ) : null}
           {removed !== undefined ? (
-            <span className="text-red-500 dark:text-[#FA423E]">−{removed}</span>
+            <span className="text-[var(--wb-danger)]">−{removed}</span>
           ) : null}
         </div>
       ) : null}
@@ -256,7 +254,7 @@ export function ThreadDiffCard({
   return (
     <ThreadCard className={className}>
       <div className="flex items-center gap-3 px-3 py-2.5">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-black/5 dark:bg-white/10">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--wb-inset-strong)]">
           {icon}
         </span>
         <div className="min-w-0 flex-1">
@@ -264,10 +262,10 @@ export function ThreadDiffCard({
           {added !== undefined || removed !== undefined ? (
             <div className="flex gap-1.5 text-[13px]">
               {added !== undefined ? (
-                <span className="text-emerald-600 dark:text-[#40C977]">+{added}</span>
+                <span className="text-[var(--wb-success)]">+{added}</span>
               ) : null}
               {removed !== undefined ? (
-                <span className="text-red-500 dark:text-[#FA423E]">−{removed}</span>
+                <span className="text-[var(--wb-danger)]">−{removed}</span>
               ) : null}
             </div>
           ) : null}
@@ -289,7 +287,7 @@ export function ThreadDiffCard({
             <button
               type="button"
               onClick={() => setExpanded(true)}
-              className="flex w-full items-center gap-1 px-3 py-2 text-[13px] text-muted-foreground transition-colors hover:bg-black/5 dark:hover:bg-white/10"
+              className="flex w-full items-center gap-1 px-3 py-2 text-[13px] text-muted-foreground transition-colors hover:bg-[var(--wb-hover)]"
             >
               {moreLabel}
               <ChevronDown className="h-3.5 w-3.5" />

@@ -22,10 +22,9 @@ export interface ArtifactPanelProps {
 export function ArtifactPanel({ className, children }: ArtifactPanelProps) {
   return (
     <div
-      style={{ boxShadow: "0 0 0 0.5px var(--artifact-hairline)" }}
+      style={{ boxShadow: "0 0 0 0.5px var(--wb-hairline)" }}
       className={cn(
-        "flex h-full min-h-0 flex-col overflow-hidden rounded-2xl bg-white",
-        "[--artifact-hairline:rgba(0,0,0,0.08)] dark:bg-neutral-900 dark:[--artifact-hairline:rgba(255,255,255,0.15)]",
+        "flex h-full min-h-0 flex-col overflow-hidden rounded-2xl bg-[var(--wb-surface)]",
         className,
       )}
     >
@@ -50,7 +49,7 @@ export function ArtifactHeader({ icon, title, subtitle, actions, className }: Ar
   return (
     <div
       className={cn(
-        "flex h-12 shrink-0 items-center gap-2.5 border-black/5 border-b-[0.5px] px-3 dark:border-white/[0.06]",
+        "flex h-12 shrink-0 items-center gap-2.5 border-[var(--wb-divider)] border-b-[0.5px] px-3",
         className,
       )}
     >
@@ -88,7 +87,7 @@ export function ArtifactAction({
       aria-label={ariaLabel}
       onClick={onClick}
       className={cn(
-        "flex h-7 w-7 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10",
+        "flex h-7 w-7 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-[var(--wb-hover)] hover:text-foreground",
         className,
       )}
     >
@@ -118,7 +117,7 @@ export function ArtifactViewToggle({
   return (
     <div
       className={cn(
-        "flex items-center gap-0.5 rounded-full border border-black/10 p-0.5 dark:border-white/10",
+        "flex items-center gap-0.5 rounded-full border border-[var(--wb-border)] p-0.5",
         className,
       )}
     >
@@ -218,7 +217,7 @@ export function ArtifactVersionNav({
         aria-label="Previous version"
         disabled={index <= 1}
         onClick={onPrev}
-        className="flex h-5 w-5 items-center justify-center rounded hover:bg-black/5 disabled:pointer-events-none disabled:opacity-30 dark:hover:bg-white/10"
+        className="flex h-5 w-5 items-center justify-center rounded hover:bg-[var(--wb-hover)] disabled:pointer-events-none disabled:opacity-30"
       >
         <ChevronLeft className="h-3 w-3" />
       </button>
@@ -241,7 +240,7 @@ export function ArtifactVersionNav({
         aria-label="Next version"
         disabled={index >= count}
         onClick={onNext}
-        className="flex h-5 w-5 items-center justify-center rounded hover:bg-black/5 disabled:pointer-events-none disabled:opacity-30 dark:hover:bg-white/10"
+        className="flex h-5 w-5 items-center justify-center rounded hover:bg-[var(--wb-hover)] disabled:pointer-events-none disabled:opacity-30"
       >
         <ChevronRight className="h-3 w-3" />
       </button>

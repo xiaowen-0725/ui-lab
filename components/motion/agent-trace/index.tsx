@@ -24,7 +24,7 @@ export function Trace({ className, children }: TraceProps) {
     <div
       className={cn(
         "relative flex flex-col gap-0",
-        "before:absolute before:top-3 before:bottom-3 before:left-[11px] before:w-px before:bg-black/10 dark:before:bg-white/10",
+        "before:absolute before:top-3 before:bottom-3 before:left-[11px] before:w-px before:bg-[var(--wb-border)]",
         className,
       )}
     >
@@ -43,10 +43,10 @@ const KIND_ICON: Record<TraceStepKind, ComponentType<{ className?: string }>> = 
 };
 
 const KIND_NODE_STYLE: Record<TraceStepKind, string> = {
-  plan: "border-black/15 text-muted-foreground dark:border-white/15",
-  tool: "border-black/15 text-muted-foreground dark:border-white/15",
-  reflection: "border-dashed border-black/15 text-muted-foreground dark:border-white/15",
-  done: "border-emerald-500/40 text-emerald-600 dark:text-[#40C977]",
+  plan: "border-[var(--wb-border-strong)] text-muted-foreground",
+  tool: "border-[var(--wb-border-strong)] text-muted-foreground",
+  reflection: "border-dashed border-[var(--wb-border-strong)] text-muted-foreground",
+  done: "border-[var(--wb-success-border)]/40 text-[var(--wb-success)]",
 };
 
 interface TraceShimmerTextProps {
@@ -72,14 +72,13 @@ function TraceShimmerText({ className, children }: TraceShimmerTextProps) {
     <motion.span
       style={{
         backgroundImage:
-          "linear-gradient(90deg, var(--trace-dim) 0%, var(--trace-dim) 40%, var(--trace-bright) 50%, var(--trace-dim) 60%, var(--trace-dim) 100%)",
+          "linear-gradient(90deg, var(--wb-shimmer-dim) 0%, var(--wb-shimmer-dim) 40%, var(--wb-shimmer-bright) 50%, var(--wb-shimmer-dim) 60%, var(--wb-shimmer-dim) 100%)",
         backgroundSize: "200% 100%",
       }}
       animate={{ backgroundPosition: ["100% 0%", "-100% 0%"] }}
       transition={{ duration: 1, repeat: Infinity, repeatDelay: 2, ease: "linear" }}
       className={cn(
         "bg-clip-text text-transparent",
-        "[--trace-dim:rgba(0,0,0,0.40)] [--trace-bright:rgba(0,0,0,0.85)] dark:[--trace-dim:rgba(255,255,255,0.40)] dark:[--trace-bright:rgba(255,255,255,0.95)]",
         className,
       )}
     >
@@ -164,14 +163,14 @@ export function TraceStep({
     >
       <span
         className={cn(
-          "z-10 flex h-[23px] w-[23px] shrink-0 items-center justify-center rounded-full border bg-white dark:bg-neutral-900",
+          "z-10 flex h-[23px] w-[23px] shrink-0 items-center justify-center rounded-full border bg-[var(--wb-surface)]",
           KIND_NODE_STYLE[kind],
         )}
       >
         {active && !reduce ? (
           <motion.span
             aria-hidden
-            className="absolute h-[23px] w-[23px] rounded-full border border-[#339CFF]"
+            className="absolute h-[23px] w-[23px] rounded-full border border-[var(--wb-accent)]"
             initial={{ scale: 1, opacity: 0.5 }}
             animate={{ scale: 1.5, opacity: 0 }}
             transition={{ duration: 1.6, repeat: Infinity, ease: EASE_OUT }}
@@ -259,7 +258,7 @@ export function TraceCostBadge({ tokens, cost, className }: TraceCostBadgeProps)
   return (
     <span
       className={cn(
-        "inline-flex h-[18px] items-center gap-1 rounded-full bg-black/5 px-1.5 text-[10px] tabular-nums text-muted-foreground dark:bg-white/10",
+        "inline-flex h-[18px] items-center gap-1 rounded-full bg-[var(--wb-inset-strong)] px-1.5 text-[10px] tabular-nums text-muted-foreground",
         className,
       )}
     >
@@ -293,7 +292,7 @@ export function TraceGroup({ label, children, className }: TraceGroupProps) {
       className={cn("relative flex flex-col py-2", className)}
     >
       <div className="ml-9 text-[13px] text-muted-foreground">{label}</div>
-      <div className="ml-9 mt-1 flex flex-col gap-1 border-l border-dashed border-black/10 pl-3 dark:border-white/10">
+      <div className="ml-9 mt-1 flex flex-col gap-1 border-[var(--wb-border)] border-l border-dashed pl-3">
         {children}
       </div>
     </motion.div>
@@ -357,7 +356,7 @@ export function TraceSubagent({
         type="button"
         aria-expanded={open}
         onClick={toggle}
-        className="ml-9 inline-flex items-center gap-1 self-start rounded-lg px-1 py-0.5 text-sm text-foreground transition-colors hover:bg-black/5 dark:hover:bg-white/10"
+        className="ml-9 inline-flex items-center gap-1 self-start rounded-lg px-1 py-0.5 text-sm text-foreground transition-colors hover:bg-[var(--wb-hover)]"
       >
         {label}
         <motion.span
@@ -376,7 +375,7 @@ export function TraceSubagent({
         transition={{ duration: 0.25, ease: EASE_OUT }}
         className={cn("overflow-hidden", reduce && (open ? "h-auto" : "h-0"))}
       >
-        <div ref={contentRef} className="ml-9 border-black/10 border-l pl-4 dark:border-white/10">
+        <div ref={contentRef} className="ml-9 border-[var(--wb-border)] border-l pl-4">
           <Trace>{children}</Trace>
         </div>
       </motion.div>
@@ -407,7 +406,7 @@ export function TraceSummary({ duration, tokens, cost, className, children }: Tr
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: reduce ? 0.15 : 0.25, ease: EASE_OUT }}
       className={cn(
-        "ml-9 mt-1 flex items-center gap-3 border-t-[0.5px] border-black/10 pt-2 text-xs text-muted-foreground dark:border-white/10",
+        "ml-9 mt-1 flex items-center gap-3 border-[var(--wb-border)] border-t-[0.5px] pt-2 text-xs text-muted-foreground",
         className,
       )}
     >

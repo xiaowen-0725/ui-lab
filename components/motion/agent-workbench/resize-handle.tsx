@@ -140,7 +140,7 @@ export function ResizeHandle({
     >
       <div
         className={cn(
-          "mx-auto h-full w-px bg-gradient-to-b from-transparent via-black/20 to-transparent opacity-0 transition-opacity dark:via-white/25",
+          "mx-auto h-full w-px bg-gradient-to-b from-transparent via-[var(--wb-resize-handle)] to-transparent opacity-0 transition-opacity",
           "group-hover:opacity-100 group-focus-visible:opacity-100",
           dragging && "opacity-100",
         )}

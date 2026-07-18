@@ -35,11 +35,10 @@ export function Composer({ className, children }: ComposerProps) {
     <div
       style={{
         boxShadow:
-          "0 0 0 0.5px var(--composer-hairline), 0 3px 7.5px rgba(0,0,0,0.04), 0 0 20px rgba(0,0,0,0.05)",
+          "0 0 0 0.5px var(--wb-hairline-soft), 0 3px 7.5px rgba(0,0,0,0.04), 0 0 20px rgba(0,0,0,0.05)",
       }}
       className={cn(
-        "relative z-10 flex flex-col rounded-[25px] bg-white/90 backdrop-blur-lg",
-        "[--composer-hairline:rgba(0,0,0,0.08)] dark:bg-neutral-800/90 dark:[--composer-hairline:rgba(255,255,255,0.15)]",
+        "relative z-10 flex flex-col rounded-[25px] bg-[var(--wb-surface-composer)] backdrop-blur-lg",
         className,
       )}
     >
@@ -64,7 +63,7 @@ export function ComposerContextBar({ className, children }: ComposerContextBarPr
   return (
     <div
       className={cn(
-        "-mb-5 flex items-center gap-4 rounded-t-2xl bg-black/5 px-2 pt-2 pb-7 dark:bg-white/5",
+        "-mb-5 flex items-center gap-4 rounded-t-2xl bg-[var(--wb-inset)] px-2 pt-2 pb-7",
         className,
       )}
     >
@@ -125,7 +124,7 @@ export function ComposerChip({
         title={title}
         className={cn(
           CHIP_BASE,
-          "group transition-colors hover:bg-black/10 hover:text-foreground dark:hover:bg-white/10",
+          "group transition-colors hover:bg-[var(--wb-hover-strong)] hover:text-foreground",
           className,
         )}
       >
@@ -248,7 +247,7 @@ export function ComposerIconButton({
       disabled={disabled}
       className={cn(
         "flex h-7 w-7 items-center justify-center rounded-full text-muted-foreground transition-colors",
-        "hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10",
+        "hover:bg-[var(--wb-hover)] hover:text-foreground",
         className,
       )}
     >
@@ -281,8 +280,8 @@ export function ComposerAccessChip({
       className={cn(
         "flex h-7 items-center gap-1 rounded-full px-2 text-[13px] transition-colors",
         tone === "warning"
-          ? "text-orange-600 hover:bg-orange-500/10 dark:text-[#ff8549] dark:hover:bg-[#e25507]/10"
-          : "text-muted-foreground hover:bg-black/5 dark:hover:bg-white/10",
+          ? "text-[var(--wb-warning-text)] hover:bg-[var(--wb-warning-hover)]/10"
+          : "text-muted-foreground hover:bg-[var(--wb-hover)]",
         className,
       )}
     >
@@ -358,12 +357,11 @@ function PopoverPanel({ open, align, className, children }: PopoverPanelProps) {
           style={{
             transformOrigin: align === "end" ? "bottom right" : "bottom left",
             boxShadow:
-              "0 0 0 0.5px var(--composer-picker-hairline), 0 3px 7.5px rgba(0,0,0,0.04), 0 0 20px rgba(0,0,0,0.05)",
+              "0 0 0 0.5px var(--wb-hairline-soft), 0 3px 7.5px rgba(0,0,0,0.04), 0 0 20px rgba(0,0,0,0.05)",
           }}
           className={cn(
-            "absolute bottom-[calc(100%+8px)] z-20 min-w-[224px] rounded-2xl bg-white/95 p-1 backdrop-blur-xl",
+            "absolute bottom-[calc(100%+8px)] z-20 min-w-[224px] rounded-2xl bg-[var(--wb-surface-raised)] p-1 backdrop-blur-xl",
             align === "end" ? "right-0" : "left-0",
-            "[--composer-picker-hairline:rgba(0,0,0,0.08)] dark:bg-neutral-800/95 dark:[--composer-picker-hairline:rgba(255,255,255,0.15)]",
             className,
           )}
         >
@@ -407,7 +405,7 @@ export function ComposerModelPicker({
         onClick={() => setOpen(!open)}
         className={cn(
           "flex h-7 items-center gap-1 rounded-full px-2 text-[13px] text-muted-foreground",
-          "hover:bg-black/5 dark:hover:bg-white/10",
+          "hover:bg-[var(--wb-hover)]",
           className,
         )}
       >
@@ -463,8 +461,8 @@ export function ComposerMenuButton({
         onClick={() => setOpen(!open)}
         className={cn(
           label
-            ? "flex h-7 items-center gap-1 rounded-full px-2 text-[13px] text-muted-foreground hover:bg-black/5 dark:hover:bg-white/10"
-            : "flex h-7 w-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10",
+            ? "flex h-7 items-center gap-1 rounded-full px-2 text-[13px] text-muted-foreground hover:bg-[var(--wb-hover)]"
+            : "flex h-7 w-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-[var(--wb-hover)] hover:text-foreground",
           className,
         )}
       >
@@ -517,7 +515,7 @@ export function ComposerMenuItem({
       onClick={onSelect}
       className={cn(
         "flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] transition-colors",
-        "hover:bg-black/5 dark:hover:bg-white/10",
+        "hover:bg-[var(--wb-hover)]",
         className,
       )}
     >
@@ -644,7 +642,7 @@ export function ComposerDictation({
         type="button"
         aria-label={ariaLabel ?? "Stop dictation"}
         onClick={onStop}
-        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-neutral-900 shadow-[0_0_0_0.5px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.2)]"
+        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--wb-accent-fg)] text-[var(--wb-solid-control-fg)] shadow-[0_0_0_0.5px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.2)]"
       >
         <span className="block h-2.5 w-2.5 rounded-[2px] bg-current" />
       </button>
@@ -694,7 +692,7 @@ export function ComposerAttachmentChip({
     <motion.div
       layout
       className={cn(
-        "group/att flex items-center gap-1.5 rounded-lg border border-black/10 bg-black/[0.03] py-1 pr-1 pl-2 text-[13px] dark:border-white/10 dark:bg-white/5",
+        "group/att flex items-center gap-1.5 rounded-lg border border-[var(--wb-border)] bg-[var(--wb-inset-subtle)] py-1 pr-1 pl-2 text-[13px]",
         className,
       )}
     >
@@ -710,7 +708,7 @@ export function ComposerAttachmentChip({
           type="button"
           aria-label={typeof name === "string" ? `Remove ${name}` : "Remove attachment"}
           onClick={onRemove}
-          className="flex h-5 w-5 shrink-0 items-center justify-center rounded hover:bg-black/10 dark:hover:bg-white/10"
+          className="flex h-5 w-5 shrink-0 items-center justify-center rounded hover:bg-[var(--wb-hover-strong)]"
         >
           <X className="h-3 w-3" />
         </button>
@@ -753,16 +751,16 @@ export function ComposerContextGauge({
 
   return (
     <div className={cn("flex items-center gap-1.5", className)}>
-      <div className="h-1 w-16 overflow-hidden rounded-full bg-black/10 dark:bg-white/10">
+      <div className="h-1 w-16 overflow-hidden rounded-full bg-[var(--wb-border)]">
         <motion.div
           initial={false}
           animate={{ width: `${ratio * 100}%` }}
           transition={reduce ? { duration: 0.15, ease: EASE_OUT } : SPRING_PANEL}
           className={cn(
             "h-full rounded-full",
-            tone === "safe" && "bg-[#339CFF]",
-            tone === "warn" && "bg-[#e25507] dark:bg-[#ff8549]",
-            tone === "crit" && "bg-red-500 dark:bg-[#FA423E]",
+            tone === "safe" && "bg-[var(--wb-accent)]",
+            tone === "warn" && "bg-[var(--wb-warning)]",
+            tone === "crit" && "bg-[var(--wb-danger)]",
           )}
         />
       </div>
