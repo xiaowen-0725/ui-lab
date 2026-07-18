@@ -14,6 +14,7 @@ import {
   type ReactElement,
   type ReactNode,
   type Ref,
+  type KeyboardEventHandler,
   useCallback,
   useContext,
   useEffect,
@@ -336,7 +337,7 @@ export function PopoverTrigger({ children }: PopoverTriggerProps) {
     }),
     // Above the goo layer (z-[-1]) so the neck reads behind it.
     className: cn("relative z-0", childProps.className as string | undefined),
-    "aria-haspopup": "dialog",
+    "aria-haspopup": childProps["aria-haspopup"] ?? "dialog",
     "aria-expanded": ctx.open,
     "aria-controls": ctx.open ? ctx.contentId : undefined,
     "data-state": ctx.open ? "open" : "closed",
@@ -352,9 +353,18 @@ const ALIGN_ORIGIN: Record<Align, string> = {
 export interface PopoverContentProps {
   children: ReactNode;
   className?: string;
+  role?: "dialog" | "menu";
+  "aria-label"?: string;
+  onKeyDown?: KeyboardEventHandler<HTMLDivElement>;
 }
 
-export function PopoverContent({ children, className }: PopoverContentProps) {
+export function PopoverContent({
+  children,
+  className,
+  role = "dialog",
+  "aria-label": ariaLabel,
+  onKeyDown,
+}: PopoverContentProps) {
   const ctx = usePopoverContext("PopoverContent");
   const {
     side,
@@ -518,10 +528,13 @@ export function PopoverContent({ children, className }: PopoverContentProps) {
             pointerEvents: open ? "auto" : "none",
           }}
         >
+          {/* biome-ignore lint/a11y: The runtime role defaults to dialog and callers can supply another appropriate popup role with its handlers. */}
           <div
             ref={measureRef}
             id={contentId}
-            role="dialog"
+            role={role}
+            aria-label={ariaLabel}
+            onKeyDown={onKeyDown}
             {...hoverHandlers}
             style={{
               position: "absolute",

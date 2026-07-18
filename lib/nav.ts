@@ -24,6 +24,14 @@ export type NavSpace = {
   exclude?: readonly string[];
 };
 
+export type NavTopItem =
+  | { kind: "space"; space: NavSpace }
+  | {
+      kind: "group";
+      key: "vocabulary";
+      children: readonly NavSpace[];
+    };
+
 export const NAV_SPACES: readonly NavSpace[] = [
   {
     key: "components",
@@ -43,7 +51,40 @@ export const NAV_SPACES: readonly NavSpace[] = [
   { key: "playground", href: "/playground", match: "/playground" },
 ];
 
+function getNavSpace(key: NavSpace["key"]): NavSpace {
+  const space = NAV_SPACES.find((item) => item.key === key);
+  if (!space) throw new Error(`Unknown nav space: ${key}`);
+  return space;
+}
+
+export const NAV_TOP: readonly NavTopItem[] = [
+  { kind: "space", space: getNavSpace("components") },
+  { kind: "space", space: getNavSpace("blocks") },
+  {
+    kind: "group",
+    key: "vocabulary",
+    children: [
+      getNavSpace("styles"),
+      getNavSpace("palettes"),
+      getNavSpace("sections"),
+      getNavSpace("scroll"),
+      getNavSpace("layouts"),
+      getNavSpace("patterns"),
+      getNavSpace("atoms"),
+    ],
+  },
+  { kind: "space", space: getNavSpace("studio") },
+  { kind: "space", space: getNavSpace("playground") },
+];
+
 export function isSpaceActive(space: NavSpace, pathname: string): boolean {
   if (!pathname.startsWith(space.match)) return false;
   return !space.exclude?.some((prefix) => pathname.startsWith(prefix));
+}
+
+export function isGroupActive(
+  children: readonly NavSpace[],
+  pathname: string,
+): boolean {
+  return children.some((space) => isSpaceActive(space, pathname));
 }
