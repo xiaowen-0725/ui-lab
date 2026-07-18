@@ -25,6 +25,20 @@ export default async function PalettesPage() {
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
           {t("intro")}
         </p>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground/80">
+          {t.rich("moreLink", {
+            link: (chunks) => (
+              <a
+                href="https://huemint.com/back-gradient-2/"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-foreground/80 underline underline-offset-4 transition-colors hover:text-foreground"
+              >
+                {chunks}
+              </a>
+            ),
+          })}
+        </p>
         <div className="mt-10">
           {/* useSearchParams in the explorer needs a Suspense boundary for
            * static rendering of this page. */}
