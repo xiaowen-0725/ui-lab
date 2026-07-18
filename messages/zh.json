@@ -67,7 +67,7 @@
     "spacePalettesDesc": "认出你想要的那组颜色,连色值一起带走。",
     "spaceSectionsDesc": "落地页解剖图:开头那块原来叫 hero。",
     "spaceLayoutsDesc": "把完整 Agent 工作台换上不同产品的设计语言。",
-    "spaceAtomsDesc": "曲线、圆角、间距、描边、字体与图标，一处复制真值。",
+    "spaceAtomsDesc": "曲线、圆角、间距、描边、字体、图标与背景，一处复制真值。",
     "spaceStudioDesc": "拨动原子刻度，生成并导出你自己的设计系统。",
     "spacePlaygroundDesc": "现场调参,感受动效手感。"
   },
@@ -82,7 +82,8 @@
       "typography": "字体排印",
       "spacing": "间距",
       "lines": "描边与发丝",
-      "icons": "图标风格"
+      "icons": "图标风格",
+      "backgrounds": "背景质感"
     },
     "comparator": "对比器",
     "entryList": "真值词典",
@@ -139,7 +140,14 @@
     "iconsComparatorHint": "房子、放大镜、齿轮、心与星均为自绘 SVG；逐排比较描边重量、圆角、填充、双色调与像素结构。",
     "iconsAntiSlop": "反 slop：全站图标风格必须唯一，禁止线性与面性图标混排在同一栏。",
     "iconsValuesTitle": "六种图标风格词汇",
-    "iconSpecLabel": "点击复制给 AI 的规格句"
+    "iconSpecLabel": "点击复制给 AI 的规格句",
+    "backgroundsComparatorTitle": "九种静态质感，一次粘贴即用",
+    "backgroundsComparatorHint": "每张瓦片自动跟随当前 light / dark 主题；点击瓦片即可复制该主题的完整 CSS 声明。",
+    "backgroundsIntro": "可直接粘贴的背景底纹配方。纯 CSS、零依赖；需要动态着色器背景见 <webgl>webgl-background</webgl> 组件。",
+    "backgroundsValuesTitle": "九组深浅成对的背景配方",
+    "backgroundCssLabel": "点击复制完整 CSS 声明",
+    "copyBackground": "复制{name}的{scheme} CSS",
+    "copiedBackground": "已复制{name} CSS"
   },
   "studio": {
     "eyebrow": "设计系统生成器",

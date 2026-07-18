@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+import { BackgroundsExplorer } from "@/components/app/atoms/backgrounds-explorer";
 import { IconsExplorer } from "@/components/app/atoms/icons-explorer";
 import { LinesExplorer } from "@/components/app/atoms/lines-explorer";
 import { MotionExplorer } from "@/components/app/atoms/motion-explorer";
@@ -65,6 +66,7 @@ export function AtomsExplorer() {
         {category === "spacing" ? <SpacingExplorer /> : null}
         {category === "lines" ? <LinesExplorer /> : null}
         {category === "icons" ? <IconsExplorer /> : null}
+        {category === "backgrounds" ? <BackgroundsExplorer /> : null}
       </div>
     </div>
   );

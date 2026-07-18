@@ -1,4 +1,5 @@
 import type {
+  BackgroundAtom,
   DensityAtom,
   IconStyleAtom,
   LineAtom,
@@ -147,6 +148,38 @@ export function createIconsExports(icons: readonly IconStyleAtom[]): AtomExportB
       values: icons.map((entry) => ({ name: entry.slug, value: entry.spec })),
       rule: "Use one icon style across the product; never mix outline and filled icons in the same bar.",
     }),
+  };
+}
+
+export function createBackgroundsExports(
+  backgrounds: readonly BackgroundAtom[],
+): AtomExportBundle {
+  const recipes = backgrounds
+    .map(
+      (entry) => `### ${entry.name}
+
+#### Light
+
+\`\`\`css
+${entry.light}
+\`\`\`
+
+#### Dark
+
+\`\`\`css
+${entry.dark}
+\`\`\`
+
+**Use when:** ${entry.whenUse}`,
+    )
+    .join("\n\n");
+
+  return {
+    designMarkdown: `## Backgrounds
+
+${recipes}
+
+**Rule:** Use these static CSS recipes for texture; for dynamic shader effects, use the \`webgl-background\` component.`,
   };
 }
 

@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import {
+  createBackgroundsExports,
   createIconsExports,
   createMotionExports,
   createShapeExports,
@@ -10,6 +11,7 @@ import {
   renderDesignMarkdown,
   renderTailwindTheme,
 } from "@/lib/atoms/export";
+import { BACKGROUNDS } from "@/lib/atoms/backgrounds";
 import { DENSITIES, SPACING_SCALE } from "@/lib/atoms/spacing";
 import { LINES } from "@/lib/atoms/lines";
 import { ICON_STYLES } from "@/lib/atoms/icons";
@@ -107,6 +109,20 @@ describe("atom category exports", () => {
 
 **Rule:** Use one icon style across the product; never mix outline and filled icons in the same bar.`,
     });
+  });
+
+  test("exports background recipes as a code-first DESIGN.md section only", () => {
+    const result = createBackgroundsExports(BACKGROUNDS);
+
+    expect(Object.keys(result)).toEqual(["designMarkdown"]);
+    expect(result.designMarkdown).toStartWith("## Backgrounds\n\n### Grid");
+    expect(result.designMarkdown.match(/^### /gm)).toHaveLength(9);
+    expect(result.designMarkdown).toContain(
+      "background-size: 24px 24px;\n```\n\n**Use when:** For dashboard and technical backdrops.",
+    );
+    expect(result.designMarkdown).toContain(
+      "rgb(255 255 255 / 0.07) 1px, transparent 1px",
+    );
   });
 
   test("maps motion curves, spring physics, and durations without losing values", () => {

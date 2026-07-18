@@ -3,7 +3,6 @@
 import { Check } from "lucide-react";
 import { useReducedMotion } from "motion/react";
 import { useLocale, useTranslations } from "next-intl";
-import { useTheme } from "next-themes";
 import { useState } from "react";
 import type { ReactNode } from "react";
 import { AtomCard } from "@/components/app/atoms/atom-card";
@@ -15,6 +14,7 @@ import {
 import type { Locale } from "@/i18n/routing";
 import { createShapeExports, RADII, SHADOWS } from "@/lib/atoms";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
+import { useResolvedDark } from "@/lib/hooks/use-resolved-dark";
 import { cn } from "@/lib/utils";
 
 const COPY = {
@@ -61,14 +61,13 @@ function ShadowSurface({
 export function ShapeExplorer() {
   const locale = useLocale() as Locale;
   const t = useTranslations("atoms");
-  const { resolvedTheme } = useTheme();
   const reducedMotion = useReducedMotion();
   const hoverCapable = useHoverCapable();
   const copy = COPY[locale];
   const [radiusSlug, setRadiusSlug] = useState("lg");
   const { copiedLabel, copyValue } = useCopyFeedback();
   const activeRadius = RADII.find((entry) => entry.slug === radiusSlug) ?? RADII[0];
-  const dark = resolvedTheme !== "light";
+  const dark = useResolvedDark();
   const canLift = hoverCapable && !reducedMotion;
 
   if (!activeRadius) return null;

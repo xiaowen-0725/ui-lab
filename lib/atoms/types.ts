@@ -139,13 +139,25 @@ export type IconStyleAtom = {
     | { mode: "pixel"; grid: 16 };
 };
 
+export type BackgroundAtom = {
+  slug: string;
+  name: string;
+  nameZh: string;
+  aliases: readonly string[];
+  whenUse: string;
+  whenUseZh: string;
+  light: string;
+  dark: string;
+};
+
 export type AtomCategorySlug =
   | "motion"
   | "shape"
   | "typography"
   | "spacing"
   | "lines"
-  | "icons";
+  | "icons"
+  | "backgrounds";
 
 export type AtomSearchItem = {
   slug: string;

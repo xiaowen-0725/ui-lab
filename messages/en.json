@@ -67,7 +67,7 @@
     "spacePalettesDesc": "Recognize the colors you want, hexes included.",
     "spaceSectionsDesc": "Landing-page anatomy: that top block is a hero.",
     "spaceLayoutsDesc": "Dress a complete Agent workbench in different product languages.",
-    "spaceAtomsDesc": "Curves, radii, spacing, lines, type, and icons — copy the truth in one place.",
+    "spaceAtomsDesc": "Curves, radii, spacing, lines, type, icons, and backgrounds — copy the truth in one place.",
     "spaceStudioDesc": "Dial in the atoms, then export your own design system.",
     "spacePlaygroundDesc": "Tune motion parameters live."
   },
@@ -82,7 +82,8 @@
       "typography": "Typography",
       "spacing": "Spacing",
       "lines": "Lines & hairlines",
-      "icons": "Icon styles"
+      "icons": "Icon styles",
+      "backgrounds": "Backgrounds"
     },
     "comparator": "Comparator",
     "entryList": "Value dictionary",
@@ -139,7 +140,14 @@
     "iconsComparatorHint": "Home, search, gear, heart, and star are all hand-drawn SVGs. Compare stroke weight, rounding, fill, duotone, and pixel construction row by row.",
     "iconsAntiSlop": "Anti-slop: use one icon style across the product. Never mix outline and filled icons in the same bar.",
     "iconsValuesTitle": "Six icon-style vocabulary entries",
-    "iconSpecLabel": "Click to copy the AI-ready specification"
+    "iconSpecLabel": "Click to copy the AI-ready specification",
+    "backgroundsComparatorTitle": "Nine static textures, one paste away",
+    "backgroundsComparatorHint": "Each tile follows the current light or dark theme. Click a tile to copy that theme's complete CSS declaration.",
+    "backgroundsIntro": "Paste-ready background texture recipes. Pure CSS, zero dependencies; for dynamic shader backgrounds, see the <webgl>webgl-background</webgl> component.",
+    "backgroundsValuesTitle": "Nine paired background recipes",
+    "backgroundCssLabel": "Click to copy the complete CSS declaration",
+    "copyBackground": "Copy {scheme} CSS for {name}",
+    "copiedBackground": "{name} CSS copied"
   },
   "studio": {
     "eyebrow": "Design system generator",
