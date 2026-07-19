@@ -1,9 +1,12 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
+import { AnimatedIconsSection } from "@/components/app/atoms/animated-icons";
 import { AtomCard } from "@/components/app/atoms/atom-card";
 import { AtomExportActions } from "@/components/app/atoms/atom-export-actions";
 import { CopyValue } from "@/components/app/atoms/copy-value";
+import { IconLibraryLinks } from "@/components/app/atoms/icon-library-links";
+import type { IconLibrary } from "@/components/app/atoms/icon-library-links";
 import type { Locale } from "@/i18n/routing";
 import { createIconsExports, ICON_STYLES } from "@/lib/atoms";
 import type { IconStyleAtom } from "@/lib/atoms";
@@ -13,6 +16,45 @@ type IconShape = "home" | "search" | "gear" | "heart" | "star";
 
 const ICON_SHAPES: readonly IconShape[] = ["home", "search", "gear", "heart", "star"];
 const ICONS_EXPORTS = createIconsExports(ICON_STYLES);
+
+const STATIC_ICON_LIBRARIES: readonly IconLibrary[] = [
+  {
+    name: "Lucide",
+    href: "https://lucide.dev",
+    desc: "MIT · outline 1.5px, already bundled in this lab (the animated icons use it too).",
+    descZh: "MIT · 线性 1.5px，本 lab 已内置（动效图标也基于它）",
+  },
+  {
+    name: "Heroicons",
+    href: "https://heroicons.com",
+    desc: "MIT · by the Tailwind team; ships outline + solid (filled) sets.",
+    descZh: "MIT · Tailwind 团队出品，线性 + 面性(solid)两套",
+  },
+  {
+    name: "Phosphor",
+    href: "https://phosphoricons.com",
+    desc: "MIT · six weights including duotone, fill, and thin — the widest range of voices.",
+    descZh: "MIT · 6 种字重含 duotone/fill/thin，图标口音最全",
+  },
+  {
+    name: "Tabler Icons",
+    href: "https://tabler.io/icons",
+    desc: "MIT · 5,000+ bold 2px outline icons.",
+    descZh: "MIT · 5000+ 粗线(2px)线性图标",
+  },
+  {
+    name: "Pixelarticons",
+    href: "https://pixelarticons.com",
+    desc: "MIT · pixel-art style (matches the Pixel voice above).",
+    descZh: "MIT · 像素风（对应上面的 Pixel 口音）",
+  },
+  {
+    name: "Iconify",
+    href: "https://iconify.design",
+    desc: "Aggregator — search 200k+ icons across every set in one place (licenses vary per set).",
+    descZh: "聚合器，一站检索 200k+ 图标跨所有图标集（各集许可不一）",
+  },
+];
 
 const FILLED_PATHS: Record<IconShape, string> = {
   home: "M2.5 10.25 12 2.5l9.5 7.75v10.25a1 1 0 0 1-1 1h-5.75v-6.75h-5.5v6.75H3.5a1 1 0 0 1-1-1V10.25Z",
@@ -212,7 +254,14 @@ export function IconsExplorer({ className }: { className?: string }) {
             );
           })}
         </div>
+        <IconLibraryLinks
+          title={t("iconStyleMoreTitle")}
+          hint={t("iconStyleMoreHint")}
+          libraries={STATIC_ICON_LIBRARIES}
+        />
       </section>
+
+      <AnimatedIconsSection />
     </div>
   );
 }

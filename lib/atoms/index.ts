@@ -1,4 +1,5 @@
 import { BACKGROUNDS } from "@/lib/atoms/backgrounds";
+import { ICON_MOTIONS } from "@/lib/atoms/icon-motion";
 import { ICON_STYLES } from "@/lib/atoms/icons";
 import { LINES } from "@/lib/atoms/lines";
 import { MOTION_CURVES, MOTION_DURATIONS, MOTION_SPRINGS } from "@/lib/atoms/motion";
@@ -9,6 +10,7 @@ import { FONT_PAIRS, TYPE_SCALE } from "@/lib/atoms/typography";
 
 export * from "@/lib/atoms/export";
 export * from "@/lib/atoms/backgrounds";
+export * from "@/lib/atoms/icon-motion";
 export * from "@/lib/atoms/icons";
 export * from "@/lib/atoms/lines";
 export * from "@/lib/atoms/motion";
@@ -46,6 +48,6 @@ export const ATOM_SEARCH_ITEMS: readonly AtomSearchItem[] = [
   ...toAtomSearchItems("typography", [...FONT_PAIRS, ...TYPE_SCALE]),
   ...toAtomSearchItems("spacing", [...SPACING_SCALE, ...DENSITIES]),
   ...toAtomSearchItems("lines", LINES),
-  ...toAtomSearchItems("icons", ICON_STYLES),
+  ...toAtomSearchItems("icons", [...ICON_STYLES, ...ICON_MOTIONS]),
   ...toAtomSearchItems("backgrounds", BACKGROUNDS),
 ];

@@ -150,6 +150,27 @@ export type BackgroundAtom = {
   dark: string;
 };
 
+export type IconMotionPattern =
+  | "draw"
+  | "wiggle"
+  | "spin"
+  | "bounce"
+  | "pop"
+  | "pulse"
+  | "nudge";
+
+export type IconMotionAtom = {
+  slug: string;
+  name: string;
+  nameZh: string;
+  aliases: readonly string[];
+  whenUse: string;
+  whenUseZh: string;
+  prompt: string;
+  promptZh: string;
+  pattern: IconMotionPattern;
+};
+
 export type AtomCategorySlug =
   | "motion"
   | "shape"
