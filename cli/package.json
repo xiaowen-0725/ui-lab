@@ -3,8 +3,14 @@
   "version": "0.1.0",
   "description": "Discover and fetch the UI Lab visual vocabulary — components, design tokens, icons, styles, palettes, and design systems — from your terminal.",
   "type": "module",
-  "bin": { "ui-lab": "./dist/index.js" },
-  "files": ["dist", "catalog.snapshot.json", "README.md"],
+  "bin": {
+    "ui-lab": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "catalog.snapshot.json",
+    "README.md"
+  ],
   "keywords": [
     "ui-lab",
     "shadcn",
@@ -19,11 +25,13 @@
   "homepage": "https://ui-lab-ten.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xiaowen-0725/ui-lab.git",
+    "url": "git+https://github.com/xiaowen-0725/ui-lab.git",
     "directory": "cli"
   },
   "license": "MIT",
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc --noEmit -p tsconfig.json"
