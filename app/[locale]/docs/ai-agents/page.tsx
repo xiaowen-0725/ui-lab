@@ -4,17 +4,17 @@ import { ArrowUpRight } from "lucide-react";
 import { CodeBlock } from "@/components/app/docs/code-block";
 import { getLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
-import { REGISTRY_NAME, REGISTRY_NAMESPACE, SITE_URL } from "@/lib/site";
+import { REGISTRY_NAMESPACE, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "AI Agents",
   description:
-    "Connect the UI Lab MCP server, or use the agent-friendly endpoints (llms.txt, JSON registry, raw source) to consume components programmatically.",
+    "Reuse the whole UI Lab vocabulary from an AI agent: the ui-lab CLI and skill, or plain HTTP endpoints (catalog.json, llms.txt, llms-full.txt) and the shadcn registry.",
   alternates: { canonical: "/docs/ai-agents" },
   openGraph: {
     title: "AI Agents · UI Lab",
     description:
-      "Connect the UI Lab MCP server, or use the agent-friendly endpoints (llms.txt, JSON registry, raw source) to consume components programmatically.",
+      "Reuse the whole UI Lab vocabulary from an AI agent: the ui-lab CLI and skill, or plain HTTP endpoints (catalog.json, llms.txt, llms-full.txt) and the shadcn registry.",
     url: "/docs/ai-agents",
     type: "article",
     siteName: "UI Lab",
@@ -29,9 +29,19 @@ export const metadata: Metadata = {
 
 const ENDPOINTS: { label: string; url: string; desc: string }[] = [
   {
+    label: "catalog.json",
+    url: "/catalog.json",
+    desc: "The whole vocabulary as structured JSON — components, tokens, icons, styles, palettes, design systems.",
+  },
+  {
     label: "llms.txt",
     url: "/llms.txt",
-    desc: "Markdown index in llmstxt.org format.",
+    desc: "Grouped Markdown index of the whole vocabulary with per-item fetch hints.",
+  },
+  {
+    label: "llms-full.txt",
+    url: "/llms-full.txt",
+    desc: "Every item's prompt or token block inlined — one fetch, everything.",
   },
   {
     label: "Registry index",
@@ -44,14 +54,9 @@ const ENDPOINTS: { label: string; url: string; desc: string }[] = [
     desc: "JSON with files, deps, source.",
   },
   {
-    label: "shadcn catalog",
-    url: "/registry.json",
-    desc: "Directory-compatible registry catalog.",
-  },
-  {
     label: "shadcn item",
     url: "/r/{slug}.json",
-    desc: "Install item with inline file content and shadcn semantic color classes.",
+    desc: "Install item with inline file content.",
   },
   {
     label: "Raw source",
@@ -62,9 +67,19 @@ const ENDPOINTS: { label: string; url: string; desc: string }[] = [
 
 const ENDPOINTS_ZH: { label: string; url: string; desc: string }[] = [
   {
+    label: "catalog.json",
+    url: "/catalog.json",
+    desc: "整套词汇的结构化 JSON——组件、token、图标、风格、配色、设计系统。",
+  },
+  {
     label: "llms.txt",
     url: "/llms.txt",
-    desc: "llmstxt.org 格式的 Markdown 索引。",
+    desc: "整套词汇的分组 Markdown 索引，每项带取用提示。",
+  },
+  {
+    label: "llms-full.txt",
+    url: "/llms-full.txt",
+    desc: "每项的 prompt 或 token 块内联——一次拉取拿全部。",
   },
   {
     label: "Registry index",
@@ -77,14 +92,9 @@ const ENDPOINTS_ZH: { label: string; url: string; desc: string }[] = [
     desc: "包含文件、依赖、源码的 JSON。",
   },
   {
-    label: "shadcn catalog",
-    url: "/registry.json",
-    desc: "与 shadcn directory 兼容的注册表目录。",
-  },
-  {
     label: "shadcn item",
     url: "/r/{slug}.json",
-    desc: "包含内联文件内容和 shadcn 语义化颜色类的安装条目。",
+    desc: "包含内联文件内容的安装条目。",
   },
   {
     label: "Raw source",
@@ -93,39 +103,26 @@ const ENDPOINTS_ZH: { label: string; url: string; desc: string }[] = [
   },
 ];
 
-const MCP_URL = `${SITE_URL}/mcp`;
+const CLI_SNIPPET = `# \`ui-lab\` is on PATH after \`bun link\` (or run \`bun cli/src/index.ts\` in the repo)
+ui-lab search "bottom sheet"     # find across every kind
+ui-lab list --kind icon-motion   # browse one kind
+ui-lab show minimal-light        # description, AI prompt, page URL, and the fetch block
+ui-lab add bottom-sheet          # prints the shadcn install command (never runs it)
+# add --json to any command for structured, agent-friendly output`;
 
-const MCP_CLI_SNIPPET = `# Claude Code
-claude mcp add --transport http ${REGISTRY_NAME} ${SITE_URL}/mcp
+const CATALOG_SNIPPET = `// 1. Discover the whole vocabulary in one call
+const { items } = await fetch('${SITE_URL}/catalog.json').then((r) => r.json());
 
-# Codex
-codex mcp add ${REGISTRY_NAME} --url ${SITE_URL}/mcp
+// 2. Pick what you need, then fetch it by kind
+const item = items.find((i) => i.slug === slug);
 
-# Amp
-amp mcp add ${REGISTRY_NAME} ${SITE_URL}/mcp`;
-
-const MCP_MANUAL_SNIPPET = `{
-  "mcpServers": {
-    "${REGISTRY_NAME}": {
-      "type": "http",
-      "url": "${SITE_URL}/mcp"
-    }
-  }
+if (item.kind === 'component') {
+  // components install through the shadcn registry
+  await runShell(item.fetch.command.split(' '));
+} else {
+  // tokens, icons, styles, palettes, design systems arrive inline
+  applyPromptOrTokens(item.fetch.value);
 }`;
-
-const FETCH_SNIPPET = `// 1. Discover what exists
-const idx = await fetch('${SITE_URL}/r').then((r) => r.json());
-
-// 2. Fetch a component
-const entry = await fetch(\`${SITE_URL}/r/\${slug}\`).then((r) => r.json());
-
-// 3. Write files into the user's project
-for (const file of entry.files) {
-  await writeFile(file.path, file.content);
-}
-
-// 4. Install external deps
-await runShell(['bun', 'add', ...entry.dependencies]);`;
 
 const SHADCN_SNIPPET = `# Registry namespace (after adding this registry to components.json)
 npx shadcn@latest add ${REGISTRY_NAMESPACE}/animated-toast-stack
@@ -165,50 +162,26 @@ function ContentEn() {
         For AI agents
       </h1>
       <p className="mt-3 text-muted-foreground">
-        UI Lab exposes a static, agent-friendly surface. Connect the MCP server
-        below, or hit the raw endpoints directly. Coding agents (Claude, Codex,
-        Cursor, Amp) can list components, fetch source with all deps, and drop
-        files into the user&apos;s project.
+        UI Lab exposes its whole visual vocabulary to agents — not just
+        components, but design tokens, icons, styles, palettes, and full
+        design systems. Two ways in: the ui-lab CLI and skill for agents with
+        a shell, or plain HTTP endpoints for any agent.
       </p>
 
       <h2 className="mt-10 text-xl font-semibold tracking-tight text-foreground">
-        MCP server
+        CLI &amp; skill
       </h2>
       <p className="mt-2 text-muted-foreground">
-        The fastest path: connect the UI Lab MCP server and your agent can list,
-        search and install components directly. Hosted at{" "}
-        <code className="rounded bg-foreground/5 px-1.5 py-0.5 font-mono text-xs text-foreground">
-          {MCP_URL}
-        </code>
-        .
+        The fastest path for a coding agent: the ui-lab CLI discovers and
+        fetches everything from the terminal. It&apos;s on PATH after bun
+        link, or run bun cli/src/index.ts inside the repo.
       </p>
       <div className="mt-4">
-        <CodeBlock code={MCP_CLI_SNIPPET} lang="bash" filename="terminal" />
+        <CodeBlock code={CLI_SNIPPET} lang="bash" filename="terminal" />
       </div>
       <p className="mt-4 text-muted-foreground">
-        Any other client: add it manually to your MCP config.
-      </p>
-      <div className="mt-4">
-        <CodeBlock code={MCP_MANUAL_SNIPPET} lang="json" filename="mcp.json" />
-      </div>
-      <p className="mt-4 text-sm text-muted-foreground">
-        Tools:{" "}
-        <code className="rounded bg-foreground/5 px-1.5 py-0.5 font-mono text-xs">
-          list_components
-        </code>
-        ,{" "}
-        <code className="rounded bg-foreground/5 px-1.5 py-0.5 font-mono text-xs">
-          search_components
-        </code>
-        ,{" "}
-        <code className="rounded bg-foreground/5 px-1.5 py-0.5 font-mono text-xs">
-          get_component
-        </code>
-        ,{" "}
-        <code className="rounded bg-foreground/5 px-1.5 py-0.5 font-mono text-xs">
-          get_install_command
-        </code>
-        .
+        The ui-lab skill packages when to reach for UI Lab and how to apply
+        each kind — bridge it to Claude Code, Codex, generic Agents and Grok.
       </p>
 
       <h2 className="mt-10 text-xl font-semibold tracking-tight text-foreground">
@@ -250,11 +223,12 @@ function ContentEn() {
         Agent flow
       </h2>
       <p className="mt-2 text-muted-foreground">
-        Four calls, then install. Components are self-contained and own their
-        files.
+        Discover from the catalog, then fetch by kind — components install
+        through shadcn, everything else arrives as an inline prompt or token
+        block.
       </p>
       <div className="mt-4">
-        <CodeBlock code={FETCH_SNIPPET} lang="ts" filename="agent.ts" />
+        <CodeBlock code={CATALOG_SNIPPET} lang="ts" filename="agent.ts" />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold tracking-tight text-foreground">
@@ -300,48 +274,20 @@ function ContentZh() {
         面向 AI Agent
       </h1>
       <p className="mt-3 text-muted-foreground">
-        UI Lab 提供一套静态的、对 Agent 友好的接口。可以连接下方的 MCP
-        服务器，也可以直接调用原始端点。编码 Agent（Claude、Codex、Cursor、Amp）
-        可以列出组件、拉取带全部依赖的源码，并将文件写入用户的项目。
+        UI Lab 把整套视觉词汇暴露给 Agent——不只是组件，还有设计 token、图标、风格、配色、整套设计系统。两条路：给有 shell 的 Agent 用 ui-lab CLI 和 skill，或任意 Agent 直接调用 HTTP 端点。
       </p>
 
       <h2 className="mt-10 text-xl font-semibold tracking-tight text-foreground">
-        MCP 服务器
+        CLI 与 skill
       </h2>
       <p className="mt-2 text-muted-foreground">
-        最快的方式：连接 UI Lab 的 MCP 服务器，你的 Agent 就能直接列出、搜索和安装组件。地址为{" "}
-        <code className="rounded bg-foreground/5 px-1.5 py-0.5 font-mono text-xs text-foreground">
-          {MCP_URL}
-        </code>
-        。
+        编码 Agent 最快的方式：ui-lab CLI 从终端发现并取用一切。bun link 后它在 PATH 上，或在仓库内跑 bun cli/src/index.ts。
       </p>
       <div className="mt-4">
-        <CodeBlock code={MCP_CLI_SNIPPET} lang="bash" filename="terminal" />
+        <CodeBlock code={CLI_SNIPPET} lang="bash" filename="terminal" />
       </div>
       <p className="mt-4 text-muted-foreground">
-        其他任意客户端：手动添加到你的 MCP 配置中即可。
-      </p>
-      <div className="mt-4">
-        <CodeBlock code={MCP_MANUAL_SNIPPET} lang="json" filename="mcp.json" />
-      </div>
-      <p className="mt-4 text-sm text-muted-foreground">
-        工具：{" "}
-        <code className="rounded bg-foreground/5 px-1.5 py-0.5 font-mono text-xs">
-          list_components
-        </code>
-        、{" "}
-        <code className="rounded bg-foreground/5 px-1.5 py-0.5 font-mono text-xs">
-          search_components
-        </code>
-        、{" "}
-        <code className="rounded bg-foreground/5 px-1.5 py-0.5 font-mono text-xs">
-          get_component
-        </code>
-        、{" "}
-        <code className="rounded bg-foreground/5 px-1.5 py-0.5 font-mono text-xs">
-          get_install_command
-        </code>
-        。
+        ui-lab skill 打包了「何时来 UI Lab、怎么按类应用」——桥接到 Claude Code、Codex、通用 Agents 和 Grok。
       </p>
 
       <h2 className="mt-10 text-xl font-semibold tracking-tight text-foreground">
@@ -383,10 +329,10 @@ function ContentZh() {
         Agent 流程
       </h2>
       <p className="mt-2 text-muted-foreground">
-        四次调用，然后安装。组件是自包含的，拥有自己的文件。
+        从 catalog 发现，再按类取用——组件走 shadcn 安装，其余都以内联 prompt 或 token 块给到。
       </p>
       <div className="mt-4">
-        <CodeBlock code={FETCH_SNIPPET} lang="ts" filename="agent.ts" />
+        <CodeBlock code={CATALOG_SNIPPET} lang="ts" filename="agent.ts" />
       </div>
 
       <h2 className="mt-10 text-xl font-semibold tracking-tight text-foreground">
