@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-19T05:31:37.034Z",
+  "generatedAt": "2026-07-19T06:15:36.106Z",
   "count": 133,
   "items": [
     {
@@ -11,11 +11,11 @@
       "aliases": [],
       "description": "3D perspective tilt on hover with cursor-tracked glare.",
       "descriptionZh": "3D perspective tilt on hover with cursor-tracked glare.",
-      "pageUrl": "http://localhost:3000/components/motion/tilt-card",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/tilt-card",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/tilt-card",
-        "endpoint": "http://localhost:3000/r/tilt-card"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/tilt-card",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/tilt-card"
       }
     },
     {
@@ -27,11 +27,11 @@
       "aliases": [],
       "description": "Spring-pressed Button plus StatefulButton (idle → loading → success / error) and MagneticButton.",
       "descriptionZh": "Spring-pressed Button plus StatefulButton (idle → loading → success / error) and MagneticButton.",
-      "pageUrl": "http://localhost:3000/components/motion/button",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/button",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/button",
-        "endpoint": "http://localhost:3000/r/button"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/button",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/button"
       }
     },
     {
@@ -43,11 +43,11 @@
       "aliases": [],
       "description": "Infinite horizontal or vertical scroll with pause-on-hover.",
       "descriptionZh": "Infinite horizontal or vertical scroll with pause-on-hover.",
-      "pageUrl": "http://localhost:3000/components/motion/marquee",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/marquee",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/marquee",
-        "endpoint": "http://localhost:3000/r/marquee"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/marquee",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/marquee"
       }
     },
     {
@@ -59,11 +59,11 @@
       "aliases": [],
       "description": "Pill, segment or underline tabs with a spring layoutId indicator.",
       "descriptionZh": "Pill, segment or underline tabs with a spring layoutId indicator.",
-      "pageUrl": "http://localhost:3000/components/motion/tabs",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/tabs",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/tabs",
-        "endpoint": "http://localhost:3000/r/tabs"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/tabs",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/tabs"
       }
     },
     {
@@ -75,11 +75,11 @@
       "aliases": [],
       "description": "Toggle with a spring-driven thumb and press feedback.",
       "descriptionZh": "Toggle with a spring-driven thumb and press feedback.",
-      "pageUrl": "http://localhost:3000/components/motion/switch",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/switch",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/switch",
-        "endpoint": "http://localhost:3000/r/switch"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/switch",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/switch"
       }
     },
     {
@@ -91,11 +91,11 @@
       "aliases": [],
       "description": "Text input with label, left/right icons, error shake and success check draw.",
       "descriptionZh": "Text input with label, left/right icons, error shake and success check draw.",
-      "pageUrl": "http://localhost:3000/components/motion/input",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/input",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/input",
-        "endpoint": "http://localhost:3000/r/input"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/input",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/input"
       }
     },
     {
@@ -107,11 +107,11 @@
       "aliases": [],
       "description": "Composable select primitives whose panel bouncily unfolds out of the trigger and separates, plus a Morph variant where the trigger grows into the panel via shared layout.",
       "descriptionZh": "Composable select primitives whose panel bouncily unfolds out of the trigger and separates, plus a Morph variant where the trigger grows into the panel via shared layout.",
-      "pageUrl": "http://localhost:3000/components/motion/select",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/select",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/select",
-        "endpoint": "http://localhost:3000/r/select"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/select",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/select"
       }
     },
     {
@@ -123,11 +123,11 @@
       "aliases": [],
       "description": "Form choice control with a draw-on checkmark, spring press feedback and indeterminate state support.",
       "descriptionZh": "Form choice control with a draw-on checkmark, spring press feedback and indeterminate state support.",
-      "pageUrl": "http://localhost:3000/components/motion/checkbox",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/checkbox",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/checkbox",
-        "endpoint": "http://localhost:3000/r/checkbox"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/checkbox",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/checkbox"
       }
     },
     {
@@ -139,11 +139,11 @@
       "aliases": [],
       "description": "Single-select choice control with a gliding layoutId indicator dot and spring press feedback.",
       "descriptionZh": "Single-select choice control with a gliding layoutId indicator dot and spring press feedback.",
-      "pageUrl": "http://localhost:3000/components/motion/radio",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/radio",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/radio",
-        "endpoint": "http://localhost:3000/r/radio"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/radio",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/radio"
       }
     },
     {
@@ -155,11 +155,11 @@
       "aliases": [],
       "description": "Vaul-inspired draggable bottom sheet with snap points, inertia and glass surface.",
       "descriptionZh": "Vaul-inspired draggable bottom sheet with snap points, inertia and glass surface.",
-      "pageUrl": "http://localhost:3000/components/motion/bottom-sheet",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/bottom-sheet",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/bottom-sheet",
-        "endpoint": "http://localhost:3000/r/bottom-sheet"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bottom-sheet",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/bottom-sheet"
       }
     },
     {
@@ -171,11 +171,11 @@
       "aliases": [],
       "description": "A pill that glides between hovered items via motion's shared layout, with blur enter/exit.",
       "descriptionZh": "A pill that glides between hovered items via motion's shared layout, with blur enter/exit.",
-      "pageUrl": "http://localhost:3000/components/motion/shared-layout-bg",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/shared-layout-bg",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/shared-layout-bg",
-        "endpoint": "http://localhost:3000/r/shared-layout-bg"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/shared-layout-bg",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/shared-layout-bg"
       }
     },
     {
@@ -187,11 +187,11 @@
       "aliases": [],
       "description": "Codex app-inspired navigation rail with compact ticks that form a hover pyramid and reveal a floating destination preview.",
       "descriptionZh": "Codex app-inspired navigation rail with compact ticks that form a hover pyramid and reveal a floating destination preview.",
-      "pageUrl": "http://localhost:3000/components/motion/preview-rail",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/preview-rail",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/preview-rail",
-        "endpoint": "http://localhost:3000/r/preview-rail"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/preview-rail",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/preview-rail"
       }
     },
     {
@@ -203,11 +203,11 @@
       "aliases": [],
       "description": "macOS-style dock with grouped actions and a gliding active pill.",
       "descriptionZh": "macOS-style dock with grouped actions and a gliding active pill.",
-      "pageUrl": "http://localhost:3000/components/motion/dock",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/dock",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/dock",
-        "endpoint": "http://localhost:3000/r/dock"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/dock",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/dock"
       }
     },
     {
@@ -219,11 +219,11 @@
       "aliases": [],
       "description": "Hover or focus tooltip with blur enter/exit and spring spawn.",
       "descriptionZh": "Hover or focus tooltip with blur enter/exit and spring spawn.",
-      "pageUrl": "http://localhost:3000/components/motion/tooltip",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/tooltip",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/tooltip",
-        "endpoint": "http://localhost:3000/r/tooltip"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/tooltip",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/tooltip"
       }
     },
     {
@@ -235,11 +235,11 @@
       "aliases": [],
       "description": "Gooey popover whose panel oozes out of the trigger through an SVG goo filter — a liquid neck that stretches and pinches — with crisp content fading in on top, plus a Morph variant that clip-morphs open from the trigger corner. Click or hover trigger, controlled or uncontrolled.",
       "descriptionZh": "Gooey popover whose panel oozes out of the trigger through an SVG goo filter — a liquid neck that stretches and pinches — with crisp content fading in on top, plus a Morph variant that clip-morphs open from the trigger corner. Click or hover trigger, controlled or uncontrolled.",
-      "pageUrl": "http://localhost:3000/components/motion/popover",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/popover",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/popover",
-        "endpoint": "http://localhost:3000/r/popover"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/popover",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/popover"
       }
     },
     {
@@ -251,11 +251,11 @@
       "aliases": [],
       "description": "Family-app-style modal. A single panel that morphs its height as you navigate between inner views, with blur cross-fade on content.",
       "descriptionZh": "Family-app-style modal. A single panel that morphs its height as you navigate between inner views, with blur cross-fade on content.",
-      "pageUrl": "http://localhost:3000/components/motion/morphing-modal",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/morphing-modal",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/morphing-modal",
-        "endpoint": "http://localhost:3000/r/morphing-modal"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/morphing-modal",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/morphing-modal"
       }
     },
     {
@@ -267,11 +267,11 @@
       "aliases": [],
       "description": "Animated text primitives for reveal sequences, shimmer loading states and letter-cascade swaps.",
       "descriptionZh": "Animated text primitives for reveal sequences, shimmer loading states and letter-cascade swaps.",
-      "pageUrl": "http://localhost:3000/components/motion/text-animation",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/text-animation",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/text-animation",
-        "endpoint": "http://localhost:3000/r/text-animation"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/text-animation",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/text-animation"
       }
     },
     {
@@ -283,11 +283,11 @@
       "aliases": [],
       "description": "Animated number primitives for count-up values and rolling digit tickers.",
       "descriptionZh": "Animated number primitives for count-up values and rolling digit tickers.",
-      "pageUrl": "http://localhost:3000/components/motion/number",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/number",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/number",
-        "endpoint": "http://localhost:3000/r/number"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/number",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/number"
       }
     },
     {
@@ -299,11 +299,11 @@
       "aliases": [],
       "description": "Status badge with animated state icons, pulse feedback and compact size variants.",
       "descriptionZh": "Status badge with animated state icons, pulse feedback and compact size variants.",
-      "pageUrl": "http://localhost:3000/components/motion/animated-badge",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/animated-badge",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/animated-badge",
-        "endpoint": "http://localhost:3000/r/animated-badge"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-badge",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/animated-badge"
       }
     },
     {
@@ -315,11 +315,11 @@
       "aliases": [],
       "description": "CTA button and slot primitives for swapping text and icons with blur motion.",
       "descriptionZh": "CTA button and slot primitives for swapping text and icons with blur motion.",
-      "pageUrl": "http://localhost:3000/components/motion/action-swap",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/action-swap",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/action-swap",
-        "endpoint": "http://localhost:3000/r/action-swap"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/action-swap",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/action-swap"
       }
     },
     {
@@ -331,11 +331,11 @@
       "aliases": [],
       "description": "Stacked toasts with status morphs, swipe dismissal, actions and layout-aware motion.",
       "descriptionZh": "Stacked toasts with status morphs, swipe dismissal, actions and layout-aware motion.",
-      "pageUrl": "http://localhost:3000/components/motion/animated-toast-stack",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/animated-toast-stack",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/animated-toast-stack",
-        "endpoint": "http://localhost:3000/r/animated-toast-stack"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-toast-stack",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/animated-toast-stack"
       }
     },
     {
@@ -347,11 +347,11 @@
       "aliases": [],
       "description": "Theme toggle button with a full-page rectangle clip-path reveal via the View Transition API.",
       "descriptionZh": "Theme toggle button with a full-page rectangle clip-path reveal via the View Transition API.",
-      "pageUrl": "http://localhost:3000/components/motion/theme-toggle",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/theme-toggle",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/theme-toggle",
-        "endpoint": "http://localhost:3000/r/theme-toggle"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/theme-toggle",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/theme-toggle"
       }
     },
     {
@@ -363,11 +363,11 @@
       "aliases": [],
       "description": "Single-open accordion with weighted spring layout, icon rows and reduced-motion-safe content reveals.",
       "descriptionZh": "Single-open accordion with weighted spring layout, icon rows and reduced-motion-safe content reveals.",
-      "pageUrl": "http://localhost:3000/components/motion/bouncy-accordion",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/bouncy-accordion",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/bouncy-accordion",
-        "endpoint": "http://localhost:3000/r/bouncy-accordion"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bouncy-accordion",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/bouncy-accordion"
       }
     },
     {
@@ -379,11 +379,11 @@
       "aliases": [],
       "description": "Side panel that slides in from the left or right with a spring, backdrop blur, body scroll lock and esc-to-close.",
       "descriptionZh": "Side panel that slides in from the left or right with a spring, backdrop blur, body scroll lock and esc-to-close.",
-      "pageUrl": "http://localhost:3000/components/motion/drawer",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/drawer",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/drawer",
-        "endpoint": "http://localhost:3000/r/drawer"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/drawer",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/drawer"
       }
     },
     {
@@ -395,11 +395,11 @@
       "aliases": [],
       "description": "Scroll-driven motion: a Lenis smooth-scroll provider and a reading-progress indicator that reads from it.",
       "descriptionZh": "Scroll-driven motion: a Lenis smooth-scroll provider and a reading-progress indicator that reads from it.",
-      "pageUrl": "http://localhost:3000/components/motion/scroll-animation",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/scroll-animation",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/scroll-animation",
-        "endpoint": "http://localhost:3000/r/scroll-animation"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/scroll-animation",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/scroll-animation"
       }
     },
     {
@@ -411,11 +411,11 @@
       "aliases": [],
       "description": "Range slider with tick dots and a bouncy vertical-bar thumb that glides between snapped steps; drag and keyboard control, reduced-motion safe.",
       "descriptionZh": "Range slider with tick dots and a bouncy vertical-bar thumb that glides between snapped steps; drag and keyboard control, reduced-motion safe.",
-      "pageUrl": "http://localhost:3000/components/motion/range-slider",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/range-slider",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/range-slider",
-        "endpoint": "http://localhost:3000/r/range-slider"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/range-slider",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/range-slider"
       }
     },
     {
@@ -427,11 +427,11 @@
       "aliases": [],
       "description": "iOS-style picker wheel: a 3D drum on native momentum scroll that snaps to the nearest notch, with wheel, drag and keyboard control. Composes side by side for date and time pickers, reduced-motion safe.",
       "descriptionZh": "iOS-style picker wheel: a 3D drum on native momentum scroll that snaps to the nearest notch, with wheel, drag and keyboard control. Composes side by side for date and time pickers, reduced-motion safe.",
-      "pageUrl": "http://localhost:3000/components/motion/wheel-picker",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/wheel-picker",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/wheel-picker",
-        "endpoint": "http://localhost:3000/r/wheel-picker"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/wheel-picker",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/wheel-picker"
       }
     },
     {
@@ -443,11 +443,11 @@
       "aliases": [],
       "description": "Virtualized data table that stays smooth at 10k+ rows, with sortable headers, row selection, column resize and reorder, and a sticky header. Minimal, reduced-motion-safe motion.",
       "descriptionZh": "Virtualized data table that stays smooth at 10k+ rows, with sortable headers, row selection, column resize and reorder, and a sticky header. Minimal, reduced-motion-safe motion.",
-      "pageUrl": "http://localhost:3000/components/motion/table",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/table",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/table",
-        "endpoint": "http://localhost:3000/r/table"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/table",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/table"
       }
     },
     {
@@ -459,11 +459,11 @@
       "aliases": [],
       "description": "Canvas shader backgrounds (mesh gradient, grain, warp, waves, voronoi, dot orbit and more) with a single typed variant prop. Reduced-motion freezes animated variants.",
       "descriptionZh": "Canvas shader backgrounds (mesh gradient, grain, warp, waves, voronoi, dot orbit and more) with a single typed variant prop. Reduced-motion freezes animated variants.",
-      "pageUrl": "http://localhost:3000/components/motion/shader-background",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/shader-background",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/shader-background",
-        "endpoint": "http://localhost:3000/r/shader-background"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/shader-background",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/shader-background"
       }
     },
     {
@@ -475,11 +475,11 @@
       "aliases": [],
       "description": "A carousel whose items line the inside of a cylinder, receding into the center and growing toward the edges. Drag, scroll or arrow-key to roll it, with a springy glide and snap. Reduced-motion drops the glide.",
       "descriptionZh": "A carousel whose items line the inside of a cylinder, receding into the center and growing toward the edges. Drag, scroll or arrow-key to roll it, with a springy glide and snap. Reduced-motion drops the glide.",
-      "pageUrl": "http://localhost:3000/components/motion/cylinder-carousel",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/cylinder-carousel",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/cylinder-carousel",
-        "endpoint": "http://localhost:3000/r/cylinder-carousel"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/cylinder-carousel",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/cylinder-carousel"
       }
     },
     {
@@ -491,11 +491,11 @@
       "aliases": [],
       "description": "Loading indicator with seventeen variants: spinner, dots, bars, dot-matrix, dither, morph, comet, scramble, metaballs, newton, helix, percent, and five terminal-style ascii spinners. Scales from one size prop, uses currentColor, and reduced-motion swaps every transform for a calm opacity pulse.",
       "descriptionZh": "Loading indicator with seventeen variants: spinner, dots, bars, dot-matrix, dither, morph, comet, scramble, metaballs, newton, helix, percent, and five terminal-style ascii spinners. Scales from one size prop, uses currentColor, and reduced-motion swaps every transform for a calm opacity pulse.",
-      "pageUrl": "http://localhost:3000/components/motion/loader",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/loader",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/loader",
-        "endpoint": "http://localhost:3000/r/loader"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/loader",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/loader"
       }
     },
     {
@@ -507,11 +507,11 @@
       "aliases": [],
       "description": "Scrambled glyphs resolve left-to-right into the real text — on view, on hover, or whenever the text prop changes. Width stays stable mid-scramble; reduced-motion shows the final text instantly.",
       "descriptionZh": "Scrambled glyphs resolve left-to-right into the real text — on view, on hover, or whenever the text prop changes. Width stays stable mid-scramble; reduced-motion shows the final text instantly.",
-      "pageUrl": "http://localhost:3000/components/motion/text-scramble",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/text-scramble",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/text-scramble",
-        "endpoint": "http://localhost:3000/r/text-scramble"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/text-scramble",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/text-scramble"
       }
     },
     {
@@ -523,11 +523,11 @@
       "aliases": [],
       "description": "Fragment-shader hero backgrounds (aurora, silk, plasma, light rays, pixel blast with click ripples, dither) behind a single typed variant prop. Reduced-motion renders one static frame; no WebGL falls back to a matching CSS gradient.",
       "descriptionZh": "Fragment-shader hero backgrounds (aurora, silk, plasma, light rays, pixel blast with click ripples, dither) behind a single typed variant prop. Reduced-motion renders one static frame; no WebGL falls back to a matching CSS gradient.",
-      "pageUrl": "http://localhost:3000/components/motion/webgl-background",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/webgl-background",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/webgl-background",
-        "endpoint": "http://localhost:3000/r/webgl-background"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/webgl-background",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/webgl-background"
       }
     },
     {
@@ -539,11 +539,11 @@
       "aliases": [],
       "description": "A slow light orbits the border of a CTA button or card — a pure-CSS conic-gradient wrapper with color, speed and thickness props. Reduced-motion freezes it into a static ring.",
       "descriptionZh": "A slow light orbits the border of a CTA button or card — a pure-CSS conic-gradient wrapper with color, speed and thickness props. Reduced-motion freezes it into a static ring.",
-      "pageUrl": "http://localhost:3000/components/motion/star-border",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/star-border",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/star-border",
-        "endpoint": "http://localhost:3000/r/star-border"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/star-border",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/star-border"
       }
     },
     {
@@ -555,11 +555,11 @@
       "aliases": [],
       "description": "A stacked deck of cards fans open with a staggered spring bounce when it enters the view. Spacing, rotation and stagger are tunable; reduced-motion keeps the fanned layout and only fades in.",
       "descriptionZh": "A stacked deck of cards fans open with a staggered spring bounce when it enters the view. Spacing, rotation and stagger are tunable; reduced-motion keeps the fanned layout and only fades in.",
-      "pageUrl": "http://localhost:3000/components/motion/bounce-cards",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/bounce-cards",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/bounce-cards",
-        "endpoint": "http://localhost:3000/r/bounce-cards"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bounce-cards",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/bounce-cards"
       }
     },
     {
@@ -571,11 +571,11 @@
       "aliases": [],
       "description": "A diagonal band of light sweeps across a card or button on hover. Color, angle and duration props; touch devices skip it, reduced-motion swaps the sweep for a soft opacity highlight.",
       "descriptionZh": "A diagonal band of light sweeps across a card or button on hover. Color, angle and duration props; touch devices skip it, reduced-motion swaps the sweep for a soft opacity highlight.",
-      "pageUrl": "http://localhost:3000/components/motion/glare-hover",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/glare-hover",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/glare-hover",
-        "endpoint": "http://localhost:3000/r/glare-hover"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/glare-hover",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/glare-hover"
       }
     },
     {
@@ -587,11 +587,11 @@
       "aliases": [],
       "description": "Loading placeholder block with a soft shimmer sweep — shape it entirely with className, compose avatars, text bars and image blocks. Reduced-motion swaps the sweep for a calm opacity pulse.",
       "descriptionZh": "Loading placeholder block with a soft shimmer sweep — shape it entirely with className, compose avatars, text bars and image blocks. Reduced-motion swaps the sweep for a calm opacity pulse.",
-      "pageUrl": "http://localhost:3000/components/motion/skeleton",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/skeleton",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/skeleton",
-        "endpoint": "http://localhost:3000/r/skeleton"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/skeleton",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/skeleton"
       }
     },
     {
@@ -603,11 +603,11 @@
       "aliases": [],
       "description": "A hero-section scroll-down indicator in two shapes: a mouse outline with a dropping dot, or a pair of pulsing chevrons. currentColor sizing, optional label, reduced-motion shows the static glyph.",
       "descriptionZh": "A hero-section scroll-down indicator in two shapes: a mouse outline with a dropping dot, or a pair of pulsing chevrons. currentColor sizing, optional label, reduced-motion shows the static glyph.",
-      "pageUrl": "http://localhost:3000/components/motion/scroll-hint",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/scroll-hint",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/scroll-hint",
-        "endpoint": "http://localhost:3000/r/scroll-hint"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/scroll-hint",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/scroll-hint"
       }
     },
     {
@@ -619,11 +619,11 @@
       "aliases": [],
       "description": "Sidebar conversation list: section headers with action slots, 30px rows with unread dots and time metas that swap to hover actions, and an active pill that glides between rows via shared layout.",
       "descriptionZh": "Sidebar conversation list: section headers with action slots, 30px rows with unread dots and time metas that swap to hover actions, and an active pill that glides between rows via shared layout.",
-      "pageUrl": "http://localhost:3000/components/blocks/thread-list",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/thread-list",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/thread-list",
-        "endpoint": "http://localhost:3000/r/thread-list"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/thread-list",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/thread-list"
       }
     },
     {
@@ -635,11 +635,11 @@
       "aliases": [],
       "description": "Side-pane canvas for AI-generated artifacts: hairline panel shell, header with action cluster, preview/code view toggle with cross-fade, and a version navigator with restore.",
       "descriptionZh": "Side-pane canvas for AI-generated artifacts: hairline panel shell, header with action cluster, preview/code view toggle with cross-fade, and a version navigator with restore.",
-      "pageUrl": "http://localhost:3000/components/blocks/artifact-panel",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/artifact-panel",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/artifact-panel",
-        "endpoint": "http://localhost:3000/r/artifact-panel"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/artifact-panel",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/artifact-panel"
       }
     },
     {
@@ -651,11 +651,11 @@
       "aliases": [],
       "description": "Human-in-the-loop approval queue: risk-tiered request items with expiry and detail expand, approve/deny flows that settle in place, and an action receipt card with scope, diff stats and undo.",
       "descriptionZh": "Human-in-the-loop approval queue: risk-tiered request items with expiry and detail expand, approve/deny flows that settle in place, and an action receipt card with scope, diff stats and undo.",
-      "pageUrl": "http://localhost:3000/components/blocks/agent-inbox",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/agent-inbox",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/agent-inbox",
-        "endpoint": "http://localhost:3000/r/agent-inbox"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-inbox",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/agent-inbox"
       }
     },
     {
@@ -667,11 +667,11 @@
       "aliases": [],
       "description": "Activity rail for agent runs: kind-styled step nodes on a hairline rail, live steps with pulse ring and cadenced shimmer, raw-output expand, parallel tool groups, and nested sub-agent mini traces.",
       "descriptionZh": "Activity rail for agent runs: kind-styled step nodes on a hairline rail, live steps with pulse ring and cadenced shimmer, raw-output expand, parallel tool groups, and nested sub-agent mini traces.",
-      "pageUrl": "http://localhost:3000/components/blocks/agent-trace",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/agent-trace",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/agent-trace",
-        "endpoint": "http://localhost:3000/r/agent-trace"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-trace",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/agent-trace"
       }
     },
     {
@@ -683,11 +683,11 @@
       "aliases": [],
       "description": "Tolerant syntax-colored rendering for partial JSON as it streams in: an incremental tokenizer that survives unclosed strings, fade-in for freshly arrived spans, a streaming caret, and a function-call wrapper.",
       "descriptionZh": "Tolerant syntax-colored rendering for partial JSON as it streams in: an incremental tokenizer that survives unclosed strings, fade-in for freshly arrived spans, a streaming caret, and a function-call wrapper.",
-      "pageUrl": "http://localhost:3000/components/blocks/streaming-json",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/streaming-json",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/streaming-json",
-        "endpoint": "http://localhost:3000/r/streaming-json"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/streaming-json",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/streaming-json"
       }
     },
     {
@@ -699,11 +699,11 @@
       "aliases": [],
       "description": "Inline citation chips with a hover source-preview popover, plus source cards and a staggered source list for the answer footer.",
       "descriptionZh": "Inline citation chips with a hover source-preview popover, plus source cards and a staggered source list for the answer footer.",
-      "pageUrl": "http://localhost:3000/components/blocks/citations",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/citations",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/citations",
-        "endpoint": "http://localhost:3000/r/citations"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/citations",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/citations"
       }
     },
     {
@@ -715,11 +715,11 @@
       "aliases": [],
       "description": "Immersive voice-mode orb: one continuous gradient sphere whose breathing, hue drift, echo rings and thinking sheen follow idle / listening / thinking / speaking states.",
       "descriptionZh": "Immersive voice-mode orb: one continuous gradient sphere whose breathing, hue drift, echo rings and thinking sheen follow idle / listening / thinking / speaking states.",
-      "pageUrl": "http://localhost:3000/components/blocks/voice-orb",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/voice-orb",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/voice-orb",
-        "endpoint": "http://localhost:3000/r/voice-orb"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/voice-orb",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/voice-orb"
       }
     },
     {
@@ -731,11 +731,11 @@
       "aliases": [],
       "description": "Usage-summary widgets: a connected stats bar for headline metrics, a GitHub-style contribution heatmap with a color-mix intensity scale and column-cascade entrance, and a text period switch.",
       "descriptionZh": "Usage-summary widgets: a connected stats bar for headline metrics, a GitHub-style contribution heatmap with a color-mix intensity scale and column-cascade entrance, and a text period switch.",
-      "pageUrl": "http://localhost:3000/components/blocks/activity-stats",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/activity-stats",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/activity-stats",
-        "endpoint": "http://localhost:3000/r/activity-stats"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/activity-stats",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/activity-stats"
       }
     },
     {
@@ -747,11 +747,11 @@
       "aliases": [],
       "description": "Preference-form building blocks: a titled settings group with hairline-divided rows, a hex color field with auto-contrasting text, a text field, a preset-picker button and a ghost header action.",
       "descriptionZh": "Preference-form building blocks: a titled settings group with hairline-divided rows, a hex color field with auto-contrasting text, a text field, a preset-picker button and a ghost header action.",
-      "pageUrl": "http://localhost:3000/components/blocks/settings-panel",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/settings-panel",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/settings-panel",
-        "endpoint": "http://localhost:3000/r/settings-panel"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/settings-panel",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/settings-panel"
       }
     },
     {
@@ -763,11 +763,11 @@
       "aliases": [],
       "description": "AI agent conversation stream: user message pills, turn headers, markdown typography, thinking & tool-call status rows, approval card, streaming caret, file & diff artifact cards with expand animation, command rows, and hover-revealed turn actions.",
       "descriptionZh": "AI agent conversation stream: user message pills, turn headers, markdown typography, thinking & tool-call status rows, approval card, streaming caret, file & diff artifact cards with expand animation, command rows, and hover-revealed turn actions.",
-      "pageUrl": "http://localhost:3000/components/blocks/agent-thread",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/agent-thread",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/agent-thread",
-        "endpoint": "http://localhost:3000/r/agent-thread"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-thread",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/agent-thread"
       }
     },
     {
@@ -779,11 +779,11 @@
       "aliases": [],
       "description": "AI agent chat composer with context chips, access chip, model picker with a segmented reasoning-effort slider, and a morphing send/stop button, plus an add menu and a voice dictation bar.",
       "descriptionZh": "AI agent chat composer with context chips, access chip, model picker with a segmented reasoning-effort slider, and a morphing send/stop button, plus an add menu and a voice dictation bar.",
-      "pageUrl": "http://localhost:3000/components/blocks/agent-composer",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/agent-composer",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/agent-composer",
-        "endpoint": "http://localhost:3000/r/agent-composer"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-composer",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/agent-composer"
       }
     },
     {
@@ -795,11 +795,11 @@
       "aliases": [],
       "description": "Three-pane agent app shell: a resizable translucent sidebar, thread column and utility panel with drag-to-close, spring open/collapse, and a full-width 46px toolbar overlay. Includes a pinned summary card overlay.",
       "descriptionZh": "Three-pane agent app shell: a resizable translucent sidebar, thread column and utility panel with drag-to-close, spring open/collapse, and a full-width 46px toolbar overlay. Includes a pinned summary card overlay.",
-      "pageUrl": "http://localhost:3000/components/blocks/agent-workbench",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/agent-workbench",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/agent-workbench",
-        "endpoint": "http://localhost:3000/r/agent-workbench"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-workbench",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/agent-workbench"
       }
     },
     {
@@ -811,11 +811,11 @@
       "aliases": [],
       "description": "Weekly availability editor where each day springs between available and unavailable, time ranges add and remove with blur-slide motion, times pick from a scrollable dropdown, and a copy menu clones hours to other days.",
       "descriptionZh": "Weekly availability editor where each day springs between available and unavailable, time ranges add and remove with blur-slide motion, times pick from a scrollable dropdown, and a copy menu clones hours to other days.",
-      "pageUrl": "http://localhost:3000/components/blocks/availability-scheduler",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/availability-scheduler",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/availability-scheduler",
-        "endpoint": "http://localhost:3000/r/availability-scheduler"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/availability-scheduler",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/availability-scheduler"
       }
     },
     {
@@ -827,11 +827,11 @@
       "aliases": [],
       "description": "Cross-chain swap widget with chain + token selectors, morphing views, animated flip and quote.",
       "descriptionZh": "Cross-chain swap widget with chain + token selectors, morphing views, animated flip and quote.",
-      "pageUrl": "http://localhost:3000/components/blocks/swap",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/swap",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/swap",
-        "endpoint": "http://localhost:3000/r/swap"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/swap",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/swap"
       }
     },
     {
@@ -843,11 +843,11 @@
       "aliases": [],
       "description": "iOS-style island pill that morphs between live activity views with bouncy shell resize and blur crossfades.",
       "descriptionZh": "iOS-style island pill that morphs between live activity views with bouncy shell resize and blur crossfades.",
-      "pageUrl": "http://localhost:3000/components/blocks/dynamic-island",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/dynamic-island",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/dynamic-island",
-        "endpoint": "http://localhost:3000/r/dynamic-island"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/dynamic-island",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/dynamic-island"
       }
     },
     {
@@ -859,11 +859,11 @@
       "aliases": [],
       "description": "⌘K palette with fuzzy filter, spring-animated active row and glass surface.",
       "descriptionZh": "⌘K palette with fuzzy filter, spring-animated active row and glass surface.",
-      "pageUrl": "http://localhost:3000/components/blocks/command-palette",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/command-palette",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/command-palette",
-        "endpoint": "http://localhost:3000/r/command-palette"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/command-palette",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/command-palette"
       }
     },
     {
@@ -875,11 +875,11 @@
       "aliases": [],
       "description": "Compact icon actions that expand into labeled controls on hover or focus with shared layout motion.",
       "descriptionZh": "Compact icon actions that expand into labeled controls on hover or focus with shared layout motion.",
-      "pageUrl": "http://localhost:3000/components/blocks/expandable-action-bar",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/expandable-action-bar",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/expandable-action-bar",
-        "endpoint": "http://localhost:3000/r/expandable-action-bar"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/expandable-action-bar",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/expandable-action-bar"
       }
     },
     {
@@ -891,11 +891,11 @@
       "aliases": [],
       "description": "Connected pill rail for primary actions that springs open to reveal extra controls.",
       "descriptionZh": "Connected pill rail for primary actions that springs open to reveal extra controls.",
-      "pageUrl": "http://localhost:3000/components/blocks/overflow-actions",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/overflow-actions",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/overflow-actions",
-        "endpoint": "http://localhost:3000/r/overflow-actions"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/overflow-actions",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/overflow-actions"
       }
     },
     {
@@ -907,11 +907,11 @@
       "aliases": [],
       "description": "Icon tab bar where the active tab expands to a labelled pill, with a panel above that morphs height and slides content direction-aware on switch.",
       "descriptionZh": "Icon tab bar where the active tab expands to a labelled pill, with a panel above that morphs height and slides content direction-aware on switch.",
-      "pageUrl": "http://localhost:3000/components/blocks/expandable-tabs",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/expandable-tabs",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/expandable-tabs",
-        "endpoint": "http://localhost:3000/r/expandable-tabs"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/expandable-tabs",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/expandable-tabs"
       }
     },
     {
@@ -923,11 +923,11 @@
       "aliases": [],
       "description": "Mobile-style list rows that swipe left or right to reveal contextual action buttons.",
       "descriptionZh": "Mobile-style list rows that swipe left or right to reveal contextual action buttons.",
-      "pageUrl": "http://localhost:3000/components/blocks/swipeable-list",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/swipeable-list",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/swipeable-list",
-        "endpoint": "http://localhost:3000/r/swipeable-list"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/swipeable-list",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/swipeable-list"
       }
     },
     {
@@ -939,11 +939,11 @@
       "aliases": [],
       "description": "Drag-and-drop upload queue with progress rows, retry/remove actions and reduced-motion-safe state changes.",
       "descriptionZh": "Drag-and-drop upload queue with progress rows, retry/remove actions and reduced-motion-safe state changes.",
-      "pageUrl": "http://localhost:3000/components/blocks/file-upload",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/file-upload",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/file-upload",
-        "endpoint": "http://localhost:3000/r/file-upload"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/file-upload",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/file-upload"
       }
     },
     {
@@ -955,11 +955,11 @@
       "aliases": [],
       "description": "Prediction market trade ticket with buy/sell modes, outcome prices, rolling amount entry, quick add chips and trade states.",
       "descriptionZh": "Prediction market trade ticket with buy/sell modes, outcome prices, rolling amount entry, quick add chips and trade states.",
-      "pageUrl": "http://localhost:3000/components/blocks/prediction-market",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/prediction-market",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/prediction-market",
-        "endpoint": "http://localhost:3000/r/prediction-market"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/prediction-market",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/prediction-market"
       }
     },
     {
@@ -971,11 +971,11 @@
       "aliases": [],
       "description": "Wallet overview card with an account switcher and search that morph open from their triggers, a cascading balance with a live change pill and privacy toggle, copy-address, and Send / Deposit / Swap / Buy actions.",
       "descriptionZh": "Wallet overview card with an account switcher and search that morph open from their triggers, a cascading balance with a live change pill and privacy toggle, copy-address, and Send / Deposit / Swap / Buy actions.",
-      "pageUrl": "http://localhost:3000/components/blocks/wallet-card",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/wallet-card",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/wallet-card",
-        "endpoint": "http://localhost:3000/r/wallet-card"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/wallet-card",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/wallet-card"
       }
     },
     {
@@ -987,11 +987,11 @@
       "aliases": [],
       "description": "One-time-code input with a gliding focus ring, digits that roll in per slot, error shake and a success check draw.",
       "descriptionZh": "One-time-code input with a gliding focus ring, digits that roll in per slot, error shake and a success check draw.",
-      "pageUrl": "http://localhost:3000/components/blocks/otp-input",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/otp-input",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/otp-input",
-        "endpoint": "http://localhost:3000/r/otp-input"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/otp-input",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/otp-input"
       }
     },
     {
@@ -1003,11 +1003,11 @@
       "aliases": [],
       "description": "A button that morphs open into a menu and blooms iris-out from the center, the grid revealing in every direction with radially staggered items.",
       "descriptionZh": "A button that morphs open into a menu and blooms iris-out from the center, the grid revealing in every direction with radially staggered items.",
-      "pageUrl": "http://localhost:3000/components/blocks/bloom-menu",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/bloom-menu",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/bloom-menu",
-        "endpoint": "http://localhost:3000/r/bloom-menu"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bloom-menu",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/bloom-menu"
       }
     },
     {
@@ -1019,11 +1019,11 @@
       "aliases": [],
       "description": "Corner trigger that morphs open into a feedback popup with message entry and animated sending, success and retry states.",
       "descriptionZh": "Corner trigger that morphs open into a feedback popup with message entry and animated sending, success and retry states.",
-      "pageUrl": "http://localhost:3000/components/blocks/feedback-widget",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/feedback-widget",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/feedback-widget",
-        "endpoint": "http://localhost:3000/r/feedback-widget"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/feedback-widget",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/feedback-widget"
       }
     },
     {
@@ -1035,11 +1035,11 @@
       "aliases": [],
       "description": "Animated 404 pages in five styles: glitch scramble, magnetic digits, cursor spotlight, a fanning card stack and a typed terminal.",
       "descriptionZh": "Animated 404 pages in five styles: glitch scramble, magnetic digits, cursor spotlight, a fanning card stack and a typed terminal.",
-      "pageUrl": "http://localhost:3000/components/blocks/not-found",
+      "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/not-found",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/not-found",
-        "endpoint": "http://localhost:3000/r/not-found"
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/not-found",
+        "endpoint": "https://ui-lab-ten.vercel.app/r/not-found"
       }
     },
     {
@@ -1051,7 +1051,7 @@
       "aliases": [],
       "description": "Bézier curves, springs, and durations for consistent motion.",
       "descriptionZh": "统一动效用的贝塞尔曲线、弹簧与时长。",
-      "pageUrl": "http://localhost:3000/atoms?cat=motion",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=motion",
       "fetch": {
         "method": "copy-tokens",
         "value": "## Motion\n\n| Token | Value |\n| --- | --- |\n| curve/swift-out | cubic-bezier(0.16, 1, 0.3, 1) |\n| curve/push-pull | cubic-bezier(0.77, 0, 0.175, 1) |\n| curve/drawer | cubic-bezier(0.32, 0.72, 0, 1) |\n| spring/press | { type: \"spring\", stiffness: 500, damping: 30, mass: 0.6 } |\n| spring/swap | { type: \"spring\", stiffness: 460, damping: 30, mass: 0.55 } |\n| spring/panel | { type: \"spring\", stiffness: 420, damping: 40, mass: 0.5 } |\n| spring/glide | { type: \"spring\", stiffness: 360, damping: 32, mass: 0.6 } |\n| spring/follow | { type: \"spring\", stiffness: 200, damping: 15, mass: 0.3 } |\n| duration/instant | 90ms |\n| duration/quick | 150ms |\n| duration/standard | 220ms |\n| duration/deliberate | 320ms |\n| duration/ambient | 600ms |\n\n**Rule:** Use these curves, spring physics, and durations consistently; never replace them with generic easing defaults."
@@ -1066,7 +1066,7 @@
       "aliases": [],
       "description": "A radius scale and elevation shadows for consistent surfaces.",
       "descriptionZh": "统一表面质感用的圆角尺度与分层阴影。",
-      "pageUrl": "http://localhost:3000/atoms?cat=shape",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=shape",
       "fetch": {
         "method": "copy-tokens",
         "value": "## Shape\n\n| Token | Value |\n| --- | --- |\n| radius/none | 0 |\n| radius/xs | 4px |\n| radius/sm | 6px |\n| radius/md | 10px |\n| radius/lg | 12.5px |\n| radius/xl | 20px |\n| radius/2xl | 25px |\n| radius/full | 9999px |\n| shadow/hairline/light | 0 0 0 0.5px rgb(0 0 0 / 0.08) |\n| shadow/hairline/dark | 0 0 0 0.5px rgb(255 255 255 / 0.157) |\n| shadow/raised/light | 0 0 0 0.5px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.05) |\n| shadow/raised/dark | 0 0 0 0.5px rgb(255 255 255 / 0.1), 0 1px 2px rgb(0 0 0 / 0.4) |\n| shadow/floating/light | 0 0 0 0.5px rgb(0 0 0 / 0.08), 0 3px 7.5px rgb(0 0 0 / 0.04), 0 0 20px rgb(0 0 0 / 0.05) |\n| shadow/floating/dark | 0 0 0 0.5px rgb(255 255 255 / 0.157), 0 3px 7.5px rgb(0 0 0 / 0.2), 0 0 20px rgb(0 0 0 / 0.25) |\n| shadow/prominent/light | 0 0 0 0.5px rgb(0 0 0 / 0.08), 0 12px 32px rgb(0 0 0 / 0.12) |\n| shadow/prominent/dark | 0 0 0 0.5px rgb(255 255 255 / 0.157), 0 12px 32px rgb(0 0 0 / 0.5) |\n\n**Rule:** Use the radius scale consistently and establish elevation with hairlines and shallow shadows before prominent shadows."
@@ -1081,7 +1081,7 @@
       "aliases": [],
       "description": "Font pairings and a type scale for consistent text.",
       "descriptionZh": "统一文字排版用的字体搭配与字号尺度。",
-      "pageUrl": "http://localhost:3000/atoms?cat=typography",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=typography",
       "fetch": {
         "method": "copy-tokens",
         "value": "## Typography\n\n| Token | Value |\n| --- | --- |\n| font/system-neutral | display: Geist, Inter, system-ui, sans-serif; body: Geist, Inter, system-ui, sans-serif; mono: 'Geist Mono', ui-monospace, monospace |\n| font/native-crisp | display: 'SF Pro Display', -apple-system, system-ui; body: 'SF Pro Text', -apple-system, system-ui; mono: 'SF Mono', ui-monospace, Menlo |\n| font/editorial-serif | display: 'Tiempos Headline', Georgia, serif; body: -apple-system, 'Segoe UI', sans-serif; mono: ui-monospace, monospace |\n| font/humanist-warm | display: 'Camera Plain', 'PingFang SC', ui-sans-serif, system-ui; body: 'Camera Plain', 'PingFang SC', ui-sans-serif, system-ui; mono: ui-monospace, monospace |\n| font/geek-mono | display: 'JetBrains Mono', 'SF Mono', ui-monospace, monospace; body: ui-sans-serif, system-ui; mono: 'JetBrains Mono', 'SF Mono', ui-monospace, monospace |\n| font/swiss-grotesk | display: 'Helvetica Neue', Helvetica, Arial, sans-serif; body: 'Helvetica Neue', Helvetica, Arial, sans-serif; mono: ui-monospace |\n| text/display | 48px / 1.1 / -0.02em |\n| text/headline | 28px / 1.2 / -0.01em |\n| text/title | 20px / 1.3 / 0 |\n| text/body | 16px / 1.5 / 0 |\n| text/body-sm | 14px / 1.5 / 0 |\n| text/caption | 12px / 1.4 / 0.01em |\n\n**Rule:** Load no webfonts for these system pairings, keep Chinese on the system family, and use only this type scale."
@@ -1096,7 +1096,7 @@
       "aliases": [],
       "description": "A spacing scale and density presets for a consistent layout rhythm.",
       "descriptionZh": "统一布局节奏用的间距尺度与密度预设。",
-      "pageUrl": "http://localhost:3000/atoms?cat=spacing",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=spacing",
       "fetch": {
         "method": "copy-tokens",
         "value": "## Spacing\n\n| Token | Value |\n| --- | --- |\n| micro | 4px |\n| tight | 8px |\n| element | 12px |\n| base | 16px |\n| group | 24px |\n| block | 32px |\n| section | 48px |\n| region | 64px |\n| density/compact | 32px row / 8px padding |\n| density/standard | 40px row / 12px padding |\n| density/comfortable | 48px row / 16px padding |\n\n**Rule:** Use this scale across the entire product; never introduce off-scale values such as 13px or 18px."
@@ -1111,7 +1111,7 @@
       "aliases": [],
       "description": "Hairlines, borders, and outlines for consistent dividers.",
       "descriptionZh": "统一分割用的发丝线、边框与描边。",
-      "pageUrl": "http://localhost:3000/atoms?cat=lines",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=lines",
       "fetch": {
         "method": "copy-tokens",
         "value": "## Lines\n\n| Token | Value |\n| --- | --- |\n| divider/light | border: 1px solid rgb(0 0 0 / 0.05) |\n| divider/dark | border: 1px solid rgb(255 255 255 / 0.06) |\n| border/light | border: 1px solid rgb(0 0 0 / 0.1) |\n| border/dark | border: 1px solid rgb(255 255 255 / 0.1) |\n| border-strong/light | border: 1px solid rgb(0 0 0 / 0.15) |\n| border-strong/dark | border: 1px solid rgb(255 255 255 / 0.15) |\n| hairline-ring/light | box-shadow: 0 0 0 0.5px rgb(0 0 0 / 0.08) |\n| hairline-ring/dark | box-shadow: 0 0 0 0.5px rgb(255 255 255 / 0.157) |\n| focus-ring/light | outline: 2px solid color-mix(in srgb, var(--accent) 55%, transparent); outline-offset: 2px |\n| focus-ring/dark | outline: 2px solid color-mix(in srgb, var(--accent) 55%, transparent); outline-offset: 2px |\n\n**Rule:** Do not mix a hairline ring and a 1px border on elements at the same hierarchy level."
@@ -1126,7 +1126,7 @@
       "aliases": [],
       "description": "Static CSS background recipes for texture.",
       "descriptionZh": "用于增加质感的静态 CSS 背景配方。",
-      "pageUrl": "http://localhost:3000/atoms?cat=backgrounds",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=backgrounds",
       "fetch": {
         "method": "copy-tokens",
         "value": "## Backgrounds\n\n### Grid\n\n#### Light\n\n```css\nbackground-image: linear-gradient(rgb(0 0 0 / 0.06) 1px, transparent 1px), linear-gradient(90deg, rgb(0 0 0 / 0.06) 1px, transparent 1px); background-size: 24px 24px;\n```\n\n#### Dark\n\n```css\nbackground-image: linear-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 0.07) 1px, transparent 1px); background-size: 24px 24px;\n```\n\n**Use when:** For dashboard and technical backdrops.\n\n### Dot Matrix\n\n#### Light\n\n```css\nbackground-image: radial-gradient(rgb(0 0 0 / 0.12) 1px, transparent 1.5px); background-size: 20px 20px;\n```\n\n#### Dark\n\n```css\nbackground-image: radial-gradient(rgb(255 255 255 / 0.14) 1px, transparent 1.5px); background-size: 20px 20px;\n```\n\n**Use when:** For airy empty states and card backgrounds.\n\n### Blueprint\n\n#### Light\n\n```css\nbackground-color: #f4f7fb; background-image: linear-gradient(rgb(37 99 235 / 0.10) 1px, transparent 1px), linear-gradient(90deg, rgb(37 99 235 / 0.10) 1px, transparent 1px), linear-gradient(rgb(37 99 235 / 0.20) 1px, transparent 1px), linear-gradient(90deg, rgb(37 99 235 / 0.20) 1px, transparent 1px); background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;\n```\n\n#### Dark\n\n```css\nbackground-color: #0b1220; background-image: linear-gradient(rgb(37 99 235 / 0.16) 1px, transparent 1px), linear-gradient(90deg, rgb(37 99 235 / 0.16) 1px, transparent 1px), linear-gradient(rgb(37 99 235 / 0.28) 1px, transparent 1px), linear-gradient(90deg, rgb(37 99 235 / 0.28) 1px, transparent 1px); background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;\n```\n\n**Use when:** For engineering and technical narratives.\n\n### Noise Grain\n\n#### Light\n\n```css\nbackground-image: url(\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/></svg>\");\n```\n\n#### Dark\n\n```css\nbackground-image: url(\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/></svg>\");\n```\n\n**Use when:** As an overlay that removes digital flatness and adds texture.\n\n### Mesh Gradient\n\n#### Light\n\n```css\nbackground-color: #fafafa; background-image: radial-gradient(at 18% 22%, rgb(99 102 241 / 0.18), transparent 50%), radial-gradient(at 82% 28%, rgb(236 72 153 / 0.15), transparent 48%), radial-gradient(at 50% 82%, rgb(45 212 191 / 0.16), transparent 50%);\n```\n\n#### Dark\n\n```css\nbackground-color: #0c0d10; background-image: radial-gradient(at 18% 22%, rgb(99 102 241 / 0.22), transparent 50%), radial-gradient(at 82% 28%, rgb(236 72 153 / 0.19), transparent 48%), radial-gradient(at 50% 82%, rgb(45 212 191 / 0.20), transparent 50%);\n```\n\n**Use when:** For a soft atmospheric backdrop behind heroes and landing pages.\n\n### Radial Glow\n\n#### Light\n\n```css\nbackground-image: radial-gradient(120% 80% at 50% 0%, rgb(51 156 255 / 0.16), transparent 60%);\n```\n\n#### Dark\n\n```css\nbackground-image: radial-gradient(120% 80% at 50% 0%, rgb(51 156 255 / 0.22), transparent 60%);\n```\n\n**Use when:** To guide attention toward a top heading or primary action.\n\n### Diagonal Stripes\n\n#### Light\n\n```css\nbackground-image: repeating-linear-gradient(45deg, rgb(0 0 0 / 0.04) 0 10px, transparent 10px 20px);\n```\n\n#### Dark\n\n```css\nbackground-image: repeating-linear-gradient(45deg, rgb(255 255 255 / 0.05) 0 10px, transparent 10px 20px);\n```\n\n**Use when:** For emphasis areas, warnings, and retro treatments.\n\n### Scanlines\n\n#### Light\n\n```css\nbackground-image: repeating-linear-gradient(0deg, rgb(0 0 0 / 0.05) 0 1px, transparent 1px 3px);\n```\n\n#### Dark\n\n```css\nbackground-image: repeating-linear-gradient(0deg, rgb(255 255 255 / 0.06) 0 1px, transparent 1px 3px);\n```\n\n**Use when:** For retro, technical, and terminal-inspired interfaces.\n\n### Vignette\n\n#### Light\n\n```css\nbackground-image: radial-gradient(120% 120% at 50% 50%, transparent 55%, rgb(0 0 0 / 0.10));\n```\n\n#### Dark\n\n```css\nbackground-image: radial-gradient(120% 120% at 50% 50%, transparent 55%, rgb(0 0 0 / 0.28));\n```\n\n**Use when:** To focus the center and subdue the edges.\n\n**Rule:** Use these static CSS recipes for texture; for dynamic shader effects, use the `webgl-background` component."
@@ -1148,7 +1148,7 @@
       "descriptionZh": "工具 UI 默认。",
       "prompt": "Outline icons, 1.5px stroke, round line caps, 24px grid, and even visual weight.",
       "promptZh": "线性图标，1.5px 描边，圆角端点，24px 网格，视觉重量均匀。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "Outline icons, 1.5px stroke, round line caps, 24px grid, and even visual weight."
@@ -1170,7 +1170,7 @@
       "descriptionZh": "更活泼年轻、需要更强视觉重量的界面。",
       "prompt": "Bold outline icons, 2px stroke, round line caps, 24px grid, with lively and even visual weight.",
       "promptZh": "粗线图标，2px 描边，圆角端点，24px 网格，视觉重量活泼且均匀。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "Bold outline icons, 2px stroke, round line caps, 24px grid, with lively and even visual weight."
@@ -1192,7 +1192,7 @@
       "descriptionZh": "亲和、消费级产品。",
       "prompt": "Rounded outline icons with clearly rounded caps and joins, a 24px grid, and friendly even weight.",
       "promptZh": "圆角线性图标，端点与转角明显圆润，24px 网格，视觉重量亲和且均匀。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "Rounded outline icons with clearly rounded caps and joins, a 24px grid, and friendly even weight."
@@ -1214,7 +1214,7 @@
       "descriptionZh": "高识别度场景，例如移动端 tab 栏。",
       "prompt": "Filled icons with solid silhouettes, a 24px grid, high recognition, and consistent optical area.",
       "promptZh": "面性图标，实心轮廓，24px 网格，高识别度，光学占位一致。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "Filled icons with solid silhouettes, a 24px grid, high recognition, and consistent optical area."
@@ -1236,7 +1236,7 @@
       "descriptionZh": "品牌感较强、允许图标更有存在感的界面。",
       "prompt": "Duotone icons with a solid primary shape and a same-color secondary shape at 30% opacity on a 24px grid.",
       "promptZh": "双色调图标，主形实色，副形使用同色 30% 透明度，24px 网格。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "Duotone icons with a solid primary shape and a same-color secondary shape at 30% opacity on a 24px grid."
@@ -1258,7 +1258,7 @@
       "descriptionZh": "复古计算美学与刻意游戏化的产品。",
       "prompt": "Pixel icons built from hard-edged square cells on a 16px grid, with no curves or antialiased diagonals.",
       "promptZh": "像素图标，16px 方格硬边，以矩形拼合，不使用曲线或抗锯齿斜线。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "Pixel icons built from hard-edged square cells on a 16px grid, with no curves or antialiased diagonals."
@@ -1280,7 +1280,7 @@
       "descriptionZh": "确认、成功类图标的入场；描边像被手写出来。",
       "prompt": "On hover, animate the icon stroke with pathLength from 0 to 1 so it draws itself in over ~0.6s.",
       "promptZh": "hover 时用 pathLength 从 0 到 1 让图标描边自我绘制入场（约 0.6s）。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "On hover, animate the icon stroke with pathLength from 0 to 1 so it draws itself in over ~0.6s."
@@ -1302,7 +1302,7 @@
       "descriptionZh": "通知、提醒类图标；快速左右摆动吸引注意。",
       "prompt": "On hover, rotate the icon in a keyframe wiggle of [0, -14, 10, -6, 0] degrees over ~0.6s.",
       "promptZh": "hover 时按关键帧 [0, -14, 10, -6, 0] 度左右摆动，约 0.6s。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "On hover, rotate the icon in a keyframe wiggle of [0, -14, 10, -6, 0] degrees over ~0.6s."
@@ -1324,7 +1324,7 @@
       "descriptionZh": "设置、同步、刷新类图标；360° 旋转表示进行中。",
       "prompt": "On hover, rotate the icon 360 degrees once with an easeInOut curve over ~0.6s.",
       "promptZh": "hover 时以 easeInOut 旋转一圈 360°，约 0.6s。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "On hover, rotate the icon 360 degrees once with an easeInOut curve over ~0.6s."
@@ -1346,7 +1346,7 @@
       "descriptionZh": "下载、下滑提示；上下弹跳暗示动作。",
       "prompt": "On hover, bounce the icon vertically with a spring, y from 0 to 4 and back, stiffness ~400.",
       "promptZh": "hover 时用弹簧（刚度约 400）让图标垂直弹跳，y 从 0 到 4 再回弹。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "On hover, bounce the icon vertically with a spring, y from 0 to 4 and back, stiffness ~400."
@@ -1368,7 +1368,7 @@
       "descriptionZh": "新增、创建动作；快速放大回弹给出触觉反馈。",
       "prompt": "On hover, pop the icon scale from 1 to 1.25 and back with a spring.",
       "promptZh": "hover 时用弹簧让缩放从 1 到 1.25 再回弹。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "On hover, pop the icon scale from 1 to 1.25 and back with a spring."
@@ -1390,7 +1390,7 @@
       "descriptionZh": "点赞、在线状态类图标；hover 期间持续轻微脉动。",
       "prompt": "While hovered, loop the icon scale between 1 and 1.15 every ~0.8s.",
       "promptZh": "hover 期间循环缩放 1 到 1.15，约 0.8s 一次。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "While hovered, loop the icon scale between 1 and 1.15 every ~0.8s."
@@ -1412,7 +1412,7 @@
       "descriptionZh": "'下一步'、'发送'、链接类图标；朝方向轻微位移暗示前进。",
       "prompt": "On hover, nudge the icon along x by 4px and back with a spring.",
       "promptZh": "hover 时让图标沿 x 轻移 4px 再弹回。",
-      "pageUrl": "http://localhost:3000/atoms?cat=icons",
+      "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons",
       "fetch": {
         "method": "copy-prompt",
         "value": "On hover, nudge the icon along x by 4px and back with a spring."
@@ -1434,7 +1434,7 @@
       "descriptionZh": "半透明磨砂卡片浮在彩色光斑之上,像一层结了霜的玻璃。",
       "prompt": "Design this page in a glassmorphism style: a dark blue-violet gradient background with 2-3 large blurred color glows (cyan, violet). Cards and panels are translucent white (8-12% opacity) with backdrop-filter: blur(12px), a 1px semi-transparent white border (15-20%) and large 16-24px rounded corners. Text is white; create hierarchy by lowering opacity, not by changing hue. The primary button is near-solid white with dark text; secondary buttons stay glassy. Forbidden: white or light backgrounds, fully opaque cards, harsh dark shadows, small border radii, and blurring everything — blur belongs to cards and the nav only.",
       "promptZh": "请用玻璃拟态(Glassmorphism)风格设计这个页面:深色蓝紫渐变背景,上面放 2-3 个大的彩色模糊光斑(青色、紫色);卡片和面板用半透明白色(8%-12% 不透明度)加 backdrop-filter: blur(12px) 磨砂效果,配 1px 半透明白色描边(15%-20%)和 16-24px 的大圆角;文字用白色,次要信息靠降低不透明度区分层级;主按钮用近实色的白底深色字,次按钮保持玻璃质感。禁止:纯白或浅色背景、完全不透明的卡片、生硬的深色阴影、小圆角、给所有元素都加模糊(模糊只属于卡片和导航)。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a glassmorphism style: a dark blue-violet gradient background with 2-3 large blurred color glows (cyan, violet). Cards and panels are translucent white (8-12% opacity) with backdrop-filter: blur(12px), a 1px semi-transparent white border (15-20%) and large 16-24px rounded corners. Text is white; create hierarchy by lowering opacity, not by changing hue. The primary button is near-solid white with dark text; secondary buttons stay glassy. Forbidden: white or light backgrounds, fully opaque cards, harsh dark shadows, small border radii, and blurring everything — blur belongs to cards and the nav only."
@@ -1456,7 +1456,7 @@
       "descriptionZh": "整站一块柔灰蓝底色,卡片按钮全靠光影凹凸感区分层次,不见一根描边。",
       "prompt": "Design this page in a neumorphism style: a single-hue light blue-gray background #e0e5ec; cards share the exact same color with no border, relying on a two-directional soft shadow (light from the top-left, box-shadow: 9px 9px 16px rgba(163,177,198,.55), -9px -9px 16px rgba(255,255,255,.95)) to read as embossed volume; corners are large and soft (18px/14px); body text is a low-contrast indigo-gray #44476a, muted text #7b7f9e; the accent is a soft periwinkle #6c7ee1, reserved for the primary button and icons; the primary button sits on the accent color with white text and the same soft shadow; the secondary button matches the page background and only 'pops' via shadow, never a border; dividers are a faint 1px #cdd3e0. Forbidden: pure black or white, any crisp outline, high-contrast color pairs, sharp hard-edged shadows, saturated clashing colors, and flat shadowless cards.",
       "promptZh": "请用新拟态(Neumorphism)风格设计这个页面:整站单色浅灰蓝背景 #e0e5ec;卡片与背景同色,不用描边,靠双向柔阴影(阳光从左上照射,box-shadow: 9px 9px 16px rgba(163,177,198,.55), -9px -9px 16px rgba(255,255,255,.95))撑出凸起体积感;圆角大而柔和(18px/14px);正文用低对比的靛灰色 #44476a,次要文字 #7b7f9e;强调色是柔和靛蓝 #6c7ee1,只用在主按钮和图标上;主按钮 accent 底、白字,配同款柔阴影;次按钮与背景同色,靠阴影「凸」出来,不加描边;分割线用极淡的 1px #cdd3e0。禁止:纯黑或纯白、任何清晰描边、强对比配色、锐利硬阴影、鲜艳撞色、平面无阴影的卡片。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a neumorphism style: a single-hue light blue-gray background #e0e5ec; cards share the exact same color with no border, relying on a two-directional soft shadow (light from the top-left, box-shadow: 9px 9px 16px rgba(163,177,198,.55), -9px -9px 16px rgba(255,255,255,.95)) to read as embossed volume; corners are large and soft (18px/14px); body text is a low-contrast indigo-gray #44476a, muted text #7b7f9e; the accent is a soft periwinkle #6c7ee1, reserved for the primary button and icons; the primary button sits on the accent color with white text and the same soft shadow; the secondary button matches the page background and only 'pops' via shadow, never a border; dividers are a faint 1px #cdd3e0. Forbidden: pure black or white, any crisp outline, high-contrast color pairs, sharp hard-edged shadows, saturated clashing colors, and flat shadowless cards."
@@ -1478,7 +1478,7 @@
       "descriptionZh": "卡片像被捏出来的一坨紫色软泥,浑圆饱满,每一道折痕都留着一点高光。",
       "prompt": "Design this page in a claymorphism style: a soft lavender-blue background #eef1ff; cards are solid white #ffffff with oversized, almost gumdrop-like corners (30px, 18px on small components); the signature move is layering an inset highlight and an outer drop shadow together — inset 4px 4px 10px rgba(120,120,190,.18), inset -6px -6px 12px #ffffff, plus an outer 10px 14px 24px rgba(120,120,190,.28) — so cards read as pinched, puffy clay; the accent is candy purple #7c6cf6; badges sit on soft pink #ffd6ea with deep purple text; the primary button is purple with white text in a pill-like rounded shape; body text is deep grayish purple #2f2a45, muted text #6f6a8a; headings are weight 700, noticeably bold but never harsh. Forbidden: sharp square corners, pure black shadows, thin outline borders, desaturated gray tones, flat shadowless cards, and any glassy transparency.",
       "promptZh": "请用黏土拟态(Claymorphism)风格设计这个页面:背景是浅紫雾蓝 #eef1ff;卡片纯白 #ffffff,圆角超大近乎软糖块(30px,小组件 18px);标志性的内外双阴影同时使用——内凹提亮 inset 4px 4px 10px rgba(120,120,190,.18)、内凹高光 inset -6px -6px 12px #ffffff,外层再叠一层向下投影 10px 14px 24px rgba(120,120,190,.28),做出「捏出来的软泥块」体积感;强调色用糖果紫 #7c6cf6;徽章用柔粉底 #ffd6ea 配深紫字;主按钮紫底白字、胶囊感圆角;正文深灰紫 #2f2a45,次要文字 #6f6a8a;标题字重 700,略粗但不生硬。禁止:硬直角、纯黑投影、细描边线框、低饱和灰调、扁平无阴影卡片、玻璃通透感。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a claymorphism style: a soft lavender-blue background #eef1ff; cards are solid white #ffffff with oversized, almost gumdrop-like corners (30px, 18px on small components); the signature move is layering an inset highlight and an outer drop shadow together — inset 4px 4px 10px rgba(120,120,190,.18), inset -6px -6px 12px #ffffff, plus an outer 10px 14px 24px rgba(120,120,190,.28) — so cards read as pinched, puffy clay; the accent is candy purple #7c6cf6; badges sit on soft pink #ffd6ea with deep purple text; the primary button is purple with white text in a pill-like rounded shape; body text is deep grayish purple #2f2a45, muted text #6f6a8a; headings are weight 700, noticeably bold but never harsh. Forbidden: sharp square corners, pure black shadows, thin outline borders, desaturated gray tones, flat shadowless cards, and any glassy transparency."
@@ -1500,7 +1500,7 @@
       "descriptionZh": "明亮水润的玻璃面板,不靠深色极光遮掩,而是让饱和的光透出来——苹果最新的界面语言。",
       "prompt": "Design this page in a liquid glass style: a bright blue-white gradient background linear-gradient(160deg, #dfe9f5 0%, #f4f8fd 55%, #e3ecf7 100%) — luminous and airy, never dark; cards are translucent white rgba(255,255,255,.45) layered with backdrop-filter: blur(20px) saturate(160%) so the base color shows through with a wetter, more saturated glow; borders are a near-solid 1px solid rgba(255,255,255,.75) that rings the edge with a liquid highlight; corners are either large and rounded (28px) or pushed all the way to a 999px capsule; the accent is true iOS blue #0a84ff, reserved for the primary button and interactive states; body text is deep near-black #1d1d1f, muted text is the same color at 60% opacity; the primary button is blue with white text in a capsule shape, with a soft shadow and a thin top highlight line to mimic light reflecting off water. Forbidden: dark backgrounds, dull low-saturation glass, hard square corners, matte flat-color borders, and the dark neon color-glow look of classic glassmorphism.",
       "promptZh": "请用液态玻璃(Liquid Glass)风格设计这个页面:背景是浅蓝白渐变 linear-gradient(160deg, #dfe9f5 0%, #f4f8fd 55%, #e3ecf7 100%),明亮通透,不用深色;卡片用半透明白 rgba(255,255,255,.45)叠加 backdrop-filter: blur(20px) saturate(160%),让底色透出饱和度更高的「湿润」质感;描边用近乎实白的 1px solid rgba(255,255,255,.75),在边缘制造一圈液态高光;圆角要么大且圆润(28px),要么直接做成 999px 全胶囊;强调色是纯正的 iOS 蓝 #0a84ff,只用在主按钮和交互态上;正文深灰黑 #1d1d1f,次要文字用同色降到 60% 不透明度;主按钮蓝底白字胶囊形,搭配柔和投影和顶部一条高光线模拟水面反光。禁止:深色背景、低饱和灰蒙蒙的玻璃、生硬直角、无光泽的纯色描边、和玻璃拟态一样的暗色霓虹光斑。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a liquid glass style: a bright blue-white gradient background linear-gradient(160deg, #dfe9f5 0%, #f4f8fd 55%, #e3ecf7 100%) — luminous and airy, never dark; cards are translucent white rgba(255,255,255,.45) layered with backdrop-filter: blur(20px) saturate(160%) so the base color shows through with a wetter, more saturated glow; borders are a near-solid 1px solid rgba(255,255,255,.75) that rings the edge with a liquid highlight; corners are either large and rounded (28px) or pushed all the way to a 999px capsule; the accent is true iOS blue #0a84ff, reserved for the primary button and interactive states; body text is deep near-black #1d1d1f, muted text is the same color at 60% opacity; the primary button is blue with white text in a capsule shape, with a soft shadow and a thin top highlight line to mimic light reflecting off water. Forbidden: dark backgrounds, dull low-saturation glass, hard square corners, matte flat-color borders, and the dark neon color-glow look of classic glassmorphism."
@@ -1521,7 +1521,7 @@
       "descriptionZh": "粗黑描边、硬阴影和糖果撞色,故意的「不精致」,张扬得理直气壮。",
       "prompt": "Design this page in a neubrutalism style: a bright cream background; every card, button and input gets a 2px solid black border with a hard black shadow (box-shadow: 4px 4px 0 #111 — zero blur); corners are sharp or barely rounded (4-8px); headings are extra bold (800-900); clash saturated candy colors (hot pink, lemon yellow, mint). On hover, elements translate a few pixels toward the shadow while the shadow shrinks, so they feel physically pressed. Forbidden: soft shadows, any gradients, transparency, thin font weights, desaturated grays, large border radii.",
       "promptZh": "请用新粗野主义(Neubrutalism)风格设计这个页面:明亮的奶油色底;所有卡片、按钮、输入框都用 2px 纯黑描边,配黑色硬阴影(box-shadow: 4px 4px 0 #111,零模糊);圆角很小(4-8px)或干脆直角;标题用超粗字重(800-900);配色用高饱和糖果色撞色(亮粉、柠檬黄、薄荷绿);hover 时元素朝阴影方向平移几像素、阴影同步缩小,像被物理按下去。禁止:柔和阴影、任何渐变、半透明、细字重、低饱和灰色调、大圆角。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a neubrutalism style: a bright cream background; every card, button and input gets a 2px solid black border with a hard black shadow (box-shadow: 4px 4px 0 #111 — zero blur); corners are sharp or barely rounded (4-8px); headings are extra bold (800-900); clash saturated candy colors (hot pink, lemon yellow, mint). On hover, elements translate a few pixels toward the shadow while the shadow shrinks, so they feel physically pressed. Forbidden: soft shadows, any gradients, transparency, thin font weights, desaturated grays, large border radii."
@@ -1543,7 +1543,7 @@
       "descriptionZh": "回到网页最原始的模样:纯白、纯黑、Times New Roman,没有新粗野主义的糖果色和硬阴影 —— 这才是真正意义上的「生」。",
       "prompt": "Design this page in brutalism (raw web) style: pure white background #ffffff with pure black text #000000, secondary text #333333; fall back to the browser's default serif stack — \"Times New Roman\", Times, serif — no custom web fonts; keep links native blue #0000ee with an underline; give every card and button a 1px solid #000000 table-like square border, zero radius; shadows are always none, no depth or hover-lift effects; headings are weight 700 with zero letter-spacing, relying only on font-size to build hierarchy; separate sections with 1px solid #000000 hairlines instead of whitespace. Forbidden: rounded corners, shadows, gradients, brand or candy colors, custom fonts, decorative hover/transform animations.",
       "promptZh": "请用原教旨粗野主义(Brutalism)风格设计这个页面:纯白背景 #ffffff、纯黑文字 #000000,次要文字用 #333333;全局字体退回浏览器默认衬线体 \"Times New Roman\", Times, serif,不引入任何自定义 Web 字体;链接保持原生蓝 #0000ee 加下划线;卡片、按钮统一用 1px solid #000000 的表格感直角边框,圆角为 0;阴影一律 none,不做任何立体或悬浮效果;标题字重 700、字距为 0,只靠字号差异分层级;区块之间用 1px solid #000000 的分隔线代替留白暗示。禁止:任何圆角、阴影、渐变、品牌色或糖果色、自定义字体、多余的悬浮/位移动效。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in brutalism (raw web) style: pure white background #ffffff with pure black text #000000, secondary text #333333; fall back to the browser's default serif stack — \"Times New Roman\", Times, serif — no custom web fonts; keep links native blue #0000ee with an underline; give every card and button a 1px solid #000000 table-like square border, zero radius; shadows are always none, no depth or hover-lift effects; headings are weight 700 with zero letter-spacing, relying only on font-size to build hierarchy; separate sections with 1px solid #000000 hairlines instead of whitespace. Forbidden: rounded corners, shadows, gradients, brand or candy colors, custom fonts, decorative hover/transform animations."
@@ -1565,7 +1565,7 @@
       "descriptionZh": "紫色渐变打底、柠檬黄卡片撞彩色硬阴影,把「少即是多」整个反过来说 —— 多即是多。",
       "prompt": "Design this page in maximalism style: a bright violet gradient page background linear-gradient(160deg, #6a2ff7 0%, #8b3df5 100%), white body text, semi-transparent white rgba(255,255,255,.75) for secondary text; cards in saturated lemon yellow #ffe14d with a 3px solid deep-violet border #16003b, 12px radius, and deep-violet #16003b text inside cards for contrast; every card and button gets a colorful hard shadow box-shadow: 6px 6px 0 0 #ff2d78 with zero blur; the accent is hot magenta #ff2d78, splashed across buttons, icon blocks and numbers; badges are cyan #2de1c2 with black text, uppercase with wide tracking; headings sit at font-weight 900, and elements are packed tight with almost no breathing room. Forbidden: generous whitespace, a single dominant hue, thin font weights, minimalist restraint, soft gradients or desaturated Morandi tones.",
       "promptZh": "请用极繁主义(Maximalism)风格设计这个页面:整页背景用亮紫渐变 linear-gradient(160deg, #6a2ff7 0%, #8b3df5 100%),正文用白色,次要文字用半透明白 rgba(255,255,255,.75);卡片用高饱和柠檬黄 #ffe14d,配 3px 实色深紫边框 #16003b,圆角 12px,卡片内文字改用深紫 #16003b 保证对比;所有卡片、按钮统一用彩色硬阴影 box-shadow: 6px 6px 0 0 #ff2d78,零模糊;强调色用品红 #ff2d78,大量用于按钮、图标块和数字;徽标(badge)用青绿色 #2de1c2 底配黑字,大写字母加宽字距;标题字重给到 900,营造塞满版面的视觉密度,元素之间尽量不留呼吸空间。禁止:大面积留白、单一主色调、纤细字重、性冷淡极简排版、柔和渐变或低饱和莫兰迪色。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in maximalism style: a bright violet gradient page background linear-gradient(160deg, #6a2ff7 0%, #8b3df5 100%), white body text, semi-transparent white rgba(255,255,255,.75) for secondary text; cards in saturated lemon yellow #ffe14d with a 3px solid deep-violet border #16003b, 12px radius, and deep-violet #16003b text inside cards for contrast; every card and button gets a colorful hard shadow box-shadow: 6px 6px 0 0 #ff2d78 with zero blur; the accent is hot magenta #ff2d78, splashed across buttons, icon blocks and numbers; badges are cyan #2de1c2 with black text, uppercase with wide tracking; headings sit at font-weight 900, and elements are packed tight with almost no breathing room. Forbidden: generous whitespace, a single dominant hue, thin font weights, minimalist restraint, soft gradients or desaturated Morandi tones."
@@ -1586,7 +1586,7 @@
       "descriptionZh": "白底黑字加一点红,大字号、严格网格和留白完成全部表达。",
       "prompt": "Design this page in Swiss / International Typographic Style: pure white background, near-black text, exactly one accent color (classic Swiss red). Headlines use a very large sans-serif (Helvetica / Inter family) at weight 700 with tight letter-spacing (~-0.03em), at least 4x the body size. Left-align everything on a strict grid with generous whitespace; separate sections with 1px black hairlines. Buttons are sharp-cornered solid black rectangles or plain text links; small labels are uppercase with wide tracking. Forbidden: shadows, gradients, rounded corners, decorative illustrations, a second accent color, and centered layouts — stay left-aligned on the grid.",
       "promptZh": "请用瑞士极简 / 国际主义(Swiss Style)风格设计这个页面:纯白背景、近黑文字,全站只用一个强调色(经典是红色);标题用非常大的无衬线字体(Helvetica / Inter 一类),字重 700、字距收紧(约 -0.03em),和正文形成 4 倍以上的大小反差;严格按网格左对齐,大量留白;区块之间用 1px 黑色细线分隔;按钮是直角的黑色实色矩形或纯文字链接;小标签用大写字母加宽字距。禁止:阴影、渐变、圆角、装饰性插画和图形、第二种强调色、居中排版(保持左对齐网格)。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in Swiss / International Typographic Style: pure white background, near-black text, exactly one accent color (classic Swiss red). Headlines use a very large sans-serif (Helvetica / Inter family) at weight 700 with tight letter-spacing (~-0.03em), at least 4x the body size. Left-align everything on a strict grid with generous whitespace; separate sections with 1px black hairlines. Buttons are sharp-cornered solid black rectangles or plain text links; small labels are uppercase with wide tracking. Forbidden: shadows, gradients, rounded corners, decorative illustrations, a second accent color, and centered layouts — stay left-aligned on the grid."
@@ -1608,7 +1608,7 @@
       "descriptionZh": "比瑞士风更柔和、更通用的极简:不靠网格和红色说话,靠大量留白和克制的灰阶把视线交还给内容。",
       "prompt": "Design this page in minimalism style: a near-white background #fcfcfc, dark gray body text #171717, mid-gray secondary text #737373; cards are soft gray blocks #f4f4f5 with no visible border, large 12px radius (8px for small controls), and no shadow; the accent color is simply the primary text color #171717 — no brand hue; primary buttons are solid black with white text, secondary buttons are transparent with a 1px light-gray border #d4d4d4; headings sit at weight 600 with tight -0.02em tracking, restrained but not harsh; separate sections with a 1px light-gray divider #e5e5e5 instead of card shadows. Forbidden: saturated colors, hard shadows, thick black borders, oversized type contrast, decorative graphics.",
       "promptZh": "请用极简主义(Minimalism)风格设计这个页面:近白背景 #fcfcfc,正文深灰 #171717,次要文字中灰 #737373;卡片用浅灰块 #f4f4f5,不设可见描边,大圆角 12px(小尺寸控件用 8px),不用阴影;强调色就是主文字色本身 #171717,不引入品牌色;主按钮纯黑底白字,次按钮透明底配 1px 浅灰描边 #d4d4d4;标题字重 600、字距收紧到 -0.02em,克制但不生硬;区块间用 1px 浅灰分隔线 #e5e5e5 代替卡片阴影。禁止:高饱和色、硬阴影、粗黑描边、超大字号对比、装饰性图形。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in minimalism style: a near-white background #fcfcfc, dark gray body text #171717, mid-gray secondary text #737373; cards are soft gray blocks #f4f4f5 with no visible border, large 12px radius (8px for small controls), and no shadow; the accent color is simply the primary text color #171717 — no brand hue; primary buttons are solid black with white text, secondary buttons are transparent with a 1px light-gray border #d4d4d4; headings sit at weight 600 with tight -0.02em tracking, restrained but not harsh; separate sections with a 1px light-gray divider #e5e5e5 instead of card shadows. Forbidden: saturated colors, hard shadows, thick black borders, oversized type contrast, decorative graphics."
@@ -1630,7 +1630,7 @@
       "descriptionZh": "米白纸感底色配衬线大标题,酒红点缀,像翻开一本考究的独立杂志。",
       "prompt": "Design this page in editorial (magazine) style: a warm paper background #faf7f2, ink-black body text #1c1a17, warm-gray secondary text #6e675c; set headlines in a serif — Georgia, \"Times New Roman\", serif — at weight 700 with tight -0.01em tracking for a typeset feel; cards are cream paper blocks #f4efe6 with no visible border, only 2px radius, and no shadow; the accent is a deep wine red #8c2f39, reserved for badge text and key emphasis; badges are transparent with wine-red uppercase text at 0.16em tracking, like a journal section tag; primary buttons are sharp-cornered ink black with cream text, secondary buttons get a thin #d8d0c2 outline; separate sections with a 1px tan hairline #d8d0c2 for a printed-column feel. Forbidden: bold sans-serif display headlines, saturated color clashes, hard shadows, large border radii, digital/tech-flavored decoration.",
       "promptZh": "请用杂志编辑风(Editorial)风格设计这个页面:米白纸感背景 #faf7f2,墨黑正文 #1c1a17,次要文字暖灰 #6e675c;标题字体换成衬线 Georgia, \"Times New Roman\", serif,字重 700、字距收紧到 -0.01em,做出排版感;卡片用米黄纸色块 #f4efe6,不设描边,圆角仅 2px,不用阴影;强调色是深酒红 #8c2f39,只用在徽标文字和关键强调处;徽标是透明底酒红字,大写字母加宽字距到 0.16em,像期刊分类标签;主按钮墨黑底米白字直角,次按钮细描边 #d8d0c2;区块间用 1px 米棕分隔线 #d8d0c2,营造版面栏线感。禁止:无衬线大黑体标题、高饱和撞色、硬阴影、大圆角、数字化科技感元素。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in editorial (magazine) style: a warm paper background #faf7f2, ink-black body text #1c1a17, warm-gray secondary text #6e675c; set headlines in a serif — Georgia, \"Times New Roman\", serif — at weight 700 with tight -0.01em tracking for a typeset feel; cards are cream paper blocks #f4efe6 with no visible border, only 2px radius, and no shadow; the accent is a deep wine red #8c2f39, reserved for badge text and key emphasis; badges are transparent with wine-red uppercase text at 0.16em tracking, like a journal section tag; primary buttons are sharp-cornered ink black with cream text, secondary buttons get a thin #d8d0c2 outline; separate sections with a 1px tan hairline #d8d0c2 for a printed-column feel. Forbidden: bold sans-serif display headlines, saturated color clashes, hard shadows, large border radii, digital/tech-flavored decoration."
@@ -1652,7 +1652,7 @@
       "descriptionZh": "暖白纸色配墨灰文字,朱红只点缀在极小面积,克制得近乎留白本身就是内容。",
       "prompt": "Design this page in Japanese minimalism (Japandi) style: warm off-white background #f7f5f0, ink-gray body text #2b2b2b, soft taupe secondary text #8a857c; cards match the page color #f7f5f0, separated only by a thin 1px border #e6e0d4, with just 4px radius and never a shadow; the accent vermillion #b5432a appears only in tiny doses — badge text, small numerals — never as a large color block; badges are transparent with uppercase vermillion text at 0.2em tracking; headings use a light weight (500) with slightly loosened 0.02em tracking for breathing room, the opposite of the usual tight-minimalism move; primary buttons are sharp-cornered ink black with warm-white text, secondary buttons stay transparent with a thin ink outline; separate sections with a 1px taupe hairline #e6e0d4. Forbidden: large vermillion or saturated color blocks, hard shadows, thick borders, ornate decoration, extra-bold display headlines.",
       "promptZh": "请用日式极简(Japanese Minimalism / Japandi)风格设计这个页面:暖白背景 #f7f5f0,墨灰正文 #2b2b2b,次要文字浅灰褐 #8a857c;卡片与页面同色 #f7f5f0,只用 1px 细边 #e6e0d4 做区隔,圆角仅 4px,绝不用阴影;强调色朱红 #b5432a 只出现在极小面积——徽标文字、数字这类点缀处,大面积绝不铺色;徽标透明底朱红字,大写字母加宽字距到 0.2em;标题字重偏轻(500),字距略微放宽到 0.02em,留出呼吸感,而非常规极简的收紧字距;主按钮墨黑底暖白字直角,次按钮透明配墨色细框;区块间用 1px 浅褐分隔线 #e6e0d4。禁止:大面积朱红或任何高饱和色块、硬阴影、粗描边、繁复装饰、超粗字重标题。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in Japanese minimalism (Japandi) style: warm off-white background #f7f5f0, ink-gray body text #2b2b2b, soft taupe secondary text #8a857c; cards match the page color #f7f5f0, separated only by a thin 1px border #e6e0d4, with just 4px radius and never a shadow; the accent vermillion #b5432a appears only in tiny doses — badge text, small numerals — never as a large color block; badges are transparent with uppercase vermillion text at 0.2em tracking; headings use a light weight (500) with slightly loosened 0.02em tracking for breathing room, the opposite of the usual tight-minimalism move; primary buttons are sharp-cornered ink black with warm-white text, secondary buttons stay transparent with a thin ink outline; separate sections with a 1px taupe hairline #e6e0d4. Forbidden: large vermillion or saturated color blocks, hard shadows, thick borders, ornate decoration, extra-bold display headlines."
@@ -1674,7 +1674,7 @@
       "descriptionZh": "银色金属渐变配糖果粉徽标,胶囊按钮泛着光泽,是千禧年想象中的未来感。",
       "prompt": "Design this page in Y2K style: wash the whole page in a silver metallic gradient linear-gradient(135deg, #dfe3f0 0%, #f6f7fb 50%, #cfd6ea 100%); cards sit on frosted translucent white rgba(255,255,255,.7) with a 1px solid #aab4d4 edge for a brushed-chrome feel; large cards use 24px rounded corners while buttons and badges go full capsule at 999px; the primary button is bright blue #3d7bff on white text with a glossy drop shadow 0 6px 14px rgba(61,123,255,.4); badges pair candy pink #ff8ad8 with deep plum #4a0e3a text; body copy sits at #1f2544, secondary text at #5a6285; headings carry weight 700 for a light futuristic edge; layer a soft glow behind the content to push the tech-candy mood. Forbidden: over-blurred frosted glass that swallows legibility, stark black-and-white high contrast, minimalist wireframe styling, raw hand-drawn doodles, any aged/grunge retro filter.",
       "promptZh": "请用千禧风(Y2K)风格设计这个页面:整页底色用银色金属渐变 linear-gradient(135deg, #dfe3f0 0%, #f6f7fb 50%, #cfd6ea 100%);卡片用半透明白 rgba(255,255,255,.7) 叠 1px solid #aab4d4 描边,营造磨砂金属质感;大卡片圆角 24px,按钮 / 徽标用 999px 全胶囊圆角;主按钮亮蓝 #3d7bff 底白字,配光泽感投影 0 6px 14px rgba(61,123,255,.4);徽标用糖果粉 #ff8ad8 底配深紫 #4a0e3a 字;正文字色 #1f2544,次要文字 #5a6285;标题字重 700,略带未来感但不夸张;背景叠加流光光晕层增强科技糖果氛围。禁止:磨砂玻璃过度模糊到看不清文字、纯黑纯白无过渡的高对比、极简线框风、粗野手绘涂鸦、任何做旧做脏的复古滤镜。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in Y2K style: wash the whole page in a silver metallic gradient linear-gradient(135deg, #dfe3f0 0%, #f6f7fb 50%, #cfd6ea 100%); cards sit on frosted translucent white rgba(255,255,255,.7) with a 1px solid #aab4d4 edge for a brushed-chrome feel; large cards use 24px rounded corners while buttons and badges go full capsule at 999px; the primary button is bright blue #3d7bff on white text with a glossy drop shadow 0 6px 14px rgba(61,123,255,.4); badges pair candy pink #ff8ad8 with deep plum #4a0e3a text; body copy sits at #1f2544, secondary text at #5a6285; headings carry weight 700 for a light futuristic edge; layer a soft glow behind the content to push the tech-candy mood. Forbidden: over-blurred frosted glass that swallows legibility, stark black-and-white high contrast, minimalist wireframe styling, raw hand-drawn doodles, any aged/grunge retro filter."
@@ -1696,7 +1696,7 @@
       "descriptionZh": "深紫暮色配霓虹网格地平线,粉青对撞发着光,像被冻结的 80 年代街机落日。",
       "prompt": "Design this page in Vaporwave style: base the page on a deep-purple vertical gradient linear-gradient(180deg, #1a0b3b 0%, #3c1a78 100%) with a neon grid horizon layered behind the content; cards fill with translucent deep purple rgba(30,10,70,.55) and a cyan edge 1px solid rgba(1,205,254,.5); the primary accent is neon pink #ff71ce with cyan #01cdfe as the secondary accent; headings are fully uppercase, weight 700, tracked out to 0.08em for that synth-aesthetic feel; badges pair cyan fills with deep-purple #1a0b3b text in sharp rectangles; the primary button is pink with deep-purple text wrapped in a neon glow box-shadow: 0 0 24px rgba(255,113,206,.35); dividers are thin cyan hairlines 1px solid rgba(1,205,254,.35). Forbidden: any warm palette (orange, brown, earth tones), minimalist white backgrounds, soft pastel macaron colors, rounded cartoonish outlines, paper texture or film-grain filters.",
       "promptZh": "请用蒸汽波(Vaporwave)风格设计这个页面:整页底色用深紫渐变 linear-gradient(180deg, #1a0b3b 0%, #3c1a78 100%),背景叠加霓虹网格地平线;卡片用半透明深紫 rgba(30,10,70,.55) 填充,配青色描边 1px solid rgba(1,205,254,.5);强调色用霓虹粉 #ff71ce,搭配青色 #01cdfe 做次强调;标题全部大写(text-transform: uppercase),字重 700、字间距拉宽到 0.08em,营造合成器美学;徽标用青色底配深紫字 #1a0b3b,直角矩形;主按钮粉底深紫字,四周叠加霓虹光晕 box-shadow: 0 0 24px rgba(255,113,206,.35);分隔线用 1px solid rgba(1,205,254,.35) 的细青线。禁止:任何暖色调(橙、棕、大地色)、无衬线极简白底、柔和马卡龙配色、圆润卡通描边、纸质纹理或胶片颗粒滤镜。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in Vaporwave style: base the page on a deep-purple vertical gradient linear-gradient(180deg, #1a0b3b 0%, #3c1a78 100%) with a neon grid horizon layered behind the content; cards fill with translucent deep purple rgba(30,10,70,.55) and a cyan edge 1px solid rgba(1,205,254,.5); the primary accent is neon pink #ff71ce with cyan #01cdfe as the secondary accent; headings are fully uppercase, weight 700, tracked out to 0.08em for that synth-aesthetic feel; badges pair cyan fills with deep-purple #1a0b3b text in sharp rectangles; the primary button is pink with deep-purple text wrapped in a neon glow box-shadow: 0 0 24px rgba(255,113,206,.35); dividers are thin cyan hairlines 1px solid rgba(1,205,254,.35). Forbidden: any warm palette (orange, brown, earth tones), minimalist white backgrounds, soft pastel macaron colors, rounded cartoonish outlines, paper texture or film-grain filters."
@@ -1718,7 +1718,7 @@
       "descriptionZh": "粗黑直角描边、等宽字体和零模糊硬阴影,像一张精灵图被渲染成了网页。",
       "prompt": "Design this page in Pixel Art style: base the page on midnight blue #26233a; cards fill with dark grey-violet #1f1d2e and a chunky 3px solid #0c0a14 square border — every radius is 0; swap the body font for a monospace stack '\"Courier New\", ui-monospace, monospace' to sell the game-sprite feel; the accent color is glowing green #7fff6b; headings are fully uppercase, weight 700, tracked to 0.04em; badges are glowing green fills with pure black text in sharp rectangles, no border; the primary button is glowing green on black text with a hard shadow box-shadow: 4px 4px 0 0 #0c0a14 (zero blur); the secondary button is transparent with a glowing green outline; dividers are thick 3px solid #0c0a14 rules. Forbidden: any rounded corners, any gradients, soft blurred shadows, thin font weights, serif fonts, anti-aliased soft edges.",
       "promptZh": "请用像素风(Pixel Art)风格设计这个页面:整页底色用深夜蓝 #26233a;卡片用深灰紫 #1f1d2e 填充,配 3px solid #0c0a14 的粗直角描边,圆角一律为 0;全局字体换成等宽字体 \"Courier New\", ui-monospace, monospace,强化像素游戏感;强调色用荧光绿 #7fff6b;标题全部大写、字重 700、字间距 0.04em;徽标用荧光绿底配纯黑字,直角矩形,不带描边;主按钮荧光绿底黑字,配硬阴影 box-shadow: 4px 4px 0 0 #0c0a14(零模糊);次按钮用透明底配荧光绿描边;分隔线用 3px solid #0c0a14 的粗线。禁止:任何圆角、任何渐变色、模糊柔和投影、细字重、衬线字体、抗锯齿式的柔和边缘。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in Pixel Art style: base the page on midnight blue #26233a; cards fill with dark grey-violet #1f1d2e and a chunky 3px solid #0c0a14 square border — every radius is 0; swap the body font for a monospace stack '\"Courier New\", ui-monospace, monospace' to sell the game-sprite feel; the accent color is glowing green #7fff6b; headings are fully uppercase, weight 700, tracked to 0.04em; badges are glowing green fills with pure black text in sharp rectangles, no border; the primary button is glowing green on black text with a hard shadow box-shadow: 4px 4px 0 0 #0c0a14 (zero blur); the secondary button is transparent with a glowing green outline; dividers are thick 3px solid #0c0a14 rules. Forbidden: any rounded corners, any gradients, soft blurred shadows, thin font weights, serif fonts, anti-aliased soft edges."
@@ -1740,7 +1740,7 @@
       "descriptionZh": "天空到草地的渐变配露珠玻璃卡片,草绿微光点缀,是 2000 年代那股乐观的 Aero 玻璃质感。",
       "prompt": "Design this page in Frutiger Aero style: base the page on a fresh sky-to-grass gradient linear-gradient(160deg, #9fd8f7 0%, #e8f7ff 55%, #d3f0e2 100%); cards sit on translucent white rgba(255,255,255,.6) with an 8px backdrop blur (backdrop-filter: blur(8px)) and a glossy highlight edge 1px solid rgba(255,255,255,.9), for a dewy glass-bubble feel; large cards use 16px rounded corners while buttons and badges go full capsule at 999px; the accent color is grass green #58b947; the primary button is green on white text with a natural gloss shadow 0 4px 12px rgba(88,185,71,.45); the secondary button is 70% white on deep-blue text; body copy sits at deep teal-blue #17435f, secondary text at rgba(23,67,95,.65); layer a soft glow to reinforce the crisp bubbly optimism. Forbidden: dark backgrounds, thick black outlines, hard sharp-cornered shadows, glitch noise or aged/grunge filters, desaturated grey tones.",
       "promptZh": "请用 Frutiger Aero 风格设计这个页面:整页底色用清透渐变 linear-gradient(160deg, #9fd8f7 0%, #e8f7ff 55%, #d3f0e2 100%),模拟天空到草地的自然光感;卡片用半透明白 rgba(255,255,255,.6) 叠 8px 高斯模糊(backdrop-filter: blur(8px)),配 1px solid rgba(255,255,255,.9) 的高光描边,营造玻璃水珠质感;大卡片圆角 16px,按钮 / 徽标用 999px 胶囊圆角;强调色用草绿 #58b947;主按钮绿底白字,配自然光泽投影 0 4px 12px rgba(88,185,71,.45);次按钮用白 70% 底深蓝字;正文字色深蓝绿 #17435f,次要文字用 rgba(23,67,95,.65);背景叠加柔光层增强清透气泡感。禁止:暗色调背景、粗黑描边、硬直角阴影、故障噪点或做旧滤镜、低饱和灰调。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in Frutiger Aero style: base the page on a fresh sky-to-grass gradient linear-gradient(160deg, #9fd8f7 0%, #e8f7ff 55%, #d3f0e2 100%); cards sit on translucent white rgba(255,255,255,.6) with an 8px backdrop blur (backdrop-filter: blur(8px)) and a glossy highlight edge 1px solid rgba(255,255,255,.9), for a dewy glass-bubble feel; large cards use 16px rounded corners while buttons and badges go full capsule at 999px; the accent color is grass green #58b947; the primary button is green on white text with a natural gloss shadow 0 4px 12px rgba(88,185,71,.45); the secondary button is 70% white on deep-blue text; body copy sits at deep teal-blue #17435f, secondary text at rgba(23,67,95,.65); layer a soft glow to reinforce the crisp bubbly optimism. Forbidden: dark backgrounds, thick black outlines, hard sharp-cornered shadows, glitch noise or aged/grunge filters, desaturated grey tones."
@@ -1762,7 +1762,7 @@
       "descriptionZh": "80 年代意大利玩具铺的欢闹感,原色几何图形、糖果硬阴影,卡片圆角和胶囊按钮故意打架。",
       "prompt": "Design this page in Memphis style: a warm cream background (#fff8e7); cards in pure white (#ffffff) with a 2px solid black (#14140f) border plus a candy-colored hard shadow (box-shadow: 5px 5px 0 0 #ff4d6d, zero blur); sprinkle bright yellow (#ffce00) accents on squiggles, underlines and dots; cards keep a moderate 12px radius while buttons turn fully pill-shaped (999px) — the radius clash is what reads as toy-like; primary buttons are bright blue (#2f6bff) with white text and a 2px black border, secondary buttons are white with a black border; headings are weight 800 with small geometric doodles (triangles, zigzags, squiggles) scattered around; dividers are 2px solid black. Forbidden: soft gradients, monochrome minimalism, glassmorphism blur, thin hairlines, any metallic sheen, restrained whitespace-heavy layouts.",
       "promptZh": "请用孟菲斯(Memphis)风格设计这个页面:底色用奶白 #fff8e7;卡片用纯白 #ffffff 配 2px 纯黑描边(#14140f),外加一圈撞色硬阴影(box-shadow: 5px 5px 0 0 #ff4d6d,零模糊);点缀亮黄 #ffce00 作为强调色,用在图形装饰、下划线、圆点上;卡片圆角适中(12px),但按钮做成胶囊形(999px),两种圆角混搭出玩具感;主按钮用亮蓝 #2f6bff 底 + 白字 + 2px 黑框,次按钮白底黑框;标题字重 800,配几何小图形(三角、锯齿、波浪线)做装饰;分隔线用 2px 纯黑实线。禁止:柔和渐变、单色极简、玻璃拟态模糊、纤细线条、任何金属质感、大面积留白的克制排版。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in Memphis style: a warm cream background (#fff8e7); cards in pure white (#ffffff) with a 2px solid black (#14140f) border plus a candy-colored hard shadow (box-shadow: 5px 5px 0 0 #ff4d6d, zero blur); sprinkle bright yellow (#ffce00) accents on squiggles, underlines and dots; cards keep a moderate 12px radius while buttons turn fully pill-shaped (999px) — the radius clash is what reads as toy-like; primary buttons are bright blue (#2f6bff) with white text and a 2px black border, secondary buttons are white with a black border; headings are weight 800 with small geometric doodles (triangles, zigzags, squiggles) scattered around; dividers are 2px solid black. Forbidden: soft gradients, monochrome minimalism, glassmorphism blur, thin hairlines, any metallic sheen, restrained whitespace-heavy layouts."
@@ -1784,7 +1784,7 @@
       "descriptionZh": "三原色加黑白的几何构成,直角、无装饰,复刻 1920 年代设计学院的功能主义克制感。",
       "prompt": "Design this page in Bauhaus style: a warm off-white background (#f4efe6); cards in the same off-white with a 2px solid black border (#17171b), fully square corners (border-radius: 0); no shadows at all (box-shadow: none); the accent is a pure primary red (#d9291a), used sparingly on key blocks and links; badges are a yellow (#f0a500) block with black text and square corners; primary buttons are deep blue (#1f4796) with white text and square corners, secondary buttons are transparent with a black border; headings are weight 800 with zero letter-spacing (tracking: 0), set in a sans-serif to keep the functionalist restraint; dividers are 2px solid black, and the layout aligns to a strict grid with flat geometric shapes (circles, triangles, rectangles) as color-block decoration. Forbidden: rounded corners, gradients, shadows, soft pastel colors, decorative serif scripts, any ornamental texture.",
       "promptZh": "请用包豪斯(Bauhaus)风格设计这个页面:底色米白 #f4efe6;卡片同为米白,配 2px 纯黑描边 #17171b,直角无圆角(border-radius: 0);完全不用阴影(box-shadow: none);强调色用纯正红 #d9291a,只在关键色块和链接上使用;徽标用黄底 #f0a500 黑字直角矩形;主按钮深蓝 #1f4796 底白字直角,次按钮透明底黑框;标题字重 800、字间距为 0(tracking: 0),用无衬线字体保持功能主义的克制;分隔线 2px 纯黑实线,版式按网格对齐、用圆/三角/矩形等几何色块做点缀。禁止:圆角、渐变、阴影、柔和粉彩色、衬线花体字、任何装饰性纹理。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in Bauhaus style: a warm off-white background (#f4efe6); cards in the same off-white with a 2px solid black border (#17171b), fully square corners (border-radius: 0); no shadows at all (box-shadow: none); the accent is a pure primary red (#d9291a), used sparingly on key blocks and links; badges are a yellow (#f0a500) block with black text and square corners; primary buttons are deep blue (#1f4796) with white text and square corners, secondary buttons are transparent with a black border; headings are weight 800 with zero letter-spacing (tracking: 0), set in a sans-serif to keep the functionalist restraint; dividers are 2px solid black, and the layout aligns to a strict grid with flat geometric shapes (circles, triangles, rectangles) as color-block decoration. Forbidden: rounded corners, gradients, shadows, soft pastel colors, decorative serif scripts, any ornamental texture."
@@ -1806,7 +1806,7 @@
       "descriptionZh": "黑金配色的奢华对称感,金色细线勾边,复刻 1920 年代爵士乐时代的仪式感光泽。",
       "prompt": "Design this page in Art Deco style: a near-black deep green background (#0f1713); body text in a warm gold-white (#ece5d3), muted text at rgba(232,222,196,.6); the accent is a champagne gold (#c8a24b); cards sit on a near-transparent gold wash (rgba(200,162,75,.04)) with a hairline 1px gold border (rgba(200,162,75,.55)) and square corners; headings use a serif face (Georgia / Times New Roman), set in uppercase with wide 0.1em tracking and weight 700 to read as symmetrical and ceremonial; badges are transparent with a gold border and uppercase gold text at 0.18em tracking; primary buttons are gold-filled with black text and square corners, secondary buttons are transparent with a gold border; dividers are hairline 1px gold lines; shadows are disabled entirely. Forbidden: rounded corners, thick borders, neon or bright saturated colors, casual sans-serif headings, any cartoonish illustration.",
       "promptZh": "请用装饰艺术(Art Deco)风格设计这个页面:底色用近黑的墨绿 #0f1713;正文用米金白 #ece5d3,弱化文字用 rgba(232,222,196,.6);强调色用香槟金 #c8a24b;卡片背景几乎透明 rgba(200,162,75,.04),配 1px 细金框 rgba(200,162,75,.55),直角无圆角;标题用衬线字体(Georgia / Times New Roman),全大写、字间距拉宽到 0.1em、字重 700,体现装饰艺术的对称仪式感;徽标透明底、金色描边、金字全大写、字间距 0.18em;主按钮金底黑字直角,次按钮透明金框;分隔线用 1px 细金线;完全不用阴影。禁止:圆角、粗描边、亮色荧光色、无衬线随意字体、任何卡通化插画。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in Art Deco style: a near-black deep green background (#0f1713); body text in a warm gold-white (#ece5d3), muted text at rgba(232,222,196,.6); the accent is a champagne gold (#c8a24b); cards sit on a near-transparent gold wash (rgba(200,162,75,.04)) with a hairline 1px gold border (rgba(200,162,75,.55)) and square corners; headings use a serif face (Georgia / Times New Roman), set in uppercase with wide 0.1em tracking and weight 700 to read as symmetrical and ceremonial; badges are transparent with a gold border and uppercase gold text at 0.18em tracking; primary buttons are gold-filled with black text and square corners, secondary buttons are transparent with a gold border; dividers are hairline 1px gold lines; shadows are disabled entirely. Forbidden: rounded corners, thick borders, neon or bright saturated colors, casual sans-serif headings, any cartoonish illustration."
@@ -1828,7 +1828,7 @@
       "descriptionZh": "黑色 CRT 屏幕上的荧光绿字符,叠加闪烁扫描线,像是黑客帝国里跳出来的终端窗口。",
       "prompt": "Design this page in Retro Terminal style: a near-black green-tinted background (#050c06) overlaid with a scanline texture; the whole UI uses a monospace font (Courier New / ui-monospace); body text is phosphor green (#c7ffd4), muted text at rgba(120,255,150,.55); the accent is a bright glowing green (#33ff66); cards sit on a near-transparent green wash (rgba(51,255,102,.05)) with a hairline 1px green border (rgba(51,255,102,.4)) and square corners; cards and buttons both carry a phosphor glow shadow (box-shadow: 0 0 16px rgba(51,255,102,.18)); headings are uppercase with 0.06em tracking and weight 700; badges are green-filled with black uppercase text. Forbidden: serif fonts, rounded corners, warm color tones, gradient backgrounds, any skeuomorphic texture.",
       "promptZh": "请用复古终端(Retro Terminal)风格设计这个页面:底色纯黑偏绿 #050c06,叠加扫描线纹理(scanlines);全局字体用等宽字体(Courier New / ui-monospace);正文荧光绿 #c7ffd4,弱化文字用 rgba(120,255,150,.55);强调色用高亮荧光绿 #33ff66;卡片背景几乎透明的绿色 rgba(51,255,102,.05),配 1px 细绿框 rgba(51,255,102,.4),直角无圆角;卡片和按钮都带荧光辉光阴影(box-shadow: 0 0 16px rgba(51,255,102,.18));标题全大写、字间距 0.06em、字重 700;徽标绿底黑字全大写。禁止:衬线字体、圆角、暖色调、渐变背景、任何拟物质感贴图。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in Retro Terminal style: a near-black green-tinted background (#050c06) overlaid with a scanline texture; the whole UI uses a monospace font (Courier New / ui-monospace); body text is phosphor green (#c7ffd4), muted text at rgba(120,255,150,.55); the accent is a bright glowing green (#33ff66); cards sit on a near-transparent green wash (rgba(51,255,102,.05)) with a hairline 1px green border (rgba(51,255,102,.4)) and square corners; cards and buttons both carry a phosphor glow shadow (box-shadow: 0 0 16px rgba(51,255,102,.18)); headings are uppercase with 0.06em tracking and weight 700; badges are green-filled with black uppercase text. Forbidden: serif fonts, rounded corners, warm color tones, gradient backgrounds, any skeuomorphic texture."
@@ -1850,7 +1850,7 @@
       "descriptionZh": "克制的暗色 SaaS 界面,毛玻璃卡片配一抹电紫蓝强调色,精致到近乎沉默,一眼就是 Linear 风。",
       "prompt": "Design this page in a Linear-style dark tech aesthetic: a vertical dark gradient background linear-gradient(180deg, #0d0e13 0%, #0a0b0f 100%); cards use rgba(255,255,255,.04) fill with a 1px solid rgba(255,255,255,.08) border and a generous 10px radius; a single electric-violet accent #5e6ad2 reserved for buttons, links and sparse highlights; body text #e6e7ec, muted text at 55% opacity; headings at weight 600 with -0.02em tracking, restrained and quiet; primary buttons are violet-filled with white text, secondary buttons are transparent with a thin 1px border; shadows are very soft, 0 12px 32px rgba(0,0,0,.45). Forbidden: saturated color clashes, thick black borders, gradient accent fills, radii under 8px, skeuomorphic textures, mixing more than one accent hue.",
       "promptZh": "请用暗黑科技风(Dark Tech,Linear-style)风格设计这个页面:背景用竖向深色渐变 linear-gradient(180deg, #0d0e13 0%, #0a0b0f 100%);卡片用 rgba(255,255,255,.04) 底 + 1px solid rgba(255,255,255,.08) 描边,大圆角 10px;强调色是电紫蓝 #5e6ad2,只用在按钮、链接和少量高亮上;正文 #e6e7ec,次要文字用 55% 透明度;标题字重 600、字距 -0.02em,克制不张扬;主按钮紫蓝底白字,次按钮透明底 + 1px 细描边;卡片阴影极软 0 12px 32px rgba(0,0,0,.45)。禁止:高饱和撞色、粗黑描边、渐变强调色、圆角小于 8px、任何拟物质感、多种强调色混用。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a Linear-style dark tech aesthetic: a vertical dark gradient background linear-gradient(180deg, #0d0e13 0%, #0a0b0f 100%); cards use rgba(255,255,255,.04) fill with a 1px solid rgba(255,255,255,.08) border and a generous 10px radius; a single electric-violet accent #5e6ad2 reserved for buttons, links and sparse highlights; body text #e6e7ec, muted text at 55% opacity; headings at weight 600 with -0.02em tracking, restrained and quiet; primary buttons are violet-filled with white text, secondary buttons are transparent with a thin 1px border; shadows are very soft, 0 12px 32px rgba(0,0,0,.45). Forbidden: saturated color clashes, thick black borders, gradient accent fills, radii under 8px, skeuomorphic textures, mixing more than one accent hue."
@@ -1872,7 +1872,7 @@
       "descriptionZh": "电青与品红霓虹划破近黑背景网格,直角锐边、发光描边,一副夜之城界面的张扬姿态。",
       "prompt": "Design this page in a cyberpunk style: a near-black background #07070f with a faint grid overlay for depth; the accent is electric cyan #00f0ff, used for glowing borders and text; badges are magenta #ff2ea6 fill with black text and sharp corners; cards use rgba(0,240,255,.04) fill with a 1px solid rgba(0,240,255,.35) cyan hairline border and near-zero 2px radius; headings are uppercase, tracked wide at 0.04em, weight 700; primary buttons are cyan-filled with black text and sharp corners, secondary buttons are transparent with a cyan outline; shadows are glows, 0 0 20px rgba(0,240,255,.2), never a conventional drop shadow. Forbidden: large border radii, soft diffuse shadows, pastel or desaturated palettes, serif typefaces, skeuomorphic textures, rounded pill buttons.",
       "promptZh": "请用赛博朋克(Cyberpunk)风格设计这个页面:背景近黑 #07070f,叠加一层低对比度网格线做深度;强调色是电青 #00f0ff,发光描边和文字投影都用它;徽章用品红 #ff2ea6 底 + 黑字 + 直角;卡片用 rgba(0,240,255,.04) 底 + 1px solid rgba(0,240,255,.35) 青色细描边,圆角极小 2px 几乎是直角;标题全大写、字距拉宽 0.04em、字重 700;主按钮青底黑字直角,次按钮透明底 + 青色描边;阴影用发光效果 0 0 20px rgba(0,240,255,.2) 而不是常规投影。禁止:大圆角、柔和阴影、粉彩低饱和配色、衬线字体、任何拟物纹理、圆润按钮。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a cyberpunk style: a near-black background #07070f with a faint grid overlay for depth; the accent is electric cyan #00f0ff, used for glowing borders and text; badges are magenta #ff2ea6 fill with black text and sharp corners; cards use rgba(0,240,255,.04) fill with a 1px solid rgba(0,240,255,.35) cyan hairline border and near-zero 2px radius; headings are uppercase, tracked wide at 0.04em, weight 700; primary buttons are cyan-filled with black text and sharp corners, secondary buttons are transparent with a cyan outline; shadows are glows, 0 0 20px rgba(0,240,255,.2), never a conventional drop shadow. Forbidden: large border radii, soft diffuse shadows, pastel or desaturated palettes, serif typefaces, skeuomorphic textures, rounded pill buttons."
@@ -1894,7 +1894,7 @@
       "descriptionZh": "多色弥散光在毛玻璃卡片背后流动堆叠,柔和无边界,像隔着窗户看极光。",
       "prompt": "Design this page in an aurora gradient style: a background built from stacked radial gradients — blue-violet top-left, cyan-teal top-right, purple-pink bottom-right, over a deep navy base #0b1026, each gradient fading softly to transparent for a diffuse-light feel; cards use rgba(255,255,255,.06) fill with a 1px solid rgba(255,255,255,.12) border and backdrop-filter: blur(10px) for frosted glass, with a generous 20px radius; the accent is cyan-teal #22d3ee; body text #f1f5fd, muted text at 65% opacity; badges are translucent white pills; primary buttons are white-filled with deep-navy text in pill shape, secondary buttons are transparent with a thin white outline; shadows are soft, 0 8px 32px rgba(4,10,30,.4). Forbidden: flat solid-color backgrounds, hard borders, sharp corners, saturated color clashes, dark opaque cards, any grid or scanline decoration.",
       "promptZh": "请用极光渐变(Aurora Gradient)风格设计这个页面:背景由多层径向渐变叠加而成 —— 左上蓝紫、右上青绿、右下紫粉,底色深蓝 #0b1026,渐变边缘柔和过渡到透明,营造弥散光感;卡片用 rgba(255,255,255,.06) 底 + 1px solid rgba(255,255,255,.12) 描边 + backdrop-filter: blur(10px) 毛玻璃效果,大圆角 20px;强调色青绿 #22d3ee;正文 #f1f5fd,次要文字 65% 透明度;徽章用半透明白底胶囊形;主按钮白底深蓝字胶囊形,次按钮透明底 + 白色细描边;阴影柔和 0 8px 32px rgba(4,10,30,.4)。禁止:纯色平面背景、硬边框、直角、高饱和撞色、深色卡片、任何网格或扫描线装饰。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in an aurora gradient style: a background built from stacked radial gradients — blue-violet top-left, cyan-teal top-right, purple-pink bottom-right, over a deep navy base #0b1026, each gradient fading softly to transparent for a diffuse-light feel; cards use rgba(255,255,255,.06) fill with a 1px solid rgba(255,255,255,.12) border and backdrop-filter: blur(10px) for frosted glass, with a generous 20px radius; the accent is cyan-teal #22d3ee; body text #f1f5fd, muted text at 65% opacity; badges are translucent white pills; primary buttons are white-filled with deep-navy text in pill shape, secondary buttons are transparent with a thin white outline; shadows are soft, 0 8px 32px rgba(4,10,30,.4). Forbidden: flat solid-color backgrounds, hard borders, sharp corners, saturated color clashes, dark opaque cards, any grid or scanline decoration."
@@ -1916,7 +1916,7 @@
       "descriptionZh": "等宽字体配青色细线的驾驶舱式抬头显示界面,数据密集、拟真感强,像是从飞船座舱里搬出来的。",
       "prompt": "Design this page in a sci-fi HUD style: a deep navy-black background #04101c with a low-contrast grid overlay simulating a cockpit scan surface; use a monospace font stack (ui-monospace / SF Mono) throughout to reinforce the data-readout feel; the accent is HUD cyan #35e0ff; cards use rgba(53,224,255,.05) fill with a 1px solid rgba(53,224,255,.4) cyan hairline border and a near-zero 2px radius; headings are uppercase, tracked wide at 0.12em, weight 600, mimicking instrument readouts; badges are transparent with a cyan outline and cyan uppercase text tracked at 0.2em; primary buttons are cyan-filled with dark navy text and sharp corners, secondary buttons are transparent with a cyan outline; shadows are glows, not drop shadows, 0 0 18px rgba(53,224,255,.15). Forbidden: serif or humanist typefaces, large border radii, warm color tones, soft gradients, any hand-drawn or organic lines, oversized borders.",
       "promptZh": "请用科幻 HUD(Sci-Fi HUD)风格设计这个页面:背景深蓝黑 #04101c,叠加低对比网格线模拟舱体扫描面;全局字体用等宽字体 ui-monospace / SF Mono,强化数据仪表盘质感;强调色 HUD 青 #35e0ff;卡片用 rgba(53,224,255,.05) 底 + 1px solid rgba(53,224,255,.4) 青色细描边,圆角极小 2px;标题全大写、字距拉宽到 0.12em、字重 600,模拟仪表读数;徽章透明底 + 青色描边 + 青字,全大写字距 0.2em;主按钮青底深蓝黑字直角,次按钮透明底青色描边;阴影是发光而非投影 0 0 18px rgba(53,224,255,.15)。禁止:衬线或人文字体、大圆角、暖色调、柔和渐变、任何手绘 / 有机线条、比例失调的粗描边。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a sci-fi HUD style: a deep navy-black background #04101c with a low-contrast grid overlay simulating a cockpit scan surface; use a monospace font stack (ui-monospace / SF Mono) throughout to reinforce the data-readout feel; the accent is HUD cyan #35e0ff; cards use rgba(53,224,255,.05) fill with a 1px solid rgba(53,224,255,.4) cyan hairline border and a near-zero 2px radius; headings are uppercase, tracked wide at 0.12em, weight 600, mimicking instrument readouts; badges are transparent with a cyan outline and cyan uppercase text tracked at 0.2em; primary buttons are cyan-filled with dark navy text and sharp corners, secondary buttons are transparent with a cyan outline; shadows are glows, not drop shadows, 0 0 18px rgba(53,224,255,.15). Forbidden: serif or humanist typefaces, large border radii, warm color tones, soft gradients, any hand-drawn or organic lines, oversized borders."
@@ -1938,7 +1938,7 @@
       "descriptionZh": "大小不一的卡片像便当格拼在一起,每一格只讲一件事,靠格子大小分主次。",
       "prompt": "Design this page in a Bento Grid style: an uneven, tightly packed grid of white cards (#ffffff) on a light gray backdrop (#f5f5f7), like compartments in a bento box — each cell states exactly one point. Make the largest cell roughly twice the area of the others to carry the primary message, with the rest sized down by importance. Cards get 22px rounded corners, a hairline 1px solid #e8e8ed border, and only a whisper of shadow (0 1px 2px rgba(0,0,0,.04)) — no heavy drop shadows. Use one restrained Apple-blue accent (#0071e3) and pill-shaped buttons. Headlines are weight 700 with tight -0.02em tracking; two grays (#1d1d1f / #6e6e73) carry the rest of the hierarchy. Forbidden: a uniform equal-size grid (sizes must vary), heavy shadows or gradients, multiple accent colors, sharp square corners, cramming everything into one cell.",
       "promptZh": "请用便当格(Bento Grid)风格设计这个页面:浅灰背景 #f5f5f7 上铺一张不规则网格,把内容拆成大小不一的白色卡片(#ffffff),像便当盒的格子一样紧密拼接,一格只讲一个卖点;最大的一格明显占两倍面积,承载主要信息,其余格子按重要性递减;卡片圆角 22px、细边框 1px solid #e8e8ed,只用极轻的投影 0 1px 2px rgba(0,0,0,.04) 做区分,不做强阴影;强调色克制地用一种苹果蓝 #0071e3,按钮做成胶囊形状;标题字重 700、字距收紧 -0.02em;正文灰 #6e6e73 与深灰黑 #1d1d1f 两级足够。禁止:等大小的规整网格(必须大小错落)、强投影或渐变、多种强调色、方角卡片、把所有内容塞进同一格。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a Bento Grid style: an uneven, tightly packed grid of white cards (#ffffff) on a light gray backdrop (#f5f5f7), like compartments in a bento box — each cell states exactly one point. Make the largest cell roughly twice the area of the others to carry the primary message, with the rest sized down by importance. Cards get 22px rounded corners, a hairline 1px solid #e8e8ed border, and only a whisper of shadow (0 1px 2px rgba(0,0,0,.04)) — no heavy drop shadows. Use one restrained Apple-blue accent (#0071e3) and pill-shaped buttons. Headlines are weight 700 with tight -0.02em tracking; two grays (#1d1d1f / #6e6e73) carry the rest of the hierarchy. Forbidden: a uniform equal-size grid (sizes must vary), heavy shadows or gradients, multiple accent colors, sharp square corners, cramming everything into one cell."
@@ -1960,7 +1960,7 @@
       "descriptionZh": "浑圆的曲线块面和温暖大地色,没有一处是尖角。",
       "prompt": "Design this page in an Organic Shapes style: a cream background (#fdf8f0) with off-white cards (#fffdfa), rounded up to 32px — and fully round (999px) on small elements — so every card reads like a smoothed river stone. Shadows are a soft warm ambient glow (0 12px 32px rgba(196,144,100,.16)) paired with a faint 1px solid #f0e4d3 border. The accent is terracotta (#d97742) against deep brown text (#3d3128) and a warm gray for muted copy (#8a7b6c). Headlines are weight 600 with a slight -0.01em tracking — no need for heavy weight. Buttons are fully rounded pills too, giving the whole page the feel of sun-warmed pottery. Forbidden: any sharp or square corners, cool tones (blue, gray-violet), high-contrast black-and-white, hard-edged drop shadows, sharp geometric shapes.",
       "promptZh": "请用有机风(Organic Shapes)风格设计这个页面:奶油底色 #fdf8f0,卡片用米白 #fffdfa,圆角开到 32px(小元素干脆用 999px 全圆),让每张卡片看起来像被打磨过的鹅卵石;阴影用柔和的暖色环境光 0 12px 32px rgba(196,144,100,.16),配 1px solid #f0e4d3 的浅描边;强调色用陶土橙 #d97742,搭配深棕文字 #3d3128 和暖灰 muted #8a7b6c;标题字重 600、字距轻收 -0.01em,不需要很粗;按钮同样是全圆角胶囊;整体给人被阳光晒过的陶罐质感。禁止:任何直角或尖角、冷色调(蓝、灰紫)、高对比黑白、硬边投影、锐利几何图形。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in an Organic Shapes style: a cream background (#fdf8f0) with off-white cards (#fffdfa), rounded up to 32px — and fully round (999px) on small elements — so every card reads like a smoothed river stone. Shadows are a soft warm ambient glow (0 12px 32px rgba(196,144,100,.16)) paired with a faint 1px solid #f0e4d3 border. The accent is terracotta (#d97742) against deep brown text (#3d3128) and a warm gray for muted copy (#8a7b6c). Headlines are weight 600 with a slight -0.01em tracking — no need for heavy weight. Buttons are fully rounded pills too, giving the whole page the feel of sun-warmed pottery. Forbidden: any sharp or square corners, cool tones (blue, gray-violet), high-contrast black-and-white, hard-edged drop shadows, sharp geometric shapes."
@@ -1982,7 +1982,7 @@
       "descriptionZh": "歪歪扭扭的铅笔描边和涂鸦字体印在纸白背景上,像一张跑进浏览器的手稿。",
       "prompt": "Design this page in a hand-drawn style: a paper-white background (#fffdf5); cards are white with a 2px solid black hand-sketched border, using an irregular rounded-corner combo (e.g. 255px 18px 225px 18px / 18px 225px 18px 255px) so the outline looks like it wobbled off a pencil. Headings and body copy use a handwritten font stack (Comic Sans MS / Chalkboard SE). Shadows fake a pencil stroke — a hard offset 3px 3px 0 rgba(43,43,43,.75), never blurred. The accent is crayon blue (#4a7cff), tags are sticky-note yellow (#fff3a3) with black text. Primary text is #2b2b2b, muted is #6b6558. The primary button is crayon-blue with white text and the same irregular rounded corners; the secondary button is white with a black outline. Forbidden: standard clean sans-serif fonts, perfectly circular or perfectly square corners, any blurred or soft shadow, minimalist whitespace-driven layouts, cold gray palettes.",
       "promptZh": "请用手绘风(Hand-drawn)风格设计这个页面:纸白底色 #fffdf5;卡片用白底配 2px 纯黑手绘描边,四角用不规则的圆角组合(比如 255px 18px 225px 18px / 18px 225px 18px 255px)模拟手抖画出来的边框;标题和正文用手写体字体栈(如 Comic Sans MS / Chalkboard SE);投影模拟铅笔笔触,用生硬的偏移阴影 3px 3px 0 rgba(43,43,43,.75),不做模糊;强调色用蜡笔蓝 #4a7cff,标签用便签黄 #fff3a3 配黑字;文字主色 #2b2b2b,次要 #6b6558;主按钮蜡笔蓝底白字并保持同样不规则圆角,次按钮白底黑框。禁止:标准无衬线字体、规整的正圆角或直角、任何模糊柔和阴影、极简留白式排版、冷灰色系。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a hand-drawn style: a paper-white background (#fffdf5); cards are white with a 2px solid black hand-sketched border, using an irregular rounded-corner combo (e.g. 255px 18px 225px 18px / 18px 225px 18px 255px) so the outline looks like it wobbled off a pencil. Headings and body copy use a handwritten font stack (Comic Sans MS / Chalkboard SE). Shadows fake a pencil stroke — a hard offset 3px 3px 0 rgba(43,43,43,.75), never blurred. The accent is crayon blue (#4a7cff), tags are sticky-note yellow (#fff3a3) with black text. Primary text is #2b2b2b, muted is #6b6558. The primary button is crayon-blue with white text and the same irregular rounded corners; the secondary button is white with a black outline. Forbidden: standard clean sans-serif fonts, perfectly circular or perfectly square corners, any blurred or soft shadow, minimalist whitespace-driven layouts, cold gray palettes."
@@ -2004,7 +2004,7 @@
       "descriptionZh": "高饱和糖果色块配上放大的圆角形状,把快乐值直接拉满。",
       "prompt": "Design this page in a Dopamine Colors style: a warm off-white background (#fff7ec) with pure white cards at a generous 20px radius — small elements go fully round at 999px. The accent is a saturated hot pink (#ff477e); tags are orange (#ff9f1c) white-text pills. Shadows carry a colorful diffuse glow (0 10px 24px rgba(255,71,126,.18)) — never gray or black. Headlines go all the way to weight 800 with tight -0.01em tracking for an energetic, joyful punch. Primary text is #33202a and muted is #8a6470, both warm-tinted rather than neutral gray. The primary button is hot-pink with white text as a pill; the secondary is white with a hot-pink label and hot-pink outline. Forbidden: any desaturated Morandi palette, black/white/gray-only color schemes, thin headline weights, sharp corners, gray shadows.",
       "promptZh": "请用多巴胺配色(Dopamine Colors)风格设计这个页面:暖白底色 #fff7ec;卡片纯白,大圆角 20px,小元素直接 999px 全圆;强调色用高饱和玫红 #ff477e,标签用橙色 #ff9f1c 配白字胶囊;投影带彩色扩散光 0 10px 24px rgba(255,71,126,.18),不用灰黑阴影;标题字重拉到 800、字距收紧 -0.01em,营造有力量的快乐感;文字主色 #33202a,次要 #8a6470,都带一点暖调而不是纯灰;主按钮玫红底白字胶囊,次按钮白底玫红字玫红描边。禁止:任何低饱和莫兰迪色、纯黑白灰配色、细字重标题、尖角、灰色投影。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a Dopamine Colors style: a warm off-white background (#fff7ec) with pure white cards at a generous 20px radius — small elements go fully round at 999px. The accent is a saturated hot pink (#ff477e); tags are orange (#ff9f1c) white-text pills. Shadows carry a colorful diffuse glow (0 10px 24px rgba(255,71,126,.18)) — never gray or black. Headlines go all the way to weight 800 with tight -0.01em tracking for an energetic, joyful punch. Primary text is #33202a and muted is #8a6470, both warm-tinted rather than neutral gray. The primary button is hot-pink with white text as a pill; the secondary is white with a hot-pink label and hot-pink outline. Forbidden: any desaturated Morandi palette, black/white/gray-only color schemes, thin headline weights, sharp corners, gray shadows."
@@ -2026,7 +2026,7 @@
       "descriptionZh": "谷歌的色调化表面与胶囊控件,靠层级投影和色彩角色搭骨架。",
       "prompt": "Design this page in a Material Design 3 (Material You) style: a light gray background (#fafafa) with pure white cards (#ffffff) at 16px radius, while buttons and tags use the signature 999px pill shape. Shadows use M3's two-layer elevation to fake a real light source: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24). The accent is M3 purple (#6750a4); tags use a tonal container — a light purple tint background rgba(103,80,164,.12) with purple text — rather than a flat solid fill. Headlines stay at a regular weight of 500; hierarchy comes from color roles and elevation, not boldness. Primary text is #1c1b1f, muted is #49454f. The primary button is purple-filled with white text as a pill; the secondary is an outlined button — transparent background, purple text, 1px solid #79747e border. Forbidden: hard zero-blur offset shadows, square-cornered controls, extra-bold headline weights, single flat black shadows, and flat solid-color tags that skip the tonal-container pattern.",
       "promptZh": "请用材料设计(Material Design 3 / Material You)风格设计这个页面:浅灰底 #fafafa;卡片纯白 #ffffff,圆角 16px,按钮和标签用 999px 胶囊(M3 的标志性控件形状);投影用双层高度阴影模拟真实光源:0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);强调色用 M3 紫 #6750a4;标签用浅紫色调背景 rgba(103,80,164,.12) 配紫字(tonal 色调容器的做法);标题字重保持常规 500,不刻意加粗,靠色彩角色和层级阴影分主次;文字主色 #1c1b1f,次要 #49454f;主按钮紫底白字胶囊,次按钮透明底紫字配 1px solid #79747e 描边(M3 的 outlined button)。禁止:硬阴影(box-shadow 零扩散的生硬偏移)、方角控件、超粗标题字重、单一纯黑投影、忽略色调容器直接用纯色块做标签。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a Material Design 3 (Material You) style: a light gray background (#fafafa) with pure white cards (#ffffff) at 16px radius, while buttons and tags use the signature 999px pill shape. Shadows use M3's two-layer elevation to fake a real light source: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24). The accent is M3 purple (#6750a4); tags use a tonal container — a light purple tint background rgba(103,80,164,.12) with purple text — rather than a flat solid fill. Headlines stay at a regular weight of 500; hierarchy comes from color roles and elevation, not boldness. Primary text is #1c1b1f, muted is #49454f. The primary button is purple-filled with white text as a pill; the secondary is an outlined button — transparent background, purple text, 1px solid #79747e border. Forbidden: hard zero-blur offset shadows, square-cornered controls, extra-bold headline weights, single flat black shadows, and flat solid-color tags that skip the tonal-container pattern."
@@ -2048,7 +2048,7 @@
       "descriptionZh": "纯色色块与零投影,每一个表面都老老实实贴在页面上,不装立体。",
       "prompt": "Design this page in a Flat Design 2.0 style: a pure white background (#ffffff) with light gray-blue card blocks (#f1f5f9), borders removed or set transparent, and radii kept restrained at 8px (6px for small elements). Drop shadows entirely — box-shadow: none everywhere. The accent is a bright blue (#3b82f6) used as flat solid fill, never a gradient. Tags are solid blue rectangles with white text. Primary text is near-black (#0f172a), muted is #64748b. The primary button is solid blue with white text; the secondary uses a light gray-blue fill (#e2e8f0) with dark text — neither gets a border or shadow. Headlines are weight 700 with a slight -0.01em tracking; hierarchy comes from color-block contrast, not any illusion of depth. Forbidden: any gradient, skeuomorphic texture (faux leather, faux paper), drop shadows, decorative border strokes, large rounded corners or fully pill-shaped buttons.",
       "promptZh": "请用扁平化 2.0(Flat Design 2.0)风格设计这个页面:纯白底 #ffffff;卡片用浅灰蓝色块 #f1f5f9 铺底,不描边或描边设为透明,圆角克制在 8px(小元素 6px);彻底不用阴影,box-shadow: none;强调色用明快的蓝 #3b82f6,做纯色块而不是渐变;标签用蓝底白字纯色矩形;文字主色近黑 #0f172a,次要 #64748b;主按钮蓝底白字,次按钮用浅灰蓝 #e2e8f0 底配深字,都不加描边和阴影;标题字重 700、字距轻收 -0.01em,靠色块对比而不是立体效果分层级。禁止:任何渐变、拟物质感(仿皮革/仿纸张纹理)、投影、描边装饰线、圆润的大圆角或全圆角胶囊按钮。",
-      "pageUrl": "http://localhost:3000/styles",
+      "pageUrl": "https://ui-lab-ten.vercel.app/styles",
       "fetch": {
         "method": "copy-prompt",
         "value": "Design this page in a Flat Design 2.0 style: a pure white background (#ffffff) with light gray-blue card blocks (#f1f5f9), borders removed or set transparent, and radii kept restrained at 8px (6px for small elements). Drop shadows entirely — box-shadow: none everywhere. The accent is a bright blue (#3b82f6) used as flat solid fill, never a gradient. Tags are solid blue rectangles with white text. Primary text is near-black (#0f172a), muted is #64748b. The primary button is solid blue with white text; the secondary uses a light gray-blue fill (#e2e8f0) with dark text — neither gets a border or shadow. Headlines are weight 700 with a slight -0.01em tracking; hierarchy comes from color-block contrast, not any illusion of depth. Forbidden: any gradient, skeuomorphic texture (faux leather, faux paper), drop shadows, decorative border strokes, large rounded corners or fully pill-shaped buttons."
@@ -2070,7 +2070,7 @@
       "descriptionZh": "记得自己曾是颜色的灰:灰绿、灰粉、暖米,全都压低了嗓音说话。",
       "prompt": "Use a Morandi palette: low-saturation grays that feel dusted with fog. Background #EAE6E0 (warm greige), cards #F4F1EB, borders #DAD3C9; body text #4C4842 (warm charcoal, never pure black), secondary text #8E877C; primary buttons #97A094 (gray-green) with off-white text #F7F6F2; the accent is #C0A9A2 (dusty rose), reserved for badges and small icons. Keep every color under ~25% saturation and build hierarchy with lightness, not hue. Forbidden: saturated primaries, pure #000 or #fff, high-contrast clashes, more than three hues, vivid gradients.",
       "promptZh": "请用莫兰迪(Morandi)配色:整体低饱和灰调,颜色像蒙了一层灰雾。背景 #EAE6E0(暖灰米)、卡片 #F4F1EB、描边 #DAD3C9;正文 #4C4842(暖炭灰,不用纯黑)、次要文字 #8E877C;主按钮 #97A094(灰绿)配米白字 #F7F6F2;点缀色 #C0A9A2(灰粉),只用在徽标和小图标上。所有颜色饱和度不超过 25%,层次靠明度差而非色相差。禁止:高饱和原色、纯黑 #000 或纯白 #fff、强对比撞色、超过三种色相、鲜艳渐变。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Morandi palette: low-saturation grays that feel dusted with fog. Background #EAE6E0 (warm greige), cards #F4F1EB, borders #DAD3C9; body text #4C4842 (warm charcoal, never pure black), secondary text #8E877C; primary buttons #97A094 (gray-green) with off-white text #F7F6F2; the accent is #C0A9A2 (dusty rose), reserved for badges and small icons. Keep every color under ~25% saturation and build hierarchy with lightness, not hue. Forbidden: saturated primaries, pure #000 or #fff, high-contrast clashes, more than three hues, vivid gradients."
@@ -2092,7 +2092,7 @@
       "descriptionZh": "刚出炉的黄油与淡奶油堆叠在一起:温暖、甜而不腻,像烘焙店的下午。",
       "prompt": "Use a Cream palette: warm and soft, like butter and clotted cream stacked fresh from the oven. Background #FFF8F0 (creamy white), cards #FFFDFA (near-paper white, still warm), borders #F2E5D8 (pale baked tone); body text #5C4F43 (warm cocoa brown, never pure black), secondary text #A6968A (milky taupe); primary buttons #E8B88A (caramel cream) with deep brown text #4A3B2C; the accent #F5D89E (custard yellow) reserved for tags, icons, or highlighted numbers. Keep overall saturation low-to-mid and build hierarchy through lightness within the warm hue family — no cool colors allowed in. Forbidden: cool tones (blue, cyan, cool gray), high-saturation clashes, dark or black backgrounds, sharp high-contrast borders, metallic gradients, any cool-toned shadows.",
       "promptZh": "请用奶油风(Cream)配色:整体暖调柔和,像刚出炉的黄油和淡奶油堆叠在一起。背景 #FFF8F0(奶油白)、卡片 #FFFDFA(接近纸白但仍偏暖)、描边 #F2E5D8(浅烘焙色);正文 #5C4F43(暖可可棕,不用纯黑)、次要文字 #A6968A(奶咖灰棕);主按钮 #E8B88A(焦糖奶油)配深棕字 #4A3B2C;点缀色 #F5D89E(奶油黄),只用于标签、图标或强调数字。整体饱和度中低,靠暖色相的明度差堆出层次,不引入冷色。禁止:冷色调(蓝、青、冷灰)、高饱和撞色、深色/黑色背景、锐利强对比描边、金属感渐变、任何冷调阴影。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Cream palette: warm and soft, like butter and clotted cream stacked fresh from the oven. Background #FFF8F0 (creamy white), cards #FFFDFA (near-paper white, still warm), borders #F2E5D8 (pale baked tone); body text #5C4F43 (warm cocoa brown, never pure black), secondary text #A6968A (milky taupe); primary buttons #E8B88A (caramel cream) with deep brown text #4A3B2C; the accent #F5D89E (custard yellow) reserved for tags, icons, or highlighted numbers. Keep overall saturation low-to-mid and build hierarchy through lightness within the warm hue family — no cool colors allowed in. Forbidden: cool tones (blue, cyan, cool gray), high-saturation clashes, dark or black backgrounds, sharp high-contrast borders, metallic gradients, any cool-toned shadows."
@@ -2114,7 +2114,7 @@
       "descriptionZh": "甜品橱窗里码得整整齐齐的糖霜色:轻盈少女感,粉与薄荷蓝是这组配色的签名双色。",
       "prompt": "Use a Macaron palette: light and girlish, like frosted pastries lined up in a dessert window. Background #FDF6F8 (blush white), cards #FFFFFF (pure white, for lift), borders #F3DEE6 (soft pink outline); body text #55464E (deep berry-gray, never pure black), secondary text #A38B96 (dusty pink-brown); primary buttons #F2A7C3 (macaron pink) with deep berry text #4A2C3A; the accent #A7D8DE (mint blue) is this palette's signature second color — reserved for icons, tags, or emphasis, echoing the pink rather than clashing with it. Forbidden: muddy tones (grayed-out pink or blue), large blocks of dark gray or pure black, primary red/blue, thick black outlines, high-saturation clashing gradients.",
       "promptZh": "请用马卡龙(Macaron)配色:轻盈甜美,像甜品橱窗里码得整整齐齐的糖霜色。背景 #FDF6F8(浅粉白)、卡片 #FFFFFF(纯白,拉开层次)、描边 #F3DEE6(浅粉描边);正文 #55464E(深莓灰紫,不用纯黑)、次要文字 #A38B96(灰粉棕);主按钮 #F2A7C3(马卡龙粉)配深莓字 #4A2C3A;点缀色 #A7D8DE(薄荷蓝),是这组配色的签名双色,只用在图标、标签或强调元素上,和粉色形成呼应而非对撞。禁止:脏色(灰浊的粉/蓝)、深灰或纯黑大面积使用、原色红/原色蓝、粗黑描边、高饱和撞色渐变。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Macaron palette: light and girlish, like frosted pastries lined up in a dessert window. Background #FDF6F8 (blush white), cards #FFFFFF (pure white, for lift), borders #F3DEE6 (soft pink outline); body text #55464E (deep berry-gray, never pure black), secondary text #A38B96 (dusty pink-brown); primary buttons #F2A7C3 (macaron pink) with deep berry text #4A2C3A; the accent #A7D8DE (mint blue) is this palette's signature second color — reserved for icons, tags, or emphasis, echoing the pink rather than clashing with it. Forbidden: muddy tones (grayed-out pink or blue), large blocks of dark gray or pure black, primary red/blue, thick black outlines, high-saturation clashing gradients."
@@ -2136,7 +2136,7 @@
       "descriptionZh": "有机护肤品柜台上一排哑光玻璃瓶:植物系、安静克制,不喧哗也不刺眼。",
       "prompt": "Use a Sage palette: quiet and restrained, like a row of matte glass bottles on an organic skincare counter. Background #F2F4EF (pale sage), cards #FAFBF8 (near-white, slightly cool), borders #DCE2D6 (soft sage outline); body text #3F4A3C (deep olive green, never pure black), secondary text #83907E (grayed sage); primary buttons #7C9473 (sage green) with pale cream text #F5F8F2; the accent #C8B394 (woody khaki) belongs on icons, tags, or small emphasis — it warms the green with a touch of earth. Forbidden: neon green, high-saturation clashes, large blocks of pure black, industrial dark gray, any glossy plastic-like gradient.",
       "promptZh": "请用鼠尾草绿(Sage)配色:安静克制,像有机护肤品柜台上一排哑光玻璃瓶。背景 #F2F4EF(浅灰绿)、卡片 #FAFBF8(近白,略偏冷)、描边 #DCE2D6(浅灰绿描边);正文 #3F4A3C(深橄榄绿,不用纯黑)、次要文字 #83907E(灰绿);主按钮 #7C9473(鼠尾草绿)配浅米字 #F5F8F2;点缀色 #C8B394(木质卡其),用在图标、标签或小面积强调上,给植物绿添一点大地暖度。禁止:荧光绿、高饱和撞色、纯黑大面积、工业感深灰、任何塑料感高光渐变。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Sage palette: quiet and restrained, like a row of matte glass bottles on an organic skincare counter. Background #F2F4EF (pale sage), cards #FAFBF8 (near-white, slightly cool), borders #DCE2D6 (soft sage outline); body text #3F4A3C (deep olive green, never pure black), secondary text #83907E (grayed sage); primary buttons #7C9473 (sage green) with pale cream text #F5F8F2; the accent #C8B394 (woody khaki) belongs on icons, tags, or small emphasis — it warms the green with a touch of earth. Forbidden: neon green, high-saturation clashes, large blocks of pure black, industrial dark gray, any glossy plastic-like gradient."
@@ -2158,7 +2158,7 @@
       "descriptionZh": "玫红撞橙黄,像一口咬开的水果糖,甜得发光。",
       "prompt": "Use a Dopamine palette: high-saturation, high-energy color like walking into a candy store. Background #FFF7EC (creamy orange-white), cards #FFFFFF (pure white), borders #FFE3D3 (pale apricot-pink); body text #33202A (deep berry-plum, never pure black), secondary text #8A6470; primary buttons #FF477E (hot rose) with pure white text #FFFFFF; the accent is #FF9F1C (tangerine), reserved for badges, icons and emphasized numbers. The rose + orange dual high-saturation clash is this palette's signature — keep the mood bouncy, sweet, candy-shop bright. Forbidden: low-saturation grays, dark backgrounds, thin font weights, Morandi-style haze, a single cool-only hue family.",
       "promptZh": "请用多巴胺(Dopamine)配色:整体高饱和、高能量,像走进一家糖果店。背景 #FFF7EC(奶油橙白)、卡片 #FFFFFF(纯白)、描边 #FFE3D3(浅杏粉);正文 #33202A(深莓紫,不用纯黑)、次要文字 #8A6470;主按钮 #FF477E(玫红)配纯白字 #FFFFFF;点缀色 #FF9F1C(橙黄),用于徽标、图标和强调数字。玫红与橙黄双高饱和撞色是这套配色的签名,情绪要跳、要甜、要有糖果感。禁止:低饱和灰调、深色背景、细字重、莫兰迪式雾感、单一冷色系。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Dopamine palette: high-saturation, high-energy color like walking into a candy store. Background #FFF7EC (creamy orange-white), cards #FFFFFF (pure white), borders #FFE3D3 (pale apricot-pink); body text #33202A (deep berry-plum, never pure black), secondary text #8A6470; primary buttons #FF477E (hot rose) with pure white text #FFFFFF; the accent is #FF9F1C (tangerine), reserved for badges, icons and emphasized numbers. The rose + orange dual high-saturation clash is this palette's signature — keep the mood bouncy, sweet, candy-shop bright. Forbidden: low-saturation grays, dark backgrounds, thin font weights, Morandi-style haze, a single cool-only hue family."
@@ -2180,7 +2180,7 @@
       "descriptionZh": "深靛蓝底上炸开电青与品红,雨夜霓虹灯牌的味道。",
       "prompt": "Use a Neon (Cyberpunk) palette: dark background, high contrast, like neon signage reflecting off a rainy night street. Background #0C0C16 (near-black indigo), cards #161626 (deep violet-gray), borders #2C2C46 (dim indigo); body text #F2F2FF (cool white, never pure white), secondary text #9C9CC0; primary buttons #00F0FF (electric cyan) with deep-toned text #061018; the accent is #FF2EA6 (magenta), used on tags, icons and emphasis lines. Electric cyan clashing with magenta over a dark base is this palette's signature. Forbidden: light backgrounds, earthy tones, soft pastels, low-contrast grays, Morandi-style haze.",
       "promptZh": "请用赛博霓虹(Neon)配色:整体深色底、高对比,像夜店霓虹灯牌打在雨夜街道上。背景 #0C0C16(近黑靛蓝)、卡片 #161626(深紫灰)、描边 #2C2C46(暗紫蓝);正文 #F2F2FF(冷白,不用纯白)、次要文字 #9C9CC0;主按钮 #00F0FF(电青)配深底字 #061018;点缀色 #FF2EA6(品红),用于标签、图标和强调线条。电青与品红双霓虹在深底上对撞,是这套配色的签名。禁止:浅色背景、大地色系、柔和粉彩、低对比灰调、莫兰迪式雾感。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Neon (Cyberpunk) palette: dark background, high contrast, like neon signage reflecting off a rainy night street. Background #0C0C16 (near-black indigo), cards #161626 (deep violet-gray), borders #2C2C46 (dim indigo); body text #F2F2FF (cool white, never pure white), secondary text #9C9CC0; primary buttons #00F0FF (electric cyan) with deep-toned text #061018; the accent is #FF2EA6 (magenta), used on tags, icons and emphasis lines. Electric cyan clashing with magenta over a dark base is this palette's signature. Forbidden: light backgrounds, earthy tones, soft pastels, low-contrast grays, Morandi-style haze."
@@ -2202,7 +2202,7 @@
       "descriptionZh": "珊瑚橙融进金黄,是假日海滩上太阳落下前的最后一小时。",
       "prompt": "Use a Sunset palette: warm, gradient-like light, like the last hour of dusk on a holiday beach. Background #FFF4EC (warm apricot-white), cards #FFFBF7 (near-white warm tone), borders #FFDFC7 (pale apricot-orange); body text #4A3226 (warm brown, never pure black), secondary text #A07A62; primary buttons #F4633A (coral orange) with warm-white text #FFF8F4; the accent is #FFC53D (golden yellow), used on tags, icons and highlighted numbers. The coral-to-gold warm gradient is this palette's signature — keep the mood loose, like a melting sunset. Forbidden: cool-blue dominance, gray tones, dark backgrounds, neon/fluorescent colors, high-saturation clashes.",
       "promptZh": "请用日落暖调(Sunset)配色:整体温暖、渐变感,像假日海滩上黄昏最后一小时的光。背景 #FFF4EC(暖杏白)、卡片 #FFFBF7(近白暖调)、描边 #FFDFC7(浅杏橙);正文 #4A3226(暖棕,不用纯黑)、次要文字 #A07A62;主按钮 #F4633A(珊瑚橙)配暖白字 #FFF8F4;点缀色 #FFC53D(金黄),用于标签、图标和高光数字。珊瑚橙与金黄的暖色渐变是这套配色的签名,要有夕阳融化的松弛感。禁止:冷蓝主导、灰调、深色背景、荧光色、高饱和撞色。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Sunset palette: warm, gradient-like light, like the last hour of dusk on a holiday beach. Background #FFF4EC (warm apricot-white), cards #FFFBF7 (near-white warm tone), borders #FFDFC7 (pale apricot-orange); body text #4A3226 (warm brown, never pure black), secondary text #A07A62; primary buttons #F4633A (coral orange) with warm-white text #FFF8F4; the accent is #FFC53D (golden yellow), used on tags, icons and highlighted numbers. The coral-to-gold warm gradient is this palette's signature — keep the mood loose, like a melting sunset. Forbidden: cool-blue dominance, gray tones, dark backgrounds, neon/fluorescent colors, high-saturation clashes."
@@ -2224,7 +2224,7 @@
       "descriptionZh": "钴蓝对撞明黄,近黑文字压住阵脚,体育海报般干脆。",
       "prompt": "Use a Pop (Pop Art) palette: crisp and confident, like sports-poster and streetwear-magazine layout. Background #F7F7FB (cool off-white), cards #FFFFFF (pure white), borders #E2E2F0 (pale gray-blue); body text #14141A (near-black, never pure black), secondary text #6E6E85; primary buttons #2456F0 (cobalt blue) with cool-white text #F5F8FF; the accent is #FFD400 (bright yellow), used on tags, icons and emphasized numbers. Cobalt and yellow form a complementary clash, and the near-black text must carry full contrast — keep the mood sharp, not soft. Forbidden: pastel tones, low contrast, warm brown tones, more than three high-saturation hues, Morandi-style haze.",
       "promptZh": "请用波普电光(Pop)配色:整体利落、自信,像体育海报和潮流杂志的排版。背景 #F7F7FB(冷白灰)、卡片 #FFFFFF(纯白)、描边 #E2E2F0(浅灰蓝);正文 #14141A(近黑,不用纯黑)、次要文字 #6E6E85;主按钮 #2456F0(钴蓝)配冷白字 #F5F8FF;点缀色 #FFD400(明黄),用于标签、图标和强调数字。钴蓝与明黄是互补撞色,近黑文字要给足对比,情绪干净利落不暧昧。禁止:粉彩色调、低对比、暖棕色调、超过三种高饱和色相、莫兰迪式雾感。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Pop (Pop Art) palette: crisp and confident, like sports-poster and streetwear-magazine layout. Background #F7F7FB (cool off-white), cards #FFFFFF (pure white), borders #E2E2F0 (pale gray-blue); body text #14141A (near-black, never pure black), secondary text #6E6E85; primary buttons #2456F0 (cobalt blue) with cool-white text #F5F8FF; the accent is #FFD400 (bright yellow), used on tags, icons and emphasized numbers. Cobalt and yellow form a complementary clash, and the near-black text must carry full contrast — keep the mood sharp, not soft. Forbidden: pastel tones, low contrast, warm brown tones, more than three high-saturation hues, Morandi-style haze."
@@ -2246,7 +2246,7 @@
       "descriptionZh": "黑漆与香槟金——五星酒店大堂打烊后的那种静。",
       "prompt": "Use a Dark Luxe palette: black-and-gold, the hush of a whisky bar or a five-star hotel lobby after hours. Background #0D0D10 (near-black, never pure black), cards #17171C, borders #2A2A32; body text #EDEAE2 (warm white, never pure white), secondary text #9B978C; primary buttons in champagne gold #C8A24B with deep charcoal text #141410 — this pairing is the signature move; accent #E8DFC8 (pale gold), reserved for badges, dividers, or numerals. Gold is punctuation, not paint — keep it small. Forbidden: bright backgrounds, candy colors, large gold fills, cheap neon, pure #000 or #fff.",
       "promptZh": "请用暗黑奢华(Dark Luxe)配色:黑金基调,像威士忌吧台或五星酒店大堂的夜色。背景 #0D0D10(近黑,不用纯黑)、卡片 #17171C、描边 #2A2A32;正文 #EDEAE2(暖白,不用纯白)、次要文字 #9B978C;主按钮 #C8A24B(香槟金)配深炭字 #141410,这是签名组合;点缀色 #E8DFC8(浅金),只用在徽标、分隔线或数字上。金色只做点睛,不做大面积填充。禁止:明亮底色、糖果色、大面积铺金、廉价荧光色、纯黑 #000 或纯白 #fff。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Dark Luxe palette: black-and-gold, the hush of a whisky bar or a five-star hotel lobby after hours. Background #0D0D10 (near-black, never pure black), cards #17171C, borders #2A2A32; body text #EDEAE2 (warm white, never pure white), secondary text #9B978C; primary buttons in champagne gold #C8A24B with deep charcoal text #141410 — this pairing is the signature move; accent #E8DFC8 (pale gold), reserved for badges, dividers, or numerals. Gold is punctuation, not paint — keep it small. Forbidden: bright backgrounds, candy colors, large gold fills, cheap neon, pure #000 or #fff."
@@ -2268,7 +2268,7 @@
       "descriptionZh": "凌晨两点独自写代码的蓝,像天文台的寂静,深邃又让人信任。",
       "prompt": "Use a Midnight Blue palette: deep, trustworthy blue with the hush of coding at 2am or an observatory at night. Background #0B1220 (deep indigo, never pure black), cards #131C2E, borders #24314D; body text #E4EAF5 (cool white, never pure white), secondary text #8DA0BF; primary buttons in electric blue #4C7DFF with near-white text #F2F6FF; accent #8FB8FF (bright blue), for icons, links, and status hints. Keep the whole palette inside the blue family and separate layers by lightness. Forbidden: large warm-orange areas, pure black backgrounds, gray-purple gradients, low-contrast blue-on-blue text.",
       "promptZh": "请用午夜蓝(Midnight)配色:深邃可信赖的蓝,像深夜写代码或天文台的静。背景 #0B1220(深靛蓝,不用纯黑)、卡片 #131C2E、描边 #24314D;正文 #E4EAF5(冷白,不用纯白)、次要文字 #8DA0BF;主按钮 #4C7DFF(电光蓝)配近白字 #F2F6FF;点缀色 #8FB8FF(亮蓝),用于图标、链接和状态提示。整体色相集中在蓝色系,靠明度拉开层次。禁止:暖橙大面积使用、纯黑背景、灰紫渐变、蓝字配蓝底导致的低对比。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Midnight Blue palette: deep, trustworthy blue with the hush of coding at 2am or an observatory at night. Background #0B1220 (deep indigo, never pure black), cards #131C2E, borders #24314D; body text #E4EAF5 (cool white, never pure white), secondary text #8DA0BF; primary buttons in electric blue #4C7DFF with near-white text #F2F6FF; accent #8FB8FF (bright blue), for icons, links, and status hints. Keep the whole palette inside the blue family and separate layers by lightness. Forbidden: large warm-orange areas, pure black backgrounds, gray-purple gradients, low-contrast blue-on-blue text."
@@ -2290,7 +2290,7 @@
       "descriptionZh": "雨后的森林夜色,苔藓与灯笼微光,沉静却有生命力。",
       "prompt": "Use a Forest Night palette: a forest after rain, moss and lantern light, quiet but alive. Background #0E1512 (near-black forest green, never pure black), cards #16211C, borders #27352E; body text #E3EBE5 (cool, faintly green white, never pure white), secondary text #8FA598; primary buttons in forest green #3E9B6E with pale mint-white text #EAF6EF; accent #D9B44A (mossy gold), used for icons, badges, or emphasized numerals — one lantern glow inside the green. Forbidden: neon green, blue-purple tech tones, bright backgrounds, pink accents.",
       "promptZh": "请用墨绿夜(Forest Night)配色:雨后森林的夜色,苔藓与灯笼微光,沉静但有生命力。背景 #0E1512(墨绿黑,不用纯黑)、卡片 #16211C、描边 #27352E;正文 #E3EBE5(冷白微绿,不用纯白)、次要文字 #8FA598;主按钮 #3E9B6E(森林绿)配浅绿白字 #EAF6EF;点缀色 #D9B44A(苔金),用于图标、徽标或强调数字,是绿色主调里的一点灯笼光。禁止:荧光绿、蓝紫科技感配色、明亮底色、粉色点缀。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Forest Night palette: a forest after rain, moss and lantern light, quiet but alive. Background #0E1512 (near-black forest green, never pure black), cards #16211C, borders #27352E; body text #E3EBE5 (cool, faintly green white, never pure white), secondary text #8FA598; primary buttons in forest green #3E9B6E with pale mint-white text #EAF6EF; accent #D9B44A (mossy gold), used for icons, badges, or emphasized numerals — one lantern glow inside the green. Forbidden: neon green, blue-purple tech tones, bright backgrounds, pink accents."
@@ -2312,7 +2312,7 @@
       "descriptionZh": "没有一丝彩色的克制,像黑白摄影,让内容自己说话。",
       "prompt": "Use a Mono Slate palette: total colorlessness, black-and-white-photography restraint that lets the content speak. Background #111113 (charcoal, never pure black), cards #1A1A1D, borders #2A2A2E; body text #EAEAEC (near-white gray, never pure white), secondary text #909095; primary buttons in light gray-white #E5E5E8 with deep charcoal text #131316 — the signature move is this light-on-dark inversion; accent #A0A0A8 (mid-gray), used only for subtle emphasis. The whole palette lives on the grayscale — no hue anywhere. Forbidden: any colored element (this is an achromatic palette), pure #000 backgrounds, colored shadows, color gradients.",
       "promptZh": "请用炭黑单色(Mono Slate)配色:完全无彩色的克制,像黑白摄影,让内容本身说话。背景 #111113(炭黑,不用纯黑)、卡片 #1A1A1D、描边 #2A2A2E;正文 #EAEAEC(近白灰,不用纯白)、次要文字 #909095;主按钮 #E5E5E8(浅灰白)配深炭字 #131316,白底黑字的反转是这套配色的签名;点缀色 #A0A0A8(中灰),仅作细微强调。整套配色只有灰阶,没有任何色相。禁止:任何彩色元素(这是无彩配色)、纯黑 #000 底、彩色阴影、彩色渐变。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Mono Slate palette: total colorlessness, black-and-white-photography restraint that lets the content speak. Background #111113 (charcoal, never pure black), cards #1A1A1D, borders #2A2A2E; body text #EAEAEC (near-white gray, never pure white), secondary text #909095; primary buttons in light gray-white #E5E5E8 with deep charcoal text #131316 — the signature move is this light-on-dark inversion; accent #A0A0A8 (mid-gray), used only for subtle emphasis. The whole palette lives on the grayscale — no hue anywhere. Forbidden: any colored element (this is an achromatic palette), pure #000 backgrounds, colored shadows, color gradients."
@@ -2334,7 +2334,7 @@
       "descriptionZh": "陶罐、亚麻布、晒透了的木头 —— 赭陶打底,一点橄榄绿收尾。",
       "prompt": "Use an Earth Tones palette: clay, linen, and sun-warmed wood. Background #F7F1E8 (linen beige), cards #FCF9F3 (warm white), borders #E5D8C4 (pale terracotta); body text #4A3B2B (deep umber, never pure black), secondary text #97835F (warm taupe); primary buttons #A9744A (terracotta) with warm-white text #FBF6EE; the accent is #6B7F4F (olive green), reserved for icons, tags, or small emphasis text. The overall feel should be grounded and warm, like fired clay and weathered wood. Forbidden: neon colors, cool-blue dominance, pure #000 or #fff, plastic-slick high saturation, glossy metallic gradients.",
       "promptZh": "请用大地色(Earth Tones)配色:陶土、亚麻、晒过太阳的木头质感。背景 #F7F1E8(亚麻米)、卡片 #FCF9F3(暖白)、描边 #E5D8C4(浅陶土);正文 #4A3B2B(深赭棕,不用纯黑)、次要文字 #97835F(暖褐灰);主按钮 #A9744A(赭陶)配暖白字 #FBF6EE;点缀色 #6B7F4F(橄榄绿),只用在图标、标签或少量强调文字上。整体沉稳温暖,像被太阳晒透的陶器和木材。禁止:荧光色、冷蓝主导、纯黑 #000 或纯白 #fff、塑料感高饱和、光泽金属渐变。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use an Earth Tones palette: clay, linen, and sun-warmed wood. Background #F7F1E8 (linen beige), cards #FCF9F3 (warm white), borders #E5D8C4 (pale terracotta); body text #4A3B2B (deep umber, never pure black), secondary text #97835F (warm taupe); primary buttons #A9744A (terracotta) with warm-white text #FBF6EE; the accent is #6B7F4F (olive green), reserved for icons, tags, or small emphasis text. The overall feel should be grounded and warm, like fired clay and weathered wood. Forbidden: neon colors, cool-blue dominance, pure #000 or #fff, plastic-slick high saturation, glossy metallic gradients."
@@ -2356,7 +2356,7 @@
       "descriptionZh": "清爽干净,像退潮后的浅滩 —— 深青打底,一点天蓝跳色。",
       "prompt": "Use an Ocean Blue palette: clean and cool, like a tide pool at low water. Background #F2F8FA (pale aqua), cards #FBFDFE (near-white), borders #D5E6EC (light cyan); body text #173B4A (deep teal, never pure black), secondary text #5E8494 (slate blue-gray); primary buttons #0E7490 (deep teal) with pale-blue text #F0FAFD; the accent is #38BDF8 (sky blue), reserved for icons, tags, or highlighted data. The feel should be bright and airy, with no warm tones creeping in. Forbidden: warm browns, hot pink, dark backgrounds, muddy grays, high-saturation color clashes.",
       "promptZh": "请用海洋蓝(Ocean Blue)配色:清爽干净,像退潮后的浅滩。背景 #F2F8FA(浅水蓝)、卡片 #FBFDFE(近白)、描边 #D5E6EC(浅青);正文 #173B4A(深青蓝,不用纯黑)、次要文字 #5E8494(灰青);主按钮 #0E7490(深青)配浅蓝白字 #F0FAFD;点缀色 #38BDF8(天蓝),只用在图标、标签或数据高亮上。整体明亮通透,不带一点暖调。禁止:暖棕、艳粉、深色底、脏灰、高饱和撞色。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use an Ocean Blue palette: clean and cool, like a tide pool at low water. Background #F2F8FA (pale aqua), cards #FBFDFE (near-white), borders #D5E6EC (light cyan); body text #173B4A (deep teal, never pure black), secondary text #5E8494 (slate blue-gray); primary buttons #0E7490 (deep teal) with pale-blue text #F0FAFD; the accent is #38BDF8 (sky blue), reserved for icons, tags, or highlighted data. The feel should be bright and airy, with no warm tones creeping in. Forbidden: warm browns, hot pink, dark backgrounds, muddy grays, high-saturation color clashes."
@@ -2378,7 +2378,7 @@
       "descriptionZh": "专业、可信、不出错的企业蓝 —— 一种永远不会让人意外的颜色。",
       "prompt": "Use a Corporate Blue palette: professional, trustworthy, unshakeably enterprise. Background #F6F8FA (cool off-white), cards #FFFFFF (pure white), borders #DDE3EA (pale blue-gray); body text #1F2A37 (deep graphite blue, never pure black), secondary text #64748B (slate gray); primary buttons #1D4ED8 (standard blue) with pale-blue text #F5F8FF; the accent is #0EA5E9 (bright sky blue), reserved for charts, status tags, or link hover states. The overall feel is restrained and orderly, like a tightly typeset corporate report. Forbidden: playful candy colors, saturated reds or purples, dark-mode-only backgrounds, decorative gradients, handwritten or doodle-style elements.",
       "promptZh": "请用商务蓝灰(Corporate Blue)配色:专业、可信、不出错的企业感。背景 #F6F8FA(冷白灰)、卡片 #FFFFFF(纯白)、描边 #DDE3EA(浅灰蓝);正文 #1F2A37(深石墨蓝,不用纯黑)、次要文字 #64748B(石板灰);主按钮 #1D4ED8(标准蓝)配浅蓝白字 #F5F8FF;点缀色 #0EA5E9(亮天蓝),只用在图表、状态标签或链接悬停上。整体克制、规整,像一份排版严谨的企业报告。禁止:娱乐化糖果色、大红大紫、暗黑底、装饰性渐变、手写体或涂鸦元素。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a Corporate Blue palette: professional, trustworthy, unshakeably enterprise. Background #F6F8FA (cool off-white), cards #FFFFFF (pure white), borders #DDE3EA (pale blue-gray); body text #1F2A37 (deep graphite blue, never pure black), secondary text #64748B (slate gray); primary buttons #1D4ED8 (standard blue) with pale-blue text #F5F8FF; the accent is #0EA5E9 (bright sky blue), reserved for charts, status tags, or link hover states. The overall feel is restrained and orderly, like a tightly typeset corporate report. Forbidden: playful candy colors, saturated reds or purples, dark-mode-only backgrounds, decorative gradients, handwritten or doodle-style elements."
@@ -2400,7 +2400,7 @@
       "descriptionZh": "宣纸、松烟墨、一点朱砂印 —— 中国传统审美的数字化转译。",
       "prompt": "Use an Ink Wash palette: rice-paper background, ink-black text, one seal-stamp of cinnabar. Background #F7F5F0 (rice paper), cards #FDFCF8 (warm white), borders #E2DDD2 (pale greige); body text #26241F (pine-soot black, never pure black), secondary text #7D786C (taupe gray); primary buttons #2F3A44 (indigo ink) with warm-white text #F5F4EE; the accent is #B5432A (cinnabar red), reserved for seal-stamp-sized emphasis only — a badge corner or a key number. The overall look is restrained new-Chinese aesthetics: ink dominates, cinnabar merely punctuates. Forbidden: garish lantern-red (cinnabar stays seal-sized, never a large color block), heaps of gold, high-saturation clashes, tech-blue accents.",
       "promptZh": "请用水墨丹青(Ink Wash)配色:宣纸底、墨色文字、一点朱砂印。背景 #F7F5F0(宣纸米)、卡片 #FDFCF8(米白)、描边 #E2DDD2(浅灰米);正文 #26241F(松烟墨黑,不用纯黑)、次要文字 #7D786C(灰褐);主按钮 #2F3A44(黛蓝墨)配米白字 #F5F4EE;点缀色 #B5432A(朱砂红),只用在印章式的小面积强调上,比如标签角标或关键数字。整体是新中式的克制美学,墨色为主、朱砂点睛。禁止:大红灯笼式的艳俗红(朱砂只做印章式点睛,不做大面积色块)、金色堆砌、高饱和撞色、科技蓝。",
-      "pageUrl": "http://localhost:3000/palettes",
+      "pageUrl": "https://ui-lab-ten.vercel.app/palettes",
       "fetch": {
         "method": "copy-prompt",
         "value": "Use an Ink Wash palette: rice-paper background, ink-black text, one seal-stamp of cinnabar. Background #F7F5F0 (rice paper), cards #FDFCF8 (warm white), borders #E2DDD2 (pale greige); body text #26241F (pine-soot black, never pure black), secondary text #7D786C (taupe gray); primary buttons #2F3A44 (indigo ink) with warm-white text #F5F4EE; the accent is #B5432A (cinnabar red), reserved for seal-stamp-sized emphasis only — a badge corner or a key number. The overall look is restrained new-Chinese aesthetics: ink dominates, cinnabar merely punctuates. Forbidden: garish lantern-red (cinnabar stays seal-sized, never a large color block), heaps of gold, high-saturation clashes, tech-blue accents."
@@ -2415,7 +2415,7 @@
       "aliases": [],
       "description": "A ready-made design system: accent #339cff, paper surface, system-neutral type, light scheme.",
       "descriptionZh": "一套现成的设计系统：accent #339cff, paper surface, system-neutral type, light scheme。",
-      "pageUrl": "http://localhost:3000/studio?scheme=light&accent=%23339cff&surface=paper&radius=md&shadow=hairline&font=system-neutral&density=standard&glass=0&border=hairline&name=",
+      "pageUrl": "https://ui-lab-ten.vercel.app/studio?scheme=light&accent=%23339cff&surface=paper&radius=md&shadow=hairline&font=system-neutral&density=standard&glass=0&border=hairline&name=",
       "fetch": {
         "method": "copy-tokens",
         "value": "---\nname: \"My System\"\ndescription: \"A custom Agent workbench design system composed in UI Lab Studio.\"\n---\n\n# My System\n\n## Colors\n\n| Token | Value |\n| --- | --- |\n| canvas | #ffffff |\n| surface | #f7f7f5 |\n| raised | #ffffff |\n| ink | #1d1d1f |\n| ink-secondary | color-mix(in srgb, #1d1d1f 85%, #ffffff) |\n| ink-muted | color-mix(in srgb, #1d1d1f 60%, #ffffff) |\n| ink-faint | color-mix(in srgb, #1d1d1f 40%, #ffffff) |\n| hairline | #e6e6e6 |\n| accent | #339cff |\n| accent-foreground | #ffffff |\n| success | #1ea64a |\n| danger | #dc2626 |\n| warning | #d97706 |\n\n**Rule:** Reserve the accent for focus, selection, and primary actions; semantic colors describe real state only.\n\n## Typography\n\n| Token | Value |\n| --- | --- |\n| display | Geist, Inter, system-ui, sans-serif |\n| body | Geist, Inter, system-ui, sans-serif |\n| mono | 'Geist Mono', ui-monospace, monospace |\n\n**Rule:** Use this display, body, and monospace pairing throughout the product without introducing a competing family.\n\n## Radius, elevation & spacing\n\n| Token | Value |\n| --- | --- |\n| radius | Medium · 10px |\n| elevation | Hairline · 0 0 0 0.5px rgb(0 0 0 / 0.08) |\n| density | Standard · 40px row / 12px padding |\n| border | hairline |\n| surface | solid |\n\n**Rule:** Apply these atom values consistently; do not introduce off-scale radii, shadows, or spacing.\n\n## FORBIDDEN\n\nDo not add competing accent colors, off-scale geometry, heavy decorative effects, or motion that obscures task state."
@@ -2430,7 +2430,7 @@
       "aliases": [],
       "description": "A ready-made design system: accent #5e6ad2, ink surface, native-crisp type, dark scheme.",
       "descriptionZh": "一套现成的设计系统：accent #5e6ad2, ink surface, native-crisp type, dark scheme。",
-      "pageUrl": "http://localhost:3000/studio?scheme=dark&accent=%235e6ad2&surface=ink&radius=lg&shadow=floating&font=native-crisp&density=standard&glass=0&border=hairline&name=",
+      "pageUrl": "https://ui-lab-ten.vercel.app/studio?scheme=dark&accent=%235e6ad2&surface=ink&radius=lg&shadow=floating&font=native-crisp&density=standard&glass=0&border=hairline&name=",
       "fetch": {
         "method": "copy-tokens",
         "value": "---\nname: \"My System\"\ndescription: \"A custom Agent workbench design system composed in UI Lab Studio.\"\n---\n\n# My System\n\n## Colors\n\n| Token | Value |\n| --- | --- |\n| canvas | #0a0a0b |\n| surface | #0f1011 |\n| raised | #18191a |\n| ink | #f7f8f8 |\n| ink-secondary | color-mix(in srgb, #f7f8f8 85%, #0a0a0b) |\n| ink-muted | color-mix(in srgb, #f7f8f8 60%, #0a0a0b) |\n| ink-faint | color-mix(in srgb, #f7f8f8 40%, #0a0a0b) |\n| hairline | #23252a |\n| accent | #5e6ad2 |\n| accent-foreground | #ffffff |\n| success | #40c977 |\n| danger | #fa423e |\n| warning | #ff8549 |\n\n**Rule:** Reserve the accent for focus, selection, and primary actions; semantic colors describe real state only.\n\n## Typography\n\n| Token | Value |\n| --- | --- |\n| display | 'SF Pro Display', -apple-system, system-ui |\n| body | 'SF Pro Text', -apple-system, system-ui |\n| mono | 'SF Mono', ui-monospace, Menlo |\n\n**Rule:** Use this display, body, and monospace pairing throughout the product without introducing a competing family.\n\n## Radius, elevation & spacing\n\n| Token | Value |\n| --- | --- |\n| radius | Large · 12.5px |\n| elevation | Floating · 0 0 0 0.5px rgb(255 255 255 / 0.157), 0 3px 7.5px rgb(0 0 0 / 0.2), 0 0 20px rgb(0 0 0 / 0.25) |\n| density | Standard · 40px row / 12px padding |\n| border | hairline |\n| surface | solid |\n\n**Rule:** Apply these atom values consistently; do not introduce off-scale radii, shadows, or spacing.\n\n## FORBIDDEN\n\nDo not add competing accent colors, off-scale geometry, heavy decorative effects, or motion that obscures task state."
@@ -2445,7 +2445,7 @@
       "aliases": [],
       "description": "A ready-made design system: accent #cc785c, cream surface, editorial-serif type, light scheme.",
       "descriptionZh": "一套现成的设计系统：accent #cc785c, cream surface, editorial-serif type, light scheme。",
-      "pageUrl": "http://localhost:3000/studio?scheme=light&accent=%23cc785c&surface=cream&radius=xl&shadow=raised&font=editorial-serif&density=comfortable&glass=0&border=hairline&name=",
+      "pageUrl": "https://ui-lab-ten.vercel.app/studio?scheme=light&accent=%23cc785c&surface=cream&radius=xl&shadow=raised&font=editorial-serif&density=comfortable&glass=0&border=hairline&name=",
       "fetch": {
         "method": "copy-tokens",
         "value": "---\nname: \"My System\"\ndescription: \"A custom Agent workbench design system composed in UI Lab Studio.\"\n---\n\n# My System\n\n## Colors\n\n| Token | Value |\n| --- | --- |\n| canvas | #faf9f5 |\n| surface | #f5f0e8 |\n| raised | #ffffff |\n| ink | #141413 |\n| ink-secondary | color-mix(in srgb, #141413 85%, #faf9f5) |\n| ink-muted | color-mix(in srgb, #141413 60%, #faf9f5) |\n| ink-faint | color-mix(in srgb, #141413 40%, #faf9f5) |\n| hairline | #e6dfd8 |\n| accent | #cc785c |\n| accent-foreground | #ffffff |\n| success | #1ea64a |\n| danger | #dc2626 |\n| warning | #d97706 |\n\n**Rule:** Reserve the accent for focus, selection, and primary actions; semantic colors describe real state only.\n\n## Typography\n\n| Token | Value |\n| --- | --- |\n| display | 'Tiempos Headline', Georgia, serif |\n| body | -apple-system, 'Segoe UI', sans-serif |\n| mono | ui-monospace, monospace |\n\n**Rule:** Use this display, body, and monospace pairing throughout the product without introducing a competing family.\n\n## Radius, elevation & spacing\n\n| Token | Value |\n| --- | --- |\n| radius | Extra Large · 20px |\n| elevation | Raised · 0 0 0 0.5px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.05) |\n| density | Comfortable · 48px row / 16px padding |\n| border | hairline |\n| surface | solid |\n\n**Rule:** Apply these atom values consistently; do not introduce off-scale radii, shadows, or spacing.\n\n## FORBIDDEN\n\nDo not add competing accent colors, off-scale geometry, heavy decorative effects, or motion that obscures task state."
@@ -2460,7 +2460,7 @@
       "aliases": [],
       "description": "A ready-made design system: accent #6d5dfc, cool surface, system-neutral type, light scheme.",
       "descriptionZh": "一套现成的设计系统：accent #6d5dfc, cool surface, system-neutral type, light scheme。",
-      "pageUrl": "http://localhost:3000/studio?scheme=light&accent=%236d5dfc&surface=cool&radius=xl&shadow=floating&font=system-neutral&density=standard&glass=1&border=none&name=",
+      "pageUrl": "https://ui-lab-ten.vercel.app/studio?scheme=light&accent=%236d5dfc&surface=cool&radius=xl&shadow=floating&font=system-neutral&density=standard&glass=1&border=none&name=",
       "fetch": {
         "method": "copy-tokens",
         "value": "---\nname: \"My System\"\ndescription: \"A custom Agent workbench design system composed in UI Lab Studio.\"\n---\n\n# My System\n\n## Colors\n\n| Token | Value |\n| --- | --- |\n| canvas | #ffffff |\n| surface | #f6f9fc |\n| raised | #ffffff |\n| ink | #0d253d |\n| ink-secondary | color-mix(in srgb, #0d253d 85%, #ffffff) |\n| ink-muted | color-mix(in srgb, #0d253d 60%, #ffffff) |\n| ink-faint | color-mix(in srgb, #0d253d 40%, #ffffff) |\n| hairline | #e3e8ee |\n| accent | #6d5dfc |\n| accent-foreground | #ffffff |\n| success | #1ea64a |\n| danger | #dc2626 |\n| warning | #d97706 |\n\n**Rule:** Reserve the accent for focus, selection, and primary actions; semantic colors describe real state only.\n\n## Typography\n\n| Token | Value |\n| --- | --- |\n| display | Geist, Inter, system-ui, sans-serif |\n| body | Geist, Inter, system-ui, sans-serif |\n| mono | 'Geist Mono', ui-monospace, monospace |\n\n**Rule:** Use this display, body, and monospace pairing throughout the product without introducing a competing family.\n\n## Radius, elevation & spacing\n\n| Token | Value |\n| --- | --- |\n| radius | Extra Large · 20px |\n| elevation | Floating · 0 0 0 0.5px rgb(0 0 0 / 0.08), 0 3px 7.5px rgb(0 0 0 / 0.04), 0 0 20px rgb(0 0 0 / 0.05) |\n| density | Standard · 40px row / 12px padding |\n| border | none |\n| surface | frosted glass |\n\n**Rule:** Apply these atom values consistently; do not introduce off-scale radii, shadows, or spacing.\n\n## FORBIDDEN\n\nDo not add competing accent colors, off-scale geometry, heavy decorative effects, or motion that obscures task state."

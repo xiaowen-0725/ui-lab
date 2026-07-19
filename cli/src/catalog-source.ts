@@ -78,10 +78,11 @@ async function fetchFromRegistry(url: string): Promise<CatalogItem[]> {
 }
 
 /**
- * Loads the catalog either from a live registry deployment or, by default
- * (the project isn't deployed yet), from the bundled snapshot. A registry
- * fetch failure of any kind (timeout, network error, non-2xx, bad JSON)
- * never throws — it always falls back to the snapshot.
+ * Loads the catalog from the bundled snapshot by default (fast, offline, and
+ * reliable), or from a live deployment when one is given via --registry <url>
+ * / UILAB_REGISTRY (e.g. https://ui-lab-ten.vercel.app). A registry fetch
+ * failure of any kind (timeout, network error, non-2xx, bad JSON) never throws
+ * — it always falls back to the snapshot.
  */
 export async function loadCatalog(opts?: LoadCatalogOptions): Promise<LoadCatalogResult> {
   const registryUrl = opts?.registry ?? process.env.UILAB_REGISTRY;

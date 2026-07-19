@@ -1,6 +1,6 @@
 # 组件实验室 (UI Lab) — Agent 指南
 
-一个**中文优先的双语**「前端视觉词汇表」:收集一切"只能看、说不出"的前端事物(动效组件、复合区块、设计风格……),让人肉眼感受、让 AI 拿到准确的话。组件以 shadcn 兼容的 registry 端点「复制源码」方式分发。基于开源项目 beUI(starc007/ui-components,MIT)fork,个人自用、本地运行、尚未部署。
+一个**中文优先的双语**「前端视觉词汇表」:收集一切"只能看、说不出"的前端事物(动效组件、复合区块、设计风格……),让人肉眼感受、让 AI 拿到准确的话。组件以 shadcn 兼容的 registry 端点「复制源码」方式分发。基于开源项目 beUI(starc007/ui-components,MIT)fork,个人自用,已部署于 Vercel(生产别名 https://ui-lab-ten.vercel.app)。
 
 技术栈:Next.js 15(App Router)· React 19 · Tailwind CSS 4 · motion(framer-motion)v11 · next-intl v4 · TypeScript strict · Bun · Biome。
 
@@ -43,7 +43,7 @@ bun run check           # 上面三项一起 —— 提交前跑
 
 next-intl 路由化:`/` = 中文(默认 locale)、`/en/*` = 英文,`localePrefix: "as-needed"`。缺中文时回退英文,不会崩。
 
-- **页面**放 `app/[locale]/`;**机器端点留在 `app/` 根、永远英文规范**:`registry.json`、`r/`、`llms.txt`、`sitemap`、`robots`、`manifest`、`theme.css`、`api/`、`opengraph-image`。中间件 matcher 已把它们排除,新增同类端点也放根、并确认被排除。
+- **页面**放 `app/[locale]/`;**机器端点留在 `app/` 根、永远英文规范**:`registry.json`、`r/`、`catalog.json`、`llms.txt`、`llms-full.txt`、`sitemap`、`robots`、`manifest`、`theme.css`、`api/`、`opengraph-image`。中间件 matcher 已把它们排除,新增同类端点也放根、并确认被排除。
 - **内部导航必须用 `@/i18n/navigation` 的 `Link`/`useRouter`/`usePathname`/`redirect`**,不要用 `next/link`、`next/navigation`(否则英文态丢 `/en` 前缀)。唯一例外:`notFound` 仍从 `next/navigation` 导入。
 - **组件名/描述**:registry 条目带 `nameZh`/`descriptionZh`;可视组件渲染时用 `localizedName`/`localizedDescription`(`lib/i18n-content.ts`)按 locale 解析。客户端组件取 `useLocale()`,服务端取 `getLocale()`。
 - **UI 文案**:放 `messages/zh.json` + `messages/en.json`;组件里客户端用 `useTranslations`、服务端用 `getTranslations`。
@@ -63,6 +63,7 @@ next-intl 路由化:`/` = 中文(默认 locale)、`/en/*` = 英文,`localePrefix
      file: "components/motion/xxx.tsx" }
    ```
    标 `new` 的加 `badge: "new"` + `launchedAt: "YYYY-MM-DD"`(落地页「最近上新」按它倒序,新加的排最前)。
+4. **刷 CLI 快照** → `bun run cli:snapshot`。CLI 读的是冻结快照,不刷则 `ui-lab` 命令看不到新组件(详见「AI 接入」)。
 
 现有组件先查 `lib/registry.ts`,存在就直接 import。
 
@@ -84,6 +85,23 @@ next-intl 路由化:`/` = 中文(默认 locale)、`/en/*` = 英文,`localePrefix
 
 - shadcn registry 名在 `lib/site.ts` 的 `REGISTRY_NAME`(现为 `"uilab"` → 安装命名空间 `@uilab`);所有安装地址用 `SITE_URL`(默认 `localhost:3000`,部署时设 `NEXT_PUBLIC_SITE_URL` 即全站切换)。**改这一处,全站安装命令跟着变** —— 别再散落硬编码 `@beui`/`beui.dev`。
 - `app/r/*` 端点的路径形状(`/r/{name}.json`、`/r/{name}/raw`)是 shadcn 契约,别重命名或破坏。
+
+## AI 接入
+
+一个真源、多条薄视图。真源是 `lib/catalog.ts` 的 `buildCatalog()`,把全部词汇(组件 / atom token / 图标 / 风格 / 配色 / studio 预设)聚合成统一 `CatalogItem`(name、描述、prompt、pageUrl、fetch)。对外三条通道,MCP 已退役:
+
+- **组件安装**:shadcn registry `app/r/*`,`npx shadcn add`(见「分发 / 命名空间」)。
+- **机器端点**(`app/` 根、英文规范、部署自动静态化):`/catalog.json`(结构化全词汇)、`/llms.txt`(分组索引)、`/llms-full.txt`(每项 prompt/token 内联)。加新词汇时它们**随构建自动反映**,不用手改。
+- **`ui-lab` CLI + skill**:CLI 在 `cli/`(独立子包、零运行时依赖、从根 tsconfig/biome 排除),`bun link` 后全局可用;skill 在 `skill/ui-lab/`,用 dbs-bridge 桥接到 Claude Code / Codex / 通用 Agents / Grok。CLI 不 import 主仓库 lib/*,只消费 catalog 数据。
+
+**⚠ CLI 快照维护规范(重要)**:CLI 默认读**构建时冻结的快照** `cli/catalog.snapshot.json`,不是实时数据。所以**任何词汇增删改之后**(加组件、加图标、改 atoms/styles/palettes/studio),线上机器端点会自动更新,但 `ui-lab` CLI 会一直显示旧数据,直到重新生成快照:
+
+```bash
+bun run cli:snapshot        # 重跑 buildCatalog() 刷新 cli/catalog.snapshot.json（种子数据，需提交）
+cd cli && bun run build      # 仅当改了 CLI 源码才需要；只刷数据可不必
+```
+
+把「刷快照」当成加词汇流程的收尾一步。部署后想让快照里的 URL / 安装命令是 prod 域名,用 `NEXT_PUBLIC_SITE_URL=https://<prod-domain> bun run cli:snapshot`。CLI 也支持 `--registry <url>` / `UILAB_REGISTRY` 实时拉线上 `/catalog.json` 绕过快照。
 
 ## 更新日志与发版
 
