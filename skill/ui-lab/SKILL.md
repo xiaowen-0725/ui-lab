@@ -13,7 +13,13 @@ UI Lab is a bilingual catalog of frontend things that are "easy to see, hard to 
 
 ## The `ui-lab` CLI
 
-On this machine `ui-lab` is on PATH (`bun link`). Inside the UI Lab repo you can also run `bun cli/src/index.ts <cmd>`.
+Published on npm as **`uilab-cli`** (the command it installs is `ui-lab`). Get it any of these ways:
+
+```
+npx uilab-cli <cmd>          # run without installing
+npm i -g uilab-cli           # or: bun add -g uilab-cli  → then use `ui-lab <cmd>`
+bun cli/src/index.ts <cmd>   # inside the UI Lab repo itself
+```
 
 ```
 ui-lab list [--kind <kind>]      # browse everything, or one kind

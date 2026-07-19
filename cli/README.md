@@ -5,18 +5,23 @@ and fetch this project's UI vocabulary — components, atom-set tokens, icon
 styles/motions, styles, palettes, and studio presets — directly from the
 terminal, without a browser.
 
-## Install / build
+## Install
 
 ```sh
-cd cli
-bun install   # or npm/pnpm/yarn install — installs typescript + @types/node only
-bun run build # compiles src/ -> dist/ via tsc
-node dist/index.js --help
+npx uilab-cli --help     # run without installing
+npm i -g uilab-cli       # or: bun add -g uilab-cli  → then `ui-lab --help`
 ```
 
-There are no runtime dependencies — the compiled `dist/index.js` only uses
-Node built-ins (`node:fs`, `node:url`, global `fetch`), so it can be copied,
-`npm link`ed, or published as-is.
+Published on npm as **`uilab-cli`**; the command it installs is `ui-lab`. Zero
+runtime dependencies — the compiled `dist/index.js` only uses Node built-ins
+(`node:fs`, `node:url`, global `fetch`).
+
+### Build from source
+
+```sh
+cd cli && bun install && bun run build   # compiles src/ -> dist/ via tsc
+node dist/index.js --help
+```
 
 ## Commands
 
@@ -74,17 +79,16 @@ ui-lab add tilt-card --pm bun
 
 ## Data sources
 
-This project isn't deployed publicly yet, so **the bundled snapshot
-(`cli/catalog.snapshot.json`) is the default data source** — it's generated
-from the live catalog by `bun run cli:snapshot` at the repo root and
-committed so the CLI works standalone, with no network access required.
+By default the CLI reads the **bundled snapshot
+(`cli/catalog.snapshot.json`)** — generated from the live catalog by
+`bun run cli:snapshot` at the repo root and committed so the CLI works
+standalone, with no network access required.
 
-Once (or if) a deployment exists, pass `--registry <url>` or set the
-`UILAB_REGISTRY` environment variable to point the CLI at its live
-`/catalog.json` endpoint instead. The CLI tries that registry first (with a
-~3s timeout); on any failure — timeout, network error, non-2xx response, bad
-JSON — it prints a one-line warning and transparently falls back to the
-bundled snapshot. A registry fetch failure never crashes the CLI.
+To read the live catalog instead, pass `--registry https://ui-lab-ten.vercel.app`
+or set the `UILAB_REGISTRY` environment variable. The CLI tries that registry
+first (with a ~3s timeout); on any failure — timeout, network error, non-2xx
+response, bad JSON — it prints a one-line warning and transparently falls back
+to the bundled snapshot. A registry fetch failure never crashes the CLI.
 
 ## stdout / stderr discipline
 
