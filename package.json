@@ -20,6 +20,7 @@
     "lint": "biome lint .",
     "typecheck": "tsc --noEmit",
     "check:registry": "bun scripts/check-registry.ts",
+    "cli:snapshot": "bun scripts/gen-catalog-snapshot.ts",
     "test": "bun test",
     "check": "bun run typecheck && bun run lint && bun run check:registry"
   },
