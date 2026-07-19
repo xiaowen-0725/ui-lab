@@ -833,6 +833,24 @@ export const registry: CategoryEntry[] = [
           "hero scroll cue",
         ],
       },
+      {
+        slug: "animated-icon",
+        name: "Animated Icon",
+        nameZh: "动效图标",
+        description:
+          "Hover-played icon micro-interactions in one component — draw, wiggle, spin, bounce, pop, pulse, nudge — driven by a single variant prop. Built on motion + lucide, reduced-motion safe.",
+        descriptionZh:
+          "一个组件承载七种 hover 动效图标(描边/摆动/旋转/弹跳/弹入/脉动/微移),用单个 variant prop 切换。基于 motion + lucide,尊重减少动态偏好。",
+        file: "components/motion/animated-icon.tsx",
+        badge: "new",
+        launchedAt: "2026-07-19",
+        keywords: [
+          "animated icon react",
+          "hover icon animation",
+          "icon micro interaction",
+          "lucide animated icon",
+        ],
+      },
     ],
   },
   {

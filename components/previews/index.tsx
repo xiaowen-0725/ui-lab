@@ -284,6 +284,9 @@ export const previews: Record<string, ComponentType> = {
   "motion/scroll-hint": dynamic(() =>
     import("./motion/scroll-hint.preview").then((m) => m.ScrollHintPreview),
   ),
+  "motion/animated-icon": dynamic(() =>
+    import("./motion/animated-icon.preview").then((m) => m.AnimatedIconPreview),
+  ),
 };
 
 export function getPreview(category: string, slug: string) {

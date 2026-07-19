@@ -184,7 +184,7 @@ function buildIconStyleItems(): CatalogItem[] {
     descriptionZh: entry.whenUseZh,
     prompt: entry.spec,
     promptZh: entry.specZh,
-    pageUrl: `${SITE_URL}/atoms?cat=icons`,
+    pageUrl: `${SITE_URL}/atoms?cat=icons#${entry.slug}`,
     fetch: { method: "copy-prompt", value: entry.spec },
   }));
 }
@@ -201,8 +201,13 @@ function buildIconMotionItems(): CatalogItem[] {
     descriptionZh: entry.whenUseZh,
     prompt: entry.prompt,
     promptZh: entry.promptZh,
-    pageUrl: `${SITE_URL}/atoms?cat=icons`,
-    fetch: { method: "copy-prompt", value: entry.prompt },
+    pageUrl: `${SITE_URL}/atoms?cat=icons#${entry.slug}`,
+    fetch: {
+      method: "shadcn",
+      command: `npx shadcn@latest add ${SITE_URL}/r/animated-icon`,
+      endpoint: `${SITE_URL}/r/animated-icon`,
+      value: entry.prompt,
+    },
   }));
 }
 
@@ -218,7 +223,7 @@ function buildStyleItems(): CatalogItem[] {
     descriptionZh: entry.descriptionZh,
     prompt: entry.promptEn,
     promptZh: entry.promptZh,
-    pageUrl: `${SITE_URL}/styles`,
+    pageUrl: `${SITE_URL}/styles?style=${entry.slug}`,
     fetch: { method: "copy-prompt", value: entry.promptEn },
   }));
 }
@@ -235,7 +240,7 @@ function buildPaletteItems(): CatalogItem[] {
     descriptionZh: entry.descriptionZh,
     prompt: entry.promptEn,
     promptZh: entry.promptZh,
-    pageUrl: `${SITE_URL}/palettes`,
+    pageUrl: `${SITE_URL}/palettes?palette=${entry.slug}`,
     fetch: { method: "copy-prompt", value: entry.promptEn },
   }));
 }
