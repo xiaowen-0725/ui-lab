@@ -7,6 +7,8 @@ import type {
 
 export type StudioScheme = "light" | "dark";
 
+export type StudioBorder = "none" | "hairline" | "solid";
+
 export type StudioConfig = {
   scheme: StudioScheme;
   accent: string;
@@ -15,6 +17,8 @@ export type StudioConfig = {
   elevation: string;
   fontPairing: string;
   density: string;
+  glass: boolean;
+  border: StudioBorder;
   name?: string;
 };
 

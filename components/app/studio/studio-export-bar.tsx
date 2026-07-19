@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Copy } from "lucide-react";
+import { Check, Copy, Link2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useCopyFeedback } from "@/components/app/atoms/copy-value";
 import type { StudioExportBundle } from "@/lib/studio";
@@ -54,29 +54,44 @@ export function StudioExportBar({
             />
           </label>
 
-          <fieldset className="flex flex-wrap gap-2">
-            <legend className="sr-only">{t("exportTitle")}</legend>
-            {formats.map((format) => {
-              const eventLabel = `studio-export-${format.key}`;
-              const copied = copiedLabel === eventLabel;
-              return (
-                <button
-                  key={format.key}
-                  type="button"
-                  onClick={() => copyValue(format.value, eventLabel)}
-                  aria-label={t("copyExport", { format: format.label })}
-                  className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-card/30 px-3.5 text-xs font-medium text-muted-foreground transition-colors hover:border-(--color-border-strong) hover:text-foreground"
-                >
-                  {copied ? (
-                    <Check className="h-3.5 w-3.5 text-(--color-success)" />
-                  ) : (
-                    <Copy className="h-3.5 w-3.5" />
-                  )}
-                  {copied ? t("copied") : format.label}
-                </button>
-              );
-            })}
-          </fieldset>
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={() => copyValue(window.location.href, "studio-share-link")}
+              className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-card/30 px-3.5 text-xs font-medium text-muted-foreground transition-colors hover:border-(--color-border-strong) hover:text-foreground"
+            >
+              {copiedLabel === "studio-share-link" ? (
+                <Check className="h-3.5 w-3.5 text-(--color-success)" />
+              ) : (
+                <Link2 className="h-3.5 w-3.5" />
+              )}
+              {copiedLabel === "studio-share-link" ? t("copied") : t("copyLink")}
+            </button>
+
+            <fieldset className="flex flex-wrap gap-2">
+              <legend className="sr-only">{t("exportTitle")}</legend>
+              {formats.map((format) => {
+                const eventLabel = `studio-export-${format.key}`;
+                const copied = copiedLabel === eventLabel;
+                return (
+                  <button
+                    key={format.key}
+                    type="button"
+                    onClick={() => copyValue(format.value, eventLabel)}
+                    aria-label={t("copyExport", { format: format.label })}
+                    className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-card/30 px-3.5 text-xs font-medium text-muted-foreground transition-colors hover:border-(--color-border-strong) hover:text-foreground"
+                  >
+                    {copied ? (
+                      <Check className="h-3.5 w-3.5 text-(--color-success)" />
+                    ) : (
+                      <Copy className="h-3.5 w-3.5" />
+                    )}
+                    {copied ? t("copied") : format.label}
+                  </button>
+                );
+              })}
+            </fieldset>
+          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { DENSITIES, FONT_PAIRS, RADII, SHADOWS } from "@/lib/atoms";
 import type {
+  StudioBorder,
   StudioConfig,
   StudioResolvedTokens,
   StudioScheme,
@@ -23,6 +24,11 @@ export const STUDIO_ACCENT = {
 } as const;
 
 export const STUDIO_ACCENTS = Object.values(STUDIO_ACCENT);
+
+/** Opacity (%) of a "glass" raised surface; 100% for solid surfaces. */
+export const STUDIO_GLASS_ALPHA = 72;
+/** Backdrop blur radius applied to raised surfaces when glass is enabled. */
+export const STUDIO_GLASS_BLUR = "14px";
 
 export const STUDIO_SURFACES: readonly StudioSurfacePreset[] = [
   {
@@ -140,6 +146,8 @@ export const STUDIO_STARTER_PRESETS: readonly StudioStarterPreset[] = [
       elevation: "hairline",
       fontPairing: "system-neutral",
       density: "standard",
+      glass: false,
+      border: "hairline",
     },
   },
   {
@@ -154,6 +162,8 @@ export const STUDIO_STARTER_PRESETS: readonly StudioStarterPreset[] = [
       elevation: "floating",
       fontPairing: "native-crisp",
       density: "standard",
+      glass: false,
+      border: "hairline",
     },
   },
   {
@@ -168,6 +178,8 @@ export const STUDIO_STARTER_PRESETS: readonly StudioStarterPreset[] = [
       elevation: "raised",
       fontPairing: "editorial-serif",
       density: "comfortable",
+      glass: false,
+      border: "hairline",
     },
   },
   {
@@ -182,6 +194,8 @@ export const STUDIO_STARTER_PRESETS: readonly StudioStarterPreset[] = [
       elevation: "floating",
       fontPairing: "system-neutral",
       density: "standard",
+      glass: true,
+      border: "none",
     },
   },
 ] as const;
@@ -199,7 +213,17 @@ function matchingAccent(value: string | undefined): string | undefined {
   return STUDIO_ACCENTS.find((accent) => accent.toLowerCase() === value.toLowerCase());
 }
 
-export function normalizeStudioConfig(input: Partial<StudioConfig>): StudioConfig {
+/**
+ * `glass`/`border` arrive as real booleans/unions from in-memory config, but as
+ * plain strings when parsed off the URL — this input type covers both so
+ * callers don't need to pre-coerce query-string values.
+ */
+export type StudioConfigInput = Partial<Omit<StudioConfig, "glass" | "border">> & {
+  glass?: StudioConfig["glass"] | string;
+  border?: StudioConfig["border"] | string;
+};
+
+export function normalizeStudioConfig(input: StudioConfigInput): StudioConfig {
   const scheme: StudioScheme = input.scheme === "dark" ? "dark" : "light";
   const surface = STUDIO_SURFACES.find(
     (entry) => entry.key === input.surface && entry.scheme === scheme,
@@ -211,6 +235,13 @@ export function normalizeStudioConfig(input: Partial<StudioConfig>): StudioConfi
   );
   const density = STUDIO_DENSITIES.find((entry) => entry.slug === input.density);
   const name = input.name?.trim();
+  const glassRaw: unknown = input.glass;
+  const glass = glassRaw === true || glassRaw === "true" || glassRaw === "1";
+  const borderRaw: unknown = input.border;
+  const border: StudioBorder =
+    borderRaw === "none" || borderRaw === "hairline" || borderRaw === "solid"
+      ? borderRaw
+      : "hairline";
 
   return {
     scheme,
@@ -220,6 +251,8 @@ export function normalizeStudioConfig(input: Partial<StudioConfig>): StudioConfi
     elevation: elevation?.slug ?? DEFAULT_STUDIO_CONFIG.elevation,
     fontPairing: fontPairing?.slug ?? DEFAULT_STUDIO_CONFIG.fontPairing,
     density: density?.slug ?? DEFAULT_STUDIO_CONFIG.density,
+    glass,
+    border,
     ...(name ? { name } : {}),
   };
 }
@@ -258,6 +291,8 @@ export function studioConfigFromSearchParams(
     elevation: searchParams.get("shadow") ?? undefined,
     fontPairing: searchParams.get("font") ?? undefined,
     density: searchParams.get("density") ?? undefined,
+    glass: searchParams.get("glass") ?? undefined,
+    border: searchParams.get("border") ?? undefined,
     name: searchParams.get("name") ?? undefined,
   });
 }
@@ -272,6 +307,8 @@ export function studioConfigToSearchParams(config: StudioConfig): URLSearchParam
     shadow: normalized.elevation,
     font: normalized.fontPairing,
     density: normalized.density,
+    glass: normalized.glass ? "1" : "0",
+    border: normalized.border,
     name: config.name ?? "",
   });
 }

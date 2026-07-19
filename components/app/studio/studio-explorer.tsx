@@ -4,24 +4,29 @@ import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ComponentSample } from "@/components/app/studio/component-sample";
+import { ContrastReadout } from "@/components/app/studio/contrast-readout";
 import { StudioExportBar } from "@/components/app/studio/studio-export-bar";
 import { WorkbenchStage } from "@/components/app/layouts/workbench-stage";
 import type { Locale } from "@/i18n/routing";
+import { isLightHexColor } from "@/lib/color";
 import {
   composeDesignSystem,
   defaultSurfaceForScheme,
   normalizeStudioConfig,
   resolveStudioTokens,
+  STUDIO_ACCENT,
   STUDIO_ACCENTS,
   STUDIO_DENSITIES,
   STUDIO_ELEVATIONS,
   STUDIO_FONT_PAIRINGS,
+  STUDIO_GLASS_ALPHA,
   STUDIO_RADII,
   STUDIO_STARTER_PRESETS,
   STUDIO_SURFACES,
   studioConfigFromSearchParams,
   studioConfigToEntry,
   studioConfigToSearchParams,
+  type StudioBorder,
   type StudioConfig,
   type StudioScheme,
 } from "@/lib/studio";
@@ -78,6 +83,8 @@ const PRESET_FIELDS = [
   "elevation",
   "fontPairing",
   "density",
+  "glass",
+  "border",
 ] as const;
 
 function presetMatches(config: StudioConfig, preset: StudioConfig): boolean {
@@ -140,6 +147,7 @@ export function StudioExplorer({
   const tokens = useMemo(() => resolveStudioTokens(config), [config]);
   const exports = useMemo(() => composeDesignSystem(config), [config]);
   const surfaces = STUDIO_SURFACES.filter((surface) => surface.scheme === config.scheme);
+  const accentFg = isLightHexColor(config.accent) ? STUDIO_ACCENT.neutral : "#ffffff";
   const localName = (entry: { name: string; nameZh: string }) =>
     locale === "zh" ? entry.nameZh : entry.name;
 
@@ -177,6 +185,10 @@ export function StudioExplorer({
     badge: t("sampleBadge"),
     rowTitle: t("sampleRowTitle"),
     rowMeta: t("sampleRowMeta"),
+    selectLabel: t("sampleSelectLabel"),
+    selectOptionA: t("sampleSelectA"),
+    selectOptionB: t("sampleSelectB"),
+    selectOptionC: t("sampleSelectC"),
   };
 
   return (
@@ -337,6 +349,27 @@ export function StudioExplorer({
               }))}
               onChange={(value) => setField("density", value)}
             />
+
+            <SegmentedDial
+              label={t("translucency")}
+              value={config.glass ? "glass" : "solid"}
+              options={[
+                { value: "solid", label: t("translucencySolid") },
+                { value: "glass", label: t("translucencyGlass") },
+              ]}
+              onChange={(value) => setField("glass", value === "glass")}
+            />
+
+            <SegmentedDial
+              label={t("border")}
+              value={config.border}
+              options={[
+                { value: "none", label: t("borderOption.none") },
+                { value: "hairline", label: t("borderOption.hairline") },
+                { value: "solid", label: t("borderOption.solid") },
+              ]}
+              onChange={(value) => setField("border", value as StudioBorder)}
+            />
           </div>
         </aside>
 
@@ -355,6 +388,16 @@ export function StudioExplorer({
             skin={entry.skin}
             tokens={tokens}
             copy={sampleCopy}
+          />
+
+          <ContrastReadout
+            ink={tokens.surface.ink}
+            canvas={tokens.surface.canvas}
+            accent={config.accent}
+            accentFg={accentFg}
+            raised={tokens.surface.raised}
+            glass={config.glass}
+            surfaceAlpha={config.glass ? STUDIO_GLASS_ALPHA : 100}
           />
         </div>
       </div>

@@ -75,6 +75,8 @@ export function composeDesignSystem(config: StudioConfig): StudioExportBundle {
         name: "density",
         value: `${density.name} · ${density.rowHeight}px row / ${density.padding}px padding`,
       },
+      { name: "border", value: normalized.border },
+      { name: "surface", value: normalized.glass ? "frosted glass" : "solid" },
     ],
     rule: "Apply these atom values consistently; do not introduce off-scale radii, shadows, or spacing.",
   });

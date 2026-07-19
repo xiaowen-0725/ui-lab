@@ -9,6 +9,8 @@ export {
   STUDIO_DENSITIES,
   STUDIO_ELEVATIONS,
   STUDIO_FONT_PAIRINGS,
+  STUDIO_GLASS_ALPHA,
+  STUDIO_GLASS_BLUR,
   STUDIO_RADII,
   STUDIO_STARTER_PRESETS,
   STUDIO_SURFACES,
@@ -17,6 +19,7 @@ export {
 } from "@/lib/studio/presets";
 export { studioConfigToEntry, studioConfigToSkin } from "@/lib/studio/skin";
 export type {
+  StudioBorder,
   StudioConfig,
   StudioExportBundle,
   StudioResolvedTokens,
