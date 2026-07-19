@@ -1,10 +1,29 @@
 {
-  "name": "ui-lab",
+  "name": "uilab-cli",
   "version": "0.1.0",
-  "private": true,
+  "description": "Discover and fetch the UI Lab visual vocabulary — components, design tokens, icons, styles, palettes, and design systems — from your terminal.",
   "type": "module",
   "bin": { "ui-lab": "./dist/index.js" },
-  "files": ["dist", "catalog.snapshot.json"],
+  "files": ["dist", "catalog.snapshot.json", "README.md"],
+  "keywords": [
+    "ui-lab",
+    "shadcn",
+    "registry",
+    "components",
+    "design-tokens",
+    "icons",
+    "cli",
+    "ai-agents",
+    "frontend"
+  ],
+  "homepage": "https://ui-lab-ten.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaowen-0725/ui-lab.git",
+    "directory": "cli"
+  },
+  "license": "MIT",
+  "engines": { "node": ">=18" },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc --noEmit -p tsconfig.json"
