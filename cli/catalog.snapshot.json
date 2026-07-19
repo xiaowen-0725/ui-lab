@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-19T06:48:12.094Z",
+  "generatedAt": "2026-07-19T09:02:45.106Z",
   "count": 134,
   "items": [
     {
@@ -14,7 +14,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/tilt-card",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/tilt-card",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/tilt-card.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/tilt-card"
       }
     },
@@ -30,7 +30,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/button",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/button",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/button.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/button"
       }
     },
@@ -46,7 +46,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/marquee",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/marquee",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/marquee.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/marquee"
       }
     },
@@ -62,7 +62,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/tabs",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/tabs",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/tabs.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/tabs"
       }
     },
@@ -78,7 +78,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/switch",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/switch",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/switch.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/switch"
       }
     },
@@ -94,7 +94,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/input",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/input",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/input.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/input"
       }
     },
@@ -110,7 +110,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/select",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/select",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/select.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/select"
       }
     },
@@ -126,7 +126,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/checkbox",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/checkbox",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/checkbox.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/checkbox"
       }
     },
@@ -142,7 +142,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/radio",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/radio",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/radio.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/radio"
       }
     },
@@ -158,7 +158,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/bottom-sheet",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bottom-sheet",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bottom-sheet.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/bottom-sheet"
       }
     },
@@ -174,7 +174,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/shared-layout-bg",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/shared-layout-bg",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/shared-layout-bg.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/shared-layout-bg"
       }
     },
@@ -190,7 +190,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/preview-rail",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/preview-rail",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/preview-rail.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/preview-rail"
       }
     },
@@ -206,7 +206,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/dock",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/dock",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/dock.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/dock"
       }
     },
@@ -222,7 +222,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/tooltip",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/tooltip",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/tooltip.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/tooltip"
       }
     },
@@ -238,7 +238,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/popover",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/popover",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/popover.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/popover"
       }
     },
@@ -254,7 +254,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/morphing-modal",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/morphing-modal",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/morphing-modal.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/morphing-modal"
       }
     },
@@ -270,7 +270,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/text-animation",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/text-animation",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/text-animation.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/text-animation"
       }
     },
@@ -286,7 +286,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/number",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/number",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/number.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/number"
       }
     },
@@ -302,7 +302,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/animated-badge",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-badge",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-badge.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-badge"
       }
     },
@@ -318,7 +318,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/action-swap",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/action-swap",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/action-swap.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/action-swap"
       }
     },
@@ -334,7 +334,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/animated-toast-stack",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-toast-stack",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-toast-stack.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-toast-stack"
       }
     },
@@ -350,7 +350,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/theme-toggle",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/theme-toggle",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/theme-toggle.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/theme-toggle"
       }
     },
@@ -366,7 +366,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/bouncy-accordion",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bouncy-accordion",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bouncy-accordion.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/bouncy-accordion"
       }
     },
@@ -382,7 +382,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/drawer",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/drawer",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/drawer.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/drawer"
       }
     },
@@ -398,7 +398,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/scroll-animation",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/scroll-animation",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/scroll-animation.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/scroll-animation"
       }
     },
@@ -414,7 +414,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/range-slider",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/range-slider",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/range-slider.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/range-slider"
       }
     },
@@ -430,7 +430,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/wheel-picker",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/wheel-picker",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/wheel-picker.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/wheel-picker"
       }
     },
@@ -446,7 +446,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/table",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/table",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/table.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/table"
       }
     },
@@ -462,7 +462,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/shader-background",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/shader-background",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/shader-background.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/shader-background"
       }
     },
@@ -478,7 +478,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/cylinder-carousel",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/cylinder-carousel",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/cylinder-carousel.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/cylinder-carousel"
       }
     },
@@ -494,7 +494,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/loader",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/loader",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/loader.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/loader"
       }
     },
@@ -510,7 +510,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/text-scramble",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/text-scramble",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/text-scramble.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/text-scramble"
       }
     },
@@ -526,7 +526,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/webgl-background",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/webgl-background",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/webgl-background.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/webgl-background"
       }
     },
@@ -542,7 +542,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/star-border",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/star-border",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/star-border.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/star-border"
       }
     },
@@ -558,7 +558,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/bounce-cards",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bounce-cards",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bounce-cards.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/bounce-cards"
       }
     },
@@ -574,7 +574,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/glare-hover",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/glare-hover",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/glare-hover.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/glare-hover"
       }
     },
@@ -590,7 +590,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/skeleton",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/skeleton",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/skeleton.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/skeleton"
       }
     },
@@ -606,7 +606,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/scroll-hint",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/scroll-hint",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/scroll-hint.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/scroll-hint"
       }
     },
@@ -622,7 +622,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/motion/animated-icon",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon"
       }
     },
@@ -638,7 +638,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/thread-list",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/thread-list",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/thread-list.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/thread-list"
       }
     },
@@ -654,7 +654,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/artifact-panel",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/artifact-panel",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/artifact-panel.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/artifact-panel"
       }
     },
@@ -670,7 +670,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/agent-inbox",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-inbox",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-inbox.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/agent-inbox"
       }
     },
@@ -686,7 +686,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/agent-trace",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-trace",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-trace.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/agent-trace"
       }
     },
@@ -702,7 +702,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/streaming-json",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/streaming-json",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/streaming-json.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/streaming-json"
       }
     },
@@ -718,7 +718,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/citations",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/citations",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/citations.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/citations"
       }
     },
@@ -734,7 +734,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/voice-orb",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/voice-orb",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/voice-orb.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/voice-orb"
       }
     },
@@ -750,7 +750,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/activity-stats",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/activity-stats",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/activity-stats.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/activity-stats"
       }
     },
@@ -766,7 +766,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/settings-panel",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/settings-panel",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/settings-panel.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/settings-panel"
       }
     },
@@ -782,7 +782,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/agent-thread",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-thread",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-thread.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/agent-thread"
       }
     },
@@ -798,7 +798,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/agent-composer",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-composer",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-composer.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/agent-composer"
       }
     },
@@ -814,7 +814,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/agent-workbench",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-workbench",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-workbench.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/agent-workbench"
       }
     },
@@ -830,7 +830,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/availability-scheduler",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/availability-scheduler",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/availability-scheduler.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/availability-scheduler"
       }
     },
@@ -846,7 +846,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/swap",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/swap",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/swap.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/swap"
       }
     },
@@ -862,7 +862,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/dynamic-island",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/dynamic-island",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/dynamic-island.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/dynamic-island"
       }
     },
@@ -878,7 +878,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/command-palette",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/command-palette",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/command-palette.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/command-palette"
       }
     },
@@ -894,7 +894,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/expandable-action-bar",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/expandable-action-bar",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/expandable-action-bar.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/expandable-action-bar"
       }
     },
@@ -910,7 +910,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/overflow-actions",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/overflow-actions",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/overflow-actions.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/overflow-actions"
       }
     },
@@ -926,7 +926,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/expandable-tabs",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/expandable-tabs",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/expandable-tabs.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/expandable-tabs"
       }
     },
@@ -942,7 +942,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/swipeable-list",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/swipeable-list",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/swipeable-list.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/swipeable-list"
       }
     },
@@ -958,7 +958,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/file-upload",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/file-upload",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/file-upload.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/file-upload"
       }
     },
@@ -974,7 +974,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/prediction-market",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/prediction-market",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/prediction-market.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/prediction-market"
       }
     },
@@ -990,7 +990,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/wallet-card",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/wallet-card",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/wallet-card.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/wallet-card"
       }
     },
@@ -1006,7 +1006,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/otp-input",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/otp-input",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/otp-input.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/otp-input"
       }
     },
@@ -1022,7 +1022,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/bloom-menu",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bloom-menu",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bloom-menu.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/bloom-menu"
       }
     },
@@ -1038,7 +1038,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/feedback-widget",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/feedback-widget",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/feedback-widget.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/feedback-widget"
       }
     },
@@ -1054,7 +1054,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/components/blocks/not-found",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/not-found",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/not-found.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/not-found"
       }
     },
@@ -1299,7 +1299,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons#draw",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
         "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"draw\" icon={AnyLucideIcon} />\n\nInteraction: On hover, animate the icon stroke with pathLength from 0 to 1 so it draws itself in over ~0.6s."
       }
@@ -1323,7 +1323,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons#wiggle",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
         "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"wiggle\" icon={AnyLucideIcon} />\n\nInteraction: On hover, rotate the icon in a keyframe wiggle of [0, -14, 10, -6, 0] degrees over ~0.6s."
       }
@@ -1347,7 +1347,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons#spin",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
         "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"spin\" icon={AnyLucideIcon} />\n\nInteraction: On hover, rotate the icon 360 degrees once with an easeInOut curve over ~0.6s."
       }
@@ -1371,7 +1371,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons#bounce",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
         "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"bounce\" icon={AnyLucideIcon} />\n\nInteraction: On hover, bounce the icon vertically with a spring, y from 0 to 4 and back, stiffness ~400."
       }
@@ -1395,7 +1395,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons#pop",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
         "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"pop\" icon={AnyLucideIcon} />\n\nInteraction: On hover, pop the icon scale from 1 to 1.25 and back with a spring."
       }
@@ -1419,7 +1419,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons#pulse",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
         "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"pulse\" icon={AnyLucideIcon} />\n\nInteraction: While hovered, loop the icon scale between 1 and 1.15 every ~0.8s."
       }
@@ -1443,7 +1443,7 @@
       "pageUrl": "https://ui-lab-ten.vercel.app/atoms?cat=icons#nudge",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
+        "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
         "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"nudge\" icon={AnyLucideIcon} />\n\nInteraction: On hover, nudge the icon along x by 4px and back with a spring."
       }

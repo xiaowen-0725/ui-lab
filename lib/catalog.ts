@@ -90,7 +90,7 @@ async function buildComponentItems(): Promise<CatalogItem[]> {
     pageUrl: component.page_url,
     fetch: {
       method: "shadcn",
-      command: `npx shadcn@latest add ${SITE_URL}/r/${component.slug}`,
+      command: `npx shadcn@latest add ${SITE_URL}/r/${component.slug}.json`,
       endpoint: component.detail_url,
     },
   }));
@@ -204,7 +204,7 @@ function buildIconMotionItems(): CatalogItem[] {
     pageUrl: `${SITE_URL}/atoms?cat=icons#${entry.slug}`,
     fetch: {
       method: "shadcn",
-      command: `npx shadcn@latest add ${SITE_URL}/r/animated-icon`,
+      command: `npx shadcn@latest add ${SITE_URL}/r/animated-icon.json`,
       endpoint: `${SITE_URL}/r/animated-icon`,
       value: `Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant="${entry.slug}" icon={AnyLucideIcon} />\n\nInteraction: ${entry.prompt}`,
     },

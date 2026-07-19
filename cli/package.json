@@ -1,6 +1,6 @@
 {
   "name": "uilab-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Discover and fetch the UI Lab visual vocabulary — components, design tokens, icons, styles, palettes, and design systems — from your terminal.",
   "type": "module",
   "bin": {
