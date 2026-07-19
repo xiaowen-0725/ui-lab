@@ -206,7 +206,7 @@ function buildIconMotionItems(): CatalogItem[] {
       method: "shadcn",
       command: `npx shadcn@latest add ${SITE_URL}/r/animated-icon`,
       endpoint: `${SITE_URL}/r/animated-icon`,
-      value: entry.prompt,
+      value: `Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant="${entry.slug}" icon={AnyLucideIcon} />\n\nInteraction: ${entry.prompt}`,
     },
   }));
 }

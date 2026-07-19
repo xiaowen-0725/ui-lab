@@ -149,7 +149,7 @@
     "iconStyleMoreTitle": "想要成套图标？去这些库拿",
     "iconStyleMoreHint": "上面六种是自绘样例，用来给图标口音点名；成套图标直接去下面这些库（多为 MIT）。",
     "iconMotionTitle": "七种图标动效口音",
-    "iconMotionHint": "hover 播放的图标微交互，用项目已有的 motion + lucide 实现；这里是样例，成套图标去下方的库拿。",
+    "iconMotionHint": "这是七种 hover 动效「模式」，可套在任意 lucide 图标上（lucide 有 1500+ 个）——下面每个只挑了一个代表图标做样例。要成套或别的风格的图标，去下方的库拿。",
     "iconMotionPromptLabel": "点击复制给 AI 的交互描述",
     "iconMotionHoverHint": "悬停播放",
     "iconMotionMoreTitle": "想要更多？去这些库拿",

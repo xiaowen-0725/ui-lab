@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-19T06:41:24.819Z",
+  "generatedAt": "2026-07-19T06:48:12.094Z",
   "count": 134,
   "items": [
     {
@@ -1301,7 +1301,7 @@
         "method": "shadcn",
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
-        "value": "On hover, animate the icon stroke with pathLength from 0 to 1 so it draws itself in over ~0.6s."
+        "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"draw\" icon={AnyLucideIcon} />\n\nInteraction: On hover, animate the icon stroke with pathLength from 0 to 1 so it draws itself in over ~0.6s."
       }
     },
     {
@@ -1325,7 +1325,7 @@
         "method": "shadcn",
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
-        "value": "On hover, rotate the icon in a keyframe wiggle of [0, -14, 10, -6, 0] degrees over ~0.6s."
+        "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"wiggle\" icon={AnyLucideIcon} />\n\nInteraction: On hover, rotate the icon in a keyframe wiggle of [0, -14, 10, -6, 0] degrees over ~0.6s."
       }
     },
     {
@@ -1349,7 +1349,7 @@
         "method": "shadcn",
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
-        "value": "On hover, rotate the icon 360 degrees once with an easeInOut curve over ~0.6s."
+        "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"spin\" icon={AnyLucideIcon} />\n\nInteraction: On hover, rotate the icon 360 degrees once with an easeInOut curve over ~0.6s."
       }
     },
     {
@@ -1373,7 +1373,7 @@
         "method": "shadcn",
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
-        "value": "On hover, bounce the icon vertically with a spring, y from 0 to 4 and back, stiffness ~400."
+        "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"bounce\" icon={AnyLucideIcon} />\n\nInteraction: On hover, bounce the icon vertically with a spring, y from 0 to 4 and back, stiffness ~400."
       }
     },
     {
@@ -1397,7 +1397,7 @@
         "method": "shadcn",
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
-        "value": "On hover, pop the icon scale from 1 to 1.25 and back with a spring."
+        "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"pop\" icon={AnyLucideIcon} />\n\nInteraction: On hover, pop the icon scale from 1 to 1.25 and back with a spring."
       }
     },
     {
@@ -1421,7 +1421,7 @@
         "method": "shadcn",
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
-        "value": "While hovered, loop the icon scale between 1 and 1.15 every ~0.8s."
+        "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"pulse\" icon={AnyLucideIcon} />\n\nInteraction: While hovered, loop the icon scale between 1 and 1.15 every ~0.8s."
       }
     },
     {
@@ -1445,7 +1445,7 @@
         "method": "shadcn",
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon",
-        "value": "On hover, nudge the icon along x by 4px and back with a spring."
+        "value": "Install the animated-icon component, then apply this pattern to ANY lucide icon (there are 1500+):\n<AnimatedIcon variant=\"nudge\" icon={AnyLucideIcon} />\n\nInteraction: On hover, nudge the icon along x by 4px and back with a spring."
       }
     },
     {

@@ -84,6 +84,9 @@ export function AnimatedIconsSection() {
       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
         {t("iconMotionHint")}
       </p>
+      <p className="mt-3 inline-block rounded-lg border border-border bg-card/30 px-2.5 py-1 font-mono text-xs text-muted-foreground">
+        {'<AnimatedIcon variant="wiggle" icon={Bell} />'}
+      </p>
       <div className="mt-6 grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
         {ICON_MOTIONS.map((entry) => (
           <AtomCard
