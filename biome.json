@@ -4,7 +4,6 @@
     "includes": [
       "**",
       "!node_modules",
-      "!mcp",
       "!.next",
       "!build",
       "!out",
