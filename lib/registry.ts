@@ -880,6 +880,25 @@ export const registry: CategoryEntry[] = [
     descriptionZh: "基于 UI Lab 动效原语组合而成、可直接用于产品的复合组件。",
     components: [
       {
+        slug: "recording-card",
+        name: "Recording Card",
+        nameZh: "录屏演示卡",
+        description:
+          "Presents any content as a screen recording: wallpaper and scrim behind a window mock, a webcam bubble that doubles as the play control, a running timer with a blinking record dot, and a “tap for sound” pill that slides back behind the bubble once playing. Sized entirely in container-query units, so one card scales from grid thumbnail to full-width hero with no breakpoints — plus an optional aspect-locked theatre view.",
+        descriptionZh:
+          "把任意内容呈现成一段录屏:窗口 mock 背后是壁纸与压暗层,摄像头气泡兼作播放按钮,计时器带闪烁录制红点,「点击听声音」药丸在播放后滑回气泡背后藏起来。全部尺寸用容器查询单位写成,同一张卡从网格缩略图到整宽 hero 都是等比的,不需要任何断点;另可开启锁定 16:9 的剧场视图。",
+        file: "components/motion/recording-card.tsx",
+        badge: "new",
+        launchedAt: "2026-07-26",
+        keywords: [
+          "screen recording card react",
+          "loom style video card",
+          "webcam bubble overlay",
+          "product demo card",
+          "container query scaling",
+        ],
+      },
+      {
         slug: "thread-list",
         name: "Thread List",
         nameZh: "会话列表",
