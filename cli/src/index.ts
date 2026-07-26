@@ -1,6 +1,8 @@
 #!/usr/bin/env node
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { type CatalogItem, loadCatalog } from "./catalog-source.js";
+import { renderPickerHtml } from "./picker.js";
 
 const KIND_ORDER = [
   "component",
@@ -29,7 +31,7 @@ interface ParsedArgv {
   flags: Flags;
 }
 
-const BOOLEAN_FLAGS = new Set(["json", "help", "version"]);
+const BOOLEAN_FLAGS = new Set(["json", "help", "version", "picker"]);
 
 function parseArgv(argv: string[]): ParsedArgv {
   const positionals: string[] = [];
@@ -116,6 +118,32 @@ function reportAmbiguous(slug: string, matches: CatalogItem[]): never {
 function reportNotFound(slug: string): never {
   console.error(`No item found for slug "${slug}".`);
   process.exit(1);
+}
+
+// --- theme kits (design-system + studio-preset items carrying themePreview) -
+
+function themeItems(items: CatalogItem[]): CatalogItem[] {
+  return items.filter((item) => item.themePreview);
+}
+
+function findThemeMatches(
+  items: CatalogItem[],
+  slug: string,
+  kind: string | undefined,
+): CatalogItem[] {
+  const slugLower = slug.toLowerCase();
+  return themeItems(items).filter((item) => {
+    if (item.slug.toLowerCase() !== slugLower) return false;
+    if (kind && item.kind !== kind) return false;
+    return true;
+  });
+}
+
+function modesLabel(item: CatalogItem): string {
+  const modes = item.themePreview?.modes ?? [];
+  if (modes.length > 1) return `dual-mode (${modes.join(" + ")})`;
+  const mode = modes[0] ?? "unknown";
+  return `single-mode (${mode}) — pair with graphite for dual`;
 }
 
 // --- list ---------------------------------------------------------------
@@ -279,6 +307,102 @@ function cmdAdd(items: CatalogItem[], slug: string | undefined, flags: Flags): v
   console.log(rewritePmCommand(item.fetch.command ?? "", pm));
 }
 
+// --- theme / themes ---------------------------------------------------------
+
+function suggestThemeSlugs(items: CatalogItem[], slug: string, limit = 5): string[] {
+  const scored = themeItems(items)
+    .map((item) => ({ item, score: scoreItem(item, slug) }))
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score);
+  return scored.slice(0, limit).map((entry) => entry.item.slug);
+}
+
+function reportThemeNotFound(items: CatalogItem[], slug: string): never {
+  const suggestions = suggestThemeSlugs(items, slug);
+  if (suggestions.length > 0) {
+    console.error(
+      `No theme kit found for slug "${slug}". Did you mean: ${suggestions.join(", ")}? Run \`ui-lab themes\` to list all kits.`,
+    );
+  } else {
+    console.error(`No theme kit found for slug "${slug}". Run \`ui-lab themes\` to list all kits.`);
+  }
+  process.exit(1);
+}
+
+function cmdTheme(items: CatalogItem[], slug: string | undefined, flags: Flags): void {
+  if (!slug) {
+    console.error(
+      "Usage: ui-lab theme <slug> [--kind design-system|studio-preset] [--pm bun|npm|pnpm|yarn] [--json]",
+    );
+    process.exit(1);
+  }
+
+  const kind = stringFlag(flags.kind);
+  const matches = findThemeMatches(items, slug, kind);
+
+  if (matches.length === 0) reportThemeNotFound(items, slug);
+  if (matches.length > 1) reportAmbiguous(slug, matches);
+
+  const item = matches[0];
+
+  if (flags.json) {
+    console.log(JSON.stringify(item, null, 2));
+    return;
+  }
+
+  const pm = stringFlag(flags.pm);
+  const command = rewritePmCommand(item.fetch.command ?? "", pm);
+  const endpoint = item.fetch.endpoint ?? "";
+
+  console.log(`${item.name} (${item.nameZh})`);
+  console.log(item.kind);
+  console.log(modesLabel(item));
+  console.log("");
+  console.log("shadcn install:");
+  console.log(`  ${command}`);
+  console.log("");
+  console.log(`CSS endpoint: ${endpoint}`);
+  console.log(`Not using shadcn? curl ${endpoint} >> app/globals.css`);
+}
+
+function writePickerFile(themes: CatalogItem[], outFlag: string | undefined): void {
+  const fileName = outFlag ?? "ui-lab-theme-picker.html";
+  const outPath = resolve(process.cwd(), fileName);
+
+  if (existsSync(outPath)) {
+    console.error(
+      `Refusing to overwrite existing file: ${outPath}. Pass --out <file> to pick a different path.`,
+    );
+    process.exit(1);
+  }
+
+  const html = renderPickerHtml(themes);
+  writeFileSync(outPath, html, "utf8");
+  console.error(`Wrote ${themes.length} theme kits to ${outPath}`);
+  console.error(`open ${outPath}`);
+}
+
+function cmdThemes(items: CatalogItem[], flags: Flags): void {
+  const themes = themeItems(items);
+
+  if (flags.picker) {
+    writePickerFile(themes, stringFlag(flags.out));
+    return;
+  }
+
+  if (flags.json) {
+    console.log(JSON.stringify(themes, null, 2));
+    return;
+  }
+
+  for (const item of themes) {
+    const slug = item.slug.padEnd(16);
+    const name = `${item.name} (${item.nameZh})`.padEnd(28);
+    const modes = modesLabel(item).padEnd(42);
+    console.log(`${slug} ${name} ${modes} [${item.kind}]`);
+  }
+}
+
 // --- help / version ---------------------------------------------------------
 
 const HELP_TEXT = `ui-lab — discover and fetch this project's UI vocabulary from the terminal
@@ -291,6 +415,12 @@ Commands:
   search <query> [--json]               Rank items matching a query
   show <slug> [--kind <kind>] [--json]  Show one item's detail + how to fetch it
   add <slug> [--pm bun|npm|pnpm|yarn]   Print the shadcn install command for a component
+  theme <slug> [--pm <pm>] [--json]     Show one theme kit: modes, shadcn install command,
+                                         and CSS endpoint (design-system/studio-preset only)
+  themes [--picker] [--out <file>]      List every theme kit, or with --picker generate a
+                                         self-contained HTML picker page you can open in a
+                                         browser (writes ./ui-lab-theme-picker.html unless
+                                         --out names a different path)
 
 Global flags:
   --registry <url>   Fetch the catalog from a live deployment instead of the bundled
@@ -298,7 +428,7 @@ Global flags:
   --json              Emit machine-readable JSON on stdout
   --kind <kind>       Filter/disambiguate by kind: component, atom-set, icon-style,
                       icon-motion, style, palette, studio-preset, design-system
-  --pm <pm>           Package manager used to rewrite \`add\`'s printed install command
+  --pm <pm>           Package manager used to rewrite \`add\`/\`theme\`'s printed install command
   -h, --help          Show this help
   -v, --version       Print the CLI version
 
@@ -307,6 +437,9 @@ Examples:
   ui-lab search "icon motion"
   ui-lab show minimal-light --json
   ui-lab add tilt-card --pm bun
+  ui-lab theme nightflight
+  ui-lab themes
+  ui-lab themes --picker --out theme-picker.html
 
 Data sources:
   By default ui-lab reads from a snapshot bundled at build time (cli/catalog.snapshot.json)
@@ -360,6 +493,12 @@ async function main(): Promise<void> {
       break;
     case "add":
       cmdAdd(items, positionals[0], flags);
+      break;
+    case "theme":
+      cmdTheme(items, positionals[0], flags);
+      break;
+    case "themes":
+      cmdThemes(items, flags);
       break;
     default:
       console.error(`Unknown command: "${command}". Run \`ui-lab --help\` for usage.`);

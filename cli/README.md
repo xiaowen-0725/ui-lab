@@ -66,6 +66,33 @@ use `show` instead.
 ui-lab add tilt-card --pm bun
 ```
 
+### `theme <slug>`
+
+Show one theme kit (a `design-system` or `studio-preset` item that carries a
+`themePreview`): its modes (single-mode kits note that they pair with
+`graphite` for dual-mode coverage), the shadcn install command (rewritten for
+your package manager via `--pm`), and the CSS endpoint for non-shadcn
+projects.
+
+```sh
+ui-lab theme nightflight
+ui-lab theme graphite --json
+```
+
+### `themes [--picker] [--out <file>]`
+
+With no flags, lists every theme kit (slug, name, modes, kind) in a table.
+With `--picker`, generates a self-contained, zero-dependency HTML page —
+one card per kit with a mini live-token preview — and writes it to
+`ui-lab-theme-picker.html` in the current directory (or the path given via
+`--out`). Refuses to overwrite an existing file; pass a different `--out`
+path instead. Open the file in any browser — no server or build step needed.
+
+```sh
+ui-lab themes
+ui-lab themes --picker --out theme-picker.html
+```
+
 ## Global flags
 
 | Flag | Meaning |
@@ -73,7 +100,7 @@ ui-lab add tilt-card --pm bun
 | `--registry <url>` | Fetch the catalog from a live deployment's `/catalog.json` instead of the bundled snapshot |
 | `--json` | Emit machine-readable JSON on stdout |
 | `--kind <kind>` | Filter or disambiguate by kind |
-| `--pm <bun\|npm\|pnpm\|yarn>` | Package manager used to rewrite `add`'s printed install command |
+| `--pm <bun\|npm\|pnpm\|yarn>` | Package manager used to rewrite `add`/`theme`'s printed install command |
 | `-h`, `--help` | Show usage help |
 | `-v`, `--version` | Print the CLI version |
 
