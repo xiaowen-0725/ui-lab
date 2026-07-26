@@ -31,6 +31,7 @@ import {
 } from "@/lib/atoms";
 import { DESIGN_SYSTEMS } from "@/lib/layouts";
 import { PALETTES, paletteToCss } from "@/lib/palettes";
+import { allComponents } from "@/lib/registry";
 import { buildIndex } from "@/lib/registry-server";
 import { SITE_URL } from "@/lib/site";
 import { STYLES } from "@/lib/styles";
@@ -81,24 +82,36 @@ export type CatalogItem = {
 
 async function buildComponentItems(): Promise<CatalogItem[]> {
   const index = await buildIndex();
-  return index.components.map((component): CatalogItem => ({
-    kind: "component",
-    category: component.category,
-    slug: component.slug,
-    name: component.name,
-    // buildIndex()'s component entries don't carry nameZh/descriptionZh —
-    // fall back to the English fields as instructed.
-    nameZh: component.name,
-    aliases: [],
-    description: component.description,
-    descriptionZh: component.description,
-    pageUrl: component.page_url,
-    fetch: {
-      method: "shadcn",
-      command: `npx shadcn@latest add ${SITE_URL}/r/${component.slug}.json`,
-      endpoint: component.detail_url,
-    },
-  }));
+  // buildIndex() shapes the public registry endpoint and carries only its
+  // English fields, so the Chinese names and keywords are read back off the
+  // registry itself. Without this every component reached agents with its
+  // English name in nameZh and no aliases at all — searching the catalog for
+  // 「网点」 or any Chinese name found nothing, while atoms, styles and
+  // palettes matched fine.
+  const entries = new Map(
+    allComponents().map((entry) => [`${entry.category.slug}/${entry.slug}`, entry]),
+  );
+
+  return index.components.map((component): CatalogItem => {
+    const entry = entries.get(`${component.category}/${component.slug}`);
+
+    return {
+      kind: "component",
+      category: component.category,
+      slug: component.slug,
+      name: component.name,
+      nameZh: entry?.nameZh ?? component.name,
+      aliases: entry?.keywords ?? [],
+      description: component.description,
+      descriptionZh: entry?.descriptionZh ?? component.description,
+      pageUrl: component.page_url,
+      fetch: {
+        method: "shadcn",
+        command: `npx shadcn@latest add ${SITE_URL}/r/${component.slug}.json`,
+        endpoint: component.detail_url,
+      },
+    };
+  });
 }
 
 type AtomSetSpec = {

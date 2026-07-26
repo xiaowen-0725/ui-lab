@@ -23,6 +23,7 @@
 - **`star-border` 预览两个环都给了可见色并错峰**:原先按钮环用 `currentColor`(即 `text-white`),浅色主题下白环落在白底上完全看不见。
 
 ### 修复
+- **组件的中文名与别名此前没有进入 AI 面向的 catalog**:`buildComponentItems` 把 `nameZh` 直接填成英文名、`aliases` 填成空数组(注释标注为「as instructed」),导致 74 个组件在 `/catalog.json`、`/llms.txt` 与 `ui-lab` CLI 里全是英文名且无别名——搜「网点」「录屏」「倾斜」都为空,而 atoms / styles / palettes 的中文一直正常。改为按 `category/slug` 从 registry 回查补全 `nameZh`/`descriptionZh`/`aliases`(registry 里这些数据一直都在);新增回归测试锁死这条链路。
 - **「原子」噪点颗粒配方两处平铺缺陷**:SVG 缺 `width`/`height` 导致没有固有尺寸、整张被拉伸到容器而根本没在平铺;`feTurbulence` 缺 `stitchTiles='stitch'`,每块拼贴边缘湍流重新起算而留下可见接缝。补上两者并显式 `background-size: 120px 120px`。同时加 `feColorMatrix` 把湍流压成中性灰阶——原配方直接用带色噪声,在中性表面上读作彩色噪点(实测浅色态平均色度 0.82 → 0);按实测把叠加强度重新标定到与原配方等重(深色态均值 22.7 → 22.9,基底 18)。
 
 ## [0.10.0] - 2026-07-18
