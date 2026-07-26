@@ -6,6 +6,7 @@
 // module failing to build never takes down the others.
 
 import {
+  BACKGROUND_FADES,
   BACKGROUNDS,
   createBackgroundsExports,
   createLinesExports,
@@ -152,9 +153,12 @@ function buildAtomSetItems(): CatalogItem[] {
       slug: "backgrounds",
       name: "Background tokens",
       nameZh: "背景质感 token",
-      description: "Static CSS background recipes for texture.",
-      descriptionZh: "用于增加质感的静态 CSS 背景配方。",
-      designMarkdown: createBackgroundsExports(BACKGROUNDS).designMarkdown,
+      description:
+        "Static CSS background recipes for texture, plus fade masks that keep a texture from reading as wallpaper.",
+      descriptionZh:
+        "用于增加质感的静态 CSS 背景配方，外加让底纹不显得像壁纸的淡出遮罩。",
+      designMarkdown: createBackgroundsExports(BACKGROUNDS, BACKGROUND_FADES)
+        .designMarkdown,
     },
   ];
 

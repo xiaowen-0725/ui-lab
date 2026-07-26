@@ -154,13 +154,16 @@
     "iconMotionHoverHint": "hover to play",
     "iconMotionMoreTitle": "Want more? Get them from these libraries",
     "iconMotionMoreHint": "This lab only shows samples so you and your AI know what they look like. For full sets, head to these libraries.",
-    "backgroundsComparatorTitle": "Nine static textures, one paste away",
+    "backgroundsComparatorTitle": "Twelve static textures, one paste away",
     "backgroundsComparatorHint": "Each tile follows the current light or dark theme. Click a tile to copy that theme's complete CSS declaration.",
     "backgroundsIntro": "Paste-ready background texture recipes. Pure CSS, zero dependencies; for dynamic shader backgrounds, see the <webgl>webgl-background</webgl> component.",
-    "backgroundsValuesTitle": "Nine paired background recipes",
+    "backgroundsValuesTitle": "Twelve paired background recipes",
     "backgroundCssLabel": "Click to copy the complete CSS declaration",
     "copyBackground": "Copy {scheme} CSS for {name}",
-    "copiedBackground": "{name} CSS copied"
+    "copiedBackground": "{name} CSS copied",
+    "backgroundsFadesTitle": "Four fade masks that stop a texture reading as wallpaper",
+    "backgroundsFadesHint": "A fade is orthogonal to a texture — any recipe above can wear any mask. Each sample masks {texture}. Apply the mask to the texture layer, never the container: masking the container fades the content with it.",
+    "backgroundFadeCssLabel": "Click to copy the mask declaration"
   },
   "studio": {
     "eyebrow": "Design system generator",

@@ -11,7 +11,7 @@ import {
   renderDesignMarkdown,
   renderTailwindTheme,
 } from "@/lib/atoms/export";
-import { BACKGROUNDS } from "@/lib/atoms/backgrounds";
+import { BACKGROUND_FADES, BACKGROUNDS } from "@/lib/atoms/backgrounds";
 import { DENSITIES, SPACING_SCALE } from "@/lib/atoms/spacing";
 import { LINES } from "@/lib/atoms/lines";
 import { ICON_STYLES } from "@/lib/atoms/icons";
@@ -116,13 +116,58 @@ describe("atom category exports", () => {
 
     expect(Object.keys(result)).toEqual(["designMarkdown"]);
     expect(result.designMarkdown).toStartWith("## Backgrounds\n\n### Grid");
-    expect(result.designMarkdown.match(/^### /gm)).toHaveLength(9);
+    expect(result.designMarkdown.match(/^### /gm)).toHaveLength(BACKGROUNDS.length);
     expect(result.designMarkdown).toContain(
       "background-size: 24px 24px;\n```\n\n**Use when:** For dashboard and technical backdrops.",
     );
     expect(result.designMarkdown).toContain(
       "rgb(255 255 255 / 0.07) 1px, transparent 1px",
     );
+  });
+
+  test("omits the fade section entirely when no fades are passed", () => {
+    const result = createBackgroundsExports(BACKGROUNDS);
+
+    expect(result.designMarkdown).not.toContain("Fade mask");
+    expect(result.designMarkdown).not.toContain("**Fade rule:**");
+  });
+
+  test("appends fade masks after the textures and teaches the layer rule", () => {
+    const result = createBackgroundsExports(BACKGROUNDS, BACKGROUND_FADES);
+
+    expect(result.designMarkdown.match(/^### /gm)).toHaveLength(
+      BACKGROUNDS.length + BACKGROUND_FADES.length,
+    );
+    expect(result.designMarkdown.indexOf("### Fade mask — Fade Bottom")).toBeGreaterThan(
+      result.designMarkdown.indexOf("### Grid"),
+    );
+    expect(result.designMarkdown).toContain(
+      "mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%);",
+    );
+    // The rule that keeps a mask off the container is the whole point of shipping fades.
+    expect(result.designMarkdown).toContain(
+      "Masking the container fades the content along with the texture.",
+    );
+  });
+
+  test("keeps every halftone step on its own cell size so the ladder stays distinct", () => {
+    const cells = BACKGROUNDS.filter((entry) => entry.slug.startsWith("halftone-")).map(
+      (entry) => entry.dark.match(/background-size: (\d+)px/)?.[1],
+    );
+
+    expect(cells).toEqual(["5", "7", "11"]);
+  });
+
+  test("tiles the noise recipe seamlessly instead of stretching one instance", () => {
+    const noise = BACKGROUNDS.find((entry) => entry.slug === "noise");
+
+    for (const value of [noise?.light, noise?.dark]) {
+      // Without stitchTiles the turbulence restarts at every tile edge; without an
+      // intrinsic width/height the SVG stretches to the box instead of tiling.
+      expect(value).toContain("stitchTiles='stitch'");
+      expect(value).toContain("width='120' height='120'");
+      expect(value).toContain("background-size: 120px 120px;");
+    }
   });
 
   test("maps motion curves, spring physics, and durations without losing values", () => {

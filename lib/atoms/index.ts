@@ -1,4 +1,4 @@
-import { BACKGROUNDS } from "@/lib/atoms/backgrounds";
+import { BACKGROUND_FADES, BACKGROUNDS } from "@/lib/atoms/backgrounds";
 import { ICON_MOTIONS } from "@/lib/atoms/icon-motion";
 import { ICON_STYLES } from "@/lib/atoms/icons";
 import { LINES } from "@/lib/atoms/lines";
@@ -49,5 +49,5 @@ export const ATOM_SEARCH_ITEMS: readonly AtomSearchItem[] = [
   ...toAtomSearchItems("spacing", [...SPACING_SCALE, ...DENSITIES]),
   ...toAtomSearchItems("lines", LINES),
   ...toAtomSearchItems("icons", [...ICON_STYLES, ...ICON_MOTIONS]),
-  ...toAtomSearchItems("backgrounds", BACKGROUNDS),
+  ...toAtomSearchItems("backgrounds", [...BACKGROUNDS, ...BACKGROUND_FADES]),
 ];

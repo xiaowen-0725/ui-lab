@@ -154,13 +154,16 @@
     "iconMotionHoverHint": "悬停播放",
     "iconMotionMoreTitle": "想要更多？去这些库拿",
     "iconMotionMoreHint": "本 lab 只提供样例，让你和 AI 知道它长这样；要成套图标，直接去下面这些库。",
-    "backgroundsComparatorTitle": "九种静态质感，一次粘贴即用",
+    "backgroundsComparatorTitle": "十二种静态质感，复制即用",
     "backgroundsComparatorHint": "每张瓦片自动跟随当前 light / dark 主题；点击瓦片即可复制该主题的完整 CSS 声明。",
     "backgroundsIntro": "可直接粘贴的背景底纹配方。纯 CSS、零依赖；需要动态着色器背景见 <webgl>webgl-background</webgl> 组件。",
-    "backgroundsValuesTitle": "九组深浅成对的背景配方",
+    "backgroundsValuesTitle": "十二组明暗成对的背景配方",
     "backgroundCssLabel": "点击复制完整 CSS 声明",
     "copyBackground": "复制{name}的{scheme} CSS",
-    "copiedBackground": "已复制{name} CSS"
+    "copiedBackground": "已复制{name} CSS",
+    "backgroundsFadesTitle": "四种淡出遮罩，让底纹不再像壁纸",
+    "backgroundsFadesHint": "遮罩与质感是两个正交的维度——上面任何一条配方都能套任何一种遮罩。示例统一用 {texture} 演示。遮罩只加在质感层上，不要加在容器上：容器一戴遮罩，内容会跟着一起淡掉。",
+    "backgroundFadeCssLabel": "点击复制遮罩声明"
   },
   "studio": {
     "eyebrow": "设计系统生成器",

@@ -1,5 +1,6 @@
 import type {
   BackgroundAtom,
+  BackgroundFadeAtom,
   DensityAtom,
   IconStyleAtom,
   LineAtom,
@@ -153,6 +154,7 @@ export function createIconsExports(icons: readonly IconStyleAtom[]): AtomExportB
 
 export function createBackgroundsExports(
   backgrounds: readonly BackgroundAtom[],
+  fades: readonly BackgroundFadeAtom[] = [],
 ): AtomExportBundle {
   const recipes = backgrounds
     .map(
@@ -174,12 +176,41 @@ ${entry.dark}
     )
     .join("\n\n");
 
+  const fadeRecipes = fades
+    .map(
+      (entry) => `### Fade mask — ${entry.name}
+
+\`\`\`css
+${entry.mask}
+\`\`\`
+
+**Use when:** ${entry.whenUse}`,
+    )
+    .join("\n\n");
+
+  const fadeSection = fades.length
+    ? `
+
+${fadeRecipes}
+
+**Fade rule:** A fade is orthogonal to a texture — any recipe above can wear any mask. Put the texture on its own layer and mask that layer, never the container:
+
+\`\`\`html
+<div class="relative">
+  <div class="pointer-events-none absolute inset-0" style="<texture>; <fade mask>"></div>
+  <!-- content sits above, unmasked -->
+</div>
+\`\`\`
+
+Masking the container fades the content along with the texture.`
+    : "";
+
   return {
     designMarkdown: `## Backgrounds
 
-${recipes}
+${recipes}${fadeSection}
 
-**Rule:** Use these static CSS recipes for texture; for dynamic shader effects, use the \`webgl-background\` component.`,
+**Rule:** Use these static CSS recipes for texture; for dynamic shader effects, use the \`webgl-background\` component. Tune any dot texture by its radius pair, not its opacity — halving both stops keeps the grid and quiets the screen.`,
   };
 }
 

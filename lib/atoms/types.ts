@@ -150,6 +150,21 @@ export type BackgroundAtom = {
   dark: string;
 };
 
+/**
+ * A fade is orthogonal to a texture: any {@link BackgroundAtom} can wear any
+ * fade. It carries no light/dark pair because a mask only decides *where* the
+ * layer is visible, never what colour it is.
+ */
+export type BackgroundFadeAtom = {
+  slug: string;
+  name: string;
+  nameZh: string;
+  aliases: readonly string[];
+  whenUse: string;
+  whenUseZh: string;
+  mask: string;
+};
+
 export type IconMotionPattern =
   | "draw"
   | "wiggle"
