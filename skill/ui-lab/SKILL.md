@@ -32,6 +32,19 @@ Add `--json` to any command for structured output. The data source line is print
 
 **Kinds** (`--kind`): `component` · `atom-set` (token scales) · `icon-style` · `icon-motion` (hover-animated icons) · `style` · `palette` · `studio-preset` (whole design systems) · `design-system` (whole design systems, reverse-recreated from real products).
 
+## Bootstrapping a NEW project (do this FIRST)
+
+Starting a fresh frontend (or restyling one wholesale)? **Pick and apply a Theme Kit before installing any component.** A Theme Kit is one complete, ready-to-run token system — shadcn semantic colors + the 42 `--wb-*` workbench tokens + chart colors (`--chart-1..6`) + radius/shadow/spacing/type scales + motion easings + font stacks — light and dark in one payload, so components, app shell and charts all land coherent on day one.
+
+1. **If the user hasn't named a style, let them choose by EYE, not by words**: run `ui-lab themes --picker` — it writes a self-contained HTML page rendering every kit as a mini-workbench mock in its true tokens. Open it, have the user pick, and take the slug they choose. Do **NOT** invent a style yourself or default silently; style is the user's call, made visually.
+2. **Apply the kit** (one step, before any component):
+   - shadcn project → run the install command from `ui-lab theme <slug>` (`npx shadcn@latest add <site>/r/theme-<slug>.json`) — cssVars land in `:root`/`.dark`/`@theme inline` automatically.
+   - non-shadcn project → `curl <site>/themes/<slug>.css` and paste below `@import "tailwindcss"` in the global stylesheet.
+   - Single-mode kits (most non-graphite ones) pin both selectors to their native mode — the header comment says so; pair with `graphite` if the product needs true dual-mode.
+3. **Then vendor components** as usual — their semantic and `--wb-*` classes read the kit's tokens, so everything matches without per-component theming.
+
+This ordering is what makes app styles reusable and consistent — the style is decided once, visually, and every later component inherits it. Skipping it is how every app ends up hand-assembled and slightly different.
+
 ## Workflow: discover → inspect → apply
 
 1. **Discover** — `ui-lab search "<what you need>"` (e.g. `bottom sheet`, `pricing`, `bell icon`, `warm palette`) or `ui-lab list --kind <kind>`.
@@ -39,8 +52,9 @@ Add `--json` to any command for structured output. The data source line is print
 3. **See it** — open the `pageUrl` to look at the live sample (or show it to the user) before committing to it. This is the whole point of UI Lab: choose by eye, not by guessing from a name.
 4. **Apply**, by kind:
    - **component** → run the `npx shadcn@latest add …` command from `ui-lab add <slug>` (shadcn drops the source into the project; then import it).
-   - **atom-set** / **studio-preset** / **design-system** → the fetch block is a DESIGN.md / token table; paste those CSS variables into the project's global tokens.
-   - **palette** → the fetch block is **drop-in CSS**: paste it into globals.css below `@import "tailwindcss"` and it remaps every shadcn semantic token (whole-site recolor with one file). The "say this to AI" prompt still ships in the item's `prompt` field.
+   - **design-system** / **studio-preset** → these now ship a runnable **Theme Kit**: the item's `fetch.command` installs it via shadcn (`/r/theme-<slug>.json`) and `fetch.endpoint` serves the same thing as plain CSS (`/themes/<slug>.css`); the DESIGN.md in `fetch.value` stays the human-readable spec. Prefer the kit over hand-copying tokens.
+   - **atom-set** → the fetch block is a token table (single dimension); paste the CSS variables you need into the project's global tokens. If you're taking several dimensions, a Theme Kit already bundles them.
+   - **palette** → the fetch block is **drop-in CSS**: paste it into globals.css below `@import "tailwindcss"` and it remaps every shadcn semantic token (whole-site recolor with one file). Note palettes recolor the shadcn layer only — agent/workbench components keep their `--wb-*` skin; use a Theme Kit when you want both layers to move together.
    - **icon-style** / **icon-motion** / **style** → the fetch block is the AI prompt (named look + concrete moves + a FORBIDDEN list); follow it to implement, using the project's own stack (e.g. animated icons are plain `motion` + `lucide`, no new deps).
 
 ## Conventions (anti-slop)

@@ -43,7 +43,7 @@ bun run check           # 上面三项一起 —— 提交前跑
 
 next-intl 路由化:`/` = 中文(默认 locale)、`/en/*` = 英文,`localePrefix: "as-needed"`。缺中文时回退英文,不会崩。
 
-- **页面**放 `app/[locale]/`;**机器端点留在 `app/` 根、永远英文规范**:`registry.json`、`r/`、`catalog.json`、`llms.txt`、`llms-full.txt`、`sitemap`、`robots`、`manifest`、`theme.css`、`api/`、`opengraph-image`。中间件 matcher 已把它们排除,新增同类端点也放根、并确认被排除。
+- **页面**放 `app/[locale]/`;**机器端点留在 `app/` 根、永远英文规范**:`registry.json`、`r/`(含 `r/theme-<slug>.json` 主题套件 item)、`catalog.json`、`llms.txt`、`llms-full.txt`、`sitemap`、`robots`、`manifest`、`theme.css`、`themes/<slug>.css`(主题套件整份双态 CSS)、`api/`、`opengraph-image`。中间件 matcher 已把它们排除(带 `.` 的路径天然排除,`themes/<slug>.css` 靠此;不要做裸 `/themes` 根端点),新增同类端点也放根、并确认被排除。
 - **内部导航必须用 `@/i18n/navigation` 的 `Link`/`useRouter`/`usePathname`/`redirect`**,不要用 `next/link`、`next/navigation`(否则英文态丢 `/en` 前缀)。唯一例外:`notFound` 仍从 `next/navigation` 导入。
 - **组件名/描述**:registry 条目带 `nameZh`/`descriptionZh`;可视组件渲染时用 `localizedName`/`localizedDescription`(`lib/i18n-content.ts`)按 locale 解析。客户端组件取 `useLocale()`,服务端取 `getLocale()`。
 - **UI 文案**:放 `messages/zh.json` + `messages/en.json`;组件里客户端用 `useTranslations`、服务端用 `getTranslations`。

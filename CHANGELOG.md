@@ -7,6 +7,8 @@
 ## [Unreleased]
 
 ### 新增
+- **主题套件 Theme Kit——「一整套风格」首次成为可交付资产**:新增 `lib/theme-kits/` 合成层,把 18 套选择(Graphite 双态旗舰 + 13 套设计系统皮肤 + 4 个工坊预设)各合成为一份完整可运行 token 系统——shadcn 语义色 + 42 项 `--wb-*` 工作台皮肤 + **全库首个图表色 `--chart-1..6`**(从 accent 按 OKLCH 分类色公式派生,对齐 dataviz 亮度带/CVD 固定 hue 序)+ 圆角/阴影/间距/字号阶 + 动效曲线与时长 + 字体栈,亮暗双态一个载荷。三条交付通道:shadcn `registry:theme` item(`/r/theme-<slug>.json`,`npx shadcn add` 实测零 files 直装,statics 落 `@theme inline`)、纯 CSS 端点(`/themes/<slug>.css`,curl 即用)、CLI 新动词 `ui-lab theme <slug>`。design-system/studio-preset 的 catalog fetch 同步升级为「可运行载荷(command/endpoint)+ 设计文档」并存。
+- **风格选择页 `ui-lab themes --picker`**:生成自包含单文件 HTML——18 套主题各渲染一张用真实 token 画出的迷你工作台缩影卡(双态套件左右分半、单态标注、frost 附极光垫层),配安装命令与「对 AI 这样说」指引;新项目起步时让用户**用眼睛选风格**而不是靠文字猜。skill 新增「Bootstrapping a NEW project」强制流程:先视觉选套件、再装组件,杜绝每个应用各自拼零件导致的风格漂移。
 - **「区块 / Blocks」新增登录卡片 `login-card`**：复刻中文产品登录弹窗——蓝色渐变头部带漂浮光斑与两行标题、左侧微信扫码占位二维码、右侧手机号快捷登录(区号下拉 + 验证码 60 秒重发倒计时)、圆形协议勾选框(未勾选提交时抖动提示)与 ICP 备案页脚;始终浅色的品牌化区块,reduced-motion 降级。
 - **「组件 / Components」新增下拉菜单 `dropdown-menu`**：可组合原语(Trigger/Content/Label/Item/CheckboxItem/Sub/Separator)——面板近角弹簧展开、视口不足自动向上翻转;hover 与键盘共写同一块滑动焦点表面;条目支持图标+双行描述+快捷键、危险态、禁用态与勾选项;一级子菜单悬停/方向键开合带宽限延迟;Escape/外点关闭、焦点归还,完整 roving-focus 键盘导航。
 - **「组件 / Components」新增卡片展开弹层 `expanding-card`**：App Store 式共享 layoutId 变形——卡片自身放大为居中弹层,背景整页重模糊,扩展内容落定后淡入;×/Escape/点遮罩三路关闭并归还焦点,收起卡片常驻占位避免网格回流;reduced-motion 降级为纯淡变。参照 beUI Pro 公开演示行为的 clean-room 原创实现(本批新增条目同此,均未使用其任何源码)。
