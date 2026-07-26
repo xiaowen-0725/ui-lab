@@ -743,6 +743,25 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        slug: "halftone-image",
+        name: "Halftone Image",
+        nameZh: "网点图像",
+        description:
+          "Renders any bitmap as a printed halftone screen on canvas: tone drives dot size on a grid you can rotate (45° reads as print), with circle or square dots and adjustable pitch. Pass a second plate and the grey screen crossfades to colour on hover, each dot inked with the tone beneath it. Transparent between dots, so it composes over any surface.",
+        descriptionZh:
+          "把任意位图在 canvas 上渲染成印刷网点:明暗决定网点大小,网格可旋转(45° 才是印刷味),圆点或方点、疏密可调。再给一张彩色版,灰网点便在悬停时交叉淡入彩色版,每个点取它所在位置的颜色。点与点之间透明,可直接叠在任何表面上。",
+        file: "components/motion/halftone-image.tsx",
+        badge: "new",
+        launchedAt: "2026-07-26",
+        keywords: [
+          "halftone image react",
+          "dithered photo canvas",
+          "print screen dots",
+          "risograph image effect",
+          "newsprint halftone",
+        ],
+      },
+      {
         slug: "star-border",
         name: "Star Border",
         nameZh: "星光描边",

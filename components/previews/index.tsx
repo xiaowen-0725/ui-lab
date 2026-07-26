@@ -272,6 +272,9 @@ export const previews: Record<string, ComponentType> = {
   "motion/star-border": dynamic(() =>
     import("./motion/star-border.preview").then((m) => m.StarBorderPreview),
   ),
+  "motion/halftone-image": dynamic(() =>
+    import("./motion/halftone-image.preview").then((m) => m.HalftoneImagePreview),
+  ),
   "motion/bounce-cards": dynamic(() =>
     import("./motion/bounce-cards.preview").then((m) => m.BounceCardsPreview),
   ),
