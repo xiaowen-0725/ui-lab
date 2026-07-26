@@ -18,13 +18,12 @@ function recordVariables(record: Record<string, string>): AtomExportVariable[] {
   }));
 }
 
-export function composeDesignSystem(config: StudioConfig): StudioExportBundle {
+export function composeStudioVariables(config: StudioConfig): AtomExportVariable[] {
   const normalized = normalizeStudioConfig(config);
   const skin = studioConfigToSkin(normalized);
-  const { surface, radius, elevation, fontPairing, density } =
-    resolveStudioTokens(normalized);
+  const { radius, elevation, fontPairing, density } = resolveStudioTokens(normalized);
   const shadow = elevation[normalized.scheme];
-  const variables: AtomExportVariable[] = [
+  return [
     ...recordVariables(skin.vars),
     ...recordVariables(skin.siteVars),
     { name: "--radius", value: radius.value },
@@ -36,6 +35,15 @@ export function composeDesignSystem(config: StudioConfig): StudioExportBundle {
     { name: "--font-sans", value: fontPairing.body },
     { name: "--font-mono", value: fontPairing.mono },
   ];
+}
+
+export function composeDesignSystem(config: StudioConfig): StudioExportBundle {
+  const normalized = normalizeStudioConfig(config);
+  const skin = studioConfigToSkin(normalized);
+  const { surface, radius, elevation, fontPairing, density } =
+    resolveStudioTokens(normalized);
+  const shadow = elevation[normalized.scheme];
+  const variables = composeStudioVariables(normalized);
   const rootCss = renderCssVariables(variables);
   const name = normalized.name ?? "My System";
   const colors = renderDesignMarkdown({

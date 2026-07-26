@@ -16,28 +16,28 @@ type Theme = { name: string; swatch: string; light: Vars; dark: Vars };
 
 // Full neutral token set. Colored themes start here and override the brand
 // tokens, so every theme exports a complete, drop-in palette.
-const BASE_LIGHT: Vars = {
-  "--background": "oklch(99% 0 0)",
+export const BASE_LIGHT: Vars = {
+  "--background": "oklch(97.8% 0.0015 250)",
   "--foreground": "oklch(15% 0 0)",
-  "--card": "oklch(97% 0 0)",
+  "--card": "oklch(95.2% 0.002 250)",
   "--card-foreground": "oklch(15% 0 0)",
-  "--popover": "oklch(97% 0 0)",
+  "--popover": "oklch(95.2% 0.002 250)",
   "--popover-foreground": "oklch(15% 0 0)",
   "--primary": "oklch(15% 0 0)",
-  "--primary-foreground": "oklch(99% 0 0)",
-  "--secondary": "oklch(97% 0 0)",
+  "--primary-foreground": "oklch(97.8% 0.0015 250)",
+  "--secondary": "oklch(95.2% 0.002 250)",
   "--secondary-foreground": "oklch(15% 0 0)",
-  "--muted": "oklch(97% 0 0)",
+  "--muted": "oklch(95.2% 0.002 250)",
   "--muted-foreground": "oklch(50% 0 0)",
   "--accent": "oklch(72% 0.18 195)",
   "--accent-foreground": "oklch(15% 0 0)",
   "--destructive": "oklch(62% 0.22 25)",
-  "--border": "oklch(15% 0 0 / 0.06)",
-  "--input": "oklch(15% 0 0 / 0.06)",
-  "--ring": "oklch(15% 0 0 / 0.12)",
+  "--border": "oklch(15% 0 0 / 0.09)",
+  "--input": "oklch(15% 0 0 / 0.09)",
+  "--ring": "oklch(15% 0 0 / 0.15)",
 };
 
-const BASE_DARK: Vars = {
+export const BASE_DARK: Vars = {
   "--background": "#151515",
   "--foreground": "oklch(96% 0 0)",
   "--card": "#1c1c1c",
