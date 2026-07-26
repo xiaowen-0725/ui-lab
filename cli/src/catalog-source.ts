@@ -32,6 +32,11 @@ export type CatalogItem = {
   promptZh?: string;
   pageUrl: string;
   fetch: CatalogFetch;
+  themePreview?: {
+    modes: readonly ("light" | "dark")[];
+    light?: Record<string, string>;
+    dark?: Record<string, string>;
+  };
 };
 
 type CatalogSnapshot = {

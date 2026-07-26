@@ -1,7 +1,8 @@
 import { allComponents } from "../lib/registry";
 import { WB_TOKENS_DARK, WB_TOKENS_LIGHT } from "../lib/registry-wb-tokens";
-import { allShadcnTargets, buildEntry, buildShadcnItem } from "../lib/registry-server";
+import { allShadcnTargets, buildEntry, buildShadcnItem, buildThemeItem } from "../lib/registry-server";
 import { readSourceFile } from "../lib/source-files";
+import { THEME_KITS, themeKitToCss } from "../lib/theme-kits";
 
 const errors: string[] = [];
 const slugLabels = new Map<string, string[]>();
@@ -97,7 +98,7 @@ for (const target of allShadcnTargets()) {
     const item = await buildShadcnItem(target.categorySlug, target.slug);
     if (!item) {
       errors.push(`${label}: shadcn item was not created`);
-    } else if (item.files.length === 0) {
+    } else if (!item.files || item.files.length === 0) {
       errors.push(`${label}: shadcn item has no files`);
     } else if (WB_TOKEN_REGISTRY_SLUGS.has(target.slug)) {
       validatedWbTokenSlugs.add(target.slug);
@@ -116,6 +117,60 @@ for (const slug of WB_TOKEN_REGISTRY_SLUGS) {
   if (!validatedWbTokenSlugs.has(slug)) {
     errors.push(`Required --wb-* registry item "${slug}" was not validated`);
   }
+}
+
+// registry:theme items (lib/theme-kits) are a distinct item shape — no
+// files, cssVars-only — so they get their own validation branch rather than
+// the files.length>0 / cssVars-must-be-absent assertions above.
+function wbSubset(vars: Record<string, string> | undefined): Record<string, string> {
+  const result: Record<string, string> = {};
+  if (!vars) return result;
+  for (const [key, value] of Object.entries(vars)) {
+    if (key.startsWith("wb-")) result[key] = value;
+  }
+  return result;
+}
+
+const validatedThemeSlugs = new Set<string>();
+for (const kit of THEME_KITS) {
+  const themeSlug = `theme-${kit.slug}`;
+
+  const item = buildThemeItem(kit.slug);
+  if (!item) {
+    errors.push(`${themeSlug}: buildThemeItem returned null`);
+    continue;
+  }
+  validatedThemeSlugs.add(themeSlug);
+
+  if (slugLabels.has(themeSlug)) {
+    errors.push(`${themeSlug}: collides with a component slug of the same name`);
+  }
+  if (installSlugLabels.has(themeSlug)) {
+    errors.push(`${themeSlug}: collides with an install slug of the same name`);
+  }
+
+  if (kit.slug === "graphite") {
+    validateTokenMap(`${themeSlug}: cssVars.light (wb-*)`, wbSubset(item.cssVars?.light), WB_TOKENS_LIGHT);
+    validateTokenMap(`${themeSlug}: cssVars.dark (wb-*)`, wbSubset(item.cssVars?.dark), WB_TOKENS_DARK);
+  }
+
+  const css = themeKitToCss(kit);
+  for (const sentinel of ["--wb-accent:", "--chart-6:", "--ease-out:", "--radius:"]) {
+    if (!css.includes(sentinel)) {
+      errors.push(`${themeSlug}: themeKitToCss missing sentinel "${sentinel}"`);
+    }
+  }
+  const openBraces = (css.match(/{/g) ?? []).length;
+  const closeBraces = (css.match(/}/g) ?? []).length;
+  if (openBraces !== closeBraces || openBraces === 0) {
+    errors.push(`${themeSlug}: themeKitToCss braces unbalanced ({=${openBraces}, }=${closeBraces})`);
+  }
+}
+
+if (validatedThemeSlugs.size !== THEME_KITS.length) {
+  errors.push(
+    `Expected ${THEME_KITS.length} theme kit registry items, validated ${validatedThemeSlugs.size}`,
+  );
 }
 
 for (const [slug, labels] of slugLabels) {
@@ -139,3 +194,4 @@ console.log(`Validated ${allComponents().length} registry components.`);
 console.log(
   `Verified ${Object.keys(globalsWbTokensLight).length} light and ${Object.keys(globalsWbTokensDark).length} dark --wb-* tokens on ${validatedWbTokenSlugs.size} registry items.`,
 );
+console.log(`Validated ${validatedThemeSlugs.size} registry:theme items.`);

@@ -35,6 +35,7 @@ import { allComponents } from "@/lib/registry";
 import { buildIndex } from "@/lib/registry-server";
 import { SITE_URL } from "@/lib/site";
 import { STYLES } from "@/lib/styles";
+import { findThemeKit, type ThemeKit, type ThemeMode } from "@/lib/theme-kits";
 import {
   composeDesignSystem,
   STUDIO_STARTER_PRESETS,
@@ -78,6 +79,15 @@ export type CatalogItem = {
   /** Absolute URL to the live sample. */
   pageUrl: string;
   fetch: CatalogFetch;
+  /** Present only for items backed by a lib/theme-kits ThemeKit (design
+   * systems, studio presets, and the graphite baseline): a small per-mode
+   * token subset an AI agent or UI can render as a swatch without fetching
+   * the full theme CSS. */
+  themePreview?: {
+    modes: readonly ThemeMode[];
+    light?: Record<string, string>;
+    dark?: Record<string, string>;
+  };
 };
 
 async function buildComponentItems(): Promise<CatalogItem[]> {
@@ -268,11 +278,87 @@ function buildPaletteItems(): CatalogItem[] {
   }));
 }
 
+// ~20-key per-mode subset of a ThemeKit's tokens, small enough for an AI
+// agent to render a swatch/preview inline without fetching the full CSS.
+const THEME_PREVIEW_SHADCN_KEYS = [
+  "background",
+  "foreground",
+  "card",
+  "muted-foreground",
+  "border",
+  "primary",
+  "primary-foreground",
+  "success",
+  "danger",
+  "warning",
+] as const;
+const THEME_PREVIEW_WB_KEYS = ["wb-surface", "wb-accent", "wb-hairline"] as const;
+const THEME_PREVIEW_CHART_KEYS = [
+  "chart-1",
+  "chart-2",
+  "chart-3",
+  "chart-4",
+  "chart-5",
+  "chart-6",
+] as const;
+
+function themePreviewSubset(kit: ThemeKit, mode: ThemeMode): Record<string, string> | undefined {
+  const tokenSet = kit[mode];
+  if (!tokenSet) return undefined;
+
+  const subset: Record<string, string> = {};
+  for (const key of THEME_PREVIEW_SHADCN_KEYS) {
+    const value = tokenSet.shadcn[key];
+    if (value) subset[key] = value;
+  }
+  for (const key of THEME_PREVIEW_WB_KEYS) {
+    const value = tokenSet.wb[key];
+    if (value) subset[key] = value;
+  }
+  for (const key of THEME_PREVIEW_CHART_KEYS) {
+    const value = tokenSet.charts[key];
+    if (value) subset[key] = value;
+  }
+  subset["font-sans"] = kit.statics["font-sans"];
+  return subset;
+}
+
+/**
+ * If `slug` matches a lib/theme-kits ThemeKit (design-system slugs and
+ * studio-preset keys are drawn from the same slug space, incl. the graphite
+ * baseline), points the item's fetch at the theme registry item/CSS endpoint
+ * and attaches a themePreview. Otherwise returns `fetch` unchanged.
+ */
+function withThemeKitFetch(
+  slug: string,
+  fetch: CatalogFetch,
+): { fetch: CatalogFetch; themePreview?: CatalogItem["themePreview"] } {
+  const kit = findThemeKit(slug);
+  if (!kit) return { fetch };
+
+  return {
+    fetch: {
+      ...fetch,
+      command: `npx shadcn@latest add ${SITE_URL}/r/theme-${kit.slug}.json`,
+      endpoint: `${SITE_URL}/themes/${kit.slug}.css`,
+    },
+    themePreview: {
+      modes: kit.modes,
+      light: kit.modes.includes("light") ? themePreviewSubset(kit, "light") : undefined,
+      dark: kit.modes.includes("dark") ? themePreviewSubset(kit, "dark") : undefined,
+    },
+  };
+}
+
 function buildStudioPresetItems(): CatalogItem[] {
   return STUDIO_STARTER_PRESETS.map((preset): CatalogItem => {
     const bundle = composeDesignSystem(preset.config);
     const { accent, surface, fontPairing, scheme } = preset.config;
     const summary = `accent ${accent}, ${surface} surface, ${fontPairing} type, ${scheme} scheme`;
+    const { fetch, themePreview } = withThemeKitFetch(preset.key, {
+      method: "copy-tokens",
+      value: bundle.designMd,
+    });
     return {
       kind: "studio-preset",
       category: "studio",
@@ -283,26 +369,34 @@ function buildStudioPresetItems(): CatalogItem[] {
       description: `A ready-made design system: ${summary}.`,
       descriptionZh: `一套现成的设计系统：${summary}。`,
       pageUrl: `${SITE_URL}/studio?${studioConfigToSearchParams(preset.config).toString()}`,
-      fetch: { method: "copy-tokens", value: bundle.designMd },
+      fetch,
+      themePreview,
     };
   });
 }
 
 function buildDesignSystemItems(): CatalogItem[] {
-  return DESIGN_SYSTEMS.map((entry): CatalogItem => ({
-    kind: "design-system",
-    category: "workbench",
-    slug: entry.slug,
-    name: entry.name,
-    nameZh: entry.nameZh,
-    aliases: entry.aliases,
-    description: entry.description,
-    descriptionZh: entry.descriptionZh,
-    prompt: entry.promptEn,
-    promptZh: entry.promptZh,
-    pageUrl: `${SITE_URL}/layouts?ds=${entry.slug}`,
-    fetch: { method: "copy-tokens", value: entry.designMd },
-  }));
+  return DESIGN_SYSTEMS.map((entry): CatalogItem => {
+    const { fetch, themePreview } = withThemeKitFetch(entry.slug, {
+      method: "copy-tokens",
+      value: entry.designMd,
+    });
+    return {
+      kind: "design-system",
+      category: "workbench",
+      slug: entry.slug,
+      name: entry.name,
+      nameZh: entry.nameZh,
+      aliases: entry.aliases,
+      description: entry.description,
+      descriptionZh: entry.descriptionZh,
+      prompt: entry.promptEn,
+      promptZh: entry.promptZh,
+      pageUrl: `${SITE_URL}/layouts?ds=${entry.slug}`,
+      fetch,
+      themePreview,
+    };
+  });
 }
 
 /**

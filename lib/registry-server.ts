@@ -3,6 +3,7 @@ import { WB_TOKENS_DARK, WB_TOKENS_LIGHT } from "@/lib/registry-wb-tokens";
 import { pageUrlFor, withSignature } from "@/lib/signature";
 import { REGISTRY_NAME, SITE_URL } from "@/lib/site";
 import { readOptionalSourceFile, readSourceFile, resolveSourceImport, type SourceFile } from "@/lib/source-files";
+import { findThemeKit, THEME_KITS, type ThemeTokenSet } from "@/lib/theme-kits";
 
 export type RegistryFile = {
   path: string;
@@ -36,16 +37,17 @@ export type ShadcnRegistryFile = {
 export type ShadcnRegistryItem = {
   $schema: "https://ui.shadcn.com/schema/registry-item.json";
   name: string;
-  type: "registry:component" | "registry:block";
+  type: "registry:component" | "registry:block" | "registry:theme";
   title: string;
   description: string;
   author: string;
   dependencies: string[];
   registryDependencies: string[];
-  files: ShadcnRegistryFile[];
+  files?: ShadcnRegistryFile[];
   cssVars?: {
     light?: Record<string, string>;
     dark?: Record<string, string>;
+    theme?: Record<string, string>;
   };
 };
 
@@ -344,6 +346,45 @@ export async function buildShadcnItem(
   };
 }
 
+function flattenTokenSet(tokenSet: ThemeTokenSet): Record<string, string> {
+  return { ...tokenSet.shadcn, ...tokenSet.wb, ...tokenSet.charts, ...tokenSet.extra };
+}
+
+/**
+ * A theme kit's cssVars-only registry item: `registry:theme`, no files. shadcn
+ * merges `cssVars.light`/`dark`/`theme` straight into the consumer's globals
+ * on `add`, so this is a pure token delivery — see lib/theme-kits for the
+ * ThemeKit shape this flattens.
+ */
+export function buildThemeItem(kitSlug: string): ShadcnRegistryItem | null {
+  const kit = findThemeKit(kitSlug);
+  if (!kit) return null;
+
+  const lightSet = kit.light ?? kit.dark;
+  const darkSet = kit.dark ?? kit.light;
+  if (!lightSet || !darkSet) return null;
+
+  return {
+    $schema: "https://ui.shadcn.com/schema/registry-item.json",
+    name: `theme-${kit.slug}`,
+    type: "registry:theme",
+    title: kit.name,
+    description: kit.description,
+    author: "UI Lab",
+    dependencies: [],
+    registryDependencies: [],
+    cssVars: {
+      light: flattenTokenSet(lightSet),
+      dark: flattenTokenSet(darkSet),
+      theme: { ...kit.statics },
+    },
+  };
+}
+
+export function allThemeItemSlugs(): string[] {
+  return THEME_KITS.map((kit) => `theme-${kit.slug}`);
+}
+
 export async function buildShadcnRegistry(): Promise<ShadcnRegistry> {
   const items = await Promise.all(
     allShadcnTargets().map(async (component) => {
@@ -354,11 +395,20 @@ export async function buildShadcnRegistry(): Promise<ShadcnRegistry> {
     }),
   );
 
+  const themeItems = THEME_KITS.map((kit) => {
+    const item = buildThemeItem(kit.slug);
+    if (!item) return null;
+    const { $schema: _schema, ...entry } = item;
+    return entry;
+  });
+
   return {
     $schema: "https://ui.shadcn.com/schema/registry.json",
     name: REGISTRY_NAME,
     homepage: SITE_URL,
-    items: items.filter((item): item is Omit<ShadcnRegistryItem, "$schema"> => item !== null),
+    items: [...items, ...themeItems].filter(
+      (item): item is Omit<ShadcnRegistryItem, "$schema"> => item !== null,
+    ),
   };
 }
 
@@ -377,6 +427,7 @@ export async function buildIndex() {
       directory_item: `${SITE_URL}/{slug}.json`,
       detail: `${SITE_URL}/r/{slug}`,
       raw: `${SITE_URL}/r/{slug}/raw`,
+      themes: `${SITE_URL}/themes/{slug}.css`,
     },
     categories: registry.map((c) => ({
       slug: c.slug,
