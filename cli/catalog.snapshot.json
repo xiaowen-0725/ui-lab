@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-26T15:26:43.735Z",
-  "count": 136,
+  "generatedAt": "2026-07-26T15:37:05.975Z",
+  "count": 156,
   "items": [
     {
       "kind": "component",
@@ -217,8 +217,8 @@
       "name": "Tooltip",
       "nameZh": "Tooltip",
       "aliases": [],
-      "description": "Hover or focus tooltip with blur enter/exit and spring spawn.",
-      "descriptionZh": "Hover or focus tooltip with blur enter/exit and spring spawn.",
+      "description": "Hover or focus tooltip with blur enter/exit and spring spawn, plus a Morph variant where one shared bubble glides and resizes between neighboring triggers.",
+      "descriptionZh": "Hover or focus tooltip with blur enter/exit and spring spawn, plus a Morph variant where one shared bubble glides and resizes between neighboring triggers.",
       "pageUrl": "http://localhost:3000/components/motion/tooltip",
       "fetch": {
         "method": "shadcn",
@@ -644,6 +644,38 @@
     },
     {
       "kind": "component",
+      "category": "motion",
+      "slug": "dropdown-menu",
+      "name": "Dropdown Menu",
+      "nameZh": "Dropdown Menu",
+      "aliases": [],
+      "description": "Composable animated dropdown menu: a corner-origin spring entrance with viewport collision flip, one shared focus surface that glides between rows for both pointer and keyboard, grouped labels, two-line items with icons and shortcuts, checkbox items, a hover/arrow-key submenu, and full roving-focus keyboard navigation.",
+      "descriptionZh": "Composable animated dropdown menu: a corner-origin spring entrance with viewport collision flip, one shared focus surface that glides between rows for both pointer and keyboard, grouped labels, two-line items with icons and shortcuts, checkbox items, a hover/arrow-key submenu, and full roving-focus keyboard navigation.",
+      "pageUrl": "http://localhost:3000/components/motion/dropdown-menu",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/dropdown-menu.json",
+        "endpoint": "http://localhost:3000/r/dropdown-menu"
+      }
+    },
+    {
+      "kind": "component",
+      "category": "motion",
+      "slug": "expanding-card",
+      "name": "Expanding Card",
+      "nameZh": "Expanding Card",
+      "aliases": [],
+      "description": "App Store-style card expansion: the card itself morphs into a centered modal over a heavily blurred backdrop via a shared layoutId FLIP — expanded content fades in once the surface lands, and the card shrinks back on close.",
+      "descriptionZh": "App Store-style card expansion: the card itself morphs into a centered modal over a heavily blurred backdrop via a shared layoutId FLIP — expanded content fades in once the surface lands, and the card shrinks back on close.",
+      "pageUrl": "http://localhost:3000/components/motion/expanding-card",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/expanding-card.json",
+        "endpoint": "http://localhost:3000/r/expanding-card"
+      }
+    },
+    {
+      "kind": "component",
       "category": "blocks",
       "slug": "recording-card",
       "name": "Recording Card",
@@ -656,6 +688,22 @@
         "method": "shadcn",
         "command": "npx shadcn@latest add http://localhost:3000/r/recording-card.json",
         "endpoint": "http://localhost:3000/r/recording-card"
+      }
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "login-card",
+      "name": "Login Card",
+      "nameZh": "Login Card",
+      "aliases": [],
+      "description": "Chinese product sign-in modal: a blue gradient header with floating bokeh, a WeChat QR-scan column beside phone quick-login (country-code dropdown, code field with a 60s resend countdown), an agreement checkbox that shakes on invalid submit, and an ICP footer.",
+      "descriptionZh": "Chinese product sign-in modal: a blue gradient header with floating bokeh, a WeChat QR-scan column beside phone quick-login (country-code dropdown, code field with a 60s resend countdown), an agreement checkbox that shakes on invalid submit, and an ICP footer.",
+      "pageUrl": "http://localhost:3000/components/blocks/login-card",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/login-card.json",
+        "endpoint": "http://localhost:3000/r/login-card"
       }
     },
     {
@@ -1091,6 +1139,54 @@
       }
     },
     {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "step-form",
+      "name": "Step Form",
+      "nameZh": "Step Form",
+      "aliases": [],
+      "description": "Focused one-question-at-a-time multi-step form: segmented progress with a mono counter, directional slide transitions with container height morph, text and choice steps, shake-on-invalid validation with reserved error space, Enter-to-advance, and a drawn-check success state.",
+      "descriptionZh": "Focused one-question-at-a-time multi-step form: segmented progress with a mono counter, directional slide transitions with container height morph, text and choice steps, shake-on-invalid validation with reserved error space, Enter-to-advance, and a drawn-check success state.",
+      "pageUrl": "http://localhost:3000/components/blocks/step-form",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/step-form.json",
+        "endpoint": "http://localhost:3000/r/step-form"
+      }
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "empty-state",
+      "name": "Empty State",
+      "nameZh": "Empty State",
+      "aliases": [],
+      "description": "Animated empty-state blocks with hand-drawn line-art illustrations, concise copy and a primary action — an inbox-zero envelope, a hover-to-open archive cabinet, and a scanning search lens.",
+      "descriptionZh": "Animated empty-state blocks with hand-drawn line-art illustrations, concise copy and a primary action — an inbox-zero envelope, a hover-to-open archive cabinet, and a scanning search lens.",
+      "pageUrl": "http://localhost:3000/components/blocks/empty-state",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/empty-state.json",
+        "endpoint": "http://localhost:3000/r/empty-state"
+      }
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "prompt-bar",
+      "name": "Prompt Bar",
+      "nameZh": "Prompt Bar",
+      "aliases": [],
+      "description": "Compact credits-aware AI prompt bar: a dismissible credits banner, queued messages you can steer, edit or drop while streaming, slash-commands that morph into a removable skill chip, demo attachments, a web-search toggle pill, a model menu, and a morphing send-to-stop button.",
+      "descriptionZh": "Compact credits-aware AI prompt bar: a dismissible credits banner, queued messages you can steer, edit or drop while streaming, slash-commands that morph into a removable skill chip, demo attachments, a web-search toggle pill, a model menu, and a morphing send-to-stop button.",
+      "pageUrl": "http://localhost:3000/components/blocks/prompt-bar",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/prompt-bar.json",
+        "endpoint": "http://localhost:3000/r/prompt-bar"
+      }
+    },
+    {
       "kind": "atom-set",
       "category": "atoms",
       "slug": "motion",
@@ -1112,12 +1208,12 @@
       "name": "Shape tokens",
       "nameZh": "圆角与阴影 token",
       "aliases": [],
-      "description": "A radius scale and elevation shadows for consistent surfaces.",
-      "descriptionZh": "统一表面质感用的圆角尺度与分层阴影。",
+      "description": "A radius scale, elevation shadows, and z-index layers for consistent surfaces.",
+      "descriptionZh": "统一表面质感用的圆角尺度、分层阴影与 z-index 层叠阶梯。",
       "pageUrl": "http://localhost:3000/atoms?cat=shape",
       "fetch": {
         "method": "copy-tokens",
-        "value": "## Shape\n\n| Token | Value |\n| --- | --- |\n| radius/none | 0 |\n| radius/xs | 4px |\n| radius/sm | 6px |\n| radius/md | 10px |\n| radius/lg | 12.5px |\n| radius/xl | 20px |\n| radius/2xl | 25px |\n| radius/full | 9999px |\n| shadow/hairline/light | 0 0 0 0.5px rgb(0 0 0 / 0.08) |\n| shadow/hairline/dark | 0 0 0 0.5px rgb(255 255 255 / 0.157) |\n| shadow/raised/light | 0 0 0 0.5px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.05) |\n| shadow/raised/dark | 0 0 0 0.5px rgb(255 255 255 / 0.1), 0 1px 2px rgb(0 0 0 / 0.4) |\n| shadow/floating/light | 0 0 0 0.5px rgb(0 0 0 / 0.08), 0 3px 7.5px rgb(0 0 0 / 0.04), 0 0 20px rgb(0 0 0 / 0.05) |\n| shadow/floating/dark | 0 0 0 0.5px rgb(255 255 255 / 0.157), 0 3px 7.5px rgb(0 0 0 / 0.2), 0 0 20px rgb(0 0 0 / 0.25) |\n| shadow/prominent/light | 0 0 0 0.5px rgb(0 0 0 / 0.08), 0 12px 32px rgb(0 0 0 / 0.12) |\n| shadow/prominent/dark | 0 0 0 0.5px rgb(255 255 255 / 0.157), 0 12px 32px rgb(0 0 0 / 0.5) |\n\n**Rule:** Use the radius scale consistently and establish elevation with hairlines and shallow shadows before prominent shadows."
+        "value": "## Shape\n\n| Token | Value |\n| --- | --- |\n| radius/none | 0 |\n| radius/xs | 4px |\n| radius/sm | 6px |\n| radius/md | 10px |\n| radius/lg | 12.5px |\n| radius/xl | 20px |\n| radius/2xl | 25px |\n| radius/full | 9999px |\n| shadow/hairline/light | 0 0 0 0.5px rgb(0 0 0 / 0.08) |\n| shadow/hairline/dark | 0 0 0 0.5px rgb(255 255 255 / 0.157) |\n| shadow/raised/light | 0 0 0 0.5px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.05) |\n| shadow/raised/dark | 0 0 0 0.5px rgb(255 255 255 / 0.1), 0 1px 2px rgb(0 0 0 / 0.4) |\n| shadow/floating/light | 0 0 0 0.5px rgb(0 0 0 / 0.08), 0 3px 7.5px rgb(0 0 0 / 0.04), 0 0 20px rgb(0 0 0 / 0.05) |\n| shadow/floating/dark | 0 0 0 0.5px rgb(255 255 255 / 0.157), 0 3px 7.5px rgb(0 0 0 / 0.2), 0 0 20px rgb(0 0 0 / 0.25) |\n| shadow/prominent/light | 0 0 0 0.5px rgb(0 0 0 / 0.08), 0 12px 32px rgb(0 0 0 / 0.12) |\n| shadow/prominent/dark | 0 0 0 0.5px rgb(255 255 255 / 0.157), 0 12px 32px rgb(0 0 0 / 0.5) |\n| layer/base | 0 |\n| layer/lifted | 10 |\n| layer/sticky | 20 |\n| layer/dropdown | 30 |\n| layer/overlay | 40 |\n| layer/toast | 50 |\n| layer/tooltip | 60 |\n\n**Rule:** Use the radius scale consistently, establish elevation with hairlines and shallow shadows before prominent shadows, and stack UI only with these named layers; never invent one-off z-index values like 999."
       }
     },
     {
@@ -1142,12 +1238,12 @@
       "name": "Spacing tokens",
       "nameZh": "间距 token",
       "aliases": [],
-      "description": "A spacing scale and density presets for a consistent layout rhythm.",
-      "descriptionZh": "统一布局节奏用的间距尺度与密度预设。",
+      "description": "A spacing scale, density presets, and responsive breakpoints for a consistent layout rhythm.",
+      "descriptionZh": "统一布局节奏用的间距尺度、密度预设与响应式断点。",
       "pageUrl": "http://localhost:3000/atoms?cat=spacing",
       "fetch": {
         "method": "copy-tokens",
-        "value": "## Spacing\n\n| Token | Value |\n| --- | --- |\n| micro | 4px |\n| tight | 8px |\n| element | 12px |\n| base | 16px |\n| group | 24px |\n| block | 32px |\n| section | 48px |\n| region | 64px |\n| density/compact | 32px row / 8px padding |\n| density/standard | 40px row / 12px padding |\n| density/comfortable | 48px row / 16px padding |\n\n**Rule:** Use this scale across the entire product; never introduce off-scale values such as 13px or 18px."
+        "value": "## Spacing\n\n| Token | Value |\n| --- | --- |\n| micro | 4px |\n| tight | 8px |\n| element | 12px |\n| base | 16px |\n| group | 24px |\n| block | 32px |\n| section | 48px |\n| region | 64px |\n| density/compact | 32px row / 8px padding |\n| density/standard | 40px row / 12px padding |\n| density/comfortable | 48px row / 16px padding |\n| breakpoint/sm | 640px |\n| breakpoint/md | 768px |\n| breakpoint/lg | 1024px |\n| breakpoint/xl | 1280px |\n| breakpoint/2xl | 1536px |\n\n**Rule:** Use this scale across the entire product; never introduce off-scale values such as 13px or 18px. Design mobile-first; add a breakpoint only where the layout actually breaks."
       }
     },
     {
@@ -2134,8 +2230,8 @@
       "promptZh": "请用莫兰迪(Morandi)配色:整体低饱和灰调,颜色像蒙了一层灰雾。背景 #EAE6E0(暖灰米)、卡片 #F4F1EB、描边 #DAD3C9;正文 #4C4842(暖炭灰,不用纯黑)、次要文字 #8E877C;主按钮 #97A094(灰绿)配米白字 #F7F6F2;点缀色 #C0A9A2(灰粉),只用在徽标和小图标上。所有颜色饱和度不超过 25%,层次靠明度差而非色相差。禁止:高饱和原色、纯黑 #000 或纯白 #fff、强对比撞色、超过三种色相、鲜艳渐变。",
       "pageUrl": "http://localhost:3000/palettes?palette=morandi",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Morandi palette: low-saturation grays that feel dusted with fog. Background #EAE6E0 (warm greige), cards #F4F1EB, borders #DAD3C9; body text #4C4842 (warm charcoal, never pure black), secondary text #8E877C; primary buttons #97A094 (gray-green) with off-white text #F7F6F2; the accent is #C0A9A2 (dusty rose), reserved for badges and small icons. Keep every color under ~25% saturation and build hierarchy with lightness, not hue. Forbidden: saturated primaries, pure #000 or #fff, high-contrast clashes, more than three hues, vivid gradients."
+        "method": "copy-tokens",
+        "value": "/**\n * Morandi · 莫兰迪 — UI Lab palette (Soft & Muted)\n *\n * Grays that remember being colors — dusty green, muted rose and warm greige, all hushed to a whisper.\n *\n * Best for: Lifestyle and home brands, women-focused products, portfolio sites, wellness apps\n *\n * - 60-30-10: greige background 60%, cards and whitespace 30%, gray-green primary plus dusty-rose accent ≤10% combined\n * - Cap saturation at ~25% across the board; keep hues close and step lightness instead (#EAE6E0 → #DAD3C9 → #8E877C → #4C4842)\n * - No pure black text: warm charcoal #4C4842 gives ~9:1 contrast on the background — readable without the sting\n * - Off-white #F7F6F2 on the #97A094 button, never pure white, to keep the foggy feel\n * - Limit the #C0A9A2 accent to two appearances per screen or the hush falls apart\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #EAE6E0; /* bg */\n  --foreground: #4C4842; /* text */\n  --card: #F4F1EB; /* surface */\n  --muted-foreground: #8E877C; /* muted */\n  --border: #DAD3C9; /* border */\n  --primary: #97A094; /* primary */\n  --primary-foreground: #F7F6F2; /* primaryFg */\n  --accent: #C0A9A2; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #4C4842;\n  --popover: #F4F1EB;\n  --popover-foreground: #4C4842;\n  --secondary: #F4F1EB;\n  --secondary-foreground: #4C4842;\n  --muted: #F4F1EB;\n  --accent-foreground: #4C4842;\n  --input: #DAD3C9;\n  --border-strong: color-mix(in oklab, #DAD3C9 78%, #4C4842 22%);\n  --ring: color-mix(in oklab, #DAD3C9 78%, #4C4842 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2156,8 +2252,8 @@
       "promptZh": "请用奶油风(Cream)配色:整体暖调柔和,像刚出炉的黄油和淡奶油堆叠在一起。背景 #FFF8F0(奶油白)、卡片 #FFFDFA(接近纸白但仍偏暖)、描边 #F2E5D8(浅烘焙色);正文 #5C4F43(暖可可棕,不用纯黑)、次要文字 #A6968A(奶咖灰棕);主按钮 #E8B88A(焦糖奶油)配深棕字 #4A3B2C;点缀色 #F5D89E(奶油黄),只用于标签、图标或强调数字。整体饱和度中低,靠暖色相的明度差堆出层次,不引入冷色。禁止:冷色调(蓝、青、冷灰)、高饱和撞色、深色/黑色背景、锐利强对比描边、金属感渐变、任何冷调阴影。",
       "pageUrl": "http://localhost:3000/palettes?palette=cream",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Cream palette: warm and soft, like butter and clotted cream stacked fresh from the oven. Background #FFF8F0 (creamy white), cards #FFFDFA (near-paper white, still warm), borders #F2E5D8 (pale baked tone); body text #5C4F43 (warm cocoa brown, never pure black), secondary text #A6968A (milky taupe); primary buttons #E8B88A (caramel cream) with deep brown text #4A3B2C; the accent #F5D89E (custard yellow) reserved for tags, icons, or highlighted numbers. Keep overall saturation low-to-mid and build hierarchy through lightness within the warm hue family — no cool colors allowed in. Forbidden: cool tones (blue, cyan, cool gray), high-saturation clashes, dark or black backgrounds, sharp high-contrast borders, metallic gradients, any cool-toned shadows."
+        "method": "copy-tokens",
+        "value": "/**\n * Cream · 奶油风 — UI Lab palette (Soft & Muted)\n *\n * Butter and clotted cream stacked fresh from the oven — warm, sweet without tipping into cloying.\n *\n * Best for: Dessert and bakery brands, baby and parenting products, lifestyle blogs, warm-toned personal sites\n *\n * - 60-30-10: cream-white background 60%, cards and whitespace 30%, caramel primary plus custard-yellow accent ≤10% combined\n * - Keep the whole palette warm and mid-to-low saturation; step lightness for hierarchy (#FFF8F0 → #F2E5D8 → #A6968A → #5C4F43)\n * - No pure black text: cocoa brown #5C4F43 gives ~8:1 contrast on the background — legible without being harsh\n * - Deep brown #4A3B2C on the #E8B88A button, not pure black, to keep the warmth intact\n * - Cap the #F5D89E accent at two or three spots per screen, or sweet tips into cloying\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #FFF8F0; /* bg */\n  --foreground: #5C4F43; /* text */\n  --card: #FFFDFA; /* surface */\n  --muted-foreground: #A6968A; /* muted */\n  --border: #F2E5D8; /* border */\n  --primary: #E8B88A; /* primary */\n  --primary-foreground: #4A3B2C; /* primaryFg */\n  --accent: #F5D89E; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #5C4F43;\n  --popover: #FFFDFA;\n  --popover-foreground: #5C4F43;\n  --secondary: #FFFDFA;\n  --secondary-foreground: #5C4F43;\n  --muted: #FFFDFA;\n  --accent-foreground: #5C4F43;\n  --input: #F2E5D8;\n  --border-strong: color-mix(in oklab, #F2E5D8 78%, #5C4F43 22%);\n  --ring: color-mix(in oklab, #F2E5D8 78%, #5C4F43 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2178,8 +2274,8 @@
       "promptZh": "请用马卡龙(Macaron)配色:轻盈甜美,像甜品橱窗里码得整整齐齐的糖霜色。背景 #FDF6F8(浅粉白)、卡片 #FFFFFF(纯白,拉开层次)、描边 #F3DEE6(浅粉描边);正文 #55464E(深莓灰紫,不用纯黑)、次要文字 #A38B96(灰粉棕);主按钮 #F2A7C3(马卡龙粉)配深莓字 #4A2C3A;点缀色 #A7D8DE(薄荷蓝),是这组配色的签名双色,只用在图标、标签或强调元素上,和粉色形成呼应而非对撞。禁止:脏色(灰浊的粉/蓝)、深灰或纯黑大面积使用、原色红/原色蓝、粗黑描边、高饱和撞色渐变。",
       "pageUrl": "http://localhost:3000/palettes?palette=macaron",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Macaron palette: light and girlish, like frosted pastries lined up in a dessert window. Background #FDF6F8 (blush white), cards #FFFFFF (pure white, for lift), borders #F3DEE6 (soft pink outline); body text #55464E (deep berry-gray, never pure black), secondary text #A38B96 (dusty pink-brown); primary buttons #F2A7C3 (macaron pink) with deep berry text #4A2C3A; the accent #A7D8DE (mint blue) is this palette's signature second color — reserved for icons, tags, or emphasis, echoing the pink rather than clashing with it. Forbidden: muddy tones (grayed-out pink or blue), large blocks of dark gray or pure black, primary red/blue, thick black outlines, high-saturation clashing gradients."
+        "method": "copy-tokens",
+        "value": "/**\n * Macaron · 马卡龙 — UI Lab palette (Soft & Muted)\n *\n * Frosted pastries lined up in a dessert window — light, girlish, with pink and mint as the signature duo.\n *\n * Best for: Female-oriented products, beauty brands, dessert shops, stickers and creative merchandise\n *\n * - 60-30-10: blush-white background 60%, white cards and whitespace 30%, macaron-pink primary plus mint accent ≤10% combined\n * - Pink and mint are the signature duo — weight pink heavier, let mint stay a supporting flourish, not a co-lead\n * - No pure black text: deep berry-gray #55464E gives ~8.5:1 contrast on the background — girlish without sacrificing legibility\n * - Deep berry #4A2C3A on the #F2A7C3 button, not pure black, to keep the pink's soft edge\n * - Keep the #F3DEE6 border hairline-thin — a thick black outline turns macaron into comic-book instantly\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #FDF6F8; /* bg */\n  --foreground: #55464E; /* text */\n  --card: #FFFFFF; /* surface */\n  --muted-foreground: #A38B96; /* muted */\n  --border: #F3DEE6; /* border */\n  --primary: #F2A7C3; /* primary */\n  --primary-foreground: #4A2C3A; /* primaryFg */\n  --accent: #A7D8DE; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #55464E;\n  --popover: #FFFFFF;\n  --popover-foreground: #55464E;\n  --secondary: #FFFFFF;\n  --secondary-foreground: #55464E;\n  --muted: #FFFFFF;\n  --accent-foreground: #55464E;\n  --input: #F3DEE6;\n  --border-strong: color-mix(in oklab, #F3DEE6 78%, #55464E 22%);\n  --ring: color-mix(in oklab, #F3DEE6 78%, #55464E 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2200,8 +2296,8 @@
       "promptZh": "请用鼠尾草绿(Sage)配色:安静克制,像有机护肤品柜台上一排哑光玻璃瓶。背景 #F2F4EF(浅灰绿)、卡片 #FAFBF8(近白,略偏冷)、描边 #DCE2D6(浅灰绿描边);正文 #3F4A3C(深橄榄绿,不用纯黑)、次要文字 #83907E(灰绿);主按钮 #7C9473(鼠尾草绿)配浅米字 #F5F8F2;点缀色 #C8B394(木质卡其),用在图标、标签或小面积强调上,给植物绿添一点大地暖度。禁止:荧光绿、高饱和撞色、纯黑大面积、工业感深灰、任何塑料感高光渐变。",
       "pageUrl": "http://localhost:3000/palettes?palette=sage",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Sage palette: quiet and restrained, like a row of matte glass bottles on an organic skincare counter. Background #F2F4EF (pale sage), cards #FAFBF8 (near-white, slightly cool), borders #DCE2D6 (soft sage outline); body text #3F4A3C (deep olive green, never pure black), secondary text #83907E (grayed sage); primary buttons #7C9473 (sage green) with pale cream text #F5F8F2; the accent #C8B394 (woody khaki) belongs on icons, tags, or small emphasis — it warms the green with a touch of earth. Forbidden: neon green, high-saturation clashes, large blocks of pure black, industrial dark gray, any glossy plastic-like gradient."
+        "method": "copy-tokens",
+        "value": "/**\n * Sage · 鼠尾草绿 — UI Lab palette (Soft & Muted)\n *\n * A row of matte glass bottles on an organic skincare counter — botanical, quiet, restrained.\n *\n * Best for: Skincare and wellness brands, yoga and meditation apps, eco-friendly products, minimalist portfolios\n *\n * - 60-30-10: pale-sage background 60%, near-white cards and whitespace 30%, sage-green primary plus khaki accent ≤10% combined\n * - Keep the whole palette in the sage-to-olive range; step lightness for hierarchy (#F2F4EF → #DCE2D6 → #83907E → #3F4A3C)\n * - No pure black text: deep olive #3F4A3C gives ~8:1 contrast on the background — calm without losing clarity\n * - Pale cream #F5F8F2 on the #7C9473 button, not pure white, to avoid a cold jump\n * - Limit the #C8B394 accent to one or two spots per screen, or the botanical mood tips into workwear khaki\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #F2F4EF; /* bg */\n  --foreground: #3F4A3C; /* text */\n  --card: #FAFBF8; /* surface */\n  --muted-foreground: #83907E; /* muted */\n  --border: #DCE2D6; /* border */\n  --primary: #7C9473; /* primary */\n  --primary-foreground: #F5F8F2; /* primaryFg */\n  --accent: #C8B394; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #3F4A3C;\n  --popover: #FAFBF8;\n  --popover-foreground: #3F4A3C;\n  --secondary: #FAFBF8;\n  --secondary-foreground: #3F4A3C;\n  --muted: #FAFBF8;\n  --accent-foreground: #3F4A3C;\n  --input: #DCE2D6;\n  --border-strong: color-mix(in oklab, #DCE2D6 78%, #3F4A3C 22%);\n  --ring: color-mix(in oklab, #DCE2D6 78%, #3F4A3C 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2222,8 +2318,8 @@
       "promptZh": "请用多巴胺(Dopamine)配色:整体高饱和、高能量,像走进一家糖果店。背景 #FFF7EC(奶油橙白)、卡片 #FFFFFF(纯白)、描边 #FFE3D3(浅杏粉);正文 #33202A(深莓紫,不用纯黑)、次要文字 #8A6470;主按钮 #FF477E(玫红)配纯白字 #FFFFFF;点缀色 #FF9F1C(橙黄),用于徽标、图标和强调数字。玫红与橙黄双高饱和撞色是这套配色的签名,情绪要跳、要甜、要有糖果感。禁止:低饱和灰调、深色背景、细字重、莫兰迪式雾感、单一冷色系。",
       "pageUrl": "http://localhost:3000/palettes?palette=dopamine",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Dopamine palette: high-saturation, high-energy color like walking into a candy store. Background #FFF7EC (creamy orange-white), cards #FFFFFF (pure white), borders #FFE3D3 (pale apricot-pink); body text #33202A (deep berry-plum, never pure black), secondary text #8A6470; primary buttons #FF477E (hot rose) with pure white text #FFFFFF; the accent is #FF9F1C (tangerine), reserved for badges, icons and emphasized numbers. The rose + orange dual high-saturation clash is this palette's signature — keep the mood bouncy, sweet, candy-shop bright. Forbidden: low-saturation grays, dark backgrounds, thin font weights, Morandi-style haze, a single cool-only hue family."
+        "method": "copy-tokens",
+        "value": "/**\n * Dopamine · 多巴胺 — UI Lab palette (Vivid & Playful)\n *\n * Hot rose crashing into tangerine — like biting into a fruit candy that glows from the inside.\n *\n * Best for: Young-brand marketing pages, events and festivals, creative studios, consumer apps\n *\n * - 60-30-10: creamy orange-white background 60%, white card space 30%, rose primary plus tangerine accent ≤10% combined\n * - Rose #FF477E and tangerine #FF9F1C are the signature clash — keep both above ~80% saturation, never gray them down\n * - No pure black text: deep berry #33202A gives ~11:1 contrast on #FFF7EC — readable without losing the sweetness\n * - Pure white #FFFFFF on the #FF477E button keeps it the first thing the eye lands on\n * - Reserve #FF9F1C for badges, icons and emphasized numbers — 2-3 spots per screen, more and it overpowers the primary\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #FFF7EC; /* bg */\n  --foreground: #33202A; /* text */\n  --card: #FFFFFF; /* surface */\n  --muted-foreground: #8A6470; /* muted */\n  --border: #FFE3D3; /* border */\n  --primary: #FF477E; /* primary */\n  --primary-foreground: #FFFFFF; /* primaryFg */\n  --accent: #FF9F1C; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #33202A;\n  --popover: #FFFFFF;\n  --popover-foreground: #33202A;\n  --secondary: #FFFFFF;\n  --secondary-foreground: #33202A;\n  --muted: #FFFFFF;\n  --accent-foreground: #33202A;\n  --input: #FFE3D3;\n  --border-strong: color-mix(in oklab, #FFE3D3 78%, #33202A 22%);\n  --ring: color-mix(in oklab, #FFE3D3 78%, #33202A 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2244,8 +2340,8 @@
       "promptZh": "请用赛博霓虹(Neon)配色:整体深色底、高对比,像夜店霓虹灯牌打在雨夜街道上。背景 #0C0C16(近黑靛蓝)、卡片 #161626(深紫灰)、描边 #2C2C46(暗紫蓝);正文 #F2F2FF(冷白,不用纯白)、次要文字 #9C9CC0;主按钮 #00F0FF(电青)配深底字 #061018;点缀色 #FF2EA6(品红),用于标签、图标和强调线条。电青与品红双霓虹在深底上对撞,是这套配色的签名。禁止:浅色背景、大地色系、柔和粉彩、低对比灰调、莫兰迪式雾感。",
       "pageUrl": "http://localhost:3000/palettes?palette=neon",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Neon (Cyberpunk) palette: dark background, high contrast, like neon signage reflecting off a rainy night street. Background #0C0C16 (near-black indigo), cards #161626 (deep violet-gray), borders #2C2C46 (dim indigo); body text #F2F2FF (cool white, never pure white), secondary text #9C9CC0; primary buttons #00F0FF (electric cyan) with deep-toned text #061018; the accent is #FF2EA6 (magenta), used on tags, icons and emphasis lines. Electric cyan clashing with magenta over a dark base is this palette's signature. Forbidden: light backgrounds, earthy tones, soft pastels, low-contrast grays, Morandi-style haze."
+        "method": "copy-tokens",
+        "value": "/**\n * Neon · 赛博霓虹 — UI Lab palette (Vivid & Playful)\n *\n * Electric cyan and magenta bursting off a deep indigo base — the smell of neon signage on a rainy night.\n *\n * Best for: Esports and gaming, music events, tech streetwear brands, nightlife brands\n *\n * - 60-30-10: near-black indigo background 60%, deep violet-gray cards and whitespace 30%, cyan primary plus magenta accent ≤10% combined\n * - Electric cyan #00F0FF and magenta #FF2EA6 are the signature neon pair — keep both at full brightness, never desaturate\n * - No pure white text: cool white #F2F2FF gives ~15:1 contrast on #0C0C16 — glow-strong without glare\n * - Use deep-toned text #061018 on the #00F0FF button rather than black, to keep the electric clarity\n * - Keep #FF2EA6 concentrated on badges, status dots and emphasis lines — large fills turn the clash harsh\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #0C0C16; /* bg */\n  --foreground: #F2F2FF; /* text */\n  --card: #161626; /* surface */\n  --muted-foreground: #9C9CC0; /* muted */\n  --border: #2C2C46; /* border */\n  --primary: #00F0FF; /* primary */\n  --primary-foreground: #061018; /* primaryFg */\n  --accent: #FF2EA6; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #F2F2FF;\n  --popover: #161626;\n  --popover-foreground: #F2F2FF;\n  --secondary: #161626;\n  --secondary-foreground: #F2F2FF;\n  --muted: #161626;\n  --accent-foreground: #F2F2FF;\n  --input: #2C2C46;\n  --border-strong: color-mix(in oklab, #2C2C46 78%, #F2F2FF 22%);\n  --ring: color-mix(in oklab, #2C2C46 78%, #F2F2FF 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2266,8 +2362,8 @@
       "promptZh": "请用日落暖调(Sunset)配色:整体温暖、渐变感,像假日海滩上黄昏最后一小时的光。背景 #FFF4EC(暖杏白)、卡片 #FFFBF7(近白暖调)、描边 #FFDFC7(浅杏橙);正文 #4A3226(暖棕,不用纯黑)、次要文字 #A07A62;主按钮 #F4633A(珊瑚橙)配暖白字 #FFF8F4;点缀色 #FFC53D(金黄),用于标签、图标和高光数字。珊瑚橙与金黄的暖色渐变是这套配色的签名,要有夕阳融化的松弛感。禁止:冷蓝主导、灰调、深色背景、荧光色、高饱和撞色。",
       "pageUrl": "http://localhost:3000/palettes?palette=sunset",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Sunset palette: warm, gradient-like light, like the last hour of dusk on a holiday beach. Background #FFF4EC (warm apricot-white), cards #FFFBF7 (near-white warm tone), borders #FFDFC7 (pale apricot-orange); body text #4A3226 (warm brown, never pure black), secondary text #A07A62; primary buttons #F4633A (coral orange) with warm-white text #FFF8F4; the accent is #FFC53D (golden yellow), used on tags, icons and highlighted numbers. The coral-to-gold warm gradient is this palette's signature — keep the mood loose, like a melting sunset. Forbidden: cool-blue dominance, gray tones, dark backgrounds, neon/fluorescent colors, high-saturation clashes."
+        "method": "copy-tokens",
+        "value": "/**\n * Sunset · 日落暖调 — UI Lab palette (Vivid & Playful)\n *\n * Coral melting into gold — the last hour of a holiday beach before the sun goes down.\n *\n * Best for: Travel and vacation brands, dining, lifestyle products, summer event pages\n *\n * - 60-30-10: warm apricot-white background 60%, near-white cards and whitespace 30%, coral primary plus golden accent ≤10% combined\n * - Let coral #F4633A ease into gold #FFC53D as adjacent warm hues — don't cut in a cool color and break the gradient feel\n * - No pure black text: warm brown #4A3226 gives ~8:1 contrast on #FFF4EC — warm and still legible\n * - Use warm-white #FFF8F4 on the #F4633A button instead of pure white, to keep the warmth unbroken\n * - Reserve #FFC53D for prices, ratings and icon highlights — 2-3 spots per screen keeps the sunset relaxed, not loud\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #FFF4EC; /* bg */\n  --foreground: #4A3226; /* text */\n  --card: #FFFBF7; /* surface */\n  --muted-foreground: #A07A62; /* muted */\n  --border: #FFDFC7; /* border */\n  --primary: #F4633A; /* primary */\n  --primary-foreground: #FFF8F4; /* primaryFg */\n  --accent: #FFC53D; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #4A3226;\n  --popover: #FFFBF7;\n  --popover-foreground: #4A3226;\n  --secondary: #FFFBF7;\n  --secondary-foreground: #4A3226;\n  --muted: #FFFBF7;\n  --accent-foreground: #4A3226;\n  --input: #FFDFC7;\n  --border-strong: color-mix(in oklab, #FFDFC7 78%, #4A3226 22%);\n  --ring: color-mix(in oklab, #FFDFC7 78%, #4A3226 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2288,8 +2384,8 @@
       "promptZh": "请用波普电光(Pop)配色:整体利落、自信,像体育海报和潮流杂志的排版。背景 #F7F7FB(冷白灰)、卡片 #FFFFFF(纯白)、描边 #E2E2F0(浅灰蓝);正文 #14141A(近黑,不用纯黑)、次要文字 #6E6E85;主按钮 #2456F0(钴蓝)配冷白字 #F5F8FF;点缀色 #FFD400(明黄),用于标签、图标和强调数字。钴蓝与明黄是互补撞色,近黑文字要给足对比,情绪干净利落不暧昧。禁止:粉彩色调、低对比、暖棕色调、超过三种高饱和色相、莫兰迪式雾感。",
       "pageUrl": "http://localhost:3000/palettes?palette=pop",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Pop (Pop Art) palette: crisp and confident, like sports-poster and streetwear-magazine layout. Background #F7F7FB (cool off-white), cards #FFFFFF (pure white), borders #E2E2F0 (pale gray-blue); body text #14141A (near-black, never pure black), secondary text #6E6E85; primary buttons #2456F0 (cobalt blue) with cool-white text #F5F8FF; the accent is #FFD400 (bright yellow), used on tags, icons and emphasized numbers. Cobalt and yellow form a complementary clash, and the near-black text must carry full contrast — keep the mood sharp, not soft. Forbidden: pastel tones, low contrast, warm brown tones, more than three high-saturation hues, Morandi-style haze."
+        "method": "copy-tokens",
+        "value": "/**\n * Pop · 波普电光 — UI Lab palette (Vivid & Playful)\n *\n * Cobalt slamming into bright yellow, pinned down by near-black text — crisp as a sports poster.\n *\n * Best for: Sports and athletic brands, tech launch pages, recruiting and campus events, streetwear e-commerce\n *\n * - 60-30-10: cool off-white background 60%, pure white cards and whitespace 30%, cobalt primary plus yellow accent ≤10% combined\n * - Cobalt #2456F0 and yellow #FFD400 form the complementary clash — use only these two saturated hues, don't stack a third\n * - No pure black text but keep it deep: near-black #14141A gives ~17:1 contrast on #F7F7FB — sharp and clean\n * - Use cool-white #F5F8FF on the #2456F0 button rather than warm white, to keep the whole palette cool-toned\n * - Reserve #FFD400 for tags, icons and emphasized numbers — large fills lose the pop-art restraint\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #F7F7FB; /* bg */\n  --foreground: #14141A; /* text */\n  --card: #FFFFFF; /* surface */\n  --muted-foreground: #6E6E85; /* muted */\n  --border: #E2E2F0; /* border */\n  --primary: #2456F0; /* primary */\n  --primary-foreground: #F5F8FF; /* primaryFg */\n  --accent: #FFD400; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #14141A;\n  --popover: #FFFFFF;\n  --popover-foreground: #14141A;\n  --secondary: #FFFFFF;\n  --secondary-foreground: #14141A;\n  --muted: #FFFFFF;\n  --accent-foreground: #14141A;\n  --input: #E2E2F0;\n  --border-strong: color-mix(in oklab, #E2E2F0 78%, #14141A 22%);\n  --ring: color-mix(in oklab, #E2E2F0 78%, #14141A 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2310,8 +2406,8 @@
       "promptZh": "请用暗黑奢华(Dark Luxe)配色:黑金基调,像威士忌吧台或五星酒店大堂的夜色。背景 #0D0D10(近黑,不用纯黑)、卡片 #17171C、描边 #2A2A32;正文 #EDEAE2(暖白,不用纯白)、次要文字 #9B978C;主按钮 #C8A24B(香槟金)配深炭字 #141410,这是签名组合;点缀色 #E8DFC8(浅金),只用在徽标、分隔线或数字上。金色只做点睛,不做大面积填充。禁止:明亮底色、糖果色、大面积铺金、廉价荧光色、纯黑 #000 或纯白 #fff。",
       "pageUrl": "http://localhost:3000/palettes?palette=dark-luxe",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Dark Luxe palette: black-and-gold, the hush of a whisky bar or a five-star hotel lobby after hours. Background #0D0D10 (near-black, never pure black), cards #17171C, borders #2A2A32; body text #EDEAE2 (warm white, never pure white), secondary text #9B978C; primary buttons in champagne gold #C8A24B with deep charcoal text #141410 — this pairing is the signature move; accent #E8DFC8 (pale gold), reserved for badges, dividers, or numerals. Gold is punctuation, not paint — keep it small. Forbidden: bright backgrounds, candy colors, large gold fills, cheap neon, pure #000 or #fff."
+        "method": "copy-tokens",
+        "value": "/**\n * Dark Luxe · 暗黑奢华 — UI Lab palette (Dark)\n *\n * Black lacquer and champagne gold — the hush of a five-star lobby after the last guest has gone up.\n *\n * Best for: Luxury hotels and members clubs, jewelry and watch brands, whisky and cigar labels, high-end concierge services\n *\n * - 60-30-10: near-black background 60%, cards and whitespace 30%, champagne-gold primary plus pale-gold accent ≤10% combined\n * - Dark backgrounds should never go pure black: #0D0D10 keeps a whisper of warmth, reading richer than #000 and easier on the eyes\n * - Body text should never go pure white: #EDEAE2 gives ~15:1 contrast on the background — crisp without glaring\n * - Pair the #C8A24B button with deep charcoal text #141410, not white — gold-on-dark-text is the luxury-brand accent\n * - Limit the #E8DFC8 accent to two spots per screen (a price, an icon stroke) — more than that reads cheap\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #0D0D10; /* bg */\n  --foreground: #EDEAE2; /* text */\n  --card: #17171C; /* surface */\n  --muted-foreground: #9B978C; /* muted */\n  --border: #2A2A32; /* border */\n  --primary: #C8A24B; /* primary */\n  --primary-foreground: #141410; /* primaryFg */\n  --accent: #E8DFC8; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #EDEAE2;\n  --popover: #17171C;\n  --popover-foreground: #EDEAE2;\n  --secondary: #17171C;\n  --secondary-foreground: #EDEAE2;\n  --muted: #17171C;\n  --accent-foreground: #EDEAE2;\n  --input: #2A2A32;\n  --border-strong: color-mix(in oklab, #2A2A32 78%, #EDEAE2 22%);\n  --ring: color-mix(in oklab, #2A2A32 78%, #EDEAE2 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2332,8 +2428,8 @@
       "promptZh": "请用午夜蓝(Midnight)配色:深邃可信赖的蓝,像深夜写代码或天文台的静。背景 #0B1220(深靛蓝,不用纯黑)、卡片 #131C2E、描边 #24314D;正文 #E4EAF5(冷白,不用纯白)、次要文字 #8DA0BF;主按钮 #4C7DFF(电光蓝)配近白字 #F2F6FF;点缀色 #8FB8FF(亮蓝),用于图标、链接和状态提示。整体色相集中在蓝色系,靠明度拉开层次。禁止:暖橙大面积使用、纯黑背景、灰紫渐变、蓝字配蓝底导致的低对比。",
       "pageUrl": "http://localhost:3000/palettes?palette=midnight",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Midnight Blue palette: deep, trustworthy blue with the hush of coding at 2am or an observatory at night. Background #0B1220 (deep indigo, never pure black), cards #131C2E, borders #24314D; body text #E4EAF5 (cool white, never pure white), secondary text #8DA0BF; primary buttons in electric blue #4C7DFF with near-white text #F2F6FF; accent #8FB8FF (bright blue), for icons, links, and status hints. Keep the whole palette inside the blue family and separate layers by lightness. Forbidden: large warm-orange areas, pure black backgrounds, gray-purple gradients, low-contrast blue-on-blue text."
+        "method": "copy-tokens",
+        "value": "/**\n * Midnight Blue · 午夜蓝 — UI Lab palette (Dark)\n *\n * Coding at 2am under a single desk lamp — deep, trustworthy blue with an observatory hush.\n *\n * Best for: Developer tools, fintech products, SaaS dashboards, security software\n *\n * - 60-30-10: deep-indigo background 60%, cards and whitespace 30%, electric-blue primary plus bright-blue accent ≤10% combined\n * - Dark backgrounds should never go pure black: #0B1220 carries a touch of indigo warmth, reading more deliberate than flat black\n * - Body text should never go pure white: #E4EAF5 gives ~13:1 contrast — cool and legible without glare\n * - Pair the #4C7DFF button with near-white text #F2F6FF, never a same-family dark blue, or readability collapses\n * - Reserve #8FB8FF for interactive states — hover, links, status dots — never as a large fill\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #0B1220; /* bg */\n  --foreground: #E4EAF5; /* text */\n  --card: #131C2E; /* surface */\n  --muted-foreground: #8DA0BF; /* muted */\n  --border: #24314D; /* border */\n  --primary: #4C7DFF; /* primary */\n  --primary-foreground: #F2F6FF; /* primaryFg */\n  --accent: #8FB8FF; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #E4EAF5;\n  --popover: #131C2E;\n  --popover-foreground: #E4EAF5;\n  --secondary: #131C2E;\n  --secondary-foreground: #E4EAF5;\n  --muted: #131C2E;\n  --accent-foreground: #E4EAF5;\n  --input: #24314D;\n  --border-strong: color-mix(in oklab, #24314D 78%, #E4EAF5 22%);\n  --ring: color-mix(in oklab, #24314D 78%, #E4EAF5 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2354,8 +2450,8 @@
       "promptZh": "请用墨绿夜(Forest Night)配色:雨后森林的夜色,苔藓与灯笼微光,沉静但有生命力。背景 #0E1512(墨绿黑,不用纯黑)、卡片 #16211C、描边 #27352E;正文 #E3EBE5(冷白微绿,不用纯白)、次要文字 #8FA598;主按钮 #3E9B6E(森林绿)配浅绿白字 #EAF6EF;点缀色 #D9B44A(苔金),用于图标、徽标或强调数字,是绿色主调里的一点灯笼光。禁止:荧光绿、蓝紫科技感配色、明亮底色、粉色点缀。",
       "pageUrl": "http://localhost:3000/palettes?palette=forest-night",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Forest Night palette: a forest after rain, moss and lantern light, quiet but alive. Background #0E1512 (near-black forest green, never pure black), cards #16211C, borders #27352E; body text #E3EBE5 (cool, faintly green white, never pure white), secondary text #8FA598; primary buttons in forest green #3E9B6E with pale mint-white text #EAF6EF; accent #D9B44A (mossy gold), used for icons, badges, or emphasized numerals — one lantern glow inside the green. Forbidden: neon green, blue-purple tech tones, bright backgrounds, pink accents."
+        "method": "copy-tokens",
+        "value": "/**\n * Forest Night · 墨绿夜 — UI Lab palette (Dark)\n *\n * A forest after rain, moss and lantern light — quiet but unmistakably alive.\n *\n * Best for: Eco and outdoor brands, specialty coffee and tea, wellness and nature-healing products, bookstores\n *\n * - 60-30-10: near-black forest-green background 60%, cards and whitespace 30%, forest-green primary plus mossy-gold accent ≤10% combined\n * - Dark backgrounds should never go pure black: #0E1512 carries a green undertone, reading like a forest night rather than flat dark\n * - Body text should never go pure white: #E3EBE5 leans faintly green at ~13:1 contrast, staying in family without glare\n * - Mossy gold #D9B44A is the only warm note — one or two per screen (an icon, a number); more than that steals the scene from green\n * - Pair the #3E9B6E button with pale mint-white text #EAF6EF, not pure white, to keep everything inside the green family\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #0E1512; /* bg */\n  --foreground: #E3EBE5; /* text */\n  --card: #16211C; /* surface */\n  --muted-foreground: #8FA598; /* muted */\n  --border: #27352E; /* border */\n  --primary: #3E9B6E; /* primary */\n  --primary-foreground: #EAF6EF; /* primaryFg */\n  --accent: #D9B44A; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #E3EBE5;\n  --popover: #16211C;\n  --popover-foreground: #E3EBE5;\n  --secondary: #16211C;\n  --secondary-foreground: #E3EBE5;\n  --muted: #16211C;\n  --accent-foreground: #E3EBE5;\n  --input: #27352E;\n  --border-strong: color-mix(in oklab, #27352E 78%, #E3EBE5 22%);\n  --ring: color-mix(in oklab, #27352E 78%, #E3EBE5 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2376,8 +2472,8 @@
       "promptZh": "请用炭黑单色(Mono Slate)配色:完全无彩色的克制,像黑白摄影,让内容本身说话。背景 #111113(炭黑,不用纯黑)、卡片 #1A1A1D、描边 #2A2A2E;正文 #EAEAEC(近白灰,不用纯白)、次要文字 #909095;主按钮 #E5E5E8(浅灰白)配深炭字 #131316,白底黑字的反转是这套配色的签名;点缀色 #A0A0A8(中灰),仅作细微强调。整套配色只有灰阶,没有任何色相。禁止:任何彩色元素(这是无彩配色)、纯黑 #000 底、彩色阴影、彩色渐变。",
       "pageUrl": "http://localhost:3000/palettes?palette=mono-slate",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Mono Slate palette: total colorlessness, black-and-white-photography restraint that lets the content speak. Background #111113 (charcoal, never pure black), cards #1A1A1D, borders #2A2A2E; body text #EAEAEC (near-white gray, never pure white), secondary text #909095; primary buttons in light gray-white #E5E5E8 with deep charcoal text #131316 — the signature move is this light-on-dark inversion; accent #A0A0A8 (mid-gray), used only for subtle emphasis. The whole palette lives on the grayscale — no hue anywhere. Forbidden: any colored element (this is an achromatic palette), pure #000 backgrounds, colored shadows, color gradients."
+        "method": "copy-tokens",
+        "value": "/**\n * Mono Slate · 炭黑单色 — UI Lab palette (Dark)\n *\n * No color at all — black-and-white-photography restraint that lets the content speak.\n *\n * Best for: Photography and design portfolios, fashion brands, writing platforms, minimalist tools\n *\n * - 60-30-10: charcoal background 60%, cards and whitespace 30%, light gray-white primary plus mid-gray accent ≤10% combined\n * - Dark backgrounds should never go pure black: #111113 keeps a breath of grayscale, less flat and airless than #000\n * - Body text should never go pure white: #EAEAEC gives ~14:1 contrast — legible without glaring\n * - Invert the primary button to light gray-white #E5E5E8 on deep charcoal text #131316 — the single 'bright block' in the palette, built on lightness alone, never hue\n * - Reserve #A0A0A8 for minor emphasis (timestamps, index numbers) — never reach for color to rescue a flat moment\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #111113; /* bg */\n  --foreground: #EAEAEC; /* text */\n  --card: #1A1A1D; /* surface */\n  --muted-foreground: #909095; /* muted */\n  --border: #2A2A2E; /* border */\n  --primary: #E5E5E8; /* primary */\n  --primary-foreground: #131316; /* primaryFg */\n  --accent: #A0A0A8; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #EAEAEC;\n  --popover: #1A1A1D;\n  --popover-foreground: #EAEAEC;\n  --secondary: #1A1A1D;\n  --secondary-foreground: #EAEAEC;\n  --muted: #1A1A1D;\n  --accent-foreground: #EAEAEC;\n  --input: #2A2A2E;\n  --border-strong: color-mix(in oklab, #2A2A2E 78%, #EAEAEC 22%);\n  --ring: color-mix(in oklab, #2A2A2E 78%, #EAEAEC 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2398,8 +2494,8 @@
       "promptZh": "请用大地色(Earth Tones)配色:陶土、亚麻、晒过太阳的木头质感。背景 #F7F1E8(亚麻米)、卡片 #FCF9F3(暖白)、描边 #E5D8C4(浅陶土);正文 #4A3B2B(深赭棕,不用纯黑)、次要文字 #97835F(暖褐灰);主按钮 #A9744A(赭陶)配暖白字 #FBF6EE;点缀色 #6B7F4F(橄榄绿),只用在图标、标签或少量强调文字上。整体沉稳温暖,像被太阳晒透的陶器和木材。禁止:荧光色、冷蓝主导、纯黑 #000 或纯白 #fff、塑料感高饱和、光泽金属渐变。",
       "pageUrl": "http://localhost:3000/palettes?palette=earth",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use an Earth Tones palette: clay, linen, and sun-warmed wood. Background #F7F1E8 (linen beige), cards #FCF9F3 (warm white), borders #E5D8C4 (pale terracotta); body text #4A3B2B (deep umber, never pure black), secondary text #97835F (warm taupe); primary buttons #A9744A (terracotta) with warm-white text #FBF6EE; the accent is #6B7F4F (olive green), reserved for icons, tags, or small emphasis text. The overall feel should be grounded and warm, like fired clay and weathered wood. Forbidden: neon colors, cool-blue dominance, pure #000 or #fff, plastic-slick high saturation, glossy metallic gradients."
+        "method": "copy-tokens",
+        "value": "/**\n * Earth Tones · 大地色 — UI Lab palette (Earthy & Classic)\n *\n * Clay pots, linen sheets, and wood left out in the sun — terracotta grounded by a touch of olive.\n *\n * Best for: Furniture and home brands, artisan/craft goods, coffee roasters, sustainable fashion\n *\n * - 60-30-10: linen background 60%, cards and whitespace 30%, terracotta primary plus olive accent ≤10% combined\n * - Step lightness rather than hue: #F7F1E8 → #E5D8C4 → #97835F → #4A3B2B, staying within warm browns and oranges\n * - Body text uses deep umber #4A3B2B instead of pure black — readable against #F7F1E8 without feeling harsh\n * - Pair the #A9744A button with warm-white #FBF6EE text, never pure white, to keep the color temperature consistent\n * - Keep #6B7F4F olive as a true accent — past ~10% of the screen it overpowers the terracotta lead\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #F7F1E8; /* bg */\n  --foreground: #4A3B2B; /* text */\n  --card: #FCF9F3; /* surface */\n  --muted-foreground: #97835F; /* muted */\n  --border: #E5D8C4; /* border */\n  --primary: #A9744A; /* primary */\n  --primary-foreground: #FBF6EE; /* primaryFg */\n  --accent: #6B7F4F; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #4A3B2B;\n  --popover: #FCF9F3;\n  --popover-foreground: #4A3B2B;\n  --secondary: #FCF9F3;\n  --secondary-foreground: #4A3B2B;\n  --muted: #FCF9F3;\n  --accent-foreground: #4A3B2B;\n  --input: #E5D8C4;\n  --border-strong: color-mix(in oklab, #E5D8C4 78%, #4A3B2B 22%);\n  --ring: color-mix(in oklab, #E5D8C4 78%, #4A3B2B 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2420,8 +2516,8 @@
       "promptZh": "请用海洋蓝(Ocean Blue)配色:清爽干净,像退潮后的浅滩。背景 #F2F8FA(浅水蓝)、卡片 #FBFDFE(近白)、描边 #D5E6EC(浅青);正文 #173B4A(深青蓝,不用纯黑)、次要文字 #5E8494(灰青);主按钮 #0E7490(深青)配浅蓝白字 #F0FAFD;点缀色 #38BDF8(天蓝),只用在图标、标签或数据高亮上。整体明亮通透,不带一点暖调。禁止:暖棕、艳粉、深色底、脏灰、高饱和撞色。",
       "pageUrl": "http://localhost:3000/palettes?palette=ocean",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use an Ocean Blue palette: clean and cool, like a tide pool at low water. Background #F2F8FA (pale aqua), cards #FBFDFE (near-white), borders #D5E6EC (light cyan); body text #173B4A (deep teal, never pure black), secondary text #5E8494 (slate blue-gray); primary buttons #0E7490 (deep teal) with pale-blue text #F0FAFD; the accent is #38BDF8 (sky blue), reserved for icons, tags, or highlighted data. The feel should be bright and airy, with no warm tones creeping in. Forbidden: warm browns, hot pink, dark backgrounds, muddy grays, high-saturation color clashes."
+        "method": "copy-tokens",
+        "value": "/**\n * Ocean Blue · 海洋蓝 — UI Lab palette (Earthy & Classic)\n *\n * Clean and cool, like a tide pool at low water — deep teal grounded by a flash of sky blue.\n *\n * Best for: Healthcare and wellness, travel/island tourism, ocean conservation orgs, clean-tech products\n *\n * - 60-30-10: pale-aqua background 60%, cards and whitespace 30%, deep-teal primary plus sky-blue accent ≤10% combined\n * - Step lightness, not hue: #F2F8FA → #D5E6EC → #5E8494 → #173B4A, staying within blues and teals throughout\n * - Body text uses deep teal #173B4A instead of pure black — clear against the pale-aqua background while staying cool\n * - Pair the #0E7490 button with pale-blue #F0FAFD text, never pure white, to keep a trace of water in it\n * - Sky blue #38BDF8 is highly saturated — reserve it for data points, icons, or small badges; large areas turn glaring\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #F2F8FA; /* bg */\n  --foreground: #173B4A; /* text */\n  --card: #FBFDFE; /* surface */\n  --muted-foreground: #5E8494; /* muted */\n  --border: #D5E6EC; /* border */\n  --primary: #0E7490; /* primary */\n  --primary-foreground: #F0FAFD; /* primaryFg */\n  --accent: #38BDF8; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #173B4A;\n  --popover: #FBFDFE;\n  --popover-foreground: #173B4A;\n  --secondary: #FBFDFE;\n  --secondary-foreground: #173B4A;\n  --muted: #FBFDFE;\n  --accent-foreground: #173B4A;\n  --input: #D5E6EC;\n  --border-strong: color-mix(in oklab, #D5E6EC 78%, #173B4A 22%);\n  --ring: color-mix(in oklab, #D5E6EC 78%, #173B4A 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2442,8 +2538,8 @@
       "promptZh": "请用商务蓝灰(Corporate Blue)配色:专业、可信、不出错的企业感。背景 #F6F8FA(冷白灰)、卡片 #FFFFFF(纯白)、描边 #DDE3EA(浅灰蓝);正文 #1F2A37(深石墨蓝,不用纯黑)、次要文字 #64748B(石板灰);主按钮 #1D4ED8(标准蓝)配浅蓝白字 #F5F8FF;点缀色 #0EA5E9(亮天蓝),只用在图表、状态标签或链接悬停上。整体克制、规整,像一份排版严谨的企业报告。禁止:娱乐化糖果色、大红大紫、暗黑底、装饰性渐变、手写体或涂鸦元素。",
       "pageUrl": "http://localhost:3000/palettes?palette=business",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use a Corporate Blue palette: professional, trustworthy, unshakeably enterprise. Background #F6F8FA (cool off-white), cards #FFFFFF (pure white), borders #DDE3EA (pale blue-gray); body text #1F2A37 (deep graphite blue, never pure black), secondary text #64748B (slate gray); primary buttons #1D4ED8 (standard blue) with pale-blue text #F5F8FF; the accent is #0EA5E9 (bright sky blue), reserved for charts, status tags, or link hover states. The overall feel is restrained and orderly, like a tightly typeset corporate report. Forbidden: playful candy colors, saturated reds or purples, dark-mode-only backgrounds, decorative gradients, handwritten or doodle-style elements."
+        "method": "copy-tokens",
+        "value": "/**\n * Corporate Blue · 商务蓝灰 — UI Lab palette (Earthy & Classic)\n *\n * Professional, trustworthy, unshakeably corporate — the blue that never surprises anyone.\n *\n * Best for: B2B corporate websites, finance and legal, enterprise SaaS, consulting firms\n *\n * - 60-30-10: cool off-white background 60%, white cards and whitespace 30%, standard-blue primary plus sky-blue accent ≤10% combined\n * - Step lightness, not hue: #F6F8FA → #DDE3EA → #64748B → #1F2A37, staying strictly within blue-grays with no third hue\n * - Body text uses deep graphite blue #1F2A37 instead of pure black — sufficient contrast but softer for long reading sessions\n * - Pair the #1D4ED8 button with pale-blue #F5F8FF text, never pure white, to keep the cool temperature consistent\n * - Reserve #0EA5E9 for chart data points or rare interactive feedback — any larger footprint breaks the corporate restraint\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #F6F8FA; /* bg */\n  --foreground: #1F2A37; /* text */\n  --card: #FFFFFF; /* surface */\n  --muted-foreground: #64748B; /* muted */\n  --border: #DDE3EA; /* border */\n  --primary: #1D4ED8; /* primary */\n  --primary-foreground: #F5F8FF; /* primaryFg */\n  --accent: #0EA5E9; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #1F2A37;\n  --popover: #FFFFFF;\n  --popover-foreground: #1F2A37;\n  --secondary: #FFFFFF;\n  --secondary-foreground: #1F2A37;\n  --muted: #FFFFFF;\n  --accent-foreground: #1F2A37;\n  --input: #DDE3EA;\n  --border-strong: color-mix(in oklab, #DDE3EA 78%, #1F2A37 22%);\n  --ring: color-mix(in oklab, #DDE3EA 78%, #1F2A37 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2464,8 +2560,8 @@
       "promptZh": "请用水墨丹青(Ink Wash)配色:宣纸底、墨色文字、一点朱砂印。背景 #F7F5F0(宣纸米)、卡片 #FDFCF8(米白)、描边 #E2DDD2(浅灰米);正文 #26241F(松烟墨黑,不用纯黑)、次要文字 #7D786C(灰褐);主按钮 #2F3A44(黛蓝墨)配米白字 #F5F4EE;点缀色 #B5432A(朱砂红),只用在印章式的小面积强调上,比如标签角标或关键数字。整体是新中式的克制美学,墨色为主、朱砂点睛。禁止:大红灯笼式的艳俗红(朱砂只做印章式点睛,不做大面积色块)、金色堆砌、高饱和撞色、科技蓝。",
       "pageUrl": "http://localhost:3000/palettes?palette=ink-wash",
       "fetch": {
-        "method": "copy-prompt",
-        "value": "Use an Ink Wash palette: rice-paper background, ink-black text, one seal-stamp of cinnabar. Background #F7F5F0 (rice paper), cards #FDFCF8 (warm white), borders #E2DDD2 (pale greige); body text #26241F (pine-soot black, never pure black), secondary text #7D786C (taupe gray); primary buttons #2F3A44 (indigo ink) with warm-white text #F5F4EE; the accent is #B5432A (cinnabar red), reserved for seal-stamp-sized emphasis only — a badge corner or a key number. The overall look is restrained new-Chinese aesthetics: ink dominates, cinnabar merely punctuates. Forbidden: garish lantern-red (cinnabar stays seal-sized, never a large color block), heaps of gold, high-saturation clashes, tech-blue accents."
+        "method": "copy-tokens",
+        "value": "/**\n * Ink Wash · 水墨丹青 — UI Lab palette (Earthy & Classic)\n *\n * Rice paper, pine-soot ink, and a single stroke of cinnabar — Chinese aesthetics translated for a screen.\n *\n * Best for: Tea, calligraphy, and guofeng brands, museums and exhibitions, Chinese dining, cultural publishing\n *\n * - 60-30-10: rice-paper background 60%, cards and whitespace 30%, indigo-ink primary plus cinnabar accent ≤10% combined\n * - Step lightness, not hue: #F7F5F0 → #E2DDD2 → #7D786C → #26241F, keeping to ink black and indigo with no third hue\n * - Body text uses pine-soot black #26241F instead of pure black, keeping a trace of warmth like brushed ink rather than print\n * - Pair the #2F3A44 button with warm-white #F5F4EE text, never pure white, to echo the rice-paper undertone\n * - Keep cinnabar #B5432A strictly seal-stamp sized — spread it wider and the look shifts from ink wash to New Year print\n *\n * Paste this below `@import \"tailwindcss\";` in your globals.css. This\n * is a single light/dark-agnostic theme — if this palette is from the\n * \"dark\" group, its colors already are the dark theme. Pairs with UI\n * Lab's /theme.css theme layer if you're using it.\n */\n\n:root {\n  --background: #F7F5F0; /* bg */\n  --foreground: #26241F; /* text */\n  --card: #FDFCF8; /* surface */\n  --muted-foreground: #7D786C; /* muted */\n  --border: #E2DDD2; /* border */\n  --primary: #2F3A44; /* primary */\n  --primary-foreground: #F5F4EE; /* primaryFg */\n  --accent: #B5432A; /* accent */\n\n  /* Derived — full shadcn token coverage so this block is drop-in for any shadcn project */\n  --card-foreground: #26241F;\n  --popover: #FDFCF8;\n  --popover-foreground: #26241F;\n  --secondary: #FDFCF8;\n  --secondary-foreground: #26241F;\n  --muted: #FDFCF8;\n  --accent-foreground: #26241F;\n  --input: #E2DDD2;\n  --border-strong: color-mix(in oklab, #E2DDD2 78%, #26241F 22%);\n  --ring: color-mix(in oklab, #E2DDD2 78%, #26241F 22%);\n  /* --destructive: not set — this palette has no danger role; keep your project's default */\n}\n"
       }
     },
     {
@@ -2526,6 +2622,316 @@
       "fetch": {
         "method": "copy-tokens",
         "value": "---\nname: \"My System\"\ndescription: \"A custom Agent workbench design system composed in UI Lab Studio.\"\n---\n\n# My System\n\n## Colors\n\n| Token | Value |\n| --- | --- |\n| canvas | #ffffff |\n| surface | #f6f9fc |\n| raised | #ffffff |\n| ink | #0d253d |\n| ink-secondary | color-mix(in srgb, #0d253d 85%, #ffffff) |\n| ink-muted | color-mix(in srgb, #0d253d 60%, #ffffff) |\n| ink-faint | color-mix(in srgb, #0d253d 40%, #ffffff) |\n| hairline | #e3e8ee |\n| accent | #6d5dfc |\n| accent-foreground | #ffffff |\n| success | #1ea64a |\n| danger | #dc2626 |\n| warning | #d97706 |\n\n**Rule:** Reserve the accent for focus, selection, and primary actions; semantic colors describe real state only.\n\n## Typography\n\n| Token | Value |\n| --- | --- |\n| display | Geist, Inter, system-ui, sans-serif |\n| body | Geist, Inter, system-ui, sans-serif |\n| mono | 'Geist Mono', ui-monospace, monospace |\n\n**Rule:** Use this display, body, and monospace pairing throughout the product without introducing a competing family.\n\n## Radius, elevation & spacing\n\n| Token | Value |\n| --- | --- |\n| radius | Extra Large · 20px |\n| elevation | Floating · 0 0 0 0.5px rgb(0 0 0 / 0.08), 0 3px 7.5px rgb(0 0 0 / 0.04), 0 0 20px rgb(0 0 0 / 0.05) |\n| density | Standard · 40px row / 12px padding |\n| border | none |\n| surface | frosted glass |\n\n**Rule:** Apply these atom values consistently; do not introduce off-scale radii, shadows, or spacing.\n\n## FORBIDDEN\n\nDo not add competing accent colors, off-scale geometry, heavy decorative effects, or motion that obscures task state."
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "graphite",
+      "name": "Graphite",
+      "nameZh": "石墨",
+      "aliases": [
+        "工具型 Agent 工作台",
+        "agent workbench baseline",
+        "三栏任务控制台",
+        "graphite console"
+      ],
+      "description": "The baseline light-and-dark skin for a tool-first Agent workbench: quiet graphite surfaces, hairline structure, compact controls, and one restrained accent keep long-running work legible without competing with it.",
+      "descriptionZh": "工具型 Agent 工作台的基准深浅双态皮肤：安静的石墨表面、发丝结构线、紧凑控件与单一克制强调色，让长时间运行的任务始终清楚而不喧宾夺主。",
+      "prompt": "Use the 'Graphite Agent Workbench' design system: build a resizable three-column workbench with a compact conversation rail on the left, a fixed-reading-width Agent thread plus bottom composer in the center, and an on-demand artifact area on the right with rendered preview, raw source, and version restore. Establish hierarchy with near-neutral graphite surfaces, 0.5–1px hairlines, low-contrast hover fills, and one restrained cool accent. Keep density high but line-height controlled; use monospace for code and commands, and introduce semantic color only for success, warning, and error states. Support matching light and dark themes without changing component sizing or spatial relationships. FORBIDDEN: colorful gradient backdrops, heavy drop shadows, glassmorphism everywhere, competing accent colors, stacks of oversized rounded cards, collapsing the desktop workbench into a generic marketing page, or decorative animation that obscures task state.",
+      "promptZh": "采用「Graphite / 石墨 Agent 工作台」设计系统：搭建可拖拽的三栏工作台，左侧是紧凑会话轨，中间是固定阅读宽度的 Agent 线程与贴底输入台，右侧是按需打开的产物区，提供产物预览、原始源码与版本恢复；用近中性的石墨灰分层、0.5–1px 发丝描边、低对比悬停面和单一冷色强调来表达层级；信息密度高但行高克制，代码和命令使用等宽字体，状态只在成功、警告、错误时短暂引入语义色；同时提供浅色与深色主题，组件尺寸和空间关系保持一致。FORBIDDEN：彩色渐变大背景、厚重投影、玻璃拟态泛滥、多个竞争强调色、超大圆角卡片堆叠、把桌面三栏降级成普通营销页、用装饰动画遮盖任务状态。",
+      "pageUrl": "http://localhost:3000/layouts?ds=graphite",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "# Graphite\n\nGraphite is a baseline light-and-dark design system for tool-first Agent workbenches.\n\n## Principles\n\n- Keep the work visible: chrome is quiet, dense, and subordinate to the task.\n- Build hierarchy with graphite surface steps and 0.5–1px hairlines.\n- Reserve one cool accent for selection, focus, and active execution.\n- Use semantic color only for success, warning, approval, and failure.\n\n## Workbench anatomy\n\n- Header: compact global controls and the current task title.\n- Sidebar: resizable conversation rail with grouped, selectable threads.\n- Thread: fixed reading width for user prompts, work logs, tools, and artifacts.\n- Composer: pinned input with explicit context, model, effort, and attachments.\n- Artifacts: optional resizable preview/source panel with version navigation and restore; it squeezes the main column in flow.\n\n## Typography and motion\n\nUse a neutral system sans stack for UI and a system monospace stack for commands. Animate transform and opacity only; keep routine feedback below 300ms, respect reduced motion, and never animate away critical state.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "nightflight",
+      "name": "Nightflight",
+      "nameZh": "夜航",
+      "aliases": [
+        "夜间任务舱",
+        "近黑工艺工作台",
+        "lavender dark console",
+        "蓝紫单强调"
+      ],
+      "description": "A near-black workbench with cool graphite depth, precise lavender-blue focus states, and restrained contrast for long-running tasks after dark.",
+      "descriptionZh": "以近黑层次、冷静石墨深度与精准薰衣草蓝焦点构成的夜间工作台，适合长时间运行与持续监看任务。",
+      "prompt": "Use the 'Nightflight Workbench' design system: establish low-light depth with a #0a0a0b canvas, #0f1011 primary surfaces, and #18191a raised layers, then separate the sidebar, thread, composer, and artifact area with precise cool-gray hairlines. Keep primary copy crisp and cool, step secondary information down through blue-gray tones, and reserve #5e6ad2 for focus, selection, and primary actions. Semantic green, red, and orange appear only when the underlying state is real; typography is a compact system sans paired with a technical monospace, and motion stays brief, quiet, and predictable.\n\nFORBIDDEN: multicolor gradients, warm foundations, thick borders, large shadows, decorative accent coverage, or using the accent anywhere beyond focus, selection, and primary controls.",
+      "promptZh": "采用「Nightflight / 夜航工作台」设计系统：用 #0a0a0b 近黑画布、#0f1011 主表面和 #18191a 浮层建立低照度纵深，以细密冷灰发丝线切分侧栏、线程、输入台和产物区；正文保持清晰冷白，次级信息逐级退到灰蓝，#5e6ad2 只用于焦点、选中态和主行动，成功、危险、警告仅在真实状态出现；排版采用紧凑系统无衬线与等宽代码字，交互短促、安静、可预期。\n\nFORBIDDEN：多彩渐变、暖色基底、粗边框、大面积阴影、把强调色当装饰铺满界面，或让强调色出现在焦点、选中和主按钮之外。",
+      "pageUrl": "http://localhost:3000/layouts?ds=nightflight",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Nightflight\ndescription: A near-black workbench with a single lavender-blue focus color.\n---\n\n# Nightflight\n\n## Colors\n\ncolors:\n  canvas: \"#0a0a0b\"\n  surface: \"#0f1011\"\n  raised: \"#18191a\"\n  ink: \"#f7f8f8\"\n  ink-secondary: \"#d0d6e0\"\n  ink-muted: \"#8a8f98\"\n  ink-faint: \"#62666d\"\n  hairline: \"#23252a\"\n  hairline-strong: \"#34343a\"\n  accent: \"#5e6ad2\"\n  accent-hover: \"#828fff\"\n  success: \"#27a644\"\n  danger: \"#eb5757\"\n  warning: \"#f2994a\"\n\n## Typography\n\ntypography:\n  body: \"'SF Pro Display', Inter, system-ui, sans-serif\"\n  display: \"'SF Pro Display', Inter, system-ui, sans-serif\"\n  mono: \"'SF Mono', ui-monospace, monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 600\n\n## Surfaces & lines\n\n- Keep the canvas almost black and distinguish depth with small value steps.\n- Use 0.5–1px cool hairlines; reserve the strong line for active boundaries.\n- Avoid ambient shadows. Raised layers should read through tone and adjacency.\n- Keep routine radii compact and consistent across controls and panels.\n\n## Components\n\n- Sidebar: use the primary surface with faint rows and one lavender selection.\n- Thread: keep the reading field quiet; logs and code sit on restrained insets.\n- Composer: raise it one step, show a precise focus line, and avoid glow.\n- Artifact panel: match the main surface, retain hairlines, and show version state clearly.\n- Buttons: solid accent is only for the primary action; secondary actions stay neutral.\n- Status: introduce semantic color only for actual success, danger, or warning.\n\n## FORBIDDEN\n\n- Multicolor or decorative gradients.\n- Warm foundations and amber-tinted neutrals.\n- Thick borders, large shadows, or luminous glows.\n- Accent color used outside focus, selection, and primary actions.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "stark",
+      "name": "Stark",
+      "nameZh": "锋白",
+      "aliases": [
+        "纯黑工具台",
+        "高对比几何",
+        "monochrome console",
+        "单蓝链接色"
+      ],
+      "description": "A pure-black, high-contrast tool surface shaped by crisp geometry, compact radii, and a single electric-blue action color.",
+      "descriptionZh": "以纯黑底、高对比灰阶、利落几何和单一电蓝行动色构成的紧凑工具界面。",
+      "prompt": "Use the 'Stark Workbench' design system: start from a pure #000000 canvas and build only small but legible surface steps with #0a0a0a and #111111. Organize the interface through high-contrast grayscale, a compact grid, short labels, and radii no larger than 8px. Reserve #0070f3 for links, focus, and the primary action; give the sidebar, thread, composer, and artifact panel the same crisp hairline boundaries, while monospace carries code, versions, and execution state.\n\nFORBIDDEN: tinted foundations outside grayscale, colorful gradient backgrounds, large cards with radii above 8px, glowing shadows, or soft decoration that weakens the geometric order.",
+      "promptZh": "采用「Stark / 锋白工作台」设计系统：以纯黑 #000000 为画布，使用 #0a0a0a 与 #111111 形成极小但清楚的表面阶梯，所有信息依靠高对比灰阶、紧凑网格、短标签和不超过 8px 的圆角组织；#0070f3 只承担链接、焦点和主行动，侧栏、线程、输入台和产物面板共享锋利的发丝边界，等宽字体负责代码、版本与运行状态。\n\nFORBIDDEN：灰阶之外的底色、彩色渐变背景、超过 8px 的大圆角卡片、发光阴影，以及用柔软装饰削弱几何秩序。",
+      "pageUrl": "http://localhost:3000/layouts?ds=stark",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Stark\ndescription: A pure-black geometric workbench with one electric-blue action color.\n---\n\n# Stark\n\n## Colors\n\ncolors:\n  canvas: \"#000000\"\n  surface: \"#0a0a0a\"\n  raised: \"#111111\"\n  ink: \"#ededed\"\n  ink-secondary: \"#cccccc\"\n  ink-muted: \"#a1a1a1\"\n  ink-faint: \"#666666\"\n  hairline: \"#2e2e2e\"\n  hairline-strong: \"#444444\"\n  accent: \"#0070f3\"\n  success: \"#50e3c2\"\n  danger: \"#ff4d4f\"\n  warning: \"#f5a623\"\n\n## Typography\n\ntypography:\n  body: \"Geist, Inter, system-ui, sans-serif\"\n  display: \"Geist, Inter, system-ui, sans-serif\"\n  mono: \"'Geist Mono', 'SF Mono', ui-monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 600\n\n## Surfaces & lines\n\n- Keep foundations strictly black and neutral gray.\n- Separate layers with exact value steps and 1px hairlines, not atmospheric depth.\n- Cap large container radii at 8px; small controls may be tighter.\n- Do not use glow. If elevation is necessary, prefer a hard local boundary.\n\n## Components\n\n- Sidebar: compact rows, square rhythm, and one high-contrast selected state.\n- Thread: maximize readable contrast and keep metadata visibly subordinate.\n- Composer: use a clear border and compact controls with no floating-card effect.\n- Artifact panel: align to the grid and preserve crisp preview/code boundaries.\n- Buttons: blue is primary only; neutral buttons use monochrome hover fills.\n- Status: use semantic colors as small state signals, never as backgrounds.\n\n## FORBIDDEN\n\n- Tinted or colored foundation surfaces.\n- Colorful gradient backgrounds.\n- Large cards with radii above 8px.\n- Glowing shadows or soft decorative effects.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "paper",
+      "name": "Paper",
+      "nameZh": "纸感",
+      "aliases": [
+        "暖白纸面",
+        "柔和灰墨",
+        "paper-like workspace",
+        "留白驱动"
+      ],
+      "description": "A warm-white, paper-like workspace where gentle gray ink, generous breathing room, and one clear blue action color replace heavy chrome.",
+      "descriptionZh": "以暖白纸面、温和灰墨、充足留白和单一清蓝行动色取代厚重界面外壳的工作空间。",
+      "prompt": "Use the 'Paper Workbench' design system: create paper-like depth with a warm #ffffff canvas and soft #f7f7f5 surfaces, write primary content in #37352f gray ink, and step metadata down through #787774 and #9b9a97. Build hierarchy mainly with whitespace, paragraph rhythm, and very pale hairlines; reserve #0075de for links, focus, and the primary action. Treat the sidebar as a table of contents, the thread as a working manuscript, the composer as a footer annotation, and the artifact area as a parallel document with versions.\n\nFORBIDDEN: large high-saturation color fields, dark foundations, hard shadows, neon accents, or dense frames used in place of whitespace and pale surfaces.",
+      "promptZh": "采用「Paper / 纸感工作台」设计系统：以 #ffffff 暖白画布与 #f7f7f5 柔灰表面形成纸张般的层次，用 #37352f 灰墨书写正文，让元信息逐级退到 #787774 与 #9b9a97；层级主要依赖留白、段落节奏和极浅发丝线，#0075de 只标记链接、焦点和主行动；侧栏像目录，线程像文稿，输入台像页脚批注，产物区像可切换版本的并排文档。\n\nFORBIDDEN：高饱和大面积色块、深色基底、硬阴影、霓虹强调，或用密集线框堆叠替代留白和浅灰表面。",
+      "pageUrl": "http://localhost:3000/layouts?ds=paper",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Paper\ndescription: A warm-white workbench organized by whitespace and gentle gray ink.\n---\n\n# Paper\n\n## Colors\n\ncolors:\n  canvas: \"#ffffff\"\n  surface: \"#f7f7f5\"\n  raised: \"#ffffff\"\n  ink: \"#37352f\"\n  ink-secondary: \"#4d4a42\"\n  ink-muted: \"#787774\"\n  ink-faint: \"#9b9a97\"\n  hairline: \"#e9e9e7\"\n  accent: \"#0075de\"\n  success: \"#1aae39\"\n  danger: \"#eb5757\"\n  warning: \"#dd5b00\"\n\n## Typography\n\ntypography:\n  body: \"ui-sans-serif, -apple-system, 'Segoe UI', sans-serif\"\n  display: \"ui-sans-serif, -apple-system, 'Segoe UI', sans-serif\"\n  mono: \"'SFMono-Regular', Consolas, ui-monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 600\n\n## Surfaces & lines\n\n- Let whitespace and text rhythm establish most of the hierarchy.\n- Use warm off-white surfaces and very pale hairlines only where needed.\n- Keep shadows nearly absent; a raised sheet should feel adjacent, not floating.\n- Use modest, consistent radii and avoid pill shapes for large containers.\n\n## Components\n\n- Sidebar: read as a quiet table of contents with one soft selected row.\n- Thread: format the conversation like a working document with calm measure.\n- Composer: resemble a footer annotation, separated by space and one hairline.\n- Artifact panel: present preview and source as parallel paper documents.\n- Buttons: reserve blue for the primary action and text links.\n- Status: use compact semantic labels instead of broad colored surfaces.\n\n## FORBIDDEN\n\n- Large high-saturation color fields.\n- Dark foundations, hard shadows, or neon accents.\n- Dense frame stacking used instead of whitespace.\n- Excess decorative chrome around text content.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "terracotta",
+      "name": "Terracotta",
+      "nameZh": "陶土",
+      "aliases": [
+        "奶油陶土",
+        "温暖编辑台",
+        "serif craft console",
+        "低频橙强调"
+      ],
+      "description": "A quiet cream workbench with terracotta emphasis, crafted serif display type, and warm tactile surfaces for thoughtful collaboration.",
+      "descriptionZh": "以奶油暖底、陶土橙强调、手作感衬线展示字与温润表面构成的安静协作工作台。",
+      "prompt": "Use the 'Terracotta Workbench' design system: create a quiet tactile field with a #faf9f5 cream canvas and #f5f0e8 warm surfaces. Set body copy in near-black #141413, use a restrained literary serif for display moments, and keep controls and code in clear sans and monospace faces. Introduce #cc785c terracotta sparingly for primary actions, focus, and selection; connect the sidebar, thread, composer, and artifact area through warm-gray hairlines and gentle surface steps, with plain semantic status colors.\n\nFORBIDDEN: cool-gray foundations, a vast pure-white base, technological gradients, sharp square corners, frequent decorative accent use, or heavy stacked shadows.",
+      "promptZh": "采用「Terracotta / 陶土工作台」设计系统：以 #faf9f5 奶油画布和 #f5f0e8 暖表面营造安静触感，正文使用近黑 #141413，标题用克制的书卷感衬线，操作与代码仍用清楚的无衬线和等宽字体；#cc785c 陶土橙低频出现于主行动、焦点和选中，侧栏、线程、输入台与产物区通过暖灰发丝线和柔和表面阶梯衔接，状态色保持朴素。\n\nFORBIDDEN：冷灰基底、纯白大底、科技感渐变、锐利直角、频繁铺陈陶土强调色，或用重阴影制造悬浮层堆叠。",
+      "pageUrl": "http://localhost:3000/layouts?ds=terracotta",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Terracotta\ndescription: A cream workbench with quiet terracotta emphasis and serif display type.\n---\n\n# Terracotta\n\n## Colors\n\ncolors:\n  canvas: \"#faf9f5\"\n  surface: \"#f5f0e8\"\n  raised: \"#ffffff\"\n  ink: \"#141413\"\n  ink-secondary: \"#3d3d3a\"\n  ink-muted: \"#6c6a64\"\n  ink-faint: \"#8e8b82\"\n  hairline: \"#e6dfd8\"\n  accent: \"#cc785c\"\n  success: \"#5db872\"\n  danger: \"#c64545\"\n  warning: \"#d4a017\"\n\n## Typography\n\ntypography:\n  body: \"-apple-system, 'Segoe UI', sans-serif\"\n  display: \"'Copernicus', 'Tiempos Headline', Georgia, serif\"\n  mono: \"ui-monospace, 'SF Mono', monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 500\n\n## Surfaces & lines\n\n- Keep the canvas creamy and the working surfaces softly warm.\n- Use warm-gray hairlines and small tonal steps instead of hard separation.\n- Prefer gentle local depth; shadows should be rare, short, and low contrast.\n- Use softened corners consistently without turning every control into a pill.\n\n## Components\n\n- Sidebar: use a warm surface and a low-frequency terracotta selection mark.\n- Thread: keep body copy sans; reserve serif for titles and artifact headings.\n- Composer: make it tactile and calm with one warm hairline and clear focus.\n- Artifact panel: feel like a crafted sheet with explicit preview and version controls.\n- Buttons: terracotta is primary only; secondary controls remain warm neutral.\n- Status: keep green, red, and ochre compact and informational.\n\n## FORBIDDEN\n\n- Cool-gray foundations or a vast pure-white base.\n- Technological gradients and sharp square corners.\n- Heavy stacks of floating shadows.\n- Frequent or decorative use of the terracotta accent.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "indigo",
+      "name": "Indigo",
+      "nameZh": "靛蓝",
+      "aliases": [
+        "冷白金融工具台",
+        "雾蓝灰界面",
+        "indigo control desk",
+        "克制蓝紫"
+      ],
+      "description": "A cool-white precision workbench with misted blue-gray structure and a controlled indigo action color for data-heavy operations.",
+      "descriptionZh": "以冷白底、雾蓝灰结构和克制靛蓝行动色构成的精密工作台，适合数据密集型操作。",
+      "prompt": "Use the 'Indigo Workbench' design system: establish a precise but approachable operational field with a #ffffff cool canvas and #f6f9fc mist-blue surfaces. Set primary copy in deep navy #0d253d and step secondary information back through blue-gray tones. Organize dense data, the sidebar, thread, composer, and artifact versions with #e3e8ee hairlines; reserve #533afd for the primary action and selected state, and keep success, danger, and warning as compact signals rather than broad decoration.\n\nFORBIDDEN: warm paper foundations, serif typography, stacks of heavy floating shadows, large indigo decorations, or accent color outside primary actions, focus, and selection.",
+      "promptZh": "采用「Indigo / 靛蓝工作台」设计系统：以 #ffffff 冷白画布和 #f6f9fc 雾蓝表面建立精密但不冰冷的金融工具感，正文采用深海军蓝 #0d253d，次级信息沿蓝灰阶退后；用 #e3e8ee 发丝线组织紧凑数据、侧栏、线程、输入台和产物版本，#533afd 只用于主行动与选中态，成功、危险、警告作为小面积状态信号，避免层层漂浮。\n\nFORBIDDEN：暖纸底、衬线字体、重阴影浮层堆叠、大面积蓝紫装饰，或让强调色逃离主行动、焦点和选中状态。",
+      "pageUrl": "http://localhost:3000/layouts?ds=indigo",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Indigo\ndescription: A cool-white precision workbench with mist-blue structure and indigo action states.\n---\n\n# Indigo\n\n## Colors\n\ncolors:\n  canvas: \"#ffffff\"\n  surface: \"#f6f9fc\"\n  raised: \"#ffffff\"\n  ink: \"#0d253d\"\n  ink-secondary: \"#273951\"\n  ink-muted: \"#64748d\"\n  ink-faint: \"#8ca2ba\"\n  hairline: \"#e3e8ee\"\n  accent: \"#533afd\"\n  success: \"#1ea672\"\n  danger: \"#df1b41\"\n  warning: \"#d97917\"\n\n## Typography\n\ntypography:\n  body: \"'sohne-var', 'SF Pro Display', system-ui, sans-serif\"\n  display: \"'sohne-var', 'SF Pro Display', system-ui, sans-serif\"\n  mono: \"'SF Mono', Menlo, ui-monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 600\n\n## Surfaces & lines\n\n- Keep foundations cool white with mist-blue working surfaces.\n- Use pale blue-gray hairlines to structure dense information precisely.\n- Prefer borders and tonal adjacency over stacked elevation or heavy shadow.\n- Keep radii controlled and consistent for a dependable operational feel.\n\n## Components\n\n- Sidebar: use compact blue-gray rows and one indigo selected state.\n- Thread: keep navy text crisp and metadata visibly lighter without losing contrast.\n- Composer: frame it with a pale line and use indigo only for focus and send.\n- Artifact panel: maintain exact preview/code and version boundaries on cool surfaces.\n- Buttons: indigo is reserved for primary action; secondary controls stay neutral.\n- Status: use small green, red, and orange signals tied to real state.\n\n## FORBIDDEN\n\n- Warm paper foundations or serif typography.\n- Heavy stacks of floating shadows.\n- Large decorative indigo fields.\n- Accent use beyond primary actions, focus, and selection.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "pearl",
+      "name": "Pearl",
+      "nameZh": "珍珠",
+      "aliases": [
+        "珍珠白",
+        "系统原生风",
+        "羊皮纸灰白",
+        "pearl white",
+        "frosted minimal"
+      ],
+      "description": "A system-native pearl-white workbench where quiet gray zoning, fine hairlines, and one restrained blue accent keep focused tools immediately legible.",
+      "descriptionZh": "以珍珠灰白分区、轻柔发丝线与单一克制蓝色构成的系统原生工作台，让专注型工具保持清楚、轻盈且熟悉。",
+      "prompt": "Use the 'Pearl Workbench' design system: build a light, system-native hierarchy with a #ffffff pearl-white canvas and #f5f5f7 gray-white zoning, then organize the sidebar, thread, composer, and artifact area with #e0e0e0 structural hairlines and #f0f0f0 quiet dividers. Set primary text in #1d1d1f, step secondary information down through soft neutral grays, and reserve #0071e3 for focus, selection, and primary actions. Give display, body, and code distinct clear type stacks, and create depth through whitespace, zoning, and exact alignment instead of shadows.\n\nFORBIDDEN: large dark backgrounds, high-saturation clashing colors, thick hard borders, accent colors outside the system blue, or shadow-stacked hierarchy.",
+      "promptZh": "采用「Pearl / 珍珠工作台」设计系统：以 #ffffff 珍珠白画布和 #f5f5f7 灰白分区建立系统原生的轻盈层级，使用 #e0e0e0 主发丝线与 #f0f0f0 轻分隔组织侧栏、线程、输入台和产物区；正文以 #1d1d1f 为主，次级信息逐级退到柔和中灰，#0071e3 只用于焦点、选中态和主行动；标题、正文与代码分别使用清晰的展示、文本和等宽字体，层级依靠留白、分区与精确对齐而非投影。\n\nFORBIDDEN：深色大背景、高饱和冲突色、粗硬边框、系统蓝之外的强调色、用层层阴影堆叠界面层级。",
+      "pageUrl": "http://localhost:3000/layouts?ds=pearl",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Pearl\ndescription: A system-native pearl-white workbench shaped by quiet zoning and one blue accent.\n---\n\n# Pearl\n\n## Colors\n\ncolors:\n  canvas: \"#ffffff\"\n  surface: \"#f5f5f7\"\n  raised: \"#ffffff\"\n  ink: \"#1d1d1f\"\n  ink-secondary: \"#333333\"\n  ink-muted: \"#7a7a7a\"\n  ink-faint: \"#a1a1a6\"\n  hairline: \"#e0e0e0\"\n  divider: \"#f0f0f0\"\n  accent: \"#0071e3\"\n  success: \"#34c759\"\n  danger: \"#ff3b30\"\n  warning: \"#ff9500\"\n\n## Typography\n\ntypography:\n  body: \"'SF Pro Text', -apple-system, system-ui, sans-serif\"\n  display: \"'SF Pro Display', -apple-system, system-ui, sans-serif\"\n  mono: \"'SF Mono', ui-monospace, Menlo, monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 600\n\n## Surfaces & lines\n\n- Keep the canvas pearl white and use #f5f5f7 to zone working regions.\n- Use #e0e0e0 for structural hairlines and #f0f0f0 for quiet dividers.\n- Establish hierarchy with spacing and tonal adjacency rather than shadow.\n- Keep radii controlled, smooth, and consistent across panels and controls.\n\n## Components\n\n- Sidebar: use the gray-white surface with one restrained blue selection.\n- Thread: preserve generous reading space and step metadata down in neutral gray.\n- Composer: define it with zoning and a fine focus line, never a floating shadow.\n- Artifact panel: keep preview, source, and version boundaries light but explicit.\n- Buttons: reserve system blue for the primary action and selected controls.\n- Status: use green, red, and orange only for real semantic state.\n\n## FORBIDDEN\n\n- Large dark backgrounds.\n- High-saturation clashing colors.\n- Thick hard borders or accent colors outside the system blue.\n- Shadow-stacked hierarchy.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "jade",
+      "name": "Jade",
+      "nameZh": "翡翠",
+      "aliases": [
+        "墨底翡翠",
+        "深色数据工具",
+        "emerald developer console",
+        "数据库控制台"
+      ],
+      "description": "A dark developer workbench with ink-black depth, precise emerald action states, and the dense clarity of a database operations tool.",
+      "descriptionZh": "以墨色纵深、精准翡翠绿行动态与数据库运维工具般的高密度清晰度构成的深色开发者工作台。",
+      "prompt": "Use the 'Jade Workbench' design system: establish compact database-tool depth with a #1c1c1c ink canvas, #202020 primary surfaces, and #262626 raised layers, then organize the sidebar, thread, composer, and artifact area with #303030 hairlines. Keep primary copy white and step metadata down through neutral grays. Reserve #3ecf8e emerald for primary actions, selection, and focus, pairing it with #171717 dark foreground text as the system's defining green-control treatment. Set queries, code, and version data in monospace, and show semantic green, red, or yellow only for real state.\n\nFORBIDDEN: large light foundations, blue-violet accents, warm gradients, decorative green coverage, or green used outside primary actions, selection, and success.",
+      "promptZh": "采用「Jade / 翡翠工作台」设计系统：以 #1c1c1c 墨色画布、#202020 主表面和 #262626 浮层构成数据库开发工具般的紧凑纵深，用 #303030 发丝线组织侧栏、线程、输入台与产物区；正文保持纯白，元信息沿中性灰阶退后，#3ecf8e 翡翠绿只用于主行动、选中与焦点，并以 #171717 深色文字形成绿底深字的身份特征；代码、查询和版本信息采用等宽字体，成功绿、危险红与警告黄只在真实状态出现。\n\nFORBIDDEN：亮色大底、蓝紫强调、暖色渐变、把绿色铺满装饰界面，或让绿色出现在主行动、选中与成功状态之外。",
+      "pageUrl": "http://localhost:3000/layouts?ds=jade",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Jade\ndescription: A dark database workbench with precise emerald action states.\n---\n\n# Jade\n\n## Colors\n\ncolors:\n  canvas: \"#1c1c1c\"\n  surface: \"#202020\"\n  raised: \"#262626\"\n  ink: \"#ffffff\"\n  ink-secondary: \"#d4d4d4\"\n  ink-muted: \"#9a9a9a\"\n  ink-faint: \"#707070\"\n  hairline: \"#303030\"\n  accent: \"#3ecf8e\"\n  accent-foreground: \"#171717\"\n  success: \"#4ade80\"\n  danger: \"#f56565\"\n  warning: \"#ffdb13\"\n\n## Typography\n\ntypography:\n  body: \"Circular, 'Helvetica Neue', Helvetica, sans-serif\"\n  display: \"Circular, 'Helvetica Neue', Helvetica, sans-serif\"\n  mono: \"ui-monospace, 'SF Mono', monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 600\n\n## Surfaces & lines\n\n- Build depth through close ink-black value steps and exact hairlines.\n- Keep surfaces opaque, compact, and free of atmospheric glow or gradients.\n- Use emerald controls with dark foreground text for the system identity.\n- Let dense grids and alignment communicate a dependable database-tool rhythm.\n\n## Components\n\n- Sidebar: use compact neutral rows with one emerald selected state.\n- Thread: keep prose white and set queries, code, and paths in monospace.\n- Composer: raise it one value step and reserve emerald for focus and send.\n- Artifact panel: preserve crisp source, preview, and version boundaries.\n- Buttons: primary controls use emerald with #171717 text; others stay neutral.\n- Status: use green, red, and yellow only when the underlying state is real.\n\n## FORBIDDEN\n\n- Large light foundations or blue-violet accents.\n- Warm gradients.\n- Decorative or broad green coverage.\n- Green outside primary actions, selection, and success.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "prism",
+      "name": "Prism",
+      "nameZh": "棱彩",
+      "aliases": [
+        "棱彩白板",
+        "柔色设计台",
+        "soft-block canvas",
+        "黑墨蓝点"
+      ],
+      "description": "A white design workbench with crisp black ink, one clear blue action color, and soft color blocks reserved for labels and illustration.",
+      "descriptionZh": "以白底黑墨、单一清蓝行动色与仅用于标签和插画的柔和色块构成的设计工具工作台。",
+      "prompt": "Use the 'Prism Workbench' design system: establish direct design-tool hierarchy with a #ffffff canvas, #f7f7f5 soft zoning, and crisp #000000 ink, then organize the sidebar, thread, composer, and artifact area with #e6e6e6 hairlines and #f1f1f1 quiet dividers. Reserve #0d99ff for primary actions, focus, and selection. Introduce lime #dceeb1, lilac #c5b0f4, cream #f4ecd6, and mint #c8e6cd only as label or illustration backgrounds so the interface retains a soft prismatic note without competing with blue.\n\nFORBIDDEN: large dark foundations, monochrome minimalism so severe that no soft color remains, or thick black borders; black is ink for text, never interface framing.",
+      "promptZh": "采用「Prism / 棱彩工作台」设计系统：以 #ffffff 白画布、#f7f7f5 柔灰分区和 #000000 清晰黑墨建立设计工具般的直接层级，用 #e6e6e6 发丝线与 #f1f1f1 轻分隔组织侧栏、线程、输入台和产物区；#0d99ff 设计蓝只负责主行动、焦点和选中，lime #dceeb1、lilac #c5b0f4、cream #f4ecd6、mint #c8e6cd 仅作为标签或插画底，让界面保留一点柔和棱彩而不争夺主色。\n\nFORBIDDEN：深色大底、单色性冷淡到没有任何柔色点缀、粗黑边框；黑色只用作文字墨色，不用作界面框线。",
+      "pageUrl": "http://localhost:3000/layouts?ds=prism",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Prism\ndescription: A white design workbench with black ink, blue actions, and soft color blocks.\n---\n\n# Prism\n\n## Colors\n\ncolors:\n  canvas: \"#ffffff\"\n  surface: \"#f7f7f5\"\n  raised: \"#ffffff\"\n  ink: \"#000000\"\n  ink-secondary: \"#333333\"\n  ink-muted: \"#6b6b6b\"\n  ink-faint: \"#9a9a9a\"\n  hairline: \"#e6e6e6\"\n  divider: \"#f1f1f1\"\n  accent: \"#0d99ff\"\n  success: \"#1ea64a\"\n  danger: \"#f24822\"\n  warning: \"#ffcd29\"\n  illustration-lime: \"#dceeb1\"\n  illustration-lilac: \"#c5b0f4\"\n  illustration-cream: \"#f4ecd6\"\n  illustration-mint: \"#c8e6cd\"\n\n## Typography\n\ntypography:\n  body: \"'Figma Sans', Inter, system-ui, sans-serif\"\n  display: \"'Figma Sans', Inter, system-ui, sans-serif\"\n  mono: \"'SF Mono', ui-monospace, monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 600\n\n## Surfaces & lines\n\n- Keep the main interface white, direct, and structured by pale gray zoning.\n- Use fine gray hairlines; black belongs to text and never to interface frames.\n- Reserve soft color blocks for labels, annotations, and illustration grounds.\n- Avoid shadow depth; prefer adjacency, spacing, and canvas-like alignment.\n\n## Components\n\n- Sidebar: use soft gray zoning and one clear blue selected state.\n- Thread: keep black ink crisp and allow small pastel annotation labels.\n- Composer: remain white with a pale divider and a blue focus or send action.\n- Artifact panel: feel like a precise canvas with light preview/source boundaries.\n- Buttons: blue is primary; pastel colors never become competing controls.\n- Status: use semantic colors only for actual state.\n\n## FORBIDDEN\n\n- Large dark foundations.\n- Colorless minimalism with no soft accent blocks.\n- Thick black borders; black is text ink only.\n- Pastel blocks used as the primary interface color.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "coral",
+      "name": "Coral",
+      "nameZh": "珊瑚",
+      "aliases": [
+        "象牙珊瑚",
+        "学术暖调",
+        "warm research console",
+        "石底橙点"
+      ],
+      "description": "An ivory-stone workbench with coral action states and an academic warmth suited to thoughtful enterprise research and language tools.",
+      "descriptionZh": "以象牙石分区、珊瑚橙行动态与学术暖感构成的工作台，适合审慎的企业研究与语言工具。",
+      "prompt": "Use the 'Coral Workbench' design system: establish warm, considered academic hierarchy with a #ffffff canvas and #eeece7 ivory-stone surfaces. Carry long-form research in #212121 charcoal text with muted gray-violet secondary tones, and separate the sidebar, thread, composer, and artifact area using #d9d9dd hairlines. Reserve #ff7759 coral for primary interface actions, focus, and selection. Deep green #003c33 and action blue #1863dc may support links or graphics, but never replace coral as the interface accent.\n\nFORBIDDEN: cool gray-blue dominance, large dark foundations, coral used as body text, or adjacent high-saturation colors that clash.",
+      "promptZh": "采用「Coral / 珊瑚工作台」设计系统：以 #ffffff 画布和 #eeece7 象牙石表面建立温暖、审慎的学术层级，用 #212121 炭黑正文与灰紫中间色承载长篇研究内容，#d9d9dd 发丝线轻分侧栏、线程、输入台和产物区；#ff7759 珊瑚橙只作为界面主行动、焦点与选中，deep green #003c33 和 action blue #1863dc 仅用于链接或图形辅助，不取代珊瑚界面强调。\n\nFORBIDDEN：冷灰蓝主导、深色大底、把珊瑚色用作正文色、高饱和颜色彼此撞色并置。",
+      "pageUrl": "http://localhost:3000/layouts?ds=coral",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Coral\ndescription: An ivory-stone workbench with coral actions and academic warmth.\n---\n\n# Coral\n\n## Colors\n\ncolors:\n  canvas: \"#ffffff\"\n  surface: \"#eeece7\"\n  raised: \"#ffffff\"\n  ink: \"#212121\"\n  ink-secondary: \"#616161\"\n  ink-muted: \"#75758a\"\n  ink-faint: \"#93939f\"\n  hairline: \"#d9d9dd\"\n  accent: \"#ff7759\"\n  success: \"#1ea64a\"\n  danger: \"#b30000\"\n  warning: \"#d97917\"\n  supporting-deep-green: \"#003c33\"\n  supporting-action-blue: \"#1863dc\"\n\n## Typography\n\ntypography:\n  body: \"'Cohere Text', -apple-system, system-ui, sans-serif\"\n  display: \"'Cohere Text', -apple-system, system-ui, sans-serif\"\n  mono: \"ui-monospace, monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 600\n\n## Surfaces & lines\n\n- Use ivory-stone zoning to create warmth without reducing text clarity.\n- Keep hairlines cool enough for precision but subordinate to the warm surface.\n- Prefer quiet adjacency and editorial spacing over elevated shadow stacks.\n- Use deep green and action blue only for links or supporting graphics.\n\n## Components\n\n- Sidebar: use ivory stone with one restrained coral selected state.\n- Thread: support long-form reading with charcoal ink and generous measure.\n- Composer: stay white, lightly framed, and coral only at focus or send.\n- Artifact panel: feel editorial, with clear but quiet preview/version structure.\n- Buttons: coral owns interface emphasis; blue remains a link or graphic aid.\n- Status: semantic colors appear in small, factual state indicators.\n\n## FORBIDDEN\n\n- Cool gray-blue dominance or large dark foundations.\n- Coral used as body text.\n- High-saturation colors placed in direct competition.\n- Supporting colors promoted to the primary interface accent.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "stone",
+      "name": "Stone",
+      "nameZh": "石纹",
+      "aliases": [
+        "暖石灰阶",
+        "单色语音台",
+        "serif monochrome console",
+        "黑墨克制"
+      ],
+      "description": "A warm-stone monochrome workbench with pure-black emphasis, restrained serif display type, and illustration-only waveform color.",
+      "descriptionZh": "以暖石灰阶、纯黑强调、克制衬线展示字与仅限插画波形的柔色构成的单色工作台。",
+      "prompt": "Use the 'Stone Workbench' design system: build a warm stone grayscale with a #f5f5f5 canvas, #fafafa surfaces, and #ffffff raised layers. Use near-black #0c0a09 for body ink, focus, primary actions, and selection, while #e7e5e4 warm hairlines organize the sidebar, thread, composer, and artifact area. Set display moments in serif and working text in a clear sans. Mint #a7e5d3, peach #f4c5a8, and lavender #c8b8e0 belong only to illustration or waveform graphics, never controls or interface emphasis.\n\nFORBIDDEN: colored interface accents, cool-gray foundations, large dark backgrounds, or radii above 12px; preserve a warm-stone grayscale and monochrome control hierarchy.",
+      "promptZh": "采用「Stone / 石纹工作台」设计系统：以 #f5f5f5 画布、#fafafa 表面和 #ffffff 浮层搭建温暖石灰阶，使用 #0c0a09 近纯黑承担正文、焦点、主行动与选中，#e7e5e4 暖发丝线组织侧栏、线程、输入台和产物区；展示标题使用衬线字，正文保持清晰无衬线，mint #a7e5d3、peach #f4c5a8、lavender #c8b8e0 只进入插画或波形，不进入控件与界面强调。\n\nFORBIDDEN：彩色界面强调、冷灰基底、深色大底、超过 12px 的大圆角；必须保持暖石灰阶和单色控件秩序。",
+      "pageUrl": "http://localhost:3000/layouts?ds=stone",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Stone\ndescription: A warm-stone monochrome workbench with serif display type.\n---\n\n# Stone\n\n## Colors\n\ncolors:\n  canvas: \"#f5f5f5\"\n  surface: \"#fafafa\"\n  raised: \"#ffffff\"\n  ink: \"#0c0a09\"\n  ink-secondary: \"#292524\"\n  ink-muted: \"#777169\"\n  ink-faint: \"#a8a29e\"\n  hairline: \"#e7e5e4\"\n  accent: \"#0c0a09\"\n  accent-foreground: \"#ffffff\"\n  success: \"#1ea64a\"\n  danger: \"#dc2626\"\n  warning: \"#d97706\"\n  illustration-mint: \"#a7e5d3\"\n  illustration-peach: \"#f4c5a8\"\n  illustration-lavender: \"#c8b8e0\"\n\n## Typography\n\ntypography:\n  body: \"ui-sans-serif, -apple-system, sans-serif\"\n  display: \"Waldenburg, 'Times New Roman', serif\"\n  mono: \"ui-monospace, monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 600\n\n## Surfaces & lines\n\n- Keep every foundation inside a warm stone grayscale.\n- Use near-black controls and fine warm hairlines instead of color emphasis.\n- Cap all radii at 12px and prefer restrained tonal adjacency over shadow.\n- Confine the mint-to-peach-to-lavender accent gradient to illustration and waveform graphics.\n\n## Components\n\n- Sidebar: use warm gray zoning with a near-black selected state.\n- Thread: pair serif display moments with highly readable sans body copy.\n- Composer: stay monochrome, compact, and clearly bounded by a warm hairline.\n- Artifact panel: preserve quiet structure and let content carry the hierarchy.\n- Buttons: primary is near black with white text; secondary controls stay stone.\n- Status: semantic color remains factual and never becomes the visual accent.\n\n## FORBIDDEN\n\n- Colored interface accents or cool-gray foundations.\n- Large dark backgrounds.\n- Radii above 12px.\n- Illustration colors used inside controls.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "parchment",
+      "name": "Parchment",
+      "nameZh": "羊皮纸",
+      "aliases": [
+        "奶油羊皮纸",
+        "炭墨胶囊",
+        "warm handmade console",
+        "玫粉心跳点"
+      ],
+      "description": "A cream-parchment workbench defined by charcoal pill controls and a heartbeat of rose, distinct from Terracotta's serif type and clay-orange craft.",
+      "descriptionZh": "以奶油羊皮纸、炭墨胶囊控件与一点玫粉心跳构成的人文手作工作台，区别于 Terracotta 的衬线字与陶土橙。",
+      "prompt": "Use the 'Parchment Workbench' design system: establish a human, handmade field with a #f7f4ed cream-parchment canvas, #f1eee5 surfaces, and #fcfbf8 raised layers. Derive the grayscale from #1c1c1c charcoal at 3%, 4%, 40%, and 82% opacity steps, and favor fully rounded pill buttons. Reserve #ff4d84 rose for primary actions, selection, or a small heartbeat accent. Unlike Terracotta's serif display type and clay-orange craft, this system uses one sans voice, charcoal pills, and low-frequency rose.\n\nFORBIDDEN: cool-white foundations, pure #000000, technology blue, sharp square corners, or broad rose coverage; rose is only a restrained heartbeat accent and key action signal.",
+      "promptZh": "采用「Parchment / 羊皮纸工作台」设计系统：以 #f7f4ed 奶油羊皮纸画布、#f1eee5 主表面和 #fcfbf8 浮层建立人文手作感，文字与灰阶由 #1c1c1c 炭墨及其 3% / 4% / 40% / 82% 透明度派生，按钮偏好全圆角胶囊；#ff4d84 玫粉只作为主行动、选中或心跳般的小点缀。它不同于 Terracotta 的衬线展示字与陶土橙：这里用同一无衬线语气、炭墨胶囊和低频玫粉建立身份。\n\nFORBIDDEN：冷白底、纯黑 #000000、科技蓝、锐利直角、把玫粉大面积铺陈；玫粉只允许作为克制的心跳点缀与关键行动。",
+      "pageUrl": "http://localhost:3000/layouts?ds=parchment",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Parchment\ndescription: A cream-parchment workbench with charcoal pills and a heartbeat of rose.\n---\n\n# Parchment\n\n## Colors\n\ncolors:\n  canvas: \"#f7f4ed\"\n  surface: \"#f1eee5\"\n  raised: \"#fcfbf8\"\n  ink: \"#1c1c1c\"\n  ink-secondary: \"#3a3a38\"\n  ink-muted: \"#5f5f5d\"\n  ink-faint: \"#8a8a86\"\n  hairline: \"#eceae4\"\n  accent: \"#ff4d84\"\n  success: \"#1ea64a\"\n  danger: \"#c64545\"\n  warning: \"#d97917\"\n  charcoal-03: \"color-mix(in srgb, #1c1c1c 3%, transparent)\"\n  charcoal-04: \"color-mix(in srgb, #1c1c1c 4%, transparent)\"\n  charcoal-40: \"color-mix(in srgb, #1c1c1c 40%, transparent)\"\n  charcoal-82: \"color-mix(in srgb, #1c1c1c 82%, transparent)\"\n\n## Typography\n\ntypography:\n  body: \"'Camera Plain', ui-sans-serif, system-ui, sans-serif\"\n  display: \"'Camera Plain', ui-sans-serif, system-ui, sans-serif\"\n  mono: \"ui-monospace, monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 600\n\n## Surfaces & lines\n\n- Derive gray fills and text hierarchy from #1c1c1c opacity steps.\n- Keep canvas and surfaces cream, tactile, and visibly warmer than pure white.\n- Prefer fully rounded pill buttons and soft continuous control silhouettes.\n- Use rose as a heartbeat accent, never as a broad surface or body color.\n\n## Components\n\n- Sidebar: use parchment zoning with a charcoal pill selected state.\n- Thread: keep the sans voice warm, conversational, and comfortably spaced.\n- Composer: form a full pill with charcoal controls and one restrained rose action.\n- Artifact panel: feel like a clean handmade sheet with very soft hairlines.\n- Buttons: default to fully rounded pills; reserve rose for the key action.\n- Status: use semantic colors sparingly and keep charcoal dominant.\n\n## FORBIDDEN\n\n- Cool-white foundations, pure black, or technology blue.\n- Sharp square corners.\n- Broad rose surfaces or repeated decorative pink.\n- Terracotta-like serif and clay-orange styling.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "frost",
+      "name": "Frost",
+      "nameZh": "霜玻",
+      "aliases": [
+        "玻璃拟态",
+        "毛玻璃",
+        "frosted glass",
+        "acrylic",
+        "glass ui"
+      ],
+      "description": "An in-house glass workbench with pearl translucency, bright glass edges, and soft aurora color visibly diffused behind every working surface.",
+      "descriptionZh": "以珍珠半透明表面、明亮玻璃边缘与在工作层后清晰漫射的柔和极光构成的自研霜玻工作台。",
+      "prompt": "Use the 'Frost Workbench' design system: place large, low-saturation aurora fields of sky #7dd3fc, violet #c4b5fd, pink #f9a8d4, and mint #6ee7b7 over a white base, keeping that color visibly present through rgba(255,255,255,0.55) primary surfaces and rgba(255,255,255,0.72) raised layers. Apply 18px backdrop blur directly to the translucent sidebar, thread cards, composer, and artifact panel. Build hierarchy with bright glass hairlines and quiet dividers, reserve #6d5dfc for focus, selection, and primary actions, and protect readability with deep slate ink.\n\nFORBIDDEN: solid opaque large-area surfaces, dark backgrounds, hard drop shadows, glass panels with no visible content bleeding through behind them, or hairlines with excessive contrast that read as hard frames.",
+      "promptZh": "采用「Frost / 霜玻工作台」设计系统：在白色基底上铺设天蓝 #7dd3fc、柔紫 #c4b5fd、粉色 #f9a8d4 与薄荷 #6ee7b7 的大尺度低饱和极光，让颜色真实穿透 rgba(255,255,255,0.55) 主表面与 rgba(255,255,255,0.72) 浮层；侧栏、线程卡、输入台和产物面板在自身半透明底色上执行 18px backdrop blur，以明亮玻璃发丝边和低对比分隔组织层级，#6d5dfc 仅用于焦点、选中和主行动，深灰蓝文字保证可读性。\n\nFORBIDDEN：大面积纯色不透明表面、深色背景、硬投影、背后没有任何可见内容穿透的空洞玻璃面板、对比度过高而像实线框的发丝边。",
+      "pageUrl": "http://localhost:3000/layouts?ds=frost",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Frost\ndescription: An in-house glass workbench with aurora color diffused behind pearl surfaces.\n---\n\n# Frost\n\n## Colors\n\ncolors:\n  canvas: \"rgba(255,255,255,0.2)\"\n  surface: \"rgba(255,255,255,0.55)\"\n  raised: \"rgba(255,255,255,0.72)\"\n  ink: \"#1e293b\"\n  ink-secondary: \"#334155\"\n  ink-muted: \"#64748b\"\n  ink-faint: \"#94a3b8\"\n  hairline: \"rgba(255,255,255,0.65)\"\n  divider: \"rgba(30,41,59,0.08)\"\n  hover: \"rgba(255,255,255,0.5)\"\n  accent: \"#6d5dfc\"\n  success: \"#10b981\"\n  danger: \"#ef4444\"\n  warning: \"#f59e0b\"\n  aurora-sky: \"#7dd3fc\"\n  aurora-violet: \"#c4b5fd\"\n  aurora-pink: \"#f9a8d4\"\n  aurora-mint: \"#6ee7b7\"\n\n## Typography\n\ntypography:\n  body: \"inherit the site default sans\"\n  display: \"inherit the site default display face\"\n  mono: \"inherit the site default monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 600\n\n## Surfaces & lines\n\n- Keep the white-base aurora visibly bleeding through every glass surface.\n- Apply 18px backdrop blur on the element that owns each translucent background.\n- Use bright glass edges and low-contrast slate dividers instead of hard frames.\n- Avoid opaque elevation; depth comes from diffusion, overlap, and tonal alpha.\n\n## Components\n\n- Sidebar: blur its clipped content layer so the resize handle remains unobstructed.\n- Thread: place file, diff, and approval cards on translucent blurred glass.\n- Composer: use raised pearl glass with a quiet edge and violet focus or send.\n- Artifact panel: preserve visible aurora diffusion behind preview and version content.\n- Buttons: reserve violet for primary action and selected controls.\n- Status: keep green, red, and amber compact, factual, and readable on glass.\n\n## FORBIDDEN\n\n- Solid opaque large-area surfaces or dark backgrounds.\n- Hard drop shadows.\n- Glass panels with no visible content bleeding through behind them.\n- Hairlines with enough contrast to read as hard frames.\n"
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "eclipse",
+      "name": "Eclipse",
+      "nameZh": "日蚀",
+      "aliases": [
+        "纯黑单色舱",
+        "白胶囊按钮",
+        "mono inverse console",
+        "spacecraft black"
+      ],
+      "description": "A pure-black monochrome workbench where the only emphasis is inversion: white pill controls with near-black text, circular hairline icon chips, and a four-step gray text ladder.",
+      "descriptionZh": "以「反白」为唯一强调的纯黑单色工作台：白色胶囊控件配近黑文字、发丝圆环图标徽章、四档灰阶文字层级。",
+      "prompt": "Use the 'Eclipse Workbench' design system: layer #141416 primary surfaces and #1d1d20 raised panels over a pure #000000 canvas, organizing the sidebar, thread, composer, and artifact area with #2b2d31 hairlines. Step text down a four-stop gray ladder (#ffffff / #d7d9dd / #8f939b / #5f6268). The only emphasis device is inversion: the primary action is a fully-rounded white pill with #0a0a0a near-black text, and selection and focus are white as well. Set icons inside circular hairline chips — never filled color blocks. Semantic green, red, and orange appear only for real state; code and commands are monospace.\n\nFORBIDDEN: any hued accent (no blue, violet, or green), surface gradients or glow, heavy shadows, low-contrast gray-on-gray buttons, filled icon chips, or spending the inverse pill on secondary actions.",
+      "promptZh": "采用「Eclipse / 日蚀工作台」设计系统：#000000 纯黑画布上叠 #141416 主表面与 #1d1d20 浮层，用 #2b2d31 发丝线组织侧栏、线程、输入台与产物区；文字沿 #ffffff / #d7d9dd / #8f939b / #5f6268 四档灰阶退后；唯一的强调手段是「反白」——主行动是全圆角白色胶囊配 #0a0a0a 近黑文字，选中与焦点同样用白；图标一律装进发丝圆环徽章，不用实底色块；语义绿红橙只在真实状态出现，等宽字体承载代码与命令。\n\nFORBIDDEN：任何彩色强调（蓝紫绿一概不用）、表面渐变或辉光、厚投影、灰底灰字的低对比按钮、实底图标色块、把反白胶囊用在次级操作上。",
+      "pageUrl": "http://localhost:3000/layouts?ds=eclipse",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "---\nname: Eclipse\ndescription: A pure-black monochrome workbench where emphasis is inversion, not color.\n---\n\n# Eclipse\n\n## Colors\n\ncolors:\n  canvas: \"#000000\"\n  surface: \"#141416\"\n  raised: \"#1d1d20\"\n  ink: \"#ffffff\"\n  ink-secondary: \"#d7d9dd\"\n  ink-muted: \"#8f939b\"\n  ink-faint: \"#5f6268\"\n  hairline: \"#2b2d31\"\n  accent: \"#ffffff\"\n  accent-foreground: \"#0a0a0a\"\n  success: \"#30a46c\"\n  danger: \"#e5484d\"\n  warning: \"#f0a13a\"\n\n## Typography\n\ntypography:\n  body: \"Inter, 'Helvetica Neue', system-ui, sans-serif\"\n  display: \"Inter, 'Helvetica Neue', system-ui, sans-serif\"\n  mono: \"ui-monospace, 'SF Mono', monospace\"\n  body-weight: 400\n  label-weight: 500\n  heading-weight: 600\n\n## Surfaces & lines\n\n- Keep the canvas pure black; separate depth with small near-black value steps.\n- Draw structure with #2b2d31 hairlines; never with shadows or glow.\n- Emphasis is inversion: white fills carry black text, and nothing else shouts.\n- Icons live in circular hairline chips, all outline-style, never filled blocks.\n\n## Components\n\n- Sidebar: neutral compact rows; the selected row inverts to white-on-black text emphasis.\n- Thread: white prose over black, metadata stepped down the gray ladder.\n- Composer: raised one value step with a hairline; send is the white pill.\n- Buttons: primary is a fully-rounded white pill with #0a0a0a text; secondary and ghost stay hairline-outlined and neutral.\n- Status: green, red, and orange only when the underlying state is real.\n\n## FORBIDDEN\n\n- Any hued accent — no blue, violet, or green emphasis.\n- Surface gradients, glow, or heavy shadows.\n- Low-contrast gray-on-gray buttons.\n- Filled icon chips or colored icon backgrounds.\n- Inverse pills on secondary actions.\n"
       }
     }
   ]
