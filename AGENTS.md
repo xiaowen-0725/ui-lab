@@ -88,7 +88,7 @@ next-intl 路由化:`/` = 中文(默认 locale)、`/en/*` = 英文,`localePrefix
 
 ## AI 接入
 
-一个真源、多条薄视图。真源是 `lib/catalog.ts` 的 `buildCatalog()`,把全部词汇(组件 / atom token / 图标 / 风格 / 配色 / studio 预设)聚合成统一 `CatalogItem`(name、描述、prompt、pageUrl、fetch)。对外三条通道,MCP 已退役:
+一个真源、多条薄视图。真源是 `lib/catalog.ts` 的 `buildCatalog()`,把全部词汇(组件 / atom token / 图标 / 风格 / 配色 / studio 预设 / 设计系统)聚合成统一 `CatalogItem`(name、描述、prompt、pageUrl、fetch)。对外三条通道,MCP 已退役:
 
 - **组件安装**:shadcn registry `app/r/*`,`npx shadcn add`(见「分发 / 命名空间」)。
 - **机器端点**(`app/` 根、英文规范、部署自动静态化):`/catalog.json`(结构化全词汇)、`/llms.txt`(分组索引)、`/llms-full.txt`(每项 prompt/token 内联)。加新词汇时它们**随构建自动反映**,不用手改。

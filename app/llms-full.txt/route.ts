@@ -8,7 +8,10 @@ function fenceLang(item: CatalogItem): string {
   switch (item.kind) {
     case "atom-set":
     case "studio-preset":
+    case "design-system":
       return "markdown";
+    case "palette":
+      return "css";
     default:
       return "text";
   }
@@ -25,6 +28,10 @@ function renderItem(item: CatalogItem): string[] {
     // shadcn registry endpoint, so the install command is the whole story.
     lines.push(`Fetch: ${item.fetch.command ?? item.fetch.endpoint ?? item.pageUrl}`);
     return lines;
+  }
+
+  if (item.prompt !== undefined && item.prompt !== item.fetch.value) {
+    lines.push(`Prompt: ${item.prompt}`);
   }
 
   lines.push("Fetch: copy the block below");

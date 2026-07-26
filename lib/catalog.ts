@@ -1,9 +1,9 @@
 // Unified AI-facing catalog: aggregates every visual-vocabulary module
-// (components, atoms, icon styles/motions, styles, palettes, studio presets)
-// into one flat list of CatalogItem so `/catalog.json`, `/llms.txt`, and
-// `/llms-full.txt` can expose the whole vocabulary — not just components —
-// to AI agents. Each aggregator below is isolated behind try/catch so one
-// module failing to build never takes down the others.
+// (components, atoms, icon styles/motions, styles, palettes, studio presets,
+// design systems) into one flat list of CatalogItem so `/catalog.json`,
+// `/llms.txt`, and `/llms-full.txt` can expose the whole vocabulary — not
+// just components — to AI agents. Each aggregator below is isolated behind
+// try/catch so one module failing to build never takes down the others.
 
 import {
   BACKGROUND_FADES,
@@ -29,6 +29,7 @@ import {
   SPACING_SCALE,
   TYPE_SCALE,
 } from "@/lib/atoms";
+import { DESIGN_SYSTEMS } from "@/lib/layouts";
 import { PALETTES, paletteToCss } from "@/lib/palettes";
 import { buildIndex } from "@/lib/registry-server";
 import { SITE_URL } from "@/lib/site";
@@ -46,7 +47,8 @@ export type CatalogKind =
   | "icon-motion"
   | "style"
   | "palette"
-  | "studio-preset";
+  | "studio-preset"
+  | "design-system";
 
 export type CatalogFetch = {
   method: "shadcn" | "copy-prompt" | "copy-tokens" | "endpoint";
@@ -273,8 +275,25 @@ function buildStudioPresetItems(): CatalogItem[] {
   });
 }
 
+function buildDesignSystemItems(): CatalogItem[] {
+  return DESIGN_SYSTEMS.map((entry): CatalogItem => ({
+    kind: "design-system",
+    category: "workbench",
+    slug: entry.slug,
+    name: entry.name,
+    nameZh: entry.nameZh,
+    aliases: entry.aliases,
+    description: entry.description,
+    descriptionZh: entry.descriptionZh,
+    prompt: entry.promptEn,
+    promptZh: entry.promptZh,
+    pageUrl: `${SITE_URL}/layouts?ds=${entry.slug}`,
+    fetch: { method: "copy-tokens", value: entry.designMd },
+  }));
+}
+
 /**
- * Aggregates all seven vocabulary kinds into one flat catalog. Each
+ * Aggregates all eight vocabulary kinds into one flat catalog. Each
  * aggregator is isolated: if one module throws (bad data, missing export),
  * we log and skip it rather than failing the whole catalog.
  */
@@ -289,6 +308,7 @@ export async function buildCatalog(): Promise<CatalogItem[]> {
     { label: "style", run: buildStyleItems },
     { label: "palette", run: buildPaletteItems },
     { label: "studio-preset", run: buildStudioPresetItems },
+    { label: "design-system", run: buildDesignSystemItems },
   ];
 
   for (const builder of builders) {

@@ -28,7 +28,7 @@ node dist/index.js --help
 ### `list`
 
 List catalog items, grouped by kind (component, atom-set, icon-style,
-icon-motion, style, palette, studio-preset).
+icon-motion, style, palette, studio-preset, design-system).
 
 ```sh
 ui-lab list --kind component

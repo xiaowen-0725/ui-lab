@@ -11,6 +11,7 @@ const GROUP_LABELS: Record<CatalogKind, string> = {
   style: "Styles",
   palette: "Palettes",
   "studio-preset": "Studio Presets",
+  "design-system": "Design Systems",
 };
 
 const GROUP_ORDER: CatalogKind[] = [
@@ -21,6 +22,7 @@ const GROUP_ORDER: CatalogKind[] = [
   "style",
   "palette",
   "studio-preset",
+  "design-system",
 ];
 
 function fetchHint(item: CatalogItem): string {

@@ -9,7 +9,8 @@ export type CatalogKind =
   | "icon-motion"
   | "style"
   | "palette"
-  | "studio-preset";
+  | "studio-preset"
+  | "design-system";
 
 export type CatalogFetch = {
   method: "shadcn" | "copy-prompt" | "copy-tokens" | "endpoint";

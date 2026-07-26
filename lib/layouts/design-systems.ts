@@ -1212,6 +1212,100 @@ typography:
   keywords: ["glassmorphism", "vision pro", "aero", "acrylic"],
 };
 
+export const eclipseDesignSystem: DesignSystemEntry = {
+  slug: "eclipse",
+  name: "Eclipse",
+  nameZh: "日蚀",
+  aliases: ["纯黑单色舱", "白胶囊按钮", "mono inverse console", "spacecraft black"],
+  description:
+    "A pure-black monochrome workbench where the only emphasis is inversion: white pill controls with near-black text, circular hairline icon chips, and a four-step gray text ladder.",
+  descriptionZh:
+    "以「反白」为唯一强调的纯黑单色工作台：白色胶囊控件配近黑文字、发丝圆环图标徽章、四档灰阶文字层级。",
+  skin: makeWbSkin({
+    scheme: "dark",
+    canvas: "#000000",
+    surface: "#141416",
+    raised: "#1d1d20",
+    ink: "#ffffff",
+    inkSecondary: "#d7d9dd",
+    inkMuted: "#8f939b",
+    inkFaint: "#5f6268",
+    hairline: "#2b2d31",
+    accent: "#ffffff",
+    accentFg: "#0a0a0a",
+    success: "#30a46c",
+    danger: "#e5484d",
+    warning: "#f0a13a",
+    fonts: {
+      body: "Inter, 'Helvetica Neue', system-ui, sans-serif",
+      display: "Inter, 'Helvetica Neue', system-ui, sans-serif",
+      mono: "ui-monospace, 'SF Mono', monospace",
+    },
+  }),
+  promptZh:
+    "采用「Eclipse / 日蚀工作台」设计系统：#000000 纯黑画布上叠 #141416 主表面与 #1d1d20 浮层，用 #2b2d31 发丝线组织侧栏、线程、输入台与产物区；文字沿 #ffffff / #d7d9dd / #8f939b / #5f6268 四档灰阶退后；唯一的强调手段是「反白」——主行动是全圆角白色胶囊配 #0a0a0a 近黑文字，选中与焦点同样用白；图标一律装进发丝圆环徽章，不用实底色块；语义绿红橙只在真实状态出现，等宽字体承载代码与命令。\n\nFORBIDDEN：任何彩色强调（蓝紫绿一概不用）、表面渐变或辉光、厚投影、灰底灰字的低对比按钮、实底图标色块、把反白胶囊用在次级操作上。",
+  promptEn:
+    "Use the 'Eclipse Workbench' design system: layer #141416 primary surfaces and #1d1d20 raised panels over a pure #000000 canvas, organizing the sidebar, thread, composer, and artifact area with #2b2d31 hairlines. Step text down a four-stop gray ladder (#ffffff / #d7d9dd / #8f939b / #5f6268). The only emphasis device is inversion: the primary action is a fully-rounded white pill with #0a0a0a near-black text, and selection and focus are white as well. Set icons inside circular hairline chips — never filled color blocks. Semantic green, red, and orange appear only for real state; code and commands are monospace.\n\nFORBIDDEN: any hued accent (no blue, violet, or green), surface gradients or glow, heavy shadows, low-contrast gray-on-gray buttons, filled icon chips, or spending the inverse pill on secondary actions.",
+  designMd: `---
+name: Eclipse
+description: A pure-black monochrome workbench where emphasis is inversion, not color.
+---
+
+# Eclipse
+
+## Colors
+
+colors:
+  canvas: "#000000"
+  surface: "#141416"
+  raised: "#1d1d20"
+  ink: "#ffffff"
+  ink-secondary: "#d7d9dd"
+  ink-muted: "#8f939b"
+  ink-faint: "#5f6268"
+  hairline: "#2b2d31"
+  accent: "#ffffff"
+  accent-foreground: "#0a0a0a"
+  success: "#30a46c"
+  danger: "#e5484d"
+  warning: "#f0a13a"
+
+## Typography
+
+typography:
+  body: "Inter, 'Helvetica Neue', system-ui, sans-serif"
+  display: "Inter, 'Helvetica Neue', system-ui, sans-serif"
+  mono: "ui-monospace, 'SF Mono', monospace"
+  body-weight: 400
+  label-weight: 500
+  heading-weight: 600
+
+## Surfaces & lines
+
+- Keep the canvas pure black; separate depth with small near-black value steps.
+- Draw structure with #2b2d31 hairlines; never with shadows or glow.
+- Emphasis is inversion: white fills carry black text, and nothing else shouts.
+- Icons live in circular hairline chips, all outline-style, never filled blocks.
+
+## Components
+
+- Sidebar: neutral compact rows; the selected row inverts to white-on-black text emphasis.
+- Thread: white prose over black, metadata stepped down the gray ladder.
+- Composer: raised one value step with a hairline; send is the white pill.
+- Buttons: primary is a fully-rounded white pill with #0a0a0a text; secondary and ghost stay hairline-outlined and neutral.
+- Status: green, red, and orange only when the underlying state is real.
+
+## FORBIDDEN
+
+- Any hued accent — no blue, violet, or green emphasis.
+- Surface gradients, glow, or heavy shadows.
+- Low-contrast gray-on-gray buttons.
+- Filled icon chips or colored icon backgrounds.
+- Inverse pills on secondary actions.
+`,
+  keywords: ["grok", "xai", "supergrok", "pricing card", "mono dark", "black and white"],
+};
+
 export const DESIGN_SYSTEMS: DesignSystemEntry[] = [
   graphiteDesignSystem,
   nightflightDesignSystem,
@@ -1226,4 +1320,5 @@ export const DESIGN_SYSTEMS: DesignSystemEntry[] = [
   stoneDesignSystem,
   parchmentDesignSystem,
   frostDesignSystem,
+  eclipseDesignSystem,
 ];

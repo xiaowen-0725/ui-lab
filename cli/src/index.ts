@@ -10,6 +10,7 @@ const KIND_ORDER = [
   "style",
   "palette",
   "studio-preset",
+  "design-system",
 ] as const;
 
 interface Flags {
@@ -296,7 +297,7 @@ Global flags:
                       snapshot (also settable via the UILAB_REGISTRY env var)
   --json              Emit machine-readable JSON on stdout
   --kind <kind>       Filter/disambiguate by kind: component, atom-set, icon-style,
-                      icon-motion, style, palette, studio-preset
+                      icon-motion, style, palette, studio-preset, design-system
   --pm <pm>           Package manager used to rewrite \`add\`'s printed install command
   -h, --help          Show this help
   -v, --version       Print the CLI version
