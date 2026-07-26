@@ -5,7 +5,14 @@ import { StarBorder } from "@/components/motion/star-border";
 export function StarBorderPreview() {
   return (
     <div className="flex flex-wrap items-center justify-center gap-10 p-6">
-      <StarBorder className="rounded-full text-white" thickness={1.5}>
+      {/* startAngle puts this comet half a lap behind the card's, so two rings on
+          one screen don't travel in lockstep. */}
+      <StarBorder
+        className="rounded-full"
+        color="var(--accent)"
+        thickness={1.5}
+        startAngle={180}
+      >
         <button
           type="button"
           className="rounded-full bg-neutral-950 px-6 py-2.5 text-sm font-semibold text-white"
