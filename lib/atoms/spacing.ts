@@ -1,4 +1,4 @@
-import type { DensityAtom, SpacingAtom } from "@/lib/atoms/types";
+import type { BreakpointAtom, DensityAtom, SpacingAtom } from "@/lib/atoms/types";
 
 export const SPACING_SCALE: readonly SpacingAtom[] = [
   {
@@ -105,6 +105,54 @@ export const DENSITIES: readonly DensityAtom[] = [
     whenUseZh: "触控友好与阅读优先的界面。",
     rowHeight: 48,
     padding: 16,
+  },
+] as const;
+
+export const BREAKPOINTS: readonly BreakpointAtom[] = [
+  {
+    slug: "sm",
+    name: "Small",
+    nameZh: "小屏",
+    aliases: ["large phone", "大屏手机", "landscape phone", "横屏手机"],
+    whenUse: "Large phones and landscape phone layouts.",
+    whenUseZh: "大屏手机与横屏手机。",
+    minWidth: 640,
+  },
+  {
+    slug: "md",
+    name: "Medium",
+    nameZh: "中屏",
+    aliases: ["tablet portrait", "竖屏平板", "small tablet", "小平板"],
+    whenUse: "Portrait tablets.",
+    whenUseZh: "竖屏平板。",
+    minWidth: 768,
+  },
+  {
+    slug: "lg",
+    name: "Large",
+    nameZh: "大屏",
+    aliases: ["tablet landscape", "横屏平板", "small laptop", "小笔记本"],
+    whenUse: "Landscape tablets and small laptops.",
+    whenUseZh: "横屏平板与小笔记本。",
+    minWidth: 1024,
+  },
+  {
+    slug: "xl",
+    name: "Extra Large",
+    nameZh: "超大屏",
+    aliases: ["desktop", "桌面", "desktop monitor", "桌面显示器"],
+    whenUse: "Desktop monitors.",
+    whenUseZh: "桌面显示器。",
+    minWidth: 1280,
+  },
+  {
+    slug: "2xl",
+    name: "Double Extra Large",
+    nameZh: "宽屏",
+    aliases: ["wide desktop", "宽屏桌面", "ultrawide", "超宽屏"],
+    whenUse: "Wide desktop monitors.",
+    whenUseZh: "宽屏桌面显示器。",
+    minWidth: 1536,
   },
 ] as const;
 

@@ -12,7 +12,7 @@ import {
   useCopyFeedback,
 } from "@/components/app/atoms/copy-value";
 import type { Locale } from "@/i18n/routing";
-import { createShapeExports, RADII, SHADOWS } from "@/lib/atoms";
+import { createShapeExports, LAYERS, RADII, SHADOWS } from "@/lib/atoms";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { useResolvedDark } from "@/lib/hooks/use-resolved-dark";
 import { cn } from "@/lib/utils";
@@ -34,7 +34,7 @@ const COPY = {
   },
 } as const;
 
-const SHAPE_EXPORTS = createShapeExports(RADII, SHADOWS);
+const SHAPE_EXPORTS = createShapeExports(RADII, SHADOWS, LAYERS);
 
 function ShadowSurface({
   shadow,
@@ -215,6 +215,63 @@ export function ShapeExplorer() {
         <p className="mt-4 rounded-2xl border border-border bg-card/20 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
           {t("shadowAntiSlop")}
         </p>
+      </section>
+
+      <section aria-labelledby="layers-title">
+        <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          {t("comparator")}
+        </p>
+        <h2 id="layers-title" className="mt-2 text-2xl font-semibold text-foreground">
+          {t("layersTitle")}
+        </h2>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          {t("layersHint")}
+        </p>
+
+        <div className="relative mt-6 h-56 overflow-hidden rounded-3xl border border-border bg-background/50 p-6">
+          <div className="relative mx-auto h-full max-w-md">
+            {LAYERS.map((entry, index) => (
+              <div
+                key={entry.slug}
+                className="absolute flex h-16 w-40 flex-col justify-between rounded-2xl border border-(--color-border-strong) bg-card px-3 py-2 shadow-[0_8px_20px_rgb(0_0_0/0.12)]"
+                style={{
+                  left: `${index * 16}px`,
+                  top: `${index * 16}px`,
+                  zIndex: entry.z,
+                }}
+              >
+                <span className="font-mono text-[0.65rem] text-muted-foreground">
+                  {entry.slug}
+                </span>
+                <span className="font-mono text-xs font-semibold text-foreground">
+                  z {entry.z}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {LAYERS.map((entry) => (
+            <AtomCard
+              key={entry.slug}
+              id={entry.slug}
+              {...entry}
+              sample={
+                <div className="relative flex h-16 items-center justify-center">
+                  <span className="absolute h-10 w-16 rounded-xl border border-border bg-background/60" />
+                  <span
+                    className="absolute h-10 w-16 rounded-xl border border-(--color-border-strong) bg-card shadow-[0_6px_16px_rgb(0_0_0/0.12)]"
+                    style={{
+                      transform: `translate(${Math.min(entry.z, 60) / 6}px, -${Math.min(entry.z, 60) / 6}px)`,
+                    }}
+                  />
+                </div>
+              }
+              value={<CopyValue value={`${entry.z}`} label={`layer-${entry.slug}`} />}
+            />
+          ))}
+        </div>
       </section>
 
       <section aria-labelledby="shape-values-title">

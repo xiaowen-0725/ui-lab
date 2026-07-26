@@ -7,6 +7,7 @@ import { AtomExportActions } from "@/components/app/atoms/atom-export-actions";
 import { CopyValue } from "@/components/app/atoms/copy-value";
 import type { Locale } from "@/i18n/routing";
 import {
+  BREAKPOINTS,
   createSpacingExports,
   DENSITIES,
   SPACING_SCALE,
@@ -29,7 +30,8 @@ const COPY = {
   ],
 } as const;
 
-const SPACING_EXPORTS = createSpacingExports(SPACING_SCALE, DENSITIES);
+const SPACING_EXPORTS = createSpacingExports(SPACING_SCALE, DENSITIES, BREAKPOINTS);
+const MAX_BREAKPOINT_WIDTH = Math.max(...BREAKPOINTS.map((entry) => entry.minWidth));
 
 export function SpacingExplorer({ className }: { className?: string }) {
   const locale = useLocale() as Locale;
@@ -124,6 +126,65 @@ export function SpacingExplorer({ className }: { className?: string }) {
         <p className="mt-4 rounded-2xl border border-border bg-card/20 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
           {t("spacingAntiSlop")}
         </p>
+      </section>
+
+      <section aria-labelledby="breakpoints-title">
+        <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          {t("comparator")}
+        </p>
+        <h2 id="breakpoints-title" className="mt-2 text-2xl font-semibold text-foreground">
+          {t("breakpointsTitle")}
+        </h2>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          {t("breakpointsHint")}
+        </p>
+
+        <div className="mt-6 flex flex-col gap-3 rounded-3xl border border-border bg-background/50 p-6">
+          {BREAKPOINTS.map((entry) => {
+            const widthPercent = (entry.minWidth / MAX_BREAKPOINT_WIDTH) * 100;
+            return (
+              <div key={entry.slug} className="flex items-center gap-3">
+                <span className="w-10 shrink-0 font-mono text-xs text-muted-foreground">
+                  {entry.slug}
+                </span>
+                <div className="h-6 flex-1 rounded-full bg-card/40">
+                  <div
+                    className="flex h-6 items-center justify-end rounded-full bg-accent px-3"
+                    style={{ width: `${widthPercent}%` }}
+                  >
+                    <span className="font-mono text-[0.65rem] font-semibold text-background">
+                      {entry.minWidth}px
+                    </span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {BREAKPOINTS.map((entry) => {
+            const widthPercent = (entry.minWidth / MAX_BREAKPOINT_WIDTH) * 100;
+            return (
+              <AtomCard
+                key={entry.slug}
+                id={entry.slug}
+                {...entry}
+                sample={
+                  <div className="flex h-16 flex-col justify-center gap-1">
+                    <div className="h-3 rounded-full bg-card/40">
+                      <div
+                        className="h-3 rounded-full bg-accent"
+                        style={{ width: `${widthPercent}%` }}
+                      />
+                    </div>
+                  </div>
+                }
+                value={<CopyValue value={`${entry.minWidth}px`} label={`breakpoint-${entry.slug}`} />}
+              />
+            );
+          })}
+        </div>
       </section>
 
       <section aria-labelledby="spacing-values-title">

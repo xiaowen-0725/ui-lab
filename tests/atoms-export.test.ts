@@ -12,11 +12,11 @@ import {
   renderTailwindTheme,
 } from "@/lib/atoms/export";
 import { BACKGROUND_FADES, BACKGROUNDS } from "@/lib/atoms/backgrounds";
-import { DENSITIES, SPACING_SCALE } from "@/lib/atoms/spacing";
+import { BREAKPOINTS, DENSITIES, SPACING_SCALE } from "@/lib/atoms/spacing";
 import { LINES } from "@/lib/atoms/lines";
 import { ICON_STYLES } from "@/lib/atoms/icons";
 import { MOTION_CURVES, MOTION_DURATIONS, MOTION_SPRINGS } from "@/lib/atoms/motion";
-import { RADII, SHADOWS } from "@/lib/atoms/shape";
+import { LAYERS, RADII, SHADOWS } from "@/lib/atoms/shape";
 import { FONT_PAIRS, TYPE_SCALE } from "@/lib/atoms/typography";
 
 describe("atom category exports", () => {
@@ -65,7 +65,7 @@ describe("atom category exports", () => {
   });
 
   test("maps the complete spacing category to its fixed token names", () => {
-    expect(createSpacingExports(SPACING_SCALE, DENSITIES).cssVariables).toBe(`:root {
+    expect(createSpacingExports(SPACING_SCALE, DENSITIES, BREAKPOINTS).cssVariables).toBe(`:root {
   --space-micro: 4px;
   --space-tight: 8px;
   --space-element: 12px;
@@ -80,7 +80,18 @@ describe("atom category exports", () => {
   --space-density-standard-padding: 12px;
   --space-density-comfortable-row: 48px;
   --space-density-comfortable-padding: 16px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }`);
+  });
+
+  test("includes the widest breakpoint token in the spacing export", () => {
+    expect(createSpacingExports(SPACING_SCALE, DENSITIES, BREAKPOINTS).cssVariables).toContain(
+      "--breakpoint-2xl: 1536px",
+    );
   });
 
   test("keeps paired line values and the focus offset in the export", () => {
@@ -181,12 +192,13 @@ describe("atom category exports", () => {
     expect(result).toContain("--ease-duration-standard: 220ms;");
   });
 
-  test("maps radius and paired shadow values into one shape export", () => {
-    const result = createShapeExports(RADII, SHADOWS).cssVariables;
+  test("maps radius, paired shadow, and layer values into one shape export", () => {
+    const result = createShapeExports(RADII, SHADOWS, LAYERS).cssVariables;
     expect(result).toContain("--radius-lg: 12.5px;");
     expect(result).toContain(
       "--shadow-floating-dark: 0 0 0 0.5px rgb(255 255 255 / 0.157), 0 3px 7.5px rgb(0 0 0 / 0.2), 0 0 20px rgb(0 0 0 / 0.25);",
     );
+    expect(result).toContain("--z-tooltip: 60");
   });
 
   test("maps every font pairing and type-scale measure to distinct variables", () => {

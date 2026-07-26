@@ -1,4 +1,4 @@
-import type { RadiusAtom, ShadowAtom } from "@/lib/atoms/types";
+import type { LayerAtom, RadiusAtom, ShadowAtom } from "@/lib/atoms/types";
 
 export const RADII: readonly RadiusAtom[] = [
   {
@@ -117,5 +117,73 @@ export const SHADOWS: readonly ShadowAtom[] = [
     whenUseZh: "模态与常驻 HUD 卡。",
     light: "0 0 0 0.5px rgb(0 0 0 / 0.08), 0 12px 32px rgb(0 0 0 / 0.12)",
     dark: "0 0 0 0.5px rgb(255 255 255 / 0.157), 0 12px 32px rgb(0 0 0 / 0.5)",
+  },
+] as const;
+
+export const LAYERS: readonly LayerAtom[] = [
+  {
+    slug: "base",
+    name: "Base",
+    nameZh: "基础",
+    aliases: ["page layer", "页面层", "normal flow", "常规流"],
+    whenUse: "Regular page content in the normal flow.",
+    whenUseZh: "页面常规内容流。",
+    z: 0,
+  },
+  {
+    // "lifted", not "raised" — the shadow scale above already owns that slug,
+    // and slugs must be unique within a category (they key the search index).
+    slug: "lifted",
+    name: "Lifted",
+    nameZh: "抬升",
+    aliases: ["hover lift", "悬浮抬升", "local raise", "局部浮起"],
+    whenUse: "A card or element lifted on hover, or raised locally above its siblings.",
+    whenUseZh: "hover 抬升的卡片、局部浮起的元素。",
+    z: 10,
+  },
+  {
+    slug: "sticky",
+    name: "Sticky",
+    nameZh: "吸顶",
+    aliases: ["sticky nav", "吸顶导航", "toolbar", "工具条"],
+    whenUse: "A sticky nav bar or toolbar pinned above scrolling content.",
+    whenUseZh: "吸顶导航、工具条。",
+    z: 20,
+  },
+  {
+    slug: "dropdown",
+    name: "Dropdown",
+    nameZh: "下拉层",
+    aliases: ["select menu", "下拉菜单", "combobox", "组合框"],
+    whenUse: "Dropdown menus, selects, and comboboxes.",
+    whenUseZh: "下拉菜单、select、combobox。",
+    z: 30,
+  },
+  {
+    slug: "overlay",
+    name: "Overlay",
+    nameZh: "遮罩层",
+    aliases: ["modal layer", "弹层", "drawer", "抽屉"],
+    whenUse: "The scrim and panel of a modal or drawer.",
+    whenUseZh: "modal、drawer 的遮罩与面板。",
+    z: 40,
+  },
+  {
+    slug: "toast",
+    name: "Toast",
+    nameZh: "提示层",
+    aliases: ["toast notification", "toast 通知", "snackbar", "消息条"],
+    whenUse: "Toast notifications, which must sit above any open modal.",
+    whenUseZh: "toast 通知，需盖过 modal。",
+    z: 50,
+  },
+  {
+    slug: "tooltip",
+    name: "Tooltip",
+    nameZh: "提示气泡",
+    aliases: ["tooltip layer", "提示气泡层", "topmost", "最上层"],
+    whenUse: "Tooltips, which always render above everything else.",
+    whenUseZh: "tooltip，永远最上层。",
+    z: 60,
   },
 ] as const;

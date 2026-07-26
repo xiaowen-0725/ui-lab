@@ -94,6 +94,26 @@ export type SpacingAtom = {
   pixels: number;
 };
 
+export type LayerAtom = {
+  slug: string;
+  name: string;
+  nameZh: string;
+  aliases: readonly string[];
+  whenUse: string;
+  whenUseZh: string;
+  z: number;
+};
+
+export type BreakpointAtom = {
+  slug: string;
+  name: string;
+  nameZh: string;
+  aliases: readonly string[];
+  whenUse: string;
+  whenUseZh: string;
+  minWidth: number;
+};
+
 export type DensityAtom = {
   slug: string;
   name: string;

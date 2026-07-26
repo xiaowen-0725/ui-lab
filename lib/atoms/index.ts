@@ -3,8 +3,8 @@ import { ICON_MOTIONS } from "@/lib/atoms/icon-motion";
 import { ICON_STYLES } from "@/lib/atoms/icons";
 import { LINES } from "@/lib/atoms/lines";
 import { MOTION_CURVES, MOTION_DURATIONS, MOTION_SPRINGS } from "@/lib/atoms/motion";
-import { RADII, SHADOWS } from "@/lib/atoms/shape";
-import { DENSITIES, SPACING_SCALE } from "@/lib/atoms/spacing";
+import { LAYERS, RADII, SHADOWS } from "@/lib/atoms/shape";
+import { BREAKPOINTS, DENSITIES, SPACING_SCALE } from "@/lib/atoms/spacing";
 import type { AtomCategorySlug, AtomSearchItem } from "@/lib/atoms/types";
 import { FONT_PAIRS, TYPE_SCALE } from "@/lib/atoms/typography";
 
@@ -44,9 +44,9 @@ export const ATOM_SEARCH_ITEMS: readonly AtomSearchItem[] = [
     ...MOTION_SPRINGS,
     ...MOTION_DURATIONS,
   ]),
-  ...toAtomSearchItems("shape", [...RADII, ...SHADOWS]),
+  ...toAtomSearchItems("shape", [...RADII, ...SHADOWS, ...LAYERS]),
   ...toAtomSearchItems("typography", [...FONT_PAIRS, ...TYPE_SCALE]),
-  ...toAtomSearchItems("spacing", [...SPACING_SCALE, ...DENSITIES]),
+  ...toAtomSearchItems("spacing", [...SPACING_SCALE, ...DENSITIES, ...BREAKPOINTS]),
   ...toAtomSearchItems("lines", LINES),
   ...toAtomSearchItems("icons", [...ICON_STYLES, ...ICON_MOTIONS]),
   ...toAtomSearchItems("backgrounds", [...BACKGROUNDS, ...BACKGROUND_FADES]),

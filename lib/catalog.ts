@@ -8,6 +8,7 @@
 import {
   BACKGROUND_FADES,
   BACKGROUNDS,
+  BREAKPOINTS,
   createBackgroundsExports,
   createLinesExports,
   createMotionExports,
@@ -18,6 +19,7 @@ import {
   FONT_PAIRS,
   ICON_MOTIONS,
   ICON_STYLES,
+  LAYERS,
   LINES,
   MOTION_CURVES,
   MOTION_DURATIONS,
@@ -121,9 +123,9 @@ function buildAtomSetItems(): CatalogItem[] {
       slug: "shape",
       name: "Shape tokens",
       nameZh: "圆角与阴影 token",
-      description: "A radius scale and elevation shadows for consistent surfaces.",
-      descriptionZh: "统一表面质感用的圆角尺度与分层阴影。",
-      designMarkdown: createShapeExports(RADII, SHADOWS).designMarkdown,
+      description: "A radius scale, elevation shadows, and z-index layers for consistent surfaces.",
+      descriptionZh: "统一表面质感用的圆角尺度、分层阴影与 z-index 层叠阶梯。",
+      designMarkdown: createShapeExports(RADII, SHADOWS, LAYERS).designMarkdown,
     },
     {
       slug: "typography",
@@ -137,9 +139,11 @@ function buildAtomSetItems(): CatalogItem[] {
       slug: "spacing",
       name: "Spacing tokens",
       nameZh: "间距 token",
-      description: "A spacing scale and density presets for a consistent layout rhythm.",
-      descriptionZh: "统一布局节奏用的间距尺度与密度预设。",
-      designMarkdown: createSpacingExports(SPACING_SCALE, DENSITIES).designMarkdown,
+      description:
+        "A spacing scale, density presets, and responsive breakpoints for a consistent layout rhythm.",
+      descriptionZh: "统一布局节奏用的间距尺度、密度预设与响应式断点。",
+      designMarkdown: createSpacingExports(SPACING_SCALE, DENSITIES, BREAKPOINTS)
+        .designMarkdown,
     },
     {
       slug: "lines",

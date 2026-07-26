@@ -1,8 +1,10 @@
 import type {
   BackgroundAtom,
   BackgroundFadeAtom,
+  BreakpointAtom,
   DensityAtom,
   IconStyleAtom,
+  LayerAtom,
   LineAtom,
   SpacingAtom,
   MotionCurveAtom,
@@ -77,6 +79,7 @@ function createCategoryExports(
 export function createSpacingExports(
   scale: readonly SpacingAtom[],
   densities: readonly DensityAtom[],
+  breakpoints: readonly BreakpointAtom[],
 ): AtomExportBundle {
   const variables: AtomExportVariable[] = [
     ...scale.map((entry) => ({
@@ -93,6 +96,10 @@ export function createSpacingExports(
         value: `${entry.padding}px`,
       },
     ]),
+    ...breakpoints.map((entry) => ({
+      name: `--breakpoint-${entry.slug}` as const,
+      value: `${entry.minWidth}px`,
+    })),
   ];
 
   return createCategoryExports(variables, {
@@ -103,8 +110,12 @@ export function createSpacingExports(
         name: `density/${entry.slug}`,
         value: `${entry.rowHeight}px row / ${entry.padding}px padding`,
       })),
+      ...breakpoints.map((entry) => ({
+        name: `breakpoint/${entry.slug}`,
+        value: `${entry.minWidth}px`,
+      })),
     ],
-    rule: "Use this scale across the entire product; never introduce off-scale values such as 13px or 18px.",
+    rule: "Use this scale across the entire product; never introduce off-scale values such as 13px or 18px. Design mobile-first; add a breakpoint only where the layout actually breaks.",
   });
 }
 
@@ -267,6 +278,7 @@ export function createMotionExports(
 export function createShapeExports(
   radii: readonly RadiusAtom[],
   shadows: readonly ShadowAtom[],
+  layers: readonly LayerAtom[],
 ): AtomExportBundle {
   const variables: AtomExportVariable[] = [
     ...radii.map((entry) => ({
@@ -277,6 +289,10 @@ export function createShapeExports(
       { name: `--shadow-${entry.slug}-light` as const, value: entry.light },
       { name: `--shadow-${entry.slug}-dark` as const, value: entry.dark },
     ]),
+    ...layers.map((entry) => ({
+      name: `--z-${entry.slug}` as const,
+      value: `${entry.z}`,
+    })),
   ];
 
   return createCategoryExports(variables, {
@@ -287,8 +303,9 @@ export function createShapeExports(
         { name: `shadow/${entry.slug}/light`, value: entry.light },
         { name: `shadow/${entry.slug}/dark`, value: entry.dark },
       ]),
+      ...layers.map((entry) => ({ name: `layer/${entry.slug}`, value: `${entry.z}` })),
     ],
-    rule: "Use the radius scale consistently and establish elevation with hairlines and shallow shadows before prominent shadows.",
+    rule: "Use the radius scale consistently, establish elevation with hairlines and shallow shadows before prominent shadows, and stack UI only with these named layers; never invent one-off z-index values like 999.",
   });
 }
 
