@@ -4,11 +4,14 @@ import type { ComponentType } from "react";
 // Every preview is a client component dragging the library + motion with it.
 // Lazy chunks keep a page's JS limited to the previews it actually renders.
 export const previews: Record<string, ComponentType> = {
-  "blocks/recording-card": dynamic(() =>
-    import("./blocks/recording-card.preview").then((m) => m.RecordingCardPreview),
-  ),
   "blocks/thread-list": dynamic(() =>
     import("./blocks/thread-list.preview").then((m) => m.ThreadListPreview),
+  ),
+  "blocks/login-card": dynamic(() =>
+    import("./blocks/login-card.preview").then((m) => m.LoginCardPreview),
+  ),
+  "blocks/recording-card": dynamic(() =>
+    import("./blocks/recording-card.preview").then((m) => m.RecordingCardPreview),
   ),
   "blocks/artifact-panel": dynamic(() =>
     import("./blocks/artifact-panel.preview").then((m) => m.ArtifactPanelPreview),
@@ -292,6 +295,36 @@ export const previews: Record<string, ComponentType> = {
   ),
   "motion/animated-icon": dynamic(() =>
     import("./motion/animated-icon.preview").then((m) => m.AnimatedIconPreview),
+  ),
+  "motion/expanding-card": dynamic(() =>
+    import("./motion/expanding-card.preview").then((m) => m.ExpandingCardPreview),
+  ),
+  "motion/dropdown-menu": dynamic(() =>
+    import("./motion/dropdown-menu.preview").then((m) => m.DropdownMenuPreview),
+  ),
+  "motion/tooltip-morph": dynamic(() =>
+    import("./motion/tooltip-morph.preview").then((m) => m.TooltipMorphPreview),
+  ),
+  "blocks/step-form": dynamic(() =>
+    import("./blocks/step-form.preview").then((m) => m.StepFormPreview),
+  ),
+  "blocks/empty-state-inbox": dynamic(() =>
+    import("./blocks/empty-state-inbox.preview").then(
+      (m) => m.EmptyStateInboxPreview,
+    ),
+  ),
+  "blocks/empty-state-archive": dynamic(() =>
+    import("./blocks/empty-state-archive.preview").then(
+      (m) => m.EmptyStateArchivePreview,
+    ),
+  ),
+  "blocks/empty-state-search": dynamic(() =>
+    import("./blocks/empty-state-search.preview").then(
+      (m) => m.EmptyStateSearchPreview,
+    ),
+  ),
+  "blocks/prompt-bar": dynamic(() =>
+    import("./blocks/prompt-bar.preview").then((m) => m.PromptBarPreview),
   ),
 };
 

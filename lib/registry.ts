@@ -259,9 +259,47 @@ export const registry: CategoryEntry[] = [
         slug: "tooltip",
         name: "Tooltip",
         nameZh: "文字提示 / Tooltip",
-        description: "Hover or focus tooltip with blur enter/exit and spring spawn.",
-        descriptionZh: "悬停或聚焦触发的文字提示,进出场带模糊过渡与弹簧生成动画。",
+        description:
+          "Hover or focus tooltip with blur enter/exit and spring spawn, plus a Morph variant where one shared bubble glides and resizes between neighboring triggers.",
+        descriptionZh:
+          "悬停或聚焦触发的文字提示,进出场带模糊过渡与弹簧生成动画;另有 Morph 变体,一块共享气泡在相邻触发器之间滑移变形。",
         file: "components/motion/tooltip.tsx",
+        badge: "new",
+        launchedAt: "2026-07-26",
+        keywords: [
+          "morphing tooltip react",
+          "shared tooltip surface",
+          "toolbar tooltip",
+          "tooltip morphs between triggers",
+        ],
+        examples: [
+          {
+            slug: "default",
+            name: "Tooltip",
+            nameZh: "标准文字提示",
+            description:
+              "Single-trigger tooltip with blur enter/exit, spring spawn and four placement sides.",
+            descriptionZh:
+              "单触发器文字提示:进出场模糊过渡、弹簧生成,支持四个方向定位。",
+            installSlug: "tooltip",
+            file: "components/motion/tooltip.tsx",
+            previewKey: "motion/tooltip",
+            previewFile: "components/previews/motion/tooltip.preview.tsx",
+          },
+          {
+            slug: "morph",
+            name: "Morph Tooltip",
+            nameZh: "变形文字提示",
+            description:
+              "MorphTooltipGroup shares one bubble across a cluster of triggers — it springs in on first hover, then glides and resizes between neighbors with a blur cross-fade instead of exiting and re-entering.",
+            descriptionZh:
+              "MorphTooltipGroup 让一组触发器共享同一块气泡:首次悬停弹簧入场,移到相邻触发器时不退场,而是滑移并改变宽度,文字带模糊交叉淡变。",
+            installSlug: "tooltip-morph",
+            file: "components/motion/tooltip-morph.tsx",
+            previewKey: "motion/tooltip-morph",
+            previewFile: "components/previews/motion/tooltip-morph.preview.tsx",
+          },
+        ],
       },
       {
         slug: "popover",
@@ -870,6 +908,45 @@ export const registry: CategoryEntry[] = [
           "lucide animated icon",
         ],
       },
+      {
+        slug: "dropdown-menu",
+        name: "Dropdown Menu",
+        nameZh: "下拉菜单",
+        description:
+          "Composable animated dropdown menu: a corner-origin spring entrance with viewport collision flip, one shared focus surface that glides between rows for both pointer and keyboard, grouped labels, two-line items with icons and shortcuts, checkbox items, a hover/arrow-key submenu, and full roving-focus keyboard navigation.",
+        descriptionZh:
+          "可组合的动效下拉菜单:面板从触发器近角弹簧展开并带视口碰撞翻转;hover 与键盘共用一块在行间滑动的焦点表面;支持分组标签、图标+双行描述+快捷键、勾选项、悬停/方向键子菜单,以及完整的键盘循环导航。",
+        file: "components/motion/dropdown-menu.tsx",
+        badge: "new",
+        launchedAt: "2026-07-26",
+        keywords: [
+          "dropdown menu react",
+          "animated dropdown",
+          "context menu react",
+          "menu keyboard navigation",
+          "submenu react",
+          "shared highlight menu",
+        ],
+      },
+      {
+        slug: "expanding-card",
+        name: "Expanding Card",
+        nameZh: "卡片展开弹层",
+        description:
+          "App Store-style card expansion: the card itself morphs into a centered modal over a heavily blurred backdrop via a shared layoutId FLIP — expanded content fades in once the surface lands, and the card shrinks back on close.",
+        descriptionZh:
+          "App Store 式卡片展开:卡片经共享 layoutId 直接变形为居中弹层,背景整页重模糊;扩展内容在表面落定后淡入,关闭时沿原路缩回原位并归还焦点。",
+        file: "components/motion/expanding-card.tsx",
+        badge: "new",
+        launchedAt: "2026-07-26",
+        keywords: [
+          "app store card expansion",
+          "card to modal react",
+          "shared layout modal",
+          "morphing card react",
+          "expanding card animation",
+        ],
+      },
     ],
   },
   {
@@ -896,6 +973,26 @@ export const registry: CategoryEntry[] = [
           "webcam bubble overlay",
           "product demo card",
           "container query scaling",
+        ],
+      },
+      {
+        slug: "login-card",
+        name: "Login Card",
+        nameZh: "登录卡片",
+        description:
+          "Chinese product sign-in modal: a blue gradient header with floating bokeh, a WeChat QR-scan column beside phone quick-login (country-code dropdown, code field with a 60s resend countdown), an agreement checkbox that shakes on invalid submit, and an ICP footer.",
+        descriptionZh:
+          "中文产品登录弹窗:蓝色渐变头部带漂浮光斑,微信扫码列与手机号快捷登录并排(区号下拉、验证码 60 秒重发倒计时),未勾选协议提交时协议行抖动提示,并带 ICP 备案页脚。",
+        file: "components/motion/login-card.tsx",
+        badge: "new",
+        launchedAt: "2026-07-19",
+        keywords: [
+          "login card react",
+          "sign in modal react",
+          "wechat qr login",
+          "phone otp login form",
+          "chinese login page component",
+          "验证码登录",
         ],
       },
       {
@@ -1376,6 +1473,114 @@ export const registry: CategoryEntry[] = [
             previewKey: "blocks/not-found-terminal",
             previewFile: "components/previews/blocks/not-found-terminal.preview.tsx",
           },
+        ],
+      },
+      {
+        slug: "step-form",
+        name: "Step Form",
+        nameZh: "分步表单",
+        description:
+          "Focused one-question-at-a-time multi-step form: segmented progress with a mono counter, directional slide transitions with container height morph, text and choice steps, shake-on-invalid validation with reserved error space, Enter-to-advance, and a drawn-check success state.",
+        descriptionZh:
+          "「一次一题」聚焦式多步表单:分段进度条配等宽计数,方向性滑动切换配合容器高度变形;支持文本题与选择卡题,校验失败抖动且错误行预留空间不跳版,Enter 直接推进,完成态画圈打勾。",
+        file: "components/motion/step-form.tsx",
+        badge: "new",
+        launchedAt: "2026-07-26",
+        keywords: [
+          "multi step form react",
+          "step form animation",
+          "typeform style form",
+          "onboarding form react",
+          "wizard form react",
+          "directional form transitions",
+        ],
+      },
+      {
+        slug: "empty-state",
+        name: "Empty State",
+        nameZh: "空状态",
+        description:
+          "Animated empty-state blocks with hand-drawn line-art illustrations, concise copy and a primary action — an inbox-zero envelope, a hover-to-open archive cabinet, and a scanning search lens.",
+        descriptionZh:
+          "带线稿动画插图的空状态区块:信封收件箱清零、悬停弹开抽屉的档案柜、来回扫描的搜索放大镜;统一「插图 + 短文案 + 主操作」结构。",
+        file: "components/motion/empty-state/index.tsx",
+        extraFiles: [
+          "components/motion/empty-state/shared.tsx",
+          "components/motion/empty-state/inbox.tsx",
+          "components/motion/empty-state/archive.tsx",
+          "components/motion/empty-state/search.tsx",
+        ],
+        badge: "new",
+        launchedAt: "2026-07-26",
+        keywords: [
+          "empty state react",
+          "animated empty state",
+          "inbox zero illustration",
+          "no results state",
+          "empty state component",
+        ],
+        examples: [
+          {
+            slug: "inbox",
+            name: "Inbox Zero",
+            nameZh: "收件箱清零",
+            description:
+              "A line-art envelope whose flap opens and last letter lifts out, capped by a spring check badge and a slow idle float.",
+            descriptionZh:
+              "线稿信封开盖,最后一封信轻轻抬出,弹簧对勾徽章落定,随后缓慢浮动待机。",
+            installSlug: "empty-state-inbox",
+            file: "components/motion/empty-state/inbox.tsx",
+            previewKey: "blocks/empty-state-inbox",
+            previewFile: "components/previews/blocks/empty-state-inbox.preview.tsx",
+          },
+          {
+            slug: "archive",
+            name: "Archive Drawer",
+            nameZh: "档案柜抽屉",
+            description:
+              "An isometric filing cabinet whose drawer springs open on hover or focus, papers peeking out.",
+            descriptionZh:
+              "等距视角档案柜,悬停或聚焦时抽屉弹簧滑开,纸页从中探出。",
+            installSlug: "empty-state-archive",
+            file: "components/motion/empty-state/archive.tsx",
+            previewKey: "blocks/empty-state-archive",
+            previewFile:
+              "components/previews/blocks/empty-state-archive.preview.tsx",
+          },
+          {
+            slug: "search",
+            name: "Search Lens",
+            nameZh: "搜索无果",
+            description:
+              "A magnifying glass sweeps over dashed result rows that flicker and never settle — no matches found.",
+            descriptionZh:
+              "放大镜在几行虚线结果上来回扫动,行影闪烁始终落不定——查无匹配。",
+            installSlug: "empty-state-search",
+            file: "components/motion/empty-state/search.tsx",
+            previewKey: "blocks/empty-state-search",
+            previewFile:
+              "components/previews/blocks/empty-state-search.preview.tsx",
+          },
+        ],
+      },
+      {
+        slug: "prompt-bar",
+        name: "Prompt Bar",
+        nameZh: "AI 提示输入条",
+        description:
+          "Compact credits-aware AI prompt bar: a dismissible credits banner, queued messages you can steer, edit or drop while streaming, slash-commands that morph into a removable skill chip, demo attachments, a web-search toggle pill, a model menu, and a morphing send-to-stop button.",
+        descriptionZh:
+          "紧凑的积分感知 AI 输入条:可关闭的积分横幅;流式进行中再提交会入队,可插队(Steer)、编辑或删除;输入 / 唤起技能面板并把命令凝固成可移除的技能 chip;附件演示、联网搜索开关、模型菜单与发送⇄停止变形按钮。",
+        file: "components/motion/prompt-bar.tsx",
+        badge: "new",
+        launchedAt: "2026-07-26",
+        keywords: [
+          "ai prompt bar react",
+          "chat input with credits",
+          "queued messages steer",
+          "slash command skill chip",
+          "compact ai composer",
+          "prompt input component",
         ],
       },
     ],

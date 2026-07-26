@@ -15,6 +15,7 @@ const WB_TOKEN_REGISTRY_SLUGS = new Set([
   "agent-inbox",
   "thread-list",
   "artifact-panel",
+  "prompt-bar",
 ]);
 
 function parseWbTokens(css: string, selector: string): Record<string, string> {

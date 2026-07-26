@@ -78,6 +78,7 @@ const WB_TOKEN_REGISTRY_SLUGS = new Set([
   "agent-inbox",
   "thread-list",
   "artifact-panel",
+  "prompt-bar",
 ]);
 
 function parseDeps(source: string) {
