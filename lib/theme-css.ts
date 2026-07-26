@@ -11,13 +11,13 @@ export const THEME_CSS = `@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
     /* Base palette */
-    --background: oklch(99% 0 0);
+    --background: oklch(97.8% 0.0015 250);
     --foreground: oklch(15% 0 0);
-    --card: oklch(97% 0 0);
+    --card: oklch(95.2% 0.002 250);
     --muted-foreground: oklch(50% 0 0);
-    --border: oklch(15% 0 0 / 0.06);
+    --border: oklch(15% 0 0 / 0.09);
     /* UI Lab extensions */
-    --border-strong: oklch(15% 0 0 / 0.12);
+    --border-strong: oklch(15% 0 0 / 0.15);
     --accent-fg: oklch(15% 0 0);
     --neon: oklch(80% 0.22 145);
     --violet: oklch(68% 0.22 295);
