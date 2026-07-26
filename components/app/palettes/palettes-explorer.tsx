@@ -11,6 +11,7 @@ import {
   PALETTE_GROUPS,
   PALETTES,
   type PaletteColors,
+  paletteToCss,
   paletteToSkin,
 } from "@/lib/palettes";
 import { cn } from "@/lib/utils";
@@ -87,6 +88,7 @@ export function PalettesExplorer() {
 
   const prompt = promptLang === "zh" ? active.promptZh : active.promptEn;
   const recipe = locale === "zh" ? active.recipeZh : active.recipe;
+  const css = paletteToCss(active);
 
   const selectPalette = (nextSlug: string) => {
     setSlug(nextSlug);
@@ -242,6 +244,24 @@ export function PalettesExplorer() {
               </p>
             </div>
             <p className="mt-2 text-xs text-muted-foreground/80">{t("promptHint")}</p>
+          </div>
+
+          <div>
+            <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              {t("cssTitle")}
+            </p>
+            <div className="relative mt-2 rounded-2xl border border-border bg-background/60 p-4 pr-12">
+              <CopyButton
+                text={css}
+                className="absolute right-2 top-2"
+                eventName="copy_palette_css"
+                eventLabel={active.slug}
+              />
+              <pre className="overflow-x-auto whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground">
+                {css}
+              </pre>
+            </div>
+            <p className="mt-2 text-xs text-muted-foreground/80">{t("cssHint")}</p>
           </div>
 
           <details>

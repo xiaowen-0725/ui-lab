@@ -329,6 +329,8 @@
     "bestFor": "适用场景",
     "promptTitle": "对 AI 这样说",
     "promptHint": "色值 + 角色分工 + 禁止项,比只说情绪词更稳。",
+    "cssTitle": "即插即用 CSS",
+    "cssHint": "粘贴到 globals.css 的 @import \"tailwindcss\" 之下——重映射所有 shadcn 语义 token。",
     "langZh": "中文",
     "langEn": "English",
     "recipeTitle": "使用要点",

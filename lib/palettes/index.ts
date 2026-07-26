@@ -11,6 +11,7 @@ import type { PaletteEntry } from "./types";
 import { vividPalettes } from "./vivid";
 import type { StyleSkin } from "@/lib/styles";
 
+export { paletteToCss } from "./css";
 export { PALETTE_GROUPS } from "./types";
 export type {
   PaletteColors,

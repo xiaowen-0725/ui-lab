@@ -329,6 +329,8 @@
     "bestFor": "Best for",
     "promptTitle": "Say this to AI",
     "promptHint": "Hex values + role assignments + a forbidden list beat mood words alone.",
+    "cssTitle": "Drop-in CSS",
+    "cssHint": "Paste into globals.css below @import \"tailwindcss\" — remaps all shadcn semantic tokens.",
     "langZh": "中文",
     "langEn": "English",
     "recipeTitle": "Usage notes",

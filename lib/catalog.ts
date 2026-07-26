@@ -29,7 +29,7 @@ import {
   SPACING_SCALE,
   TYPE_SCALE,
 } from "@/lib/atoms";
-import { PALETTES } from "@/lib/palettes";
+import { PALETTES, paletteToCss } from "@/lib/palettes";
 import { buildIndex } from "@/lib/registry-server";
 import { SITE_URL } from "@/lib/site";
 import { STYLES } from "@/lib/styles";
@@ -249,7 +249,7 @@ function buildPaletteItems(): CatalogItem[] {
     prompt: entry.promptEn,
     promptZh: entry.promptZh,
     pageUrl: `${SITE_URL}/palettes?palette=${entry.slug}`,
-    fetch: { method: "copy-prompt", value: entry.promptEn },
+    fetch: { method: "copy-tokens", value: paletteToCss(entry) },
   }));
 }
 
