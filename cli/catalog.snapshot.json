@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-27T10:15:56.641Z",
+  "generatedAt": "2026-07-27T13:46:26.340Z",
   "count": 158,
   "items": [
     {
@@ -17,7 +17,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/tilt-card.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/tilt-card"
       },
-      "sourceFile": "components/motion/tilt-card.tsx"
+      "sourceFile": "components/motion/tilt-card.tsx",
+      "sourceFiles": [
+        "components/motion/tilt-card.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -34,7 +37,13 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/button.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/button"
       },
-      "sourceFile": "components/motion/button/index.tsx"
+      "sourceFile": "components/motion/button/index.tsx",
+      "sourceFiles": [
+        "components/motion/button/index.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/button/magnetic.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -51,7 +60,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/marquee.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/marquee"
       },
-      "sourceFile": "components/motion/marquee.tsx"
+      "sourceFile": "components/motion/marquee.tsx",
+      "sourceFiles": [
+        "components/motion/marquee.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -68,7 +80,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/tabs.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/tabs"
       },
-      "sourceFile": "components/motion/tabs.tsx"
+      "sourceFile": "components/motion/tabs.tsx",
+      "sourceFiles": [
+        "components/motion/tabs.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -85,7 +100,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/switch.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/switch"
       },
-      "sourceFile": "components/motion/switch.tsx"
+      "sourceFile": "components/motion/switch.tsx",
+      "sourceFiles": [
+        "components/motion/switch.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -108,7 +126,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/input.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/input"
       },
-      "sourceFile": "components/motion/input.tsx"
+      "sourceFile": "components/motion/input.tsx",
+      "sourceFiles": [
+        "components/motion/input.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -125,7 +146,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/select.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/select"
       },
-      "sourceFile": "components/motion/select.tsx"
+      "sourceFile": "components/motion/select.tsx",
+      "sourceFiles": [
+        "components/motion/select.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -142,7 +166,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/checkbox.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/checkbox"
       },
-      "sourceFile": "components/motion/checkbox.tsx"
+      "sourceFile": "components/motion/checkbox.tsx",
+      "sourceFiles": [
+        "components/motion/checkbox.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -159,7 +186,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/radio.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/radio"
       },
-      "sourceFile": "components/motion/radio.tsx"
+      "sourceFile": "components/motion/radio.tsx",
+      "sourceFiles": [
+        "components/motion/radio.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -176,7 +206,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bottom-sheet.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/bottom-sheet"
       },
-      "sourceFile": "components/motion/bottom-sheet.tsx"
+      "sourceFile": "components/motion/bottom-sheet.tsx",
+      "sourceFiles": [
+        "components/motion/bottom-sheet.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -193,7 +226,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/shared-layout-bg.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/shared-layout-bg"
       },
-      "sourceFile": "components/motion/shared-layout-bg.tsx"
+      "sourceFile": "components/motion/shared-layout-bg.tsx",
+      "sourceFiles": [
+        "components/motion/shared-layout-bg.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -221,7 +257,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/preview-rail.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/preview-rail"
       },
-      "sourceFile": "components/motion/preview-rail.tsx"
+      "sourceFile": "components/motion/preview-rail.tsx",
+      "sourceFiles": [
+        "components/motion/preview-rail.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -238,7 +277,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/dock.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/dock"
       },
-      "sourceFile": "components/motion/dock.tsx"
+      "sourceFile": "components/motion/dock.tsx",
+      "sourceFiles": [
+        "components/motion/dock.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -260,7 +302,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/tooltip.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/tooltip"
       },
-      "sourceFile": "components/motion/tooltip.tsx"
+      "sourceFile": "components/motion/tooltip.tsx",
+      "sourceFiles": [
+        "components/motion/tooltip.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -286,7 +331,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/popover.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/popover"
       },
-      "sourceFile": "components/motion/popover.tsx"
+      "sourceFile": "components/motion/popover.tsx",
+      "sourceFiles": [
+        "components/motion/popover.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -303,7 +351,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/morphing-modal.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/morphing-modal"
       },
-      "sourceFile": "components/motion/morphing-modal.tsx"
+      "sourceFile": "components/motion/morphing-modal.tsx",
+      "sourceFiles": [
+        "components/motion/morphing-modal.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -320,7 +371,12 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/text-animation.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/text-animation"
       },
-      "sourceFile": "components/motion/text-reveal.tsx"
+      "sourceFile": "components/motion/text-reveal.tsx",
+      "sourceFiles": [
+        "components/motion/text-reveal.tsx",
+        "components/motion/text-shimmer.tsx",
+        "components/motion/text-cascade.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -337,7 +393,11 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/number.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/number"
       },
-      "sourceFile": "components/motion/animated-number.tsx"
+      "sourceFile": "components/motion/animated-number.tsx",
+      "sourceFiles": [
+        "components/motion/animated-number.tsx",
+        "components/motion/number-ticker.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -354,7 +414,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-badge.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-badge"
       },
-      "sourceFile": "components/motion/animated-badge.tsx"
+      "sourceFile": "components/motion/animated-badge.tsx",
+      "sourceFiles": [
+        "components/motion/animated-badge.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -371,7 +434,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/action-swap.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/action-swap"
       },
-      "sourceFile": "components/motion/action-swap.tsx"
+      "sourceFile": "components/motion/action-swap.tsx",
+      "sourceFiles": [
+        "components/motion/action-swap.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -388,7 +454,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-toast-stack.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-toast-stack"
       },
-      "sourceFile": "components/motion/animated-toast-stack.tsx"
+      "sourceFile": "components/motion/animated-toast-stack.tsx",
+      "sourceFiles": [
+        "components/motion/animated-toast-stack.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -405,7 +474,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/theme-toggle.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/theme-toggle"
       },
-      "sourceFile": "components/motion/theme-toggle.tsx"
+      "sourceFile": "components/motion/theme-toggle.tsx",
+      "sourceFiles": [
+        "components/motion/theme-toggle.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -422,7 +494,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bouncy-accordion.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/bouncy-accordion"
       },
-      "sourceFile": "components/motion/bouncy-accordion.tsx"
+      "sourceFile": "components/motion/bouncy-accordion.tsx",
+      "sourceFiles": [
+        "components/motion/bouncy-accordion.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -439,7 +514,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/drawer.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/drawer"
       },
-      "sourceFile": "components/motion/drawer.tsx"
+      "sourceFile": "components/motion/drawer.tsx",
+      "sourceFiles": [
+        "components/motion/drawer.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -463,7 +541,14 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/scroll-animation.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/scroll-animation"
       },
-      "sourceFile": "components/motion/smooth-scroll.tsx"
+      "sourceFile": "components/motion/smooth-scroll.tsx",
+      "sourceFiles": [
+        "components/motion/smooth-scroll.tsx",
+        "components/motion/scroll-progress.tsx",
+        "components/motion/parallax.tsx",
+        "components/motion/scroll-to.tsx",
+        "components/motion/scroll-reveal.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -486,7 +571,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/range-slider.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/range-slider"
       },
-      "sourceFile": "components/motion/range-slider.tsx"
+      "sourceFile": "components/motion/range-slider.tsx",
+      "sourceFiles": [
+        "components/motion/range-slider.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -512,7 +600,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/wheel-picker.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/wheel-picker"
       },
-      "sourceFile": "components/motion/wheel-picker.tsx"
+      "sourceFile": "components/motion/wheel-picker.tsx",
+      "sourceFiles": [
+        "components/motion/wheel-picker.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -536,7 +627,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/table.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/table"
       },
-      "sourceFile": "components/motion/table/index.tsx"
+      "sourceFile": "components/motion/table/index.tsx",
+      "sourceFiles": [
+        "components/motion/table/index.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -560,7 +654,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/shader-background.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/shader-background"
       },
-      "sourceFile": "components/motion/shader-background.tsx"
+      "sourceFile": "components/motion/shader-background.tsx",
+      "sourceFiles": [
+        "components/motion/shader-background.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -583,7 +680,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/cylinder-carousel.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/cylinder-carousel"
       },
-      "sourceFile": "components/motion/cylinder-carousel.tsx"
+      "sourceFile": "components/motion/cylinder-carousel.tsx",
+      "sourceFiles": [
+        "components/motion/cylinder-carousel.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -606,7 +706,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/loader.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/loader"
       },
-      "sourceFile": "components/motion/loader.tsx"
+      "sourceFile": "components/motion/loader.tsx",
+      "sourceFiles": [
+        "components/motion/loader.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -629,7 +732,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/text-scramble.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/text-scramble"
       },
-      "sourceFile": "components/motion/text-scramble.tsx"
+      "sourceFile": "components/motion/text-scramble.tsx",
+      "sourceFiles": [
+        "components/motion/text-scramble.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -652,7 +758,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/webgl-background.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/webgl-background"
       },
-      "sourceFile": "components/motion/webgl-background.tsx"
+      "sourceFile": "components/motion/webgl-background.tsx",
+      "sourceFiles": [
+        "components/motion/webgl-background.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -675,7 +784,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/halftone-image.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/halftone-image"
       },
-      "sourceFile": "components/motion/halftone-image.tsx"
+      "sourceFile": "components/motion/halftone-image.tsx",
+      "sourceFiles": [
+        "components/motion/halftone-image.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -698,7 +810,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/star-border.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/star-border"
       },
-      "sourceFile": "components/motion/star-border.tsx"
+      "sourceFile": "components/motion/star-border.tsx",
+      "sourceFiles": [
+        "components/motion/star-border.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -720,7 +835,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bounce-cards.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/bounce-cards"
       },
-      "sourceFile": "components/motion/bounce-cards.tsx"
+      "sourceFile": "components/motion/bounce-cards.tsx",
+      "sourceFiles": [
+        "components/motion/bounce-cards.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -742,7 +860,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/glare-hover.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/glare-hover"
       },
-      "sourceFile": "components/motion/glare-hover.tsx"
+      "sourceFile": "components/motion/glare-hover.tsx",
+      "sourceFiles": [
+        "components/motion/glare-hover.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -764,7 +885,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/skeleton.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/skeleton"
       },
-      "sourceFile": "components/motion/skeleton.tsx"
+      "sourceFile": "components/motion/skeleton.tsx",
+      "sourceFiles": [
+        "components/motion/skeleton.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -786,7 +910,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/scroll-hint.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/scroll-hint"
       },
-      "sourceFile": "components/motion/scroll-hint.tsx"
+      "sourceFile": "components/motion/scroll-hint.tsx",
+      "sourceFiles": [
+        "components/motion/scroll-hint.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -808,7 +935,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/animated-icon.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/animated-icon"
       },
-      "sourceFile": "components/motion/animated-icon.tsx"
+      "sourceFile": "components/motion/animated-icon.tsx",
+      "sourceFiles": [
+        "components/motion/animated-icon.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -832,7 +962,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/dropdown-menu.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/dropdown-menu"
       },
-      "sourceFile": "components/motion/dropdown-menu.tsx"
+      "sourceFile": "components/motion/dropdown-menu.tsx",
+      "sourceFiles": [
+        "components/motion/dropdown-menu.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -855,7 +988,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/expanding-card.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/expanding-card"
       },
-      "sourceFile": "components/motion/expanding-card.tsx"
+      "sourceFile": "components/motion/expanding-card.tsx",
+      "sourceFiles": [
+        "components/motion/expanding-card.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -878,7 +1014,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/recording-card.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/recording-card"
       },
-      "sourceFile": "components/motion/recording-card.tsx"
+      "sourceFile": "components/motion/recording-card.tsx",
+      "sourceFiles": [
+        "components/motion/recording-card.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -902,7 +1041,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/login-card.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/login-card"
       },
-      "sourceFile": "components/motion/login-card.tsx"
+      "sourceFile": "components/motion/login-card.tsx",
+      "sourceFiles": [
+        "components/motion/login-card.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -925,7 +1067,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/thread-list.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/thread-list"
       },
-      "sourceFile": "components/motion/thread-list/index.tsx"
+      "sourceFile": "components/motion/thread-list/index.tsx",
+      "sourceFiles": [
+        "components/motion/thread-list/index.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -948,7 +1093,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/artifact-panel.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/artifact-panel"
       },
-      "sourceFile": "components/motion/artifact-panel/index.tsx"
+      "sourceFile": "components/motion/artifact-panel/index.tsx",
+      "sourceFiles": [
+        "components/motion/artifact-panel/index.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -972,7 +1120,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-inbox.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/agent-inbox"
       },
-      "sourceFile": "components/motion/agent-inbox/index.tsx"
+      "sourceFile": "components/motion/agent-inbox/index.tsx",
+      "sourceFiles": [
+        "components/motion/agent-inbox/index.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -996,7 +1147,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-trace.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/agent-trace"
       },
-      "sourceFile": "components/motion/agent-trace/index.tsx"
+      "sourceFile": "components/motion/agent-trace/index.tsx",
+      "sourceFiles": [
+        "components/motion/agent-trace/index.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1019,7 +1173,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/streaming-json.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/streaming-json"
       },
-      "sourceFile": "components/motion/streaming-json/index.tsx"
+      "sourceFile": "components/motion/streaming-json/index.tsx",
+      "sourceFiles": [
+        "components/motion/streaming-json/index.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1042,7 +1199,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/citations.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/citations"
       },
-      "sourceFile": "components/motion/citations/index.tsx"
+      "sourceFile": "components/motion/citations/index.tsx",
+      "sourceFiles": [
+        "components/motion/citations/index.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1065,7 +1225,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/voice-orb.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/voice-orb"
       },
-      "sourceFile": "components/motion/voice-orb/index.tsx"
+      "sourceFile": "components/motion/voice-orb/index.tsx",
+      "sourceFiles": [
+        "components/motion/voice-orb/index.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1089,7 +1252,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/activity-stats.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/activity-stats"
       },
-      "sourceFile": "components/motion/activity-stats/index.tsx"
+      "sourceFile": "components/motion/activity-stats/index.tsx",
+      "sourceFiles": [
+        "components/motion/activity-stats/index.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1113,7 +1279,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/settings-panel.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/settings-panel"
       },
-      "sourceFile": "components/motion/settings-panel/index.tsx"
+      "sourceFile": "components/motion/settings-panel/index.tsx",
+      "sourceFiles": [
+        "components/motion/settings-panel/index.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1141,7 +1310,12 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-thread.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/agent-thread"
       },
-      "sourceFile": "components/motion/agent-thread/index.tsx"
+      "sourceFile": "components/motion/agent-thread/index.tsx",
+      "sourceFiles": [
+        "components/motion/agent-thread/index.tsx",
+        "components/motion/agent-thread/cards.tsx",
+        "components/motion/agent-thread/status.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1168,7 +1342,12 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-composer.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/agent-composer"
       },
-      "sourceFile": "components/motion/agent-composer/index.tsx"
+      "sourceFile": "components/motion/agent-composer/index.tsx",
+      "sourceFiles": [
+        "components/motion/agent-composer/index.tsx",
+        "components/motion/agent-composer/effort-slider.tsx",
+        "components/motion/agent-composer/autonomy-dial.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1193,7 +1372,12 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/agent-workbench.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/agent-workbench"
       },
-      "sourceFile": "components/motion/agent-workbench/index.tsx"
+      "sourceFile": "components/motion/agent-workbench/index.tsx",
+      "sourceFiles": [
+        "components/motion/agent-workbench/index.tsx",
+        "components/motion/agent-workbench/resize-handle.tsx",
+        "components/motion/agent-workbench/summary-card.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1217,7 +1401,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/availability-scheduler.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/availability-scheduler"
       },
-      "sourceFile": "components/motion/availability-scheduler/index.tsx"
+      "sourceFile": "components/motion/availability-scheduler/index.tsx",
+      "sourceFiles": [
+        "components/motion/availability-scheduler/index.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1234,7 +1421,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/swap.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/swap"
       },
-      "sourceFile": "components/motion/swap.tsx"
+      "sourceFile": "components/motion/swap.tsx",
+      "sourceFiles": [
+        "components/motion/swap.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1251,7 +1441,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/dynamic-island.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/dynamic-island"
       },
-      "sourceFile": "components/motion/dynamic-island.tsx"
+      "sourceFile": "components/motion/dynamic-island.tsx",
+      "sourceFiles": [
+        "components/motion/dynamic-island.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1268,7 +1461,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/command-palette.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/command-palette"
       },
-      "sourceFile": "components/motion/command-palette.tsx"
+      "sourceFile": "components/motion/command-palette.tsx",
+      "sourceFiles": [
+        "components/motion/command-palette.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1285,7 +1481,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/expandable-action-bar.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/expandable-action-bar"
       },
-      "sourceFile": "components/motion/expandable-action-bar.tsx"
+      "sourceFile": "components/motion/expandable-action-bar.tsx",
+      "sourceFiles": [
+        "components/motion/expandable-action-bar.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1302,7 +1501,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/overflow-actions.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/overflow-actions"
       },
-      "sourceFile": "components/motion/overflow-actions.tsx"
+      "sourceFile": "components/motion/overflow-actions.tsx",
+      "sourceFiles": [
+        "components/motion/overflow-actions.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1319,7 +1521,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/expandable-tabs.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/expandable-tabs"
       },
-      "sourceFile": "components/motion/expandable-tabs.tsx"
+      "sourceFile": "components/motion/expandable-tabs.tsx",
+      "sourceFiles": [
+        "components/motion/expandable-tabs.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1336,7 +1541,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/swipeable-list.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/swipeable-list"
       },
-      "sourceFile": "components/motion/swipeable-list.tsx"
+      "sourceFile": "components/motion/swipeable-list.tsx",
+      "sourceFiles": [
+        "components/motion/swipeable-list.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1353,7 +1561,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/file-upload.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/file-upload"
       },
-      "sourceFile": "components/motion/file-upload.tsx"
+      "sourceFile": "components/motion/file-upload.tsx",
+      "sourceFiles": [
+        "components/motion/file-upload.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1370,7 +1581,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/prediction-market.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/prediction-market"
       },
-      "sourceFile": "components/motion/prediction-market.tsx"
+      "sourceFile": "components/motion/prediction-market.tsx",
+      "sourceFiles": [
+        "components/motion/prediction-market.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1393,7 +1607,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/wallet-card.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/wallet-card"
       },
-      "sourceFile": "components/motion/wallet-card/index.tsx"
+      "sourceFile": "components/motion/wallet-card/index.tsx",
+      "sourceFiles": [
+        "components/motion/wallet-card/index.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1410,7 +1627,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/otp-input.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/otp-input"
       },
-      "sourceFile": "components/motion/otp-input.tsx"
+      "sourceFile": "components/motion/otp-input.tsx",
+      "sourceFiles": [
+        "components/motion/otp-input.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1427,7 +1647,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/bloom-menu.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/bloom-menu"
       },
-      "sourceFile": "components/motion/bloom-menu.tsx"
+      "sourceFile": "components/motion/bloom-menu.tsx",
+      "sourceFiles": [
+        "components/motion/bloom-menu.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1450,7 +1673,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/feedback-widget.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/feedback-widget"
       },
-      "sourceFile": "components/motion/feedback-widget.tsx"
+      "sourceFile": "components/motion/feedback-widget.tsx",
+      "sourceFiles": [
+        "components/motion/feedback-widget.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1467,7 +1693,16 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/not-found.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/not-found"
       },
-      "sourceFile": "components/motion/not-found/index.tsx"
+      "sourceFile": "components/motion/not-found/index.tsx",
+      "sourceFiles": [
+        "components/motion/not-found/index.tsx",
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/glitch.tsx",
+        "components/motion/not-found/magnetic.tsx",
+        "components/motion/not-found/spotlight.tsx",
+        "components/motion/not-found/stacked.tsx",
+        "components/motion/not-found/terminal.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1491,7 +1726,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/step-form.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/step-form"
       },
-      "sourceFile": "components/motion/step-form.tsx"
+      "sourceFile": "components/motion/step-form.tsx",
+      "sourceFiles": [
+        "components/motion/step-form.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1514,7 +1752,14 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/empty-state.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/empty-state"
       },
-      "sourceFile": "components/motion/empty-state/index.tsx"
+      "sourceFile": "components/motion/empty-state/index.tsx",
+      "sourceFiles": [
+        "components/motion/empty-state/index.tsx",
+        "components/motion/empty-state/shared.tsx",
+        "components/motion/empty-state/inbox.tsx",
+        "components/motion/empty-state/archive.tsx",
+        "components/motion/empty-state/search.tsx"
+      ]
     },
     {
       "kind": "component",
@@ -1538,7 +1783,10 @@
         "command": "npx shadcn@latest add https://ui-lab-ten.vercel.app/r/prompt-bar.json",
         "endpoint": "https://ui-lab-ten.vercel.app/r/prompt-bar"
       },
-      "sourceFile": "components/motion/prompt-bar.tsx"
+      "sourceFile": "components/motion/prompt-bar.tsx",
+      "sourceFiles": [
+        "components/motion/prompt-bar.tsx"
+      ]
     },
     {
       "kind": "atom-set",

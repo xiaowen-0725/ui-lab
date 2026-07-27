@@ -141,9 +141,10 @@ Phase 1 audit hard-checks only:
 - the matching Profile dependency: `next`, `vite`, or `electron`;
 - parseable `components.json` with non-empty `aliases.components` and `aliases.utils`;
 - vendored source existence for every Component in the config;
+- component-family completeness for **Recipe-required** components with explicit registry sidecars (`sourceFile` + `extraFiles`): a missing sidecar is a deterministic warning, not an overwrite or byte-equivalence check. Auxiliary components registered outside the Recipe may intentionally adopt only a subset, so `adopt` projects can retain local adaptations;
 - every core Workbench file retains `--wb-*`, plus either a valid `--wb-surface` declaration or an import of the selected Theme Kit CSS. Missing Workbench protection is an error.
 
-Fix those findings before claiming completion. Phase 1 does **not** validate strict `tsconfig` (extended configs cause false positives), font/asset drift, raw colors, off-scale radius/shadow values, unguarded motion, or whether the rendered UI fulfills `sections`, `slots`, `states`, `responsive`, `assets`, `required`, and `forbidden`. Check those Recipe fields manually, then inspect representative desktop/mobile widths, light/dark modes, loading/empty/error states, keyboard focus and reduced motion. Audit passing is not proof that the page looks right.
+Fix errors and investigate every family-completeness warning before claiming completion. Phase 1 does **not** validate strict `tsconfig` (extended configs cause false positives), source/API equivalence, font/asset drift, raw colors, off-scale radius/shadow values, unguarded motion, or whether the rendered UI fulfills `sections`, `slots`, `states`, `responsive`, `assets`, `required`, and `forbidden`. Check those Recipe fields manually, then inspect representative desktop/mobile widths, light/dark modes, loading/empty/error states, keyboard focus and reduced motion. Visual inspection remains mandatory: audit passing is not proof that the page looks right.
 
 ## CLI quick reference
 

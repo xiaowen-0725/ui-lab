@@ -12,6 +12,7 @@ import { resolve } from "node:path";
 import { GET as getLlmsIndex } from "@/app/llms.txt/route";
 import { buildCatalog } from "@/lib/catalog";
 import { SECTIONS } from "@/lib/sections";
+import { auditProject } from "../cli/src/audit";
 
 const REPO_ROOT = resolve(import.meta.dir, "..");
 const temporaryDirectories: string[] = [];
@@ -55,14 +56,22 @@ describe("application recipes catalog", () => {
     );
   });
 
-  test("component items expose their registry source path for consumer audits", async () => {
+  test("component items expose their complete registry source family for consumer audits", async () => {
     const catalog = await buildCatalog();
     const components = catalog.filter((item) => item.kind === "component");
 
     expect(components.every((item) => item.sourceFile)).toBe(true);
+    expect(components.every((item) => item.sourceFiles?.[0] === item.sourceFile)).toBe(
+      true,
+    );
     expect(components.find((item) => item.slug === "text-animation")?.sourceFile).toBe(
       "components/motion/text-reveal.tsx",
     );
+    expect(components.find((item) => item.slug === "agent-thread")?.sourceFiles).toEqual([
+      "components/motion/agent-thread/index.tsx",
+      "components/motion/agent-thread/cards.tsx",
+      "components/motion/agent-thread/status.tsx",
+    ]);
   });
 
   test("publishes installable application and landing recipes with valid references", async () => {
@@ -661,6 +670,181 @@ describe("ui-lab application kit CLI", () => {
     expect(runCli("audit", "--dir", directory, "--json").exitCode).toBe(0);
   });
 
+  test("audit permits an adopt-mode auxiliary component family to be intentionally narrowed", () => {
+    const directory = temporaryProject();
+    expect(
+      runCli(
+        "init",
+        "--profile",
+        "vite-app",
+        "--system",
+        "graphite",
+        "--dir",
+        directory,
+        "--json",
+      ).exitCode,
+    ).toBe(0);
+    expect(runCli("add", "button", "--dir", directory).exitCode).toBe(0);
+    expect(JSON.parse(readFileSync(resolve(directory, "ui-lab.config.json"), "utf8"))).toMatchObject({
+      mode: "adopt",
+    });
+    writeFileSync(
+      resolve(directory, "package.json"),
+      `${JSON.stringify({
+        dependencies: { react: "^19.0.0", vite: "^7.0.0" },
+        devDependencies: { tailwindcss: "^4.0.0", typescript: "^5.7.0" },
+      })}\n`,
+    );
+    writeFileSync(
+      resolve(directory, "components.json"),
+      `${JSON.stringify({ aliases: { components: "@/components", utils: "@/lib/utils" } })}\n`,
+    );
+    mkdirSync(resolve(directory, "src/components"), { recursive: true });
+    writeFileSync(
+      resolve(directory, "src/components/button.tsx"),
+      "export function Button() { return <button />; }\n",
+    );
+
+    expect(JSON.parse(runCli("audit", "--dir", directory, "--json").stdout)).toMatchObject({
+      ok: true,
+      summary: { errors: 0, warnings: 0 },
+    });
+  });
+
+  test("audit checks nested canonical and sibling direct sidecars for Recipe-required families", async () => {
+    const directory = temporaryProject();
+    const catalog = await buildCatalog();
+    const baseRecipe = catalog.find(
+      (item) => item.kind === "recipe" && item.slug === "agent-workbench",
+    );
+    expect(baseRecipe).toBeDefined();
+    if (!baseRecipe) throw new Error("agent-workbench recipe fixture is missing");
+    const items = [
+      ...catalog,
+      {
+        ...baseRecipe,
+        slug: "source-family-fixture",
+        entryComponent: "agent-thread",
+        components: ["agent-thread", "text-animation"],
+        optionalComponents: [],
+      },
+    ];
+    writeFileSync(
+      resolve(directory, "ui-lab.config.json"),
+      `${JSON.stringify({
+        schemaVersion: 1,
+        profile: "vite-app",
+        system: "graphite",
+        recipe: "source-family-fixture",
+        components: ["agent-thread", "text-animation"],
+        mode: "adopt",
+      })}\n`,
+    );
+    writeFileSync(
+      resolve(directory, "package.json"),
+      `${JSON.stringify({
+        dependencies: { react: "^19.0.0", vite: "^7.0.0" },
+        devDependencies: { tailwindcss: "^4.0.0", typescript: "^5.7.0" },
+      })}\n`,
+    );
+    writeFileSync(
+      resolve(directory, "components.json"),
+      `${JSON.stringify({ aliases: { components: "@/components", utils: "@/lib/utils" } })}\n`,
+    );
+    const familyDirectory = resolve(directory, "src/components/motion/agent-thread");
+    mkdirSync(familyDirectory, { recursive: true });
+    for (const sourceFile of ["index.tsx", "status.tsx"]) {
+      writeFileSync(
+        resolve(familyDirectory, sourceFile),
+        'export function ThreadPart() { return <div className="text-[var(--wb-text)]" />; }\n',
+      );
+    }
+    writeFileSync(
+      resolve(directory, "src/components/text-reveal.tsx"),
+      "export function TextReveal() { return <span />; }\n",
+    );
+    const siblingDirectory = resolve(directory, "src/components/text-animation");
+    mkdirSync(siblingDirectory, { recursive: true });
+    writeFileSync(
+      resolve(siblingDirectory, "text-cascade.tsx"),
+      "export function TextCascade() { return <span />; }\n",
+    );
+    mkdirSync(resolve(directory, "src"), { recursive: true });
+    writeFileSync(resolve(directory, "src/globals.css"), ":root { --wb-surface: #151515; }\n");
+
+    const incomplete = auditProject(items, directory);
+    expect(incomplete).toMatchObject({
+      ok: true,
+      summary: { errors: 0, warnings: 2 },
+    });
+    const warningText = incomplete.findings
+      .filter((finding) => finding.code === "component-source-family-incomplete")
+      .map((finding) => finding.message)
+      .join("\n");
+    expect(warningText).toContain("agent-thread/cards.tsx");
+    expect(warningText).not.toContain("agent-thread/status.tsx");
+    expect(warningText).toContain("text-shimmer.tsx");
+    expect(warningText).not.toContain("text-cascade.tsx");
+
+    writeFileSync(
+      resolve(familyDirectory, "cards.tsx"),
+      'export function ThreadCards() { return <div className="text-[var(--wb-text)]" />; }\n',
+    );
+    writeFileSync(
+      resolve(siblingDirectory, "text-shimmer.tsx"),
+      "export function TextShimmer() { return <span />; }\n",
+    );
+
+    expect(auditProject(items, directory)).toMatchObject({
+      ok: true,
+      summary: { errors: 0, warnings: 0 },
+    });
+  });
+
+  test("audit accepts a tokenized implementation when a flat compatibility wrapper also matches", () => {
+    const directory = temporaryProject();
+    expect(
+      runCli(
+        "init",
+        "--profile",
+        "vite-app",
+        "--system",
+        "graphite",
+        "--dir",
+        directory,
+        "--json",
+      ).exitCode,
+    ).toBe(0);
+    expect(runCli("add", "agent-thread", "--dir", directory).exitCode).toBe(0);
+    writeFileSync(
+      resolve(directory, "package.json"),
+      `${JSON.stringify({
+        dependencies: { react: "^19.0.0", vite: "^7.0.0" },
+        devDependencies: { tailwindcss: "^4.0.0", typescript: "^5.7.0" },
+      })}\n`,
+    );
+    writeFileSync(
+      resolve(directory, "components.json"),
+      `${JSON.stringify({ aliases: { components: "@/components", utils: "@/lib/utils" } })}\n`,
+    );
+    mkdirSync(resolve(directory, "src/components/agent-thread"), { recursive: true });
+    writeFileSync(
+      resolve(directory, "src/components/agent-thread.tsx"),
+      'export { AgentThread } from "./agent-thread";\n',
+    );
+    writeFileSync(
+      resolve(directory, "src/components/agent-thread/index.tsx"),
+      'export function AgentThread() { return <main className="text-[var(--wb-text)]" />; }\n',
+    );
+    mkdirSync(resolve(directory, "src"), { recursive: true });
+    writeFileSync(resolve(directory, "src/globals.css"), ":root { --wb-surface: #151515; }\n");
+
+    expect(JSON.parse(runCli("audit", "--dir", directory, "--json").stdout)).toMatchObject({
+      ok: true,
+      summary: { errors: 0, warnings: 0 },
+    });
+  });
+
   test("audit only accepts component sources inside the configured alias directory", () => {
     const directory = temporaryProject();
     expect(
@@ -958,9 +1142,8 @@ describe("ui-lab application kit CLI", () => {
       resolve(directory, "src/components/agent-thread.tsx"),
       'export function AgentThread() { return <main className="text-[var(--wb-text)]" />; }\n',
     );
-    mkdirSync(resolve(directory, "src/components/agent-composer"), { recursive: true });
     writeFileSync(
-      resolve(directory, "src/components/agent-composer/index.tsx"),
+      resolve(directory, "src/components/agent-composer.tsx"),
       'export function AgentComposer() { return <form className="bg-[var(--wb-surface-composer)]" />; }\n',
     );
     writeFileSync(
@@ -974,15 +1157,54 @@ describe("ui-lab application kit CLI", () => {
 
     const perFileFailure = runCli("audit", "--dir", directory, "--json");
     expect(perFileFailure.exitCode).toBe(1);
+    const perFileOutput = JSON.parse(perFileFailure.stdout);
     expect(
-      JSON.parse(perFileFailure.stdout).findings.find(
+      perFileOutput.findings.find(
         (finding: { code: string }) => finding.code === "workbench-token-missing",
       )?.path,
     ).toEndWith("thread-list.tsx");
+    const familyWarnings = perFileOutput.findings.filter(
+      (finding: { code: string }) => finding.code === "component-source-family-incomplete",
+    );
+    expect(familyWarnings.map((finding: { message: string }) => finding.message).join("\n")).toContain(
+      "agent-thread/cards.tsx",
+    );
+    expect(familyWarnings.map((finding: { message: string }) => finding.message).join("\n")).toContain(
+      "agent-composer/effort-slider.tsx",
+    );
+    expect(familyWarnings.map((finding: { message: string }) => finding.message).join("\n")).toContain(
+      "agent-workbench/summary-card.tsx",
+    );
 
     writeFileSync(
       resolve(directory, "src/components/thread-list.tsx"),
       'export function ThreadList() { return <aside className="bg-[var(--wb-surface)]" />; }\n',
+    );
+    mkdirSync(resolve(directory, "src/components/agent-thread"), { recursive: true });
+    writeFileSync(
+      resolve(directory, "src/components/agent-thread/cards.tsx"),
+      'export function ThreadCards() { return <div className="text-[var(--wb-text)]" />; }\n',
+    );
+    writeFileSync(
+      resolve(directory, "src/components/agent-thread/status.tsx"),
+      'export function ThreadStatus() { return <div className="text-[var(--wb-text)]" />; }\n',
+    );
+    mkdirSync(resolve(directory, "src/components/agent-composer"), { recursive: true });
+    writeFileSync(
+      resolve(directory, "src/components/agent-composer/effort-slider.tsx"),
+      'export function EffortSlider() { return <div className="text-[var(--wb-text)]" />; }\n',
+    );
+    writeFileSync(
+      resolve(directory, "src/components/agent-composer/autonomy-dial.tsx"),
+      'export function AutonomyDial() { return <div className="text-[var(--wb-text)]" />; }\n',
+    );
+    writeFileSync(
+      resolve(sourceDirectory, "resize-handle.tsx"),
+      'export function ResizeHandle() { return <div className="bg-[var(--wb-hover)]" />; }\n',
+    );
+    writeFileSync(
+      resolve(sourceDirectory, "summary-card.tsx"),
+      'export function SummaryCard() { return <div className="bg-[var(--wb-surface-raised)]" />; }\n',
     );
 
     const passing = runCli("audit", "--dir", directory, "--json");

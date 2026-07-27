@@ -91,6 +91,11 @@ export type CatalogItem = {
   fetch: CatalogFetch;
   /** Registry source hint used by consumer audits; present on component items. */
   sourceFile?: string;
+  /** Complete registry-owned source family for a component. This deliberately
+   * includes only the entry file and explicit `extraFiles`, never recursively
+   * collected shared lib dependencies. Consumer audits use it to catch an
+   * incomplete vendoring copy without requiring source identity. */
+  sourceFiles?: readonly string[];
   /** Present only for items backed by a lib/theme-kits ThemeKit (design
    * systems, studio presets, and the graphite baseline): a small per-mode
    * token subset an AI agent or UI can render as a swatch without fetching
@@ -146,6 +151,7 @@ async function buildComponentItems(): Promise<CatalogItem[]> {
         endpoint: component.detail_url,
       },
       sourceFile: entry?.file,
+      sourceFiles: entry ? [entry.file, ...(entry.extraFiles ?? [])] : undefined,
     };
   });
 }

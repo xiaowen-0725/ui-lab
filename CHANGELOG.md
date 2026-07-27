@@ -26,6 +26,7 @@
 - **`star-border` 预览两个环都给了可见色并错峰**:原先按钮环用 `currentColor`(即 `text-white`),浅色主题下白环落在白底上完全看不见。
 
 ### 修复
+- **Application Kit Audit 不再把不完整的多文件组件当作完整 vendoring**:Catalog component metadata 现在公开 registry 入口文件与显式 `extraFiles` 组成的 source family(不递归共享 lib 依赖);`ui-lab audit` 会在主文件存在、但**Recipe 必装组件**缺少当前组件族 sidecar 时报告 `component-source-family-incomplete` warning,同时兼容 shadcn canonical `motion/<slug>/…` 与项目直接 `<slug>/…` 布局。辅助组件允许有意只采用家族子集;Workbench token 检查也改为每个组件族至少一个实现保留 token,兼容扁平 compatibility re-export。两者都不要求源码/API 字节等同,不会覆盖 `adopt` 项目的本地适配;视觉与状态 fidelity 仍需人工验证。
 - **组件的中文名与别名此前没有进入 AI 面向的 catalog**:`buildComponentItems` 把 `nameZh` 直接填成英文名、`aliases` 填成空数组(注释标注为「as instructed」),导致 74 个组件在 `/catalog.json`、`/llms.txt` 与 `ui-lab` CLI 里全是英文名且无别名——搜「网点」「录屏」「倾斜」都为空,而 atoms / styles / palettes 的中文一直正常。改为按 `category/slug` 从 registry 回查补全 `nameZh`/`descriptionZh`/`aliases`(registry 里这些数据一直都在);新增回归测试锁死这条链路。
 - **「原子」噪点颗粒配方两处平铺缺陷**:SVG 缺 `width`/`height` 导致没有固有尺寸、整张被拉伸到容器而根本没在平铺;`feTurbulence` 缺 `stitchTiles='stitch'`,每块拼贴边缘湍流重新起算而留下可见接缝。补上两者并显式 `background-size: 120px 120px`。同时加 `feColorMatrix` 把湍流压成中性灰阶——原配方直接用带色噪声,在中性表面上读作彩色噪点(实测浅色态平均色度 0.82 → 0);按实测把叠加强度重新标定到与原配方等重(深色态均值 22.7 → 22.9,基底 18)。
 

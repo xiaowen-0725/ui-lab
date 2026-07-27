@@ -164,6 +164,49 @@ function matchesComponentSource(
   return parentStem === slugStem || (hintedFileStem === "index" && parentStem === hintedParentStem);
 }
 
+/**
+ * Registry source families can be copied in either of the supported shapes:
+ *
+ * - canonical shadcn paths: `motion/agent-thread/cards.tsx`
+ * - a project's direct component family: `agent-thread/cards.tsx`
+ *
+ * The primary entry has a more permissive legacy matcher above so existing
+ * flat vendoring such as `agent-thread.tsx` remains valid. Sidecars are
+ * deliberately stricter: a naked `cards.tsx` gives no evidence that it
+ * belongs to `agent-thread`.
+ */
+function hasVendoredFamilySource(
+  projectFiles: string[],
+  componentDirectories: string[],
+  sourceFile: string,
+  slug: string,
+): boolean {
+  const normalizedSourceFile = sourceFile.replaceAll("\\", "/");
+  const canonicalRelativePath = normalizedSourceFile.startsWith("components/")
+    ? normalizedSourceFile.slice("components/".length)
+    : normalizedSourceFile;
+  const sourceParts = canonicalRelativePath.split("/");
+  const familyTail =
+    sourceParts[1] === slug ? sourceParts.slice(2) : sourceParts.slice(1);
+  const directRelativePath =
+    sourceParts.length > 1
+      ? [slug, ...familyTail].join("/")
+      : canonicalRelativePath;
+
+  return projectFiles.some((path) => {
+    if (!SOURCE_EXTENSIONS.has(extname(path))) return false;
+    const componentRelativePath = componentDirectories
+      .map((directory) => relativePathWithin(directory, path))
+      .find((candidate) => candidate !== undefined);
+    if (!componentRelativePath) return false;
+    const normalizedRelativePath = componentRelativePath.split(sep).join("/");
+    return (
+      normalizedRelativePath === canonicalRelativePath ||
+      normalizedRelativePath === directRelativePath
+    );
+  });
+}
+
 function stripJsTsComments(source: string): string {
   let result = "";
   let quote: "'" | '"' | "`" | undefined;
@@ -334,31 +377,6 @@ export function auditProject(items: CatalogItem[], directory: string): AuditResu
       .map((item) => [item.slug, item]),
   );
   const catalogComponents = new Set(catalogComponentItems.keys());
-  for (const component of config.components) {
-    const item = catalogComponentItems.get(component);
-    if (!item) {
-      pushFinding(
-        findings,
-        "error",
-        "component-missing",
-        `Configured component "${component}" does not exist in the catalog.`,
-      );
-      continue;
-    }
-    const sourceFiles = projectFiles.filter((path) =>
-      matchesComponentSource(path, item, componentDirectories),
-    );
-    resolvedComponentSources.set(component, sourceFiles);
-    if (sourceFiles.length === 0) {
-      pushFinding(
-        findings,
-        "error",
-        "component-source-missing",
-        `Configured component "${component}" has no matching vendored source file in the project.`,
-      );
-    }
-  }
-
   let recipe: CatalogItem | undefined;
   if (config.recipe) {
     recipe = items.find((item) => item.kind === "recipe" && item.slug === config.recipe);
@@ -401,6 +419,53 @@ export function auditProject(items: CatalogItem[], directory: string): AuditResu
           );
         }
       }
+    }
+  }
+  const recipeRequiredComponents = new Set(recipe?.components ?? []);
+  for (const component of config.components) {
+    const item = catalogComponentItems.get(component);
+    if (!item) {
+      pushFinding(
+        findings,
+        "error",
+        "component-missing",
+        `Configured component "${component}" does not exist in the catalog.`,
+      );
+      continue;
+    }
+    const sourceFiles = projectFiles.filter((path) =>
+      matchesComponentSource(path, item, componentDirectories),
+    );
+    resolvedComponentSources.set(component, sourceFiles);
+    if (sourceFiles.length === 0) {
+      pushFinding(
+        findings,
+        "error",
+        "component-source-missing",
+        `Configured component "${component}" has no matching vendored source file in the project.`,
+      );
+      continue;
+    }
+
+    // A config can include a deliberately narrowed auxiliary component family
+    // (for example Button without MagneticButton). Only Recipe-required
+    // components promise the complete composition contract, so sidecar
+    // completeness is scoped to that set. `sourceFiles` remains optional for
+    // older remote Catalogs; this never asserts source/API equivalence or
+    // overwrites adopt-mode adaptations.
+    if (!recipeRequiredComponents.has(component)) continue;
+    const expectedFamily = item.sourceFiles ?? (item.sourceFile ? [item.sourceFile] : []);
+    const missingFamilyFiles = expectedFamily.slice(1).filter(
+      (sourceFile) =>
+        !hasVendoredFamilySource(projectFiles, componentDirectories, sourceFile, component),
+    );
+    if (missingFamilyFiles.length > 0) {
+      pushFinding(
+        findings,
+        "warning",
+        "component-source-family-incomplete",
+        `Configured component "${component}" is missing vendored family source file(s): ${missingFamilyFiles.join(", ")}. The primary source exists, but inspect and copy/adapt the missing sidecars before relying on the component family.`,
+      );
     }
   }
 
@@ -476,21 +541,20 @@ export function auditProject(items: CatalogItem[], directory: string): AuditResu
     );
 
   if (usesAgentWorkbench) {
-    const familyFiles = [
-      ...new Set(
-        AGENT_WORKBENCH_FAMILY.flatMap(
-          (slug) => resolvedComponentSources.get(slug) ?? [],
-        ),
-      ),
-    ];
-    for (const path of familyFiles) {
-      if (!stripJsTsComments(readFileSync(path, "utf8")).includes("--wb-")) {
+    for (const slug of AGENT_WORKBENCH_FAMILY) {
+      const candidates = resolvedComponentSources.get(slug) ?? [];
+      if (
+        candidates.length > 0 &&
+        !candidates.some((path) =>
+          stripJsTsComments(readFileSync(path, "utf8")).includes("--wb-"),
+        )
+      ) {
         pushFinding(
           findings,
           "error",
           "workbench-token-missing",
-          "A vendored Agent Workbench core file contains no active --wb-* token reference.",
-          path,
+          `Vendored Agent Workbench component "${slug}" has no matching primary implementation with an active --wb-* token reference.`,
+          candidates[0],
         );
       }
     }

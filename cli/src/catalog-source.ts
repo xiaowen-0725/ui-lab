@@ -34,6 +34,7 @@ export type CatalogItem = {
   pageUrl: string;
   fetch: CatalogFetch;
   sourceFile?: string;
+  sourceFiles?: readonly string[];
   themePreview?: {
     modes: readonly ("light" | "dark")[];
     light?: Record<string, string>;
