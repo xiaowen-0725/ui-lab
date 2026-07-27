@@ -10,7 +10,8 @@ export type CatalogKind =
   | "style"
   | "palette"
   | "studio-preset"
-  | "design-system";
+  | "design-system"
+  | "recipe";
 
 export type CatalogFetch = {
   method: "shadcn" | "copy-prompt" | "copy-tokens" | "endpoint";
@@ -32,11 +33,46 @@ export type CatalogItem = {
   promptZh?: string;
   pageUrl: string;
   fetch: CatalogFetch;
+  sourceFile?: string;
   themePreview?: {
     modes: readonly ("light" | "dark")[];
     light?: Record<string, string>;
     dark?: Record<string, string>;
   };
+  profiles?: readonly ("next-app" | "vite-app" | "electron-renderer")[];
+  recommendedSystem?: string;
+  entryComponent?: string;
+  components?: readonly string[];
+  optionalComponents?: readonly string[];
+  slots?: readonly {
+    name: string;
+    description: string;
+    descriptionZh: string;
+    required: boolean;
+  }[];
+  states?: readonly {
+    name: string;
+    description: string;
+    descriptionZh: string;
+  }[];
+  responsive?: readonly {
+    viewport: "desktop" | "tablet" | "mobile";
+    behavior: string;
+    behaviorZh: string;
+  }[];
+  assets?: readonly {
+    kind: "font" | "icon" | "image" | "illustration";
+    requirement: string;
+    requirementZh: string;
+    required: boolean;
+  }[];
+  sections?: readonly {
+    slug: string;
+    variant: string;
+    required: boolean;
+  }[];
+  required?: readonly string[];
+  forbidden?: readonly string[];
 };
 
 type CatalogSnapshot = {

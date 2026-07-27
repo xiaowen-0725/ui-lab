@@ -1,7 +1,7 @@
 {
   "name": "uilab-cli",
   "version": "0.3.0",
-  "description": "Discover and fetch the UI Lab visual vocabulary — components, design tokens, icons, styles, palettes, and design systems — from your terminal.",
+  "description": "Compose, bind, and audit coherent React frontends from UI Lab components, themes, design systems, and application recipes.",
   "type": "module",
   "bin": {
     "ui-lab": "dist/index.js"

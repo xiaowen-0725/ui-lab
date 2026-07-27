@@ -1,14 +1,14 @@
 # 组件实验室 (UI Lab) — Agent 指南
 
-一个**中文优先的双语**「前端视觉词汇表」:收集一切"只能看、说不出"的前端事物(动效组件、复合区块、设计风格……),让人肉眼感受、让 AI 拿到准确的话。组件以 shadcn 兼容的 registry 端点「复制源码」方式分发。基于开源项目 beUI(starc007/ui-components,MIT)fork,个人自用,已部署于 Vercel(生产别名 https://ui-lab-ten.vercel.app)。
+一个**中文优先的双语、AI-first 可组合前端系统**:底层收集一切"只能看、说不出"的前端视觉词汇,上层用 Stack Profile、System Kit、组件、区块和 Recipe 组成应用级 React 前端与落地页,让 AI 复用既定技术栈和设计契约而不是每次重画。组件以 shadcn 兼容的 registry 端点「复制源码」方式分发。架构边界见 `APPLICATION_KIT.md`。基于开源项目 beUI(starc007/ui-components,MIT)fork,个人自用,已部署于 Vercel(生产别名 https://ui-lab-ten.vercel.app)。
 
 技术栈:Next.js 15(App Router)· React 19 · Tailwind CSS 4 · motion(framer-motion)v11 · next-intl v4 · TypeScript strict · Bun · Biome。
 
 ## 愿景与条目公式
 
-站点解决"设计说不出来"的翻译问题:非专业人士看到 → 认出 → 复制「对 AI 这样说」。全站条目遵循统一公式:**活样本 + 名字(中英 + 别名)+「对 AI 这样说」prompt + 可选配方**。prompt 的写法是"具名风格 + 具体视觉手段 + 禁止项(FORBIDDEN)",负面约束比正面形容词更能防住 AI 的平庸默认值。
+站点解决"设计说不出来"和"AI 每次从头生成导致漂移"两个问题:非专业人士看到 → 认出 → 选择 System/Recipe → AI 复用和组合。词汇条目遵循统一公式:**活样本 + 名字(中英 + 别名)+「对 AI 这样说」prompt + 可选配方**;应用级 Recipe 则用 `entryComponent` / `components` / `optionalComponents` / `sections` / `slots` / `states` / `responsive` / `assets` / `required` / `forbidden` 声明机器可读的装配契约。prompt 的写法是"具名风格 + 具体视觉手段 + 禁止项(FORBIDDEN)",负面约束比正面形容词更能防住 AI 的平庸默认值。
 
-主题按**顶级模块**扩展(现有:组件 / 区块 / 风格 / 演练场;规划中:配色方案、字体排印、页面区块等)。加新主题三步:顶级路由 `app/[locale]/<theme>/` → `lib/nav.ts` 注册空间(所有导航面自动跟上)→ 首页 `SpaceCards` 补一条描述文案(`landing.space*Desc`)。每个主题的数据真源独立建 `lib/<theme>.ts`,不塞进 `lib/registry.ts`。
+主题按**顶级模块**扩展(现有:组件 / 区块 / 风格 / 演练场;规划中:配色方案、字体排印、页面区块等)。加新主题三步:顶级路由 `app/[locale]/<theme>/` → `lib/nav.ts` 注册空间(所有导航面自动跟上)→ 首页 `SpaceCards` 补一条描述文案(`landing.space*Desc`)。每个主题的数据真源独立建 `lib/<theme>.ts`,不塞进 `lib/registry.ts`。如果新增的是跨区块的应用外壳或页面组合契约,应建 Catalog `kind: "recipe"` 的 Recipe,不要伪装成普通顶级主题或单个 Block;首批固定为 `agent-workbench` / `saas-landing`。
 
 ## 命令
 
@@ -67,6 +67,10 @@ next-intl 路由化:`/` = 中文(默认 locale)、`/en/*` = 英文,`localePrefix
 
 现有组件先查 `lib/registry.ts`,存在就直接 import。
 
+## 加新 Recipe(应用外壳/页面组合契约)
+
+Recipe 是 Catalog 的 `kind: "recipe"`,用于组合 System Kit、Block、组件或页面 section,而不是承载业务逻辑。每个 Recipe 必须声明 `profiles` / `recommendedSystem`、`entryComponent`、必装 `components`、`optionalComponents`、页面型配方的 `sections`(slug/variant/required)、`slots`、loading/empty/error 等 `states`、`responsive`、字体/图片等 `assets`,以及 `required` / `forbidden`。`saas-landing` 当前是 section composition contract(Pricing 可选),不是一份可 vendoring 的完整页面 shell;完整 shell 是后续资产。变更 Recipe 后同样必须执行 `bun run cli:snapshot`,并用消费项目的 `ui-lab compose <recipe>` + `ui-lab audit` 验证。
+
 ## Motion 约定
 
 - 用 `lib/ease.ts` 的 token:`EASE_OUT`、`EASE_OUT_CSS`、`EASE_IN_OUT`、`EASE_DRAWER`、`SPRING_PRESS`、`SPRING_SWAP`、`SPRING_PANEL`、`SPRING_LAYOUT`、`SPRING_MOUSE`。不写内联 `cubic-bezier` 或一次性 spring;确实需要组件专属调参时,留成有注释说明原因的具名局部常量。
@@ -88,20 +92,24 @@ next-intl 路由化:`/` = 中文(默认 locale)、`/en/*` = 英文,`localePrefix
 
 ## AI 接入
 
-一个真源、多条薄视图。真源是 `lib/catalog.ts` 的 `buildCatalog()`,把全部词汇(组件 / atom token / 图标 / 风格 / 配色 / studio 预设 / 设计系统)聚合成统一 `CatalogItem`(name、描述、prompt、pageUrl、fetch)。对外三条通道,MCP 已退役:
+一个真源、多条薄视图。真源是 `lib/catalog.ts` 的 `buildCatalog()`,把全部词汇和应用 Recipe(组件 / atom token / 图标 / 风格 / 配色 / studio 预设 / 设计系统 / `recipe`)聚合成统一 `CatalogItem`(name、描述、prompt、pageUrl、fetch)。对外三条通道,MCP 已退役:
 
 - **组件安装**:shadcn registry `app/r/*`,`npx shadcn add`(见「分发 / 命名空间」)。
 - **机器端点**(`app/` 根、英文规范、部署自动静态化):`/catalog.json`(结构化全词汇)、`/llms.txt`(分组索引)、`/llms-full.txt`(每项 prompt/token 内联)。加新词汇时它们**随构建自动反映**,不用手改。
-- **`ui-lab` CLI + skill**:CLI 在 `cli/`(独立子包、零运行时依赖、从根 tsconfig/biome 排除),**已发布 npm 为 `uilab-cli`**(`npx uilab-cli <cmd>`;bin 命令为 `ui-lab`),本地也可 `bun link`;skill 在 `skill/ui-lab/`,用 dbs-bridge 桥接到 Claude Code / Codex / 通用 Agents / Grok。CLI 不 import 主仓库 lib/*,只消费 catalog 数据。**改了 CLI 源码后要 `cd cli && bun run build` + 提 npm 新版本(bump version → publish)** 才对外生效;只加词汇则 `bun run cli:snapshot` 刷快照(下次发版带上)。
+- **`ui-lab` CLI + skill**:CLI 在 `cli/`(独立子包、零运行时依赖、从根 tsconfig/biome 排除),npm 包名为 `uilab-cli`、bin 为 `ui-lab`,本地也可 `bun link`;skill 在 `skill/ui-lab/`,用 dbs-bridge 桥接到 Claude Code / Codex / 通用 Agents / Grok。项目级深接口是 `init`(建立 Stack/System 与 `ui-lab.config.json`)→ `compose`(装配 Recipe)→ `add`(增量组件)→ `audit`(一致性门禁);配置 schema 固定为 `schemaVersion=1`、`profile`、`system`、可选 `recipe`、`components`、`mode=adopt|replace`。这些 Application Kit 命令与 config-aware `add` 当前仍在 `[Unreleased]`:调用前先以 `ui-lab --help` 确认可用;未发布版本在本仓库用 `bun cli/src/index.ts <command>`,不得假装旧 npm CLI 已执行。CLI 不 import 主仓库 lib/*,只消费 catalog 数据。**改了 CLI 源码后要 `cd cli && bun run build` + 提 npm 新版本(bump version → publish)** 才对外生效;只加词汇或 Recipe 则 `bun run cli:snapshot` 刷快照(下次发版带上)。
 
-**⚠ CLI 快照维护规范(重要)**:CLI 默认读**构建时冻结的快照** `cli/catalog.snapshot.json`,不是实时数据。所以**任何词汇增删改之后**(加组件、加图标、改 atoms/styles/palettes/studio),线上机器端点会自动更新,但 `ui-lab` CLI 会一直显示旧数据,直到重新生成快照:
+**消费者根与命令语义**:`ui-lab.config.json`、`components.json` 和被审计的 `package.json` 必须位于实际 React 前端 package 根,不要求是仓库根;monorepo 必须用同一个 `--dir packages/desktop` 一类参数贯穿 `init` / `compose` / `add` / `audit`,不要在无 React 依赖的 workspace root 建 config。`compose` 始终要求 Catalog 中存在所选 System Kit:`adopt` 先 review/compare,只补缺失项且不得覆盖 vendored 源码;`replace` 才给完整安装计划。`add` 始终只打印不执行;有 config 时去重登记 slug,无 config 时只打印,并支持 `--dir`。
+
+**阶段一 Audit 范围**:`ui-lab audit` 当前硬检查 config/Catalog/Recipe 引用、Recipe/Profile 与必装组件登记、React 19、Tailwind CSS 4、TypeScript、按 Profile 所需的 `next|vite|electron`,有效 `components.json`(至少非空 `aliases.components` / `aliases.utils`)、每个 config Component 的 vendored source,以及 Workbench 每个核心文件的 `--wb-*` 和有效 `--wb-surface` 声明或所选主题 CSS import;Workbench 缺失是 error。它不检查 strict `tsconfig`(extends 易误报)、字体/资产、裸颜色、越级圆角/阴影、未门控 motion,也不验证 `sections` / `slots` / `states` / `responsive` / `assets` / `required` / `forbidden` 的视觉 fidelity;Audit 通过不能表述为视觉验收通过。
+
+**⚠ CLI 快照维护规范(重要)**:CLI 默认读**构建时冻结的快照** `cli/catalog.snapshot.json`,不是实时数据。所以**任何 Catalog 内容增删改之后**(加组件、Recipe、图标,改 atoms/styles/palettes/studio),线上机器端点会自动更新,但 `ui-lab` CLI 会一直显示旧数据,直到重新生成快照:
 
 ```bash
 bun run cli:snapshot        # 重跑 buildCatalog() 刷新 cli/catalog.snapshot.json（种子数据，需提交）
 cd cli && bun run build      # 仅当改了 CLI 源码才需要；只刷数据可不必
 ```
 
-把「刷快照」当成加词汇流程的收尾一步。部署后想让快照里的 URL / 安装命令是 prod 域名,用 `NEXT_PUBLIC_SITE_URL=https://<prod-domain> bun run cli:snapshot`。CLI 也支持 `--registry <url>` / `UILAB_REGISTRY` 实时拉线上 `/catalog.json` 绕过快照。
+把「刷快照」当成加词汇流程的收尾一步。部署后想让快照里的 URL / 安装命令是 prod 域名,用 `NEXT_PUBLIC_SITE_URL=https://<prod-domain> bun run cli:snapshot`。CLI 也支持 `--registry <base-url>` / `UILAB_REGISTRY=<base-url>` 实时拉线上 Catalog;值必须是部署 base URL(如 `https://ui-lab-ten.vercel.app`),不要带 `/catalog.json`,CLI 会自行追加。
 
 ## 更新日志与发版
 

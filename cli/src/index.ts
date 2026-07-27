@@ -1,8 +1,19 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { auditProject } from "./audit.js";
 import { type CatalogItem, loadCatalog } from "./catalog-source.js";
 import { renderPickerHtml } from "./picker.js";
+import {
+  APPLICATION_MODES,
+  APPLICATION_PROFILES,
+  PROJECT_CONFIG_NAME,
+  type ApplicationMode,
+  type ApplicationProfile,
+  type ProjectConfig,
+  readProjectConfig,
+  writeProjectConfig,
+} from "./project-config.js";
 
 const KIND_ORDER = [
   "component",
@@ -13,6 +24,7 @@ const KIND_ORDER = [
   "palette",
   "studio-preset",
   "design-system",
+  "recipe",
 ] as const;
 
 interface Flags {
@@ -31,7 +43,7 @@ interface ParsedArgv {
   flags: Flags;
 }
 
-const BOOLEAN_FLAGS = new Set(["json", "help", "version", "picker"]);
+const BOOLEAN_FLAGS = new Set(["json", "help", "version", "picker", "force"]);
 
 function parseArgv(argv: string[]): ParsedArgv {
   const positionals: string[] = [];
@@ -55,13 +67,21 @@ function parseArgv(argv: string[]): ParsedArgv {
       if (eqIndex !== -1) {
         const name = token.slice(2, eqIndex);
         const value = token.slice(eqIndex + 1);
-        flags[name] = value;
+        flags[name] = BOOLEAN_FLAGS.has(name)
+          ? booleanFlag(name, value)
+          : value;
         continue;
       }
 
       const name = token.slice(2);
       if (BOOLEAN_FLAGS.has(name)) {
-        flags[name] = true;
+        const next = argv[i + 1];
+        if (name === "force" && next !== undefined && !next.startsWith("-")) {
+          flags[name] = next;
+          i++;
+        } else {
+          flags[name] = true;
+        }
         continue;
       }
 
@@ -87,6 +107,18 @@ function parseArgv(argv: string[]): ParsedArgv {
 
 function stringFlag(value: string | boolean | undefined): string | undefined {
   return typeof value === "string" ? value : undefined;
+}
+
+function booleanFlag(
+  name: string,
+  value: string | boolean | undefined,
+): boolean {
+  if (value === undefined) return false;
+  if (typeof value === "boolean") return value;
+  if (value === "true") return true;
+  if (value === "false") return false;
+  console.error(`Invalid boolean for "--${name}": "${value}". Expected true or false.`);
+  process.exit(1);
 }
 
 function truncate(text: string, max = 60): string {
@@ -250,6 +282,52 @@ function cmdShow(items: CatalogItem[], slug: string | undefined, flags: Flags): 
     return;
   }
 
+  if (item.kind === "recipe") {
+    console.log(`${item.name} (${item.nameZh})`);
+    console.log(item.kind);
+    console.log(item.description);
+    console.log(item.pageUrl);
+    console.log("");
+    console.log("Compose:");
+    console.log(`  ui-lab compose ${item.slug}`);
+    console.log(`Profiles: ${item.profiles?.join(", ") ?? "(none)"}`);
+    console.log(`Recommended system: ${item.recommendedSystem ?? "(none)"}`);
+    console.log(`Entry component: ${item.entryComponent ?? "(none)"}`);
+    printRecipeList("Required components", item.components);
+    printRecipeList("Optional components", item.optionalComponents);
+    printRecipeList(
+      "Slots",
+      item.slots?.map(
+        (slot) => `${slot.name}${slot.required ? " (required)" : " (optional)"} — ${slot.description}`,
+      ),
+    );
+    printRecipeList(
+      "States",
+      item.states?.map((state) => `${state.name} — ${state.description}`),
+    );
+    printRecipeList(
+      "Responsive",
+      item.responsive?.map((rule) => `${rule.viewport} — ${rule.behavior}`),
+    );
+    printRecipeList(
+      "Assets",
+      item.assets?.map(
+        (asset) =>
+          `${asset.kind}${asset.required ? " (required)" : " (optional)"} — ${asset.requirement}`,
+      ),
+    );
+    printRecipeList(
+      "Sections",
+      item.sections?.map(
+        (section) =>
+          `${section.slug}/${section.variant} (${section.required ? "required" : "optional"})`,
+      ),
+    );
+    printRecipeList("Required", item.required);
+    printRecipeList("Forbidden", item.forbidden);
+    return;
+  }
+
   console.log(item.name);
   console.log(item.kind);
   console.log(item.description);
@@ -258,12 +336,23 @@ function cmdShow(items: CatalogItem[], slug: string | undefined, flags: Flags): 
     console.log(item.prompt);
   }
   console.log("How to fetch:");
-  if (item.kind === "component") {
+  if (item.fetch.method === "shadcn") {
     console.log(item.fetch.command ?? "");
+  } else if (item.fetch.method === "endpoint") {
+    console.log(item.fetch.endpoint ?? "");
   } else {
     console.log("copy the block below:");
     console.log(item.fetch.value ?? "");
   }
+}
+
+function printRecipeList(label: string, values: readonly string[] | undefined): void {
+  console.log(`${label}:`);
+  if (!values || values.length === 0) {
+    console.log("  (none)");
+    return;
+  }
+  for (const value of values) console.log(`  - ${value}`);
 }
 
 // --- add ------------------------------------------------------------------
@@ -283,7 +372,9 @@ function rewritePmCommand(command: string, pm: string | undefined): string {
 
 function cmdAdd(items: CatalogItem[], slug: string | undefined, flags: Flags): void {
   if (!slug) {
-    console.error("Usage: ui-lab add <slug> [--pm bun|npm|pnpm|yarn]");
+    console.error(
+      "Usage: ui-lab add <slug> [--pm bun|npm|pnpm|yarn] [--dir <path>]",
+    );
     process.exit(1);
   }
 
@@ -300,6 +391,23 @@ function cmdAdd(items: CatalogItem[], slug: string | undefined, flags: Flags): v
       `This is a ${item.kind}, not a component. Use \`ui-lab show ${slug}\` to get its prompt/tokens instead.`,
     );
     return;
+  }
+
+  const directory = resolve(process.cwd(), stringFlag(flags.dir) ?? ".");
+  const configPath = resolve(directory, PROJECT_CONFIG_NAME);
+  if (existsSync(configPath)) {
+    let config: ProjectConfig;
+    try {
+      ({ config } = readProjectConfig(directory));
+    } catch (error) {
+      console.error(error instanceof Error ? error.message : String(error));
+      process.exit(1);
+    }
+    writeProjectConfig(configPath, {
+      ...config,
+      components: [...new Set([...config.components, item.slug])],
+    });
+    console.error(`Registered "${item.slug}" in ${configPath}.`);
   }
 
   const pm = stringFlag(flags.pm);
@@ -403,9 +511,209 @@ function cmdThemes(items: CatalogItem[], flags: Flags): void {
   }
 }
 
+// --- application kit -------------------------------------------------------
+
+function cmdInit(items: CatalogItem[], flags: Flags): void {
+  const profile = stringFlag(flags.profile);
+  const system = stringFlag(flags.system);
+  const mode = stringFlag(flags.mode) ?? "adopt";
+  const force = booleanFlag("force", flags.force);
+
+  if (!profile || !system) {
+    console.error(
+      "Usage: ui-lab init --profile <next-app|vite-app|electron-renderer> --system <slug> [--mode adopt|replace] [--dir <path>] [--force] [--json]",
+    );
+    process.exit(1);
+  }
+  if (!APPLICATION_PROFILES.includes(profile as ApplicationProfile)) {
+    console.error(
+      `Invalid profile "${profile}". Expected one of: ${APPLICATION_PROFILES.join(", ")}.`,
+    );
+    process.exit(1);
+  }
+  if (!APPLICATION_MODES.includes(mode as ApplicationMode)) {
+    console.error(`Invalid mode "${mode}". Expected one of: ${APPLICATION_MODES.join(", ")}.`);
+    process.exit(1);
+  }
+  if (!themeItems(items).some((item) => item.slug === system)) {
+    reportThemeNotFound(items, system);
+  }
+
+  const directory = resolve(process.cwd(), stringFlag(flags.dir) ?? ".");
+  const configPath = resolve(directory, PROJECT_CONFIG_NAME);
+  const configExists = existsSync(configPath);
+  if (configExists && !force) {
+    console.error(`Refusing to overwrite existing file: ${configPath}. Pass --force to replace it.`);
+    process.exit(1);
+  }
+
+  const config: ProjectConfig = {
+    schemaVersion: 1,
+    profile: profile as ApplicationProfile,
+    system,
+    components: [],
+    mode: mode as ApplicationMode,
+  };
+  writeProjectConfig(configPath, config);
+
+  const result = {
+    ok: true,
+    action: configExists ? "replaced" : "created",
+    configPath,
+    config,
+    nextSteps: [
+      `ui-lab compose <recipe> --dir ${directory}`,
+      `ui-lab audit --dir ${directory}`,
+    ],
+  };
+
+  if (flags.json) {
+    console.log(JSON.stringify(result, null, 2));
+    return;
+  }
+
+  console.log(`${configExists ? "Replaced" : "Created"} ${configPath}`);
+  console.log("Next:");
+  for (const step of result.nextSteps) console.log(`  ${step}`);
+}
+
+function cmdCompose(items: CatalogItem[], recipeSlug: string | undefined, flags: Flags): void {
+  if (!recipeSlug) {
+    console.error("Usage: ui-lab compose <recipe> [--dir <path>] [--json]");
+    process.exit(1);
+  }
+
+  const recipe = items.find((item) => item.kind === "recipe" && item.slug === recipeSlug);
+  if (!recipe) {
+    console.error(
+      `No recipe found for slug "${recipeSlug}". Run \`ui-lab list --kind recipe\` to list recipes.`,
+    );
+    process.exit(1);
+  }
+
+  const directory = resolve(process.cwd(), stringFlag(flags.dir) ?? ".");
+  let configPath: string;
+  let config: ProjectConfig;
+  try {
+    ({ configPath, config } = readProjectConfig(directory));
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exit(1);
+  }
+
+  if (!recipe.profiles?.includes(config.profile)) {
+    console.error(
+      `Recipe "${recipeSlug}" does not support profile "${config.profile}". Supported profiles: ${recipe.profiles?.join(", ") ?? "none"}.`,
+    );
+    process.exit(1);
+  }
+
+  const theme = themeItems(items).find((item) => item.slug === config.system);
+  if (!theme) {
+    console.error(`Configured system "${config.system}" does not exist in the catalog.`);
+    process.exit(1);
+  }
+  const strategy =
+    config.mode === "adopt" ? "review-before-install" : "install";
+  const planAction = config.mode === "adopt" ? "compare" : "install";
+
+  const componentSlugs = recipe.components ?? [];
+  const componentPlan = componentSlugs.map((slug) => {
+    const item = items.find((candidate) => candidate.kind === "component" && candidate.slug === slug);
+    if (!item) {
+      console.error(`Recipe "${recipeSlug}" references missing component "${slug}".`);
+      process.exit(1);
+    }
+    return {
+      slug,
+      action: planAction,
+      command: item.fetch.command ?? "",
+      pageUrl: item.pageUrl,
+    };
+  });
+  const optionalComponentPlan = (recipe.optionalComponents ?? []).map((slug) => {
+    const item = items.find((candidate) => candidate.kind === "component" && candidate.slug === slug);
+    if (!item) {
+      console.error(`Recipe "${recipeSlug}" references missing optional component "${slug}".`);
+      process.exit(1);
+    }
+    return {
+      slug,
+      action: planAction,
+      command: item.fetch.command ?? "",
+      pageUrl: item.pageUrl,
+    };
+  });
+
+  const updatedConfig: ProjectConfig = {
+    ...config,
+    recipe: recipeSlug,
+    components: [...new Set([...config.components, ...componentSlugs])],
+  };
+  writeProjectConfig(configPath, updatedConfig);
+
+  const result = {
+    ok: true,
+    recipe: recipeSlug,
+    config: updatedConfig,
+    plan: {
+      strategy,
+      theme: {
+        slug: theme.slug,
+        action: planAction,
+        command: theme.fetch.command ?? "",
+        pageUrl: theme.pageUrl,
+      },
+      components: componentPlan,
+      optionalComponents: optionalComponentPlan,
+    },
+  };
+
+  if (flags.json) {
+    console.log(JSON.stringify(result, null, 2));
+    return;
+  }
+
+  console.log(`Composed ${recipe.name} into ${configPath}`);
+  console.log(
+    config.mode === "adopt"
+      ? "Review-before-install plan (compare before running; commands were not executed):"
+      : "Install plan (commands were not executed):",
+  );
+  console.log(`  ${result.plan.theme.command}`);
+  for (const component of result.plan.components) {
+    console.log(`  ${component.command}`);
+  }
+  if (result.plan.optionalComponents.length > 0) {
+    console.log("Optional:");
+    for (const component of result.plan.optionalComponents) {
+      console.log(`  ${component.command}`);
+    }
+  }
+}
+
+function cmdAudit(items: CatalogItem[], flags: Flags): void {
+  const directory = resolve(process.cwd(), stringFlag(flags.dir) ?? ".");
+  const result = auditProject(items, directory);
+
+  if (flags.json) {
+    console.log(JSON.stringify(result, null, 2));
+  } else {
+    for (const finding of result.findings) {
+      const location = finding.path ? ` (${finding.path})` : "";
+      console.log(`${finding.severity.toUpperCase()} ${finding.code}: ${finding.message}${location}`);
+    }
+    console.log(
+      `Audit ${result.ok ? "passed" : "failed"}: ${result.summary.errors} error(s), ${result.summary.warnings} warning(s).`,
+    );
+  }
+
+  if (!result.ok) process.exitCode = 1;
+}
+
 // --- help / version ---------------------------------------------------------
 
-const HELP_TEXT = `ui-lab — discover and fetch this project's UI vocabulary from the terminal
+const HELP_TEXT = `ui-lab — compose, discover, and audit coherent React frontends
 
 Usage:
   ui-lab <command> [args] [flags]
@@ -414,20 +722,25 @@ Commands:
   list [--kind <kind>] [--json]         List catalog items, grouped by kind
   search <query> [--json]               Rank items matching a query
   show <slug> [--kind <kind>] [--json]  Show one item's detail + how to fetch it
-  add <slug> [--pm bun|npm|pnpm|yarn]   Print the shadcn install command for a component
+  add <slug> [--pm <pm>] [--dir <path>] Print the command and register it when config exists
   theme <slug> [--pm <pm>] [--json]     Show one theme kit: modes, shadcn install command,
                                          and CSS endpoint (design-system/studio-preset only)
   themes [--picker] [--out <file>]      List every theme kit, or with --picker generate a
                                          self-contained HTML picker page you can open in a
                                          browser (writes ./ui-lab-theme-picker.html unless
                                          --out names a different path)
+  init --profile <profile> --system <slug>
+                                         Bind a project to a profile and Theme Kit
+  compose <recipe> [--dir <path>]        Bind a recipe and print its install plan
+  audit [--dir <path>] [--json]          Check the project binding and golden-path contracts
 
 Global flags:
-  --registry <url>   Fetch the catalog from a live deployment instead of the bundled
-                      snapshot (also settable via the UILAB_REGISTRY env var)
+  --registry <base-url>
+                     Fetch <base-url>/catalog.json instead of the bundled snapshot
+                     (also settable via UILAB_REGISTRY; do not include /catalog.json)
   --json              Emit machine-readable JSON on stdout
   --kind <kind>       Filter/disambiguate by kind: component, atom-set, icon-style,
-                      icon-motion, style, palette, studio-preset, design-system
+                      icon-motion, style, palette, studio-preset, design-system, recipe
   --pm <pm>           Package manager used to rewrite \`add\`/\`theme\`'s printed install command
   -h, --help          Show this help
   -v, --version       Print the CLI version
@@ -440,13 +753,16 @@ Examples:
   ui-lab theme nightflight
   ui-lab themes
   ui-lab themes --picker --out theme-picker.html
+  ui-lab init --profile electron-renderer --system graphite
+  ui-lab compose agent-workbench
+  ui-lab audit --json
 
 Data sources:
   By default ui-lab reads from a snapshot bundled at build time (cli/catalog.snapshot.json)
-  — this project isn't deployed yet, so the snapshot is the default source of truth. Pass
-  --registry <url> or set UILAB_REGISTRY to fetch a live deployment's /catalog.json instead;
-  if that fetch fails for any reason, ui-lab falls back to the bundled snapshot. Source-
-  selection messages always print to stderr, so stdout stays clean for --json output.
+  for fast, offline use. Pass --registry <url> or set UILAB_REGISTRY to fetch a live
+  deployment's /catalog.json instead; if that fetch fails for any reason, ui-lab falls
+  back to the bundled snapshot. Source-selection messages always print to stderr, so
+  stdout stays clean for --json output.
 `;
 
 function printHelp(): void {
@@ -499,6 +815,15 @@ async function main(): Promise<void> {
       break;
     case "themes":
       cmdThemes(items, flags);
+      break;
+    case "init":
+      cmdInit(items, flags);
+      break;
+    case "compose":
+      cmdCompose(items, positionals[0], flags);
+      break;
+    case "audit":
+      cmdAudit(items, flags);
       break;
     default:
       console.error(`Unknown command: "${command}". Run \`ui-lab --help\` for usage.`);

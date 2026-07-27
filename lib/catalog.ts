@@ -1,6 +1,6 @@
 // Unified AI-facing catalog: aggregates every visual-vocabulary module
 // (components, atoms, icon styles/motions, styles, palettes, studio presets,
-// design systems) into one flat list of CatalogItem so `/catalog.json`,
+// design systems, and application recipes) into one flat list of CatalogItem so `/catalog.json`,
 // `/llms.txt`, and `/llms-full.txt` can expose the whole vocabulary — not
 // just components — to AI agents. Each aggregator below is isolated behind
 // try/catch so one module failing to build never takes down the others.
@@ -31,6 +31,15 @@ import {
 } from "@/lib/atoms";
 import { DESIGN_SYSTEMS } from "@/lib/layouts";
 import { PALETTES, paletteToCss } from "@/lib/palettes";
+import {
+  type ApplicationProfile,
+  RECIPES,
+  type RecipeAsset,
+  type RecipeResponsiveRule,
+  type RecipeSection,
+  type RecipeSlot,
+  type RecipeState,
+} from "@/lib/recipes";
 import { allComponents } from "@/lib/registry";
 import { buildIndex } from "@/lib/registry-server";
 import { SITE_URL } from "@/lib/site";
@@ -50,7 +59,8 @@ export type CatalogKind =
   | "style"
   | "palette"
   | "studio-preset"
-  | "design-system";
+  | "design-system"
+  | "recipe";
 
 export type CatalogFetch = {
   method: "shadcn" | "copy-prompt" | "copy-tokens" | "endpoint";
@@ -79,6 +89,8 @@ export type CatalogItem = {
   /** Absolute URL to the live sample. */
   pageUrl: string;
   fetch: CatalogFetch;
+  /** Registry source hint used by consumer audits; present on component items. */
+  sourceFile?: string;
   /** Present only for items backed by a lib/theme-kits ThemeKit (design
    * systems, studio presets, and the graphite baseline): a small per-mode
    * token subset an AI agent or UI can render as a swatch without fetching
@@ -88,6 +100,19 @@ export type CatalogItem = {
     light?: Record<string, string>;
     dark?: Record<string, string>;
   };
+  /** Application Kit metadata, present only when kind is `recipe`. */
+  profiles?: readonly ApplicationProfile[];
+  recommendedSystem?: string;
+  entryComponent?: string;
+  components?: readonly string[];
+  optionalComponents?: readonly string[];
+  slots?: readonly RecipeSlot[];
+  states?: readonly RecipeState[];
+  responsive?: readonly RecipeResponsiveRule[];
+  assets?: readonly RecipeAsset[];
+  sections?: readonly RecipeSection[];
+  required?: readonly string[];
+  forbidden?: readonly string[];
 };
 
 async function buildComponentItems(): Promise<CatalogItem[]> {
@@ -120,6 +145,7 @@ async function buildComponentItems(): Promise<CatalogItem[]> {
         command: `npx shadcn@latest add ${SITE_URL}/r/${component.slug}.json`,
         endpoint: component.detail_url,
       },
+      sourceFile: entry?.file,
     };
   });
 }
@@ -399,8 +425,38 @@ function buildDesignSystemItems(): CatalogItem[] {
   });
 }
 
+function buildRecipeItems(): CatalogItem[] {
+  return RECIPES.map((recipe): CatalogItem => ({
+    kind: "recipe",
+    category: recipe.category,
+    slug: recipe.slug,
+    name: recipe.name,
+    nameZh: recipe.nameZh,
+    aliases: recipe.aliases,
+    description: recipe.description,
+    descriptionZh: recipe.descriptionZh,
+    pageUrl: `${SITE_URL}${recipe.pagePath}`,
+    fetch: {
+      method: "endpoint",
+      endpoint: `${SITE_URL}/catalog.json`,
+    },
+    profiles: recipe.profiles,
+    recommendedSystem: recipe.recommendedSystem,
+    entryComponent: recipe.entryComponent,
+    components: recipe.components,
+    optionalComponents: recipe.optionalComponents,
+    slots: recipe.slots,
+    states: recipe.states,
+    responsive: recipe.responsive,
+    assets: recipe.assets,
+    sections: recipe.sections,
+    required: recipe.required,
+    forbidden: recipe.forbidden,
+  }));
+}
+
 /**
- * Aggregates all eight vocabulary kinds into one flat catalog. Each
+ * Aggregates every vocabulary kind into one flat catalog. Each
  * aggregator is isolated: if one module throws (bad data, missing export),
  * we log and skip it rather than failing the whole catalog.
  */
@@ -416,6 +472,7 @@ export async function buildCatalog(): Promise<CatalogItem[]> {
     { label: "palette", run: buildPaletteItems },
     { label: "studio-preset", run: buildStudioPresetItems },
     { label: "design-system", run: buildDesignSystemItems },
+    { label: "recipe", run: buildRecipeItems },
   ];
 
   for (const builder of builders) {

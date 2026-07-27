@@ -1,17 +1,20 @@
 <h1 align="center">UI Lab · 组件实验室</h1>
 
 <p align="center">
-  A visual vocabulary for the web — motion components, blocks and design styles.
+  An AI-first composable frontend system — built on a visible vocabulary of components, blocks and design systems.
 </p>
 
 ## 这是什么
 
-**UI Lab（组件实验室）** 是一本中英双语的**前端视觉词汇表**，个人自用项目，中文优先。
+**UI Lab（组件实验室）** 是一套中文优先、中英双语的 **AI-first 可组合前端系统**。底层仍是可视前端词汇表，上层 Application Kit 用统一的技术栈、System Kit、组件、区块和 Recipe，让 AI 像搭积木一样构建 React 应用与落地页。
 
 它收集一切"只能看、说不出"的前端事物——动效组件、复合区块、设计风格——做成活样本：让人肉眼感受，让 AI 拿到准确的话。每个条目遵循同一个公式：**活样本 + 名字（中英 + 别名）+「对 AI 这样说」prompt + 配方**。
 
 - **组件 / 区块**：可视化浏览实际动效，直接查看/复制源码（shadcn registry 分发），也方便 AI 编程助手（Claude、Codex 等）读取用法作为上下文
 - **风格**（`/styles`）：29 种设计风格的换皮对比器——同一份页面套不同风格，认出你想要的，复制那段能直接粘给 AI 建站工具的描述
+- **Application Kit**：用 Stack Profile、System Kit、Recipe、`ui-lab.config.json` 和 `ui-lab audit` 固定应用级技术与设计契约；架构和边界见 [APPLICATION_KIT.md](APPLICATION_KIT.md)
+
+Application Kit 的 `init` / `compose` / `audit` 和 config-aware `add` 当前仍在 `[Unreleased]`，尚未 bump/publish。已安装的 npm CLI 请先用 `ui-lab --help` 确认可用；在本仓库可先用 `bun cli/src/index.ts --help` 运行源码版本。
 
 前端部分从 [beUI](https://github.com/starc007/ui-components)（MIT 协议）fork 而来二次整理。不追求发布为公开产品或收费服务，只是一个持续生长的个人视觉参考站。
 

@@ -4,7 +4,7 @@
   "private": true,
   "author": "UI Lab",
   "license": "MIT",
-  "description": "A bilingual visual vocabulary for the web — components, blocks & design styles",
+  "description": "An AI-first composable frontend system — components, blocks, themes, and application recipes",
   "keywords": [
     "react",
     "ui",

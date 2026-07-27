@@ -1,100 +1,163 @@
 ---
 name: ui-lab
 description: |
-  在做前端（React/Next + Tailwind）时，从 UI Lab 这套「看得见的前端视觉词汇表」里复用现成、经过打磨的资产，而不是从零编：动效组件、动效/静态图标、设计 token（圆角/阴影/字体/间距/动效曲线/描边/背景）、配色方案、视觉风格、整套设计系统。用 `ui-lab` CLI 从终端发现并取用。
-  触发方式：/ui-lab、「找个组件/图标/配色/风格」「给我一套设计 token / 设计系统」「这个该长什么样」「有没有现成的 X 组件」「hover 动效图标」「换个视觉风格」，或任何在写前端、想照着一个已存在的可视样本来做的时候。
-  Use when building or designing a frontend (React/Next + Tailwind) and you want to reuse proven, *visible* assets from UI Lab instead of inventing from scratch — motion components, animated/static icons, design tokens (radius, shadow, type, spacing, motion curves, lines, backgrounds), color palettes, visual styles, or a whole design system. Discover and fetch them from the terminal with `ui-lab`.
-  Trigger: /ui-lab, "find a component / icon / palette / style", "give me design tokens / a design system", "how should this look", "is there a ready-made X", "hover-animated icon", "restyle this".
+  任何 React 前端的新建、页面开发、应用级改造或设计系统调整都使用本技能，尤其是 Next.js、Vite、Electron renderer、Tailwind CSS、shadcn、主题、字体、组件、区块和落地页工作。先复用 UI Lab 的 Stack Profile、System Kit、Component、Block 与 Recipe，再写业务内容，避免 AI 从零生成导致技术栈和视觉漂移。触发：/ui-lab、做前端/页面/应用/落地页、找组件/主题/字体/设计系统、接入或改造 React UI、"find a component/theme/recipe"、"build/restyle this frontend"。
+  Use for any React frontend creation, page implementation, app-level redesign, or design-system change, including Next.js, Vite, Electron renderers, Tailwind CSS, shadcn, themes, typography, components, blocks, and landing pages. Reuse UI Lab Stack Profiles, System Kits, Components, Blocks, and Recipes before writing business-specific UI so generated work stays technically and visually coherent.
 ---
 
-# UI Lab — the frontend visual vocabulary
+# UI Lab — composable frontend system
 
-UI Lab is a bilingual catalog of frontend things that are "easy to see, hard to name": you look at a live sample, then take away the exact **source**, **tokens**, or **words** to describe it. Reach for it before hand-rolling a component, an icon interaction, a token scale, a palette, a style, or a design system.
+UI Lab is an AI-first assembly system for React frontends: a Golden Path stack, complete System Kits, vendorable components and blocks, and application/page Recipes. The visual vocabulary remains available for discovery, but the default job is to preserve one design contract across the whole product.
 
-## The `ui-lab` CLI
+## Non-negotiable workflow
 
-Published on npm as **`uilab-cli`** (the command it installs is `ui-lab`). Get it any of these ways:
+For every frontend task:
 
+1. **Preflight** the project before editing.
+2. **Read or establish** `ui-lab.config.json`.
+3. **Reuse the deepest fitting asset**: Recipe before Block, Block before Component, Component before hand-written UI.
+4. Fill business data, state and content into the provided slots; do not redesign the shell incidentally.
+5. Run **`ui-lab audit`**, fix deterministic drift, then inspect the actual UI at relevant viewports and modes.
+
+Never silently switch an existing product from `adopt` to `replace`, collapse a token scale into approximate utilities, or declare completion while audit failures remain.
+
+## 1. Project preflight
+
+Before changing code, inspect:
+
+- the actual React frontend package root; in a monorepo this is usually not the workspace root;
+- framework and package manager;
+- React, TypeScript, Tailwind and shadcn versions/config;
+- global stylesheet, theme provider, semantic tokens and font loading;
+- existing component library, page shell, breakpoints and dark mode;
+- DOM selectors, test IDs, E2E selectors and other replacement contracts;
+- `ui-lab.config.json`, if present.
+
+Use the directory that owns the frontend's React dependencies, `components.json`, source tree, and `ui-lab.config.json` as `<frontend-root>`. Do not create the config at a dependency-free monorepo root. Pass this same root through `--dir` for `init`, `compose`, `add`, and `audit` (for example `--dir packages/desktop`).
+
+Before calling Application Kit commands, run `ui-lab --help` and confirm `init`, `compose`, and `audit` are listed. They and config-aware `add` are currently `[Unreleased]`; an older published npm CLI may not contain them. If unavailable, use `bun cli/src/index.ts <command>` while inside the UI Lab repository, or wait for the new release. Never report an unavailable command as executed.
+
+Use `adopt` for an existing product: preserve its stack and visual facts, then add compatible assets. Use `replace` only for a new project or an explicitly approved redesign: a complete System Kit and Recipe may replace the starting UI.
+
+## 2. Read or create the project contract
+
+If `ui-lab.config.json` exists, treat it as the source of truth. Its contract is:
+
+```json
+{
+  "schemaVersion": 1,
+  "profile": "electron-renderer",
+  "system": "graphite",
+  "recipe": "agent-workbench",
+  "components": ["agent-workbench", "agent-composer"],
+  "mode": "adopt"
+}
 ```
-npx uilab-cli <cmd>          # run without installing
-npm i -g uilab-cli           # or: bun add -g uilab-cli  → then use `ui-lab <cmd>`
-bun cli/src/index.ts <cmd>   # inside the UI Lab repo itself
+
+Allowed profiles are `next-app`, `vite-app`, and `electron-renderer`; `recipe` is optional; `mode` is `adopt` or `replace`. Do not invent additional fields. When no config exists, initialize it:
+
+```bash
+ui-lab init --profile <profile> --system <slug> --mode <adopt|replace> --dir <frontend-root>
 ```
 
+For a new or wholesale replacement project, choose the System Kit by eye before init: run `ui-lab themes --picker`, open the generated page, and let the user choose. Do not silently default a visual identity.
+
+## 3. Compose before inventing
+
+For an application or page starting point, use a Recipe:
+
+```bash
+ui-lab compose agent-workbench --dir <frontend-root>
+ui-lab compose saas-landing --dir <frontend-root>
 ```
-ui-lab list [--kind <kind>]      # browse everything, or one kind
-ui-lab search <query>            # keyword search, best matches first
-ui-lab show <slug> [--kind <k>]  # full detail: description, AI prompt, page URL, and the fetch block
-ui-lab add <slug> [--pm bun|npm|pnpm|yarn]   # prints the shadcn install command for a component (does NOT run it)
+
+`compose` requires the configured System Kit to exist in the Catalog, records the Recipe, and prints a plan; it does not execute commands. Follow the plan's mode:
+
+- `adopt`: review and compare before installing, install only missing items, and never overwrite existing vendored source;
+- `replace`: apply the full Theme Kit and required-component install plan.
+
+Treat the Recipe fields as executable instructions:
+
+- install every slug in `components`; add from `optionalComponents` only when the business needs it;
+- for a page composition, build `sections` in their declared order and variant, omitting only entries whose `required` is false;
+- fill business content through `slots`;
+- implement every case in `states`;
+- follow `responsive` at the named viewports and collapse points;
+- supply or deliberately preserve placeholders for `assets`;
+- obey `required` and `forbidden`.
+
+`saas-landing` is a section composition contract, not vendorable full-page shell source. Its `sections` define the page rhythm and make Pricing optional; a complete landing shell is a future asset. Do not tell the user that `compose saas-landing` installed an existing page shell.
+
+Do not infer these contracts from the preview alone. If no Recipe fits, search for a Block; if no Block fits, search for a Component:
+
+```bash
+ui-lab search "<need>"
+ui-lab show <slug> [--kind <kind>]
+ui-lab add <slug> --dir <frontend-root> [--pm bun|npm|pnpm|yarn]
 ```
 
-Add `--json` to any command for structured output. The data source line is printed to **stderr**, so `--json` on **stdout** stays clean.
+`add` prints the install command rather than running it. When `<frontend-root>/ui-lab.config.json` exists, it also registers the slug once in `components`; without a config it only prints. Open `pageUrl` and inspect the live sample before adapting it, then execute the command you chose. `shadcn add` vendors source into the project; it does not add a UI Lab runtime dependency. Use stock shadcn for long-tail primitives such as calendars and breadcrumbs so they inherit the same semantic tokens.
 
-**Kinds** (`--kind`): `component` · `atom-set` (token scales) · `icon-style` · `icon-motion` (hover-animated icons) · `style` · `palette` · `studio-preset` (whole design systems) · `design-system` (whole design systems, reverse-recreated from real products).
+## System Kit and protected contracts
 
-## Bootstrapping a NEW project (do this FIRST)
+Install a complete Theme Kit before individual components. It supplies shadcn semantic colors, type, spacing, radius, shadows, chart colors, motion and any family-specific token scale in light/dark selectors.
 
-Starting a fresh frontend (or restyling one wholesale)? **Pick and apply a Theme Kit before installing any component.** A Theme Kit is one complete, ready-to-run token system — shadcn semantic colors + the 42 `--wb-*` workbench tokens + chart colors (`--chart-1..6`) + radius/shadow/spacing/type scales + motion easings + font stacks — light and dark in one payload, so components, app shell and charts all land coherent on day one.
+```bash
+ui-lab themes --picker
+ui-lab themes
+ui-lab theme <slug>
+```
 
-1. **If the user hasn't named a style, let them choose by EYE, not by words**: run `ui-lab themes --picker` — it writes a self-contained HTML page rendering every kit as a mini-workbench mock in its true tokens. Open it, have the user pick, and take the slug they choose. Do **NOT** invent a style yourself or default silently; style is the user's call, made visually.
-2. **Apply the kit** (one step, before any component):
-   - shadcn project → run the install command from `ui-lab theme <slug>` (`npx shadcn@latest add <site>/r/theme-<slug>.json`) — cssVars land in `:root`/`.dark`/`@theme inline` automatically.
-   - non-shadcn project → `curl <site>/themes/<slug>.css` and paste below `@import "tailwindcss"` in the global stylesheet.
-   - Single-mode kits (most non-graphite ones) pin both selectors to their native mode — the header comment says so; pair with `graphite` if the product needs true dual-mode.
-3. **Then vendor components** as usual — their semantic and `--wb-*` classes read the kit's tokens, so everything matches without per-component theming.
+For shadcn projects, execute the registry command returned by `theme`; for non-shadcn projects, use its CSS endpoint below `@import "tailwindcss"` in the global stylesheet. Single-mode kits pin both selectors to their native mode; use a true dual-mode kit such as Graphite when the product requires light and dark.
 
-This ordering is what makes app styles reusable and consistent — the style is decided once, visually, and every later component inherits it. Skipping it is how every app ends up hand-assembled and slightly different.
+For Graphite workbench components, the 42-step `--wb-*` scale is part of their identity. Rebrand by overriding `--wb-*` **values** in globals; never rewrite references such as `bg-[--wb-surface]`, `border-[--wb-hairline]`, and `hover:bg-[--wb-hover]` to coarse `card/border/muted` tokens. That destroys the graded surface hierarchy.
 
-## Workflow: discover → inspect → apply
+After vendoring, deliberately check:
 
-1. **Discover** — `ui-lab search "<what you need>"` (e.g. `bottom sheet`, `pricing`, `bell icon`, `warm palette`) or `ui-lab list --kind <kind>`.
-2. **Inspect** — `ui-lab show <slug>`. Read its `description`, the `prompt` ("对 AI 这样说" — the exact words to reproduce it), the `pageUrl`, and the copyable **fetch block**.
-3. **See it** — open the `pageUrl` to look at the live sample (or show it to the user) before committing to it. This is the whole point of UI Lab: choose by eye, not by guessing from a name.
-4. **Apply**, by kind:
-   - **component** → run the `npx shadcn@latest add …` command from `ui-lab add <slug>` (shadcn drops the source into the project; then import it).
-   - **design-system** / **studio-preset** → these now ship a runnable **Theme Kit**: the item's `fetch.command` installs it via shadcn (`/r/theme-<slug>.json`) and `fetch.endpoint` serves the same thing as plain CSS (`/themes/<slug>.css`); the DESIGN.md in `fetch.value` stays the human-readable spec. Prefer the kit over hand-copying tokens.
-   - **atom-set** → the fetch block is a token table (single dimension); paste the CSS variables you need into the project's global tokens. If you're taking several dimensions, a Theme Kit already bundles them.
-   - **palette** → the fetch block is **drop-in CSS**: paste it into globals.css below `@import "tailwindcss"` and it remaps every shadcn semantic token (whole-site recolor with one file). Note palettes recolor the shadcn layer only — agent/workbench components keep their `--wb-*` skin; use a Theme Kit when you want both layers to move together.
-   - **icon-style** / **icon-motion** / **style** → the fetch block is the AI prompt (named look + concrete moves + a FORBIDDEN list); follow it to implement, using the project's own stack (e.g. animated icons are plain `motion` + `lucide`, no new deps).
+- shape and size against the target slot;
+- localized accessible labels;
+- hard-coded status colors against project semantic tokens;
+- existing DOM, CSS and E2E selectors before element replacement;
+- reduced-motion, hover capability and keyboard behavior.
 
-## Conventions (anti-slop)
+Do not force-fit. If a primitive's interaction shape conflicts with the slot, keep the bespoke implementation and record why.
 
-UI Lab prompts encode these; keep them when you apply an asset:
-- **One voice per axis** — one icon style across the product (never mix outline and filled in the same bar); one type pairing; one radius scale.
-- **Tokens, not magic numbers** — use a token scale end-to-end; never introduce off-scale values (13px, 18px).
-- **Hierarchy by hairline first** — establish depth with hairlines and shallow shadows before reaching for prominent shadows; don't stack heavy black shadows.
-- **Reserve the accent** — accent color is for focus, selection, and primary actions; semantic colors describe real state only.
-- **Respect reduced motion** — every animated asset ships a reduced-motion fallback; keep it.
+Across the product, keep one icon voice, one type pairing and one radius scale; use tokens instead of off-scale magic numbers; reserve the accent for focus, selection and primary actions; preserve reduced-motion fallbacks.
 
-## Mixing with shadcn/ui (long-tail primitives)
+## 4. Audit and visual verification
 
-UI Lab deliberately does not carry every base primitive (date-picker, pagination, breadcrumb, calendar…). When you need one, install it from stock shadcn/ui — UI Lab's palettes and design systems remap the standard shadcn semantic tokens, so stock primitives pick up the look automatically. Keep UI Lab as the source for tokens, palettes, styles, and motion components; use shadcn for missing utilitarian primitives.
+Run after composition and again before delivery:
 
-## The workbench skin: `--wb-*` tokens (agent components)
+```bash
+ui-lab audit --dir <frontend-root>
+```
 
-The **agent / workbench family** — `agent-workbench`, `agent-composer`, `agent-thread`, `agent-trace`, `agent-inbox`, `thread-list`, `artifact-panel`, `prompt-bar` — does **not** get its look from the standard shadcn semantic tokens. Its "Graphite / workbench" feel (hairline dividers, translucent raised surfaces, low-contrast layered hovers) lives in a **separate 42-token `--wb-*` scale** (light + dark), with multiple graded steps the standard tokens can't express: hover ×4 (`subtle→stronger`), inset ×4, border ×4, `surface`/`surface-translucent`/`surface-raised`/`surface-composer`, `hairline`, `shimmer`, and so on.
+Phase 1 audit hard-checks only:
 
-If you take one of these components, this is the make-or-break detail:
+- valid `ui-lab.config.json`;
+- Catalog references for the configured System Kit, Components and Recipe;
+- Recipe/Profile compatibility and registration of its required `components`;
+- React 19, Tailwind CSS 4, and TypeScript declarations;
+- the matching Profile dependency: `next`, `vite`, or `electron`;
+- parseable `components.json` with non-empty `aliases.components` and `aliases.utils`;
+- vendored source existence for every Component in the config;
+- every core Workbench file retains `--wb-*`, plus either a valid `--wb-surface` declaration or an import of the selected Theme Kit CSS. Missing Workbench protection is an error.
 
-- **Install carries the skin automatically.** Their `/r/<slug>.json` ships `cssVars.light` / `cssVars.dark` (42 each). Running the `npx shadcn@latest add …` command from `ui-lab add <slug>` writes those variables into your globals — install and it looks right, no hand-copying.
-- **`shadcn add` is *source vendoring*, not a runtime dependency.** It drops the component's source into your repo; you own and edit it. A project with a "no runtime dependency on UI Lab / no remote registry at build time" rule can still use it — the code and the `--wb-*` vars are now yours, sitting in your files.
-- **To rebrand, override the *values* of `--wb-*` — never repoint the component's *references*.** Want your own accent? Set `--wb-accent` (and friends) to your color in your globals. Do **not** rewrite the component's `bg-[--wb-surface]` / `border-[--wb-hairline]` / `hover:bg-[--wb-hover]` into `bg-card` / `border-border` / `bg-muted`. That collapses 42 graded steps into ~3 and the Graphite look dies — the component stops resembling the sample. `--wb-*` **is** a token scale, so consuming it satisfies any "tokens only, no raw color values" rule; swapping it out for the coarse semantic tokens is what breaks the design, not what honors it.
-- **Trimming sub-parts is fine — but eyeball the `pageUrl` first.** You can delete a composer's model picker or reasoning slider if your product doesn't need them; just open the live sample before you cut, so you don't also delete the interaction that *is* the component.
+Fix those findings before claiming completion. Phase 1 does **not** validate strict `tsconfig` (extended configs cause false positives), font/asset drift, raw colors, off-scale radius/shadow values, unguarded motion, or whether the rendered UI fulfills `sections`, `slots`, `states`, `responsive`, `assets`, `required`, and `forbidden`. Check those Recipe fields manually, then inspect representative desktop/mobile widths, light/dark modes, loading/empty/error states, keyboard focus and reduced motion. Audit passing is not proof that the page looks right.
 
-Rule of thumb: reskin by **overriding `--wb-*` values**, extend by **editing the vendored source** — but keep it reading the `--wb-*` names, or you no longer have the workbench skin.
+## CLI quick reference
 
-## Adapting a vendored component to your project
+```bash
+ui-lab init --profile <next-app|vite-app|electron-renderer> --system <slug> --mode <adopt|replace> --dir <frontend-root>
+ui-lab compose <agent-workbench|saas-landing> --dir <frontend-root>
+ui-lab add <slug> --dir <frontend-root> [--pm bun|npm|pnpm|yarn]
+ui-lab audit --dir <frontend-root>
 
-A component built on the standard semantic tokens auto-adopts your palette — your `--accent` / `--primary` / `--border` flow straight in. But a few things live *past* the tokens and won't adapt on their own. After vendoring, check them:
+ui-lab themes [--picker]
+ui-lab theme <slug>
+ui-lab search <query>
+ui-lab show <slug> [--kind <kind>]
+ui-lab list [--kind <kind>]
+```
 
-- **Shape / radius.** Defaults encode *our* design language, not yours. UI Lab buttons default to pill (`rounded-full`); if your project is square-cornered, retune the size classes once in `button/base.tsx`. Same for over-large default sizes.
-- **A11y label language.** Primitives ship English screen-reader labels (e.g. `Loader`'s `label="Loading"`). Localize them for a non-English product.
-- **Palette colors baked into variants.** Some status styles reach for Tailwind palette colors instead of semantic tokens — a badge's success/warning may be `emerald`/`amber`. If your project defines `--success` / `--warning`, repoint them so the component matches *your* palette, not the sample's.
-- **Mind DOM contracts before replacing a bespoke element.** If a spot is anchored by its className — a `querySelector`, an e2e `data-testid` injected via a selector, a global-CSS hook — dropping in a primitive changes its classes and silently breaks that anchor. Grep the element's classes for such anchors first; if it's contractual (e.g. a consent/approval surface), leave it or migrate the contract deliberately, don't swap blindly.
-
-**"UI Lab first" ≠ force-fit.** When a primitive's shape doesn't match the slot — a dot-style radio for a *card* selector, a horizontal `Tabs` for a *vertical* nav, an `h-11` field for an `h-8` toolbar — keep the bespoke version with a one-line note explaining why, rather than fighting the primitive into a shape it wasn't built for. Reach for UI Lab when it fits; don't bend the design to it.
-
-## Notes
-
-- The CLI reads a **bundled snapshot** by default (fast, offline). When the site is deployed, pass `--registry <url>` or set `UILAB_REGISTRY` to fetch the live catalog. Refresh the snapshot from the repo with `bun run cli:snapshot`.
-- The same data is also available as plain HTTP for agents without a shell: `<site>/catalog.json` (structured), `<site>/llms.txt` (grouped index), `<site>/llms-full.txt` (every prompt/token inlined), and components install via the shadcn registry at `<site>/r/*`.
+Add `--json` for structured output. The npm package is `uilab-cli` and its binary is `ui-lab`, but do not assume the currently published version includes the `[Unreleased]` Application Kit commands; verify with `ui-lab --help` first. The CLI uses a bundled snapshot by default. For a live catalog, pass the deployment **base URL** (for example `--registry https://ui-lab-ten.vercel.app`) or set `UILAB_REGISTRY` to that base URL; the CLI appends `/catalog.json`, so do not include that path yourself.
