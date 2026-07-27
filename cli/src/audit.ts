@@ -10,6 +10,11 @@ import {
 } from "node:path";
 import type { CatalogItem } from "./catalog-source.js";
 import { type ProjectConfig, readProjectConfig } from "./project-config.js";
+import {
+  buildProjectLock,
+  PROJECT_LOCK_NAME,
+  readProjectLock,
+} from "./project-lock.js";
 
 export type AuditFinding = {
   severity: "error" | "warning";
@@ -26,6 +31,11 @@ export type AuditResult = {
     errors: number;
     warnings: number;
   };
+};
+
+export type AuditOptions = {
+  strict?: boolean;
+  catalogSource?: string;
 };
 
 const SOURCE_EXTENSIONS = new Set([".js", ".jsx", ".ts", ".tsx"]);
@@ -340,7 +350,11 @@ function resolveComponentDirectories(directory: string, alias: string): string[]
   return [...new Set(candidates)];
 }
 
-export function auditProject(items: CatalogItem[], directory: string): AuditResult {
+export function auditProject(
+  items: CatalogItem[],
+  directory: string,
+  options: AuditOptions = {},
+): AuditResult {
   const findings: AuditFinding[] = [];
   let config: ProjectConfig;
   try {
@@ -352,7 +366,91 @@ export function auditProject(items: CatalogItem[], directory: string): AuditResu
       "config-invalid",
       error instanceof Error ? error.message : String(error),
     );
-    return finish(directory, findings);
+    return finish(directory, findings, options.strict);
+  }
+
+  const lockPath = resolve(directory, PROJECT_LOCK_NAME);
+  if (existsSync(lockPath)) {
+    try {
+      const { lock } = readProjectLock(directory);
+      const expectedLock = buildProjectLock(
+        items,
+        config,
+        options.catalogSource ?? lock.catalogSource,
+      );
+      if (
+        options.catalogSource !== undefined &&
+        lock.catalogSource !== options.catalogSource
+      ) {
+        pushFinding(
+          findings,
+          "warning",
+          "lock-catalog-source-stale",
+          `Lock catalogSource "${lock.catalogSource}" does not match the active catalog source "${options.catalogSource}".`,
+          lockPath,
+        );
+      }
+
+      const actualByIdentity = new Map(
+        lock.items.map((item) => [`${item.kind}:${item.slug}`, item]),
+      );
+      const expectedByIdentity = new Map(
+        expectedLock.items.map((item) => [`${item.kind}:${item.slug}`, item]),
+      );
+      const actualIdentities = [...actualByIdentity.keys()].sort();
+      const expectedIdentities = [...expectedByIdentity.keys()].sort();
+      if (JSON.stringify(actualIdentities) !== JSON.stringify(expectedIdentities)) {
+        pushFinding(
+          findings,
+          "warning",
+          "lock-selection-stale",
+          "Lock item selection does not match the configured System, Recipe, and Components.",
+          lockPath,
+        );
+      }
+
+      for (const [identity, expectedItem] of expectedByIdentity) {
+        const actualItem = actualByIdentity.get(identity);
+        if (!actualItem) continue;
+        if (actualItem.contractHash !== expectedItem.contractHash) {
+          pushFinding(
+            findings,
+            "warning",
+            "lock-contract-stale",
+            `Lock contract hash for "${identity}" does not match the active catalog contract.`,
+            lockPath,
+          );
+        }
+        if (
+          JSON.stringify(actualItem.sourceFiles ?? []) !==
+          JSON.stringify(expectedItem.sourceFiles ?? [])
+        ) {
+          pushFinding(
+            findings,
+            "warning",
+            "lock-source-files-stale",
+            `Lock sourceFiles for "${identity}" do not match the active catalog contract.`,
+            lockPath,
+          );
+        }
+      }
+    } catch (error) {
+      pushFinding(
+        findings,
+        "warning",
+        "lock-invalid",
+        error instanceof Error ? error.message : String(error),
+        lockPath,
+      );
+    }
+  } else if (options.strict) {
+    pushFinding(
+      findings,
+      "warning",
+      "lock-missing",
+      `${PROJECT_LOCK_NAME} is required in strict audit mode.`,
+      lockPath,
+    );
   }
 
   const themes = items.filter((item) => item.themePreview);
@@ -580,14 +678,18 @@ export function auditProject(items: CatalogItem[], directory: string): AuditResu
     }
   }
 
-  return finish(directory, findings);
+  return finish(directory, findings, options.strict);
 }
 
-function finish(directory: string, findings: AuditFinding[]): AuditResult {
+function finish(
+  directory: string,
+  findings: AuditFinding[],
+  strict = false,
+): AuditResult {
   const errors = findings.filter((finding) => finding.severity === "error").length;
   const warnings = findings.filter((finding) => finding.severity === "warning").length;
   return {
-    ok: errors === 0,
+    ok: errors === 0 && (!strict || warnings === 0),
     directory,
     findings,
     summary: { errors, warnings },

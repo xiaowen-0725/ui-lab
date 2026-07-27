@@ -30,7 +30,7 @@ UI Lab 不负责：
 | Primitive / Component | 提供基础交互和有辨识度的组件 | shadcn-compatible registry、具名 React 导出 |
 | Block | 组合多个组件形成产品区块 | 数据、状态、事件和 slots |
 | Recipe | 组合 System、Block 与页面骨架 | required / forbidden、布局、状态与响应式契约 |
-| Audit | 检查消费项目是否偏离选择 | `ui-lab.config.json` + 确定性规则 |
+| Audit | 检查消费项目是否偏离选择 | config / lock 契约 + 确定性规则 |
 
 ### 1. Stack Profile
 
@@ -98,23 +98,41 @@ Recipe 是组合契约，不是业务模板。AI 应按 `sections` 和 slots 填
 
 ### 6. Audit
 
-阶段一的 `ui-lab audit` 是一个确定性的接入门禁。当前硬检查范围只有：
+`ui-lab audit` 是确定性的接入门禁。当前检查范围包括：
 
 - `ui-lab.config.json` 可解析，字段和枚举合法。
 - 配置中的 System Kit、Component 和 Recipe 在 Catalog 中存在。
+- `ui-lab.lock.json` 可解析，Catalog 来源、选择项、行为契约哈希与组件 `sourceFiles` 没有相对当前配置和 Catalog 过期。
 - Recipe 支持所选 Profile，且它的 `components` 已登记到项目配置。
 - `package.json` 声明 React 19、Tailwind CSS 4 和 TypeScript，并按 Profile 声明 `next`、`vite` 或 `electron`。
 - `components.json` 是有效 JSON，且至少声明非空的 `aliases.components` 和 `aliases.utils`。
-- `ui-lab.config.json` 中每个 Component 都能按 Catalog 的 `sourceFile` 提示在前端源码树中找到对应 vendored source。
+- `ui-lab.config.json` 中每个 Component 都能按 Catalog 的来源提示在前端源码树中找到对应 vendored source；Recipe 必装组件缺少 source family sidecar 时报告 warning。
 - 检测到 Agent Workbench 家族时，每个核心文件都保留 `--wb-*` 引用；项目还必须有有效的 `--wb-surface` CSS 声明，或导入所选 Theme Kit 的 CSS。缺失均为 error。
 
-后续可扩展的 detector 才会检查严格 TypeScript 配置、Recipe 的字体/资产要求、裸颜色、越级圆角或阴影、未门控 motion 等实现偏离。阶段一不会检查 strict `tsconfig`（继承配置容易误报），也不会自动判断 `sections`、`slots`、`states`、`responsive`、`assets`、`required` 或 `forbidden` 是否在最终界面中得到满足。
+普通模式下，error 使进程退出码为 `1`；只有 warning 时退出码为 `0`，人类可读输出必须明确显示 `Audit passed with warnings`。交付与 CI 使用：
 
-因此，Audit 通过只表示“基础绑定与可确定的 Golden Path 契约没有报错”，不表示设计忠实度或视觉质量已经通过。Agent 仍需按 Recipe 的机器字段检查多视口、明暗态、状态、资产和交互。
+```bash
+ui-lab audit --strict --json --dir <frontend-package>
+```
+
+`--strict` 要求项目存在 lock，并把任意 warning 也视为失败、返回退出码 `1`。CLI 会拒绝未知 flag 和不适用于当前命令的 flag，而不是静默忽略。若已安装的 npm CLI 尚未在 `ui-lab --help` 中列出 `--strict`，应报告版本不匹配并使用仓库内源码 CLI，不能用普通 Audit 冒充交付门禁。
+
+确定性 Audit 不检查 strict `tsconfig`（继承配置容易误报），也不会自动判断字体/资产、裸颜色、越级圆角或阴影、未门控 motion，以及 `sections`、`slots`、`states`、`responsive`、`assets`、`required`、`forbidden` 是否在最终界面中得到满足。即便 strict Audit 为 `0` errors / `0` warnings，也只证明本次 CLI 报告的确定性契约成立，不证明本地源码与 Catalog 字节等同，更不表示视觉或业务验收通过。
 
 ## 消费项目契约
 
-实际 React 前端 package 根目录使用 `ui-lab.config.json` 保存设计决策。这个目录同时应包含该前端的 `package.json` 和 `components.json`；它不一定是 Git 仓库或 monorepo 根目录。不要在没有 React 依赖的 workspace root 创建配置，monorepo 应通过 `--dir packages/desktop` 一类参数始终指向真实消费包。
+实际 React 前端 package 根目录承载四份职责不同的项目证据。这个目录同时应包含该前端的 `package.json` 和 `components.json`；它不一定是 Git 仓库或 monorepo 根目录。不要在没有 React 依赖的 workspace root 创建配置，monorepo 应通过 `--dir packages/desktop` 一类参数始终指向真实消费包。
+
+| 文件 | 单一职责 | 维护者 |
+|---|---|---|
+| `ui-lab.config.json` | 装配意图：Profile、System、可选 Recipe、已选组件和 `adopt\|replace` 模式 | 项目拥有；CLI 可更新 |
+| `ui-lab.lock.json` | Catalog 行为契约来源与版本证据 | CLI 管理；禁止手改 |
+| `DESIGN.md` | 视觉真源：外观、构图、字体、token、响应式、状态、动效与有意保留的产品身份 | 产品/设计决策拥有 |
+| `.ui-lab/adoption-report.md` | adopt/replace 的实现记录：映射、偏差、候选决策和验证证据 | Agent/实现者维护 |
+
+四者不可互相替代：config 只表达“要装成什么”，不是视觉规范；lock 只记录“基于哪份 Catalog 行为契约装配”，不是安装收据；`DESIGN.md` 不替代 Recipe 的可执行约束；adoption report 记录实施事实，不覆盖视觉真源。
+
+### 装配意图：`ui-lab.config.json`
 
 ```json
 {
@@ -144,23 +162,45 @@ Recipe 是组合契约，不是业务模板。AI 应按 `sections` 和 slots 填
 
 `adopt` 用于已有产品：先尊重现有技术栈和视觉事实，只补齐兼容资产。`replace` 用于新项目或明确重做：允许应用完整 System Kit 和 Recipe。没有用户授权时，不得把 `adopt` 升级为 `replace`。
 
+### 行为契约锁：`ui-lab.lock.json`
+
+`init`、`compose` 和 config-aware `add` 会创建或同步 lock。它记录：
+
+- `catalogSource`：本次绑定使用的内置 snapshot 或远程 Catalog 来源。
+- 所选 System、Recipe 和 Component 的 `kind` / `slug` 与 `contractHash`；哈希是 Catalog 中安装入口、主题预览、Recipe 机器字段、组件来源契约等稳定序列化载荷的 SHA-256。
+- Component 声明的 `sourceFiles`，用于发现 source family 缺失或 Catalog 契约过期。
+
+lock 用于发现配置选择、Catalog 来源和行为契约的漂移。它**不会**对消费项目中的 vendored 文件计算字节哈希，也不证明本地源码与 UI Lab 源码逐字节等同；`adopt` 项目可以保留经审查的本地适配。lock 缺失或 stale 时运行 `ui-lab lock --dir <frontend-package>`：它只读取现有 config，按当前 Catalog 重建 lock，不修改 config，也不执行安装。不要手工改哈希，也不要为恢复 lock 使用会覆盖项目绑定的 `init --force`。
+
+### 视觉真源与采用证据
+
+`DESIGN.md` 应记录选定参考、布局区域、字体与资产、颜色和表面 token、间距/圆角/阴影、图标、主题模式、响应式转换、必需状态、焦点与 reduced-motion 行为。已有产品执行 `adopt` 时，应先把可信的现状或明确选择的目标写入 `DESIGN.md`，再进行大范围视觉修改。
+
+`.ui-lab/adoption-report.md` 逐项记录现有实现到 System / Recipe / Component 的映射、保留或拒绝的候选、已知偏差、理由和审计/截图证据。它回答“这次如何采用、哪里不同、如何验证”，不重新定义“最终应该长什么样”。
+
+视觉验收必须在目标运行时，以相同 viewport、device scale、主题、语义状态、字体加载状态和截图时机，成对保存 reference / implementation 截图。同一应用的精确回归使用相同数据；把既有产品与设计系统 demo 对照时，使用确定且语义等价的数据形状/密度，在 adoption report 记录字段映射，并保持产品文案和事实真实，不能为了“像”而把 demo 数据塞进产品。选择覆盖 Recipe 或 `DESIGN.md` 中每个适用 viewport（wide / collapse / narrow）、mode（light / dark 等）和 state（loading / empty / error / success 与领域状态）维度的最小代表性 case 集；只有 Recipe 明确要求时才执行三者的全笛卡尔积。另需补充键盘焦点、reduced motion、必需 section / slot / asset 和 forbidden 检查。缩放已有截图不能充当同尺寸实现截图。
+
+先按布局、排印、颜色/表面、组件 anatomy、资产、状态、响应式、焦点和动效分类差异，再优先修复 token、主题导入、source family 或 Recipe 映射等共同根因。确定性 Audit 不能替代这组视觉比对；剩余差异必须在 adoption report 和视觉比较报告中说明并被明确接受。
+
 ## 少数深接口
 
 ```bash
 ui-lab init --profile <profile> --system <slug> --mode <adopt|replace> --dir <frontend-package>
 ui-lab compose <recipe> --dir <frontend-package>
 ui-lab add <component-or-block> --dir <frontend-package>
-ui-lab audit --dir <frontend-package>
+ui-lab lock --dir <frontend-package> [--json]
+ui-lab audit --strict --json --dir <frontend-package>
 ```
 
-- `init` 校验并绑定 Stack Profile 与 System Kit，生成配置；它不重写现有应用。
-- `compose` 始终要求配置中的 System Kit 存在于 Catalog，并把 Recipe 与必装组件清单写回配置。`adopt` 计划要求先 review/compare，只安装缺失项且不得覆盖现有 vendored 源码；`replace` 计划才执行完整 Theme Kit 与组件安装。
-- `add` 始终只打印 vendoring 命令、不执行安装。目标目录已有 `ui-lab.config.json` 时，它把 slug 去重登记到 `components`；没有配置时只打印命令。`--dir` 决定读取和更新哪个前端 package。
-- `audit` 在交付前执行阶段一的基础绑定与 Golden Path 硬检查；视觉契约仍需人工/Agent 验证。
+- `init` 校验并绑定 Stack Profile 与 System Kit，生成 config 并同步 lock；它不重写现有应用。
+- `compose` 始终要求配置中的 System Kit 存在于 Catalog，把 Recipe 与必装组件清单写回 config，并同步 lock。`adopt` 计划要求先 review/compare，只安装缺失项且不得覆盖现有 vendored 源码；`replace` 计划才执行完整 Theme Kit 与组件安装。
+- `add` 始终只打印 vendoring 命令、不执行安装。目标目录已有 config 时，它把 slug 去重登记到 `components` 并同步 lock；没有 config 时只打印命令。`--dir` 决定读取和更新哪个前端 package。
+- `lock` 读取现有 config，并按当前 Catalog 重建 lock；它不修改 config、不安装资产，是 missing/stale lock 的安全恢复命令。
+- `audit` 在交付前执行基础绑定、provenance 与 Golden Path 硬检查；视觉契约仍需人工/Agent 验证。
 
 `themes --picker`、`theme`、`search`、`show` 和 `list` 继续作为视觉选择与专家发现接口，但不要求 Agent 用十几个底层命令手工拼装常见页面。
 
-`init`、`compose`、`audit` 以及 config-aware `add` 当前仍在 `[Unreleased]`，不能假定已安装的 npm CLI 包含它们。先运行 `ui-lab --help`；若命令尚不可用，在 UI Lab 仓库内使用 `bun cli/src/index.ts <command>`，或等待包含这些命令的新版本发布。
+源码 CLI 已提供上述命令；npm 包版本可能滞后。先运行 `ui-lab --help`，若缺少所需命令或 flag，则在 UI Lab 仓库内使用 `bun cli/src/index.ts <command>`，或升级到包含它们的版本。
 
 实时 Catalog 的 `--registry` / `UILAB_REGISTRY` 值必须是部署 base URL，例如 `https://ui-lab-ten.vercel.app`，不要包含 `/catalog.json`；CLI 会自行追加该路径。
 
@@ -173,7 +213,7 @@ ui-lab themes --picker
 ui-lab init --profile electron-renderer --system graphite --mode replace --dir packages/desktop
 ui-lab compose agent-workbench --dir packages/desktop
 # 执行 compose 输出的 Theme Kit 与组件安装计划
-ui-lab audit --dir packages/desktop
+ui-lab audit --strict --json --dir packages/desktop
 ```
 
 之后只填入会话、任务和产物数据；需要新增能力时先 `ui-lab add <slug> --dir packages/desktop`，保留 Graphite 的 `--wb-*` 引用。
@@ -184,7 +224,7 @@ ui-lab audit --dir packages/desktop
 ui-lab init --profile next-app --system minimal-light --mode adopt --dir apps/web
 ui-lab compose saas-landing --dir apps/web
 # review/compare 现有源码，只安装缺失项，不覆盖已 vendoring 的组件
-ui-lab audit --dir apps/web
+ui-lab audit --strict --json --dir apps/web
 ```
 
-先读取现有品牌、字体和 DOM / E2E 契约，再按 `sections` 组合页面；Pricing 为可选项。这里得到的是 section composition contract，不是现成页面 shell。只替换 Recipe 的内容 slots 和允许替换项；审计通过后，再进行桌面、移动端和明暗态目检。
+先读取现有品牌、字体和 DOM / E2E 契约并写入 `DESIGN.md`，再按 `sections` 组合页面；Pricing 为可选项。这里得到的是 section composition contract，不是现成页面 shell。只替换 Recipe 的内容 slots 和允许替换项；strict Audit 通过后，仍须以覆盖每个适用 viewport / mode / state 维度的最小代表性 case 集，完成同尺寸 reference / implementation 视觉比对；仅 Recipe 明确要求时才做全笛卡尔积。

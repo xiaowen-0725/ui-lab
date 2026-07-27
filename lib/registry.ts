@@ -1230,9 +1230,9 @@ export const registry: CategoryEntry[] = [
         name: "Agent Workbench",
         nameZh: "Agent 工作台",
         description:
-          "Three-pane agent app shell: a resizable translucent sidebar, thread column and utility panel with drag-to-close, spring open/collapse, and a full-width 46px toolbar overlay. Includes a pinned summary card overlay.",
+          "Responsive agent app shell: a resizable three-pane desktop layout, tablet side overlays, and mobile single-surface navigation, with spring transitions and a full-width 46px toolbar overlay. Includes a pinned summary card overlay.",
         descriptionZh:
-          "三栏式 Agent 应用外壳:半透明可拖宽侧栏、会话主列与右侧工具面板,支持拖到底关闭、弹簧展开/折叠,以及横跨全宽的 46px 顶部工具栏。并内置置顶摘要浮层卡片。",
+          "响应式 Agent 应用外壳:桌面端为可拖宽三栏布局,平板端将侧区切换为覆盖层,移动端一次只展示一个任务表面;支持弹簧过渡与横跨全宽的 46px 顶部工具栏,并内置置顶摘要浮层卡片。",
         file: "components/motion/agent-workbench/index.tsx",
         extraFiles: [
           "components/motion/agent-workbench/resize-handle.tsx",

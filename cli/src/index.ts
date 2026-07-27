@@ -14,6 +14,11 @@ import {
   readProjectConfig,
   writeProjectConfig,
 } from "./project-config.js";
+import {
+  buildProjectLock,
+  PROJECT_LOCK_NAME,
+  writeProjectLock,
+} from "./project-lock.js";
 
 const KIND_ORDER = [
   "component",
@@ -43,7 +48,35 @@ interface ParsedArgv {
   flags: Flags;
 }
 
-const BOOLEAN_FLAGS = new Set(["json", "help", "version", "picker", "force"]);
+const BOOLEAN_FLAGS = new Set([
+  "json",
+  "help",
+  "version",
+  "picker",
+  "force",
+  "strict",
+]);
+const GLOBAL_FLAGS = ["help", "version", "registry"] as const;
+const COMMAND_FLAGS: Record<string, readonly string[]> = {
+  list: [...GLOBAL_FLAGS, "kind", "json"],
+  search: [...GLOBAL_FLAGS, "json"],
+  show: [...GLOBAL_FLAGS, "kind", "json"],
+  add: [...GLOBAL_FLAGS, "kind", "pm", "dir"],
+  theme: [...GLOBAL_FLAGS, "kind", "pm", "json"],
+  themes: [...GLOBAL_FLAGS, "picker", "out", "json"],
+  init: [
+    ...GLOBAL_FLAGS,
+    "profile",
+    "system",
+    "mode",
+    "dir",
+    "force",
+    "json",
+  ],
+  compose: [...GLOBAL_FLAGS, "dir", "json"],
+  lock: [...GLOBAL_FLAGS, "dir", "json"],
+  audit: [...GLOBAL_FLAGS, "dir", "json", "strict"],
+};
 
 function parseArgv(argv: string[]): ParsedArgv {
   const positionals: string[] = [];
@@ -119,6 +152,30 @@ function booleanFlag(
   if (value === "false") return false;
   console.error(`Invalid boolean for "--${name}": "${value}". Expected true or false.`);
   process.exit(1);
+}
+
+function validateFlags(command: string | undefined, flags: Flags): void {
+  const allowed = command ? COMMAND_FLAGS[command] ?? GLOBAL_FLAGS : GLOBAL_FLAGS;
+  const allowedSet = new Set(allowed);
+  const unknown = Object.keys(flags).filter((flag) => !allowedSet.has(flag));
+  if (unknown.length > 0) {
+    console.error(
+      `Unknown flag${unknown.length > 1 ? "s" : ""}${command ? ` for command "${command}"` : ""}: ${unknown.map((flag) => `--${flag}`).join(", ")}.`,
+    );
+    process.exit(1);
+  }
+}
+
+function syncProjectLock(
+  items: CatalogItem[],
+  config: ProjectConfig,
+  catalogSource: string,
+  directory: string,
+): { lockPath: string; lock: ReturnType<typeof buildProjectLock> } {
+  const lockPath = resolve(directory, PROJECT_LOCK_NAME);
+  const lock = buildProjectLock(items, config, catalogSource);
+  writeProjectLock(lockPath, lock);
+  return { lockPath, lock };
 }
 
 function truncate(text: string, max = 60): string {
@@ -370,7 +427,12 @@ function rewritePmCommand(command: string, pm: string | undefined): string {
   }
 }
 
-function cmdAdd(items: CatalogItem[], slug: string | undefined, flags: Flags): void {
+function cmdAdd(
+  items: CatalogItem[],
+  slug: string | undefined,
+  flags: Flags,
+  catalogSource: string,
+): void {
   if (!slug) {
     console.error(
       "Usage: ui-lab add <slug> [--pm bun|npm|pnpm|yarn] [--dir <path>]",
@@ -403,11 +465,15 @@ function cmdAdd(items: CatalogItem[], slug: string | undefined, flags: Flags): v
       console.error(error instanceof Error ? error.message : String(error));
       process.exit(1);
     }
-    writeProjectConfig(configPath, {
+    const updatedConfig: ProjectConfig = {
       ...config,
       components: [...new Set([...config.components, item.slug])],
-    });
-    console.error(`Registered "${item.slug}" in ${configPath}.`);
+    };
+    if (updatedConfig.components.length !== config.components.length) {
+      writeProjectConfig(configPath, updatedConfig);
+      console.error(`Registered "${item.slug}" in ${configPath}.`);
+    }
+    syncProjectLock(items, updatedConfig, catalogSource, directory);
   }
 
   const pm = stringFlag(flags.pm);
@@ -513,7 +579,11 @@ function cmdThemes(items: CatalogItem[], flags: Flags): void {
 
 // --- application kit -------------------------------------------------------
 
-function cmdInit(items: CatalogItem[], flags: Flags): void {
+function cmdInit(
+  items: CatalogItem[],
+  flags: Flags,
+  catalogSource: string,
+): void {
   const profile = stringFlag(flags.profile);
   const system = stringFlag(flags.system);
   const mode = stringFlag(flags.mode) ?? "adopt";
@@ -555,6 +625,7 @@ function cmdInit(items: CatalogItem[], flags: Flags): void {
     mode: mode as ApplicationMode,
   };
   writeProjectConfig(configPath, config);
+  syncProjectLock(items, config, catalogSource, directory);
 
   const result = {
     ok: true,
@@ -577,7 +648,12 @@ function cmdInit(items: CatalogItem[], flags: Flags): void {
   for (const step of result.nextSteps) console.log(`  ${step}`);
 }
 
-function cmdCompose(items: CatalogItem[], recipeSlug: string | undefined, flags: Flags): void {
+function cmdCompose(
+  items: CatalogItem[],
+  recipeSlug: string | undefined,
+  flags: Flags,
+  catalogSource: string,
+): void {
   if (!recipeSlug) {
     console.error("Usage: ui-lab compose <recipe> [--dir <path>] [--json]");
     process.exit(1);
@@ -651,6 +727,7 @@ function cmdCompose(items: CatalogItem[], recipeSlug: string | undefined, flags:
     components: [...new Set([...config.components, ...componentSlugs])],
   };
   writeProjectConfig(configPath, updatedConfig);
+  syncProjectLock(items, updatedConfig, catalogSource, directory);
 
   const result = {
     ok: true,
@@ -692,9 +769,14 @@ function cmdCompose(items: CatalogItem[], recipeSlug: string | undefined, flags:
   }
 }
 
-function cmdAudit(items: CatalogItem[], flags: Flags): void {
+function cmdAudit(
+  items: CatalogItem[],
+  flags: Flags,
+  catalogSource: string,
+): void {
   const directory = resolve(process.cwd(), stringFlag(flags.dir) ?? ".");
-  const result = auditProject(items, directory);
+  const strict = booleanFlag("strict", flags.strict);
+  const result = auditProject(items, directory, { strict, catalogSource });
 
   if (flags.json) {
     console.log(JSON.stringify(result, null, 2));
@@ -703,12 +785,45 @@ function cmdAudit(items: CatalogItem[], flags: Flags): void {
       const location = finding.path ? ` (${finding.path})` : "";
       console.log(`${finding.severity.toUpperCase()} ${finding.code}: ${finding.message}${location}`);
     }
+    const status = result.ok
+      ? result.summary.warnings > 0
+        ? "passed with warnings"
+        : "passed"
+      : "failed";
     console.log(
-      `Audit ${result.ok ? "passed" : "failed"}: ${result.summary.errors} error(s), ${result.summary.warnings} warning(s).`,
+      `Audit ${status}: ${result.summary.errors} error(s), ${result.summary.warnings} warning(s).`,
     );
   }
 
   if (!result.ok) process.exitCode = 1;
+}
+
+function cmdLock(
+  items: CatalogItem[],
+  flags: Flags,
+  catalogSource: string,
+): void {
+  const directory = resolve(process.cwd(), stringFlag(flags.dir) ?? ".");
+  let config: ProjectConfig;
+  try {
+    ({ config } = readProjectConfig(directory));
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exit(1);
+  }
+
+  const { lockPath, lock } = syncProjectLock(
+    items,
+    config,
+    catalogSource,
+    directory,
+  );
+  const result = { ok: true, lockPath, lock };
+  if (flags.json) {
+    console.log(JSON.stringify(result, null, 2));
+    return;
+  }
+  console.log(`Rebuilt ${lockPath}`);
 }
 
 // --- help / version ---------------------------------------------------------
@@ -732,7 +847,11 @@ Commands:
   init --profile <profile> --system <slug>
                                          Bind a project to a profile and Theme Kit
   compose <recipe> [--dir <path>]        Bind a recipe and print its install plan
-  audit [--dir <path>] [--json]          Check the project binding and golden-path contracts
+  lock [--dir <path>] [--json]           Rebuild ui-lab.lock.json from the existing config
+                                         and active Catalog; never changes config or installs
+  audit [--dir <path>] [--json] [--strict]
+                                         Check the project binding and golden-path contracts;
+                                         --strict requires a lock and fails on warnings
 
 Global flags:
   --registry <base-url>
@@ -742,6 +861,7 @@ Global flags:
   --kind <kind>       Filter/disambiguate by kind: component, atom-set, icon-style,
                       icon-motion, style, palette, studio-preset, design-system, recipe
   --pm <pm>           Package manager used to rewrite \`add\`/\`theme\`'s printed install command
+  --strict            For audit: require ui-lab.lock.json and fail on warnings
   -h, --help          Show this help
   -v, --version       Print the CLI version
 
@@ -755,6 +875,7 @@ Examples:
   ui-lab themes --picker --out theme-picker.html
   ui-lab init --profile electron-renderer --system graphite
   ui-lab compose agent-workbench
+  ui-lab lock --dir packages/desktop
   ui-lab audit --json
 
 Data sources:
@@ -783,6 +904,7 @@ function printVersion(): void {
 
 async function main(): Promise<void> {
   const { command, positionals, flags } = parseArgv(process.argv.slice(2));
+  validateFlags(command, flags);
 
   if (flags.version) {
     printVersion();
@@ -795,7 +917,7 @@ async function main(): Promise<void> {
   }
 
   const registry = stringFlag(flags.registry);
-  const { items } = await loadCatalog({ registry });
+  const { items, source } = await loadCatalog({ registry });
 
   switch (command) {
     case "list":
@@ -808,7 +930,7 @@ async function main(): Promise<void> {
       cmdShow(items, positionals[0], flags);
       break;
     case "add":
-      cmdAdd(items, positionals[0], flags);
+      cmdAdd(items, positionals[0], flags, source);
       break;
     case "theme":
       cmdTheme(items, positionals[0], flags);
@@ -817,13 +939,16 @@ async function main(): Promise<void> {
       cmdThemes(items, flags);
       break;
     case "init":
-      cmdInit(items, flags);
+      cmdInit(items, flags, source);
       break;
     case "compose":
-      cmdCompose(items, positionals[0], flags);
+      cmdCompose(items, positionals[0], flags, source);
+      break;
+    case "lock":
+      cmdLock(items, flags, source);
       break;
     case "audit":
-      cmdAudit(items, flags);
+      cmdAudit(items, flags, source);
       break;
     default:
       console.error(`Unknown command: "${command}". Run \`ui-lab --help\` for usage.`);

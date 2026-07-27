@@ -13,6 +13,7 @@ import { GET as getLlmsIndex } from "@/app/llms.txt/route";
 import { buildCatalog } from "@/lib/catalog";
 import { SECTIONS } from "@/lib/sections";
 import { auditProject } from "../cli/src/audit";
+import { catalogContractHash } from "../cli/src/project-lock";
 
 const REPO_ROOT = resolve(import.meta.dir, "..");
 const temporaryDirectories: string[] = [];
@@ -172,10 +173,32 @@ describe("ui-lab application kit CLI", () => {
     expect(help.stdout).toContain("compose, discover, and audit coherent React frontends");
     expect(help.stdout).toContain("init --profile");
     expect(help.stdout).toContain("compose <recipe>");
+    expect(help.stdout).toContain("lock [--dir");
+    expect(help.stdout).toContain("ui-lab lock --dir packages/desktop");
     expect(help.stdout).toContain("audit [--dir");
+    expect(help.stdout).toContain("--strict");
     expect(help.stdout).toContain("design-system, recipe");
     expect(help.stdout).toContain("do not include /catalog.json");
     expect(help.stdout).not.toContain("isn't deployed yet");
+  });
+
+  test("rejects unknown and command-inapplicable flags before loading the catalog", () => {
+    const typo = runCli("audit", "--strcit");
+    expect(typo.exitCode).toBe(1);
+    expect(typo.stderr).toContain('Unknown flag for command "audit": --strcit');
+    expect(typo.stderr).not.toContain("Using bundled snapshot");
+
+    const inapplicable = runCli("audit", "--pm", "bun");
+    expect(inapplicable.exitCode).toBe(1);
+    expect(inapplicable.stderr).toContain(
+      'Unknown flag for command "audit": --pm',
+    );
+
+    const lockInapplicable = runCli("lock", "--strict");
+    expect(lockInapplicable.exitCode).toBe(1);
+    expect(lockInapplicable.stderr).toContain(
+      'Unknown flag for command "lock": --strict',
+    );
   });
 
   test("show renders a recipe as a composition contract instead of an empty fetch block", () => {
@@ -433,6 +456,124 @@ describe("ui-lab application kit CLI", () => {
     expect(runCli("compose", "agent-workbench", "--dir", directory, "--json").exitCode).toBe(0);
     const secondConfig = JSON.parse(readFileSync(configPath, "utf8"));
     expect(secondConfig.components).toEqual(firstConfig.components);
+  });
+
+  test("init, compose, and add keep a deterministic catalog contract lock in sync", async () => {
+    const directory = temporaryProject();
+    const initialized = runCli(
+      "init",
+      "--profile",
+      "vite-app",
+      "--system",
+      "graphite",
+      "--dir",
+      directory,
+      "--json",
+    );
+    expect(initialized.exitCode).toBe(0);
+
+    const lockPath = resolve(directory, "ui-lab.lock.json");
+    const initialText = readFileSync(lockPath, "utf8");
+    const initialLock = JSON.parse(initialText);
+    expect(initialLock).toMatchObject({
+      schemaVersion: 1,
+      catalogSource: "snapshot",
+      items: [
+        {
+          slug: "graphite",
+          contractHash: expect.stringMatching(/^[a-f0-9]{64}$/),
+        },
+      ],
+    });
+    expect(initialLock).not.toHaveProperty("generatedAt");
+
+    expect(
+      runCli(
+        "init",
+        "--profile",
+        "vite-app",
+        "--system",
+        "graphite",
+        "--dir",
+        directory,
+        "--force",
+        "--json",
+      ).exitCode,
+    ).toBe(0);
+    expect(readFileSync(lockPath, "utf8")).toBe(initialText);
+
+    expect(
+      runCli("compose", "agent-workbench", "--dir", directory, "--json")
+        .exitCode,
+    ).toBe(0);
+    const composedLock = JSON.parse(readFileSync(lockPath, "utf8"));
+    expect(
+      composedLock.items.map((item: { slug: string }) => item.slug),
+    ).toEqual(
+      expect.arrayContaining([
+        "graphite",
+        "agent-workbench",
+        "thread-list",
+        "agent-thread",
+        "agent-composer",
+        "artifact-panel",
+      ]),
+    );
+
+    expect(runCli("add", "button", "--dir", directory).exitCode).toBe(0);
+    const addedText = readFileSync(lockPath, "utf8");
+    const button = JSON.parse(addedText).items.find(
+      (item: { kind: string; slug: string }) =>
+        item.kind === "component" && item.slug === "button",
+    );
+    expect(button).toMatchObject({
+      contractHash: expect.stringMatching(/^[a-f0-9]{64}$/),
+      sourceFiles: [
+        "components/motion/button/index.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/button/magnetic.tsx",
+      ],
+    });
+
+    const tamperedLock = JSON.parse(addedText);
+    tamperedLock.items.find(
+      (item: { kind: string; slug: string }) =>
+        item.kind === "component" && item.slug === "button",
+    ).contractHash = "0".repeat(64);
+    writeFileSync(lockPath, `${JSON.stringify(tamperedLock, null, 2)}\n`);
+    expect(runCli("add", "button", "--dir", directory).exitCode).toBe(0);
+    expect(readFileSync(lockPath, "utf8")).toBe(addedText);
+
+    const catalog = await buildCatalog();
+    const recipe = catalog.find(
+      (item) => item.kind === "recipe" && item.slug === "agent-workbench",
+    );
+    if (!recipe) throw new Error("agent-workbench recipe fixture is missing");
+    const hash = catalogContractHash(recipe);
+    expect(
+      catalogContractHash({
+        ...recipe,
+        name: "Display-only rename",
+        nameZh: "仅展示改名",
+        description: "Display-only description",
+        descriptionZh: "仅展示描述",
+        prompt: "Display-only prompt",
+        promptZh: "仅展示提示词",
+        pageUrl: "https://example.invalid/display-only",
+        slots: recipe.slots?.map((slot) => ({
+          ...slot,
+          description: "Display-only slot description",
+          descriptionZh: "仅展示插槽描述",
+        })),
+      }),
+    ).toBe(hash);
+    expect(
+      catalogContractHash({
+        ...recipe,
+        required: [...(recipe.required ?? []), "A new behavior contract"],
+      }),
+    ).not.toBe(hash);
   });
 
   test("compose distinguishes adopt review from replace installation", () => {
@@ -709,6 +850,201 @@ describe("ui-lab application kit CLI", () => {
       ok: true,
       summary: { errors: 0, warnings: 0 },
     });
+  });
+
+  test("audit reports stale locks as warnings and strict mode fails on them", () => {
+    const directory = temporaryProject();
+    expect(
+      runCli(
+        "init",
+        "--profile",
+        "vite-app",
+        "--system",
+        "minimal-light",
+        "--dir",
+        directory,
+        "--json",
+      ).exitCode,
+    ).toBe(0);
+    writeFileSync(
+      resolve(directory, "package.json"),
+      `${JSON.stringify({
+        dependencies: { react: "^19.0.0", vite: "^7.0.0" },
+        devDependencies: { tailwindcss: "^4.0.0", typescript: "^5.7.0" },
+      })}\n`,
+    );
+    writeFileSync(
+      resolve(directory, "components.json"),
+      `${JSON.stringify({ aliases: { components: "@/components", utils: "@/lib/utils" } })}\n`,
+    );
+
+    const lockPath = resolve(directory, "ui-lab.lock.json");
+    const lock = JSON.parse(readFileSync(lockPath, "utf8"));
+    lock.items[0].contractHash = "0".repeat(64);
+    writeFileSync(lockPath, `${JSON.stringify(lock, null, 2)}\n`);
+
+    const ordinary = runCli("audit", "--dir", directory, "--json");
+    expect(ordinary.exitCode).toBe(0);
+    expect(JSON.parse(ordinary.stdout)).toMatchObject({
+      ok: true,
+      findings: [
+        expect.objectContaining({
+          severity: "warning",
+          code: "lock-contract-stale",
+        }),
+      ],
+      summary: { errors: 0, warnings: 1 },
+    });
+    const ordinaryHuman = runCli("audit", "--dir", directory);
+    expect(ordinaryHuman.exitCode).toBe(0);
+    expect(ordinaryHuman.stdout).toContain("Audit passed with warnings:");
+
+    const strict = runCli(
+      "audit",
+      "--dir",
+      directory,
+      "--strict",
+      "--json",
+    );
+    expect(strict.exitCode).toBe(1);
+    expect(JSON.parse(strict.stdout)).toMatchObject({
+      ok: false,
+      summary: { errors: 0, warnings: 1 },
+    });
+  });
+
+  test("strict audit requires a lock while ordinary audit remains backward compatible", () => {
+    const directory = temporaryProject();
+    writeFileSync(
+      resolve(directory, "ui-lab.config.json"),
+      `${JSON.stringify({
+        schemaVersion: 1,
+        profile: "vite-app",
+        system: "minimal-light",
+        components: [],
+        mode: "adopt",
+      })}\n`,
+    );
+    writeFileSync(
+      resolve(directory, "package.json"),
+      `${JSON.stringify({
+        dependencies: { react: "^19.0.0", vite: "^7.0.0" },
+        devDependencies: { tailwindcss: "^4.0.0", typescript: "^5.7.0" },
+      })}\n`,
+    );
+    writeFileSync(
+      resolve(directory, "components.json"),
+      `${JSON.stringify({ aliases: { components: "@/components", utils: "@/lib/utils" } })}\n`,
+    );
+
+    expect(
+      JSON.parse(runCli("audit", "--dir", directory, "--json").stdout),
+    ).toMatchObject({
+      ok: true,
+      summary: { errors: 0, warnings: 0 },
+    });
+
+    const strict = runCli(
+      "audit",
+      "--dir",
+      directory,
+      "--strict",
+      "--json",
+    );
+    expect(strict.exitCode).toBe(1);
+    expect(JSON.parse(strict.stdout)).toMatchObject({
+      ok: false,
+      findings: [
+        expect.objectContaining({
+          severity: "warning",
+          code: "lock-missing",
+        }),
+      ],
+      summary: { errors: 0, warnings: 1 },
+    });
+  });
+
+  test("lock safely repairs stale or missing locks without changing config", () => {
+    const directory = temporaryProject();
+    expect(
+      runCli(
+        "init",
+        "--profile",
+        "vite-app",
+        "--system",
+        "graphite",
+        "--dir",
+        directory,
+        "--json",
+      ).exitCode,
+    ).toBe(0);
+    expect(runCli("add", "button", "--dir", directory).exitCode).toBe(0);
+    writeFileSync(
+      resolve(directory, "package.json"),
+      `${JSON.stringify({
+        dependencies: { react: "^19.0.0", vite: "^7.0.0" },
+        devDependencies: { tailwindcss: "^4.0.0", typescript: "^5.7.0" },
+      })}\n`,
+    );
+    writeFileSync(
+      resolve(directory, "components.json"),
+      `${JSON.stringify({ aliases: { components: "@/components", utils: "@/lib/utils" } })}\n`,
+    );
+    mkdirSync(resolve(directory, "src/components"), { recursive: true });
+    writeFileSync(
+      resolve(directory, "src/components/button.tsx"),
+      "export function Button() { return <button />; }\n",
+    );
+
+    const configPath = resolve(directory, "ui-lab.config.json");
+    const configText = readFileSync(configPath, "utf8");
+    const lockPath = resolve(directory, "ui-lab.lock.json");
+    const staleLock = JSON.parse(readFileSync(lockPath, "utf8"));
+    const button = staleLock.items.find(
+      (item: { kind: string; slug: string }) =>
+        item.kind === "component" && item.slug === "button",
+    );
+    delete button.sourceFiles;
+    writeFileSync(lockPath, `${JSON.stringify(staleLock, null, 2)}\n`);
+
+    const staleAudit = runCli(
+      "audit",
+      "--dir",
+      directory,
+      "--strict",
+      "--json",
+    );
+    expect(staleAudit.exitCode).toBe(1);
+    expect(
+      JSON.parse(staleAudit.stdout).findings.map(
+        (finding: { code: string }) => finding.code,
+      ),
+    ).toContain("lock-source-files-stale");
+
+    const repaired = runCli("lock", "--dir", directory, "--json");
+    expect(repaired.exitCode).toBe(0);
+    expect(JSON.parse(repaired.stdout)).toMatchObject({
+      ok: true,
+      lockPath,
+      lock: {
+        schemaVersion: 1,
+        catalogSource: "snapshot",
+      },
+    });
+    expect(readFileSync(configPath, "utf8")).toBe(configText);
+    expect(
+      runCli("audit", "--dir", directory, "--strict", "--json").exitCode,
+    ).toBe(0);
+
+    rmSync(lockPath);
+    expect(
+      runCli("audit", "--dir", directory, "--strict", "--json").exitCode,
+    ).toBe(1);
+    expect(runCli("lock", "--dir", directory, "--json").exitCode).toBe(0);
+    expect(readFileSync(configPath, "utf8")).toBe(configText);
+    expect(
+      runCli("audit", "--dir", directory, "--strict", "--json").exitCode,
+    ).toBe(0);
   });
 
   test("audit checks nested canonical and sibling direct sidecars for Recipe-required families", async () => {

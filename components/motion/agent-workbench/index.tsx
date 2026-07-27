@@ -33,6 +33,8 @@ export const MAIN_MIN_WIDTH = 320;
 // ResizeObserver fires).
 const PANEL_MAX_FALLBACK = 960;
 
+export type WorkbenchLayoutMode = "desktop" | "tablet" | "mobile";
+
 // Drag (or arrow-key nudge) a pane this far past its own minimum and it
 // collapses instead of clamping at the minimum — the "drag past the edge to
 // close" gesture native three-pane app shells use.
@@ -41,6 +43,7 @@ const COLLAPSE_MARGIN = 40;
 const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 
 interface WorkbenchContextValue {
+  layoutMode: WorkbenchLayoutMode;
   sidebarOpen: boolean;
   panelOpen: boolean;
   toggleSidebar: () => void;
@@ -75,6 +78,7 @@ function useWorkbenchInternal(component: string): WorkbenchContextValue {
 /** Reads the workbench's open/close and width state. Must be used inside `<Workbench>`. */
 export function useWorkbench() {
   const {
+    layoutMode,
     sidebarOpen,
     panelOpen,
     toggleSidebar,
@@ -85,6 +89,7 @@ export function useWorkbench() {
     panelWidth,
   } = useWorkbenchInternal("useWorkbench");
   return {
+    layoutMode,
     sidebarOpen,
     panelOpen,
     toggleSidebar,
@@ -107,6 +112,10 @@ export interface WorkbenchProps {
   defaultSidebarWidth?: number;
   /** Initial panel width, and its double-click/Enter reset target. Defaults to `PANEL_DEFAULT_WIDTH`. */
   defaultPanelWidth?: number;
+  /** Width at which the inline three-column layout begins. Defaults to 1200px. */
+  desktopBreakpoint?: number;
+  /** Width below which the workbench shows one task surface at a time. Defaults to 720px. */
+  tabletBreakpoint?: number;
   className?: string;
   children?: ReactNode;
 }
@@ -127,11 +136,19 @@ export function Workbench({
   onPanelOpenChange,
   defaultSidebarWidth,
   defaultPanelWidth,
+  desktopBreakpoint = 1200,
+  tabletBreakpoint = 720,
   className,
   children,
 }: WorkbenchProps) {
   const [containerRef, bounds] = useMeasure();
   const containerWidth = bounds.width;
+  const layoutMode: WorkbenchLayoutMode =
+    containerWidth > 0 && containerWidth < tabletBreakpoint
+      ? "mobile"
+      : containerWidth > 0 && containerWidth < desktopBreakpoint
+        ? "tablet"
+        : "desktop";
 
   const sidebarDefault = defaultSidebarWidth ?? SIDEBAR_DEFAULT_WIDTH;
   const panelDefault = defaultPanelWidth ?? PANEL_DEFAULT_WIDTH;
@@ -144,24 +161,44 @@ export function Workbench({
   const panelOpen = panelControlled ? panelOpenProp : internalPanelOpen;
 
   // Which side pane the user opened last — the other one yields when the
-  // container can't fit both (see the auto-yield effect below).
+  // desktop container can't fit both (see the auto-yield effect below).
   const lastOpenedRef = useRef<"sidebar" | "panel">("sidebar");
 
   const setSidebarOpen = useCallback(
     (open: boolean) => {
       if (open) lastOpenedRef.current = "sidebar";
+      if (open && layoutMode !== "desktop") {
+        if (!panelControlled) setInternalPanelOpen(false);
+        onPanelOpenChange?.(false);
+      }
       if (!sidebarControlled) setInternalSidebarOpen(open);
       onSidebarOpenChange?.(open);
     },
-    [sidebarControlled, onSidebarOpenChange],
+    [
+      layoutMode,
+      panelControlled,
+      onPanelOpenChange,
+      sidebarControlled,
+      onSidebarOpenChange,
+    ],
   );
   const setPanelOpen = useCallback(
     (open: boolean) => {
       if (open) lastOpenedRef.current = "panel";
+      if (open && layoutMode !== "desktop") {
+        if (!sidebarControlled) setInternalSidebarOpen(false);
+        onSidebarOpenChange?.(false);
+      }
       if (!panelControlled) setInternalPanelOpen(open);
       onPanelOpenChange?.(open);
     },
-    [panelControlled, onPanelOpenChange],
+    [
+      layoutMode,
+      sidebarControlled,
+      onSidebarOpenChange,
+      panelControlled,
+      onPanelOpenChange,
+    ],
   );
   const toggleSidebar = useCallback(
     () => setSidebarOpen(!sidebarOpen),
@@ -207,36 +244,50 @@ export function Workbench({
   const resetSidebarWidth = useCallback(() => setSidebarWidth(sidebarDefault), [sidebarDefault]);
   const resetPanelWidth = useCallback(() => setPanelWidth(panelDefault), [panelDefault]);
 
+  const previousLayoutModeRef = useRef<WorkbenchLayoutMode>(layoutMode);
+
+  // A narrow workbench starts with its navigation out of the way. This is an
+  // intentional mode transition rather than a width-fitting fallback: the
+  // panel remains open when an application controls it, and can be shown as an
+  // overlay without squeezing the task surface.
+  useEffect(() => {
+    const previous = previousLayoutModeRef.current;
+    previousLayoutModeRef.current = layoutMode;
+    if (layoutMode === "desktop" || previous === layoutMode) return;
+    setSidebarOpen(false);
+  }, [layoutMode, setSidebarOpen]);
+
   // Re-clamp (never collapse) whenever the measured container shrinks, so a
   // narrower window can't leave the sidebar/panel wider than there's room for.
   useEffect(() => {
-    if (containerWidth <= 0) return;
+    if (containerWidth <= 0 || layoutMode !== "desktop") return;
     setSidebarWidth((w) =>
       clamp(w, SIDEBAR_MIN_WIDTH, Math.max(SIDEBAR_MIN_WIDTH, containerWidth - MAIN_MIN_WIDTH)),
     );
-  }, [containerWidth]);
+  }, [containerWidth, layoutMode]);
 
   useEffect(() => {
-    if (containerWidth <= 0) return;
+    if (containerWidth <= 0 || layoutMode !== "desktop") return;
     const reserved = sidebarOpen ? sidebarWidth : 0;
     setPanelWidth((w) =>
       clamp(w, PANEL_MIN_WIDTH, Math.max(PANEL_MIN_WIDTH, containerWidth - reserved - MAIN_MIN_WIDTH)),
     );
-  }, [containerWidth, sidebarOpen, sidebarWidth]);
+  }, [containerWidth, layoutMode, sidebarOpen, sidebarWidth]);
 
   // Both side panes plus the main floor can exceed a narrow container even at
   // their minimum widths. When they do, the pane opened less recently yields —
   // the narrow-window rule desktop three-pane shells use — so opening one side
   // swaps the other out instead of crushing the main column.
   useEffect(() => {
-    if (containerWidth <= 0 || !sidebarOpen || !panelOpen) return;
+    if (layoutMode !== "desktop" || containerWidth <= 0 || !sidebarOpen || !panelOpen) return;
     if (sidebarWidth + panelWidth + MAIN_MIN_WIDTH <= containerWidth) return;
     if (lastOpenedRef.current === "panel") setSidebarOpen(false);
     else setPanelOpen(false);
-  }, [containerWidth, sidebarOpen, panelOpen, sidebarWidth, panelWidth, setSidebarOpen, setPanelOpen]);
+  }, [layoutMode, containerWidth, sidebarOpen, panelOpen, sidebarWidth, panelWidth, setSidebarOpen, setPanelOpen]);
 
   const value = useMemo<WorkbenchContextValue>(
     () => ({
+      layoutMode,
       sidebarOpen,
       panelOpen,
       toggleSidebar,
@@ -258,6 +309,7 @@ export function Workbench({
       resetPanelWidth,
     }),
     [
+      layoutMode,
       sidebarOpen,
       panelOpen,
       toggleSidebar,
@@ -282,6 +334,7 @@ export function Workbench({
     <WorkbenchContext.Provider value={value}>
       <div
         ref={containerRef}
+        data-layout-mode={layoutMode}
         className={cn("relative isolate flex h-full min-h-0 w-full overflow-hidden", className)}
       >
         {children}
@@ -299,6 +352,7 @@ export interface WorkbenchSidebarProps {
  * minimum to collapse it; double-click the handle to reset its width. */
 export function WorkbenchSidebar({ className, children }: WorkbenchSidebarProps) {
   const {
+    layoutMode,
     sidebarOpen,
     sidebarWidth,
     sidebarDragging,
@@ -306,6 +360,7 @@ export function WorkbenchSidebar({ className, children }: WorkbenchSidebarProps)
     resizeSidebar,
     resetSidebarWidth,
     setSidebarDragging,
+    setSidebarOpen,
   } = useWorkbenchInternal("WorkbenchSidebar");
   const reduce = useReducedMotion() ?? false;
   const ariaMax =
@@ -313,9 +368,41 @@ export function WorkbenchSidebar({ className, children }: WorkbenchSidebarProps)
       ? Math.max(SIDEBAR_MIN_WIDTH, Math.min(SIDEBAR_MAX_WIDTH, containerWidth - MAIN_MIN_WIDTH))
       : SIDEBAR_MAX_WIDTH;
 
+  if (layoutMode !== "desktop") {
+    const mobile = layoutMode === "mobile";
+    return (
+      <>
+        {sidebarOpen ? (
+          <button
+            type="button"
+            aria-label="Close sidebar overlay"
+            className="absolute inset-x-0 bottom-0 top-[46px] z-10 cursor-default bg-[var(--wb-surface-translucent)] opacity-70"
+            onClick={() => setSidebarOpen(false)}
+          />
+        ) : null}
+        <motion.aside
+          inert={!sidebarOpen}
+          aria-label="Navigation overlay"
+          initial={false}
+          animate={{ x: sidebarOpen ? "0%" : "-100%", opacity: sidebarOpen ? 1 : 0 }}
+          transition={{ x: reduce ? { duration: 0 } : SPRING_PANEL, opacity: reduce ? { duration: 0.15, ease: EASE_OUT } : SPRING_PANEL }}
+          className={cn(
+            "absolute inset-y-0 left-0 z-20 overflow-hidden bg-[var(--wb-surface-translucent)] backdrop-blur-xl",
+            mobile ? "w-full" : "max-w-[min(86vw,520px)]",
+            className,
+          )}
+          style={mobile ? undefined : { width: sidebarWidth }}
+        >
+          <div className="h-full overflow-y-auto pt-[46px]">{children}</div>
+        </motion.aside>
+      </>
+    );
+  }
+
   return (
     <motion.aside
       inert={!sidebarOpen}
+      initial={false}
       animate={{ width: sidebarOpen ? sidebarWidth : 0, opacity: sidebarOpen ? 1 : 0 }}
       transition={{
         width: sidebarDragging || reduce ? { duration: 0 } : SPRING_PANEL,
@@ -362,8 +449,10 @@ export interface WorkbenchMainProps {
 
 /** Opaque, flexible main column — takes up whatever width the sidebar/panel leave behind. */
 export function WorkbenchMain({ className, children }: WorkbenchMainProps) {
+  const { layoutMode, sidebarOpen, panelOpen } = useWorkbenchInternal("WorkbenchMain");
   return (
     <main
+      inert={layoutMode !== "desktop" && (sidebarOpen || panelOpen)}
       className={cn(
         "relative flex min-h-0 min-w-0 flex-1 flex-col bg-[var(--wb-surface)]",
         className,
@@ -383,6 +472,7 @@ export interface WorkbenchPanelProps {
  * left-edge handle past the minimum to collapse it; double-click to reset. */
 export function WorkbenchPanel({ className, children }: WorkbenchPanelProps) {
   const {
+    layoutMode,
     panelOpen,
     panelWidth,
     panelDragging,
@@ -392,6 +482,7 @@ export function WorkbenchPanel({ className, children }: WorkbenchPanelProps) {
     resizePanel,
     resetPanelWidth,
     setPanelDragging,
+    setPanelOpen,
   } = useWorkbenchInternal("WorkbenchPanel");
   const reduce = useReducedMotion() ?? false;
   const reserved = sidebarOpen ? sidebarWidth : 0;
@@ -400,9 +491,41 @@ export function WorkbenchPanel({ className, children }: WorkbenchPanelProps) {
       ? Math.max(PANEL_MIN_WIDTH, containerWidth - reserved - MAIN_MIN_WIDTH)
       : PANEL_MAX_FALLBACK;
 
+  if (layoutMode !== "desktop") {
+    const mobile = layoutMode === "mobile";
+    return (
+      <>
+        {panelOpen ? (
+          <button
+            type="button"
+            aria-label="Close artifact overlay"
+            className="absolute inset-x-0 bottom-0 top-[46px] z-10 cursor-default bg-[var(--wb-surface-translucent)] opacity-70"
+            onClick={() => setPanelOpen(false)}
+          />
+        ) : null}
+        <motion.aside
+          inert={!panelOpen}
+          aria-label="Artifact overlay"
+          initial={false}
+          animate={{ x: panelOpen ? "0%" : "100%", opacity: panelOpen ? 1 : 0 }}
+          transition={{ x: reduce ? { duration: 0 } : SPRING_PANEL, opacity: reduce ? { duration: 0.15, ease: EASE_OUT } : SPRING_PANEL }}
+          className={cn(
+            "absolute inset-y-0 right-0 z-20 overflow-hidden border-[var(--wb-border-subtle)] border-l bg-[var(--wb-surface)]",
+            mobile ? "w-full" : "max-w-[min(86vw,560px)]",
+            className,
+          )}
+          style={mobile ? undefined : { width: panelWidth }}
+        >
+          <div className="h-full overflow-y-auto pt-[46px]">{children}</div>
+        </motion.aside>
+      </>
+    );
+  }
+
   return (
     <motion.aside
       inert={!panelOpen}
+      initial={false}
       animate={{ width: panelOpen ? panelWidth : 0, opacity: panelOpen ? 1 : 0 }}
       transition={{
         width: panelDragging || reduce ? { duration: 0 } : SPRING_PANEL,
@@ -445,7 +568,7 @@ export interface WorkbenchHeaderProps {
 /** Full-width, 46px overlay toolbar. Absolutely positioned so it sits above
  * the sidebar/main/panel row regardless of where it's placed in the DOM. */
 export function WorkbenchHeader({ leading, trailing, children, className }: WorkbenchHeaderProps) {
-  const { sidebarOpen, sidebarWidth, sidebarDragging } = useWorkbenchInternal("WorkbenchHeader");
+  const { layoutMode, sidebarOpen, sidebarWidth, sidebarDragging } = useWorkbenchInternal("WorkbenchHeader");
   const reduce = useReducedMotion() ?? false;
 
   return (
@@ -458,7 +581,7 @@ export function WorkbenchHeader({ leading, trailing, children, className }: Work
       <div
         className="pointer-events-auto flex h-full shrink-0 items-center overflow-hidden"
         style={{
-          width: sidebarOpen ? sidebarWidth : "auto",
+          width: layoutMode === "desktop" && sidebarOpen ? sidebarWidth : "auto",
           transitionProperty: "width",
           transitionDuration: sidebarDragging || reduce ? "0ms" : "300ms",
           transitionTimingFunction: EASE_OUT_CSS,

@@ -15,13 +15,12 @@ npm i -g uilab-cli       # or: bun add -g uilab-cli  → then `ui-lab --help`
 
 Published on npm as **`uilab-cli`**; the command it installs is `ui-lab`. Zero
 runtime dependencies — the compiled `dist/index.js` only uses Node built-ins
-(`node:fs`, `node:url`, global `fetch`).
+(`node:crypto`, `node:fs`, `node:path`, `node:url`, and global `fetch`).
 
-> **Application Kit is currently `[Unreleased]`.** The `recipe` kind,
-> `init` / `compose` / `audit`, and config-aware `add` documented below have
-> not been version-bumped or published yet. Run `ui-lab --help` before using
-> them. If they are absent, use the source CLI from this repository or wait for
-> the next npm release; do not assume an older installed CLI has these commands.
+The published package may lag the repository source. Run `ui-lab --help`
+before using Application Kit commands or flags. If one is absent, use the
+source CLI from this repository or upgrade to a version that advertises it;
+never silently downgrade a documented gate.
 
 ### Build from source
 
@@ -113,7 +112,8 @@ Validate and bind a consumer project to one Stack Profile and System Kit by
 creating `ui-lab.config.json`. The allowed profiles are `next-app`, `vite-app`,
 and `electron-renderer`; the mode is `adopt` by default or `replace` when
 explicitly requested. The System Kit must exist in the Catalog. It does not
-rewrite the application.
+rewrite the application. It also writes a deterministic `ui-lab.lock.json`
+for the selected System contract.
 
 ```sh
 ui-lab init --profile electron-renderer --system graphite --mode adopt --dir packages/desktop
@@ -126,6 +126,8 @@ the Theme Kit and component plan. The commands are not executed. In `adopt`
 mode, review/compare against existing source, install only missing items, and
 do not overwrite vendored components. `replace` mode returns the complete
 installation plan. Both modes require the configured System Kit in the Catalog.
+`compose` and config-aware `add` rewrite the lock to capture the selected
+System, Recipe, and Component contracts from the actual Catalog source.
 
 `saas-landing` is a machine-readable section composition contract: each
 `sections` entry has a slug, variant, and required flag; Pricing is optional.
@@ -148,6 +150,8 @@ Run the phase-one hard checks:
   `vite`, or `electron`);
 - valid `components.json` with non-empty `aliases.components` and
   `aliases.utils`;
+- when `ui-lab.lock.json` exists, its schema, Catalog source, selected item set,
+  and behavior-contract hashes; invalid or stale locks are warnings;
 - every core Workbench file retains `--wb-*`, with a valid `--wb-surface`
   declaration or selected Theme Kit CSS import. Missing protection is an error.
 
@@ -155,10 +159,50 @@ It does not validate strict `tsconfig` (extended configs would cause false
 positives), font/asset drift, raw colors, off-scale radius/shadow values,
 unguarded motion, or rendered Recipe fidelity.
 
+Ordinary audit exits zero when only warnings remain and prints
+`Audit passed with warnings`. Add `--strict` in CI to require the lock and
+treat every warning as a failed audit (`ok: false` in JSON and exit code 1).
+Old projects without a lock remain warning-free in ordinary mode.
+
 ```sh
 ui-lab audit --dir packages/desktop
 ui-lab audit --dir apps/web --json
+ui-lab audit --dir apps/web --strict --json
 ```
+
+### `ui-lab.lock.json`
+
+The CLI manages this deterministic, explicitly regenerable file through
+`init`, `compose`, config-aware `add`, and the safe recovery command:
+
+```sh
+ui-lab lock --dir packages/desktop
+```
+
+`lock` reads the existing `ui-lab.config.json` and active Catalog source, then
+rewrites only `ui-lab.lock.json`. It never changes the config and never
+installs anything. Use this command to repair every stale, invalid, or missing
+lock warning before rerunning strict audit.
+
+```json
+{
+  "schemaVersion": 1,
+  "catalogSource": "snapshot",
+  "items": [
+    {
+      "kind": "component",
+      "slug": "agent-thread",
+      "contractHash": "<sha256>",
+      "sourceFiles": ["components/motion/agent-thread/index.tsx"]
+    }
+  ]
+}
+```
+
+Hashes use stable serialization of behavior-contract fields such as fetch
+instructions, registry source files, Theme Kit previews, and Recipe machine
+fields. Display names, descriptions, prompts, page URLs, and timestamps are
+excluded. Do not edit the lock by hand; regenerate it with `ui-lab lock`.
 
 ## Project root and monorepos
 
@@ -171,7 +215,8 @@ through every project command:
 ui-lab init --profile electron-renderer --system graphite --mode adopt --dir packages/desktop
 ui-lab compose agent-workbench --dir packages/desktop
 ui-lab add agent-inbox --dir packages/desktop
-ui-lab audit --dir packages/desktop
+ui-lab lock --dir packages/desktop
+ui-lab audit --strict --json --dir packages/desktop
 ```
 
 Do not create `ui-lab.config.json` at a workspace root with no React
@@ -185,8 +230,12 @@ dependencies.
 | `--json` | Emit machine-readable JSON on stdout |
 | `--kind <kind>` | Filter or disambiguate by kind |
 | `--pm <bun\|npm\|pnpm\|yarn>` | Package manager used to rewrite `add`/`theme`'s printed install command |
+| `--strict` | For `audit`: require `ui-lab.lock.json` and fail on warnings |
 | `-h`, `--help` | Show usage help |
 | `-v`, `--version` | Print the CLI version |
+
+Flags are command-aware. Unknown flags and flags that do not apply to the
+selected command fail with an `Unknown flag` error.
 
 ## Data sources
 
