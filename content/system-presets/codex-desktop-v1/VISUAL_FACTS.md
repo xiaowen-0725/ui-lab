@@ -7,6 +7,16 @@
 3. `codex-composer-dark` 只参考 composer anatomy/geometry；ambient gradient 与 studio presentation frame 被排除。没有 dark full-workbench screenshot；dark surface 由 bundle token、light anatomy 和 dark composer calibration 合成，仍需 checkout 人工确认。
 4. 当前 Parking mobile 和合成对比截图是 failure evidence，绝不是 reference。
 
+## Evidence roles and comparison routes
+
+- **Calibration source** 是真实外部观察源，只校准可观察的视觉事实；不同尺寸、fixture 或语义内容时，只能 side-by-side 分类审查。
+- **Candidate regression capture** 是当前 UI Lab 实现自生成的确定性截图，只能防止该候选后续回归。当前 Phase 2 的 8 张 Parking preview 截图全部属于此角色，pending user review。
+- **Approved acceptance capture** 必须在声明的 fixture/语义映射、size、scale、theme、font loading 与 timing 下捕获，并由用户明确批准。只有它能作为 consumer app 比对 reference 并解锁 checkout / Confirmed Manifest。
+
+两条比较链不可混用：Codex calibration source → UI Lab visual master 用于校准；当源与候选不可比时禁止 overlay 和 pixel score，只按 layout、typography、color/surface、anatomy、assets、state、responsive、focus/motion 分类。用户批准 visual master 后，approved UI Lab master → consumer app 才能在满足同尺寸与同 fixture/timing 前置条件时使用 overlay / diff。
+
+任何 self-generated candidate 与自身的对比都不能证明它像 Codex，也不得被称为 golden、reference fidelity 或 approved。文件路径、字段名或 hash 不会改变证据角色。
+
 仓库仅 vendored safe generic workbench 与 dark supporting 图。OpenAI Sans 仅是安装包具名资产证据，不复制也不 vendoring；实际基础字体是 platform system sans。图标为 Lucide，默认 16px、2px stroke。保留原生 platform chrome。
 
 ## Observed
@@ -20,7 +30,7 @@
 
 ## Derived target
 
-Parking 以 fixture 的任务/历史、agent conversation/execution、operation/result、connector/runtime、task composer、task workspace 进行语义映射；Board 和 Connectors 继承 anatomy，不伪造 Codex 数据。目标验收尺寸为 wide 1440×900、collapse 1000×760、narrow 375×760。原始 calibration source 可有不同尺寸，不能当作同尺寸 golden。
+Parking 以 fixture 的任务/历史、agent conversation/execution、operation/result、connector/runtime、task composer、task workspace 进行语义映射；Board 和 Connectors 继承 anatomy，不伪造 Codex 数据。目标验收尺寸为 wide 1440×900、collapse 1000×760、narrow 375×760。原始 calibration source 可有不同尺寸，不能当作同尺寸 acceptance capture；当前 8 张目标尺寸截图仍是 candidate，等待用户在 Reference Board 逐项确认。
 
 ## Forbidden
 

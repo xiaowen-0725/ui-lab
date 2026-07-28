@@ -2,6 +2,36 @@
 
 Validate the implementation in the actual target runtime against a declared reference. Browser-only mock rendering does not validate a desktop application; an Electron profile must be captured from the actual Electron renderer.
 
+## Evidence roles are not interchangeable
+
+Every image used in review must have exactly one declared role:
+
+- **Calibration source:** a real external observation source used to calibrate hierarchy, anatomy, typography, surfaces, assets, state, and responsive behavior. It may use different dimensions or content from the UI Lab implementation. It is not automatically an acceptance reference.
+- **Candidate regression capture:** a deterministic capture generated from the current UI Lab visual master or consumer implementation. It can reveal later regressions in that same candidate, but it cannot prove that the candidate matches Codex or another external source.
+- **Approved acceptance capture:** a candidate captured with the declared viewport, scale, fixture or semantic fixture mapping, theme, font-loading state, and timing, then explicitly approved by the user as the visual master. Only this role may be used as the reference side of a consumer acceptance comparison or unlock checkout and a Confirmed Manifest.
+
+Never call a self-generated candidate a golden, a fidelity reference, or proof that the implementation matches its calibration source. Comparing a candidate with itself proves only that the renderer is stable. File names or legacy fields containing `golden` do not upgrade the evidence role.
+
+## Two comparison chains
+
+1. **Calibration:** Codex source → UI Lab visual master. Review side by side and classify differences. If dimensions, fixture, content, theme, font state, or capture timing differ, use category review only; do not use overlay, heatmap, or a pixel score as acceptance evidence.
+2. **Adoption:** approved UI Lab visual master → consumer application. Use an approved acceptance capture as the reference and capture the implementation at the same size and scale with the same fixture or documented semantic mapping, theme, font state, and timing. Overlay and image diff are valid only after these comparability conditions pass.
+
+The user is the approval boundary between the two chains. An Agent can capture, classify, and recommend, but cannot turn a candidate into an approved acceptance capture or confirm an Assembly Order.
+
+## Comparability preconditions
+
+Before calculating overlay, heatmap, or pixel difference, verify all of the following:
+
+- identical viewport width and height and identical device scale factor;
+- identical theme, platform-chrome policy, locale, and semantic state;
+- identical deterministic fixture, or an explicitly documented semantically equivalent field mapping and density;
+- fonts fully loaded from the declared assets and the same font-rendering environment;
+- identical reduced-motion setting, focus target, animation state, and capture timing;
+- matching crop and no resized or resampled source image.
+
+If any condition fails, mark the pair **not pixel-comparable**. Keep the images for side-by-side, anatomy, or category review, but do not report an overlay/pixel score as fidelity evidence.
+
 ## Fixed evidence layout
 
 For a mutating branch or when the user explicitly requests persisted evidence, store the run under the consumer's fixed path:
@@ -16,6 +46,8 @@ For a mutating branch or when the user explicitly requests persisted evidence, s
 Use stable case names, for example `wide-light-default`, `collapse-dark-loading`, `narrow-light-keyboard`, and `wide-light-reduced-motion`. Do not scatter screenshots across temporary folders.
 
 Each reference/implementation pair must use the same viewport, device scale factor, theme, semantic state, font loading status, and capture timing. For exact regression against the same application, use the same data. For adoption against a design-system demo, use deterministic, semantically equivalent data shape and density, record the field mapping in the adoption report, and keep product copy and facts truthful; never inject demo data into the product merely to make a screenshot match. Record the capture values and fixture mapping in `comparison.md`. A resized image is not a valid matching capture.
+
+The `reference/` side must identify the approved acceptance capture and its user approval evidence. Candidate captures may be stored while review is pending, but must be labeled `candidate` in `comparison.md` and must not occupy the approved reference role.
 
 For an audit-only request, inspect existing evidence or use non-persisted captures and report findings in the response. If the capture tool requires an output path, use an existing user-authorized output directory or ask before writing; do not create `.ui-lab/evidence/*`, `DESIGN.md`, or an adoption report by default.
 
@@ -42,12 +74,23 @@ For landing pages, include the complete narrative and CTA path. For applications
 
 Use image diff tooling when available, but inspect the paired captures directly. A numeric pixel score cannot decide whether a deliberate product difference is correct.
 
+Use the following stable difference taxonomy in every pass:
+
+- **layout:** regions, alignment, dimensions, spacing, density, overflow;
+- **typography:** family, weight, size, line height, tracking, wrapping, hierarchy;
+- **color/surface:** background layers, foreground contrast, borders, shadows, selection;
+- **anatomy:** component structure, control placement, radius, hit area, affordance;
+- **assets:** icon family and stroke, logo, font, illustration, platform chrome;
+- **state:** loading, empty, error, success, approval, streaming, domain state;
+- **responsive:** wide/collapse/narrow transitions, overlays, navigation, clipping;
+- **focus/motion:** focus visibility and order, keyboard behavior, timing, easing, reduced-motion behavior.
+
 ## Comparison report
 
-`comparison.md` must include:
+`comparison.md` must declare each image's evidence role and comparability result, then include:
 
-| Case | Size/scale | Reference | Implementation | Difference | Explanation | Result |
-|---|---|---|---|---|---|---|
+| Case | Size/scale | Reference role | Reference | Implementation | Comparable | Difference category | Explanation | Result |
+|---|---|---|---|---|---|---|---|---|
 
 Link each image path. Mirror intentional differences and their rationale in `.ui-lab/adoption-report.md`.
 
@@ -57,8 +100,10 @@ For a mutating branch, visual acceptance is complete only when:
 
 - strict audit reports `0` errors and `0` warnings;
 - every Recipe field is mapped one by one;
-- every required same-size screenshot pair exists with exact data or a documented semantic fixture mapping;
+- every required same-size screenshot pair uses a user-approved acceptance capture and exact data or a documented semantic fixture mapping;
 - every remaining difference is explained and intentional;
 - relevant business, accessibility, keyboard, reduced-motion, and target-runtime tests pass.
+
+A complete candidate matrix is still **pending review**. It blocks checkout and Confirmed Manifest generation until the user explicitly approves the visual master and the required acceptance captures. Automated tests, a strict Audit, a low diff score, an Agent statement, or the existence of hashes cannot substitute for that confirmation.
 
 For an audit-only request, assess the same gate and report which conditions pass, fail, or lack evidence without modifying the project.

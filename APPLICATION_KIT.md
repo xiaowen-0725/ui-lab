@@ -27,9 +27,9 @@ UI Lab 不负责：
 
 - **System Preset**：跨层的、可被选择的产品级系统预设。它冻结一个 Theme Kit、字体/图标/组件 anatomy、能力与组件白名单、资产、参考包、safe override 和 forbidden；Theme Kit 仍只处于 token 层，Recipe 仍只处于组合层，二者都不能单独表达一套已校准的产品系统。
 - **Order Draft**：可变的装配订单草案。它记录所选 System Preset、Recipe、能力和允许的 safe override，供人和 Agent 比较、讨论与修改。
-- **Confirmed Manifest**：由确认后的订单生成的不可变装配清单。它必须绑定 canonical contract hash、确定性 assets/components，以及目标运行时的 golden / checkout 证据；没有这些证据，不得称为 confirmed，也不得以 config、lock 或 Audit 代替。
+- **Confirmed Manifest**：由确认后的订单生成的不可变装配清单。它必须绑定 canonical contract hash、确定性 assets/components，以及用户批准的目标运行时 acceptance capture / checkout 证据；self-generated candidate regression capture 不能解锁 confirmed，也不得以 config、lock 或 Audit 代替。
 
-`codex-desktop-v1` 当前仅处于 Phase 1：它拥有 approved calibration、planned cases 和 draft order 的领域定义；尚未生成 Phase 2 的 Confirmed Manifest，尚未完成视觉验收，且本阶段**不得修改 Parking Agent**。
+`codex-desktop-v1` 的 Phase 1 已建立 approved calibration、planned cases 和 draft order 的领域定义。Phase 2 当前生成的 8 张图仍是 candidate regression captures，尚未获得用户逐项批准，不能称为 acceptance golden 或 Confirmed Manifest；视觉验收完成前仍**不得修改 Parking Agent**。
 
 ### System Preset 的 Catalog 与解析契约
 
@@ -37,7 +37,7 @@ Catalog 新增 `kind: "system-preset"`。每个 System Preset 以稳定序列化
 
 System Preset 的 `lockedVisual` 固定为 typography、icons、surfaces、selection、density、geometry、shadows、motion、responsive 九类非空视觉事实；reference fixture 以 canonical payload 和 hash 一同进入 Catalog，保证离线可重建。safe override 只有预设声明的六类键和值域可用，解析出的 assets 必须进入 Order Manifest 的 composition 与 manifest hash。
 
-Manifest 的结构/hash 解析与 Catalog 策略验证是两道门：公开 draft 只能从 resolver 结果创建；导入、记录 golden 或确认前必须用可信 Catalog 重新解析并逐项比对 preset、Recipe、能力、组件、资产、视觉锁和 reference matrix。仅有合法 JSON 或自洽 SHA-256 不能成为 Confirmed Manifest。
+Manifest 的结构/hash 解析与 Catalog 策略验证是两道门：公开 draft 只能从 resolver 结果创建；导入、记录 candidate/approved acceptance evidence 或确认前必须用可信 Catalog 重新解析并逐项比对 preset、Recipe、能力、组件、资产、视觉锁和 reference matrix。仅有合法 JSON、自洽 SHA-256 或 self-generated candidate 不能成为 Confirmed Manifest。
 
 System Preset 不分发第三方产品资产或暗示官方授权。它只引用 UI Lab 可合法分发的 token、组件和明确边界内的参考/资产说明。
 
@@ -154,7 +154,7 @@ ui-lab audit --strict --json --dir <frontend-package>
 
 ### Phase 3 目标证据
 
-Order Draft 主要是 Studio 中可变的选择状态，不是消费根的必备文件。Phase 3 的 order sync 将决定消费根中 Confirmed Manifest 与可能的 sync receipt 的具体文件形态；无论最终落点为何，Confirmed Manifest 都必须独立于 config / lock / Audit，固定 canonical contract hash、确定性 assets/components 和 golden / checkout 证据。
+Order Draft 主要是 Studio 中可变的选择状态，不是消费根的必备文件。Phase 3 的 order sync 将决定消费根中 Confirmed Manifest 与可能的 sync receipt 的具体文件形态；无论最终落点为何，Confirmed Manifest 都必须独立于 config / lock / Audit，固定 canonical contract hash、确定性 assets/components 和用户批准的 acceptance capture / checkout 证据。
 
 当前 CLI 的 `order validate` / `order diff` / `order sync` 属于 **Phase 3 计划能力**，尚未实现。现有 `init`、`compose`、`lock` 和 `audit` 仅处理较低层的配置、Catalog 和确定性规则，绝不能被表述为已经支持 confirmed order 或 Manifest 验收。
 
@@ -203,6 +203,10 @@ lock 用于发现配置选择、Catalog 来源和行为契约的漂移。它**�
 `DESIGN.md` 应记录选定参考、布局区域、字体与资产、颜色和表面 token、间距/圆角/阴影、图标、主题模式、响应式转换、必需状态、焦点与 reduced-motion 行为。已有产品执行 `adopt` 时，应先把可信的现状或明确选择的目标写入 `DESIGN.md`，再进行大范围视觉修改。
 
 `.ui-lab/adoption-report.md` 逐项记录现有实现到 System / Recipe / Component 的映射、保留或拒绝的候选、已知偏差、理由和审计/截图证据。它回答“这次如何采用、哪里不同、如何验证”，不重新定义“最终应该长什么样”。
+
+视觉证据分为三种且不得互相替代：真实外部观察图是 **calibration source**；当前实现自生成的图是 **candidate regression capture**，只能防回归；满足同 fixture/语义映射、size、scale、theme、font 与 timing 条件并由用户明确批准的图，才是 **approved acceptance capture**。candidate 与自身比对不能证明它像 Codex，文件名或字段名中的 `golden` 也不改变其证据角色。
+
+比较分两条链：Codex source → UI Lab visual master 用于校准，尺寸或语义不同时只能 side-by-side 分类审查，禁止 overlay/pixel score；approved UI Lab master → consumer app 才用于 acceptance，在可比性前置条件满足后可做 overlay/diff。用户批准是两条链之间的硬边界，Agent 不能代为确认。
 
 视觉验收必须在目标运行时，以相同 viewport、device scale、主题、语义状态、字体加载状态和截图时机，成对保存 reference / implementation 截图。同一应用的精确回归使用相同数据；把既有产品与设计系统 demo 对照时，使用确定且语义等价的数据形状/密度，在 adoption report 记录字段映射，并保持产品文案和事实真实，不能为了“像”而把 demo 数据塞进产品。选择覆盖 Recipe 或 `DESIGN.md` 中每个适用 viewport（wide / collapse / narrow）、mode（light / dark 等）和 state（loading / empty / error / success 与领域状态）维度的最小代表性 case 集；只有 Recipe 明确要求时才执行三者的全笛卡尔积。另需补充键盘焦点、reduced motion、必需 section / slot / asset 和 forbidden 检查。缩放已有截图不能充当同尺寸实现截图。
 

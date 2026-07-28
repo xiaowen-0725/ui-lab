@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "evidenceRole": "candidate-regression",
+  "presetSlug": "codex-desktop-v1",
+  "referencePackId": "codex-desktop-v1",
+  "referencePackHash": "8f925714a1b367a815d3aadf24de071048571656f63cd5523b10c7f403266265",
+  "fixtureId": "parking-high-density-v1",
+  "fixtureHash": "6de78ec8ddf6c3e9f26e998d8d37a8d56843a30ea1c15d0556232b1f6e261bbc",
+  "acceptance": {
+    "status": "pending"
+  },
+  "cases": [
+    {
+      "caseId": "wide-light-task-dense",
+      "path": "reference/wide-light-task-dense.png",
+      "size": "1440x900",
+      "scale": 1,
+      "theme": "light",
+      "sha256": "20755f9c662992888af631f1f9e620f18c3d575aec13862ca56111631410b318"
+    },
+    {
+      "caseId": "wide-dark-task-streaming",
+      "path": "reference/wide-dark-task-streaming.png",
+      "size": "1440x900",
+      "scale": 1,
+      "theme": "dark",
+      "sha256": "601d4e1110e5558e9b4f5c0a6d1e8394537166c3094e4dcb4da7b6261f0a52f7"
+    },
+    {
+      "caseId": "collapse-light-approval",
+      "path": "reference/collapse-light-approval.png",
+      "size": "1000x760",
+      "scale": 1,
+      "theme": "light",
+      "sha256": "e92f8e464f28000b68a2403f1e9cda091a065ec6d9ccbb2ffdc5d67e7b493216"
+    },
+    {
+      "caseId": "narrow-light-empty",
+      "path": "reference/narrow-light-empty.png",
+      "size": "375x760",
+      "scale": 1,
+      "theme": "light",
+      "sha256": "24a6d9dcb983981f49f9d07f62ecf3fb7ef9ff06473e9f4c0a8bdbd4a032d1f2"
+    },
+    {
+      "caseId": "wide-dark-error-artifact",
+      "path": "reference/wide-dark-error-artifact.png",
+      "size": "1440x900",
+      "scale": 1,
+      "theme": "dark",
+      "sha256": "0858dc3778d53b472f2feda8376ceeaff04defa33cd0677fbc8a55ca2e53a647"
+    },
+    {
+      "caseId": "wide-light-board-focus",
+      "path": "reference/wide-light-board-focus.png",
+      "size": "1440x900",
+      "scale": 1,
+      "theme": "light",
+      "sha256": "e5851db3f922253aab872db80b37026494ecbc0804668c31facc132fd7cc164e"
+    },
+    {
+      "caseId": "collapse-dark-connectors-overlay",
+      "path": "reference/collapse-dark-connectors-overlay.png",
+      "size": "1000x760",
+      "scale": 1,
+      "theme": "dark",
+      "sha256": "b4867e62e44e633126d479c93c6c0eb3b254f9b37ec3f95917a7bdd16237c9e0"
+    },
+    {
+      "caseId": "wide-light-settings-reduced-motion",
+      "path": "reference/wide-light-settings-reduced-motion.png",
+      "size": "1440x900",
+      "scale": 1,
+      "theme": "light",
+      "sha256": "2d834d8e08543da7e289eccd57db005b49f8b05ede43a16f04961c618318252a"
+    }
+  ]
+}

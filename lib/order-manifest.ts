@@ -28,6 +28,8 @@ export type ReferenceEvidenceCase = {
   fontLoadingState: string;
   captureTiming: string;
   calibrationSourceIds: string[];
+  // Legacy schemaVersion 1 name. The digest is only trusted when the
+  // confirmation carries matching approved visual-acceptance provenance.
   goldenSha256: string | null;
 };
 
@@ -37,6 +39,13 @@ export type OrderManifestAsset = {
   requirement: string;
   required: boolean;
   source: AssetSource;
+};
+
+export type OrderVisualAcceptance = {
+  approvedAt: string;
+  approvedBy: string;
+  decisionEvidence: string;
+  reviewedCaseIds: string[];
 };
 
 export type OrderManifest = {
@@ -68,7 +77,12 @@ export type OrderManifest = {
   lockedVisualSnapshot: JsonObject;
   previewScenarios: { fixture: { id: string; version: number; fixtureHash: string }; caseIds: string[] };
   referenceEvidence: { referencePackId: string; referencePackHash: string; cases: ReferenceEvidenceCase[] };
-  confirmation?: { confirmedAt: string; reviewerId?: string; previewMatrixHash: string };
+  confirmation?: {
+    confirmedAt: string;
+    reviewerId?: string;
+    previewMatrixHash: string;
+    visualAcceptance: OrderVisualAcceptance;
+  };
   derivedArtifacts: JsonObject;
 };
 
@@ -93,8 +107,10 @@ type RevisionSections = Pick<
 
 export type ResolvedSystemPresetOrder = ReturnType<typeof resolveSystemPresetOrder>;
 
-export type OrderReferenceGoldenCapture = {
+export type OrderAcceptanceCapture = {
   caseId: string;
+  // Legacy field name retained in schemaVersion 1; this is an approved
+  // acceptance-capture digest, not proof that a candidate is a golden master.
   goldenSha256: string;
 };
 
@@ -169,6 +185,42 @@ function assertRequiredKeys(value: Record<string, unknown>, keys: readonly strin
   if (missing.length > 0) throw new Error(`Invalid OrderManifest ${name} has missing field(s): ${missing.join(", ")}.`);
 }
 
+const VISUAL_ACCEPTANCE_KEYS = [
+  "approvedAt",
+  "approvedBy",
+  "decisionEvidence",
+  "reviewedCaseIds",
+] as const;
+
+function assertVisualAcceptance(
+  value: unknown,
+  expectedCaseIds: readonly string[],
+): asserts value is OrderVisualAcceptance {
+  assertExactKeys(value, VISUAL_ACCEPTANCE_KEYS, "visualAcceptance");
+  assertRequiredKeys(value, VISUAL_ACCEPTANCE_KEYS, "visualAcceptance");
+  assertIso(value.approvedAt, "visualAcceptance.approvedAt");
+  if (
+    !isNonEmptyString(value.approvedBy) ||
+    !isNonEmptyString(value.decisionEvidence)
+  ) {
+    throw new Error(
+      "visualAcceptance approvedBy and decisionEvidence must be non-empty.",
+    );
+  }
+  assertUniqueStringArray(
+    value.reviewedCaseIds,
+    "visualAcceptance.reviewedCaseIds",
+  );
+  if (
+    value.reviewedCaseIds.length !== expectedCaseIds.length ||
+    value.reviewedCaseIds.some((caseId) => !expectedCaseIds.includes(caseId))
+  ) {
+    throw new Error(
+      "visualAcceptance.reviewedCaseIds must exactly match reference evidence cases.",
+    );
+  }
+}
+
 function assertManifestShape(value: unknown): asserts value is OrderManifest {
   assertExactKeys(value, ["schemaVersion", "identity", "lineage", "target", "preset", "composition", "safeOverrides", "lockedVisualSnapshot", "previewScenarios", "referenceEvidence", "confirmation", "derivedArtifacts"], "root");
   assertExactKeys(value.identity, ["orderId", "revision", "status", "createdAt", "confirmedAt", "manifestHash"], "identity");
@@ -193,7 +245,22 @@ function assertManifestShape(value: unknown): asserts value is OrderManifest {
     assertExactKeys(item, keys, "referenceEvidence.case");
     assertRequiredKeys(item, keys, "referenceEvidence.case");
   }
-  if (value.confirmation !== undefined) assertExactKeys(value.confirmation, ["confirmedAt", "reviewerId", "previewMatrixHash"], "confirmation");
+  if (value.confirmation !== undefined) {
+    assertExactKeys(
+      value.confirmation,
+      ["confirmedAt", "reviewerId", "previewMatrixHash", "visualAcceptance"],
+      "confirmation",
+    );
+    assertRequiredKeys(
+      value.confirmation,
+      ["confirmedAt", "previewMatrixHash", "visualAcceptance"],
+      "confirmation",
+    );
+    assertVisualAcceptance(
+      value.confirmation.visualAcceptance,
+      value.referenceEvidence.cases.map((item) => item.id),
+    );
+  }
 }
 
 function payloadWithoutHash(manifest: OrderManifest): JsonObject {
@@ -282,7 +349,7 @@ function validate(manifest: OrderManifest, verifyHash: boolean): void {
     if (!isNonEmptyString(item.fontLoadingState)) throw new Error("Reference evidence font loading state must be non-empty.");
     if (!isNonEmptyString(item.captureTiming)) throw new Error("Reference evidence capture timing must be non-empty.");
     assertUniqueStringArray(item.calibrationSourceIds, "reference evidence calibration source IDs");
-    if (item.goldenSha256 !== null && !isHash(item.goldenSha256)) throw new Error("Invalid golden SHA-256.");
+    if (item.goldenSha256 !== null && !isHash(item.goldenSha256)) throw new Error("Invalid acceptance capture SHA-256.");
   }
   const referenceCaseIds = manifest.referenceEvidence.cases.map((item) => item.id);
   if (new Set(referenceCaseIds).size !== referenceCaseIds.length) throw new Error("reference evidence case IDs must be unique.");
@@ -296,7 +363,11 @@ function validate(manifest: OrderManifest, verifyHash: boolean): void {
     if (manifest.confirmation.confirmedAt !== identity.confirmedAt) throw new Error("Confirmation timestamp must match identity.");
     if (manifest.confirmation.reviewerId !== undefined && !isNonEmptyString(manifest.confirmation.reviewerId)) throw new Error("confirmation.reviewerId must be non-empty.");
     if (!isHash(manifest.confirmation.previewMatrixHash) || manifest.confirmation.previewMatrixHash !== canonicalSha256(manifest.referenceEvidence.cases)) throw new Error("Invalid preview matrix hash.");
-    if (manifest.referenceEvidence.cases.some((item) => !isHash(item.goldenSha256))) throw new Error("Confirmed manifests require golden SHA-256 values.");
+    assertVisualAcceptance(
+      manifest.confirmation.visualAcceptance,
+      referenceCaseIds,
+    );
+    if (manifest.referenceEvidence.cases.some((item) => !isHash(item.goldenSha256))) throw new Error("Confirmed manifests require acceptance capture SHA-256 values.");
   }
 }
 
@@ -499,27 +570,27 @@ export function createOrderDraftFromResolution(
   });
 }
 
-export function recordOrderReferenceGoldens(
+export function recordOrderAcceptanceCaptures(
   draft: OrderManifest,
-  captures: OrderReferenceGoldenCapture[],
+  captures: readonly OrderAcceptanceCapture[],
   catalog: CatalogItem[],
 ): Readonly<OrderManifest> {
   assertOrderManifestMatchesCatalog(draft, catalog);
-  if (draft.identity.status !== "draft") throw new Error("Only draft manifests can record reference goldens.");
+  if (draft.identity.status !== "draft") throw new Error("Only draft manifests can record acceptance captures.");
   if (!Array.isArray(captures) || captures.length !== draft.referenceEvidence.cases.length) {
-    throw new Error("Reference goldens must exactly cover every case.");
+    throw new Error("Acceptance captures must exactly cover every case.");
   }
   const captureByCase = new Map<string, string>();
   for (const capture of captures) {
-    assertExactKeys(capture, ["caseId", "goldenSha256"], "reference golden capture");
-    assertRequiredKeys(capture, ["caseId", "goldenSha256"], "reference golden capture");
+    assertExactKeys(capture, ["caseId", "goldenSha256"], "acceptance capture");
+    assertRequiredKeys(capture, ["caseId", "goldenSha256"], "acceptance capture");
     if (!isNonEmptyString(capture.caseId) || !isHash(capture.goldenSha256) || captureByCase.has(capture.caseId)) {
-      throw new Error("Reference goldens must have unique case IDs and valid hashes.");
+      throw new Error("Acceptance captures must have unique case IDs and valid hashes.");
     }
     captureByCase.set(capture.caseId, capture.goldenSha256);
   }
   if (draft.referenceEvidence.cases.some((item) => !captureByCase.has(item.id))) {
-    throw new Error("Reference goldens must exactly cover every case.");
+    throw new Error("Acceptance captures must exactly cover every case.");
   }
   const next = clone(draft) as OrderManifest;
   next.referenceEvidence.cases = next.referenceEvidence.cases.map((item) => ({
@@ -532,14 +603,22 @@ export function recordOrderReferenceGoldens(
 
 export function confirmOrderManifest(
   draft: OrderManifest,
-  confirmation: { confirmedAt: string; reviewerId?: string },
+  confirmation: {
+    confirmedAt: string;
+    reviewerId?: string;
+    visualAcceptance: OrderVisualAcceptance;
+  },
   catalog: CatalogItem[],
 ): Readonly<OrderManifest> {
   assertOrderManifestMatchesCatalog(draft, catalog);
   if (draft.identity.status !== "draft") throw new Error("Only draft manifests can be confirmed.");
-  if (draft.referenceEvidence.cases.some((item) => !isHash(item.goldenSha256))) throw new Error("Cannot confirm without golden SHA-256 values.");
+  if (draft.referenceEvidence.cases.some((item) => !isHash(item.goldenSha256))) throw new Error("Cannot confirm without acceptance capture SHA-256 values.");
   assertIso(confirmation.confirmedAt, "confirmation.confirmedAt");
   if (confirmation.reviewerId !== undefined && !isNonEmptyString(confirmation.reviewerId)) throw new Error("reviewerId must be non-empty.");
+  assertVisualAcceptance(
+    confirmation.visualAcceptance,
+    draft.referenceEvidence.cases.map((item) => item.id),
+  );
   const next = clone(draft) as OrderManifest;
   next.identity.status = "confirmed";
   next.identity.confirmedAt = confirmation.confirmedAt;
@@ -547,6 +626,7 @@ export function confirmOrderManifest(
     confirmedAt: confirmation.confirmedAt,
     ...(confirmation.reviewerId ? { reviewerId: confirmation.reviewerId } : {}),
     previewMatrixHash: canonicalSha256(next.referenceEvidence.cases),
+    visualAcceptance: clone(confirmation.visualAcceptance),
   };
   validate(next, false);
   return withHash(next);

@@ -679,7 +679,7 @@ describe("Codex Desktop system preset", () => {
     ).toThrow(/schemaVersion/i);
   });
 
-  test("creates a frozen planned order draft that cannot confirm without goldens", async () => {
+  test("creates a frozen planned order draft that cannot confirm without acceptance captures", async () => {
     const catalog = await buildCatalog();
     const resolution = resolveSystemPresetOrder({
       presetSlug: "codex-desktop-v1",
@@ -711,8 +711,22 @@ describe("Codex Desktop system preset", () => {
     );
     expect(Object.isFrozen(draft)).toBe(true);
     expect(() =>
-      confirmOrderManifest(draft, { confirmedAt: "2026-07-28T10:00:00.000Z" }, catalog),
-    ).toThrow(/golden/i);
+      confirmOrderManifest(
+        draft,
+        {
+          confirmedAt: "2026-07-28T10:00:00.000Z",
+          visualAcceptance: {
+            approvedAt: "2026-07-28T09:45:00.000Z",
+            approvedBy: "visual-reviewer",
+            decisionEvidence: "Reference Board decision #1",
+            reviewedCaseIds: draft.referenceEvidence.cases.map(
+              (item) => item.id,
+            ),
+          },
+        },
+        catalog,
+      ),
+    ).toThrow(/acceptance capture/i);
 
     const nativeChromeResolution = resolveSystemPresetOrder({
       presetSlug: "codex-desktop-v1",

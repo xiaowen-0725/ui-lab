@@ -9,7 +9,7 @@ import {
   createOrderRevision,
   isOrderManifestHashValid,
   parseOrderManifest,
-  recordOrderReferenceGoldens,
+  recordOrderAcceptanceCaptures,
 } from "@/lib/order-manifest";
 import { resolveSystemPresetOrder } from "@/lib/system-presets/resolve";
 
@@ -38,11 +38,24 @@ async function plannedOrder(safeOverrides: JsonObject = {}) {
   };
 }
 
-function goldens(draft: Awaited<ReturnType<typeof plannedOrder>>["draft"]) {
+function acceptanceCaptures(
+  draft: Awaited<ReturnType<typeof plannedOrder>>["draft"],
+) {
   return draft.referenceEvidence.cases.map((item, index) => ({
     caseId: item.id,
     goldenSha256: `${index}`.padStart(64, "b"),
   }));
+}
+
+function visualAcceptance(
+  draft: Awaited<ReturnType<typeof plannedOrder>>["draft"],
+) {
+  return {
+    approvedAt: "2026-07-28T09:45:00.000Z",
+    approvedBy: "visual-reviewer",
+    decisionEvidence: "Reference Board decision #1",
+    reviewedCaseIds: draft.referenceEvidence.cases.map((item) => item.id),
+  };
 }
 
 type MutableManifest = JsonObject & {
@@ -53,6 +66,17 @@ type MutableManifest = JsonObject & {
     assets: Array<{ requirement: string }>;
   };
   preset: JsonObject & { catalogSnapshotHash: string };
+};
+
+type MutableConfirmedManifest = MutableManifest & {
+  confirmation: JsonObject & {
+    visualAcceptance: JsonObject & {
+      approvedAt: string;
+      approvedBy: string;
+      decisionEvidence: string;
+      reviewedCaseIds: string[];
+    };
+  };
 };
 
 function rehash(value: MutableManifest) {
@@ -103,21 +127,93 @@ describe("OrderManifest public policy seams", () => {
     }
   });
 
-  test("records only exact, valid golden capture coverage and confirms against Catalog", async () => {
+  test("records only exact, valid acceptance capture coverage and confirms against Catalog", async () => {
     const { catalog, draft } = await plannedOrder();
-    expect(() => confirmOrderManifest(draft, { confirmedAt: "2026-07-28T10:00:00.000Z" }, catalog)).toThrow(/golden/i);
-    expect(() => recordOrderReferenceGoldens(draft, [], catalog)).toThrow(/cover/i);
-    expect(() => recordOrderReferenceGoldens(draft, [{ caseId: draft.referenceEvidence.cases[0].id, goldenSha256: "bad" }], catalog)).toThrow();
-    expect(() => recordOrderReferenceGoldens(draft, [...goldens(draft), ...goldens(draft)], catalog)).toThrow(/cover|unique/i);
-    expect(() => recordOrderReferenceGoldens(draft, goldens(draft).map((item) => ({ ...item, extra: true })) as never, catalog)).toThrow(/unknown/i);
-    const recorded = recordOrderReferenceGoldens(draft, goldens(draft), catalog);
+    expect(() =>
+      confirmOrderManifest(
+        draft,
+        {
+          confirmedAt: "2026-07-28T10:00:00.000Z",
+          visualAcceptance: visualAcceptance(draft),
+        },
+        catalog,
+      ),
+    ).toThrow(/acceptance capture/i);
+    expect(() => recordOrderAcceptanceCaptures(draft, [], catalog)).toThrow(/cover/i);
+    expect(() => recordOrderAcceptanceCaptures(draft, [{ caseId: draft.referenceEvidence.cases[0].id, goldenSha256: "bad" }], catalog)).toThrow();
+    expect(() => recordOrderAcceptanceCaptures(draft, [...acceptanceCaptures(draft), ...acceptanceCaptures(draft)], catalog)).toThrow(/cover|unique/i);
+    expect(() => recordOrderAcceptanceCaptures(draft, acceptanceCaptures(draft).map((item) => ({ ...item, extra: true })) as never, catalog)).toThrow(/unknown/i);
+    const recorded = recordOrderAcceptanceCaptures(draft, acceptanceCaptures(draft), catalog);
     expect(recorded.referenceEvidence.cases.every((item) => item.goldenSha256)).toBe(true);
     expect(recorded.referenceEvidence.cases.map(({ goldenSha256: _goldenSha256, ...item }) => item)).toEqual(
       draft.referenceEvidence.cases.map(({ goldenSha256: _goldenSha256, ...item }) => item),
     );
-    const confirmed = confirmOrderManifest(recorded, { confirmedAt: "2026-07-28T10:00:00.000Z" }, catalog);
+    const confirmed = confirmOrderManifest(
+      recorded,
+      {
+        confirmedAt: "2026-07-28T10:00:00.000Z",
+        visualAcceptance: visualAcceptance(draft),
+      } as never,
+      catalog,
+    );
     expect(confirmed.identity.status).toBe("confirmed");
+    expect(confirmed.confirmation?.visualAcceptance).toEqual(
+      visualAcceptance(draft),
+    );
     assertOrderManifestMatchesCatalog(confirmed, catalog);
+  });
+
+  test("requires strict visual acceptance provenance on every confirmed manifest", async () => {
+    const { catalog, draft } = await plannedOrder();
+    const confirmed = confirmOrderManifest(
+      recordOrderAcceptanceCaptures(draft, acceptanceCaptures(draft), catalog),
+      {
+        confirmedAt: "2026-07-28T10:00:00.000Z",
+        visualAcceptance: visualAcceptance(draft),
+      },
+      catalog,
+    );
+    expect(parseOrderManifest(JSON.parse(JSON.stringify(confirmed)))).toEqual(
+      confirmed,
+    );
+
+    const invalidMutations: Array<(manifest: MutableConfirmedManifest) => void> = [
+      (manifest) => {
+        Reflect.deleteProperty(manifest.confirmation, "visualAcceptance");
+      },
+      (manifest) => {
+        manifest.confirmation.visualAcceptance.unexpected = true;
+      },
+      (manifest) => {
+        manifest.confirmation.visualAcceptance.approvedAt = "July 28, 2026";
+      },
+      (manifest) => {
+        manifest.confirmation.visualAcceptance.approvedBy = "";
+      },
+      (manifest) => {
+        manifest.confirmation.visualAcceptance.decisionEvidence = "";
+      },
+      (manifest) => {
+        const ids = manifest.confirmation.visualAcceptance.reviewedCaseIds;
+        manifest.confirmation.visualAcceptance.reviewedCaseIds = [
+          ...ids.slice(0, -1),
+          ids[0],
+        ];
+      },
+      (manifest) => {
+        manifest.confirmation.visualAcceptance.reviewedCaseIds =
+          manifest.confirmation.visualAcceptance.reviewedCaseIds.slice(0, -1);
+      },
+    ];
+
+    for (const mutate of invalidMutations) {
+      const invalid = JSON.parse(
+        JSON.stringify(confirmed),
+      ) as MutableConfirmedManifest;
+      mutate(invalid);
+      invalid.identity.manifestHash = rehash(invalid);
+      expect(() => parseOrderManifest(invalid)).toThrow(/visualAcceptance/i);
+    }
   });
 
   test("enforces platform and locale override consistency", async () => {
@@ -149,9 +245,16 @@ describe("OrderManifest public policy seams", () => {
     assertOrderManifestMatchesCatalog(canonicalLocale, catalog);
   });
 
-  test("revisions reject forged lineage, clear goldens, and remain Catalog-governed", async () => {
+  test("revisions reject forged lineage, clear acceptance captures, and remain Catalog-governed", async () => {
     const { catalog, draft } = await plannedOrder({ branding: "Parking Agent" });
-    const confirmed = confirmOrderManifest(recordOrderReferenceGoldens(draft, goldens(draft), catalog), { confirmedAt: "2026-07-28T10:00:00.000Z" }, catalog);
+    const confirmed = confirmOrderManifest(
+      recordOrderAcceptanceCaptures(draft, acceptanceCaptures(draft), catalog),
+      {
+        confirmedAt: "2026-07-28T10:00:00.000Z",
+        visualAcceptance: visualAcceptance(draft),
+      },
+      catalog,
+    );
     const nextSections = {
       target: confirmed.target, preset: confirmed.preset, composition: confirmed.composition,
       safeOverrides: { branding: "Parking Agent Next" }, lockedVisualSnapshot: confirmed.lockedVisualSnapshot,
@@ -161,7 +264,16 @@ describe("OrderManifest public policy seams", () => {
     const revision = createOrderRevision(confirmed, { createdAt: "2026-07-29T09:00:00.000Z", reason: "branding", nextSections });
     expect(revision.referenceEvidence.cases.every((item) => item.goldenSha256 === null)).toBe(true);
     assertOrderManifestMatchesCatalog(revision, catalog);
-    expect(() => confirmOrderManifest(revision, { confirmedAt: "2026-07-29T10:00:00.000Z" }, catalog)).toThrow(/golden/i);
+    expect(() =>
+      confirmOrderManifest(
+        revision,
+        {
+          confirmedAt: "2026-07-29T10:00:00.000Z",
+          visualAcceptance: visualAcceptance(draft),
+        },
+        catalog,
+      ),
+    ).toThrow(/acceptance capture/i);
     const parentSnapshot = JSON.stringify(confirmed);
     const forged = { createdAt: "2026-07-29T09:00:00.000Z", reason: "forged", nextSections: { ...nextSections, identity: { orderId: "forged" }, lineage: { parentOrderId: "forged" } } };
     expect(() => createOrderRevision(confirmed, forged as never)).toThrow(/unknown/i);
