@@ -2,6 +2,8 @@
 
 Use adopt mode to align an incumbent React product without erasing its product model or silently changing its identity.
 
+Before changing production code, complete [selection.md](selection.md), bind the approved choices through [craft-contract.md](craft-contract.md), and declare how [quality-gates.md](quality-gates.md) will be evidenced. If approved acceptance evidence is missing, stay in selection; do not treat an incumbent screenshot or an Agent-generated candidate as approval.
+
 ## Inspect before binding
 
 At the actual frontend package root, inventory:

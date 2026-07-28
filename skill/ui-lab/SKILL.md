@@ -1,46 +1,44 @@
 ---
 name: ui-lab
-description: "Use UI Lab for exactly one of four React frontend branches: discover Catalog assets without changing a project; adopt UI Lab into an existing React product while preserving its contracts; create or explicitly replace a React application or landing page from a System Kit and Recipe; or audit UI Lab assembly and visual alignment against the project contract."
+description: "UI Lab 的单入口 model-invoked router，用于 React 应用与落地页的设计系统发现、视觉选择、现有产品采用、明确替换、只读评审、有限精修、动效与完整性加固。Use when a request involves composing, applying, reviewing, polishing, animating, or hardening a UI Lab frontend; route visual-style ingestion to $design-ingest."
 ---
 
 # UI Lab
 
-Use UI Lab as a composable frontend contract, not as a mood board. Route the request before touching a project.
+把 UI Lab 当作可组合、可验证的前端契约。每轮只进入一个互斥路线；完成或遇到门禁后再重新路由，不要把选择、实现、评审和批准混在同一步。
 
-## Route first
+## 先路由
 
-| User intent | Branch | Read fully before acting |
-|---|---|---|
-| Find components, themes, styles, or Recipes | Catalog discovery | [discover.md](references/discover.md) |
-| Bring UI Lab into an existing product | Adopt | [project-contract.md](references/project-contract.md), [adopt.md](references/adopt.md), [audit.md](references/audit.md), and [visual-acceptance.md](references/visual-acceptance.md) |
-| Build new UI or explicitly replace an existing UI | Replace | [project-contract.md](references/project-contract.md), [replace.md](references/replace.md), [audit.md](references/audit.md), and [visual-acceptance.md](references/visual-acceptance.md) |
-| Inspect an existing UI Lab integration | Audit and visual alignment | [project-contract.md](references/project-contract.md), [audit.md](references/audit.md), and [visual-acceptance.md](references/visual-acceptance.md) |
+| 用户意图 | 路线 | 是否可改生产代码 | 行动前完整读取 |
+|---|---|---:|---|
+| 查找 Catalog、System、Recipe 或组件 | `discover` | 否 | [discover.md](references/discover.md) |
+| 用视觉候选对齐主题、字体、图标、布局或组件方向 | `select` | 否 | [selection.md](references/selection.md)、[craft-contract.md](references/craft-contract.md)、[visual-acceptance.md](references/visual-acceptance.md) |
+| 将 UI Lab 接入现有产品并保留业务契约 | `adopt` | 是 | [project-contract.md](references/project-contract.md)、[selection.md](references/selection.md)、[craft-contract.md](references/craft-contract.md)、[adopt.md](references/adopt.md)、[quality-gates.md](references/quality-gates.md)、[audit.md](references/audit.md)、[visual-acceptance.md](references/visual-acceptance.md) |
+| 新建前端或经用户明确授权整体替换 | `replace` | 是 | [project-contract.md](references/project-contract.md)、[selection.md](references/selection.md)、[craft-contract.md](references/craft-contract.md)、[replace.md](references/replace.md)、[quality-gates.md](references/quality-gates.md)、[audit.md](references/audit.md)、[visual-acceptance.md](references/visual-acceptance.md) |
+| 只读检查契约、实现或视觉偏差（不含纯动效专项） | `review` | 否 | [project-contract.md](references/project-contract.md)、[review.md](references/review.md)、[quality-gates.md](references/quality-gates.md)、[audit.md](references/audit.md)、[visual-acceptance.md](references/visual-acceptance.md) |
+| 在已批准方向内修共同观感问题 | `polish` | 有限 | [project-contract.md](references/project-contract.md)、[polish.md](references/polish.md)、[craft-contract.md](references/craft-contract.md)、[quality-gates.md](references/quality-gates.md)、[audit.md](references/audit.md)、[visual-acceptance.md](references/visual-acceptance.md) |
+| 查找、评审或应用动效 | `motion` | 取决于模式 | 基础：[motion.md](references/motion.md)、[craft-contract.md](references/craft-contract.md)、[quality-gates.md](references/quality-gates.md)；`apply` 还须完整读取 [project-contract.md](references/project-contract.md)、[audit.md](references/audit.md)、[visual-acceptance.md](references/visual-acceptance.md) |
+| 补齐状态、边界、可访问性与目标运行时韧性 | `harden` | 是 | [project-contract.md](references/project-contract.md)、[harden.md](references/harden.md)、[craft-contract.md](references/craft-contract.md)、[quality-gates.md](references/quality-gates.md)、[audit.md](references/audit.md)、[visual-acceptance.md](references/visual-acceptance.md) |
 
-Default an existing product to **adopt**. Use **replace** only when the user explicitly authorizes replacement. If the boundary remains ambiguous, ask before changing files.
+默认把已有产品路由到 `adopt`；只有新项目或用户明确授权替换时才用 `replace`。用户若要求把 UI Lab 仓库内或外部看到的风格沉淀为长期资产，转交 `$design-ingest`，不要在本路线里临摹成一次性 CSS。若用户要的是完整应用系统，完成 ingest 后回到 `select`。
 
-## Shared invariants
+纯 motion diff、动效机会或动效专项审查优先进入 `motion find` / `motion review`，不进入通用 `review`。混合型检查由通用 `review` 统筹，但同一 finding 只能归属一个路线。
 
-- Locate the actual React package root. Keep `package.json`, `components.json`, `ui-lab.config.json`, and every `--dir` target at that root.
-- Run `ui-lab --help` before project commands. If the installed CLI lacks a required command or flag, report the tool mismatch; never silently downgrade the workflow.
-- Select in this order: Reference Pack → System Preset → Recipe → Block → Component → shadcn primitive → bespoke code. A mutating branch must not skip the approved visual source and jump directly to implementation assets.
-- Before implementation, verify that the user has approved the visual master and the applicable Assembly Order. If either approval is missing, stop implementation and enter visual review. An Agent may prepare a candidate and evidence, but must never approve the candidate or confirm the order on the user's behalf.
-- Vendor UI Lab source into the consumer. Do not add a runtime dependency on the UI Lab repository.
-- Preserve business state, IPC/API contracts, routes, accessibility semantics, automation selectors, and tests unless the user changes their requirements.
-- Treat a CLI plan as a plan. Do not claim that components or themes were installed until their files and runtime behavior are verified.
-- Keep `--wb-*` tokens intact for Agent Workbench families. Do not replace their visual contract with arbitrary utilities.
-- Keep audit-only work read-only. Report findings in the response; write `DESIGN.md`, adoption reports, or `.ui-lab/evidence/*` only for a mutating branch or when the user explicitly requests evidence files.
+完整阶段与转移条件见 [skill-tree.md](references/skill-tree.md)。来源边界与许可见 [influences.md](references/influences.md)。
 
-## Completion
+## 共同约束
 
-Discovery is complete only when the user receives evidence-backed candidates with live/fetch details and the project remains unchanged.
+- 定位真正的 React package 根，并让 `package.json`、`components.json`、`ui-lab.config.json` 与所有 `--dir` 指向同一处。
+- 项目命令前运行 `ui-lab --help`；已安装 CLI 没有要求的命令或 flag 时，报告版本不匹配，不静默降级。
+- 选择与实现顺序固定为 Reference Pack → System Preset → Recipe → Block → Component → shadcn primitive → bespoke。真实 Catalog、registry item 与完整 source family 优先于记忆和临摹。
+- `discover` / `select` 可以创建隔离临时候选，或写入用户明确授权的 evidence 位置，但不得修改消费者生产代码。Agent 可准备候选和证据，不能批准 visual master、acceptance capture 或 Confirmed Manifest。
+- Vendor UI Lab 源码，不给消费者增加 UI Lab 仓库运行时依赖；保留业务状态、API/IPC、路由、可访问语义、自动化选择器和测试。
+- `review`、`motion find`、`motion review` 对项目文件完全只读，不创建或修改实现、配置或 evidence。只有 `adopt`、`replace`、`polish`、`motion apply`、`harden` 等明确的 mutating 路线可以修改消费者实现。
+- Audit 是结构证据；visual acceptance 是视觉证据；human approval 是批准边界。三者不互相替代。
 
-Every mutating branch is complete only when all of these are true:
+## 完成边界
 
-- `ui-lab audit --strict --json` reports `0` errors and `0` warnings.
-- Every Recipe field is mapped one by one, including sections, slots, states, responsive rules, assets, required rules, and forbidden rules.
-- Same-size reference/implementation screenshot pairs exist under the fixed evidence path.
-- The reference side is an **approved acceptance capture**, not a capture generated from the implementation under review. A candidate regression capture remains pending and blocks checkout until the user explicitly approves it.
-- Every remaining visual difference is explained and intentional.
-- Relevant business, accessibility, and runtime tests pass in the actual target runtime.
-
-Audit success is structural evidence, never proof of visual consistency. A self-generated candidate compared with itself proves only regression stability; it does not prove fidelity to Codex or any other calibration source. Follow the evidence roles, two comparison chains, manual matrix, and bounded comparison loop in [visual-acceptance.md](references/visual-acceptance.md).
+- `discover`：返回带 live/fetch 证据的候选与拒绝理由，消费者不变。
+- `select`：全尺寸候选完成一维比较，用户明确批准；在此之前只能保持 pending。
+- `adopt` / `replace` / `polish` / `motion apply` / `harden`：通过 [quality-gates.md](references/quality-gates.md) 的适用四层门禁，并满足既有 [audit.md](references/audit.md) 与 [visual-acceptance.md](references/visual-acceptance.md)。
+- `review`：只给出 `Pass`、`Block` 或 `Insufficient evidence`；`Pass` 也不等于用户批准。

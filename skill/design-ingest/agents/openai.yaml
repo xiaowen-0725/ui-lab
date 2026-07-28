@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Ingest"
+  short_description: "将截图、网址或描述沉淀为 UI Lab 可复用视觉主题资产"
+  default_prompt: "使用 $design-ingest 将这套视觉风格沉淀为 UI Lab 的可复用 Theme layer。"

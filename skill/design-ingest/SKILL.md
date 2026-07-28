@@ -1,15 +1,35 @@
 ---
 name: design-ingest
 description: |
-  把「看到的一套好风格」沉淀成 UI Lab 的正式设计系统：输入截图、网址或口头描述，提炼 14 个基色经 `makeWbSkin()` 展开为 42 个 `--wb-*` token，配齐 DESIGN.md、双语 prompt 与词汇，落进 `lib/layouts/design-systems.ts`——工作台立刻多一套可视皮肤，且自动进入 catalog/CLI 供后续项目复用。仅在 UI Lab 仓库内使用。
+  把「看到的一套好风格」沉淀成 UI Lab 的视觉 Design System / Theme layer：输入截图、网址或口头描述，提炼 14 个基色经 `makeWbSkin()` 展开为 43 个 `--wb-*` token，配齐 DESIGN.md、双语 prompt 与词汇，落进 `lib/layouts/design-systems.ts`，并进入 catalog/CLI 供后续项目复用。它不创建 System Preset 或 Confirmed Manifest；需要完整应用系统时转 $ui-lab 的 select。仅在 UI Lab 仓库内使用。
   触发方式：/design-ingest、「把这个风格沉淀下来」「收录这套设计系统」「照这个截图/网站做一套皮肤」「这个配色字体我想留着复用」，或用户贴出某个界面截图/链接并表示想要这种感觉。
-  Ingest a style you've seen (screenshot / URL / verbal description) into UI Lab as a formal design system: distill 14 base colors, expand them through `makeWbSkin()` into the 42-token workbench contract, author the DESIGN.md + bilingual prompts + vocabulary, and land it in `lib/layouts/design-systems.ts` — instantly visible as a switchable workbench skin and reusable via catalog/CLI. Repo-internal skill for the UI Lab repository.
+  Ingest a style you've seen into UI Lab as a visual Design System / Theme layer: distill 14 base colors, expand them through `makeWbSkin()` into the 43-token workbench contract, author DESIGN.md plus bilingual prompts and vocabulary, and publish it through the catalog/CLI. This does not create a System Preset or Confirmed Manifest; use $ui-lab select for a complete application system. Repo-internal skill for the UI Lab repository.
   Trigger: /design-ingest, "sediment this style", "capture this design system", "make a skin from this screenshot/site".
 ---
 
 # Design Ingest — 看到 → 沉淀 → 复用
 
-把野外看到的一套风格（背景/文字/字体/强调色这一整套）变成 UI Lab 的正式资产。产出物是一个 `DesignSystemEntry`：落库那一刻，`/layouts?ds=<slug>` 就能实时换肤看效果，`ui-lab show <slug>` 就能取回完整 DESIGN.md。**整条流水线的验收标准是肉眼对照，不是文字自洽。**
+把野外看到的一套风格（背景/文字/字体/强调色这一整套）变成 UI Lab 的正式视觉资产。产出物是一个 `DesignSystemEntry`：落库那一刻，`/layouts?ds=<slug>` 就能实时换肤看效果，`ui-lab show <slug>` 就能取回完整 DESIGN.md。**整条流水线的验收标准是肉眼对照，不是文字自洽。**
+
+> 边界：本技能只产出视觉 Design System / Theme layer，不等于应用级 System Preset、Assembly Order 或 Confirmed Manifest。若目标是完整应用系统、前端装配或确认订单，转到 `$ui-lab` 的 `select`，并遵循 [selection.md](../ui-lab/references/selection.md)。
+
+## 第 0 步 · Provenance / license 硬门
+
+开始提炼前，先建立可复核的来源记录：
+
+| 字段 | 必填内容 |
+|---|---|
+| 原始来源 | 原始 URL；本地文件的绝对路径只留在非发布 evidence，不用二次转载地址替代 |
+| 作者 / 权利人 | 作者、组织、品牌或当前权利人；未知就写 unknown |
+| License / 许可 | 许可证名称与链接，或权利人明确授权记录 |
+| 采集日期 | `YYYY-MM-DD` |
+| Attribution | 发布时必须保留的署名、版权与来源文字 |
+| 允许用途 | 仅分析、内部参考、改编、vendoring、Catalog 发布等明确范围 |
+
+- 公开可访问不等于允许复制或发布。权利人、license、许可范围任一不明时，只能把材料用作 calibration source / candidate 分析；禁止 vendoring、落入正式 `DESIGN_SYSTEMS` 或发布到 Catalog/CLI。
+- 品牌资产、外部 prompt 与源码是三类独立权利对象。除非分别取得相应授权与兼容许可，不得复制 logo/商标/品牌图、外部 prompt 原文或任何源码。
+- 本地绝对路径、用户名和私有目录不得进入 `DesignSystemEntry`、公开 `DESIGN.md`、Catalog 或 CLI。它们只可保存在用户授权的非发布 evidence；公开 Provenance 使用公开 URL，或脱敏的 source id / 文件名，并单独引用许可记录。
+- 只保留可证明的视觉事实、自己生成的 token 与 clean-room 描述。无法确认是否越界时停止落库并报告缺失的许可证据。
 
 ## 输入
 
@@ -21,7 +41,7 @@ description: |
 
 ## 第 1 步 · 提炼 14 个基色（唯一的取色工作）
 
-**只挑基色，绝不手写 `--wb-*` 变量**——`makeWbSkin()`（`lib/layouts/skin.ts`）会按与 globals.css 相同的比例把基色展开成 42 个 token，保证新皮肤和其余 13 套有一致的深度与交互层级。逐字段取法：
+**只挑基色，绝不手写 `--wb-*` 变量**——`makeWbSkin()`（`lib/layouts/skin.ts`）会按与 globals.css 相同的比例把基色展开成 43 个 token，保证新皮肤和其余条目有一致的深度与交互层级。逐字段取法：
 
 | 字段 | 取什么 | 提示 |
 |---|---|---|
@@ -52,6 +72,7 @@ description: |
 照 nightflight 条目的模板写，**全部用具体值，不写氛围词**：
 
 - frontmatter：`name` + 一句 `description`；
+- `## Provenance`：公开 URL 或脱敏 source id、作者/权利人、license/许可、采集日期、attribution 与允许用途；绝不写本地绝对路径或用户名；
 - `## Colors`：yaml 块逐角色列 hex（canvas/surface/raised/ink…/accent/语义三色）；
 - `## Typography`：字体栈 + 常规/标签/标题三档字重；
 - `## Surfaces & lines`：3–5 条表面与线的用法规则；
@@ -62,6 +83,8 @@ description: |
 公式 = **命名风格 + 带 hex 的具体视觉动作 + FORBIDDEN 反面清单**。正面写怎么搭层级、强调色管什么、字体怎么配；FORBIDDEN 至少 4 条（如：多彩渐变、厚投影、多强调色打架、装饰动画盖状态）。中英各一条，信息对等。
 
 ## 第 5 步 · 落库并肉眼验收
+
+只有第 0 步证明允许 vendoring 与 Catalog 发布后才能进入本步；否则保持 calibration/candidate，不创建正式条目。
 
 1. 在 `lib/layouts/design-systems.ts` 末尾（`DESIGN_SYSTEMS` 数组之前）新增 `export const <slug>DesignSystem: DesignSystemEntry = {...}`，并把它加进 `DESIGN_SYSTEMS` 数组。
 2. dev server 打开 `/layouts?ds=<slug>`，与源样本**并排对照**：底色气质、四档文字层级、发丝线强度、强调色克制度、悬停/选中态。不像就回第 1 步调基色，直到像为止。数据文件自带双语文案，不需要动 messages/。

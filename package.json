@@ -20,12 +20,13 @@
     "lint": "biome lint .",
     "typecheck": "tsc --noEmit",
     "check:registry": "bun scripts/check-registry.ts",
+    "check:skills": "bun scripts/check-skills.ts && bun test tests/ui-lab-skill.test.ts",
     "inspiration:capture": "bun scripts/capture-inspiration-screenshots.ts",
     "inspiration:audit": "bun scripts/capture-inspiration-screenshots.ts --audit-only",
     "system-presets:capture-candidates": "bun scripts/capture-system-preset-candidates.ts",
     "cli:snapshot": "bun scripts/gen-catalog-snapshot.ts",
     "test": "bun test",
-    "check": "bun run typecheck && bun run lint && bun run check:registry"
+    "check": "bun run typecheck && bun run lint && bun run check:registry && bun run check:skills"
   },
   "dependencies": {
     "@paper-design/shaders-react": "^0.0.76",

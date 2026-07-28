@@ -2,6 +2,8 @@
 
 Use replace mode for a new frontend or when the user explicitly authorizes replacing an existing interface. Reroute an incumbent product without that authorization to adopt.
 
+Before changing production code, complete [selection.md](selection.md), bind the approved choices through [craft-contract.md](craft-contract.md), and declare how [quality-gates.md](quality-gates.md) will be evidenced. Replacement authority does not let an Agent approve a visual master or skip approved acceptance evidence.
+
 ## Choose the product mode
 
 Classify the UI before selecting a Recipe:
