@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T11:02:51.094Z",
+  "generatedAt": "2026-07-28T15:36:36.740Z",
   "count": 159,
   "items": [
     {
@@ -4810,7 +4810,7 @@
         "slug": "codex-desktop-v1",
         "status": "approved",
         "themeKit": {
-          "contractHash": "58a0489a688cc4969c68a6f255c8fe1acdc8f86e55b309fd14025f8766410628",
+          "contractHash": "95ce71197e398433152191b9bc8c8c7449eabce0d60050c46602d7371d269e14",
           "slug": "codex-desktop-v1"
         },
         "version": 1

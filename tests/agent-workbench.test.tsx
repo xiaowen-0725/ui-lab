@@ -106,6 +106,12 @@ describe("AgentWorkbench responsive contract", () => {
     });
     expect(screen.getByTestId("workbench-state").dataset.panelOpen).toBe("true");
     expect(screen.getByLabelText("Artifact overlay")).toBeTruthy();
+    const panelScrim = screen.getByRole("button", {
+      name: "Close artifact overlay",
+    });
+    expect(panelScrim.className).toContain("bg-[var(--wb-overlay-scrim)]");
+    expect(panelScrim.className).not.toContain("wb-surface-translucent");
+    expect(panelScrim.className).not.toContain("opacity-70");
     expect(screen.queryByLabelText("Resize panel")).toBeNull();
     expect(document.querySelector("main")?.hasAttribute("inert")).toBe(true);
 
@@ -136,7 +142,13 @@ describe("AgentWorkbench responsive contract", () => {
     expect(screen.getByTestId("workbench-state").dataset.panelOpen).toBe("false");
     expect(screen.getByTestId("workbench-state").dataset.sidebarOpen).toBe("true");
 
-    fireEvent.click(screen.getByRole("button", { name: "Close sidebar overlay" }));
+    const sidebarScrim = screen.getByRole("button", {
+      name: "Close sidebar overlay",
+    });
+    expect(sidebarScrim.className).toContain("bg-[var(--wb-overlay-scrim)]");
+    expect(sidebarScrim.className).not.toContain("wb-surface-translucent");
+    expect(sidebarScrim.className).not.toContain("opacity-70");
+    fireEvent.click(sidebarScrim);
     expect(screen.getByTestId("workbench-state").dataset.sidebarOpen).toBe("false");
 
     globalThis.ResizeObserver = original;

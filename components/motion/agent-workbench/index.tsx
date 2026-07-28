@@ -376,7 +376,7 @@ export function WorkbenchSidebar({ className, children }: WorkbenchSidebarProps)
           <button
             type="button"
             aria-label="Close sidebar overlay"
-            className="absolute inset-x-0 bottom-0 top-[46px] z-10 cursor-default bg-[var(--wb-surface-translucent)] opacity-70"
+            className="absolute inset-x-0 bottom-0 top-[46px] z-10 cursor-default bg-[var(--wb-overlay-scrim)]"
             onClick={() => setSidebarOpen(false)}
           />
         ) : null}
@@ -499,7 +499,7 @@ export function WorkbenchPanel({ className, children }: WorkbenchPanelProps) {
           <button
             type="button"
             aria-label="Close artifact overlay"
-            className="absolute inset-x-0 bottom-0 top-[46px] z-10 cursor-default bg-[var(--wb-surface-translucent)] opacity-70"
+            className="absolute inset-x-0 bottom-0 top-[46px] z-10 cursor-default bg-[var(--wb-overlay-scrim)]"
             onClick={() => setPanelOpen(false)}
           />
         ) : null}

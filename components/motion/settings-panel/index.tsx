@@ -8,6 +8,8 @@ import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 
 export interface SettingsGroupProps {
+  /** Card keeps the preference shell; quiet becomes a flat hairline group. */
+  variant?: "card" | "quiet";
   title?: ReactNode;
   /** Header-right slot, e.g. a `SettingsGhostButton` plus a `SettingsSelectButton`. */
   actions?: ReactNode;
@@ -22,21 +24,42 @@ export interface SettingsGroupProps {
  * a hairline divider between adjacent rows without each row needing to know
  * about its neighbors.
  */
-export function SettingsGroup({ title, actions, className, children }: SettingsGroupProps) {
+export function SettingsGroup({
+  variant = "card",
+  title,
+  actions,
+  className,
+  children,
+}: SettingsGroupProps) {
+  const quiet = variant === "quiet";
+
   return (
     <div
+      data-slot="settings-group"
+      data-variant={variant}
       className={cn(
-        "rounded-[20px] border border-black/10 bg-white dark:border-white/10 dark:bg-[#232323]",
+        quiet &&
+          "border-[var(--wb-border-subtle)] border-x-0 border-y-[0.5px] bg-transparent [&_[data-slot=settings-row]]:px-0",
+        !quiet &&
+          "rounded-[20px] border border-[var(--wb-border)] bg-[var(--wb-surface-raised)]",
         className,
       )}
     >
       {title || actions ? (
-        <div className="flex items-center justify-between gap-3 px-4 pt-4 pb-1">
+        <div
+          className={cn(
+            "flex items-center justify-between gap-3 pb-1",
+            quiet ? "px-0 pt-3" : "px-4 pt-4",
+          )}
+        >
           {title ? <div className="text-[13px] font-medium">{title}</div> : <span />}
           {actions ? <div className="flex items-center gap-1">{actions}</div> : null}
         </div>
       ) : null}
-      <div className="[&>*+*]:border-t-[0.5px] [&>*+*]:border-black/5 dark:[&>*+*]:border-white/[0.06]">
+      <div
+        data-slot="settings-group-rows"
+        className="[&>*+*]:border-[var(--wb-border-subtle)] [&>*+*]:border-t-[0.5px]"
+      >
         {children}
       </div>
     </div>
@@ -55,7 +78,13 @@ export interface SettingsRowProps {
 /** One preference line inside a `SettingsGroup` — label (+ optional description) on the left, a control slot on the right. */
 export function SettingsRow({ label, description, className, children }: SettingsRowProps) {
   return (
-    <div className={cn("flex min-h-[52px] items-center justify-between gap-3 px-4 py-2", className)}>
+    <div
+      data-slot="settings-row"
+      className={cn(
+        "flex min-h-[52px] items-center justify-between gap-3 px-4 py-2",
+        className,
+      )}
+    >
       <div className="min-w-0">
         <div className="text-[13px] font-medium">{label}</div>
         {description ? <div className="text-xs text-muted-foreground">{description}</div> : null}
@@ -157,13 +186,13 @@ export function SettingsTextField({
 }: SettingsTextFieldProps) {
   return (
     <input
+      data-slot="settings-text-field"
       value={value}
       onChange={(event) => onChange?.(event.target.value)}
       placeholder={placeholder}
       aria-label={ariaLabel}
       className={cn(
-        "h-7 w-[176px] truncate rounded-lg border border-black/10 bg-black/[0.03] px-2 text-sm text-muted-foreground outline-none focus:text-foreground",
-        "dark:border-white/10 dark:bg-white/5",
+        "h-7 w-[176px] truncate rounded-lg border border-[var(--wb-control-hairline)] bg-[var(--wb-inset-faint)] px-2 text-sm text-muted-foreground outline-none focus:text-foreground",
         className,
       )}
     />
@@ -193,12 +222,12 @@ export function SettingsSelectButton({
 }: SettingsSelectButtonProps) {
   return (
     <button
+      data-slot="settings-select"
       type="button"
       onClick={onClick}
       aria-label={ariaLabel}
       className={cn(
-        "flex h-7 items-center gap-1.5 rounded-lg border border-black/10 bg-black/[0.03] px-3 text-sm",
-        "dark:border-white/10 dark:bg-[#141414]",
+        "flex h-7 items-center gap-1.5 rounded-lg border border-[var(--wb-control-hairline)] bg-[var(--wb-inset-faint)] px-3 text-sm",
         className,
       )}
     >
@@ -219,10 +248,11 @@ export interface SettingsGhostButtonProps {
 export function SettingsGhostButton({ onClick, children, className }: SettingsGhostButtonProps) {
   return (
     <button
+      data-slot="settings-ghost"
       type="button"
       onClick={onClick}
       className={cn(
-        "flex h-7 items-center gap-1 rounded-lg px-2 text-sm text-muted-foreground transition-colors hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10",
+        "flex h-7 items-center gap-1 rounded-lg px-2 text-sm text-muted-foreground transition-colors hover:bg-[var(--wb-hover-subtle)] hover:text-foreground",
         className,
       )}
     >

@@ -324,6 +324,12 @@ function PreviewToolbar({
   const { togglePanel, toggleSidebar } = useWorkbench();
   const { fixture, referenceCase } = scenario;
   const copy = systemCopy(configuration.activeLocale);
+  const narrow = referenceCase.viewport === "narrow";
+  const localeLabel = narrow
+    ? configuration.activeLocale.toLowerCase().startsWith("en")
+      ? "EN"
+      : "ZH"
+    : configuration.activeLocale.toUpperCase();
 
   const title = referenceCase.surfaces.includes("board")
     ? fixture.board.title
@@ -348,12 +354,16 @@ function PreviewToolbar({
                 <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
               </span>
-              <button type="button" aria-label={copy.back} className={ICON_BUTTON}>
-                <ChevronLeft className="h-4 w-4" />
-              </button>
-              <button type="button" aria-label={copy.forward} className={ICON_BUTTON}>
-                <ChevronRight className="h-4 w-4" />
-              </button>
+              {!narrow ? (
+                <>
+                  <button type="button" aria-label={copy.back} className={ICON_BUTTON}>
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+                  <button type="button" aria-label={copy.forward} className={ICON_BUTTON}>
+                    <ChevronRight className="h-4 w-4" />
+                  </button>
+                </>
+              ) : null}
             </>
           ) : null}
           <button
@@ -405,14 +415,19 @@ function PreviewToolbar({
     >
       <div className="flex h-full min-w-0 items-center px-3">
         <span className="truncate text-sm font-medium">{title}</span>
+        {!narrow ? (
+          <span
+            title={`${referenceCase.viewport} · ${configuration.platformChrome}`}
+            className="ml-2 rounded-full bg-[var(--wb-inset)] px-2 py-0.5 text-[11px] text-muted-foreground"
+          >
+            {referenceCase.viewport}
+          </span>
+        ) : null}
         <span
-          title={`${referenceCase.viewport} · ${configuration.platformChrome}`}
-          className="ml-2 rounded-full bg-[var(--wb-inset)] px-2 py-0.5 text-[11px] text-muted-foreground"
+          data-testid="parking-locale-chip"
+          className="ml-1 inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-[var(--wb-control-hairline)] px-2 py-0.5 text-[10px] font-medium text-muted-foreground"
         >
-          {referenceCase.viewport}
-        </span>
-        <span className="ml-1 rounded-full border border-[var(--wb-control-hairline)] px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
-          {configuration.activeLocale.toUpperCase()}
+          {localeLabel}
         </span>
       </div>
     </WorkbenchHeader>
@@ -776,28 +791,26 @@ function BoardSurface({
             <TabsTrigger value="overview">{copy.overview}</TabsTrigger>
             <TabsTrigger value="confirmations">{copy.confirmations}</TabsTrigger>
           </TabsList>
-          <TabsContent value="overview" className="pt-4">
-            <AgentInbox title={fixture.board.title} count={fixture.board.widgets.length}>
-              {fixture.board.widgets.map((widget, index) => (
-                <InboxItem
-                  key={widget}
-                  icon={
-                    index === 0 ? (
-                      <Gauge className="h-4 w-4" />
-                    ) : index === 1 ? (
-                      <Activity className="h-4 w-4" />
-                    ) : (
-                      <ListChecks className="h-4 w-4" />
-                    )
-                  }
-                  source="Parking Ops"
-                  title={widget}
-                  description={`来自 ${fixture.ids.board} 的固定核验视图`}
-                  risk={index === 2 ? "medium" : "low"}
-                  status="approved"
-                  resolution="已载入"
-                />
-              ))}
+          <TabsContent value="overview" className="pt-3">
+            <AgentInbox
+              variant="quiet"
+              title={fixture.board.title}
+              count={fixture.board.widgets.length}
+            >
+              {fixture.board.widgets.map((widget, index) => {
+                const Icon = index === 0 ? Gauge : index === 1 ? Activity : ListChecks;
+                return (
+                  <InboxItem
+                    key={widget}
+                    icon={<Icon className="h-4 w-4" />}
+                    source={configuration.productName}
+                    title={widget}
+                    description={fixture.ids.board}
+                    expires={`0${index + 1}`}
+                    status="approved"
+                  />
+                );
+              })}
             </AgentInbox>
           </TabsContent>
           <TabsContent value="confirmations" className="pt-4">
@@ -827,40 +840,33 @@ function ConnectorsSurface({
       className="min-h-0 flex-1 overflow-y-auto px-5 py-4"
     >
       <div className="mx-auto max-w-3xl">
-        <Tabs defaultValue="runtime" variant="underline">
-          <TabsList>
-            <TabsTrigger value="runtime">{copy.runtime}</TabsTrigger>
-            <TabsTrigger value="bindings">{copy.bindings}</TabsTrigger>
-          </TabsList>
-          <TabsContent value="runtime" className="pt-4">
-            <SettingsGroup title={copy.connectorRuntime}>
-              <SettingsRow label={copy.currentRuntime} description={copy.connectorDescription}>
-                <SettingsSelectButton
-                  aria-label={copy.currentRuntime}
-                  icon={<Blocks className="h-3.5 w-3.5" />}
-                >
-                  {fixture.connectors.runtime}
-                </SettingsSelectButton>
-              </SettingsRow>
-              {fixture.connectors.states.map((state) => (
-                <SettingsRow
-                  key={state}
-                  label={state}
-                  description={`fixture:${fixture.id}`}
-                >
-                  <span className="rounded-full bg-[var(--wb-inset)] px-2 py-1 font-mono text-xs">
-                    {state}
-                  </span>
-                </SettingsRow>
-              ))}
-            </SettingsGroup>
-          </TabsContent>
-          <TabsContent value="bindings" className="pt-4">
-            <p className="text-sm text-muted-foreground">
-              {fixture.settings.overlay}
-            </p>
-          </TabsContent>
-        </Tabs>
+        <SettingsGroup variant="quiet" title={copy.connectorRuntime}>
+          <SettingsRow
+            label={copy.currentRuntime}
+            description={copy.connectorDescription}
+          >
+            <SettingsSelectButton
+              aria-label={copy.currentRuntime}
+              icon={<Blocks className="h-3.5 w-3.5" />}
+            >
+              {fixture.connectors.runtime}
+            </SettingsSelectButton>
+          </SettingsRow>
+          {fixture.connectors.states.map((state) => (
+            <SettingsRow
+              key={state}
+              label={state}
+              description={fixture.id}
+            >
+              <span
+                data-connector-state="true"
+                className="font-mono text-[12px] text-muted-foreground"
+              >
+                {state}
+              </span>
+            </SettingsRow>
+          ))}
+        </SettingsGroup>
       </div>
     </section>
   );

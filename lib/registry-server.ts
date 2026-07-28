@@ -80,6 +80,7 @@ const WB_TOKEN_REGISTRY_SLUGS = new Set([
   "agent-inbox",
   "thread-list",
   "artifact-panel",
+  "settings-panel",
   "prompt-bar",
 ]);
 

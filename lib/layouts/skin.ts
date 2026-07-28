@@ -58,6 +58,7 @@ export function makeWbSkin(
     "--wb-resize-handle": alpha(base.ink, dark ? 25 : 20),
     "--wb-surface": base.surface,
     "--wb-surface-translucent": alpha(base.surface, 60),
+    "--wb-overlay-scrim": alpha(dark ? "#000" : base.ink, dark ? 24 : 6),
     "--wb-surface-raised": alpha(base.raised, 95),
     "--wb-surface-composer": alpha(base.raised, 90),
     "--wb-card": alpha(dark ? base.raised : base.ink, dark ? 50 : 3),

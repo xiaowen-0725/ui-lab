@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { contrastRatio, parseHexColor } from "@/lib/color";
+import { WB_TOKEN_COUNT } from "@/lib/registry-wb-tokens";
 import { findThemeKit, THEME_KITS, themeKitToCss } from "@/lib/theme-kits";
 import { hexToOklch, oklchToHex } from "@/lib/theme-kits/oklch";
 import { BASE_DARK, BASE_LIGHT } from "@/lib/themes";
@@ -28,7 +29,8 @@ describe("theme kits", () => {
         const tokenSet = mode === "light" ? kit.light : kit.dark;
         expect(tokenSet).toBeDefined();
         if (!tokenSet) continue;
-        expect(Object.keys(tokenSet.wb).length).toBe(42);
+        expect(Object.keys(tokenSet.wb).length).toBe(WB_TOKEN_COUNT);
+        expect(typeof tokenSet.wb["wb-overlay-scrim"]).toBe("string");
         expect(Object.keys(tokenSet.charts).length).toBe(6);
         for (const key of REQUIRED_SHADCN_KEYS) {
           expect(typeof tokenSet.shadcn[key]).toBe("string");
@@ -136,8 +138,8 @@ describe("theme kits", () => {
 
     expect(kit.source).toBe("system-preset");
     expect(kit.modes).toEqual(["light", "dark"]);
-    expect(Object.keys(kit.light.wb)).toHaveLength(42);
-    expect(Object.keys(kit.dark.wb)).toHaveLength(42);
+    expect(Object.keys(kit.light.wb)).toHaveLength(WB_TOKEN_COUNT);
+    expect(Object.keys(kit.dark.wb)).toHaveLength(WB_TOKEN_COUNT);
     expect(Object.keys(kit.light.charts)).toHaveLength(6);
     expect(Object.keys(kit.dark.charts)).toHaveLength(6);
 
@@ -169,6 +171,7 @@ describe("theme kits", () => {
     expect(kit.light.wb).toMatchObject({
       "wb-surface": "#fff",
       "wb-surface-translucent": "rgb(249 249 249 / 0.82)",
+      "wb-overlay-scrim": "rgb(0 0 0 / 0.06)",
       "wb-inset-strong": "rgb(0 0 0 / 0.05)",
       "wb-border": "rgb(0 0 0 / 0.08)",
       "wb-accent": "#339cff",
@@ -176,6 +179,7 @@ describe("theme kits", () => {
     expect(kit.dark.wb).toMatchObject({
       "wb-surface": "#181818",
       "wb-surface-translucent": "rgb(24 24 24 / 0.82)",
+      "wb-overlay-scrim": "rgb(0 0 0 / 0.24)",
       "wb-inset-strong": "rgb(255 255 255 / 0.08)",
       "wb-border": "rgb(255 255 255 / 0.08)",
       "wb-accent": "#339cff",

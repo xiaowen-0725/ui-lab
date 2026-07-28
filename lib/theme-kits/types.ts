@@ -1,5 +1,5 @@
 // Theme Kit synthesis types — one selection produces a full dual-mode token
-// CSS payload (shadcn semantics + 42 `--wb-*` + chart colors + motion/shape/
+// CSS payload (shadcn semantics + 43 `--wb-*` + chart colors + motion/shape/
 // spacing/type statics). All keys here are stored WITHOUT the leading `--`,
 // mirroring the registry cssVars convention; css.ts adds `--` on render.
 
@@ -11,7 +11,7 @@ export type ThemeTokenSet = {
   /** shadcn semantic tokens (background/foreground/primary/…) plus the UI Lab
    * extensions: border-strong, success, warning, danger, faint-foreground. */
   shadcn: Record<string, string>;
-  /** The 42 `wb-*` agent-workbench tokens (key includes the `wb-` prefix). */
+  /** The 43 `wb-*` agent-workbench tokens (key includes the `wb-` prefix). */
   wb: Record<string, string>;
   /** chart-1..chart-6, derived from the kit's accent. */
   charts: Record<string, string>;

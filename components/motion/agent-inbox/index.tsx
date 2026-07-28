@@ -2,12 +2,22 @@
 
 import { Check, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { type ReactNode, useLayoutEffect, useRef, useState } from "react";
+import {
+  createContext,
+  type ReactNode,
+  useContext,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { EASE_OUT, SPRING_LAYOUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 
 export type InboxRisk = "low" | "medium" | "high";
 export type InboxStatus = "pending" | "approved" | "denied" | "expired";
+export type AgentInboxVariant = "card" | "quiet";
+
+const AgentInboxVariantContext = createContext<AgentInboxVariant>("card");
 
 interface InboxActionButtonProps {
   variant?: "ghost" | "primary";
@@ -60,6 +70,8 @@ function InboxCountBadge({ count }: InboxCountBadgeProps) {
 }
 
 export interface AgentInboxProps {
+  /** Card keeps the approval-queue shell; quiet becomes a flat semantic list. */
+  variant?: AgentInboxVariant;
   title?: ReactNode;
   /** Pending-count badge shown next to the title; omit to hide it entirely. */
   count?: number;
@@ -78,24 +90,50 @@ export interface AgentInboxProps {
  * selector, so any row shape (an `InboxItem`, a bare `ActionReceipt`) drops in
  * cleanly without the container needing to know its type.
  */
-export function AgentInbox({ title, count, action, className, children }: AgentInboxProps) {
+export function AgentInbox({
+  variant = "card",
+  title,
+  count,
+  action,
+  className,
+  children,
+}: AgentInboxProps) {
+  const quiet = variant === "quiet";
+
   return (
-    <div
-      style={{ boxShadow: "0 0 0 0.5px var(--wb-hairline)" }}
-      className={cn(
-        "flex flex-col overflow-hidden rounded-2xl bg-[var(--wb-surface)]",
-        className,
-      )}
-    >
-      <div className="flex h-11 shrink-0 items-center gap-2 border-[var(--wb-divider)] border-b-[0.5px] px-4">
-        {title ? <span className="text-sm font-medium">{title}</span> : null}
-        {count !== undefined ? <InboxCountBadge count={count} /> : null}
-        {action ? <div className="ml-auto shrink-0">{action}</div> : null}
+    <AgentInboxVariantContext.Provider value={variant}>
+      <div
+        data-slot="agent-inbox"
+        data-variant={variant}
+        style={quiet ? undefined : { boxShadow: "0 0 0 0.5px var(--wb-hairline)" }}
+        className={cn(
+          "flex flex-col overflow-hidden",
+          quiet &&
+            "border-[var(--wb-border-subtle)] border-y-[0.5px] bg-transparent",
+          !quiet && "rounded-2xl bg-[var(--wb-surface)]",
+          className,
+        )}
+      >
+        {!quiet || title || count !== undefined || action ? (
+          <div
+            className={cn(
+              "flex shrink-0 items-center gap-2 border-[var(--wb-divider)] border-b-[0.5px]",
+              quiet ? "h-9 px-0" : "h-11 px-4",
+            )}
+          >
+            {title ? <span className="text-sm font-medium">{title}</span> : null}
+            {count !== undefined ? <InboxCountBadge count={count} /> : null}
+            {action ? <div className="ml-auto shrink-0">{action}</div> : null}
+          </div>
+        ) : null}
+        <div
+          data-slot="agent-inbox-items"
+          className="flex flex-col [&>*+*]:border-[var(--wb-divider)] [&>*+*]:border-t-[0.5px]"
+        >
+          {children}
+        </div>
       </div>
-      <div className="flex flex-col [&>*+*]:border-[var(--wb-divider)] [&>*+*]:border-t-[0.5px]">
-        {children}
-      </div>
-    </div>
+    </AgentInboxVariantContext.Provider>
   );
 }
 
@@ -122,6 +160,8 @@ export function InboxRiskBadge({ risk, className }: InboxRiskBadgeProps) {
 }
 
 export interface InboxItemProps {
+  /** Matches the parent AgentInbox variant; quiet renders a compact flat row. */
+  variant?: AgentInboxVariant;
   /** 16px leading icon, e.g. `<Mail className="h-4 w-4" />`. */
   icon?: ReactNode;
   /** Requesting agent, e.g. "deploy-agent". */
@@ -154,6 +194,7 @@ export interface InboxItemProps {
  * change on resolution settles smoothly instead of snapping.
  */
 export function InboxItem({
+  variant: variantProp,
   icon,
   source,
   title,
@@ -170,6 +211,8 @@ export function InboxItem({
   children,
 }: InboxItemProps) {
   const reduce = useReducedMotion() ?? false;
+  const inheritedVariant = useContext(AgentInboxVariantContext);
+  const variant = variantProp ?? inheritedVariant;
   const [detailsOpen, setDetailsOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState(0);
@@ -187,10 +230,87 @@ export function InboxItem({
     return () => observer.disconnect();
   }, []);
 
+  if (variant === "quiet") {
+    return (
+      <motion.div
+        layout={!reduce}
+        transition={{ layout: SPRING_LAYOUT }}
+        data-slot="agent-inbox-item"
+        data-variant="quiet"
+        className={cn(
+          "flex min-h-12 flex-wrap items-center gap-3 px-0 py-2.5 text-sm",
+          className,
+        )}
+      >
+        <div className="flex min-w-0 basis-[34%] items-center gap-2 font-medium">
+          {icon ? (
+            <span className="flex h-4 w-4 shrink-0 items-center justify-center text-muted-foreground">
+              {icon}
+            </span>
+          ) : null}
+          <span className="truncate">{title}</span>
+        </div>
+        <div className="min-w-0 flex-1 text-muted-foreground">
+          {source ? <div className="truncate text-[11px]">{source}</div> : null}
+          {description ? (
+            <div className="truncate text-[12px]">{description}</div>
+          ) : null}
+        </div>
+        <div className="ml-auto flex shrink-0 items-center gap-1.5">
+          {risk ? <InboxRiskBadge risk={risk} /> : null}
+          {expires ? (
+            <span className="text-[11px] text-muted-foreground/70 tabular-nums">
+              {expires}
+            </span>
+          ) : null}
+          {pending ? (
+            <>
+              <InboxActionButton variant="ghost" onClick={onDeny}>
+                {denyLabel}
+              </InboxActionButton>
+              <InboxActionButton variant="primary" onClick={onApprove}>
+                {approveLabel}
+              </InboxActionButton>
+            </>
+          ) : resolution !== undefined ? (
+            <span
+              className={cn(
+                "text-[12px]",
+                status === "approved" && "text-[var(--wb-success)]",
+                status === "denied" && "text-muted-foreground",
+                status === "expired" && "text-muted-foreground/60 italic",
+              )}
+            >
+              {resolution}
+            </span>
+          ) : status === "approved" ? (
+            <Check className="h-4 w-4 text-[var(--wb-success)]" />
+          ) : null}
+        </div>
+        {hasDetails ? (
+          <div className="w-full pl-6">
+            <button
+              type="button"
+              aria-expanded={detailsOpen}
+              onClick={() => setDetailsOpen((open) => !open)}
+              className="-mx-1 inline-flex items-center gap-1 rounded-md px-1 text-muted-foreground text-xs transition-colors hover:bg-[var(--wb-hover)]"
+            >
+              Details
+              <ChevronRight className="h-3 w-3" />
+            </button>
+            {detailsOpen ? <div className="pt-2">{children}</div> : null}
+          </div>
+        ) : null}
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       layout={!reduce}
       transition={{ layout: SPRING_LAYOUT }}
+      data-slot="agent-inbox-item"
+      data-variant="card"
       className={cn("px-4 py-3", className)}
     >
       <div className={cn(!pending && "opacity-70")}>

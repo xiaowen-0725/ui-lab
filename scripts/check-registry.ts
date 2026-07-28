@@ -1,6 +1,6 @@
 import { allComponents } from "../lib/registry";
-import { WB_TOKENS_DARK, WB_TOKENS_LIGHT } from "../lib/registry-wb-tokens";
 import { allShadcnTargets, buildEntry, buildShadcnItem, buildThemeItem } from "../lib/registry-server";
+import { WB_TOKENS_DARK, WB_TOKENS_LIGHT } from "../lib/registry-wb-tokens";
 import { readSourceFile } from "../lib/source-files";
 import { THEME_KITS, themeKitToCss } from "../lib/theme-kits";
 
@@ -16,6 +16,7 @@ const WB_TOKEN_REGISTRY_SLUGS = new Set([
   "agent-inbox",
   "thread-list",
   "artifact-panel",
+  "settings-panel",
   "prompt-bar",
 ]);
 

@@ -24,7 +24,7 @@
       "size": "1440x900",
       "scale": 1,
       "theme": "dark",
-      "sha256": "601d4e1110e5558e9b4f5c0a6d1e8394537166c3094e4dcb4da7b6261f0a52f7"
+      "sha256": "6ec52a29be6ba5251a3ae9bbbdb169765e9f9d5a1402ab32abae3eeebf584ea8"
     },
     {
       "caseId": "collapse-light-approval",
@@ -32,7 +32,7 @@
       "size": "1000x760",
       "scale": 1,
       "theme": "light",
-      "sha256": "e92f8e464f28000b68a2403f1e9cda091a065ec6d9ccbb2ffdc5d67e7b493216"
+      "sha256": "92713ce38f222d337f7c2e1bbad271f719ff0b2d1eb5505754a1148214d1e4ae"
     },
     {
       "caseId": "narrow-light-empty",
@@ -40,7 +40,7 @@
       "size": "375x760",
       "scale": 1,
       "theme": "light",
-      "sha256": "24a6d9dcb983981f49f9d07f62ecf3fb7ef9ff06473e9f4c0a8bdbd4a032d1f2"
+      "sha256": "5f4e5da304169f69c052e54b1228ef8e697d32713596069d91b250791d5a7582"
     },
     {
       "caseId": "wide-dark-error-artifact",
@@ -56,7 +56,7 @@
       "size": "1440x900",
       "scale": 1,
       "theme": "light",
-      "sha256": "e5851db3f922253aab872db80b37026494ecbc0804668c31facc132fd7cc164e"
+      "sha256": "2ed150623d4d6c7c72242ea6d467de280bd96c49877ea9630422cb29cefdcc76"
     },
     {
       "caseId": "collapse-dark-connectors-overlay",
@@ -64,7 +64,7 @@
       "size": "1000x760",
       "scale": 1,
       "theme": "dark",
-      "sha256": "b4867e62e44e633126d479c93c6c0eb3b254f9b37ec3f95917a7bdd16237c9e0"
+      "sha256": "001a701d734dee841f62eeff2dcbd03744eb5a022b951dc82a258c7fc92ae95f"
     },
     {
       "caseId": "wide-light-settings-reduced-motion",
@@ -72,7 +72,7 @@
       "size": "1440x900",
       "scale": 1,
       "theme": "light",
-      "sha256": "2d834d8e08543da7e289eccd57db005b49f8b05ede43a16f04961c618318252a"
+      "sha256": "1cfcf7c391d18a4c73c6983129523865bade706ee32f51641029acc88adade11"
     }
   ]
 }

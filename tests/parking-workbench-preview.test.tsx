@@ -213,6 +213,36 @@ describe("ParkingWorkbenchPreview", () => {
     expect(web.queryByRole("button", { name: "Forward" })).toBeNull();
   });
 
+  test("keeps narrow native chrome compact without desktop navigation", () => {
+    const narrowScenario = findParkingPreviewScenario("narrow-light-empty");
+    const collapseScenario = findParkingPreviewScenario("collapse-light-approval");
+    if (!narrowScenario || !collapseScenario) {
+      throw new Error("Missing compact chrome scenarios");
+    }
+
+    const narrow = render(
+      <ParkingWorkbenchPreview scenario={narrowScenario} />,
+    );
+    expect(narrow.getByTestId("parking-native-window-controls")).toBeTruthy();
+    expect(narrow.queryByRole("button", { name: "后退" })).toBeNull();
+    expect(narrow.queryByRole("button", { name: "前进" })).toBeNull();
+    expect(narrow.getByRole("button", { name: "切换任务导航" })).toBeTruthy();
+    expect(narrow.getByRole("button", { name: "搜索" })).toBeTruthy();
+    expect(narrow.queryByText("narrow")).toBeNull();
+    const localeChip = narrow.getByTestId("parking-locale-chip");
+    expect(localeChip.textContent).toBe("ZH");
+    expect(localeChip.className).toContain("whitespace-nowrap");
+    expect(narrow.queryByText("ZH-CN")).toBeNull();
+    narrow.unmount();
+
+    const collapse = render(
+      <ParkingWorkbenchPreview scenario={collapseScenario} />,
+    );
+    expect(collapse.getByRole("button", { name: "后退" })).toBeTruthy();
+    expect(collapse.getByRole("button", { name: "前进" })).toBeTruthy();
+    expect(collapse.getByText("collapse")).toBeTruthy();
+  });
+
   test("places workspace navigation before current and recent parking tasks", () => {
     const scenario = findParkingPreviewScenario("wide-light-task-dense");
     if (!scenario) throw new Error("Missing sidebar hierarchy scenario");
@@ -281,6 +311,73 @@ describe("ParkingWorkbenchPreview", () => {
     expect(container.textContent).not.toContain("pom.xml");
     expect(container.textContent).not.toContain("commit");
     expect(container.textContent).not.toContain("pull request");
+  });
+
+  test("composes board and connector capabilities from quiet preset components", () => {
+    const boardScenario = findParkingPreviewScenario("wide-light-board-focus");
+    const connectorsScenario = findParkingPreviewScenario(
+      "collapse-dark-connectors-overlay",
+    );
+    if (!boardScenario || !connectorsScenario) {
+      throw new Error("Missing quiet capability scenarios");
+    }
+
+    const board = render(
+      <ParkingWorkbenchPreview scenario={boardScenario} />,
+    );
+    const boardInbox = board.container.querySelector(
+      '[data-slot="agent-inbox"][data-variant="quiet"]',
+    );
+    expect(boardInbox?.getAttribute("role")).toBeNull();
+    const boardItems = boardInbox?.querySelectorAll(
+      '[data-slot="agent-inbox-item"][data-variant="quiet"]',
+    );
+    expect(boardItems).toHaveLength(3);
+    expect(
+      Array.from(boardItems ?? []).every(
+        (item) => item.getAttribute("role") === null,
+      ),
+    ).toBe(true);
+    for (const widget of boardScenario.fixture.board.widgets) {
+      expect(boardInbox?.textContent).toContain(widget);
+    }
+    const focusTarget = board.getByTestId("parking-board-focus-target");
+    expect(focusTarget.getAttribute("data-keyboard-focus")).toBe("true");
+    expect(document.activeElement).toBe(focusTarget);
+    board.unmount();
+
+    const connectors = render(
+      <ParkingWorkbenchPreview scenario={connectorsScenario} />,
+    );
+    const connectorGroup = connectors.container.querySelector(
+      '[data-preview-surface="connectors"] [data-slot="settings-group"][data-variant="quiet"]',
+    );
+    expect(connectorGroup).toBeTruthy();
+    expect(
+      connectorGroup?.querySelectorAll('[data-slot="settings-row"]'),
+    ).toHaveLength(4);
+    expect(
+      connectorGroup?.querySelectorAll('[data-slot="settings-select"]'),
+    ).toHaveLength(1);
+    expect(
+      connectorGroup?.querySelectorAll('[data-connector-state="true"]'),
+    ).toHaveLength(3);
+    expect(connectorGroup?.textContent).toContain(
+      connectorsScenario.fixture.connectors.runtime,
+    );
+    for (const state of connectorsScenario.fixture.connectors.states) {
+      expect(connectorGroup?.textContent).toContain(state);
+    }
+    expect(
+      connectors.container.querySelector(
+        '[data-preview-surface="connectors"] [data-slot="settings-group"][data-variant="card"]',
+      ),
+    ).toBeNull();
+    expect(
+      connectors.container.querySelector(
+        '[data-preview-surface="connectors"] [data-slot="agent-inbox"]',
+      ),
+    ).toBeNull();
   });
 
   test("preserves streaming, approval, and recoverable error states", () => {

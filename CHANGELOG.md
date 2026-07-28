@@ -8,6 +8,7 @@
 
 ### 变更
 
+- Agent Workbench skin contract 新增语义化 `--wb-overlay-scrim`，完整 token 数由 42 升为 43；`AgentInbox` / `InboxItem` 与 `SettingsGroup` 新增默认不破坏现有 card 外观的 `quiet` 变体，供 Codex 风 Board / Connectors 复用真实 Preset 组件构成扁平 hairline 行；`settings-panel` registry item 同步携带完整 43 项 light / dark token。
 - 灵感库网站与品牌卡片改用带来源、采集日期与版权归属的真实官网首屏截图，整张预览图可直接访问对应网站；新增批量采集与质量审计脚本。
 - 灵感库「来源」目录移除已完成内容迁移的 Learn UI 与 RICOUI 卡片，保留迁入的品牌、网站和真实截图。
 - 灵感来源卡片新增“公开浏览 / 免费增值 / 付费完整访问”等访问边界，避免把登录与订阅条件藏在数据里。

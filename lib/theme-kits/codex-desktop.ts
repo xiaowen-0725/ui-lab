@@ -57,6 +57,7 @@ Object.assign(light.shadcn, {
 Object.assign(light.wb, {
   "wb-surface": "#fff",
   "wb-surface-translucent": "rgb(249 249 249 / 0.82)",
+  "wb-overlay-scrim": "rgb(0 0 0 / 0.06)",
   "wb-surface-raised": "#fff",
   "wb-surface-composer": "#fff",
   "wb-card": "#f9f9f9",
@@ -93,6 +94,7 @@ Object.assign(dark.shadcn, {
 Object.assign(dark.wb, {
   "wb-surface": "#181818",
   "wb-surface-translucent": "rgb(24 24 24 / 0.82)",
+  "wb-overlay-scrim": "rgb(0 0 0 / 0.24)",
   "wb-surface-raised": "#212121",
   "wb-surface-composer": "#212121",
   "wb-card": "#282828",

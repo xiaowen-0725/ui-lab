@@ -1,5 +1,7 @@
 // Source of truth: app/globals.css. Keep these values in sync when its
 // agent workbench token defaults change; they are not extracted at build time.
+export const WB_TOKEN_COUNT = 43;
+
 export const WB_TOKENS_LIGHT: Record<string, string> = {
   "wb-hover": "rgb(0 0 0 / 0.05)",
   "wb-hover-subtle": "rgb(0 0 0 / 0.04)",
@@ -24,6 +26,7 @@ export const WB_TOKENS_LIGHT: Record<string, string> = {
   "wb-resize-handle": "rgb(0 0 0 / 0.2)",
   "wb-surface": "rgb(255 255 255)",
   "wb-surface-translucent": "oklch(94.5% 0.002 250 / 0.75)",
+  "wb-overlay-scrim": "rgb(0 0 0 / 0.06)",
   "wb-surface-raised": "rgb(255 255 255 / 0.95)",
   "wb-surface-composer": "rgb(255 255 255 / 0.9)",
   "wb-card": "rgb(0 0 0 / 0.04)",
@@ -69,6 +72,7 @@ export const WB_TOKENS_DARK: Record<string, string> = {
   "wb-resize-handle": "rgb(255 255 255 / 0.25)",
   "wb-surface": "oklch(20.5% 0 0)",
   "wb-surface-translucent": "oklch(20.5% 0 0 / 0.6)",
+  "wb-overlay-scrim": "rgb(0 0 0 / 0.24)",
   "wb-surface-raised": "oklch(26.9% 0 0 / 0.95)",
   "wb-surface-composer": "oklch(26.9% 0 0 / 0.9)",
   "wb-card": "oklch(26.9% 0 0 / 0.5)",

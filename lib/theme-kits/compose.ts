@@ -2,7 +2,9 @@
 // the baseline shadcn/wb defaults, a design-system entry, or a studio preset.
 
 import {
+  curveCssValue,
   DENSITIES,
+  durationCssValue,
   FONT_PAIRS,
   MOTION_CURVES,
   MOTION_DURATIONS,
@@ -10,16 +12,14 @@ import {
   SHADOWS,
   SPACING_SCALE,
   TYPE_SCALE,
-  curveCssValue,
-  durationCssValue,
 } from "@/lib/atoms";
 import { graphiteDesignSystem } from "@/lib/layouts/design-systems";
 import type { DesignSystemEntry } from "@/lib/layouts/types";
+import { WB_TOKENS_DARK, WB_TOKENS_LIGHT } from "@/lib/registry-wb-tokens";
 import { composeStudioVariables } from "@/lib/studio/export";
 import { normalizeStudioConfig } from "@/lib/studio/presets";
 import type { StudioStarterPreset } from "@/lib/studio/types";
 import { BASE_DARK, BASE_LIGHT } from "@/lib/themes";
-import { WB_TOKENS_DARK, WB_TOKENS_LIGHT } from "@/lib/registry-wb-tokens";
 import { deriveChartColors } from "./charts";
 import type { ThemeKit, ThemeMode, ThemeTokenSet } from "./types";
 
@@ -270,7 +270,7 @@ export function kitFromStudioPreset(preset: StudioStarterPreset): ThemeKit {
       wb[key] = value;
     } else {
       // "shadow" (state-dependent, see note above), plus studio-only extras
-      // wb-surface-alpha / wb-blur that aren't part of the 42-key wb contract.
+      // wb-surface-alpha / wb-blur that aren't part of the 43-key wb contract.
       extraOverride[key] = value;
     }
   }
