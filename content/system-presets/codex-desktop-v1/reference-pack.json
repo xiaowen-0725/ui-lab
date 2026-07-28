@@ -75,7 +75,7 @@
     "shadows": {"hairline":"0px 0px 0px .5px #0000001a","sm":"0px 1px 2px -1px #00000014","md":"0px 2px 4px -1px #00000014","lg":"0px 4px 8px -2px #0000001a","xl":"0px 8px 16px -4px #0000001f","2xl":"0px 16px 32px -8px #00000030"},
     "motion": {"basic":".15s","relaxed":".3s","cubic":"cubic-bezier(.19, 1, .22, 1)","snappy":"cubic-bezier(.23, 1, .32, 1)"},
     "colors": {"gray":["#fff","#f9f9f9","#f3f3f3","#ededed","#afafaf","#5d5d5d","#414141","#303030","#282828","#212121","#181818","#0d0d0d"],"blue50":"#e5f3ff","blue300":"#339cff","lightMain":"#fff","darkMain":"#181818","borderForegroundMixPercent":[5,8,12]},
-    "selection":"Low-chroma blue surface with neutral foreground and icons; never high-saturation cyan across background, text, and icon.",
+    "selection":"Low-chroma blue surface with neutral foreground and icons.",
     "surfaces":"Quiet header, tinted sidebar, plain main canvas, bottom composer, compact popover, and sparse shadow.",
     "componentAnatomy":"Dense task list and thread, restrained dividers, pane boundaries, and controls that preserve state visibility."
   },
