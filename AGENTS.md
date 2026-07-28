@@ -71,6 +71,12 @@ next-intl 路由化:`/` = 中文(默认 locale)、`/en/*` = 英文,`localePrefix
 
 Recipe 是 Catalog 的 `kind: "recipe"`,用于组合 System Kit、Block、组件或页面 section,而不是承载业务逻辑。每个 Recipe 必须声明 `profiles` / `recommendedSystem`、`entryComponent`、必装 `components`、`optionalComponents`、页面型配方的 `sections`(slug/variant/required)、`slots`、loading/empty/error 等 `states`、`responsive`、字体/图片等 `assets`,以及 `required` / `forbidden`。`saas-landing` 当前是 section composition contract(Pricing 可选),不是一份可 vendoring 的完整页面 shell;完整 shell 是后续资产。变更 Recipe 后同样必须执行 `bun run cli:snapshot`,并用消费项目的 `ui-lab compose <recipe>` + `ui-lab audit` 验证。
 
+## System Preset 与 Order Manifest（Phase 1）
+
+`lib/system-presets/` 是 System Preset 真源；`lib/catalog-contract.ts` 负责 Catalog 契约的 canonical hash；`lib/order-manifest.ts` 定义可校验、不可变的 draft / confirmed Manifest schema。Theme Kit 仍只负责 token，Recipe 仍只负责组合，`ui-lab.config.json` / `ui-lab.lock.json` / Audit 也各自只表达低层绑定与一致性证据，以上任何一项都不能替代 Confirmed Manifest。
+
+`codex-desktop-v1` 当前只有 approved calibration 与 `planned` golden cases，尚未生成 Phase 2 checkout / golden evidence，因此在 Phase 2 checkout 开始前禁止修改 Parking Agent。Catalog 增删改（包括 System Preset）仍必须执行 `bun run cli:snapshot`。Phase 3 的 order CLI（validate / diff / sync）与 skill enforcement 尚未实现，不得把现有 `init` / `compose` / `lock` / `audit` 描述为已经支持 confirmed order。
+
 ## Motion 约定
 
 - 用 `lib/ease.ts` 的 token:`EASE_OUT`、`EASE_OUT_CSS`、`EASE_IN_OUT`、`EASE_DRAWER`、`SPRING_PRESS`、`SPRING_SWAP`、`SPRING_PANEL`、`SPRING_LAYOUT`、`SPRING_MOUSE`。不写内联 `cubic-bezier` 或一次性 spring;确实需要组件专属调参时,留成有注释说明原因的具名局部常量。

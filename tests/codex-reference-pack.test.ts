@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, test } from "bun:test";
+import { canonicalSha256 } from "@/lib/contracts/canonical-json";
 import sharp from "sharp";
 
 const REPO_ROOT = resolve(import.meta.dir, "..");
@@ -53,6 +54,7 @@ type FixturePack = {
   schemaVersion: number;
   id: string;
   version: number;
+  deterministic: boolean;
   capturePreconditions: string[];
   caseSelectors: Record<string, string[]>;
 };
@@ -244,8 +246,8 @@ describe("Codex Desktop v1 reference pack", () => {
         "reduced-motion branch",
       ]),
     );
-    const fixtureBytes = readFileSync(resolve(REPO_ROOT, pack.fixturePack.path));
-    expect(createHash("sha256").update(fixtureBytes).digest("hex")).toBe(pack.fixturePack.sha256);
+    expect(fixture.deterministic).toBe(true);
+    expect(canonicalSha256(fixture)).toBe(pack.fixturePack.sha256);
   });
 
   test("records visual decision boundaries and companion documents", () => {
@@ -264,16 +266,14 @@ describe("Codex Desktop v1 reference pack", () => {
         "responsive",
       ]),
     );
-    expect(pack.safeOverrides).toEqual(
-      expect.arrayContaining([
-        "branding",
-        "capabilities",
-        "content",
-        "locale",
-        "semanticStateColors",
-        "platformChrome",
-      ]),
-    );
+    expect(pack.safeOverrides).toEqual([
+      "branding",
+      "productCopy",
+      "navigation",
+      "locale",
+      "semanticStateColors",
+      "platformChrome",
+    ]);
     expect(pack.forbiddenPatterns.length).toBeGreaterThan(0);
     expect(pack.observedFacts.icons).toMatchObject({
       family: "Lucide",

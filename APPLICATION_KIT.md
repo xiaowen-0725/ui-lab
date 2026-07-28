@@ -21,6 +21,26 @@ UI Lab 不负责：
 - 为了套用现有组件而改变业务语义。
 - 替代人工视觉验收或通用体验评审。
 
+## 顶层装配边界：System Preset 与 Order Manifest
+
+六层模型继续描述可复用前端资产如何分层；其上新增两个**顶层装配领域对象**，用来把一次真实应用的选择、约束和验收证据固定下来，而不是再把它们塞回 token、Recipe 或 CLI 配置。
+
+- **System Preset**：跨层的、可被选择的产品级系统预设。它冻结一个 Theme Kit、字体/图标/组件 anatomy、能力与组件白名单、资产、参考包、safe override 和 forbidden；Theme Kit 仍只处于 token 层，Recipe 仍只处于组合层，二者都不能单独表达一套已校准的产品系统。
+- **Order Draft**：可变的装配订单草案。它记录所选 System Preset、Recipe、能力和允许的 safe override，供人和 Agent 比较、讨论与修改。
+- **Confirmed Manifest**：由确认后的订单生成的不可变装配清单。它必须绑定 canonical contract hash、确定性 assets/components，以及目标运行时的 golden / checkout 证据；没有这些证据，不得称为 confirmed，也不得以 config、lock 或 Audit 代替。
+
+`codex-desktop-v1` 当前仅处于 Phase 1：它拥有 approved calibration、planned cases 和 draft order 的领域定义；尚未生成 Phase 2 的 Confirmed Manifest，尚未完成视觉验收，且本阶段**不得修改 Parking Agent**。
+
+### System Preset 的 Catalog 与解析契约
+
+Catalog 新增 `kind: "system-preset"`。每个 System Preset 以稳定序列化载荷计算 canonical contract hash；该哈希描述预设本身，不是消费项目源码或截图的字节哈希。Phase 1 resolver 以 `preset + recipe + capability + safeOverrides` 为输入，解析出确定性的 assets/components 清单；任何不在白名单中的能力、组件和 override 都必须被拒绝或显式回到 Order Draft 重新确认。
+
+System Preset 的 `lockedVisual` 固定为 typography、icons、surfaces、selection、density、geometry、shadows、motion、responsive 九类非空视觉事实；reference fixture 以 canonical payload 和 hash 一同进入 Catalog，保证离线可重建。safe override 只有预设声明的六类键和值域可用，解析出的 assets 必须进入 Order Manifest 的 composition 与 manifest hash。
+
+Manifest 的结构/hash 解析与 Catalog 策略验证是两道门：公开 draft 只能从 resolver 结果创建；导入、记录 golden 或确认前必须用可信 Catalog 重新解析并逐项比对 preset、Recipe、能力、组件、资产、视觉锁和 reference matrix。仅有合法 JSON 或自洽 SHA-256 不能成为 Confirmed Manifest。
+
+System Preset 不分发第三方产品资产或暗示官方授权。它只引用 UI Lab 可合法分发的 token、组件和明确边界内的参考/资产说明。
+
 ## 六层模型
 
 | 层 | 职责 | 连接标准 |
@@ -121,7 +141,7 @@ ui-lab audit --strict --json --dir <frontend-package>
 
 ## 消费项目契约
 
-实际 React 前端 package 根目录承载四份职责不同的项目证据。这个目录同时应包含该前端的 `package.json` 和 `components.json`；它不一定是 Git 仓库或 monorepo 根目录。不要在没有 React 依赖的 workspace root 创建配置，monorepo 应通过 `--dir packages/desktop` 一类参数始终指向真实消费包。
+实际 React 前端 package 根目录当前承载四份职责不同的项目证据。这个目录同时应包含该前端的 `package.json` 和 `components.json`；它不一定是 Git 仓库或 monorepo 根目录。不要在没有 React 依赖的 workspace root 创建配置，monorepo 应通过 `--dir packages/desktop` 一类参数始终指向真实消费包。
 
 | 文件 | 单一职责 | 维护者 |
 |---|---|---|
@@ -131,6 +151,12 @@ ui-lab audit --strict --json --dir <frontend-package>
 | `.ui-lab/adoption-report.md` | adopt/replace 的实现记录：映射、偏差、候选决策和验证证据 | Agent/实现者维护 |
 
 四者不可互相替代：config 只表达“要装成什么”，不是视觉规范；lock 只记录“基于哪份 Catalog 行为契约装配”，不是安装收据；`DESIGN.md` 不替代 Recipe 的可执行约束；adoption report 记录实施事实，不覆盖视觉真源。
+
+### Phase 3 目标证据
+
+Order Draft 主要是 Studio 中可变的选择状态，不是消费根的必备文件。Phase 3 的 order sync 将决定消费根中 Confirmed Manifest 与可能的 sync receipt 的具体文件形态；无论最终落点为何，Confirmed Manifest 都必须独立于 config / lock / Audit，固定 canonical contract hash、确定性 assets/components 和 golden / checkout 证据。
+
+当前 CLI 的 `order validate` / `order diff` / `order sync` 属于 **Phase 3 计划能力**，尚未实现。现有 `init`、`compose`、`lock` 和 `audit` 仅处理较低层的配置、Catalog 和确定性规则，绝不能被表述为已经支持 confirmed order 或 Manifest 验收。
 
 ### 装配意图：`ui-lab.config.json`
 

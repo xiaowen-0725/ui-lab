@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, test } from "bun:test";
 import {
   existsSync,
+  cpSync,
   mkdirSync,
   mkdtempSync,
   readFileSync,
@@ -10,7 +11,9 @@ import {
 import { tmpdir } from "node:os";
 import { resolve } from "node:path";
 import { GET as getLlmsIndex } from "@/app/llms.txt/route";
+import { GET as getLlmsFull } from "@/app/llms-full.txt/route";
 import { buildCatalog } from "@/lib/catalog";
+import { catalogContractHash as mainCatalogContractHash } from "@/lib/catalog-contract";
 import { SECTIONS } from "@/lib/sections";
 import { auditProject } from "../cli/src/audit";
 import { catalogContractHash } from "../cli/src/project-lock";
@@ -39,6 +42,32 @@ function runCli(...args: string[]) {
   };
 }
 
+async function runCliWithCatalog(items: unknown[], ...args: string[]) {
+  const fixtureRoot = temporaryProject();
+  const fixtureCli = resolve(fixtureRoot, "cli");
+  mkdirSync(fixtureCli, { recursive: true });
+  cpSync(resolve(REPO_ROOT, "cli/src"), resolve(fixtureCli, "src"), { recursive: true });
+  writeFileSync(
+    resolve(fixtureCli, "catalog.snapshot.json"),
+    `${JSON.stringify({ generatedAt: "test", count: items.length, items })}\n`,
+  );
+  const process = Bun.spawn(
+    [
+      Bun.which("bun") ?? "bun",
+      resolve(fixtureCli, "src/index.ts"),
+      ...args,
+    ],
+    { cwd: REPO_ROOT, stdout: "pipe", stderr: "pipe" },
+  );
+
+  const [exitCode, stdout, stderr] = await Promise.all([
+    process.exited,
+    new Response(process.stdout).text(),
+    new Response(process.stderr).text(),
+  ]);
+  return { exitCode, stdout, stderr };
+}
+
 afterEach(() => {
   for (const directory of temporaryDirectories.splice(0)) {
     rmSync(directory, { recursive: true, force: true });
@@ -55,6 +84,36 @@ describe("application recipes catalog", () => {
     expect(text).not.toContain(
       "styles, palettes, studio presets) has no CLI installer",
     );
+  });
+
+  test("llms endpoints publish the complete System Preset contract alongside its ThemeKit path", async () => {
+    const catalog = await buildCatalog();
+    const preset = catalog.find(
+      (item) => item.kind === "system-preset" && item.slug === "codex-desktop-v1",
+    );
+    if (!preset?.systemPreset) throw new Error("codex system preset fixture is missing");
+
+    const [indexResponse, fullResponse] = await Promise.all([
+      getLlmsIndex(),
+      getLlmsFull(),
+    ]);
+    const [index, full] = await Promise.all([
+      indexResponse.text(),
+      fullResponse.text(),
+    ]);
+
+    expect(index).toContain("select the complete System Preset");
+    expect(index).toContain("compatible Recipe/capabilities/safe overrides");
+    expect(index).toContain("underlying tokens only");
+    expect(index).toContain("does not produce a confirmed Manifest or visual acceptance");
+    expect(index).toContain("Phase 2 checkout/Phase 3 order CLI are not implemented");
+
+    const contract = full.match(
+      /### Codex Desktop \(system-preset\)[\s\S]*?System Preset contract \(JSON\):\n```json\n([\s\S]*?)\n```/,
+    )?.[1];
+    expect(contract).toBeDefined();
+    expect(JSON.parse(contract ?? "")).toEqual(preset.systemPreset);
+    expect(full).toContain("Underlying ThemeKit tokens only: ui-lab theme codex-desktop-v1");
   });
 
   test("component items expose their complete registry source family for consumer audits", async () => {
@@ -177,9 +236,67 @@ describe("ui-lab application kit CLI", () => {
     expect(help.stdout).toContain("ui-lab lock --dir packages/desktop");
     expect(help.stdout).toContain("audit [--dir");
     expect(help.stdout).toContain("--strict");
-    expect(help.stdout).toContain("design-system, recipe");
+    expect(help.stdout).toContain("design-system, system-preset, recipe");
     expect(help.stdout).toContain("do not include /catalog.json");
     expect(help.stdout).not.toContain("isn't deployed yet");
+  });
+
+  test("system presets remain CLI-compatible ThemeKit payloads without becoming orders", async () => {
+    const catalog = await buildCatalog();
+    const preset = catalog.find(
+      (item) => item.kind === "system-preset" && item.slug === "codex-desktop-v1",
+    );
+    if (!preset?.systemPreset) throw new Error("codex system preset fixture is missing");
+
+    expect(catalogContractHash(preset)).toBe(mainCatalogContractHash(preset));
+    expect(
+      catalogContractHash({
+        ...preset,
+        name: "Display-only rename",
+        nameZh: "仅展示改名",
+        description: "Display-only description",
+        descriptionZh: "仅展示描述",
+      }),
+    ).toBe(catalogContractHash(preset));
+    expect(
+      catalogContractHash({
+        ...preset,
+        systemPreset: {
+          ...preset.systemPreset,
+          lockedVisual: { ...preset.systemPreset.lockedVisual, version: 999 },
+        },
+      }),
+    ).not.toBe(catalogContractHash(preset));
+
+    const listed = await runCliWithCatalog(catalog, "list", "--kind", "system-preset");
+    expect(listed.exitCode).toBe(0);
+    expect(listed.stderr).toContain("Using bundled snapshot");
+    expect(listed.stdout).toContain("system-preset (1)");
+    expect(listed.stdout).toContain("codex-desktop-v1");
+
+    const shown = await runCliWithCatalog(
+      catalog,
+      "show",
+      "codex-desktop-v1",
+      "--kind",
+      "system-preset",
+    );
+    expect(shown.exitCode).toBe(0);
+    expect(shown.stdout).toContain("system-preset");
+
+    const themed = await runCliWithCatalog(
+      catalog,
+      "theme",
+      "codex-desktop-v1",
+      "--kind",
+      "system-preset",
+    );
+    expect(themed.exitCode).toBe(0);
+    expect(themed.stdout).toContain("shadcn install:");
+    expect(themed.stdout).toContain("underlying ThemeKit tokens only");
+
+    const help = runCli("--help");
+    expect(help.stdout).toContain("system-preset");
   });
 
   test("rejects unknown and command-inapplicable flags before loading the catalog", () => {

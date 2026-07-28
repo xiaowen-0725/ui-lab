@@ -283,7 +283,8 @@ const CSS = `
 
 /**
  * Builds the full self-contained HTML picker page for every catalog item
- * that carries a themePreview (design-system + studio-preset kits). No
+ * that carries a ThemeKit themePreview. System Preset cards expose only their
+ * underlying token payload; they never stand in for a confirmed Manifest. No
  * external assets, fonts, or scripts — the only inline JS is an optional
  * slug/name filter and click-to-select on the install command.
  */

@@ -83,9 +83,9 @@
     "componentAnatomy":"Dense task list and thread, restrained dividers, pane boundaries, and controls that preserve state visibility."
   },
   "lockedDecisions": ["typography","icons","surfaces","selection","density","geometry","shadows","motion","responsive"],
-  "safeOverrides": ["branding","capabilities","content","locale","semanticStateColors","platformChrome"],
+  "safeOverrides": ["branding","productCopy","navigation","locale","semanticStateColors","platformChrome"],
   "forbiddenPatterns": ["High-saturation cyan simultaneously for selected background, text, and icon.","Generic dashboard cards.","Oversized radii.","Unrelated gradients or glass.","Mixed icon families.","Competing type scales.","Decorative motion that hides state."],
-  "fixturePack": {"id":"parking-high-density-v1","version":1,"path":"content/system-presets/codex-desktop-v1/fixtures/parking-high-density-v1.json","sha256":"8c642ccc6fd89f86ed84cab0a8efde63a8035faf0d621004bcb4a5494be581d4"},
+  "fixturePack": {"id":"parking-high-density-v1","version":1,"path":"content/system-presets/codex-desktop-v1/fixtures/parking-high-density-v1.json","sha256":"6de78ec8ddf6c3e9f26e998d8d37a8d56843a30ea1c15d0556232b1f6e261bbc"},
   "acceptanceCases": [
     {"id":"wide-light-task-dense","viewport":"wide","size":"1440x900","scale":1,"theme":"light","states":["dense"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"status":"planned","fontLoadingState":"document-fonts-ready","captureTiming":"two-animation-frames-after-state-settle","goldenCapture":null,"calibrationSourceIds":["codex-workbench-light","codex-desktop-light"]},
     {"id":"wide-dark-task-streaming","viewport":"wide","size":"1440x900","scale":1,"theme":"dark","states":["dense","streaming"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"status":"planned","fontLoadingState":"document-fonts-ready","captureTiming":"two-animation-frames-after-state-settle","goldenCapture":null,"calibrationSourceIds":["codex-composer-dark","codex-workbench-light"]},

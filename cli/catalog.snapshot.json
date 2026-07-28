@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-27T15:49:57.331Z",
-  "count": 158,
+  "generatedAt": "2026-07-28T11:02:51.094Z",
+  "count": 159,
   "items": [
     {
       "kind": "component",
@@ -4079,6 +4079,741 @@
           "chart-6": "oklch(0.62 0.11 165)",
           "font-sans": "Inter, 'Helvetica Neue', system-ui, sans-serif"
         }
+      }
+    },
+    {
+      "kind": "system-preset",
+      "category": "application",
+      "slug": "codex-desktop-v1",
+      "name": "Codex Desktop",
+      "nameZh": "Codex 桌面",
+      "aliases": [
+        "codex",
+        "desktop workbench"
+      ],
+      "description": "A complete UI Lab System Preset for Codex-calibrated desktop workbenches; Phase 1 acceptance goldens remain planned.",
+      "descriptionZh": "完整的 UI Lab Codex 桌面工作台系统预设；Phase 1 验收 golden 仍处于 planned 状态。",
+      "pageUrl": "http://localhost:3000/catalog.json#codex-desktop-v1",
+      "fetch": {
+        "method": "copy-tokens",
+        "command": "npx shadcn@latest add http://localhost:3000/r/theme-codex-desktop-v1.json",
+        "endpoint": "http://localhost:3000/themes/codex-desktop-v1.css"
+      },
+      "themePreview": {
+        "modes": [
+          "light",
+          "dark"
+        ],
+        "light": {
+          "background": "#fff",
+          "foreground": "#181818",
+          "card": "#f9f9f9",
+          "muted-foreground": "#5d5d5d",
+          "border": "rgb(0 0 0 / 0.08)",
+          "primary": "#303030",
+          "primary-foreground": "#fff",
+          "success": "oklch(59.6% 0.145 163.225)",
+          "danger": "oklch(63.7% 0.237 25.331)",
+          "warning": "#e25507",
+          "wb-surface": "#fff",
+          "wb-accent": "#339cff",
+          "wb-hairline": "rgb(0 0 0 / 0.08)",
+          "chart-1": "oklch(0.55 0.17 251)",
+          "chart-2": "oklch(0.68 0.17 311)",
+          "chart-3": "oklch(0.52 0.17 41)",
+          "chart-4": "oklch(0.70 0.17 101)",
+          "chart-5": "oklch(0.58 0.17 176)",
+          "chart-6": "oklch(0.65 0.17 221)",
+          "font-sans": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+        },
+        "dark": {
+          "background": "#181818",
+          "foreground": "#f3f3f3",
+          "card": "#212121",
+          "muted-foreground": "#afafaf",
+          "border": "rgb(255 255 255 / 0.08)",
+          "primary": "#f3f3f3",
+          "primary-foreground": "#181818",
+          "success": "#40c977",
+          "danger": "#fa423e",
+          "warning": "#ff8549",
+          "wb-surface": "#181818",
+          "wb-accent": "#339cff",
+          "wb-hairline": "rgb(255 255 255 / 0.08)",
+          "chart-1": "oklch(0.52 0.17 251)",
+          "chart-2": "oklch(0.64 0.17 311)",
+          "chart-3": "oklch(0.50 0.17 41)",
+          "chart-4": "oklch(0.66 0.17 101)",
+          "chart-5": "oklch(0.55 0.17 176)",
+          "chart-6": "oklch(0.62 0.17 221)",
+          "font-sans": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+        }
+      },
+      "systemPreset": {
+        "aliases": [
+          "codex",
+          "desktop workbench"
+        ],
+        "approvedAt": "2026-07-28",
+        "assets": [
+          {
+            "id": "system-font",
+            "kind": "font",
+            "required": true,
+            "requirement": "Use the platform system font stack for body and display text."
+          },
+          {
+            "id": "lucide",
+            "kind": "icon",
+            "required": true,
+            "requirement": "Use Lucide icons at the calibrated workbench size and stroke weight."
+          }
+        ],
+        "capabilities": [
+          {
+            "components": [
+              "agent-workbench",
+              "thread-list",
+              "agent-thread",
+              "agent-composer"
+            ],
+            "name": "Tasks",
+            "nameZh": "任务",
+            "required": true,
+            "slug": "tasks"
+          },
+          {
+            "components": [
+              "artifact-panel"
+            ],
+            "name": "Artifact",
+            "nameZh": "产物",
+            "required": true,
+            "slug": "artifact"
+          },
+          {
+            "components": [
+              "agent-inbox",
+              "tabs"
+            ],
+            "name": "Board",
+            "nameZh": "看板",
+            "required": false,
+            "slug": "board"
+          },
+          {
+            "components": [
+              "settings-panel",
+              "select",
+              "switch"
+            ],
+            "name": "Connectors",
+            "nameZh": "连接器",
+            "required": false,
+            "slug": "connectors"
+          },
+          {
+            "components": [
+              "settings-panel",
+              "popover",
+              "morphing-modal"
+            ],
+            "name": "Settings",
+            "nameZh": "设置",
+            "required": true,
+            "slug": "settings"
+          }
+        ],
+        "compatibleRecipes": [
+          "agent-workbench"
+        ],
+        "componentAllowlist": [
+          "agent-composer",
+          "agent-inbox",
+          "agent-thread",
+          "agent-workbench",
+          "artifact-panel",
+          "morphing-modal",
+          "popover",
+          "select",
+          "settings-panel",
+          "switch",
+          "tabs",
+          "thread-list"
+        ],
+        "description": "A complete UI Lab System Preset for Codex-calibrated desktop workbenches; Phase 1 acceptance goldens remain planned.",
+        "descriptionZh": "完整的 UI Lab Codex 桌面工作台系统预设；Phase 1 验收 golden 仍处于 planned 状态。",
+        "forbidden": [
+          "Do not use high-saturation cyan simultaneously for selected backgrounds, text, and icons.",
+          "Do not replace the workbench composition with unrelated generic dashboard cards.",
+          "Do not use radii larger than the calibrated geometry without a confirmed safe override.",
+          "Do not add unrelated gradients, glass effects, or ambient presentation layers.",
+          "Do not mix Lucide with another icon family.",
+          "Do not introduce a competing type scale or a proprietary font asset.",
+          "Do not use decorative motion that hides application state.",
+          "Do not mix components from an unapproved visual family."
+        ],
+        "lockedVisual": {
+          "density": {
+            "baseUnitPx": 4,
+            "composerSingleLinePx": 22,
+            "navigationRowPx": 32,
+            "panePx": 40,
+            "spacingScalePx": [
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              32
+            ],
+            "threadContentMaxWidth": "48rem",
+            "toolbarPx": 46,
+            "toolbarSmallPx": 36
+          },
+          "geometry": {
+            "borderWidthsPx": [
+              0.5,
+              1
+            ],
+            "composerRadiusPx": 20,
+            "controlRadiusPx": 8,
+            "fullRadiusPx": 9999,
+            "panelRadiusPx": 12,
+            "radiusScalePx": [
+              0,
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              16,
+              20,
+              24
+            ]
+          },
+          "icons": {
+            "defaultStyle": "outline",
+            "family": "Lucide",
+            "filledUsage": "Use filled icons only for the current selected destination or explicit binary state.",
+            "forbiddenSubstitutions": [
+              "emoji in place of interface icons",
+              "text glyphs in place of Lucide icons",
+              "icons from a second visual family"
+            ],
+            "linecap": "round",
+            "linejoin": "round",
+            "opticalSizing": "Use 16px for standard controls, 12–14px for dense metadata, and 20–24px only for primary empty states.",
+            "package": "lucide-react",
+            "sizesPx": [
+              12,
+              14,
+              16,
+              18,
+              20,
+              24
+            ],
+            "statusTreatment": "Keep status meaning in the semantic color token while preserving the Lucide outline anatomy.",
+            "strokeWidthPx": 2
+          },
+          "motion": {
+            "curves": {
+              "snappy": "cubic-bezier(.23, 1, .32, 1)",
+              "standard": "cubic-bezier(.19, 1, .22, 1)"
+            },
+            "durationsMs": {
+              "deliberate": 300,
+              "press": 120,
+              "quick": 150,
+              "standard": 150
+            },
+            "properties": [
+              "transform",
+              "opacity",
+              "color",
+              "background-color"
+            ],
+            "reducedMotion": {
+              "preserveOpacity": true,
+              "removeTransform": true
+            }
+          },
+          "responsive": {
+            "collapse": {
+              "behavior": "Collapse navigation first and present one contextual region at a time as an overlay.",
+              "maxWidthPx": 1199,
+              "minWidthPx": 768
+            },
+            "narrow": {
+              "behavior": "Show one full-width task surface with explicit navigation between task, artifact, and settings.",
+              "maxWidthPx": 767
+            },
+            "nativeChromePolicy": "Preserve native desktop chrome when requested; responsive collapse applies below the chrome boundary.",
+            "wide": {
+              "behavior": "Keep navigation, task, and contextual panel visible as three bounded workbench regions.",
+              "minWidthPx": 1200
+            }
+          },
+          "selection": {
+            "backgroundToken": "--accent",
+            "disabledOpacity": 0.45,
+            "focusRingToken": "--ring",
+            "foregroundToken": "--accent-foreground",
+            "hoverToken": "--wb-hover",
+            "iconToken": "--muted-foreground",
+            "treatment": "Low-chroma blue surface with neutral foreground and icons."
+          },
+          "shadows": {
+            "levels": {
+              "2xl": "0px 16px 32px -8px #00000030",
+              "hairline": "0px 0px 0px .5px #0000001a",
+              "lg": "0px 4px 8px -2px #0000001a",
+              "md": "0px 2px 4px -1px #00000014",
+              "sm": "0px 1px 2px -1px #00000014",
+              "xl": "0px 8px 16px -4px #0000001f"
+            },
+            "maxBlurPx": 10,
+            "translucencyRule": "Use hairline and small shadows for controls; reserve larger levels for floating panels and overlays."
+          },
+          "surfaces": {
+            "componentAnatomy": {
+              "composer": "Bottom-anchored compact composer with explicit attachments, model state, and submit control.",
+              "overlay": "Mutually exclusive responsive overlay that preserves the underlying task context.",
+              "panel": "Contextual artifact or settings panel with a clear boundary and compact controls.",
+              "shell": "Three-region workbench shell with bounded navigation, task, and contextual panel areas.",
+              "sidebar": "Dense navigation rows, restrained selected state, and quiet project grouping.",
+              "task": "Thread and task state remain visible with compact rows and restrained dividers."
+            },
+            "hierarchy": [
+              "canvas below sidebar and task surfaces",
+              "composer above the active task surface",
+              "panels and popovers above the workbench shell",
+              "overlays above panels while preserving state visibility"
+            ],
+            "maxBlurPx": 10,
+            "roles": {
+              "canvas": "--wb-surface",
+              "composer": "--wb-surface-composer",
+              "header": "--wb-surface",
+              "overlay": "--wb-surface-translucent",
+              "panel": "--wb-surface-raised",
+              "popover": "--popover",
+              "sidebar": "--wb-surface-translucent",
+              "task": "--wb-surface"
+            },
+            "translucencyRule": "Use translucent surfaces only for sidebar, header, or responsive overlays; keep task content opaque."
+          },
+          "typography": {
+            "assetIds": [
+              "system-font"
+            ],
+            "fallbackPolicy": "Use the ThemeKit platform font stacks; do not vendor proprietary branded fonts.",
+            "families": {
+              "body": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+              "display": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+              "mono": "ui-monospace, \"SFMono-Regular\", \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+            },
+            "numerals": {
+              "family": "mono",
+              "usage": [
+                "task counts",
+                "elapsed time",
+                "diff statistics",
+                "viewport dimensions"
+              ],
+              "variant": "tabular-nums"
+            },
+            "scale": {
+              "body": {
+                "letterSpacingEm": 0,
+                "lineHeight": 1.4,
+                "sizePx": 14
+              },
+              "bodySm": {
+                "letterSpacingEm": 0,
+                "lineHeight": 1.35,
+                "sizePx": 12
+              },
+              "caption": {
+                "letterSpacingEm": 0.01,
+                "lineHeight": 1.3,
+                "sizePx": 11
+              },
+              "display": {
+                "letterSpacingEm": -0.02,
+                "lineHeight": 1.2,
+                "sizePx": 24
+              },
+              "headline": {
+                "letterSpacingEm": -0.01,
+                "lineHeight": 1.25,
+                "sizePx": 18
+              },
+              "title": {
+                "letterSpacingEm": -0.005,
+                "lineHeight": 1.3,
+                "sizePx": 16
+              }
+            },
+            "weights": [
+              400,
+              500,
+              600
+            ]
+          }
+        },
+        "name": "Codex Desktop",
+        "nameZh": "Codex 桌面",
+        "profiles": [
+          "next-app",
+          "vite-app",
+          "electron-renderer"
+        ],
+        "referencePack": {
+          "cases": [
+            {
+              "calibrationSourceIds": [
+                "codex-workbench-light",
+                "codex-desktop-light"
+              ],
+              "captureTiming": "two-animation-frames-after-state-settle",
+              "fixtureId": "parking-high-density-v1",
+              "fontLoadingState": "document-fonts-ready",
+              "goldenCapture": null,
+              "id": "wide-light-task-dense",
+              "keyboardFocus": false,
+              "reducedMotion": false,
+              "scale": 1,
+              "size": "1440x900",
+              "states": [
+                "dense"
+              ],
+              "status": "planned",
+              "surfaces": [
+                "task",
+                "artifact"
+              ],
+              "theme": "light",
+              "viewport": "wide"
+            },
+            {
+              "calibrationSourceIds": [
+                "codex-composer-dark",
+                "codex-workbench-light"
+              ],
+              "captureTiming": "two-animation-frames-after-state-settle",
+              "fixtureId": "parking-high-density-v1",
+              "fontLoadingState": "document-fonts-ready",
+              "goldenCapture": null,
+              "id": "wide-dark-task-streaming",
+              "keyboardFocus": false,
+              "reducedMotion": false,
+              "scale": 1,
+              "size": "1440x900",
+              "states": [
+                "dense",
+                "streaming"
+              ],
+              "status": "planned",
+              "surfaces": [
+                "task",
+                "artifact"
+              ],
+              "theme": "dark",
+              "viewport": "wide"
+            },
+            {
+              "calibrationSourceIds": [
+                "codex-workbench-light",
+                "codex-desktop-light"
+              ],
+              "captureTiming": "two-animation-frames-after-state-settle",
+              "fixtureId": "parking-high-density-v1",
+              "fontLoadingState": "document-fonts-ready",
+              "goldenCapture": null,
+              "id": "collapse-light-approval",
+              "keyboardFocus": false,
+              "reducedMotion": false,
+              "scale": 1,
+              "size": "1000x760",
+              "states": [
+                "approval"
+              ],
+              "status": "planned",
+              "surfaces": [
+                "task",
+                "artifact"
+              ],
+              "theme": "light",
+              "viewport": "collapse"
+            },
+            {
+              "calibrationSourceIds": [
+                "codex-desktop-light",
+                "codex-workbench-light"
+              ],
+              "captureTiming": "two-animation-frames-after-state-settle",
+              "fixtureId": "parking-high-density-v1",
+              "fontLoadingState": "document-fonts-ready",
+              "goldenCapture": null,
+              "id": "narrow-light-empty",
+              "keyboardFocus": false,
+              "reducedMotion": false,
+              "scale": 1,
+              "size": "375x760",
+              "states": [
+                "empty"
+              ],
+              "status": "planned",
+              "surfaces": [
+                "task"
+              ],
+              "theme": "light",
+              "viewport": "narrow"
+            },
+            {
+              "calibrationSourceIds": [
+                "codex-composer-dark",
+                "codex-workbench-light"
+              ],
+              "captureTiming": "two-animation-frames-after-state-settle",
+              "fixtureId": "parking-high-density-v1",
+              "fontLoadingState": "document-fonts-ready",
+              "goldenCapture": null,
+              "id": "wide-dark-error-artifact",
+              "keyboardFocus": false,
+              "reducedMotion": false,
+              "scale": 1,
+              "size": "1440x900",
+              "states": [
+                "error"
+              ],
+              "status": "planned",
+              "surfaces": [
+                "task",
+                "artifact"
+              ],
+              "theme": "dark",
+              "viewport": "wide"
+            },
+            {
+              "calibrationSourceIds": [
+                "codex-desktop-light",
+                "codex-workbench-light"
+              ],
+              "captureTiming": "two-animation-frames-after-state-settle",
+              "fixtureId": "parking-high-density-v1",
+              "fontLoadingState": "document-fonts-ready",
+              "goldenCapture": null,
+              "id": "wide-light-board-focus",
+              "keyboardFocus": true,
+              "reducedMotion": false,
+              "scale": 1,
+              "size": "1440x900",
+              "states": [
+                "dense"
+              ],
+              "status": "planned",
+              "surfaces": [
+                "board"
+              ],
+              "theme": "light",
+              "viewport": "wide"
+            },
+            {
+              "calibrationSourceIds": [
+                "codex-composer-dark",
+                "codex-desktop-light"
+              ],
+              "captureTiming": "two-animation-frames-after-state-settle",
+              "fixtureId": "parking-high-density-v1",
+              "fontLoadingState": "document-fonts-ready",
+              "goldenCapture": null,
+              "id": "collapse-dark-connectors-overlay",
+              "keyboardFocus": false,
+              "reducedMotion": false,
+              "scale": 1,
+              "size": "1000x760",
+              "states": [
+                "dense"
+              ],
+              "status": "planned",
+              "surfaces": [
+                "connectors",
+                "settings"
+              ],
+              "theme": "dark",
+              "viewport": "collapse"
+            },
+            {
+              "calibrationSourceIds": [
+                "codex-desktop-light",
+                "codex-workbench-light"
+              ],
+              "captureTiming": "two-animation-frames-after-state-settle",
+              "fixtureId": "parking-high-density-v1",
+              "fontLoadingState": "document-fonts-ready",
+              "goldenCapture": null,
+              "id": "wide-light-settings-reduced-motion",
+              "keyboardFocus": false,
+              "reducedMotion": true,
+              "scale": 1,
+              "size": "1440x900",
+              "states": [
+                "dense"
+              ],
+              "status": "planned",
+              "surfaces": [
+                "settings"
+              ],
+              "theme": "light",
+              "viewport": "wide"
+            }
+          ],
+          "contractHash": "8f925714a1b367a815d3aadf24de071048571656f63cd5523b10c7f403266265",
+          "fixture": {
+            "fixtureHash": "6de78ec8ddf6c3e9f26e998d8d37a8d56843a30ea1c15d0556232b1f6e261bbc",
+            "id": "parking-high-density-v1",
+            "path": "content/system-presets/codex-desktop-v1/fixtures/parking-high-density-v1.json",
+            "payload": {
+              "artifact": {
+                "summary": "3 条需要人工确认的记录，已附带来源和下一步。",
+                "title": "异常核验结果"
+              },
+              "board": {
+                "title": "运营核验看板",
+                "widgets": [
+                  "异常分布",
+                  "设备状态",
+                  "待确认事项"
+                ]
+              },
+              "capturePreconditions": [
+                "document.fonts.ready",
+                "two animation frames after stable state",
+                "reduced-motion branch"
+              ],
+              "caseSelectors": {
+                "collapse-dark-connectors-overlay": [
+                  "connector-runtime",
+                  "settings-overlay"
+                ],
+                "collapse-light-approval": [
+                  "task-fixture-001",
+                  "approval-fixture-001",
+                  "artifact-fixture-001"
+                ],
+                "narrow-light-empty": [
+                  "empty-state",
+                  "task-navigation"
+                ],
+                "wide-dark-error-artifact": [
+                  "recoverable-error",
+                  "artifact-fixture-001"
+                ],
+                "wide-dark-task-streaming": [
+                  "task-fixture-001",
+                  "tool-streaming",
+                  "artifact-fixture-001"
+                ],
+                "wide-light-board-focus": [
+                  "board-fixture-001",
+                  "keyboard-focus"
+                ],
+                "wide-light-settings-reduced-motion": [
+                  "settings-overlay",
+                  "reduced-motion"
+                ],
+                "wide-light-task-dense": [
+                  "task-fixture-001",
+                  "artifact-fixture-001",
+                  "dense-history"
+                ]
+              },
+              "clock": "2026-07-28T09:30:00.000Z",
+              "connectors": {
+                "runtime": "智汇云",
+                "states": [
+                  "connected",
+                  "ambiguous",
+                  "unbound"
+                ]
+              },
+              "conversation": {
+                "approval": "允许执行受控的访客写入前检查。",
+                "assistant": "正在聚合停车记录、设备状态和授权范围。",
+                "recoverableError": "连接器暂时不可用；请在恢复后重试，不会重复写入。",
+                "toolStreaming": [
+                  "读取在场车辆",
+                  "比对支付记录",
+                  "整理异常候选"
+                ],
+                "user": "请核验今日在场异常，列出需要人工确认的记录。"
+              },
+              "deterministic": true,
+              "empty": {
+                "description": "创建一个任务以开始停车运营核验。",
+                "title": "暂无任务"
+              },
+              "id": "parking-high-density-v1",
+              "ids": {
+                "approval": "approval-fixture-001",
+                "artifact": "artifact-fixture-001",
+                "board": "board-fixture-001",
+                "currentTask": "task-fixture-001",
+                "historyTask": "task-fixture-000"
+              },
+              "schemaVersion": 1,
+              "settings": {
+                "overlay": "执行授权与连接器设置",
+                "reducedMotion": true
+              },
+              "taskHistory": {
+                "current": "核验在场异常并生成处理建议",
+                "history": [
+                  "查询月票有效期",
+                  "确认访客放行记录",
+                  "核对收费差异",
+                  "检查设备在线状态"
+                ]
+              },
+              "textDensity": "high",
+              "timestamps": {
+                "approved": "2026-07-28T09:20:00.000Z",
+                "created": "2026-07-28T09:00:00.000Z",
+                "streaming": "2026-07-28T09:15:00.000Z"
+              },
+              "version": 1
+            },
+            "version": 1
+          },
+          "id": "codex-desktop-v1",
+          "status": "approved"
+        },
+        "required": [
+          "Use the complete Agent Workbench shell as the composition entry point.",
+          "Use the calibrated Codex Desktop Theme Kit before adapting product content.",
+          "Preserve native platform chrome when the confirmed order selects native chrome.",
+          "Preserve the declared component anatomy, state visibility, and responsive behavior."
+        ],
+        "safeOverrideKeys": [
+          "branding",
+          "productCopy",
+          "navigation",
+          "locale",
+          "semanticStateColors",
+          "platformChrome"
+        ],
+        "schemaVersion": 1,
+        "slug": "codex-desktop-v1",
+        "status": "approved",
+        "themeKit": {
+          "contractHash": "58a0489a688cc4969c68a6f255c8fe1acdc8f86e55b309fd14025f8766410628",
+          "slug": "codex-desktop-v1"
+        },
+        "version": 1
       }
     },
     {

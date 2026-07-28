@@ -12,6 +12,7 @@ const GROUP_LABELS: Record<CatalogKind, string> = {
   palette: "Palettes",
   "studio-preset": "Studio Presets",
   "design-system": "Design Systems",
+  "system-preset": "System Presets",
   recipe: "Application Recipes",
 };
 
@@ -24,13 +25,14 @@ const GROUP_ORDER: CatalogKind[] = [
   "palette",
   "studio-preset",
   "design-system",
+  "system-preset",
   "recipe",
 ];
 
 function fetchHint(item: CatalogItem): string {
   if (
     item.themePreview &&
-    (item.kind === "design-system" || item.kind === "studio-preset")
+    (item.kind === "design-system" || item.kind === "studio-preset" || item.kind === "system-preset")
   ) {
     return `theme: ui-lab theme ${item.slug}`;
   }
@@ -80,8 +82,9 @@ export async function GET() {
   lines.push("1. Components install directly with the shadcn CLI: run the `install` command shown next to each component (`npx shadcn@latest add <url>`).");
   lines.push("2. Recipes describe a compatible profile, Theme Kit, entry component, component set, and required/forbidden constraints. Use `ui-lab init`, then `ui-lab compose <recipe>` to produce an install plan without executing external commands.");
   lines.push("3. Design Systems and Studio Presets backed by Theme Kits install through `ui-lab theme <slug>`; inspect the selected kit before applying its shadcn command or CSS endpoint.");
-  lines.push("4. Other vocabulary (atom tokens, icon styles/motions, styles, palettes) has no CLI installer — fetch `/catalog.json`, find the item by `slug`, and read `fetch.value` for the ready-to-use prompt or token block. Or open its `pageUrl` to see the live sample first.");
-  lines.push("5. To fetch every item's inlined `fetch.value` in one request instead of round-tripping through JSON, read `/llms-full.txt`.");
+  lines.push("4. For a System Preset, first select the complete System Preset, then its compatible Recipe/capabilities/safe overrides. `ui-lab theme <slug>` supplies underlying tokens only and does not produce a confirmed Manifest or visual acceptance. Phase 2 checkout/Phase 3 order CLI are not implemented.");
+  lines.push("5. Other vocabulary (atom tokens, icon styles/motions, styles, palettes) has no CLI installer — fetch `/catalog.json`, find the item by `slug`, and read `fetch.value` for the ready-to-use prompt or token block. Or open its `pageUrl` to see the live sample first.");
+  lines.push("6. To fetch every item's inlined `fetch.value` in one request instead of round-tripping through JSON, read `/llms-full.txt`.");
   lines.push("");
 
   return new Response(lines.join("\n"), {

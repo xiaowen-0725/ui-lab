@@ -11,6 +11,7 @@ export type CatalogKind =
   | "palette"
   | "studio-preset"
   | "design-system"
+  | "system-preset"
   | "recipe";
 
 export type CatalogFetch = {
@@ -74,6 +75,8 @@ export type CatalogItem = {
   }[];
   required?: readonly string[];
   forbidden?: readonly string[];
+  /** Opaque System Preset contract; CLI only carries it for canonical hashing. */
+  systemPreset?: Record<string, unknown>;
 };
 
 type CatalogSnapshot = {
