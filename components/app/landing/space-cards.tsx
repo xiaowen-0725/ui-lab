@@ -6,6 +6,7 @@ import {
   Atom,
   Component,
   Hammer,
+  Lightbulb,
   LayoutGrid,
   LayoutTemplate,
   MoveVertical,
@@ -35,6 +36,7 @@ const SPACE_META: Record<
   layouts: { icon: AppWindow, descKey: "spaceLayoutsDesc" },
   patterns: { icon: LayoutTemplate, descKey: "spacePatternsDesc" },
   atoms: { icon: Atom, descKey: "spaceAtomsDesc" },
+  inspiration: { icon: Lightbulb, descKey: "spaceInspirationDesc" },
   studio: { icon: Hammer, descKey: "spaceStudioDesc" },
   playground: { icon: SlidersHorizontal, descKey: "spacePlaygroundDesc" },
 };

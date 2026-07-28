@@ -6,7 +6,16 @@
 
 ## [Unreleased]
 
+### 变更
+
+- 灵感库网站与品牌卡片改用带来源、采集日期与版权归属的真实官网首屏截图，整张预览图可直接访问对应网站；新增批量采集与质量审计脚本。
+- 灵感库「来源」目录移除已完成内容迁移的 Learn UI 与 RICOUI 卡片，保留迁入的品牌、网站和真实截图。
+- 灵感来源卡片新增“公开浏览 / 免费增值 / 付费完整访问”等访问边界，避免把登录与订阅条件藏在数据里。
+- 灵感库 21 个来源卡片新增带来源和采集日期的真实网站首屏预览，图片整块可直接访问原站，并纳入统一截图质量审计。
+
 ### 新增
+- **「灵感库 / Inspiration」模块(`/inspiration`)**：收录 21 个经核验的外部灵感来源，新增 Dribbble、Behance、Awwwards、SiteInspire、Land-book、Lapa Ninja、One Page Love、CSS Design Awards、Mobbin、Page Flows、Refero 与 SaaSFrame，按网站、产品界面、社交营销、品牌视觉、演示编辑与动效 3D 统一分组；第二阶段新增 74 个品牌设计参考，固定 vendoring `VoltAgent/awesome-design-md` commit `664b3e78fd1a298ba11973822da988483256d4b4` 的 DESIGN.md（64 份结构化 frontmatter、10 份 Markdown），按 MIT 许可保留 LICENSE 与来源说明。模块提供中英搜索、主题/分类筛选、可分享深链、站内搜索直达、逐份原文阅读，以及带来源和采集日期的真实官网视觉预览；品牌资产版权仍归对应权利人。
+- **灵感库新增「网站」层**：收录 26 个值得研究的知名与独立网站，提供独立列表和详情页、站内搜索与 sitemap。网站与品牌统一采用唯一行业领域，网站另以页面类型、视觉特征和策展徽标检索；`retro-web` 改为正交的专题集合，不再与行业分类混用。
 - **UI Lab Application Kit 第一阶段**:从视觉词汇表扩展为面向 AI 的可组合 React 前端系统,确立 Stack Profile、System Kit、Primitive/Component、Block、Recipe、Audit 六层架构;新增 Catalog `recipe` 类型与首批 `agent-workbench` / `saas-landing`,Recipe 以 `optionalComponents` / `sections` / `slots` / `states` / `responsive` / `assets` 等机器字段描述装配契约。其中 `agent-workbench` 引用完整可 vendoring 外壳;`saas-landing` 是 section composition contract(Pricing 可选),不是完整页面 shell。以实际 React package 根的 `ui-lab.config.json` 持久化 Profile、System、Recipe、组件和 `adopt|replace` 模式,新增 `ui-lab init` / `compose` / `audit` 与 config-aware `add`:四者支持 monorepo `--dir`;`compose` 在 adopt 下先 review/compare 且不覆盖 vendored source,replace 才给完整安装计划;`add` 只打印命令,有 config 时去重登记。源码 CLI 已提供这些命令;npm 包若滞后,以 `ui-lab --help` 核对并使用仓库内源码 CLI。
 - **UI Lab Skill v2 / Application Kit 交付契约**:把“装配意图、Catalog 行为契约、视觉真源、采用证据”拆为四份单一真源:`ui-lab.config.json` 只保存装配意图;CLI 管理的 `ui-lab.lock.json` 由 `init` / `compose` / config-aware `add` 同步,记录 `catalogSource`、所选 System/Recipe/Component 的 SHA-256 `contractHash` 与组件 `sourceFiles`,但不对本地 vendored 源码做字节等同性背书;新增安全恢复命令 `ui-lab lock --dir <frontend-package> [--json]`,只读现有 config 并按当前 Catalog 重建 missing/stale lock,不改 config、不安装,无需手改哈希或使用 `init --force`;`DESIGN.md` 保存视觉真源,`.ui-lab/adoption-report.md` 保存映射、偏差与验证证据。Audit 新增 `--strict`:缺 lock 或任意 warning 都退出 `1`,普通模式只有 warning 时退出 `0` 并显示 `Audit passed with warnings`;未知或命令不适用的 flag 直接拒绝。交付门禁统一为 `ui-lab audit --strict --json`,且明确要求以覆盖 Recipe 每个适用 viewport / mode / state 维度的最小代表性 case 集成对比较同尺寸 reference / implementation 截图,仅 Recipe 明确要求时才做全笛卡尔积——确定性 Audit 不等于视觉验收。
 - **`agent-workbench` 响应式 Recipe 落地**:外壳按自身容器宽度切换 desktop / tablet / mobile。桌面保留三栏独立拖宽;平板先折叠导航,两个侧区以互斥覆盖层打开;移动端一次只显示一个全宽任务表面,遮罩后的主区从键盘导航中移除。公开 `layoutMode` 供产品头部做窄屏适配,位移在 reduced-motion 下关闭。

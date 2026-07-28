@@ -14,6 +14,7 @@ export type NavSpace = {
     | "layouts"
     | "patterns"
     | "atoms"
+    | "inspiration"
     | "studio"
     | "playground";
   /** Route the nav item links to. */
@@ -47,6 +48,7 @@ export const NAV_SPACES: readonly NavSpace[] = [
   { key: "layouts", href: "/layouts", match: "/layouts" },
   { key: "patterns", href: "/patterns", match: "/patterns" },
   { key: "atoms", href: "/atoms", match: "/atoms" },
+  { key: "inspiration", href: "/inspiration", match: "/inspiration" },
   { key: "studio", href: "/studio", match: "/studio" },
   { key: "playground", href: "/playground", match: "/playground" },
 ];
@@ -73,6 +75,7 @@ export const NAV_TOP: readonly NavTopItem[] = [
       getNavSpace("atoms"),
     ],
   },
+  { kind: "space", space: getNavSpace("inspiration") },
   { kind: "space", space: getNavSpace("studio") },
   { kind: "space", space: getNavSpace("playground") },
 ];

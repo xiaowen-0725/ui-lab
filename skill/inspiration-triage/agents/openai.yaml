@@ -1,0 +1,4 @@
+interface:
+  display_name: "灵感分诊"
+  short_description: "核验灵感网站与目录，去重、分类并生成可安全收录的记录。"
+  default_prompt: "使用 $inspiration-triage 分诊这些链接，判断是否收录并归入灵感库。"

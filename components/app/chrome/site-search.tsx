@@ -5,6 +5,7 @@ import {
   CircleDashed,
   Droplets,
   FileText,
+  Lightbulb,
   LayoutTemplate,
   MoveVertical,
   Palette,
@@ -30,6 +31,13 @@ import { SECTIONS } from "@/lib/sections";
 import { SCROLL_PATTERNS } from "@/lib/scroll";
 import { STYLES } from "@/lib/styles";
 import { localizedName } from "@/lib/i18n-content";
+import { INSPIRATION_SOURCES } from "@/lib/inspiration";
+import { INSPIRATION_BRANDS } from "@/lib/inspiration-brands";
+import {
+  INSPIRATION_COLLECTION_META,
+  INSPIRATION_DOMAIN_META,
+} from "@/lib/inspiration-taxonomy";
+import { INSPIRATION_SITES } from "@/lib/inspiration-sites";
 
 const PAGES = [
   { slug: "ai-agents", labelKey: "aiAgents", href: "/docs/ai-agents" },
@@ -40,11 +48,26 @@ const PAGES = [
   },
 ] as const;
 
+const INSPIRATION_DOMAIN_NAMES = new Map(
+  INSPIRATION_DOMAIN_META.map((domain) => [
+    domain.key,
+    [domain.name, domain.nameZh],
+  ]),
+);
+
+const INSPIRATION_COLLECTION_NAMES = new Map(
+  INSPIRATION_COLLECTION_META.map((collection) => [
+    collection.key,
+    [collection.name, collection.nameZh],
+  ]),
+);
+
 /** Site search trigger backed by the library's own command palette. */
 export function SiteSearch({ className }: { className?: string }) {
   const router = useRouter();
   const locale = useLocale() as Locale;
   const t = useTranslations("search");
+  const tInspiration = useTranslations("inspiration");
   const tSidebar = useTranslations("sidebar");
   const tNav = useTranslations("nav");
   const [open, setOpen] = useState(false);
@@ -149,6 +172,59 @@ export function SiteSearch({ className }: { className?: string }) {
         icon: Atom,
         onSelect: () => router.push(`/atoms?cat=${atom.category}#${atom.slug}`),
       })),
+      ...INSPIRATION_SOURCES.map((source) => ({
+        id: `inspiration-${source.slug}`,
+        label: localizedName(source, locale),
+        group: tNav("inspiration"),
+        keywords: [
+          source.name,
+          source.nameZh,
+          ...source.aliases,
+          new URL(source.canonicalUrl).hostname,
+          ...source.contentTypes,
+          ...source.useCases,
+          ...source.visualTraits,
+        ].filter(Boolean),
+        icon: Lightbulb,
+        onSelect: () => router.push(`/inspiration#${source.slug}`),
+      })),
+      ...INSPIRATION_SITES.map((site) => ({
+        id: `inspiration-site-${site.slug}`,
+        label: localizedName(site, locale),
+        group: tInspiration("sitesTitle"),
+        keywords: [
+          site.name,
+          site.nameZh,
+          ...site.aliases,
+          new URL(site.canonicalUrl).hostname,
+          site.domain,
+          ...(INSPIRATION_DOMAIN_NAMES.get(site.domain) ?? []),
+          ...site.pageTypes,
+          ...site.visualTraits,
+          ...site.badges,
+        ].filter(Boolean),
+        icon: Lightbulb,
+        onSelect: () => router.push(`/inspiration/sites/${site.slug}`),
+      })),
+      ...INSPIRATION_BRANDS.map((brand) => ({
+        id: `inspiration-brand-${brand.slug}`,
+        label: localizedName(brand, locale),
+        group: tInspiration("brandsTitle"),
+        keywords: [
+          brand.name,
+          brand.nameZh,
+          brand.description,
+          brand.descriptionZh,
+          brand.domain,
+          ...(INSPIRATION_DOMAIN_NAMES.get(brand.domain) ?? []),
+          ...brand.collections,
+          ...brand.collections.flatMap(
+            (collection) => INSPIRATION_COLLECTION_NAMES.get(collection) ?? [],
+          ),
+        ],
+        icon: Lightbulb,
+        onSelect: () => router.push(`/inspiration/brands/${brand.slug}`),
+      })),
       {
         id: "studio",
         label: tNav("studio"),
@@ -173,7 +249,7 @@ export function SiteSearch({ className }: { className?: string }) {
         onSelect: () => router.push(page.href),
       })),
     ],
-    [router, locale, t, tSidebar, tNav],
+    [router, locale, t, tInspiration, tSidebar, tNav],
   );
 
   return (
