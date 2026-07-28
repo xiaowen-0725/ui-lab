@@ -1,4 +1,4 @@
-# Acceptance matrix
+# Planned acceptance matrix
 
 | Case | Size | Theme | State | Surface | Fixture | Reference |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -11,6 +11,8 @@
 | collapse-dark-connectors-overlay | 1000×760 | dark | dense | connectors, settings | parking-high-density-v1 | dark + desktop |
 | wide-light-settings-reduced-motion | 1440×900 | light | dense, reduced motion | settings | parking-high-density-v1 | both light |
 
-同一 case 的 reference 与 implementation 必须同尺寸、scale、主题、语义 fixture、字体加载状态和捕获时机。`codex-desktop-light` 为 hash-only/private evidence：可在受权核验环境中比较，绝不暗示其 bytes 在仓库。比较按 layout、typography、color/surface、anatomy、state、focus、motion 分类。三门禁为：strict structural audit、逐字段 Recipe 映射、实际 target-runtime 的同尺寸人工比较与差异说明。
+这是计划矩阵，不宣称当前 visual gate 可执行。原始 calibration source 尺寸可不同；`codex-desktop-light` 为 hash-only/private evidence：可在受权核验环境中核验，绝不暗示其 bytes 在仓库。dark case 的跨主题 source 仅校准 anatomy，不是 dark golden。比较按 layout、typography、color/surface、anatomy、state、focus、motion 分类。
+
+Phase 2 必须在用户 checkout 后，用同一 fixture、size、scale、theme、font loading 与 capture timing 为每个 case 生成同尺寸 golden capture 和 hash，才可转为 confirmed。三门禁届时为：strict structural audit、逐字段 Recipe 映射、实际 target-runtime 的同尺寸人工比较与差异说明。
 
 这是 Phase 0 review contract；只有 Phase 2 checkout 后才生成 confirmed Manifest。

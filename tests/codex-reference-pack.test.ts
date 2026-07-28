@@ -13,6 +13,7 @@ const REFERENCE_PACK_PATH = resolve(
 type ReferenceSource = {
   id: string;
   role: string;
+  theme: string;
   vendored: boolean;
   path?: string;
   privacyBoundary?: string;
@@ -20,6 +21,14 @@ type ReferenceSource = {
   height: number;
   sha256: string;
   excludedFeatures?: string[];
+  captureMetadata: {
+    imagePixelScale: number;
+    dpi: number;
+    fontLoadingState: string;
+    captureTiming: string;
+    semanticScenario: string;
+    evidenceRole: string;
+  };
 };
 
 type AcceptanceCase = {
@@ -30,7 +39,22 @@ type AcceptanceCase = {
   surfaces: string[];
   keyboardFocus?: boolean;
   reducedMotion?: boolean;
-  referenceSourceIds: string[];
+  size: string;
+  scale: number;
+  fixtureId: string;
+  status: string;
+  fontLoadingState: string;
+  captureTiming: string;
+  goldenCapture: null;
+  calibrationSourceIds: string[];
+};
+
+type FixturePack = {
+  schemaVersion: number;
+  id: string;
+  version: number;
+  capturePreconditions: string[];
+  caseSelectors: Record<string, string[]>;
 };
 
 type ReferencePack = {
@@ -42,6 +66,12 @@ type ReferencePack = {
   lockedDecisions: string[];
   safeOverrides: string[];
   forbiddenPatterns: string[];
+  fixturePack: {
+    id: string;
+    version: number;
+    path: string;
+    sha256: string;
+  };
   observedFacts: {
     icons: {
       family: string;
@@ -54,6 +84,10 @@ type ReferencePack = {
 
 function readReferencePack(): ReferencePack {
   return JSON.parse(readFileSync(REFERENCE_PACK_PATH, "utf8")) as ReferencePack;
+}
+
+function readFixturePack(path: string): FixturePack {
+  return JSON.parse(readFileSync(resolve(REPO_ROOT, path), "utf8")) as FixturePack;
 }
 
 function publicAssetPath(sourcePath: string): string {
@@ -110,6 +144,15 @@ describe("Codex Desktop v1 reference pack", () => {
       expect(source).toMatchObject(sourceExpectation);
       if (!source) continue;
 
+      expect(source.captureMetadata).toMatchObject({
+        imagePixelScale: 1,
+        dpi: 72,
+        fontLoadingState: "runtime-rendered",
+        captureTiming: "stable-user-supplied-frame",
+        evidenceRole: "calibration",
+      });
+      expect(source.captureMetadata.semanticScenario.trim().length).toBeGreaterThan(0);
+
       const defaultCandidate = resolve(
         REPO_ROOT,
         "public/system-presets/codex-desktop-v1/references",
@@ -137,9 +180,10 @@ describe("Codex Desktop v1 reference pack", () => {
     }
   });
 
-  test("defines a complete, uniquely named acceptance matrix", () => {
+  test("defines a planned, uniquely named acceptance matrix", () => {
     const pack = readReferencePack();
-    const caseIds = values(pack.acceptanceCases, "id");
+    const fixture = readFixturePack(pack.fixturePack.path);
+    const caseIds = pack.acceptanceCases.map((entry) => entry.id);
     const allViewports = new Set(values(pack.acceptanceCases, "viewport"));
     const allThemes = new Set(values(pack.acceptanceCases, "theme"));
     const allStates = new Set(pack.acceptanceCases.flatMap((entry) => entry.states));
@@ -157,8 +201,43 @@ describe("Codex Desktop v1 reference pack", () => {
     expect(pack.acceptanceCases.some((entry) => entry.keyboardFocus === true)).toBe(true);
     expect(pack.acceptanceCases.some((entry) => entry.reducedMotion === true)).toBe(true);
     for (const acceptanceCase of pack.acceptanceCases) {
-      expect(acceptanceCase.referenceSourceIds.length).toBeGreaterThan(0);
+      expect(acceptanceCase.size).toMatch(/^\d+x\d+$/);
+      const [width, height] = acceptanceCase.size.split("x").map(Number);
+      expect(width).toBeGreaterThan(0);
+      expect(height).toBeGreaterThan(0);
+      expect(acceptanceCase.scale).toBeGreaterThan(0);
+      expect(acceptanceCase.fixtureId).toBe(pack.fixturePack.id);
+      expect(acceptanceCase.status).toBe("planned");
+      expect(acceptanceCase.fontLoadingState).toBe("document-fonts-ready");
+      expect(acceptanceCase.captureTiming).toBe("two-animation-frames-after-state-settle");
+      expect(acceptanceCase.goldenCapture).toBeNull();
+      expect(acceptanceCase.calibrationSourceIds.length).toBeGreaterThan(0);
+      expect(acceptanceCase.calibrationSourceIds.some((id) =>
+        pack.sources.some((source) => source.id === id && source.role === "authoritative"),
+      )).toBe(true);
+      expect(acceptanceCase.calibrationSourceIds.some((id) =>
+        pack.sources.some((source) => source.id === id && source.theme === acceptanceCase.theme),
+      )).toBe(true);
+      for (const sourceId of acceptanceCase.calibrationSourceIds) {
+        expect(pack.sources.some((source) => source.id === sourceId)).toBe(true);
+      }
+      expect(fixture.caseSelectors[acceptanceCase.id]?.length).toBeGreaterThan(0);
     }
+    expect(Object.keys(fixture.caseSelectors).sort()).toEqual([...caseIds].sort());
+    for (const darkCase of pack.acceptanceCases.filter((entry) => entry.theme === "dark")) {
+      expect(darkCase.calibrationSourceIds.some((id) => id === "codex-composer-dark")).toBe(true);
+    }
+
+    expect(fixture).toMatchObject({ schemaVersion: 1, id: "parking-high-density-v1", version: 1 });
+    expect(fixture.capturePreconditions).toEqual(
+      expect.arrayContaining([
+        "document.fonts.ready",
+        "two animation frames after stable state",
+        "reduced-motion branch",
+      ]),
+    );
+    const fixtureBytes = readFileSync(resolve(REPO_ROOT, pack.fixturePack.path));
+    expect(createHash("sha256").update(fixtureBytes).digest("hex")).toBe(pack.fixturePack.sha256);
   });
 
   test("records visual decision boundaries and companion documents", () => {
@@ -206,6 +285,9 @@ describe("Codex Desktop v1 reference pack", () => {
     ).toBe(true);
     expect(
       existsSync(resolve(REPO_ROOT, "content/system-presets/codex-desktop-v1/ACCEPTANCE_MATRIX.md")),
+    ).toBe(true);
+    expect(
+      existsSync(resolve(REPO_ROOT, "content/system-presets/codex-desktop-v1/ATTRIBUTION.md")),
     ).toBe(true);
   });
 });

@@ -2,9 +2,9 @@
 
 ## Authority hierarchy
 
-1. `codex-workbench-light` 与 `codex-desktop-light` 是 authoritative reference 角色；后者是 hash-only/private evidence，公开仓库不发布 bytes。
+1. `codex-workbench-light` 与 `codex-desktop-light` 是 authoritative calibration 角色；后者是 hash-only/private evidence，公开仓库不发布 bytes。
 2. 本机 Codex desktop/ChatGPT.app bundle token 是 measured evidence，只校准可观察 token。
-3. `codex-composer-dark` 只参考 composer anatomy/geometry；ambient gradient 与 studio presentation frame 被排除。
+3. `codex-composer-dark` 只参考 composer anatomy/geometry；ambient gradient 与 studio presentation frame 被排除。没有 dark full-workbench screenshot；dark surface 由 bundle token、light anatomy 和 dark composer calibration 合成，仍需 checkout 人工确认。
 4. 当前 Parking mobile 和合成对比截图是 failure evidence，绝不是 reference。
 
 仓库仅 vendored safe generic workbench 与 dark supporting 图。OpenAI Sans 仅是安装包具名资产证据，不复制也不 vendoring；实际基础字体是 platform system sans。图标为 Lucide，默认 16px、2px stroke。保留原生 platform chrome。
@@ -20,7 +20,7 @@
 
 ## Derived target
 
-Parking 以任务/历史、agent conversation/execution、operation/result、connector/runtime、task composer、task workspace 进行语义映射；Board 和 Connectors 继承 anatomy，不伪造 Codex 数据。目标验收尺寸为 wide 1440×900、collapse 1000×760、narrow 375×760。
+Parking 以 fixture 的任务/历史、agent conversation/execution、operation/result、connector/runtime、task composer、task workspace 进行语义映射；Board 和 Connectors 继承 anatomy，不伪造 Codex 数据。目标验收尺寸为 wide 1440×900、collapse 1000×760、narrow 375×760。原始 calibration source 可有不同尺寸，不能当作同尺寸 golden。
 
 ## Forbidden
 

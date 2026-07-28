@@ -36,7 +36,8 @@
       "sha256": "8ff47021477adb204f6a24fcb29682bc3cf0893230ae4f40a1273c88ca8d7c9a",
       "theme": "light",
       "scope": "Workbench hierarchy, task density, panes, and quiet surfaces.",
-      "comparisonUse": "Primary reference for task, artifact, compact controls, and responsive anatomy."
+      "comparisonUse": "Calibration for task, artifact, compact controls, and responsive anatomy; not an acceptance golden.",
+      "captureMetadata": {"imagePixelScale":1,"dpi":72,"fontLoadingState":"runtime-rendered","captureTiming":"stable-user-supplied-frame","semanticScenario":"Light workbench with dense tasks, artifact pane, and restrained controls.","evidenceRole":"calibration"}
     },
     {
       "id": "codex-desktop-light",
@@ -47,8 +48,9 @@
       "sha256": "66ec605a9c1032ac8691fa3ff4166c474468eb7c8b6c396658cb5d777148d1d9",
       "theme": "light",
       "scope": "Desktop canvas, sidebar, header, and high-density task layout.",
-      "comparisonUse": "Primary reference for wide layout, selection, typography, and surface hierarchy.",
-      "privacyBoundary": "Contains real user task and project content. The public repository retains dimensions, hash, and provenance only; it does not publish image bytes."
+      "comparisonUse": "Calibration for wide layout, selection, typography, and surface hierarchy; not an acceptance golden.",
+      "privacyBoundary": "Contains real user task and project content. The public repository retains dimensions, hash, and provenance only; it does not publish image bytes.",
+      "captureMetadata": {"imagePixelScale":1,"dpi":72,"fontLoadingState":"runtime-rendered","captureTiming":"stable-user-supplied-frame","semanticScenario":"Private light desktop frame with sidebar, header, and high-density task canvas.","evidenceRole":"calibration"}
     },
     {
       "id": "codex-composer-dark",
@@ -60,8 +62,9 @@
       "sha256": "b0fb3bac95edeb5fc5667d6b12ec2e59834a40be4a62d705912feb8ea4b5f482",
       "theme": "dark",
       "scope": "Dark composer anatomy and geometry only; outer presentation is not a product theme.",
-      "comparisonUse": "Supporting reference for dark composer shape, controls, and dark density.",
-      "excludedFeatures": ["ambient-gradient", "studio-presentation-frame"]
+      "comparisonUse": "Calibration for dark composer shape, controls, and density; not a dark workbench acceptance golden.",
+      "excludedFeatures": ["ambient-gradient", "studio-presentation-frame"],
+      "captureMetadata": {"imagePixelScale":1,"dpi":72,"fontLoadingState":"runtime-rendered","captureTiming":"stable-user-supplied-frame","semanticScenario":"Dark composer anatomy and compact controls inside a presentation frame.","evidenceRole":"calibration"}
     }
   ],
   "observedFacts": {
@@ -79,15 +82,15 @@
   "lockedDecisions": ["typography","icons","surfaces","selection","density","geometry","shadows","motion","responsive"],
   "safeOverrides": ["branding","capabilities","content","locale","semanticStateColors","platformChrome"],
   "forbiddenPatterns": ["High-saturation cyan simultaneously for selected background, text, and icon.","Generic dashboard cards.","Oversized radii.","Unrelated gradients or glass.","Mixed icon families.","Competing type scales.","Decorative motion that hides state."],
-  "fixturePack": {"id":"parking-high-density-v1","deterministic":true,"semanticMapping":{"Codex task list":"Parking tasks/history","Codex thread/tool steps":"agent conversation/execution","Codex changes/result card":"operation/result","Codex environment popover":"connector/runtime","Codex composer":"task composer","Codex artifact region":"task workspace","Board/Connectors":"inherit anatomy without fabricating Codex data"}},
+  "fixturePack": {"id":"parking-high-density-v1","version":1,"path":"content/system-presets/codex-desktop-v1/fixtures/parking-high-density-v1.json","sha256":"8c642ccc6fd89f86ed84cab0a8efde63a8035faf0d621004bcb4a5494be581d4"},
   "acceptanceCases": [
-    {"id":"wide-light-task-dense","viewport":"wide","size":"1440x900","scale":1,"theme":"light","states":["dense"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"referenceSourceIds":["codex-workbench-light","codex-desktop-light"]},
-    {"id":"wide-dark-task-streaming","viewport":"wide","size":"1440x900","scale":1,"theme":"dark","states":["dense","streaming"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"referenceSourceIds":["codex-composer-dark","codex-workbench-light"]},
-    {"id":"collapse-light-approval","viewport":"collapse","size":"1000x760","scale":1,"theme":"light","states":["approval"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"referenceSourceIds":["codex-workbench-light","codex-desktop-light"]},
-    {"id":"narrow-light-empty","viewport":"narrow","size":"375x760","scale":1,"theme":"light","states":["empty"],"surfaces":["task"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"referenceSourceIds":["codex-desktop-light","codex-workbench-light"]},
-    {"id":"wide-dark-error-artifact","viewport":"wide","size":"1440x900","scale":1,"theme":"dark","states":["error"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"referenceSourceIds":["codex-composer-dark","codex-workbench-light"]},
-    {"id":"wide-light-board-focus","viewport":"wide","size":"1440x900","scale":1,"theme":"light","states":["dense"],"surfaces":["board"],"fixtureId":"parking-high-density-v1","keyboardFocus":true,"reducedMotion":false,"referenceSourceIds":["codex-desktop-light","codex-workbench-light"]},
-    {"id":"collapse-dark-connectors-overlay","viewport":"collapse","size":"1000x760","scale":1,"theme":"dark","states":["dense"],"surfaces":["connectors","settings"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"referenceSourceIds":["codex-composer-dark","codex-desktop-light"]},
-    {"id":"wide-light-settings-reduced-motion","viewport":"wide","size":"1440x900","scale":1,"theme":"light","states":["dense"],"surfaces":["settings"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":true,"referenceSourceIds":["codex-desktop-light","codex-workbench-light"]}
+    {"id":"wide-light-task-dense","viewport":"wide","size":"1440x900","scale":1,"theme":"light","states":["dense"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"status":"planned","fontLoadingState":"document-fonts-ready","captureTiming":"two-animation-frames-after-state-settle","goldenCapture":null,"calibrationSourceIds":["codex-workbench-light","codex-desktop-light"]},
+    {"id":"wide-dark-task-streaming","viewport":"wide","size":"1440x900","scale":1,"theme":"dark","states":["dense","streaming"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"status":"planned","fontLoadingState":"document-fonts-ready","captureTiming":"two-animation-frames-after-state-settle","goldenCapture":null,"calibrationSourceIds":["codex-composer-dark","codex-workbench-light"]},
+    {"id":"collapse-light-approval","viewport":"collapse","size":"1000x760","scale":1,"theme":"light","states":["approval"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"status":"planned","fontLoadingState":"document-fonts-ready","captureTiming":"two-animation-frames-after-state-settle","goldenCapture":null,"calibrationSourceIds":["codex-workbench-light","codex-desktop-light"]},
+    {"id":"narrow-light-empty","viewport":"narrow","size":"375x760","scale":1,"theme":"light","states":["empty"],"surfaces":["task"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"status":"planned","fontLoadingState":"document-fonts-ready","captureTiming":"two-animation-frames-after-state-settle","goldenCapture":null,"calibrationSourceIds":["codex-desktop-light","codex-workbench-light"]},
+    {"id":"wide-dark-error-artifact","viewport":"wide","size":"1440x900","scale":1,"theme":"dark","states":["error"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"status":"planned","fontLoadingState":"document-fonts-ready","captureTiming":"two-animation-frames-after-state-settle","goldenCapture":null,"calibrationSourceIds":["codex-composer-dark","codex-workbench-light"]},
+    {"id":"wide-light-board-focus","viewport":"wide","size":"1440x900","scale":1,"theme":"light","states":["dense"],"surfaces":["board"],"fixtureId":"parking-high-density-v1","keyboardFocus":true,"reducedMotion":false,"status":"planned","fontLoadingState":"document-fonts-ready","captureTiming":"two-animation-frames-after-state-settle","goldenCapture":null,"calibrationSourceIds":["codex-desktop-light","codex-workbench-light"]},
+    {"id":"collapse-dark-connectors-overlay","viewport":"collapse","size":"1000x760","scale":1,"theme":"dark","states":["dense"],"surfaces":["connectors","settings"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"status":"planned","fontLoadingState":"document-fonts-ready","captureTiming":"two-animation-frames-after-state-settle","goldenCapture":null,"calibrationSourceIds":["codex-composer-dark","codex-desktop-light"]},
+    {"id":"wide-light-settings-reduced-motion","viewport":"wide","size":"1440x900","scale":1,"theme":"light","states":["dense"],"surfaces":["settings"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":true,"status":"planned","fontLoadingState":"document-fonts-ready","captureTiming":"two-animation-frames-after-state-settle","goldenCapture":null,"calibrationSourceIds":["codex-desktop-light","codex-workbench-light"]}
   ]
 }

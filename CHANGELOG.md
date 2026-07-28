@@ -14,7 +14,7 @@
 - 灵感库 21 个来源卡片新增带来源和采集日期的真实网站首屏预览，图片整块可直接访问原站，并纳入统一截图质量审计。
 
 ### 新增
-- 新增 `codex-desktop-v1` Phase 0 reference pack（像素哈希、视觉事实、Parking acceptance matrix）。
+- 新增 `codex-desktop-v1` Phase 0 reference pack（像素哈希、视觉事实、planned Parking acceptance matrix）。
 - **「灵感库 / Inspiration」模块(`/inspiration`)**：收录 21 个经核验的外部灵感来源，新增 Dribbble、Behance、Awwwards、SiteInspire、Land-book、Lapa Ninja、One Page Love、CSS Design Awards、Mobbin、Page Flows、Refero 与 SaaSFrame，按网站、产品界面、社交营销、品牌视觉、演示编辑与动效 3D 统一分组；第二阶段新增 74 个品牌设计参考，固定 vendoring `VoltAgent/awesome-design-md` commit `664b3e78fd1a298ba11973822da988483256d4b4` 的 DESIGN.md（64 份结构化 frontmatter、10 份 Markdown），按 MIT 许可保留 LICENSE 与来源说明。模块提供中英搜索、主题/分类筛选、可分享深链、站内搜索直达、逐份原文阅读，以及带来源和采集日期的真实官网视觉预览；品牌资产版权仍归对应权利人。
 - **灵感库新增「网站」层**：收录 26 个值得研究的知名与独立网站，提供独立列表和详情页、站内搜索与 sitemap。网站与品牌统一采用唯一行业领域，网站另以页面类型、视觉特征和策展徽标检索；`retro-web` 改为正交的专题集合，不再与行业分类混用。
 - **UI Lab Application Kit 第一阶段**:从视觉词汇表扩展为面向 AI 的可组合 React 前端系统,确立 Stack Profile、System Kit、Primitive/Component、Block、Recipe、Audit 六层架构;新增 Catalog `recipe` 类型与首批 `agent-workbench` / `saas-landing`,Recipe 以 `optionalComponents` / `sections` / `slots` / `states` / `responsive` / `assets` 等机器字段描述装配契约。其中 `agent-workbench` 引用完整可 vendoring 外壳;`saas-landing` 是 section composition contract(Pricing 可选),不是完整页面 shell。以实际 React package 根的 `ui-lab.config.json` 持久化 Profile、System、Recipe、组件和 `adopt|replace` 模式,新增 `ui-lab init` / `compose` / `audit` 与 config-aware `add`:四者支持 monorepo `--dir`;`compose` 在 adopt 下先 review/compare 且不覆盖 vendored source,replace 才给完整安装计划;`add` 只打印命令,有 config 时去重登记。源码 CLI 已提供这些命令;npm 包若滞后,以 `ui-lab --help` 核对并使用仓库内源码 CLI。
