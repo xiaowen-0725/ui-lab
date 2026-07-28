@@ -37,7 +37,10 @@ yarn-error.log*
 next-env.d.ts
 
 # local working notes
-/docs/
+!/docs/
+/docs/*
+!/docs/agents/
+!/docs/agents/*.md
 /.brand-preview/
 /app/globals.css.bak
 
