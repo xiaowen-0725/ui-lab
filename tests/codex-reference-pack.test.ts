@@ -61,6 +61,9 @@ type ReferencePack = {
   schemaVersion: number;
   presetId: string;
   status: string;
+  approvedAt: string;
+  approvalScope: string;
+  approvalEvidence: string;
   sources: ReferenceSource[];
   acceptanceCases: AcceptanceCase[];
   lockedDecisions: string[];
@@ -104,7 +107,12 @@ describe("Codex Desktop v1 reference pack", () => {
 
     expect(pack.schemaVersion).toBe(1);
     expect(pack.presetId).toBe("codex-desktop-v1");
-    expect(pack.status).toBe("review");
+    expect(pack.status).toBe("approved");
+    expect(pack).toMatchObject({
+      approvedAt: "2026-07-28",
+      approvalScope: "calibration-direction-only",
+      approvalEvidence: "user-confirmed-conversation",
+    });
   });
 
   test("pins reference source provenance and vendored bytes", async () => {

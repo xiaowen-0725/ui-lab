@@ -1,6 +1,6 @@
 # Codex Desktop v1 reference pack
 
-这是 `review` 状态的 Phase 0 入口。现有截图是 calibration evidence，不是同尺寸 acceptance golden；不代表最终确认或可分发的 Codex 实现。
+这是 `approved` 状态的 Phase 0 入口。批准仅涵盖 calibration、视觉事实和计划矩阵方向；现有截图是 calibration evidence，不是同尺寸 acceptance golden。8 个 case 仍为 planned、golden 为 null，绝不代表 Phase 2 checkout、visual acceptance 或 Manifest confirmed。
 
 - [视觉事实](./VISUAL_FACTS.md)
 - [验收矩阵](./ACCEPTANCE_MATRIX.md)

@@ -1,7 +1,10 @@
 {
   "schemaVersion": 1,
   "presetId": "codex-desktop-v1",
-  "status": "review",
+  "status": "approved",
+  "approvedAt": "2026-07-28",
+  "approvalScope": "calibration-direction-only",
+  "approvalEvidence": "user-confirmed-conversation",
   "capturedAt": "2026-07-28",
   "decisionIssue": "https://github.com/xiaowen-0725/ui-lab/issues/1",
   "provenance": {
