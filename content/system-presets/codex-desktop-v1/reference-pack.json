@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "presetId": "codex-desktop-v1",
+  "status": "review",
+  "capturedAt": "2026-07-28",
+  "decisionIssue": "https://github.com/xiaowen-0725/ui-lab/issues/1",
+  "provenance": {
+    "userApprovedDirection": "Codex is a high-fidelity visual source",
+    "localBundleEvidence": {
+      "product": "Codex desktop/ChatGPT.app",
+      "version": "26.721.41059",
+      "build": "5848",
+      "cssAsset": "app-D4iDTyKa.css",
+      "sha256": "da31738341ea1298c4e261226944bf54fb48beb8fc5a346c038e927a1b725069",
+      "iconModule": {
+        "asset": "createLucideIcon-BrIFp4GW-BUiG3gT8.js",
+        "sha256": "ad099d5b675c0e14fa41ab02319cb609841c2582caa5c76e05152b042c14d20a",
+        "observedDefaults": {
+          "sizePx": 24,
+          "strokePx": 2,
+          "linecap": "round",
+          "linejoin": "round"
+        }
+      }
+    },
+    "licenseBoundary": "Bundle evidence calibrates observable tokens only; proprietary source and fonts are not distributed."
+  },
+  "sources": [
+    {
+      "id": "codex-workbench-light",
+      "role": "authoritative",
+      "vendored": true,
+      "path": "/system-presets/codex-desktop-v1/references/codex-workbench-light.png",
+      "width": 888,
+      "height": 596,
+      "sha256": "8ff47021477adb204f6a24fcb29682bc3cf0893230ae4f40a1273c88ca8d7c9a",
+      "theme": "light",
+      "scope": "Workbench hierarchy, task density, panes, and quiet surfaces.",
+      "comparisonUse": "Primary reference for task, artifact, compact controls, and responsive anatomy."
+    },
+    {
+      "id": "codex-desktop-light",
+      "role": "authoritative",
+      "vendored": false,
+      "width": 1908,
+      "height": 1049,
+      "sha256": "66ec605a9c1032ac8691fa3ff4166c474468eb7c8b6c396658cb5d777148d1d9",
+      "theme": "light",
+      "scope": "Desktop canvas, sidebar, header, and high-density task layout.",
+      "comparisonUse": "Primary reference for wide layout, selection, typography, and surface hierarchy.",
+      "privacyBoundary": "Contains real user task and project content. The public repository retains dimensions, hash, and provenance only; it does not publish image bytes."
+    },
+    {
+      "id": "codex-composer-dark",
+      "role": "supporting",
+      "vendored": true,
+      "path": "/system-presets/codex-desktop-v1/references/codex-composer-dark.png",
+      "width": 1864,
+      "height": 980,
+      "sha256": "b0fb3bac95edeb5fc5667d6b12ec2e59834a40be4a62d705912feb8ea4b5f482",
+      "theme": "dark",
+      "scope": "Dark composer anatomy and geometry only; outer presentation is not a product theme.",
+      "comparisonUse": "Supporting reference for dark composer shape, controls, and dark density.",
+      "excludedFeatures": ["ambient-gradient", "studio-presentation-frame"]
+    }
+  ],
+  "observedFacts": {
+    "typography": {"baseSans":"-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif","brandedSans":"\"OpenAI Sans\", var(--font-sans-default)","brandedSansBoundary":"Install-bundle evidence only; do not vendor.","mono":"ui-monospace, \"SFMono-Regular\", \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace","sizePx":[11,12,14,16,18,24],"weights":[400,500,600],"basePx":14},
+    "icons": {"family":"Lucide","defaultPx":16,"strokePx":2,"bundleDefaultPx":24,"source":"createLucideIcon bundle module"},
+    "layout": {"spacingBasePx":4,"sidebar":"clamp(240px, 275px, min(520px, calc(100vw - 320px)))","toolbarPx":46,"toolbarSmPx":36,"panePx":40,"threadContentMaxWidth":"48rem"},
+    "geometry": {"radiusPx":[2,4,6,8,10,12,16,20,24],"rowPx":10,"composerSingleLinePx":22,"full":"9999px"},
+    "shadows": {"hairline":"0px 0px 0px .5px #0000001a","sm":"0px 1px 2px -1px #00000014","md":"0px 2px 4px -1px #00000014","lg":"0px 4px 8px -2px #0000001a","xl":"0px 8px 16px -4px #0000001f","2xl":"0px 16px 32px -8px #00000030"},
+    "motion": {"basic":".15s","relaxed":".3s","cubic":"cubic-bezier(.19, 1, .22, 1)","snappy":"cubic-bezier(.23, 1, .32, 1)"},
+    "colors": {"gray":["#fff","#f9f9f9","#f3f3f3","#ededed","#afafaf","#5d5d5d","#414141","#303030","#282828","#212121","#181818","#0d0d0d"],"blue50":"#e5f3ff","blue300":"#339cff","lightMain":"#fff","darkMain":"#181818","borderForegroundMixPercent":[5,8,12]},
+    "selection":"Low-chroma blue surface with neutral foreground and icons; never high-saturation cyan across background, text, and icon.",
+    "surfaces":"Quiet header, tinted sidebar, plain main canvas, bottom composer, compact popover, and sparse shadow.",
+    "componentAnatomy":"Dense task list and thread, restrained dividers, pane boundaries, and controls that preserve state visibility."
+  },
+  "lockedDecisions": ["typography","icons","surfaces","selection","density","geometry","shadows","motion","responsive"],
+  "safeOverrides": ["branding","capabilities","content","locale","semanticStateColors","platformChrome"],
+  "forbiddenPatterns": ["High-saturation cyan simultaneously for selected background, text, and icon.","Generic dashboard cards.","Oversized radii.","Unrelated gradients or glass.","Mixed icon families.","Competing type scales.","Decorative motion that hides state."],
+  "fixturePack": {"id":"parking-high-density-v1","deterministic":true,"semanticMapping":{"Codex task list":"Parking tasks/history","Codex thread/tool steps":"agent conversation/execution","Codex changes/result card":"operation/result","Codex environment popover":"connector/runtime","Codex composer":"task composer","Codex artifact region":"task workspace","Board/Connectors":"inherit anatomy without fabricating Codex data"}},
+  "acceptanceCases": [
+    {"id":"wide-light-task-dense","viewport":"wide","size":"1440x900","scale":1,"theme":"light","states":["dense"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"referenceSourceIds":["codex-workbench-light","codex-desktop-light"]},
+    {"id":"wide-dark-task-streaming","viewport":"wide","size":"1440x900","scale":1,"theme":"dark","states":["dense","streaming"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"referenceSourceIds":["codex-composer-dark","codex-workbench-light"]},
+    {"id":"collapse-light-approval","viewport":"collapse","size":"1000x760","scale":1,"theme":"light","states":["approval"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"referenceSourceIds":["codex-workbench-light","codex-desktop-light"]},
+    {"id":"narrow-light-empty","viewport":"narrow","size":"375x760","scale":1,"theme":"light","states":["empty"],"surfaces":["task"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"referenceSourceIds":["codex-desktop-light","codex-workbench-light"]},
+    {"id":"wide-dark-error-artifact","viewport":"wide","size":"1440x900","scale":1,"theme":"dark","states":["error"],"surfaces":["task","artifact"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"referenceSourceIds":["codex-composer-dark","codex-workbench-light"]},
+    {"id":"wide-light-board-focus","viewport":"wide","size":"1440x900","scale":1,"theme":"light","states":["dense"],"surfaces":["board"],"fixtureId":"parking-high-density-v1","keyboardFocus":true,"reducedMotion":false,"referenceSourceIds":["codex-desktop-light","codex-workbench-light"]},
+    {"id":"collapse-dark-connectors-overlay","viewport":"collapse","size":"1000x760","scale":1,"theme":"dark","states":["dense"],"surfaces":["connectors","settings"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":false,"referenceSourceIds":["codex-composer-dark","codex-desktop-light"]},
+    {"id":"wide-light-settings-reduced-motion","viewport":"wide","size":"1440x900","scale":1,"theme":"light","states":["dense"],"surfaces":["settings"],"fixtureId":"parking-high-density-v1","keyboardFocus":false,"reducedMotion":true,"referenceSourceIds":["codex-desktop-light","codex-workbench-light"]}
+  ]
+}
