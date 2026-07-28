@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { contrastRatio, parseHexColor } from "@/lib/color";
-import { THEME_KITS, themeKitToCss } from "@/lib/theme-kits";
+import { findThemeKit, THEME_KITS, themeKitToCss } from "@/lib/theme-kits";
 import { hexToOklch, oklchToHex } from "@/lib/theme-kits/oklch";
 import { BASE_DARK, BASE_LIGHT } from "@/lib/themes";
 
@@ -16,10 +16,10 @@ const REQUIRED_SHADCN_KEYS = [
 ];
 
 describe("theme kits", () => {
-  test("produces exactly 18 kits with unique slugs", () => {
-    expect(THEME_KITS.length).toBe(18);
+  test("produces exactly 19 kits with unique slugs", () => {
+    expect(THEME_KITS.length).toBe(19);
     const slugs = THEME_KITS.map((kit) => kit.slug);
-    expect(new Set(slugs).size).toBe(18);
+    expect(new Set(slugs).size).toBe(19);
   });
 
   test("every kit has a complete token set for each of its modes", () => {
@@ -126,5 +126,95 @@ describe("theme kits", () => {
     for (const needle of ["--wb-accent", "--chart-6", "--ease-out", "--radius", ".dark {"]) {
       expect(css).toContain(needle);
     }
+  });
+
+  test("codex desktop v1 pins the calibrated dual-mode system-preset tokens", () => {
+    const kit = findThemeKit("codex-desktop-v1");
+    if (!kit?.light || !kit.dark) {
+      throw new Error("expected the Codex Desktop v1 kit to have both token sets");
+    }
+
+    expect(kit.source).toBe("system-preset");
+    expect(kit.modes).toEqual(["light", "dark"]);
+    expect(Object.keys(kit.light.wb)).toHaveLength(42);
+    expect(Object.keys(kit.dark.wb)).toHaveLength(42);
+    expect(Object.keys(kit.light.charts)).toHaveLength(6);
+    expect(Object.keys(kit.dark.charts)).toHaveLength(6);
+
+    expect(kit.fonts).toEqual({
+      body: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+      display: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+      mono: 'ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+    });
+    expect(kit.statics["font-sans"]).toBe(kit.fonts.body);
+    expect(kit.statics["font-display"]).toBe(kit.fonts.display);
+    expect(kit.statics["font-mono"]).toBe(kit.fonts.mono);
+
+    expect(kit.light.shadcn).toMatchObject({
+      background: "#fff",
+      foreground: "#181818",
+      primary: "#303030",
+      accent: "#e5f3ff",
+      border: "rgb(0 0 0 / 0.08)",
+      ring: "#339cff",
+    });
+    expect(kit.dark.shadcn).toMatchObject({
+      background: "#181818",
+      foreground: "#f3f3f3",
+      primary: "#f3f3f3",
+      accent: "color-mix(in srgb, #339cff 18%, #212121)",
+      border: "rgb(255 255 255 / 0.08)",
+      ring: "#339cff",
+    });
+    expect(kit.light.wb).toMatchObject({
+      "wb-surface": "#fff",
+      "wb-surface-translucent": "rgb(249 249 249 / 0.82)",
+      "wb-inset-strong": "rgb(0 0 0 / 0.05)",
+      "wb-border": "rgb(0 0 0 / 0.08)",
+      "wb-accent": "#339cff",
+    });
+    expect(kit.dark.wb).toMatchObject({
+      "wb-surface": "#181818",
+      "wb-surface-translucent": "rgb(24 24 24 / 0.82)",
+      "wb-inset-strong": "rgb(255 255 255 / 0.08)",
+      "wb-border": "rgb(255 255 255 / 0.08)",
+      "wb-accent": "#339cff",
+    });
+
+    expect(kit.statics).toMatchObject({
+      radius: "10px",
+      "radius-hairline": "2px",
+      "radius-panel": "12px",
+      "text-display": "24px",
+      "text-headline": "18px",
+      "text-title": "16px",
+      "text-body": "14px",
+      "text-body-sm": "12px",
+      "text-caption": "11px",
+      space: "8px",
+      "space-row": "32px",
+      "space-padding": "8px",
+      "ease-out": "cubic-bezier(.19, 1, .22, 1)",
+      "ease-swift-out": "cubic-bezier(.19, 1, .22, 1)",
+      "ease-in-out": "cubic-bezier(.23, 1, .32, 1)",
+      "ease-snappy": "cubic-bezier(.23, 1, .32, 1)",
+      "ease-duration-quick": "150ms",
+      "ease-duration-standard": "150ms",
+      "ease-duration-deliberate": "300ms",
+    });
+
+    const shadows = {
+      "shadow-hairline": "0px 0px 0px .5px #0000001a",
+      "shadow-sm": "0px 1px 2px -1px #00000014",
+      "shadow-md": "0px 2px 4px -1px #00000014",
+      "shadow-lg": "0px 4px 8px -2px #0000001a",
+      "shadow-xl": "0px 8px 16px -4px #0000001f",
+      "shadow-2xl": "0px 16px 32px -8px #00000030",
+      "shadow-raised": "0px 1px 2px -1px #00000014",
+      "shadow-floating": "0px 4px 8px -2px #0000001a",
+      shadow: "0px 1px 2px -1px #00000014",
+    };
+    expect(kit.light.extra).toMatchObject(shadows);
+    expect(kit.dark.extra).toMatchObject(shadows);
   });
 });
