@@ -38,6 +38,7 @@
   "exclude": [
     "examples/shadcn-vite-install",
     "cli",
+    "benchmarks/runs",
     "node_modules"
   ]
 }

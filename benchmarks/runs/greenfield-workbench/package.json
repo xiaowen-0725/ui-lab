@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "e2e": "playwright test",
     "capture": "playwright test e2e/capture.spec.ts",
-    "audit": "bun ../../../cli/src/index.ts audit --strict --json --dir ."
+    "audit": "bun ../../../cli/src/index.ts audit --strict --json --dir .",
+    "verify": "bun run lint && bun run typecheck && bun run test && bun run build && bun run audit && bun run e2e"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.0",

@@ -21,6 +21,7 @@
     "typecheck": "tsc --noEmit",
     "check:registry": "bun scripts/check-registry.ts",
     "check:skills": "bun scripts/check-skills.ts && bun test tests/ui-lab-skill.test.ts",
+    "benchmark:greenfield": "bun run --cwd benchmarks/runs/greenfield-workbench verify",
     "inspiration:capture": "bun scripts/capture-inspiration-screenshots.ts",
     "inspiration:audit": "bun scripts/capture-inspiration-screenshots.ts --audit-only",
     "system-presets:capture-candidates": "bun scripts/capture-system-preset-candidates.ts",

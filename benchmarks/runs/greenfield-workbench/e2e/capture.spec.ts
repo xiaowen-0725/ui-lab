@@ -1,5 +1,8 @@
 import { expect, test } from "@playwright/test";
 
+const captureOutputDir =
+  process.env.CAPTURE_OUTPUT_DIR ?? ".ui-lab/evidence/visual/implementation";
+
 const cases: Array<{ id: string; width: number; height: number; query: string; focus?: boolean }> = [
   { id: "wide-light-default", width: 1440, height: 900, query: "state=default&theme=light" },
   { id: "wide-dark-loading", width: 1440, height: 900, query: "state=loading&theme=dark" },
@@ -17,6 +20,16 @@ for (const item of cases) {
     await page.evaluate(async () => { await document.fonts.ready; await new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))); });
     if (item.focus) await page.getByRole("button", { name: "切换任务导航" }).focus();
     await expect(page.getByTestId("workbench-app")).toBeVisible();
-    await page.screenshot({ path: `.ui-lab/evidence/visual/implementation/${item.id}.png`, fullPage: false });
+    await page.addStyleTag({
+      content: `
+        .animate-spin { animation: none !important; transform: rotate(0deg) !important; }
+        .bg-clip-text.text-transparent { background-position: 100% 0% !important; }
+      `,
+    });
+    await page.screenshot({
+      path: `${captureOutputDir}/${item.id}.png`,
+      fullPage: false,
+      animations: "disabled",
+    });
   });
 }

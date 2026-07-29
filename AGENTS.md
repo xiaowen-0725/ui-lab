@@ -18,10 +18,13 @@ bun run dev             # 本地站点(localhost:3000)
 bun run typecheck       # tsc --noEmit
 bun run lint            # biome
 bun run check:registry  # 校验每个 registry 组件都能发布其文件
-bun run check           # 上面三项一起 —— 提交前跑
+bun run check           # 根仓 typecheck + lint + registry + skill 门禁 —— 提交前跑
+bun run benchmark:greenfield # 独立 Greenfield fixture 的完整高成本验证
 ```
 
 快速验证用 `typecheck` + `lint`。**dev server 和 `bun run build` 共用 `.next` 目录:dev 开着时别跑 build,会让 dev 报 500(`Cannot find module vendor-chunks`)—— 要构建先停 dev。**
+
+`benchmarks/runs/*` 是独立 package，使用自己的 lockfile、TypeScript、Biome、测试与 Playwright 工具链，根 `tsconfig` / Biome 不扫描。首次重跑 Greenfield 前先在 `benchmarks/runs/greenfield-workbench` 执行 `bun install --frozen-lockfile`，再回仓库根运行 `bun run benchmark:greenfield`。该命令依次跑 lint、typecheck、test、build、strict audit 与 E2E，因依赖和浏览器成本较高，不接入根 `bun run check`。
 
 ## 目录结构
 
