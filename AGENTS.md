@@ -1,12 +1,14 @@
 # 组件实验室 (UI Lab) — Agent 指南
 
-一个**中文优先的双语、AI-first 可组合前端系统**:底层收集一切"只能看、说不出"的前端视觉词汇,上层用 Stack Profile、System Kit、组件、区块和 Recipe 组成应用级 React 前端与落地页,让 AI 复用既定技术栈和设计契约而不是每次重画。组件以 shadcn 兼容的 registry 端点「复制源码」方式分发。架构边界见 `APPLICATION_KIT.md`。基于开源项目 beUI(starc007/ui-components,MIT)fork,个人自用,已部署于 Vercel(生产别名 https://ui-lab-ten.vercel.app)。
+> 产品北极星、目标六层、Design System Package 与 Package→Order→Lock→Evidence 契约以 [PRODUCT_DEFINITION.md](PRODUCT_DEFINITION.md) 为唯一真源。本文主要记录 current implementation 与仓库维护规则；不要把 planned 能力写成已经实现。
+
+一个**中文优先的双语、AI-first 可组合前端系统**:以 Catalog + machine-readable contracts 为核心,目标用精确、版本化的 Design System Package 连接设计意图、系统、资产、组合、实现与证据。AI 是受约束装配执行器,不是临场设计师。当前 Stack Profile、System Kit/System Preset、组件、区块、Recipe、config、CatalogLock 与 Audit 是通向该目标的 bridge。组件以 shadcn 兼容 registry「复制源码」分发。架构边界见 `APPLICATION_KIT.md`。基于开源项目 beUI(starc007/ui-components,MIT)fork,个人自用,已部署于 Vercel(生产别名 https://ui-lab-ten.vercel.app)。
 
 技术栈:Next.js 15(App Router)· React 19 · Tailwind CSS 4 · motion(framer-motion)v11 · next-intl v4 · TypeScript strict · Bun · Biome。
 
 ## 愿景与条目公式
 
-站点解决"设计说不出来"和"AI 每次从头生成导致漂移"两个问题:非专业人士看到 → 认出 → 选择 System/Recipe → AI 复用和组合。词汇条目遵循统一公式:**活样本 + 名字(中英 + 别名)+「对 AI 这样说」prompt + 可选配方**;应用级 Recipe 则用 `entryComponent` / `components` / `optionalComponents` / `sections` / `slots` / `states` / `responsive` / `assets` / `required` / `forbidden` 声明机器可读的装配契约。prompt 的写法是"具名风格 + 具体视觉手段 + 禁止项(FORBIDDEN)",负面约束比正面形容词更能防住 AI 的平庸默认值。
+站点解决"设计说不出来"和"AI 每次从头生成导致漂移"两个问题。目标流程是:非专业人士看到 → 认出 → 在 Studio 选择 Package/fixture → AI 复用和组合；当前 Studio 仍只是 candidate/Draft/matrix 的部分选择面,完整 Package chooser/OrderLock 尚未实现。词汇条目遵循统一公式:**活样本 + 名字(中英 + 别名)+「对 AI 这样说」prompt + 可选配方**;应用级 Recipe 用 `entryComponent` / `components` / `optionalComponents` / `sections` / `slots` / `states` / `responsive` / `assets` / `required` / `forbidden` 声明当前机器契约。prompt 是发现辅助,不能替代 Package、语义组件、兼容图或用户批准。
 
 主题按**顶级模块**扩展(现有:组件 / 区块 / 风格 / 演练场;规划中:配色方案、字体排印、页面区块等)。加新主题三步:顶级路由 `app/[locale]/<theme>/` → `lib/nav.ts` 注册空间(所有导航面自动跟上)→ 首页 `SpaceCards` 补一条描述文案(`landing.space*Desc`)。每个主题的数据真源独立建 `lib/<theme>.ts`,不塞进 `lib/registry.ts`。如果新增的是跨区块的应用外壳或页面组合契约,应建 Catalog `kind: "recipe"` 的 Recipe,不要伪装成普通顶级主题或单个 Block;首批固定为 `agent-workbench` / `saas-landing`。
 
@@ -74,11 +76,13 @@ next-intl 路由化:`/` = 中文(默认 locale)、`/en/*` = 英文,`localePrefix
 
 Recipe 是 Catalog 的 `kind: "recipe"`,用于组合 System Kit、Block、组件或页面 section,而不是承载业务逻辑。每个 Recipe 必须声明 `profiles` / `recommendedSystem`、`entryComponent`、必装 `components`、`optionalComponents`、页面型配方的 `sections`(slug/variant/required)、`slots`、loading/empty/error 等 `states`、`responsive`、字体/图片等 `assets`,以及 `required` / `forbidden`。`saas-landing` 当前是 section composition contract(Pricing 可选),不是一份可 vendoring 的完整页面 shell;完整 shell 是后续资产。变更 Recipe 后同样必须执行 `bun run cli:snapshot`,并用消费项目的 `ui-lab compose <recipe>` + `ui-lab audit` 验证。
 
-## System Preset 与 Order Manifest（Phase 1–2）
+## Design System Package 目标与 current bridge
 
-`lib/system-presets/` 是 System Preset 真源；`lib/catalog-contract.ts` 负责 Catalog 契约的 canonical hash；`lib/order-manifest.ts` 定义可校验、不可变的 draft / confirmed Manifest schema。Theme Kit 仍只负责 token，Recipe 仍只负责组合，`ui-lab.config.json` / `ui-lab.lock.json` / Audit 也各自只表达低层绑定与一致性证据，以上任何一项都不能替代 Confirmed Manifest。
+目标链是 `Package@version → OrderDraft → selection approval → OrderLock → implementation → EvidenceBundle → acceptance/release`。只有 `production-ready` Package 可直接用于正式项目；OrderLock 是不可变解析快照,但不代表通过。Static、Runtime、Visual、Human evidence 必须分开。
 
-`codex-desktop-v1` 的 Phase 1 已有 approved calibration 与 planned acceptance cases；Phase 2 已生成 8 张 candidate visual evidence，但它们只是 current implementation 的 regression captures，仍为 pending，不能称为 Codex fidelity reference 或 approved acceptance。用户在 Reference Board 逐项批准 visual master 前，必须阻断 checkout / Confirmed Manifest，禁止修改 Parking Agent，Agent 也不得自行批准候选或确认订单。Catalog 增删改（包括 System Preset）仍必须执行 `bun run cli:snapshot`。Phase 3 的 order CLI（validate / diff / sync）与 skill enforcement 尚未实现，不得把现有 `init` / `compose` / `lock` / `audit` 描述为已经支持 confirmed order。
+当前 `lib/system-presets/` 是 package-like predecessor 真源；`lib/catalog-contract.ts` 提供 canonical hash；`lib/order-manifest.ts` 是 Phase 1–2 的 draft/confirmed 领域实验。Theme Kit 只负责 token,Recipe 只负责组合,`ui-lab.config.json` 只表达装配意图,`ui-lab.lock.json` 是 **CatalogLock** 而不是 OrderLock,Audit 也不能替代 EvidenceBundle。Order CLI 与 dedicated capabilities 尚未完整实现,不得臆造命令或确认状态。
+
+`codex-desktop-v1` 只是一项现有 optional Package/reference 候选实验,不是产品总目标或 production-ready Package。其 8 张图仍是 candidate regression captures。Parking Agent 只作为 Existing Adoption benchmark fixture；是否修改它由该 fixture 的授权和 evidence 决定,不能反向定义 UI Lab 全局架构。Catalog 增删改仍必须执行 `bun run cli:snapshot`。
 
 ## Motion 约定
 
@@ -101,13 +105,13 @@ Recipe 是 Catalog 的 `kind: "recipe"`,用于组合 System Kit、Block、组件
 
 ## AI 接入
 
-一个真源、多条薄视图。真源是 `lib/catalog.ts` 的 `buildCatalog()`,把全部词汇和应用 Recipe(组件 / atom token / 图标 / 风格 / 配色 / studio 预设 / 设计系统 / `recipe`)聚合成统一 `CatalogItem`(name、描述、prompt、pageUrl、fetch)。对外三条通道,MCP 已退役:
+一个 current Catalog 真源、多条薄视图。真源是 `lib/catalog.ts` 的 `buildCatalog()`,把现有词汇、组件、主题、System Preset 与 Recipe 聚合成统一 `CatalogItem`。目标 Design System Package schema/maturity/compatibility 仍按 `PRODUCT_DEFINITION.md` 分阶段落地,不能因 Catalog 已存在就声称已 production-ready。对外三条通道,MCP 已退役:
 
 - **组件安装**:shadcn registry `app/r/*`,`npx shadcn add`(见「分发 / 命名空间」)。
 - **机器端点**(`app/` 根、英文规范、部署自动静态化):`/catalog.json`(结构化全词汇)、`/llms.txt`(分组索引)、`/llms-full.txt`(每项 prompt/token 内联)。加新词汇时它们**随构建自动反映**,不用手改。
 - **`ui-lab` CLI + skill**:CLI 在 `cli/`(独立子包、零运行时依赖、从根 tsconfig/biome 排除),npm 包名为 `uilab-cli`、bin 为 `ui-lab`,本地也可 `bun link`;skill 在 `skill/ui-lab/`,用 dbs-bridge 桥接到 Claude Code / Codex / 通用 Agents / Grok。项目级深接口是 `init`(建立 Stack/System 与 `ui-lab.config.json`)→ `compose`(装配 Recipe)→ `add`(增量组件)→ `audit`(一致性门禁);配置 schema 固定为 `schemaVersion=1`、`profile`、`system`、可选 `recipe`、`components`、`mode=adopt|replace`。这些 Application Kit 命令与 config-aware `add` 当前仍在 `[Unreleased]`:调用前先以 `ui-lab --help` 确认可用;未发布版本在本仓库用 `bun cli/src/index.ts <command>`,不得假装旧 npm CLI 已执行。CLI 不 import 主仓库 lib/*,只消费 catalog 数据。**改了 CLI 源码后要 `cd cli && bun run build` + 提 npm 新版本(bump version → publish)** 才对外生效;只加词汇或 Recipe 则 `bun run cli:snapshot` 刷快照(下次发版带上)。
 
-**Skill 单入口树**:`skill/ui-lab/SKILL.md` 是 model-invoked router,一次只走一个互斥路线。四阶段为 Define(`discover` / `$design-ingest` / `select`)→ Build(`adopt` / `replace`)→ Refine(`polish` / `motion` / `harden`)→ Verify(`review` + deterministic Audit + visual acceptance);Audit、视觉证据和用户批准互不替代。`$design-ingest` 只沉淀视觉 Design System / Theme layer,完整应用系统必须回到 `$ui-lab select`。修改 `skill/ui-lab/**` 或 `skill/design-ingest/**` 后运行 `bun run check:skills`:校验 SKILL frontmatter、相对链接、`agents/openai.yaml`、路由/门禁关键契约;该检查不证明视觉一致或用户批准。
+**Skill 单入口树**:`skill/ui-lab/SKILL.md` 是薄 model-invoked router,一次只走一个互斥路线。四阶段为 Define(`discover` / `$design-ingest` / `select`)→ Build(`adopt` / `replace`)→ Refine(`polish` / `motion` / `harden`)→ Verify(`review` + deterministic Audit + visual acceptance)。目标是正交 dedicated capabilities,但当前尚未全部实现/安装；不得把 reference 文档称为已安装 Skill。`$design-ingest` 只沉淀视觉 Theme layer / draft source,完整应用系统回到 `$ui-lab select`。修改 Skill 后运行 `bun run check:skills`;该检查不证明视觉一致或用户批准。
 
 **消费者根与命令语义**:`ui-lab.config.json`、`components.json` 和被审计的 `package.json` 必须位于实际 React 前端 package 根,不要求是仓库根;monorepo 必须用同一个 `--dir packages/desktop` 一类参数贯穿 `init` / `compose` / `add` / `audit`,不要在无 React 依赖的 workspace root 建 config。`compose` 始终要求 Catalog 中存在所选 System Kit:`adopt` 先 review/compare,只补缺失项且不得覆盖 vendored 源码;`replace` 才给完整安装计划。`add` 始终只打印不执行;有 config 时去重登记 slug,无 config 时只打印,并支持 `--dir`。
 

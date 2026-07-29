@@ -105,6 +105,7 @@ describe("UI Lab skill routing contract", () => {
 
   test("keeps every routed reference present", async () => {
     const references = [
+      "product-contract.md",
       "skill-tree.md",
       "selection.md",
       "craft-contract.md",
@@ -119,6 +120,24 @@ describe("UI Lab skill routing contract", () => {
     for (const reference of references) {
       await access(path.join(uiLabRoot, "references", reference));
     }
+  });
+
+  test("loads the distributable product contract directly for every route", async () => {
+    const router = await read("skill/ui-lab/SKILL.md");
+
+    for (const route of [
+      "discover",
+      "select",
+      "adopt",
+      "replace",
+      "review",
+      "polish",
+      "motion",
+      "harden",
+    ]) {
+      expect(routeRow(router, route)).toContain("references/product-contract.md");
+    }
+    expect(router).not.toContain("../../PRODUCT_DEFINITION.md");
   });
 
   test("selects approved assets from reference evidence down to bespoke code", async () => {
@@ -226,6 +245,80 @@ describe("UI Lab quality and motion policies", () => {
 
     expect(applyContract).toBeDefined();
     expect(reviewVerdict).toBeDefined();
+  });
+});
+
+describe("UI Lab product contract semantics", () => {
+  test("keeps the Package to Evidence chain ordered and separates both approvals", async () => {
+    const contract = await read("skill/ui-lab/references/product-contract.md");
+    const compactContract = contract.replace(/\s+/g, " ");
+
+    expectInOrder(compactContract, [
+      "Package@version",
+      "OrderDraft",
+      "selection approval",
+      "OrderLock",
+      "implementation",
+      "EvidenceBundle",
+    ]);
+
+    const selectionApproval = contract
+      .split(/\n\s*\n/)
+      .find(
+        (paragraph) =>
+          paragraph.includes("selection approval") &&
+          paragraph.includes("OrderLock") &&
+          /不批准最终实现|不等于.*实现|does not approve/i.test(paragraph),
+      );
+    const implementationAcceptance = paragraphWith(contract, [
+      "EvidenceBundle",
+      "implementation acceptance",
+    ]);
+
+    expect(selectionApproval).toBeDefined();
+    expect(implementationAcceptance).toBeDefined();
+  });
+
+  test("keeps CatalogLock and the System Preset fallback below target contracts", async () => {
+    const contract = await read("skill/ui-lab/references/product-contract.md");
+    const catalogLock = paragraphWith(contract, [
+      "ui-lab.lock.json",
+      "CatalogLock",
+      "OrderLock",
+    ]);
+    const presetFallback = paragraphWith(contract, [
+      "System Preset",
+      "package-like candidate",
+      "production-ready",
+    ]);
+
+    expect(catalogLock).toMatch(/不能称|不是|不得冒充|is not/i);
+    expect(presetFallback).toMatch(/只能|不能|不得|must not/i);
+  });
+
+  test("keeps Codex optional and Parking limited to the adoption fixture", async () => {
+    const contract = await read("skill/ui-lab/references/product-contract.md");
+    const codexBoundary = paragraphWith(contract, ["Codex", "optional"]);
+    const parkingBoundary = paragraphWith(contract, ["Parking Agent", "Existing Adoption"]);
+
+    expect(codexBoundary).toMatch(/不是.*(?:产品目标|默认系统|全局)/i);
+    expect(parkingBoundary).toMatch(/fixture/i);
+    expect(parkingBoundary).toMatch(/不定义|不是|不能/i);
+  });
+
+  test("keeps awesome-design-md as licensed reference input, not a ready Package", async () => {
+    const influences = await read("skill/ui-lab/references/influences.md");
+    const productDefinition = await read("PRODUCT_DEFINITION.md");
+    const sourceContract = `${influences}\n${productDefinition}`;
+    const awesomeReferences = sourceContract
+      .split(/\n\s*\n/)
+      .filter((paragraph) => paragraph.includes("awesome-design-md"))
+      .join("\n");
+
+    expect(awesomeReferences).toMatch(/74\s*条\s*reference/i);
+    expect(awesomeReferences).toMatch(/664b3e78fd1a298ba11973822da988483256d4b4/i);
+    expect(awesomeReferences).toMatch(/不等于.*production-ready|不得.*production-ready/i);
+    expect(awesomeReferences).toMatch(/MIT[\s\S]{0,240}(?:品牌|字体|资产)/i);
   });
 });
 
