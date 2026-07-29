@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "profile": "vite-app",
+  "system": "codex-desktop-v1",
+  "components": [
+    "agent-workbench",
+    "thread-list",
+    "agent-thread",
+    "agent-composer",
+    "artifact-panel"
+  ],
+  "mode": "replace",
+  "recipe": "agent-workbench"
+}

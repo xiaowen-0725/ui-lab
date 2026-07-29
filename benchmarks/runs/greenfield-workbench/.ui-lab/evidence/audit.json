@@ -1,0 +1,11 @@
+{
+  "command": "bun ../../../cli/src/index.ts audit --strict --json --dir .",
+  "catalog": "bundled snapshot generated 2026-07-28T15:36:36.740Z, 159 items",
+  "ok": true,
+  "directory": "/Users/zhoujw/.codex/worktrees/68fd/ui-components/benchmarks/runs/greenfield-workbench",
+  "findings": [],
+  "summary": {
+    "errors": 0,
+    "warnings": 0
+  }
+}

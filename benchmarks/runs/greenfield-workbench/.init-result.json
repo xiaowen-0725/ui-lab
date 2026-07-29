@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "action": "created",
+  "configPath": "/Users/zhoujw/.codex/worktrees/68fd/ui-components/benchmarks/runs/greenfield-workbench/ui-lab.config.json",
+  "config": {
+    "schemaVersion": 1,
+    "profile": "vite-app",
+    "system": "codex-desktop-v1",
+    "components": [],
+    "mode": "replace"
+  },
+  "nextSteps": [
+    "ui-lab compose <recipe> --dir /Users/zhoujw/.codex/worktrees/68fd/ui-components/benchmarks/runs/greenfield-workbench",
+    "ui-lab audit --dir /Users/zhoujw/.codex/worktrees/68fd/ui-components/benchmarks/runs/greenfield-workbench"
+  ]
+}

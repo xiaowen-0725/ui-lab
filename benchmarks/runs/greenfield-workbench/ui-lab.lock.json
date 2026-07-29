@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "catalogSource": "snapshot",
+  "items": [
+    {
+      "kind": "component",
+      "slug": "agent-composer",
+      "contractHash": "b9cfc0f55dbf4725607dd5b885ff2d0096d09bc6255f61fcad6be52039d35b4b",
+      "sourceFiles": [
+        "components/motion/agent-composer/index.tsx",
+        "components/motion/agent-composer/effort-slider.tsx",
+        "components/motion/agent-composer/autonomy-dial.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "slug": "agent-thread",
+      "contractHash": "c24806cc2a06073136aa243f7a04cbe00f791195837264e1e160d8dacd60b115",
+      "sourceFiles": [
+        "components/motion/agent-thread/index.tsx",
+        "components/motion/agent-thread/cards.tsx",
+        "components/motion/agent-thread/status.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "slug": "agent-workbench",
+      "contractHash": "ffc6b6f5cad22249204f99782de3aa0682edf68556105ab2b9fdd5d2d32fb605",
+      "sourceFiles": [
+        "components/motion/agent-workbench/index.tsx",
+        "components/motion/agent-workbench/resize-handle.tsx",
+        "components/motion/agent-workbench/summary-card.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "slug": "artifact-panel",
+      "contractHash": "edb869e460cba2cc3b1155d030db2a786d6462369d4e702bd94d62dcd8b93200",
+      "sourceFiles": [
+        "components/motion/artifact-panel/index.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "slug": "thread-list",
+      "contractHash": "741d5d64bb59e02ef43e688a31468de305dcf99f35aa7593b1c9ef916a0d2173",
+      "sourceFiles": [
+        "components/motion/thread-list/index.tsx"
+      ]
+    },
+    {
+      "kind": "recipe",
+      "slug": "agent-workbench",
+      "contractHash": "492498f5c7683c39797323b4bdc9344be54193bf30e791821f97ada6d4c5de28"
+    },
+    {
+      "kind": "system-preset",
+      "slug": "codex-desktop-v1",
+      "contractHash": "299007fe0dbe06eb2f4de8fc950115123bf67cc36327877d8f8f0b1e2baff008"
+    }
+  ]
+}

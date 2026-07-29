@@ -1,0 +1,15 @@
+COMMAND: bun run e2e
+EXIT: 0
+
+Running 8 tests using 2 workers
+✓ capture wide-light-default
+✓ states, focus, fonts, and overflow are verifiable
+✓ capture wide-dark-loading
+✓ narrow and collapse layouts do not overflow
+✓ capture collapse-light-error
+✓ capture collapse-dark-reduced-motion
+✓ capture narrow-light-empty
+✓ capture wide-light-keyboard-focus
+8 passed (3.2s)
+
+Runtime assertions include document.fonts.ready/check, computed system font family, visible keyboard focus, URL-addressable default/loading/empty/error/streaming/approval states, and scrollWidth <= clientWidth at 1440, 1000, and 375 widths.

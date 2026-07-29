@@ -1,0 +1,17 @@
+COMMAND: cmp each vendored file with the corresponding current repository Catalog source
+EXIT: 0
+
+No differences for:
+- agent-workbench/index.tsx
+- agent-workbench/resize-handle.tsx
+- agent-workbench/summary-card.tsx
+- thread-list/index.tsx
+- agent-thread/index.tsx
+- agent-thread/cards.tsx
+- agent-thread/status.tsx
+- agent-composer/index.tsx
+- agent-composer/effort-slider.tsx
+- agent-composer/autonomy-dial.tsx
+- artifact-panel/index.tsx
+
+The consumer composition lives separately in src/app.tsx.

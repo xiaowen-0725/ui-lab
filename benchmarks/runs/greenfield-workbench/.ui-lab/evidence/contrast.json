@@ -1,0 +1,10 @@
+{
+  "method": "WCAG relative luminance over declared opaque theme surfaces",
+  "lightText": 17.7563,
+  "lightMuted": 6.5847,
+  "darkText": 16.0021,
+  "darkMuted": 8.0950,
+  "systemFocusBlueOnLight": 2.8610,
+  "systemFocusBlueOnDark": 6.2064,
+  "focusTreatment": "The focus indicator combines the system blue 2px outline with a 1px foreground keyline; the keyline supplies 17.7563:1 on light and 16.0021:1 on dark adjacent surfaces."
+}

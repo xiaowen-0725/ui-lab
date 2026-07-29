@@ -1,0 +1,15 @@
+{
+  "evidenceRole": "candidate-regression-capture",
+  "approvedAcceptanceReference": null,
+  "deviceScaleFactor": 1,
+  "runtime": "Chromium via Playwright against Vite",
+  "preconditions": ["document.fonts.ready", "two animation frames after state settle"],
+  "cases": [
+    {"id":"wide-light-default","size":"1440x900","theme":"light","state":"default"},
+    {"id":"wide-dark-loading","size":"1440x900","theme":"dark","state":"loading"},
+    {"id":"collapse-light-error","size":"1000x760","theme":"light","state":"error"},
+    {"id":"collapse-dark-reduced-motion","size":"1000x760","theme":"dark","state":"default","reducedMotion":true},
+    {"id":"narrow-light-empty","size":"375x760","theme":"light","state":"empty"},
+    {"id":"wide-light-keyboard-focus","size":"1440x900","theme":"light","state":"default","focusTarget":"切换任务导航"}
+  ]
+}
