@@ -1,34 +1,56 @@
-# Catalog discovery
+# Route: discover
 
-Use this branch to find UI Lab assets and advise the user without binding or changing a project.
+只读查询 UI Lab 已有组件/区块。
 
-## Guardrail
+## 做什么
 
-Do not run `init`, `compose`, or config-aware `add`. Do not create `ui-lab.config.json`, `ui-lab.lock.json`, `DESIGN.md`, an adoption report, a theme picker inside the consumer, or application files. If the user asks to apply a result, first reroute to `select`; only after the user approves the full-size selection evidence may the work reroute to `adopt` or `replace` and mutate production code.
+- 搜索、列表、查看组件详情
+- 返回 install / fetch 信息
+- 比较候选并说明取舍
 
-## Procedure
+## 不做什么
 
-1. Run `ui-lab --help` and use only commands exposed by the installed CLI.
-2. Translate the request into concrete needs: application/landing context, visual direction, interaction, state, responsive behavior, and asset kind.
-3. Search broadly, then inspect exact candidates:
+- 不创建/修改消费者业务代码
+- 不进入 Preset / Package / adopt / replace 流程
+- 不安装组件（安装走 `install` 路线）
 
-   ```bash
-   ui-lab search "<need>" --json
-   ui-lab list --kind <kind> --json
-   ui-lab show <slug> --kind <kind> --json
-   ```
+## 步骤
 
-4. For visual systems, inspect the live preview. A picker may be generated in a temporary location for human comparison; do not write it into the consumer.
-5. Compare candidate fit, source family completeness, supported profiles, Recipe compatibility, fetch/install details, and visible behavior.
-6. Record rejected near-matches and the concrete reason each was rejected.
+1. 运行 `ui-lab --help`，确认当前 CLI 能力
+2. 把用户需求翻译成关键词 / kind / slug
+3. 查询：
 
-Use `--registry <base-url>` only when the user needs a particular deployed Catalog. The value is the deployment base URL, not `/catalog.json`. State whether results came from that deployment or the bundled snapshot.
+```bash
+ui-lab search "<need>" --json
+ui-lab list --kind component --json
+ui-lab list --kind block --json
+ui-lab show <slug> --json
+```
 
-## Output
+4. 需要指定部署源时：
 
-Return a compact table:
+```bash
+ui-lab search "<need>" --registry https://ui-lab-ten.vercel.app --json
+```
 
-| Need | Candidate (`kind/slug`) | Why it fits | Live evidence | Fetch/install | Caveats |
-|---|---|---|---|---|---|
+`--registry` 填部署 base URL，不要带 `/catalog.json`。
 
-Include the strongest rejected candidates and rejection reasons below the table. Discovery is complete only when the evidence is sufficient to enter `select` and no consumer project was changed. A discovered asset is a candidate, not approval to apply it.
+5. 输出候选表
+
+## 输出模板
+
+```md
+## Discover
+
+| 需求 | 候选 (kind/slug) | 为什么合适 | 安装命令/来源 | 注意 |
+|---|---|---|---|---|
+
+### 建议下一步
+- 若要安装：进入 `install`，指定 slug
+- 若都不合适：说明缺口，不要伪造组件
+```
+
+## 证据要求
+
+- 结果必须来自 CLI/catalog/registry，不能凭记忆编造 slug
+- 说明数据来自 bundled snapshot 还是 `--registry` 线上源

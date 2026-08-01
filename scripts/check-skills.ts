@@ -274,15 +274,9 @@ for (const markdownFile of markdownFiles) {
 const uiLabRoot = path.join(skillRoot, "ui-lab");
 const uiLabSkill = path.join(uiLabRoot, "SKILL.md");
 const requiredUiLabReferences = [
-  "skill-tree.md",
-  "selection.md",
-  "craft-contract.md",
-  "review.md",
-  "polish.md",
-  "motion.md",
-  "harden.md",
-  "quality-gates.md",
-  "influences.md",
+  "discover.md",
+  "install.md",
+  "scope-boundary.md",
 ].map((fileName) => path.join(uiLabRoot, "references", fileName));
 
 if (!(await exists(uiLabSkill))) {

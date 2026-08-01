@@ -1,4 +1,4 @@
 interface:
   display_name: "UI Lab"
-  short_description: "路由 UI Lab 的视觉选择、前端构建、精修与四层验收"
-  default_prompt: "使用 $ui-lab 路由并完成这个前端的选择、构建、精修或验证任务。"
+  short_description: "查询并安装 UI Lab 已有组件（shadcn registry）"
+  default_prompt: "使用 $ui-lab 查找或安装 UI Lab 已有组件。"
