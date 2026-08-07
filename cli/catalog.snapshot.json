@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-28T15:36:36.740Z",
-  "count": 159,
+  "generatedAt": "2026-08-07T14:41:10.667Z",
+  "count": 168,
   "items": [
     {
       "kind": "component",
@@ -1786,6 +1786,247 @@
       "sourceFile": "components/motion/prompt-bar.tsx",
       "sourceFiles": [
         "components/motion/prompt-bar.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "prompt-input",
+      "name": "Prompt Input",
+      "nameZh": "提示输入",
+      "aliases": [
+        "AI prompt input React",
+        "model selector dropdown",
+        "chat composer component",
+        "agent input UI",
+        "AI textarea React",
+        "LLM model picker"
+      ],
+      "description": "An auto-growing agent composer with prompt actions, model selection, keyboard submission, and animated send and stop states.",
+      "descriptionZh": "可自动增高的 Agent 输入台:动作菜单、模型选择、Enter 发送、多行输入,以及发送/停止的动效切换。",
+      "pageUrl": "http://localhost:3000/components/blocks/prompt-input",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/prompt-input.json",
+        "endpoint": "http://localhost:3000/r/prompt-input"
+      },
+      "sourceFile": "components/agents/prompt-input.tsx",
+      "sourceFiles": [
+        "components/agents/prompt-input.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "todo-list",
+      "name": "Todo List",
+      "nameZh": "任务清单",
+      "aliases": [
+        "AI agent todo list React",
+        "agent task progress UI",
+        "LLM task plan component",
+        "AI checklist React",
+        "streaming todo list",
+        "agent workflow status"
+      ],
+      "description": "A collapsible agent task plan with morphing status marks, a completion count, compact metadata, and smooth list updates.",
+      "descriptionZh": "可折叠的 Agent 任务计划:待办/进行中/完成/取消状态、进度变形为对勾、完成计数、稳定流式行与紧凑元数据。",
+      "pageUrl": "http://localhost:3000/components/blocks/todo-list",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/todo-list.json",
+        "endpoint": "http://localhost:3000/r/todo-list"
+      },
+      "sourceFile": "components/agents/todo-list.tsx",
+      "sourceFiles": [
+        "components/agents/todo-list.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "code-block",
+      "name": "Code Block",
+      "nameZh": "代码块",
+      "aliases": [
+        "AI code block React",
+        "streaming code component",
+        "syntax highlighted code block",
+        "LLM code response UI",
+        "agent generated code",
+        "Shiki React code block"
+      ],
+      "description": "A syntax-highlighted code surface with stable streaming updates, line numbers, focused lines, smooth following, and copy feedback.",
+      "descriptionZh": "面向 Agent 的语法高亮代码面:稳定流式更新、可选行号与高亮行、有界平滑跟随、文件名/语言元数据与复制反馈。",
+      "pageUrl": "http://localhost:3000/components/blocks/code-block",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/code-block.json",
+        "endpoint": "http://localhost:3000/r/code-block"
+      },
+      "sourceFile": "components/agents/code-block.tsx",
+      "sourceFiles": [
+        "components/agents/code-block.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "approval-card",
+      "name": "Approval Card",
+      "nameZh": "审批卡片",
+      "aliases": [
+        "AI approval card React",
+        "human in the loop UI",
+        "agent clarification question",
+        "AI multiple choice prompt",
+        "approve agent decision",
+        "agent review workflow"
+      ],
+      "description": "A human-in-the-loop decision surface for approvals, single or multiple-choice questions, custom responses, and multi-step review flows.",
+      "descriptionZh": "人机协同决策面:批准/拒绝/修订,以及单选、多选、自由文本或多步问题;提交后折叠为已记录结果。",
+      "pageUrl": "http://localhost:3000/components/blocks/approval-card",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/approval-card.json",
+        "endpoint": "http://localhost:3000/r/approval-card"
+      },
+      "sourceFile": "components/agents/approval-card/index.tsx",
+      "sourceFiles": [
+        "components/agents/approval-card/index.tsx",
+        "components/agents/approval-card/types.ts"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "file-diff",
+      "name": "File Diff",
+      "nameZh": "文件差异",
+      "aliases": [
+        "AI file diff React",
+        "agent code changes UI",
+        "streaming diff component",
+        "file edit result",
+        "code additions deletions"
+      ],
+      "description": "A syntax-highlighted file change disclosure with progressive rows, line numbers, live change counts, smooth following, and completion collapse.",
+      "descriptionZh": "语法高亮的文件变更披露:渐进行、行号、实时增删计数、有界平滑跟随,完成后可折叠。",
+      "pageUrl": "http://localhost:3000/components/blocks/file-diff",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/file-diff.json",
+        "endpoint": "http://localhost:3000/r/file-diff"
+      },
+      "sourceFile": "components/agents/file-diff.tsx",
+      "sourceFiles": [
+        "components/agents/file-diff.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "tool-result",
+      "name": "Tool Result",
+      "nameZh": "工具结果",
+      "aliases": [
+        "AI tool result React",
+        "agent terminal output UI",
+        "streaming command result",
+        "agent API response",
+        "tool execution status"
+      ],
+      "description": "A lightweight execution disclosure for syntax-highlighted terminal output and request responses that collapses into a compact completed state.",
+      "descriptionZh": "轻量执行披露:语法高亮的终端输出与请求响应、有界自动跟随、成功/错误/取消态,完成后折叠,支持复制与重试。",
+      "pageUrl": "http://localhost:3000/components/blocks/tool-result",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/tool-result.json",
+        "endpoint": "http://localhost:3000/r/tool-result"
+      },
+      "sourceFile": "components/agents/tool-result.tsx",
+      "sourceFiles": [
+        "components/agents/tool-result.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "streaming-response",
+      "name": "Streaming Response",
+      "nameZh": "流式回复",
+      "aliases": [
+        "AI streaming response React",
+        "LLM token stream UI",
+        "chat response actions",
+        "AI response sources",
+        "AI answer component",
+        "streaming text React"
+      ],
+      "description": "A stable response surface with completion actions, rendered content, and an expandable source summary.",
+      "descriptionZh": "稳定的流式回答面:完成后复制/重试/反馈、可选可展开来源摘要,以及嵌套 live region 播报控制。",
+      "pageUrl": "http://localhost:3000/components/blocks/streaming-response",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/streaming-response.json",
+        "endpoint": "http://localhost:3000/r/streaming-response"
+      },
+      "sourceFile": "components/agents/streaming-response.tsx",
+      "sourceFiles": [
+        "components/agents/streaming-response.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "image-generation",
+      "name": "Image Generation",
+      "nameZh": "图像生成",
+      "aliases": [
+        "AI image generation React",
+        "generated image loading UI",
+        "AI image progress component",
+        "image generation animation",
+        "text to image interface",
+        "AI media result"
+      ],
+      "description": "A stable generated-image surface that moves from queued work through progressive refinement to a completed result without layout shift.",
+      "descriptionZh": "稳定的生成图画面:排队→生成→精修→完成/可恢复错误,逐步解析媒体且不 remount、不挤压周围会话。",
+      "pageUrl": "http://localhost:3000/components/blocks/image-generation",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/image-generation.json",
+        "endpoint": "http://localhost:3000/r/image-generation"
+      },
+      "sourceFile": "components/agents/image-generation.tsx",
+      "sourceFiles": [
+        "components/agents/image-generation.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "tool-approval",
+      "name": "Tool Approval",
+      "nameZh": "工具授权",
+      "aliases": [
+        "AI tool approval UI",
+        "agent permission component",
+        "human in the loop React",
+        "approve agent action",
+        "AI tool confirmation"
+      ],
+      "description": "A human-in-the-loop permission card for reviewing tool details, allowing once, remembering access, or denying execution.",
+      "descriptionZh": "人机协同权限卡:审阅工具详情与参数、允许一次/始终允许/拒绝,可选 Shiki 高亮代码值。",
+      "pageUrl": "http://localhost:3000/components/blocks/tool-approval",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/tool-approval.json",
+        "endpoint": "http://localhost:3000/r/tool-approval"
+      },
+      "sourceFile": "components/agents/tool-approval.tsx",
+      "sourceFiles": [
+        "components/agents/tool-approval.tsx"
       ]
     },
     {

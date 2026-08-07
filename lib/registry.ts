@@ -1583,6 +1583,240 @@ export const registry: CategoryEntry[] = [
           "prompt input component",
         ],
       },
+      {
+        slug: "prompt-input",
+        name: "Prompt Input",
+        nameZh: "提示输入",
+        description:
+          "An auto-growing agent composer with prompt actions, model selection, keyboard submission, and animated send and stop states.",
+        descriptionZh:
+          "可自动增高的 Agent 输入台:动作菜单、模型选择、Enter 发送、多行输入,以及发送/停止的动效切换。",
+        file: "components/agents/prompt-input.tsx",
+        badge: "new",
+        launchedAt: "2026-08-07",
+        keywords: [
+          "AI prompt input React",
+          "model selector dropdown",
+          "chat composer component",
+          "agent input UI",
+          "AI textarea React",
+          "LLM model picker",
+        ],
+      },
+      {
+        slug: "todo-list",
+        name: "Todo List",
+        nameZh: "任务清单",
+        description:
+          "A collapsible agent task plan with morphing status marks, a completion count, compact metadata, and smooth list updates.",
+        descriptionZh:
+          "可折叠的 Agent 任务计划:待办/进行中/完成/取消状态、进度变形为对勾、完成计数、稳定流式行与紧凑元数据。",
+        file: "components/agents/todo-list.tsx",
+        badge: "new",
+        launchedAt: "2026-08-07",
+        keywords: [
+          "AI agent todo list React",
+          "agent task progress UI",
+          "LLM task plan component",
+          "AI checklist React",
+          "streaming todo list",
+          "agent workflow status",
+        ],
+      },
+      {
+        slug: "code-block",
+        name: "Code Block",
+        nameZh: "代码块",
+        description:
+          "A syntax-highlighted code surface with stable streaming updates, line numbers, focused lines, smooth following, and copy feedback.",
+        descriptionZh:
+          "面向 Agent 的语法高亮代码面:稳定流式更新、可选行号与高亮行、有界平滑跟随、文件名/语言元数据与复制反馈。",
+        file: "components/agents/code-block.tsx",
+        badge: "new",
+        launchedAt: "2026-08-07",
+        keywords: [
+          "AI code block React",
+          "streaming code component",
+          "syntax highlighted code block",
+          "LLM code response UI",
+          "agent generated code",
+          "Shiki React code block",
+        ],
+      },
+      {
+        slug: "approval-card",
+        name: "Approval Card",
+        nameZh: "审批卡片",
+        description:
+          "A human-in-the-loop decision surface for approvals, single or multiple-choice questions, custom responses, and multi-step review flows.",
+        descriptionZh:
+          "人机协同决策面:批准/拒绝/修订,以及单选、多选、自由文本或多步问题;提交后折叠为已记录结果。",
+        file: "components/agents/approval-card/index.tsx",
+        extraFiles: ["components/agents/approval-card/types.ts"],
+        badge: "new",
+        launchedAt: "2026-08-07",
+        keywords: [
+          "AI approval card React",
+          "human in the loop UI",
+          "agent clarification question",
+          "AI multiple choice prompt",
+          "approve agent decision",
+          "agent review workflow",
+        ],
+        examples: [
+          {
+            slug: "questions",
+            name: "Questions",
+            nameZh: "提问澄清",
+            description:
+              "Guides the user through single-choice, multiple-choice, and freeform questions before returning the completed response to the agent.",
+            descriptionZh:
+              "引导用户完成单选、多选与自由文本问题,再把完整回答交回 Agent。",
+            file: "components/agents/approval-card/index.tsx",
+            previewKey: "blocks/approval-card-question",
+            previewFile:
+              "components/previews/agents/approval-card-question.preview.tsx",
+          },
+          {
+            slug: "review",
+            name: "Review and Approve",
+            nameZh: "审阅批准",
+            description:
+              "Pauses an agent workflow for approval, revision, or rejection and collapses into the recorded decision.",
+            descriptionZh:
+              "暂停 Agent 流程等待批准、修订或拒绝,并折叠为已记录的决策结果。",
+            file: "components/agents/approval-card/index.tsx",
+            previewKey: "blocks/approval-card-review",
+            previewFile:
+              "components/previews/agents/approval-card-review.preview.tsx",
+          },
+        ],
+      },
+      {
+        slug: "file-diff",
+        name: "File Diff",
+        nameZh: "文件差异",
+        description:
+          "A syntax-highlighted file change disclosure with progressive rows, line numbers, live change counts, smooth following, and completion collapse.",
+        descriptionZh:
+          "语法高亮的文件变更披露:渐进行、行号、实时增删计数、有界平滑跟随,完成后可折叠。",
+        file: "components/agents/file-diff.tsx",
+        badge: "new",
+        launchedAt: "2026-08-07",
+        keywords: [
+          "AI file diff React",
+          "agent code changes UI",
+          "streaming diff component",
+          "file edit result",
+          "code additions deletions",
+        ],
+      },
+      {
+        slug: "tool-result",
+        name: "Tool Result",
+        nameZh: "工具结果",
+        description:
+          "A lightweight execution disclosure for syntax-highlighted terminal output and request responses that collapses into a compact completed state.",
+        descriptionZh:
+          "轻量执行披露:语法高亮的终端输出与请求响应、有界自动跟随、成功/错误/取消态,完成后折叠,支持复制与重试。",
+        file: "components/agents/tool-result.tsx",
+        badge: "new",
+        launchedAt: "2026-08-07",
+        keywords: [
+          "AI tool result React",
+          "agent terminal output UI",
+          "streaming command result",
+          "agent API response",
+          "tool execution status",
+        ],
+        examples: [
+          {
+            slug: "terminal-output",
+            name: "Terminal Output",
+            nameZh: "终端输出",
+            description:
+              "Streams command output into a bounded viewport, follows new lines, then collapses into the completed run summary.",
+            descriptionZh:
+              "把命令输出流进有界视口并跟随新行,完成后折叠为运行摘要。",
+            file: "components/agents/tool-result.tsx",
+            previewKey: "blocks/tool-result-terminal",
+            previewFile:
+              "components/previews/agents/tool-result-terminal.preview.tsx",
+          },
+          {
+            slug: "request-result",
+            name: "Request Result",
+            nameZh: "请求结果",
+            description:
+              "Presents an in-flight request and its highlighted response payload with retry and copy actions.",
+            descriptionZh:
+              "展示进行中的请求与高亮响应载荷,并提供重试与复制操作。",
+            file: "components/agents/tool-result.tsx",
+            previewKey: "blocks/tool-result-request",
+            previewFile:
+              "components/previews/agents/tool-result-request.preview.tsx",
+          },
+        ],
+      },
+      {
+        slug: "streaming-response",
+        name: "Streaming Response",
+        nameZh: "流式回复",
+        description:
+          "A stable response surface with completion actions, rendered content, and an expandable source summary.",
+        descriptionZh:
+          "稳定的流式回答面:完成后复制/重试/反馈、可选可展开来源摘要,以及嵌套 live region 播报控制。",
+        file: "components/agents/streaming-response.tsx",
+        badge: "new",
+        launchedAt: "2026-08-07",
+        keywords: [
+          "AI streaming response React",
+          "LLM token stream UI",
+          "chat response actions",
+          "AI response sources",
+          "AI answer component",
+          "streaming text React",
+        ],
+      },
+      {
+        slug: "image-generation",
+        name: "Image Generation",
+        nameZh: "图像生成",
+        description:
+          "A stable generated-image surface that moves from queued work through progressive refinement to a completed result without layout shift.",
+        descriptionZh:
+          "稳定的生成图画面:排队→生成→精修→完成/可恢复错误,逐步解析媒体且不 remount、不挤压周围会话。",
+        file: "components/agents/image-generation.tsx",
+        badge: "new",
+        launchedAt: "2026-08-07",
+        keywords: [
+          "AI image generation React",
+          "generated image loading UI",
+          "AI image progress component",
+          "image generation animation",
+          "text to image interface",
+          "AI media result",
+        ],
+      },
+      {
+        slug: "tool-approval",
+        name: "Tool Approval",
+        nameZh: "工具授权",
+        description:
+          "A human-in-the-loop permission card for reviewing tool details, allowing once, remembering access, or denying execution.",
+        descriptionZh:
+          "人机协同权限卡:审阅工具详情与参数、允许一次/始终允许/拒绝,可选 Shiki 高亮代码值。",
+        file: "components/agents/tool-approval.tsx",
+        badge: "new",
+        launchedAt: "2026-08-07",
+        keywords: [
+          "AI tool approval UI",
+          "agent permission component",
+          "human in the loop React",
+          "approve agent action",
+          "AI tool confirmation",
+        ],
+      },
     ],
   },
   {
