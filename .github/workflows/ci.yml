@@ -25,4 +25,5 @@ jobs:
 
       - name: Accessibility tests
         # Root suite only — greenfield lives in benchmarks/runs/* with its own toolchain.
-        run: bun test tests
+        # Use ./tests (not "tests") so bun does not also match nested **/tests paths.
+        run: bun test ./tests
