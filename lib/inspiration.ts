@@ -800,6 +800,111 @@ const INSPIRATION_SOURCE_RECORDS: readonly InspirationSourceRecord[] = [
     ],
     reviewedAt: "2026-07-27",
   },
+  {
+    slug: "shadcn-studio",
+    entryKind: "source",
+    name: "Shadcn Studio",
+    nameZh: "Shadcn Studio 组件库",
+    aliases: ["shadcnstudio", "shadcnstudio.com", "shadcn/studio"],
+    url: "https://shadcnstudio.com/",
+    canonicalUrl: "https://shadcnstudio.com/",
+    description:
+      "A shadcn/ui block and template marketplace for marketing pages, dashboards, ecommerce, and themes, with free and pro assets plus CLI/copy-paste install.",
+    descriptionZh:
+      "面向 shadcn/ui 的区块与模板市场，覆盖营销页、仪表盘、电商与主题；提供免费与付费资产，支持 CLI 或复制粘贴安装。",
+    primaryTheme: "product-ui",
+    secondaryThemes: ["websites", "motion-3d"],
+    contentTypes: ["web-interface", "app-screen", "website", "landing-page"],
+    useCases: ["ui-inspiration", "product-design", "web-design-inspiration"],
+    visualTraits: ["minimal", "dark-mode", "animated"],
+    access: "freemium",
+    rightsStatus: "external-only",
+    provenance: [
+      {
+        url: "https://shadcnstudio.com/",
+        kind: "first-party",
+        note: "Official product positioning for blocks, templates, themes, and AI tooling.",
+        noteZh: "官方对区块、模板、主题与 AI 工具的产品定位。",
+      },
+      {
+        url: "https://shadcnstudio.com/blocks",
+        kind: "first-party",
+        note: "Public blocks catalog spanning marketing, dashboard, ecommerce, and bento layouts.",
+        noteZh: "公开区块目录，覆盖营销、仪表盘、电商与 bento 布局。",
+      },
+    ],
+    reviewedAt: "2026-08-08",
+  },
+  {
+    slug: "react-bits",
+    entryKind: "source",
+    name: "React Bits",
+    nameZh: "React Bits 动效组件",
+    aliases: ["reactbits", "reactbits.dev", "DavidHDev/react-bits"],
+    url: "https://reactbits.dev/",
+    canonicalUrl: "https://reactbits.dev/",
+    description:
+      "An open-source gallery of animated React components and backgrounds—text effects, cursors, shaders—shipped as copy-paste source rather than a lock-in package.",
+    descriptionZh:
+      "开源 React 动效组件与背景图库（文字特效、光标、着色器等），以复制源码方式分发，而非锁死依赖包。",
+    primaryTheme: "motion-3d",
+    secondaryThemes: ["product-ui", "websites"],
+    contentTypes: ["motion", "3d", "web-interface", "website"],
+    useCases: ["motion-reference", "ui-inspiration", "web-design-inspiration"],
+    visualTraits: ["animated", "dark-mode", "bold", "futuristic"],
+    access: "freemium",
+    rightsStatus: "external-only",
+    provenance: [
+      {
+        url: "https://reactbits.dev/",
+        kind: "first-party",
+        note: "Official homepage: animated components for creative developers, free tier plus Pro.",
+        noteZh: "官方首页：面向创意开发者的动效组件，免费层与 Pro。",
+      },
+      {
+        url: "https://github.com/DavidHDev/react-bits",
+        kind: "first-party",
+        note: "Official GitHub repository for the open-source component collection.",
+        noteZh: "开源组件集合的官方 GitHub 仓库。",
+      },
+    ],
+    reviewedAt: "2026-08-08",
+  },
+  {
+    slug: "checklist-design",
+    entryKind: "source",
+    name: "Checklist Design",
+    nameZh: "Checklist Design 设计清单",
+    aliases: ["checklist.design", "Checklist Design by George Hatzis"],
+    url: "https://www.checklist.design/",
+    canonicalUrl: "https://www.checklist.design/",
+    description:
+      "A browsable library of UX/UI quality checklists for websites, web apps, mobile, design-system components, and multi-step flows.",
+    descriptionZh:
+      "可浏览的 UX/UI 质量清单库，覆盖网站、Web App、移动端、设计系统组件与多步流程。",
+    primaryTheme: "product-ui",
+    secondaryThemes: ["websites"],
+    contentTypes: ["web-interface", "app-screen", "website"],
+    useCases: ["product-design", "ui-inspiration", "design-system"],
+    visualTraits: ["minimal", "typographic"],
+    access: "public",
+    rightsStatus: "external-only",
+    provenance: [
+      {
+        url: "https://www.checklist.design/",
+        kind: "first-party",
+        note: "Official homepage: browse and search checklists across product surfaces.",
+        noteZh: "官方首页：跨产品面浏览与搜索设计清单。",
+      },
+      {
+        url: "https://www.checklist.design/browse",
+        kind: "first-party",
+        note: "Public catalog of checklists for websites, apps, mobile, systems, and flows.",
+        noteZh: "公开清单目录，覆盖网站、应用、移动端、系统与流程。",
+      },
+    ],
+    reviewedAt: "2026-08-08",
+  },
 ];
 
 export const INSPIRATION_SOURCES: readonly InspirationSource[] =

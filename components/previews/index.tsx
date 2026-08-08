@@ -327,59 +327,94 @@ export const previews: Record<string, ComponentType> = {
     import("./blocks/prompt-bar.preview").then((m) => m.PromptBarPreview),
   ),
   "blocks/prompt-input": dynamic(() =>
-    import("./agents/prompt-input.preview").then((m) => m.PromptInputPreview),
+    import("./blocks/prompt-input.preview").then((m) => m.PromptInputPreview),
   ),
   "blocks/todo-list": dynamic(() =>
-    import("./agents/todo-list.preview").then((m) => m.TodoListPreview),
+    import("./blocks/todo-list.preview").then((m) => m.TodoListPreview),
   ),
   "blocks/code-block": dynamic(() =>
-    import("./agents/code-block.preview").then((m) => m.CodeBlockPreview),
+    import("./blocks/code-block.preview").then((m) => m.CodeBlockPreview),
   ),
   "blocks/approval-card": dynamic(() =>
-    import("./agents/approval-card-question.preview").then(
+    import("./blocks/approval-card-question.preview").then(
       (m) => m.ApprovalCardQuestionPreview,
     ),
   ),
   "blocks/approval-card-question": dynamic(() =>
-    import("./agents/approval-card-question.preview").then(
+    import("./blocks/approval-card-question.preview").then(
       (m) => m.ApprovalCardQuestionPreview,
     ),
   ),
   "blocks/approval-card-review": dynamic(() =>
-    import("./agents/approval-card-review.preview").then(
+    import("./blocks/approval-card-review.preview").then(
       (m) => m.ApprovalCardReviewPreview,
     ),
   ),
   "blocks/file-diff": dynamic(() =>
-    import("./agents/file-diff.preview").then((m) => m.FileDiffPreview),
+    import("./blocks/file-diff.preview").then((m) => m.FileDiffPreview),
   ),
   "blocks/tool-result": dynamic(() =>
-    import("./agents/tool-result-terminal.preview").then(
+    import("./blocks/tool-result-terminal.preview").then(
       (m) => m.ToolResultTerminalPreview,
     ),
   ),
   "blocks/tool-result-terminal": dynamic(() =>
-    import("./agents/tool-result-terminal.preview").then(
+    import("./blocks/tool-result-terminal.preview").then(
       (m) => m.ToolResultTerminalPreview,
     ),
   ),
   "blocks/tool-result-request": dynamic(() =>
-    import("./agents/tool-result-request.preview").then(
+    import("./blocks/tool-result-request.preview").then(
       (m) => m.ToolResultRequestPreview,
     ),
   ),
   "blocks/streaming-response": dynamic(() =>
-    import("./agents/streaming-response.preview").then(
+    import("./blocks/streaming-response.preview").then(
       (m) => m.StreamingResponsePreview,
     ),
   ),
   "blocks/image-generation": dynamic(() =>
-    import("./agents/image-generation.preview").then(
+    import("./blocks/image-generation.preview").then(
       (m) => m.ImageGenerationPreview,
     ),
   ),
   "blocks/tool-approval": dynamic(() =>
-    import("./agents/tool-approval.preview").then((m) => m.ToolApprovalPreview),
+    import("./blocks/tool-approval.preview").then((m) => m.ToolApprovalPreview),
+  ),
+  "blocks/agent-activity": dynamic(() =>
+    import("./blocks/agent-activity-text.preview").then(
+      (m) => m.AgentActivityTextPreview,
+    ),
+  ),
+  "blocks/agent-activity-text": dynamic(() =>
+    import("./blocks/agent-activity-text.preview").then(
+      (m) => m.AgentActivityTextPreview,
+    ),
+  ),
+  "blocks/agent-activity-steps": dynamic(() =>
+    import("./blocks/agent-activity-steps.preview").then(
+      (m) => m.AgentActivityStepsPreview,
+    ),
+  ),
+  "blocks/agent-activity-search": dynamic(() =>
+    import("./blocks/agent-activity-search.preview").then(
+      (m) => m.AgentActivitySearchPreview,
+    ),
+  ),
+  "blocks/agent-activity-tools": dynamic(() =>
+    import("./blocks/agent-activity-tools.preview").then(
+      (m) => m.AgentActivityToolsPreview,
+    ),
+  ),
+  "blocks/agent-activity-mixed": dynamic(() =>
+    import("./blocks/agent-activity.preview").then(
+      (m) => m.AgentActivityMixedPreview,
+    ),
+  ),
+  "blocks/agent-activity-trace": dynamic(() =>
+    import("./blocks/agent-activity-trace.preview").then(
+      (m) => m.AgentActivityTracePreview,
+    ),
   ),
 };
 

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-07T14:41:10.667Z",
-  "count": 168,
+  "generatedAt": "2026-08-08T05:52:48.771Z",
+  "count": 169,
   "items": [
     {
       "kind": "component",
@@ -2027,6 +2027,36 @@
       "sourceFile": "components/agents/tool-approval.tsx",
       "sourceFiles": [
         "components/agents/tool-approval.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "agent-activity",
+      "name": "Agent Activity",
+      "nameZh": "Agent 活动流",
+      "aliases": [
+        "AI agent activity component",
+        "agent tool calls UI",
+        "AI search results React",
+        "agent reasoning timeline",
+        "mixed agent activity stream",
+        "agent execution trace UI",
+        "collapsible AI activity"
+      ],
+      "description": "One adaptive activity stream for reasoning, searches, tool calls, structured execution traces, or a chronological mix.",
+      "descriptionZh": "自适应 Agent 活动流:推理文本、搜索结果、工具调用、结构化执行轨迹,或按时间混排;进行中有界跟随,完成后折叠为可重开摘要。",
+      "pageUrl": "http://localhost:3000/components/blocks/agent-activity",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/agent-activity.json",
+        "endpoint": "http://localhost:3000/r/agent-activity"
+      },
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "sourceFiles": [
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/types.ts"
       ]
     },
     {

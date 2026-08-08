@@ -1675,7 +1675,7 @@ export const registry: CategoryEntry[] = [
             file: "components/agents/approval-card/index.tsx",
             previewKey: "blocks/approval-card-question",
             previewFile:
-              "components/previews/agents/approval-card-question.preview.tsx",
+              "components/previews/blocks/approval-card-question.preview.tsx",
           },
           {
             slug: "review",
@@ -1688,7 +1688,7 @@ export const registry: CategoryEntry[] = [
             file: "components/agents/approval-card/index.tsx",
             previewKey: "blocks/approval-card-review",
             previewFile:
-              "components/previews/agents/approval-card-review.preview.tsx",
+              "components/previews/blocks/approval-card-review.preview.tsx",
           },
         ],
       },
@@ -1741,7 +1741,7 @@ export const registry: CategoryEntry[] = [
             file: "components/agents/tool-result.tsx",
             previewKey: "blocks/tool-result-terminal",
             previewFile:
-              "components/previews/agents/tool-result-terminal.preview.tsx",
+              "components/previews/blocks/tool-result-terminal.preview.tsx",
           },
           {
             slug: "request-result",
@@ -1754,7 +1754,7 @@ export const registry: CategoryEntry[] = [
             file: "components/agents/tool-result.tsx",
             previewKey: "blocks/tool-result-request",
             previewFile:
-              "components/previews/agents/tool-result-request.preview.tsx",
+              "components/previews/blocks/tool-result-request.preview.tsx",
           },
         ],
       },
@@ -1815,6 +1815,111 @@ export const registry: CategoryEntry[] = [
           "human in the loop React",
           "approve agent action",
           "AI tool confirmation",
+        ],
+      },
+      {
+        slug: "agent-activity",
+        name: "Agent Activity",
+        nameZh: "Agent 活动流",
+        description:
+          "One adaptive activity stream for reasoning, searches, tool calls, structured execution traces, or a chronological mix.",
+        descriptionZh:
+          "自适应 Agent 活动流:推理文本、搜索结果、工具调用、结构化执行轨迹,或按时间混排;进行中有界跟随,完成后折叠为可重开摘要。",
+        file: "components/agents/agent-activity/index.tsx",
+        extraFiles: [
+          "components/agents/agent-activity/activity-row.tsx",
+          "components/agents/agent-activity/types.ts",
+        ],
+        badge: "new",
+        launchedAt: "2026-08-07",
+        keywords: [
+          "AI agent activity component",
+          "agent tool calls UI",
+          "AI search results React",
+          "agent reasoning timeline",
+          "mixed agent activity stream",
+          "agent execution trace UI",
+          "collapsible AI activity",
+        ],
+        examples: [
+          {
+            slug: "streaming-text",
+            name: "Streaming Text",
+            nameZh: "流式文本",
+            description:
+              "Streams freeform reasoning text into the capped viewport and keeps the completed log available behind a timed disclosure.",
+            descriptionZh:
+              "把自由推理文本流进有界视口,完成后以计时披露保留完整日志。",
+            file: "components/agents/agent-activity/index.tsx",
+            previewKey: "blocks/agent-activity-text",
+            previewFile:
+              "components/previews/blocks/agent-activity-text.preview.tsx",
+          },
+          {
+            slug: "reasoning-steps",
+            name: "Reasoning Steps",
+            nameZh: "推理步骤",
+            description:
+              "Shows completed, active, and pending reasoning steps with optional trailing metadata.",
+            descriptionZh:
+              "展示已完成、进行中与待定的推理步骤,并可附带尾部元数据。",
+            file: "components/agents/agent-activity/index.tsx",
+            previewKey: "blocks/agent-activity-steps",
+            previewFile:
+              "components/previews/blocks/agent-activity-steps.preview.tsx",
+          },
+          {
+            slug: "web-search",
+            name: "Web Search",
+            nameZh: "网页搜索",
+            description:
+              "Presents a search query, progressively rendered result rows, and an overflow count.",
+            descriptionZh:
+              "展示搜索查询、逐步渲染的结果行与溢出计数。",
+            file: "components/agents/agent-activity/index.tsx",
+            previewKey: "blocks/agent-activity-search",
+            previewFile:
+              "components/previews/blocks/agent-activity-search.preview.tsx",
+          },
+          {
+            slug: "tool-calls",
+            name: "Tool Calls",
+            nameZh: "工具调用",
+            description:
+              "Summarizes read, edit, and run events with monospace targets and optional line-change counts.",
+            descriptionZh:
+              "汇总读/改/运行事件,目标路径等宽展示,可选行变更计数。",
+            file: "components/agents/agent-activity/index.tsx",
+            previewKey: "blocks/agent-activity-tools",
+            previewFile:
+              "components/previews/blocks/agent-activity-tools.preview.tsx",
+          },
+          {
+            slug: "mixed-activity",
+            name: "Mixed Activity",
+            nameZh: "混合活动",
+            description:
+              "Streams reasoning, search, and tool events in one chronological run while the viewport smoothly follows new work.",
+            descriptionZh:
+              "在同一时间线混排推理、搜索与工具事件,视口平滑跟随新进度。",
+            file: "components/agents/agent-activity/index.tsx",
+            previewKey: "blocks/agent-activity-mixed",
+            previewFile:
+              "components/previews/blocks/agent-activity.preview.tsx",
+          },
+          {
+            slug: "activity-trace",
+            name: "Agent Trace",
+            nameZh: "执行轨迹",
+            description:
+              "Streams messages and structured actions into a compact execution ledger, then summarizes the completed run by tool-call and message counts.",
+            descriptionZh:
+              "把消息与结构化动作流进紧凑执行账本,完成后按工具调用与消息数汇总。",
+            file: "components/agents/agent-activity/index.tsx",
+            previewKey: "blocks/agent-activity-trace",
+            previewFile:
+              "components/previews/blocks/agent-activity-trace.preview.tsx",
+          },
         ],
       },
     ],

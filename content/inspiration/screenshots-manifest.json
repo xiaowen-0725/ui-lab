@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T05:14:25.024Z",
+  "generatedAt": "2026-08-08T05:52:48.719Z",
   "viewport": {
     "width": 1440,
     "height": 900
@@ -1335,6 +1335,36 @@
       "status": "captured",
       "assetKind": "screenshot",
       "title": "OGPedia: Directory of Beautifully Crafted OG Images"
+    },
+    "sources/shadcn-studio": {
+      "path": "/inspiration/screenshots/sources/shadcn-studio.webp",
+      "sourceUrl": "https://shadcnstudio.com/",
+      "finalUrl": "https://shadcnstudio.com/",
+      "capturedAt": "2026-08-08",
+      "width": 1440,
+      "height": 900,
+      "status": "captured",
+      "assetKind": "screenshot"
+    },
+    "sources/react-bits": {
+      "path": "/inspiration/screenshots/sources/react-bits.webp",
+      "sourceUrl": "https://reactbits.dev/",
+      "finalUrl": "https://reactbits.dev/",
+      "capturedAt": "2026-08-08",
+      "width": 1440,
+      "height": 900,
+      "status": "captured",
+      "assetKind": "screenshot"
+    },
+    "sources/checklist-design": {
+      "path": "/inspiration/screenshots/sources/checklist-design.webp",
+      "sourceUrl": "https://www.checklist.design/",
+      "finalUrl": "https://www.checklist.design/",
+      "capturedAt": "2026-08-08",
+      "width": 1440,
+      "height": 900,
+      "status": "captured",
+      "assetKind": "screenshot"
     }
   },
   "failures": {}
