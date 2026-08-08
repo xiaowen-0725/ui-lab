@@ -851,7 +851,7 @@ const INSPIRATION_SOURCE_RECORDS: readonly InspirationSourceRecord[] = [
     secondaryThemes: ["product-ui", "websites"],
     contentTypes: ["motion", "3d", "web-interface", "website"],
     useCases: ["motion-reference", "ui-inspiration", "web-design-inspiration"],
-    visualTraits: ["animated", "dark-mode", "bold", "futuristic"],
+    visualTraits: ["animated", "dark-mode", "bold"],
     access: "freemium",
     rightsStatus: "external-only",
     provenance: [
