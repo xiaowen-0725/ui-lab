@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "profile": "vite-app",
-  "system": "codex-desktop-v1",
+  "system": "graphite",
   "components": [
     "agent-workbench",
     "thread-list",

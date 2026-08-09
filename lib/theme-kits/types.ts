@@ -5,7 +5,7 @@
 
 export type ThemeMode = "light" | "dark";
 
-export type ThemeKitSource = "baseline" | "design-system" | "studio-preset" | "system-preset";
+export type ThemeKitSource = "baseline" | "design-system";
 
 export type ThemeTokenSet = {
   /** shadcn semantic tokens (background/foreground/primary/…) plus the UI Lab

@@ -6,6 +6,10 @@
 
 ## [Unreleased]
 
+### 移除
+
+- 移除「工坊 / Studio」完整模块：删除 `/studio`、组装预览与订单 API、Token Studio、System Preset / Order Manifest / candidate evidence 实验，以及对应 Catalog、CLI、导航、搜索、文案、脚本、测试和静态截图。通用 Agent Workbench 组件、Recipe、设计系统展馆与 Theme Kit 基础能力保留；Greenfield benchmark 解耦旧 System Preset，改为无用户批准语义的 Graphite 工程回归夹具。新的创建/选择工作流待重新定义后再实现。
+
 ### 变更
 
 - 新增唯一产品北极星 `PRODUCT_DEFINITION.md`，将 UI Lab 固化为以 Catalog + machine-readable contracts 为核心的受约束装配系统；目标六层统一为 Design Intent / System / Asset / Composition / Implementation / Verification，正式链路统一为 versioned Design System Package → OrderDraft → selection approval → OrderLock → implementation → EvidenceBundle → acceptance/release。同步澄清 Theme Kit/System Preset/config/CatalogLock/current Order Manifest/Studio 的 current bridge 边界，Codex 仅为 optional Package/reference，Parking 仅为 Existing Adoption fixture；Skill、Application Kit 与 benchmark 文档不再把 planned Package schema、dedicated capabilities 或 Order CLI 写成已实现。

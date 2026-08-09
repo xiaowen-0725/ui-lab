@@ -177,7 +177,7 @@ export const RECIPES: readonly Recipe[] = [
       "A product-led landing composition with a clear hero, proof, features, pricing, and CTA rhythm.",
     descriptionZh: "以产品为主线，组合首屏、信任证明、功能、定价与行动召唤的落地页配方。",
     profiles: ["next-app", "vite-app"],
-    recommendedSystem: "minimal-light",
+    recommendedSystem: "pearl",
     entryComponent: "recording-card",
     components: ["recording-card", "button", "animated-badge"],
     optionalComponents: ["marquee", "tabs", "feedback-widget"],

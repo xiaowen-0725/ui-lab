@@ -7,9 +7,7 @@ export const dynamic = "force-static";
 function fenceLang(item: CatalogItem): string {
   switch (item.kind) {
     case "atom-set":
-    case "studio-preset":
     case "design-system":
-    case "system-preset":
       return "markdown";
     case "palette":
       return "css";
@@ -23,21 +21,6 @@ function renderItem(item: CatalogItem): string[] {
   lines.push(`### ${item.name} (${item.kind})`);
   // Machine endpoints stay English-normative (see AGENTS.md).
   lines.push(item.description);
-
-  if (item.kind === "system-preset") {
-    lines.push(
-      "Usage: select this complete System Preset before composing its compatible Recipe/capabilities/safe overrides.",
-    );
-    lines.push("System Preset contract (JSON):");
-    lines.push("```json");
-    lines.push(JSON.stringify(item.systemPreset, null, 2));
-    lines.push("```");
-    lines.push(
-      `Underlying ThemeKit tokens only: ui-lab theme ${item.slug}. This does not produce a confirmed Manifest or visual acceptance.`,
-    );
-    lines.push(`ThemeKit fetch: ${item.fetch.command ?? item.fetch.endpoint ?? item.pageUrl}`);
-    return lines;
-  }
 
   if (item.fetch.value === undefined) {
     // Components have no inlined value — their source lives behind the

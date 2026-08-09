@@ -1,25 +1,25 @@
 # Greenfield Workbench benchmark result
 
-Overall score: **86/100**. This is an implementation/evidence score, not a Codex fidelity or visual-approval score.
+Status: **engineering regression pass**. No product-maturity, visual-fidelity, or approval score is assigned.
 
-| Category | Score | Evidence | Deduction | Confidence |
-|---|---:|---|---|---:|
-| Route & authority | 10/10 | `.init-result.json`, `ui-lab.config.json`, `.ui-lab/adoption-report.md` | None. `replace`, package root, profile, fixture-only approval, and human gate are explicit. | 0.99 |
-| System/asset reuse | 19/20 | `ui-lab.lock.json`, `.compose-result.json`, `.ui-lab/evidence/source-family-results.txt` | Current repository sources were copied exactly rather than fetched from a running registry endpoint; provenance is still Catalog/lock-backed. | 0.98 |
-| Contract completeness | 16/20 | `DESIGN.md`, `.ui-lab/adoption-report.md`, config/lock, state queries | System Preset's required Settings capability is documented but not assembled; no success state because Agent Workbench Recipe does not declare one. | 0.87 |
-| Runtime quality | 17/20 | `.ui-lab/evidence/e2e-results.txt`, `e2e/workbench.spec.ts`, contrast evidence | Fixture runtime has no real backend/API; interaction assertions cover reachability, focus, fonts, overflow, and states but not every composer/approval branch. | 0.90 |
-| Visual evidence | 14/20 | `.ui-lab/evidence/visual/`, six same-size captures, `comparison.md` | No approved acceptance reference exists, so no valid pair, overlay, heatmap, or adoption pixel score can be produced. | 0.96 |
-| Evidence honesty | 10/10 | `comparison.md`, reference README, adoption report | Candidate, audit, and human approval roles remain distinct. | 0.99 |
+This fixture is technically bound to `vite-app` + `graphite` + `agent-workbench`. The binding exists only to keep shared Theme Kit, CatalogLock, Recipe, source-family and runtime paths executable after the Studio/System Preset experiment was removed. It is not a user-approved product direction.
 
 ## Gates
 
-- Static: **Pass** — lint, strict typecheck, unit tests, production build, source-family comparison, strict audit 0/0.
-- Runtime: **Pass for benchmark fixture** — Chromium/Vite, required states, three widths, themes, keyboard focus, reduced motion, fonts, and overflow are automated.
-- Visual: **Insufficient evidence for acceptance** — candidate matrix exists and was manually inspected, but approved reference pairs do not.
-- Human: **Pending** — no user approval is recorded for any candidate capture; Confirmed Manifest remains blocked.
+- Static: **Pass** — lint, strict typecheck, unit tests, production build, source-family comparison and strict Audit pass.
+- Runtime: **Pass for fixture scope** — Chromium/Vite covers required states, three viewport widths, light/dark, keyboard focus, reduced motion, declared fonts and overflow.
+- Visual: **Candidate only** — six Graphite implementation captures were regenerated, but no approved reference pair exists.
+- Human: **Pending / not requested** — no user approval is recorded for the Graphite binding or captures.
 
-## Blockers
+## Evidence
 
-1. `codex-desktop-v1` has `goldenCapture: null`; its existing generated images are `candidate-regression` with pending acceptance.
-2. The required Settings capability from the System Preset is not assembled in this minimal Recipe consumer.
-3. This benchmark fixture intentionally has no real parking backend; it validates deterministic UI contracts only.
+- Catalog binding: `ui-lab.config.json`, `ui-lab.lock.json`, `.init-result.json`, `.compose-result.json`, `.lock-result.json`.
+- Static/runtime: `.ui-lab/evidence/static-results.txt`, `source-family-results.txt`, `audit.json`, `e2e-results.txt`.
+- Visual candidates: `.ui-lab/evidence/visual/implementation/` with metadata and `comparison.md`.
+
+## Limitations
+
+1. The fixture has no real backend/API; parking data is deterministic test data only.
+2. Candidate screenshots cannot establish visual fidelity or user approval.
+3. Audit validates current deterministic contracts, not complete product quality.
+4. This benchmark does not reintroduce Studio, System Preset, order, checkout, confirmation or release behavior.

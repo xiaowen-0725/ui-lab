@@ -27,9 +27,7 @@ const KIND_ORDER = [
   "icon-motion",
   "style",
   "palette",
-  "studio-preset",
   "design-system",
-  "system-preset",
   "recipe",
 ] as const;
 
@@ -507,7 +505,7 @@ function reportThemeNotFound(items: CatalogItem[], slug: string): never {
 function cmdTheme(items: CatalogItem[], slug: string | undefined, flags: Flags): void {
   if (!slug) {
     console.error(
-      "Usage: ui-lab theme <slug> [--kind design-system|studio-preset|system-preset] [--pm bun|npm|pnpm|yarn] [--json]",
+      "Usage: ui-lab theme <slug> [--kind design-system] [--pm bun|npm|pnpm|yarn] [--json]",
     );
     process.exit(1);
   }
@@ -538,9 +536,6 @@ function cmdTheme(items: CatalogItem[], slug: string | undefined, flags: Flags):
   console.log("");
   console.log(`CSS endpoint: ${endpoint}`);
   console.log(`Not using shadcn? curl ${endpoint} >> app/globals.css`);
-  if (item.kind === "system-preset") {
-    console.log("System Preset: underlying ThemeKit tokens only; not a confirmed Manifest or visual confirmation.");
-  }
 }
 
 function writePickerFile(themes: CatalogItem[], outFlag: string | undefined): void {
@@ -843,8 +838,7 @@ Commands:
   show <slug> [--kind <kind>] [--json]  Show one item's detail + how to fetch it
   add <slug> [--pm <pm>] [--dir <path>] Print the command and register it when config exists
   theme <slug> [--pm <pm>] [--json]     Show one theme kit: modes, shadcn install command,
-                                         and CSS endpoint (any item with a ThemeKit payload;
-                                         System Presets expose tokens only, never a confirmed order)
+                                         and CSS endpoint (any item with a ThemeKit payload)
   themes [--picker] [--out <file>]      List every theme kit, or with --picker generate a
                                          self-contained HTML picker page you can open in a
                                          browser (writes ./ui-lab-theme-picker.html unless
@@ -864,7 +858,7 @@ Global flags:
                      (also settable via UILAB_REGISTRY; do not include /catalog.json)
   --json              Emit machine-readable JSON on stdout
   --kind <kind>       Filter/disambiguate by kind: component, atom-set, icon-style,
-                      icon-motion, style, palette, studio-preset, design-system, system-preset, recipe
+                      icon-motion, style, palette, design-system, recipe
   --pm <pm>           Package manager used to rewrite \`add\`/\`theme\`'s printed install command
   --strict            For audit: require ui-lab.lock.json and fail on warnings
   -h, --help          Show this help
@@ -873,7 +867,7 @@ Global flags:
 Examples:
   ui-lab list --kind component
   ui-lab search "icon motion"
-  ui-lab show minimal-light --json
+  ui-lab show pearl --json
   ui-lab add tilt-card --pm bun
   ui-lab theme nightflight
   ui-lab themes

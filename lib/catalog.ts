@@ -1,6 +1,6 @@
 // Unified AI-facing catalog: aggregates every visual-vocabulary module
-// (components, atoms, icon styles/motions, styles, palettes, studio presets,
-// design systems, system presets, and application recipes) into one flat list of CatalogItem so `/catalog.json`,
+// (components, atoms, icon styles/motions, styles, palettes, design systems,
+// and application recipes) into one flat list of CatalogItem so `/catalog.json`,
 // `/llms.txt`, and `/llms-full.txt` can expose the whole vocabulary — not
 // just components — to AI agents. Each aggregator below is isolated behind
 // try/catch so one module failing to build never takes down the others.
@@ -43,15 +43,8 @@ import {
 import { allComponents } from "@/lib/registry";
 import { buildIndex } from "@/lib/registry-server";
 import { SITE_URL } from "@/lib/site";
-import { canonicalSha256 } from "@/lib/contracts/canonical-json";
-import { SYSTEM_PRESETS, type SystemPreset } from "@/lib/system-presets";
 import { STYLES } from "@/lib/styles";
 import { findThemeKit, type ThemeKit, type ThemeMode } from "@/lib/theme-kits";
-import {
-  composeDesignSystem,
-  STUDIO_STARTER_PRESETS,
-  studioConfigToSearchParams,
-} from "@/lib/studio";
 
 export type CatalogKind =
   | "component"
@@ -60,9 +53,7 @@ export type CatalogKind =
   | "icon-motion"
   | "style"
   | "palette"
-  | "studio-preset"
   | "design-system"
-  | "system-preset"
   | "recipe";
 
 export type CatalogFetch = {
@@ -100,7 +91,7 @@ export type CatalogItem = {
    * incomplete vendoring copy without requiring source identity. */
   sourceFiles?: readonly string[];
   /** Present only for items backed by a lib/theme-kits ThemeKit (design
-   * systems, studio presets, system presets, and the graphite baseline): a
+   * systems and the graphite baseline): a
    * small per-mode token subset an AI agent or UI can render as a swatch
    * without fetching the full theme CSS. */
   themePreview?: {
@@ -121,7 +112,6 @@ export type CatalogItem = {
   sections?: readonly RecipeSection[];
   required?: readonly string[];
   forbidden?: readonly string[];
-  systemPreset?: SystemPreset;
 };
 
 async function buildComponentItems(): Promise<CatalogItem[]> {
@@ -361,8 +351,8 @@ function themePreviewSubset(kit: ThemeKit, mode: ThemeMode): Record<string, stri
 
 /**
  * If `slug` matches a lib/theme-kits ThemeKit (design-system slugs and
- * studio-preset keys are drawn from the same slug space, incl. the graphite
- * baseline), points the item's fetch at the theme registry item/CSS endpoint
+ * design-system keys are drawn from the same slug space, incl. the graphite
+ * baseline. This points the item's fetch at the theme registry item/CSS endpoint
  * and attaches a themePreview. Otherwise returns `fetch` unchanged.
  */
 function withThemeKitFetch(
@@ -384,31 +374,6 @@ function withThemeKitFetch(
       dark: kit.modes.includes("dark") ? themePreviewSubset(kit, "dark") : undefined,
     },
   };
-}
-
-function buildStudioPresetItems(): CatalogItem[] {
-  return STUDIO_STARTER_PRESETS.map((preset): CatalogItem => {
-    const bundle = composeDesignSystem(preset.config);
-    const { accent, surface, fontPairing, scheme } = preset.config;
-    const summary = `accent ${accent}, ${surface} surface, ${fontPairing} type, ${scheme} scheme`;
-    const { fetch, themePreview } = withThemeKitFetch(preset.key, {
-      method: "copy-tokens",
-      value: bundle.designMd,
-    });
-    return {
-      kind: "studio-preset",
-      category: "studio",
-      slug: preset.key,
-      name: preset.name,
-      nameZh: preset.nameZh,
-      aliases: [],
-      description: `A ready-made design system: ${summary}.`,
-      descriptionZh: `一套现成的设计系统：${summary}。`,
-      pageUrl: `${SITE_URL}/studio?${studioConfigToSearchParams(preset.config).toString()}`,
-      fetch,
-      themePreview,
-    };
-  });
 }
 
 function buildDesignSystemItems(): CatalogItem[] {
@@ -465,62 +430,6 @@ function buildRecipeItems(): CatalogItem[] {
   }));
 }
 
-function buildSystemPresetItems(): CatalogItem[] {
-  const registrySlugs = new Set(allComponents().map((component) => component.slug));
-  return SYSTEM_PRESETS.map((preset) => {
-    const kit = findThemeKit(preset.themeKit.slug);
-    if (!kit || canonicalSha256(kit) !== preset.themeKit.contractHash) {
-      throw new Error(`System Preset "${preset.slug}" has an invalid ThemeKit reference.`);
-    }
-    const unknownComponent = preset.componentAllowlist.find(
-      (slug) => !registrySlugs.has(slug),
-    );
-    if (unknownComponent) {
-      throw new Error(
-        `System Preset "${preset.slug}" allowlists unknown registry component "${unknownComponent}".`,
-      );
-    }
-    for (const recipeSlug of preset.compatibleRecipes) {
-      const recipe = RECIPES.find((candidate) => candidate.slug === recipeSlug);
-      if (!recipe) {
-        throw new Error(
-          `System Preset "${preset.slug}" references unknown Recipe "${recipeSlug}".`,
-        );
-      }
-      const outsideAllowlist = recipe.components.find(
-        (slug) => !preset.componentAllowlist.includes(slug),
-      );
-      if (outsideAllowlist) {
-        throw new Error(
-          `System Preset "${preset.slug}" Recipe "${recipeSlug}" requires "${outsideAllowlist}" outside its component allowlist.`,
-        );
-      }
-    }
-    return {
-      kind: "system-preset" as const,
-      category: "application",
-      slug: preset.slug,
-      name: preset.name,
-      nameZh: preset.nameZh,
-      aliases: preset.aliases,
-      description: preset.description,
-      descriptionZh: preset.descriptionZh,
-      pageUrl: `${SITE_URL}/catalog.json#${preset.slug}`,
-      fetch: {
-        method: "copy-tokens" as const,
-        command: `npx shadcn@latest add ${SITE_URL}/r/theme-${preset.slug}.json`,
-        endpoint: `${SITE_URL}/themes/${preset.slug}.css`,
-      },
-      themePreview: {
-        modes: kit.modes,
-        light: kit.light ? themePreviewSubset(kit, "light") : undefined,
-        dark: kit.dark ? themePreviewSubset(kit, "dark") : undefined,
-      },
-      systemPreset: preset,
-    };
-  });
-}
-
 /**
  * Aggregates every vocabulary kind into one flat catalog. Each
  * aggregator is isolated: if one module throws (bad data, missing export),
@@ -536,9 +445,7 @@ export async function buildCatalog(): Promise<CatalogItem[]> {
     { label: "icon-motion", run: buildIconMotionItems },
     { label: "style", run: buildStyleItems },
     { label: "palette", run: buildPaletteItems },
-    { label: "studio-preset", run: buildStudioPresetItems },
     { label: "design-system", run: buildDesignSystemItems },
-    { label: "system-preset", run: buildSystemPresetItems },
     { label: "recipe", run: buildRecipeItems },
   ];
 

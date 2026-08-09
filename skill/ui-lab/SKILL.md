@@ -1,6 +1,6 @@
 ---
 name: ui-lab
-description: "UI Lab 组件查询与安装入口。用于查找仓库已有组件/区块，并给出 shadcn registry 安装命令。Use when the user wants to search, list, inspect, or install existing UI Lab components via the shadcn-compatible registry (`ui-lab search/list/show/add`, `npx shadcn@latest add ...`). Do NOT use for Preset/Create/Design Package lifecycle, admin template scaffolding, or business feature implementation."
+description: "UI Lab 组件查询与安装入口。用于查找仓库已有组件/区块，并给出 shadcn registry 安装命令。Use when the user wants to search, list, inspect, or install existing UI Lab components via the shadcn-compatible registry (`ui-lab search/list/show/add`, `npx shadcn@latest add ...`). Do NOT use for creator/visual-selection/order workflows, admin template scaffolding, or business feature implementation."
 ---
 
 # UI Lab
@@ -15,7 +15,7 @@ description: "UI Lab 组件查询与安装入口。用于查找仓库已有组�
 范畴边界见 [scope-boundary.md](references/scope-boundary.md)。
 
 
-- Preset / Create / Design Package / OrderLock / Evidence 生命周期
+- 创建器、视觉选择或下单/发布工作流
 - 通用中后台模板装配（转 `$uilab-admin`）
 - 风格皮肤沉淀（转 `$design-ingest`）
 - 业务逻辑实现

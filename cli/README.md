@@ -38,7 +38,7 @@ node dist/index.js --help
 ### `list`
 
 List catalog items, grouped by kind (component, atom-set, icon-style,
-icon-motion, style, palette, studio-preset, design-system, system-preset, recipe).
+icon-motion, style, palette, design-system, recipe).
 
 ```sh
 ui-lab list --kind component
@@ -63,7 +63,7 @@ Other kinds follow their Catalog fetch method; use `theme <slug>` for the
 Theme Kit token workflow.
 
 ```sh
-ui-lab show minimal-light
+ui-lab show pearl
 ui-lab show draw --kind icon-motion --json
 ```
 
@@ -84,9 +84,7 @@ ui-lab add tilt-card --pm bun --dir packages/desktop
 Show one theme kit (any Catalog item that carries a `themePreview`): its modes (single-mode kits note that they pair with
 `graphite` for dual-mode coverage), the shadcn install command (rewritten for
 your package manager via `--pm`), and the CSS endpoint for non-shadcn
-projects. A `system-preset` card or command exposes only its underlying
-ThemeKit tokens; it is not a complete order, Confirmed Manifest, or visual
-confirmation.
+projects.
 
 ```sh
 ui-lab theme nightflight

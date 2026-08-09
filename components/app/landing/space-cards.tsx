@@ -5,7 +5,6 @@ import {
   ArrowUpRight,
   Atom,
   Component,
-  Hammer,
   Lightbulb,
   LayoutGrid,
   LayoutTemplate,
@@ -37,7 +36,6 @@ const SPACE_META: Record<
   patterns: { icon: LayoutTemplate, descKey: "spacePatternsDesc" },
   atoms: { icon: Atom, descKey: "spaceAtomsDesc" },
   inspiration: { icon: Lightbulb, descKey: "spaceInspirationDesc" },
-  studio: { icon: Hammer, descKey: "spaceStudioDesc" },
   playground: { icon: SlidersHorizontal, descKey: "spacePlaygroundDesc" },
 };
 

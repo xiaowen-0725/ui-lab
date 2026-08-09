@@ -106,7 +106,7 @@ const ENDPOINTS_ZH: { label: string; url: string; desc: string }[] = [
 const CLI_SNIPPET = `# \`ui-lab\` is on PATH after \`bun link\` (or run \`bun cli/src/index.ts\` in the repo)
 ui-lab search "bottom sheet"     # find across every kind
 ui-lab list --kind icon-motion   # browse one kind
-ui-lab show minimal-light        # description, AI prompt, page URL, and the fetch block
+ui-lab show pearl        # description, AI prompt, page URL, and the fetch block
 ui-lab add bottom-sheet          # prints the shadcn install command (never runs it)
 # add --json to any command for structured, agent-friendly output`;
 

@@ -8,17 +8,17 @@
 
 ## 这是什么
 
-**UI Lab（组件实验室）** 是一套中文优先、中英双语的 **AI-first 可组合前端系统**。目标以 Catalog 与 machine-readable contracts 为核心，让人选择精确、版本化的 Design System Package，让 AI 在批准的 Package、Order 与兼容关系内装配 React 应用与落地页，而不是临场设计。
+**UI Lab（组件实验室）** 是一套中文优先、中英双语的 **AI-first 可组合前端系统**。它以可视 Catalog 与 machine-readable contracts 为核心，让人和 AI 基于同一套组件、区块、设计系统与 Recipe 装配 React 应用与落地页。
 
-当前实现仍以可视 Catalog、Theme Kit、System Preset、Recipe、registry、config/CatalogLock、Audit 和 Studio candidate pipeline 为主；尚未提供完整 production-ready Package schema、OrderLock/EvidenceBundle 流程或全部 dedicated capabilities。
+当前实现包括可视 Catalog、Theme Kit、Recipe、registry、config/CatalogLock 与 Audit。此前的 Studio、System Preset、Order Manifest 和候选视觉验收实验已移除；新的创建、选择与下单工作流尚未定义。
 
 它收集一切"只能看、说不出"的前端事物——动效组件、复合区块、设计风格——做成活样本：让人肉眼感受，让 AI 拿到准确的话。每个条目遵循同一个公式：**活样本 + 名字（中英 + 别名）+「对 AI 这样说」prompt + 配方**。
 
 - **组件 / 区块**：可视化浏览实际动效，直接查看/复制源码（shadcn registry 分发），也方便 AI 编程助手（Claude、Codex 等）读取用法作为上下文
 - **风格**（`/styles`）：29 种设计风格的换皮对比器——同一份页面套不同风格，认出你想要的，复制那段能直接粘给 AI 建站工具的描述
-- **Application Kit**：目标以 Package→Order→OrderLock→EvidenceBundle 固定应用级契约；当前以 Stack Profile、System Kit/System Preset、Recipe、`ui-lab.config.json`、CatalogLock 与 Audit 作为桥接。架构边界见 [APPLICATION_KIT.md](APPLICATION_KIT.md)
+- **Application Kit**：当前以 Stack Profile、Theme Kit、Recipe、`ui-lab.config.json`、CatalogLock 与 Audit 约束装配。架构边界见 [APPLICATION_KIT.md](APPLICATION_KIT.md)
 
-Codex 只可能是可选 Package/reference，不是 UI Lab 要复刻的产品目标；Parking Agent 只作为 Existing Adoption benchmark fixture，不定义全局设计标准。
+创建器、视觉选择面与更高阶交付协议待重新定义后再实现，当前文档和命令不预设其产品形态。
 
 Application Kit 的 `init` / `compose` / `audit` 和 config-aware `add` 当前仍在 `[Unreleased]`，尚未 bump/publish。已安装的 npm CLI 请先用 `ui-lab --help` 确认可用；在本仓库可先用 `bun cli/src/index.ts --help` 运行源码版本。
 

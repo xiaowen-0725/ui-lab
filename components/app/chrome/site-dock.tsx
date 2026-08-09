@@ -21,10 +21,6 @@ export function SiteDock() {
   const isHome = pathname === "/";
   const isComponents = pathname.startsWith("/components");
 
-  if (pathname === "/studio" || pathname.startsWith("/studio/")) {
-    return null;
-  }
-
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-6 z-40 flex justify-center px-4">
       <div className="pointer-events-auto">

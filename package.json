@@ -24,7 +24,6 @@
     "benchmark:greenfield": "bun run --cwd benchmarks/runs/greenfield-workbench verify",
     "inspiration:capture": "bun scripts/capture-inspiration-screenshots.ts",
     "inspiration:audit": "bun scripts/capture-inspiration-screenshots.ts --audit-only",
-    "system-presets:capture-candidates": "bun scripts/capture-system-preset-candidates.ts",
     "cli:snapshot": "bun scripts/gen-catalog-snapshot.ts",
     "test": "bun test ./tests",
     "check": "bun run typecheck && bun run lint && bun run check:registry && bun run check:skills"

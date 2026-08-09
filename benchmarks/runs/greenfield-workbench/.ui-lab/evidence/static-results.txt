@@ -2,7 +2,7 @@ COMMAND: bun run lint && bun run typecheck && bun run test && bun run build
 EXIT: 0
 
 $ biome check src tests e2e
-Checked 21 files in 50ms. No fixes applied.
+Checked 21 files in 15ms. No fixes applied.
 $ tsc -b --pretty false
 $ vitest run
 ✓ tests/contract.test.ts (2 tests) 2ms
@@ -12,6 +12,6 @@ $ tsc -b && vite build
 vite v6.4.3 building for production...
 ✓ 1941 modules transformed.
 dist/index.html                   0.38 kB │ gzip:   0.30 kB
-dist/assets/index-CtLf4aOD.css   50.79 kB │ gzip:   9.71 kB
-dist/assets/index-CAAgvbtS.js   379.25 kB │ gzip: 119.65 kB
-✓ built in 1.40s
+dist/assets/index-DiuOF0fI.css   38.19 kB │ gzip:   8.13 kB
+dist/assets/index-BnNVCvsj.js   379.25 kB │ gzip: 119.65 kB
+✓ built in 1.05s

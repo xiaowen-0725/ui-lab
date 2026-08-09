@@ -7,6 +7,6 @@
 
 明确不在范围：
 
-- Preset / Create / Design Package 主链路
+- 创建器、视觉选择或下单/发布工作流
 - admin 模板装配（`$uilab-admin`）
 - 风格沉淀（`$design-ingest`）

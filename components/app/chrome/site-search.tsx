@@ -11,7 +11,6 @@ import {
   Palette,
   PanelsTopLeft,
   Search,
-  SlidersHorizontal,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
@@ -225,21 +224,6 @@ export function SiteSearch({ className }: { className?: string }) {
         icon: Lightbulb,
         onSelect: () => router.push(`/inspiration/brands/${brand.slug}`),
       })),
-      {
-        id: "studio",
-        label: tNav("studio"),
-        group: t("pages"),
-        keywords: [
-          "studio",
-          "工坊",
-          "设计系统生成器",
-          "自定义主题",
-          "design system generator",
-          "custom theme",
-        ],
-        icon: SlidersHorizontal,
-        onSelect: () => router.push("/studio"),
-      },
       ...PAGES.map((page) => ({
         id: page.slug,
         label: tSidebar(page.labelKey),

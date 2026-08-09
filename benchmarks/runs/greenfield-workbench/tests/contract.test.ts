@@ -2,9 +2,9 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 describe("UI Lab benchmark contract", () => {
-  it("binds the approved fixture-only stack and full required source family", () => {
+  it("binds the technical fixture stack and full required source family", () => {
     const config = JSON.parse(readFileSync("ui-lab.config.json", "utf8"));
-    expect(config).toMatchObject({ profile: "vite-app", system: "codex-desktop-v1", recipe: "agent-workbench", mode: "replace" });
+    expect(config).toMatchObject({ profile: "vite-app", system: "graphite", recipe: "agent-workbench", mode: "replace" });
     expect(config.components).toEqual(expect.arrayContaining(["agent-workbench", "thread-list", "agent-thread", "agent-composer", "artifact-panel"]));
   });
 

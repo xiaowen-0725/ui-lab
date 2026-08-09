@@ -1,5 +1,4 @@
-// Builds ThemeKit values from the three source shapes UI Lab already has:
-// the baseline shadcn/wb defaults, a design-system entry, or a studio preset.
+// Builds ThemeKit values from UI Lab's baseline and design-system entries.
 
 import {
   curveCssValue,
@@ -16,9 +15,6 @@ import {
 import { graphiteDesignSystem } from "@/lib/layouts/design-systems";
 import type { DesignSystemEntry } from "@/lib/layouts/types";
 import { WB_TOKENS_DARK, WB_TOKENS_LIGHT } from "@/lib/registry-wb-tokens";
-import { composeStudioVariables } from "@/lib/studio/export";
-import { normalizeStudioConfig } from "@/lib/studio/presets";
-import type { StudioStarterPreset } from "@/lib/studio/types";
 import { BASE_DARK, BASE_LIGHT } from "@/lib/themes";
 import { deriveChartColors } from "./charts";
 import type { ThemeKit, ThemeMode, ThemeTokenSet } from "./types";
@@ -63,7 +59,6 @@ function buildStatics(fonts: { body: string; display: string; mono: string }): R
   }
   // "standard" is documented as "The default density for general product
   // interfaces" — used for the bare space/space-row/space-padding trio.
-  // Studio-preset kits override these three with the preset's own density.
   const standardDensity = findOrThrow(DENSITIES, "standard");
   statics.space = `${standardDensity.padding}px`;
   statics["space-row"] = `${standardDensity.rowHeight}px`;
@@ -91,8 +86,7 @@ function buildExtra(mode: ThemeMode, shadowOverride?: string): Record<string, st
     "shadow-raised": raised[mode],
     "shadow-floating": floating[mode],
     // "raised" ("Cards resting just above the page") is the shared bare
-    // default, same reasoning as radius/space above. Studio-preset kits
-    // override this with the preset's own chosen elevation.
+    // default, same reasoning as radius/space above.
     shadow: shadowOverride ?? raised[mode],
   };
 }
@@ -218,91 +212,6 @@ export function kitFromDesignSystem(entry: DesignSystemEntry): ThemeKit | null {
     light: mode === "light" ? tokenSet : undefined,
     dark: mode === "dark" ? tokenSet : undefined,
     statics: buildStatics(fonts),
-    fonts,
-  };
-}
-
-const CANONICAL_WB_KEYS = new Set(Object.keys(WB_TOKENS_LIGHT));
-const SITE_KEYS = new Set([
-  "background",
-  "foreground",
-  "card",
-  "secondary-foreground",
-  "muted-foreground",
-  "faint-foreground",
-  "border",
-  "border-strong",
-  "danger",
-  "success",
-  "warning",
-]);
-const STATIC_OVERRIDE_KEYS = new Set([
-  "radius",
-  "space",
-  "space-row",
-  "space-padding",
-  "font-display",
-  "font-sans",
-  "font-mono",
-]);
-// Note: "shadow" is deliberately NOT in STATIC_OVERRIDE_KEYS — box-shadow
-// values differ between light/dark per lib/atoms SHADOWS, so it's
-// state-dependent and belongs in `extra`, not `statics` (matches the
-// ThemeTokenSet.extra doc comment: "state-dependent, non-color, e.g. shadow-*").
-
-export function kitFromStudioPreset(preset: StudioStarterPreset): ThemeKit {
-  const normalized = normalizeStudioConfig(preset.config);
-  const mode: ThemeMode = normalized.scheme;
-  const variables = composeStudioVariables(preset.config);
-
-  const wb: Record<string, string> = {};
-  const site: Record<string, string> = {};
-  const staticOverride: Record<string, string> = {};
-  const extraOverride: Record<string, string> = {};
-
-  for (const { name, value } of variables) {
-    const key = name.replace(/^--/, "");
-    if (STATIC_OVERRIDE_KEYS.has(key)) {
-      staticOverride[key] = value;
-    } else if (SITE_KEYS.has(key)) {
-      site[key] = value;
-    } else if (CANONICAL_WB_KEYS.has(key)) {
-      wb[key] = value;
-    } else {
-      // "shadow" (state-dependent, see note above), plus studio-only extras
-      // wb-surface-alpha / wb-blur that aren't part of the 43-key wb contract.
-      extraOverride[key] = value;
-    }
-  }
-
-  const accent = wb["wb-accent"];
-  const accentFg = wb["wb-accent-fg"];
-  const fonts = {
-    body: staticOverride["font-sans"],
-    display: staticOverride["font-display"],
-    mono: staticOverride["font-mono"],
-  };
-
-  const tokenSet: ThemeTokenSet = {
-    shadcn: deriveShadcnFromSite(site, accent, accentFg),
-    wb,
-    charts: deriveChartColors(accent, mode),
-    extra: { ...buildExtra(mode, extraOverride.shadow), ...extraOverride },
-  };
-
-  return {
-    slug: preset.key,
-    name: preset.name,
-    nameZh: preset.nameZh,
-    // StudioStarterPreset carries no description; matches the existing
-    // studioConfigToEntry() precedent in lib/studio/skin.ts (empty strings).
-    description: "",
-    descriptionZh: "",
-    source: "studio-preset",
-    modes: [mode],
-    light: mode === "light" ? tokenSet : undefined,
-    dark: mode === "dark" ? tokenSet : undefined,
-    statics: { ...buildStatics(fonts), ...staticOverride },
     fonts,
   };
 }

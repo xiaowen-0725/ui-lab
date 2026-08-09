@@ -1,9 +1,9 @@
 ---
 name: design-ingest
 description: |
-  把「看到的一套好风格」沉淀成 UI Lab 的视觉 Design System / Theme layer：输入截图、网址或口头描述，提炼 14 个基色经 `makeWbSkin()` 展开为 43 个 `--wb-*` token，配齐 DESIGN.md、双语 prompt 与词汇，落进 `lib/layouts/design-systems.ts`，并进入 catalog/CLI 供后续项目复用。它不创建 System Preset 或 Confirmed Manifest；需要完整应用系统时转 $ui-lab 的 select。仅在 UI Lab 仓库内使用。
+  把「看到的一套好风格」沉淀成 UI Lab 的视觉 Design System / Theme layer：输入截图、网址或口头描述，提炼 14 个基色经 `makeWbSkin()` 展开为 43 个 `--wb-*` token，配齐 DESIGN.md、双语 prompt 与词汇，落进 `lib/layouts/design-systems.ts`，并进入 catalog/CLI 供后续项目复用。它不创建完整应用系统或选择/下单工作流；后者当前没有专用产品路线。仅在 UI Lab 仓库内使用。
   触发方式：/design-ingest、「把这个风格沉淀下来」「收录这套设计系统」「照这个截图/网站做一套皮肤」「这个配色字体我想留着复用」，或用户贴出某个界面截图/链接并表示想要这种感觉。
-  Ingest a style you've seen into UI Lab as a visual Design System / Theme layer: distill 14 base colors, expand them through `makeWbSkin()` into the 43-token workbench contract, author DESIGN.md plus bilingual prompts and vocabulary, and publish it through the catalog/CLI. This does not create a System Preset or Confirmed Manifest; use $ui-lab select for a complete application system. Repo-internal skill for the UI Lab repository.
+  Ingest a style you've seen into UI Lab as a visual Design System / Theme layer: distill 14 base colors, expand them through `makeWbSkin()` into the 43-token workbench contract, author DESIGN.md plus bilingual prompts and vocabulary, and publish it through the catalog/CLI. This does not create a complete application system or a selection/order workflow; no dedicated product route currently exists for those. Repo-internal skill for the UI Lab repository.
   Trigger: /design-ingest, "sediment this style", "capture this design system", "make a skin from this screenshot/site".
 ---
 
@@ -11,7 +11,7 @@ description: |
 
 把野外看到的一套风格（背景/文字/字体/强调色这一整套）变成 UI Lab 的正式视觉资产。产出物是一个 `DesignSystemEntry`：落库那一刻，`/layouts?ds=<slug>` 就能实时换肤看效果，`ui-lab show <slug>` 就能取回完整 DESIGN.md。**整条流水线的验收标准是肉眼对照，不是文字自洽。**
 
-> 边界：本技能只产出视觉 Design System / Theme layer，不等于应用级 System Preset、Assembly Order 或 Confirmed Manifest。若目标是完整应用系统、前端装配或确认订单，转到 `$ui-lab` 的 `select`，并遵循 [selection.md](../ui-lab/references/selection.md)。
+> 边界：本技能只产出视觉 Design System / Theme layer，不等于完整应用系统、视觉选择产品或下单协议。若目标超出 Theme layer，停止在当前产物并报告能力缺口；不要转到不存在的 Studio、`select` 或 order 路线。
 
 ## 第 0 步 · Provenance / license 硬门
 

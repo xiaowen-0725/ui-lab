@@ -4,7 +4,7 @@
   "config": {
     "schemaVersion": 1,
     "profile": "vite-app",
-    "system": "codex-desktop-v1",
+    "system": "graphite",
     "components": [
       "agent-workbench",
       "thread-list",
@@ -18,10 +18,10 @@
   "plan": {
     "strategy": "install",
     "theme": {
-      "slug": "codex-desktop-v1",
+      "slug": "graphite",
       "action": "install",
-      "command": "npx shadcn@latest add http://localhost:3000/r/theme-codex-desktop-v1.json",
-      "pageUrl": "http://localhost:3000/catalog.json#codex-desktop-v1"
+      "command": "npx shadcn@latest add http://localhost:3000/r/theme-graphite.json",
+      "pageUrl": "http://localhost:3000/layouts?ds=graphite"
     },
     "components": [
       {

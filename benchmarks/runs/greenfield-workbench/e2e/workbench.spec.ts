@@ -11,13 +11,13 @@ test("states, focus, fonts, and overflow are verifiable", async ({ page }) => {
     return {
       scrollWidth: document.documentElement.scrollWidth,
       clientWidth: document.documentElement.clientWidth,
-      sans: document.fonts.check('14px -apple-system'),
+      sans: document.fonts.check("14px Geist"),
       fontFamily: getComputedStyle(document.body).fontFamily,
     };
   });
   expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.clientWidth);
   expect(metrics.sans).toBe(true);
-  expect(metrics.fontFamily).toContain("-apple-system");
+  expect(metrics.fontFamily).toContain("Geist");
 
   for (const state of ["loading", "empty", "error", "streaming", "approval"]) {
     await page.goto(`/?state=${state}&theme=light`);

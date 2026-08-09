@@ -28,9 +28,7 @@ const CATALOG_KINDS = new Set<CatalogItem["kind"]>([
   "icon-motion",
   "style",
   "palette",
-  "studio-preset",
   "design-system",
-  "system-preset",
   "recipe",
 ]);
 
@@ -47,52 +45,6 @@ function stableSerialize(value: unknown): string {
     .sort()
     .map((key) => `${JSON.stringify(key)}:${stableSerialize(record[key])}`);
   return `{${entries.join(",")}}`;
-}
-
-function plainObject(value: unknown): Record<string, unknown> | undefined {
-  if (typeof value !== "object" || value === null || Array.isArray(value)) {
-    return undefined;
-  }
-  const prototype = Object.getPrototypeOf(value);
-  return prototype === Object.prototype || prototype === null
-    ? (value as Record<string, unknown>)
-    : undefined;
-}
-
-function systemPresetContractPayload(value: unknown): Record<string, unknown> | undefined {
-  const preset = plainObject(value);
-  if (!preset) return undefined;
-
-  const capabilities = Array.isArray(preset.capabilities)
-    ? preset.capabilities.map((capability) => {
-        const record = plainObject(capability);
-        return record
-          ? {
-              slug: record.slug,
-              required: record.required,
-              components: record.components,
-            }
-          : capability;
-      })
-    : preset.capabilities;
-
-  return {
-    schemaVersion: preset.schemaVersion,
-    slug: preset.slug,
-    version: preset.version,
-    status: preset.status,
-    profiles: preset.profiles,
-    themeKit: preset.themeKit,
-    compatibleRecipes: preset.compatibleRecipes,
-    capabilities,
-    componentAllowlist: preset.componentAllowlist,
-    safeOverrideKeys: preset.safeOverrideKeys,
-    lockedVisual: preset.lockedVisual,
-    assets: preset.assets,
-    referencePack: preset.referencePack,
-    required: preset.required,
-    forbidden: preset.forbidden,
-  };
 }
 
 function contractPayload(item: CatalogItem): Record<string, unknown> {
@@ -129,10 +81,6 @@ function contractPayload(item: CatalogItem): Record<string, unknown> {
     payload.required = item.required;
     payload.forbidden = item.forbidden;
   }
-  if (item.kind === "system-preset") {
-    payload.systemPreset = systemPresetContractPayload(item.systemPreset);
-  }
-
   return payload;
 }
 

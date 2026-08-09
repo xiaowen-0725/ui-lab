@@ -1,6 +1,5 @@
 import type { CatalogItem } from "@/lib/catalog";
 import { canonicalSha256 } from "@/lib/contracts/canonical-json";
-import { systemPresetContractPayload } from "@/lib/system-presets";
 
 export function catalogContractHash(item: CatalogItem): string {
   const payload: Record<string, unknown> = { fetch: item.fetch };
@@ -53,15 +52,6 @@ export function catalogContractHash(item: CatalogItem): string {
     assignDefined("required", item.required);
     assignDefined("forbidden", item.forbidden);
   }
-  if (item.kind === "system-preset") {
-    assignDefined(
-      "systemPreset",
-      item.systemPreset
-        ? systemPresetContractPayload(item.systemPreset)
-        : undefined,
-    );
-  }
-
   return canonicalSha256(payload);
 }
 

@@ -17,17 +17,6 @@ function section(markdown: string, heading: string): string {
   return nextHeading < 0 ? rest : rest.slice(0, nextHeading);
 }
 
-function expectInOrder(source: string, values: readonly string[]): void {
-  let cursor = -1;
-  for (const value of values) {
-    const next = source.indexOf(value, cursor + 1);
-    expect(next, `expected "${value}" after "${source.slice(Math.max(0, cursor), cursor + 32)}"`).toBeGreaterThan(
-      cursor,
-    );
-    cursor = next;
-  }
-}
-
 function routeRow(markdown: string, route: string): string {
   return (
     markdown
@@ -116,7 +105,7 @@ describe("UI Lab skill routing contract", () => {
     const contract = `${router}\n${scope}`;
 
     expect(contract).toMatch(/uilab-admin|\$uilab-admin/);
-    expect(contract).toMatch(/Preset|Design Package|Create/);
+    expect(contract).toMatch(/创建器|视觉选择|下单|creator|visual-selection|order/i);
     expect(contract).toMatch(/(?:不做|不在范围|Do NOT|不处理)/i);
   });
 });

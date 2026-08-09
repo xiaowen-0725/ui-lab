@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "lockPath": "/Users/zhoujw/.codex/worktrees/68fd/ui-components/benchmarks/runs/greenfield-workbench/ui-lab.lock.json",
+  "lockPath": "/Users/zhoujw/develop/tmp/ui-components/benchmarks/runs/greenfield-workbench/ui-lab.lock.json",
   "lock": {
     "schemaVersion": 1,
     "catalogSource": "snapshot",
@@ -52,14 +52,14 @@
         ]
       },
       {
+        "kind": "design-system",
+        "slug": "graphite",
+        "contractHash": "a29d4aa4a8ace34b5a2bad56161e17f0b42422bb63a2c750136139ca95c3d824"
+      },
+      {
         "kind": "recipe",
         "slug": "agent-workbench",
         "contractHash": "492498f5c7683c39797323b4bdc9344be54193bf30e791821f97ada6d4c5de28"
-      },
-      {
-        "kind": "system-preset",
-        "slug": "codex-desktop-v1",
-        "contractHash": "299007fe0dbe06eb2f4de8fc950115123bf67cc36327877d8f8f0b1e2baff008"
       }
     ]
   }
