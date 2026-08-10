@@ -20,6 +20,7 @@
 - 灵感库 21 个来源卡片新增带来源和采集日期的真实网站首屏预览，图片整块可直接访问原站，并纳入统一截图质量审计。
 
 ### 新增
+- **灵感库新增 4 条经分诊参考**：`motionsites`（`source`，动效与 3D）、`uiverse`（`source`，产品界面）、`aceternity-ui`（`source`，产品界面）与 `animejs`（`site`，开发工具）；均保留第一方 provenance、访问边界、`external-only` 权利状态与核验日期。
 - **灵感库「来源」新增 3 条**：`shadcn-studio`（shadcn/ui 区块与模板市场，freemium）、`react-bits`（开源 React 动效组件图库，freemium）、`checklist-design`（网站/App/移动/设计系统/流程质量清单，public）。均为 `source` 条目、`external-only`，带第一方 provenance 与真实首屏截图。
 - **「区块 / Blocks」新增 9 个 AI Agents 界面原语**（自 beUI 上游移植）: `prompt-input`（提示输入）、`todo-list`（任务清单）、`code-block`（代码块）、`approval-card`（审批卡片，提问澄清 / 审阅批准两变体）、`file-diff`（文件差异）、`tool-result`（工具结果，终端输出 / 请求结果两变体）、`streaming-response`（流式回复）、`image-generation`（图像生成）、`tool-approval`（工具授权）。源码落在 `components/agents/`，共享 `agent-disclosure` / `agent-code` / 轻量 citations 辅助；与既有 `agent-composer` / `agent-thread` / `prompt-bar` 等产品级区块互补，不替换。
 - **「区块」新增 `agent-activity`（Agent 活动流）**：自适应活动披露——流式推理文本 / 推理步骤 / 网页搜索 / 工具调用 / 混合时间线 / 执行轨迹六变体；进行中有界跟随，完成后折叠为可重开摘要。依赖共享 `ThinkingShimmer` 与 `AgentDisclosure`；与既有产品级 `agent-trace` 区块互补，不替换。

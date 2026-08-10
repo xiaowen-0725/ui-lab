@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T05:52:48.719Z",
+  "generatedAt": "2026-08-10T13:24:41.009Z",
   "viewport": {
     "width": 1440,
     "height": 900
@@ -1365,6 +1365,50 @@
       "height": 900,
       "status": "captured",
       "assetKind": "screenshot"
+    },
+    "sources/aceternity-ui": {
+      "path": "/inspiration/screenshots/sources/aceternity-ui.webp",
+      "sourceUrl": "https://ui.aceternity.com/components",
+      "finalUrl": "https://ui.aceternity.com/components",
+      "capturedAt": "2026-08-10",
+      "width": 1440,
+      "height": 900,
+      "status": "captured",
+      "assetKind": "screenshot",
+      "title": "Free React & Next.js UI Components | Aceternity UI"
+    },
+    "sites/animejs": {
+      "path": "/inspiration/screenshots/sites/animejs.webp",
+      "sourceUrl": "https://animejs.com/",
+      "finalUrl": "https://animejs.com/",
+      "capturedAt": "2026-08-10",
+      "width": 1440,
+      "height": 900,
+      "status": "captured",
+      "assetKind": "screenshot",
+      "title": "Anime.js | JavaScript Animation Engine"
+    },
+    "sources/motionsites": {
+      "path": "/inspiration/screenshots/sources/motionsites.webp",
+      "sourceUrl": "https://motionsites.ai/",
+      "finalUrl": "https://motionsites.ai/",
+      "capturedAt": "2026-08-10",
+      "width": 1440,
+      "height": 900,
+      "status": "captured",
+      "assetKind": "screenshot",
+      "title": "MotionSites AI — Official Premium AI Website Prompts"
+    },
+    "sources/uiverse": {
+      "path": "/inspiration/screenshots/sources/uiverse.webp",
+      "sourceUrl": "https://uiverse.io/elements",
+      "finalUrl": "https://uiverse.io/elements",
+      "capturedAt": "2026-08-10",
+      "width": 1440,
+      "height": 900,
+      "status": "captured",
+      "assetKind": "screenshot",
+      "title": "4430 UI elements: CSS & Tailwind"
     }
   },
   "failures": {}

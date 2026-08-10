@@ -80,6 +80,9 @@ const overrides: Partial<Record<string, Partial<Target>>> = {
 	"sources/mobbin": { waitMs: 3_000 },
 	"sources/shadcn-studio": { waitMs: 3_000 },
 	"sources/react-bits": { waitMs: 3_000 },
+	"sources/motionsites": { waitMs: 3_000 },
+	"sources/uiverse": { waitMs: 3_000 },
+	"sources/aceternity-ui": { waitMs: 3_000 },
 	"sources/checklist-design": { waitMs: 2_000 },
 	"sources/ogpedia": { captureUrl: "https://ogpedia.xyz/" },
 	"sources/page-flows": { waitMs: 3_000 },
@@ -93,6 +96,7 @@ const overrides: Partial<Record<string, Partial<Target>>> = {
 			assetKind: "og-image",
 		},
 	},
+	"sites/animejs": { waitMs: 3_000 },
 	"sites/aman": {
 		captureUrl: "https://www.aman.com/resorts/aman-tokyo",
 		waitMs: 8_000,
