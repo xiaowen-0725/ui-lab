@@ -4,21 +4,26 @@
 // paletteToSkin() maps them onto the style-demo skin contract with neutral
 // geometry, so the exact same demo scene previews every palette.
 
+import type { StyleSkin } from "@/lib/styles";
 import { darkPalettes } from "./dark";
 import { earthyPalettes } from "./earthy";
 import { softPalettes } from "./soft";
 import type { PaletteEntry } from "./types";
 import { vividPalettes } from "./vivid";
-import type { StyleSkin } from "@/lib/styles";
 
+export type {
+  PaletteContrastPairId,
+  PaletteContrastResult,
+} from "./contrast";
+export { paletteContrastReport } from "./contrast";
 export { paletteToCss } from "./css";
-export { PALETTE_GROUPS } from "./types";
 export type {
   PaletteColors,
   PaletteEntry,
   PaletteGroup,
   PaletteGroupKey,
 } from "./types";
+export { PALETTE_GROUPS } from "./types";
 
 export const PALETTES: PaletteEntry[] = [
   ...softPalettes,

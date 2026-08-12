@@ -1,7 +1,8 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { CheckCircle2, XCircle } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { CopyButton } from "@/components/app/docs/copy-button";
 import { StyleDemo } from "@/components/app/styles/style-demo";
@@ -11,6 +12,8 @@ import {
   PALETTE_GROUPS,
   PALETTES,
   type PaletteColors,
+  type PaletteContrastResult,
+  paletteContrastReport,
   paletteToCss,
   paletteToSkin,
 } from "@/lib/palettes";
@@ -28,6 +31,90 @@ const ROLE_LABEL_KEYS: Record<keyof PaletteColors, string> = {
 };
 
 const ROLE_ORDER = Object.keys(ROLE_LABEL_KEYS) as (keyof PaletteColors)[];
+
+const CONTRAST_PAIR_LABEL_KEYS: Record<PaletteContrastResult["id"], string> = {
+  "text-on-background": "contrastTextOnBackground",
+  "muted-on-background": "contrastMutedOnBackground",
+  "text-on-surface": "contrastTextOnSurface",
+  "text-on-primary": "contrastTextOnPrimary",
+};
+
+function ContrastStatus({
+  label,
+  passes,
+}: {
+  label: string;
+  passes: boolean;
+}) {
+  const t = useTranslations("palettes");
+  const Icon = passes ? CheckCircle2 : XCircle;
+
+  return (
+    <li
+      className={cn(
+        "flex items-center gap-1.5 text-[0.68rem]",
+        passes ? "text-(--color-success)" : "text-destructive",
+      )}
+    >
+      <Icon aria-hidden="true" className="size-3.5 shrink-0" />
+      <span className="text-foreground/80">{label}</span>
+      <span className="font-medium">{passes ? t("passes") : t("fails")}</span>
+    </li>
+  );
+}
+
+function PaletteHealth({ results }: { results: PaletteContrastResult[] }) {
+  const t = useTranslations("palettes");
+
+  return (
+    <section aria-labelledby="palette-health-title">
+      <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+        {t("healthEyebrow")}
+      </p>
+      <h3 id="palette-health-title" className="mt-2 text-lg font-semibold text-foreground">
+        {t("healthTitle")}
+      </h3>
+      <p className="mt-1 max-w-2xl text-xs leading-relaxed text-muted-foreground">
+        {t("healthHint")}
+      </p>
+
+      <div className="mt-3 grid gap-3 sm:grid-cols-2">
+        {results.map((result) => (
+          <article key={result.id} className="rounded-2xl border border-border bg-card/20 p-4">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <h4 className="text-sm font-medium text-foreground">
+                  {t(CONTRAST_PAIR_LABEL_KEYS[result.id])}
+                </h4>
+                <div className="mt-2 flex items-center gap-1.5" aria-hidden="true">
+                  <span
+                    className="size-4 rounded-full border border-border"
+                    style={{ background: result.foreground }}
+                  />
+                  <span className="text-xs text-muted-foreground">/</span>
+                  <span
+                    className="size-4 rounded-full border border-border"
+                    style={{ background: result.background }}
+                  />
+                </div>
+              </div>
+              <p className="font-mono text-sm font-semibold tabular-nums text-foreground">
+                {result.ratio.toFixed(2)}:1
+              </p>
+            </div>
+
+            <ul className="mt-3 grid gap-1.5">
+              <ContrastStatus label={t("aaNormal")} passes={result.aaNormal} />
+              <ContrastStatus label={t("aaLarge")} passes={result.aaLarge} />
+              <ContrastStatus label={t("aaaNormal")} passes={result.aaaNormal} />
+              <ContrastStatus label={t("aaaLarge")} passes={result.aaaLarge} />
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 /** One role of the palette: swatch + label + hex; clicking copies the hex. */
 function ColorChip({ label, value }: { label: string; value: string }) {
@@ -89,6 +176,7 @@ export function PalettesExplorer() {
   const prompt = promptLang === "zh" ? active.promptZh : active.promptEn;
   const recipe = locale === "zh" ? active.recipeZh : active.recipe;
   const css = paletteToCss(active);
+  const contrastResults = paletteContrastReport(active);
 
   const selectPalette = (nextSlug: string) => {
     setSlug(nextSlug);
@@ -166,6 +254,7 @@ export function PalettesExplorer() {
               ))}
             </div>
           </div>
+          <PaletteHealth results={contrastResults} />
         </div>
 
         <aside className="flex flex-col gap-6 rounded-3xl border border-border bg-card/20 p-6">

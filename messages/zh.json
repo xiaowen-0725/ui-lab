@@ -467,7 +467,20 @@
     "roleMuted": "次要",
     "rolePrimary": "主色",
     "rolePrimaryFg": "主色文字",
-    "roleAccent": "点缀"
+    "roleAccent": "点缀",
+    "healthEyebrow": "可访问性体检",
+    "healthTitle": "文字对比度",
+    "healthHint": "按 WCAG 2 对四组真实语义颜色计算。正常文字 AA 至少 4.5:1，大号文字 AA 至少 3:1。这里只报告，不自动修改配色。",
+    "contrastTextOnBackground": "正文 / 背景",
+    "contrastMutedOnBackground": "次要文字 / 背景",
+    "contrastTextOnSurface": "正文 / 卡片",
+    "contrastTextOnPrimary": "主色文字 / 主色",
+    "aaNormal": "AA · 正常文字",
+    "aaLarge": "AA · 大号文字",
+    "aaaNormal": "AAA · 正常文字",
+    "aaaLarge": "AAA · 大号文字",
+    "passes": "通过",
+    "fails": "未通过"
   },
   "styles": {
     "eyebrow": "风格",

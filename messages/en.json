@@ -467,7 +467,20 @@
     "roleMuted": "Muted",
     "rolePrimary": "Primary",
     "rolePrimaryFg": "On primary",
-    "roleAccent": "Accent"
+    "roleAccent": "Accent",
+    "healthEyebrow": "Accessibility health",
+    "healthTitle": "Text contrast",
+    "healthHint": "Calculated from four real semantic color pairs using WCAG 2. Normal-text AA requires 4.5:1; large-text AA requires 3:1. This reports issues without changing the palette.",
+    "contrastTextOnBackground": "Text / background",
+    "contrastMutedOnBackground": "Muted text / background",
+    "contrastTextOnSurface": "Text / surface",
+    "contrastTextOnPrimary": "On primary / primary",
+    "aaNormal": "AA · normal text",
+    "aaLarge": "AA · large text",
+    "aaaNormal": "AAA · normal text",
+    "aaaLarge": "AAA · large text",
+    "passes": "Pass",
+    "fails": "Fail"
   },
   "styles": {
     "eyebrow": "Styles",
