@@ -36,15 +36,17 @@ const CONTRAST_PAIR_LABEL_KEYS: Record<PaletteContrastResult["id"], string> = {
   "text-on-background": "contrastTextOnBackground",
   "muted-on-background": "contrastMutedOnBackground",
   "text-on-surface": "contrastTextOnSurface",
-  "text-on-primary": "contrastTextOnPrimary",
+  "primary-foreground-on-primary": "contrastTextOnPrimary",
 };
 
 function ContrastStatus({
   label,
   passes,
+  className,
 }: {
   label: string;
   passes: boolean;
+  className?: string;
 }) {
   const t = useTranslations("palettes");
   const Icon = passes ? CheckCircle2 : XCircle;
@@ -54,6 +56,7 @@ function ContrastStatus({
       className={cn(
         "flex items-center gap-1.5 text-[0.68rem]",
         passes ? "text-(--color-success)" : "text-destructive",
+        className,
       )}
     >
       <Icon aria-hidden="true" className="size-3.5 shrink-0" />
@@ -63,11 +66,17 @@ function ContrastStatus({
   );
 }
 
-function PaletteHealth({ results }: { results: PaletteContrastResult[] }) {
+function PaletteHealth({
+  results,
+  className,
+}: {
+  results: PaletteContrastResult[];
+  className?: string;
+}) {
   const t = useTranslations("palettes");
 
   return (
-    <section aria-labelledby="palette-health-title">
+    <section aria-labelledby="palette-health-title" className={cn(className)}>
       <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
         {t("healthEyebrow")}
       </p>

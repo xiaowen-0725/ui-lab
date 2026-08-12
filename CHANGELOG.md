@@ -6,6 +6,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add bilingual WCAG contrast health reports and a regression baseline for Catalog palettes.
+
 ### 移除
 
 - 移除「工坊 / Studio」完整模块：删除 `/studio`、组装预览与订单 API、Token Studio、System Preset / Order Manifest / candidate evidence 实验，以及对应 Catalog、CLI、导航、搜索、文案、脚本、测试和静态截图。通用 Agent Workbench 组件、Recipe、设计系统展馆与 Theme Kit 基础能力保留；Greenfield benchmark 解耦旧 System Preset，改为无用户批准语义的 Graphite 工程回归夹具。新的创建/选择工作流待重新定义后再实现。

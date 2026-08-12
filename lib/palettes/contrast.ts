@@ -5,7 +5,7 @@ export type PaletteContrastPairId =
   | "text-on-background"
   | "muted-on-background"
   | "text-on-surface"
-  | "text-on-primary";
+  | "primary-foreground-on-primary";
 
 export type PaletteContrastResult = {
   id: PaletteContrastPairId;
@@ -29,7 +29,7 @@ const CONTRAST_PAIRS: readonly {
   { id: "muted-on-background", foregroundRole: "muted", backgroundRole: "bg" },
   { id: "text-on-surface", foregroundRole: "text", backgroundRole: "surface" },
   {
-    id: "text-on-primary",
+    id: "primary-foreground-on-primary",
     foregroundRole: "primaryFg",
     backgroundRole: "primary",
   },

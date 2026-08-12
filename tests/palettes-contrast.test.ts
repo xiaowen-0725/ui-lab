@@ -4,20 +4,20 @@ import { PALETTES, paletteContrastReport } from "@/lib/palettes";
 const KNOWN_AA_DEBT = new Set([
   "business:muted-on-background",
   "cream:muted-on-background",
-  "dopamine:text-on-primary",
+  "dopamine:primary-foreground-on-primary",
   "earth:muted-on-background",
-  "earth:text-on-primary",
-  "forest-night:text-on-primary",
+  "earth:primary-foreground-on-primary",
+  "forest-night:primary-foreground-on-primary",
   "ink-wash:muted-on-background",
   "macaron:muted-on-background",
-  "midnight:text-on-primary",
+  "midnight:primary-foreground-on-primary",
   "morandi:muted-on-background",
-  "morandi:text-on-primary",
+  "morandi:primary-foreground-on-primary",
   "ocean:muted-on-background",
   "sage:muted-on-background",
-  "sage:text-on-primary",
+  "sage:primary-foreground-on-primary",
   "sunset:muted-on-background",
-  "sunset:text-on-primary",
+  "sunset:primary-foreground-on-primary",
 ]);
 
 describe("palette contrast reports", () => {
@@ -32,7 +32,7 @@ describe("palette contrast reports", () => {
       "text-on-background",
       "muted-on-background",
       "text-on-surface",
-      "text-on-primary",
+      "primary-foreground-on-primary",
     ]);
     expect(report[0]).toMatchObject({
       foregroundRole: "text",
@@ -58,6 +58,6 @@ describe("palette contrast reports", () => {
         .map((result) => `${palette.slug}:${result.id}`),
     );
 
-    expect(failures.filter((failure) => !KNOWN_AA_DEBT.has(failure))).toEqual([]);
+    expect(failures.sort()).toEqual([...KNOWN_AA_DEBT].sort());
   });
 });
