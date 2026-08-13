@@ -1,25 +1,23 @@
-import type { Metadata, Viewport } from "next";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import "../globals.css";
 import { GoogleAnalytics } from "@/components/app/analytics/google-analytics";
-import { ThemeProvider } from "@/components/app/chrome/theme-provider";
-import { PreferencesProvider } from "@/components/app/preferences/preferences-provider";
-import { PreferencesPanel } from "@/components/app/preferences/preferences-panel";
-import { SiteHeader } from "@/components/app/chrome/site-header";
-import { SiteDock } from "@/components/app/chrome/site-dock";
-import { SiteFrame } from "@/components/app/chrome/site-frame";
-import { KeyboardShortcuts } from "@/components/app/chrome/keyboard-shortcuts";
 import { JsonLd } from "@/components/app/analytics/json-ld";
+import { KeyboardShortcuts } from "@/components/app/chrome/keyboard-shortcuts";
+import { SiteShell } from "@/components/app/chrome/site-shell";
+import { ThemeProvider } from "@/components/app/chrome/theme-provider";
+import { PreferencesPanel } from "@/components/app/preferences/preferences-panel";
+import { PreferencesProvider } from "@/components/app/preferences/preferences-provider";
+import { routing } from "@/i18n/routing";
 import { getGithubStarCount } from "@/lib/github";
 import { AUTHOR, SITE_DESCRIPTION, SITE_NAME, siteJsonLd } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
-import { routing } from "@/i18n/routing";
 
 const sans = Geist({
   subsets: ["latin"],
@@ -119,11 +117,7 @@ export default async function LocaleLayout({
           <ThemeProvider>
             <PreferencesProvider>
               <KeyboardShortcuts />
-              <SiteHeader githubStarCount={githubStarCount} />
-              <main className="pt-14 pb-32">
-                <SiteFrame>{children}</SiteFrame>
-              </main>
-              <SiteDock />
+              <SiteShell githubStarCount={githubStarCount}>{children}</SiteShell>
               <PreferencesPanel />
               {process.env.NODE_ENV === "production" && <Analytics />}
               {process.env.NODE_ENV === "production" && <SpeedInsights />}

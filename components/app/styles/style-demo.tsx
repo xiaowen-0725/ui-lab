@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { EASE_OUT_CSS } from "@/lib/ease";
 import type { StyleSkin } from "@/lib/styles";
 import { cn } from "@/lib/utils";
@@ -77,9 +77,11 @@ const secondaryBtnStyle: CSSProperties = {
 export function StyleDemo({
   skin,
   className,
+  heroVisual,
 }: {
   skin: StyleSkin;
   className?: string;
+  heroVisual?: ReactNode;
 }) {
   const t = useTranslations("styles");
 
@@ -165,45 +167,66 @@ export function StyleDemo({
           </button>
         </div>
 
-        <div className="flex max-w-md flex-col items-start gap-4">
-          <span
-            className="inline-flex px-2.5 py-1 text-[0.7rem] font-semibold"
-            style={badgeStyle}
-          >
-            {t("demoBadge")}
-          </span>
-          <h3
-            className="text-3xl leading-tight sm:text-4xl"
-            style={{
-              fontWeight: headingWeight,
-              letterSpacing: "var(--st-heading-tracking)",
-              fontFamily: "var(--st-heading-font, inherit)",
-              textTransform:
-                "var(--st-heading-transform, none)" as CSSProperties["textTransform"],
-              transition: SKIN_TRANSITION,
-            }}
-          >
-            {t("demoTitle")}
-          </h3>
-          <p className="text-sm leading-relaxed" style={mutedStyle}>
-            {t("demoSubtitle")}
-          </p>
-          <div className="mt-1 flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              className="inline-flex h-10 items-center px-5 text-sm font-semibold"
-              style={primaryBtnStyle}
+        <div
+          className={cn(
+            "items-center gap-6",
+            heroVisual
+              ? "grid sm:grid-cols-[minmax(0,1fr)_minmax(16rem,0.8fr)]"
+              : "flex",
+          )}
+        >
+          <div className="flex max-w-md flex-col items-start gap-4">
+            <span
+              className="inline-flex px-2.5 py-1 text-[0.7rem] font-semibold"
+              style={badgeStyle}
             >
-              {t("demoPrimary")}
-            </button>
-            <button
-              type="button"
-              className="inline-flex h-10 items-center px-5 text-sm font-semibold"
-              style={secondaryBtnStyle}
+              {t("demoBadge")}
+            </span>
+            <h3
+              className="break-words text-3xl leading-tight sm:text-4xl"
+              style={{
+                fontWeight: headingWeight,
+                letterSpacing: "var(--st-heading-tracking)",
+                fontFamily: "var(--st-heading-font, inherit)",
+                textTransform:
+                  "var(--st-heading-transform, none)" as CSSProperties["textTransform"],
+                transition: SKIN_TRANSITION,
+              }}
             >
-              {t("demoSecondary")}
-            </button>
+              {t("demoTitle")}
+            </h3>
+            <p className="text-sm leading-relaxed" style={mutedStyle}>
+              {t("demoSubtitle")}
+            </p>
+            <div className="mt-1 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                className="inline-flex h-10 items-center px-5 text-sm font-semibold"
+                style={primaryBtnStyle}
+              >
+                {t("demoPrimary")}
+              </button>
+              <button
+                type="button"
+                className="inline-flex h-10 items-center px-5 text-sm font-semibold"
+                style={secondaryBtnStyle}
+              >
+                {t("demoSecondary")}
+              </button>
+            </div>
           </div>
+          {heroVisual && (
+            <div
+              aria-hidden="true"
+              className="relative hidden min-h-56 items-center justify-center sm:flex"
+            >
+              <div
+                className="absolute inset-8 rounded-full opacity-30 blur-[10px]"
+                style={{ background: "var(--st-accent)" }}
+              />
+              {heroVisual}
+            </div>
+          )}
         </div>
 
         <div className="grid gap-4 sm:grid-cols-3">

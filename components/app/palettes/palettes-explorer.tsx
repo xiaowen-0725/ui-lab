@@ -1,23 +1,41 @@
 "use client";
 
-import { CheckCircle2, XCircle } from "lucide-react";
+import {
+  Check,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  Copy,
+  Eye,
+  Pause,
+  Play,
+  SlidersHorizontal,
+  XCircle,
+} from "lucide-react";
+import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from "motion/react";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
-import { CopyButton } from "@/components/app/docs/copy-button";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { StyleDemo } from "@/components/app/styles/style-demo";
+import { ShaderBackground } from "@/components/motion/shader-background";
 import type { Locale } from "@/i18n/routing";
+import { EASE_OUT, SPRING_LAYOUT, SPRING_PRESS, SPRING_SWAP } from "@/lib/ease";
+import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { localizedDescription, localizedName } from "@/lib/i18n-content";
 import {
-  PALETTE_GROUPS,
   PALETTES,
   type PaletteColors,
+  type PaletteContrastPairId,
   type PaletteContrastResult,
   paletteContrastReport,
   paletteToCss,
   paletteToSkin,
 } from "@/lib/palettes";
 import { cn } from "@/lib/utils";
+
+type WorkspaceMode = "browse" | "contrast" | "export";
+type MobileSurface = "preview" | "details";
 
 const ROLE_LABEL_KEYS: Record<keyof PaletteColors, string> = {
   bg: "roleBg",
@@ -32,347 +50,756 @@ const ROLE_LABEL_KEYS: Record<keyof PaletteColors, string> = {
 
 const ROLE_ORDER = Object.keys(ROLE_LABEL_KEYS) as (keyof PaletteColors)[];
 
-const CONTRAST_PAIR_LABEL_KEYS: Record<PaletteContrastResult["id"], string> = {
+const CONTRAST_PAIR_LABEL_KEYS: Record<PaletteContrastPairId, string> = {
   "text-on-background": "contrastTextOnBackground",
   "muted-on-background": "contrastMutedOnBackground",
   "text-on-surface": "contrastTextOnSurface",
   "primary-foreground-on-primary": "contrastTextOnPrimary",
 };
 
-function ContrastStatus({
-  label,
-  passes,
+function presenceMotion(shouldReduceMotion: boolean | null) {
+  return {
+    initial: {
+      opacity: 0,
+      transform: shouldReduceMotion ? "translateY(0px)" : "translateY(6px)",
+    },
+    animate: {
+      opacity: 1,
+      transform: "translateY(0px)",
+      transition: { duration: 0.18, ease: EASE_OUT },
+    },
+    exit: {
+      opacity: 0,
+      transform: shouldReduceMotion ? "translateY(0px)" : "translateY(-3px)",
+      transition: { duration: 0.12, ease: EASE_OUT },
+    },
+  };
+}
+
+function PaletteSettle({
+  slug,
+  children,
   className,
 }: {
+  slug: string;
+  children: ReactNode;
+  className?: string;
+}) {
+  const previousSlug = useRef(slug);
+  const paletteChanged = previousSlug.current !== slug;
+
+  useEffect(() => {
+    previousSlug.current = slug;
+  }, [slug]);
+
+  return (
+    <motion.div
+      key={slug}
+      data-palette-settle={slug}
+      className={className}
+      initial={paletteChanged ? { opacity: 0.82 } : false}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.22, ease: EASE_OUT }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function CopyAction({
+  value,
+  label,
+  className,
+}: {
+  value: string;
   label: string;
+  className?: string;
+}) {
+  const t = useTranslations("palettes");
+  const shouldReduceMotion = useReducedMotion();
+  const [copied, setCopied] = useState(false);
+  const feedbackTimer = useRef<number | null>(null);
+
+  useEffect(
+    () => () => {
+      if (feedbackTimer.current !== null) {
+        window.clearTimeout(feedbackTimer.current);
+      }
+    },
+    [],
+  );
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(value);
+    } catch {
+      return;
+    }
+
+    if (feedbackTimer.current !== null) {
+      window.clearTimeout(feedbackTimer.current);
+    }
+    setCopied(true);
+    feedbackTimer.current = window.setTimeout(() => {
+      setCopied(false);
+      feedbackTimer.current = null;
+    }, 1400);
+  };
+
+  return (
+    <motion.button
+      type="button"
+      onClick={copy}
+      whileTap={{
+        transform: shouldReduceMotion ? "scale(1)" : "scale(0.97)",
+      }}
+      transition={shouldReduceMotion ? { duration: 0 } : SPRING_PRESS}
+      className={cn(
+        "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-white/12 bg-white/[0.055] px-3 text-xs font-medium text-white/78 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70",
+        className,
+      )}
+    >
+      <span className="sr-only" aria-live="polite">
+        {copied ? t("copied") : ""}
+      </span>
+      <AnimatePresence initial={false} mode="wait">
+        <motion.span
+          key={copied ? "copied" : "copy"}
+          className="inline-flex items-center gap-2"
+          initial={{
+            opacity: 0,
+            transform: shouldReduceMotion ? "translateY(0px)" : "translateY(4px)",
+          }}
+          animate={{ opacity: 1, transform: "translateY(0px)" }}
+          exit={{
+            opacity: 0,
+            transform: shouldReduceMotion ? "translateY(0px)" : "translateY(-3px)",
+          }}
+          transition={
+            shouldReduceMotion ? { duration: 0.14, ease: EASE_OUT } : SPRING_SWAP
+          }
+        >
+          {copied ? (
+            <Check aria-hidden="true" className="size-3.5 text-emerald-300" />
+          ) : (
+            <Copy aria-hidden="true" className="size-3.5" />
+          )}
+          {copied ? t("copied") : label}
+        </motion.span>
+      </AnimatePresence>
+    </motion.button>
+  );
+}
+
+function StatusMark({
+  passes,
+  label,
+  className,
+}: {
   passes: boolean;
+  label: string;
   className?: string;
 }) {
   const t = useTranslations("palettes");
   const Icon = passes ? CheckCircle2 : XCircle;
 
   return (
-    <li
+    <span
       className={cn(
-        "flex items-center gap-1.5 text-[0.68rem]",
-        passes ? "text-(--color-success)" : "text-destructive",
+        "inline-flex items-center gap-1 text-[0.68rem]",
+        passes ? "text-emerald-300" : "text-rose-300",
         className,
       )}
     >
       <Icon aria-hidden="true" className="size-3.5 shrink-0" />
-      <span className="text-foreground/80">{label}</span>
-      <span className="font-medium">{passes ? t("passes") : t("fails")}</span>
-    </li>
+      <span className="text-white/55">{label}</span>
+      <span>{passes ? t("passes") : t("fails")}</span>
+    </span>
   );
 }
 
-function PaletteHealth({
-  results,
+function ContrastCanvas({
+  result,
   className,
 }: {
-  results: PaletteContrastResult[];
+  result: PaletteContrastResult;
   className?: string;
 }) {
   const t = useTranslations("palettes");
 
   return (
-    <section aria-labelledby="palette-health-title" className={cn(className)}>
-      <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-        {t("healthEyebrow")}
-      </p>
-      <h3 id="palette-health-title" className="mt-2 text-lg font-semibold text-foreground">
-        {t("healthTitle")}
-      </h3>
-      <p className="mt-1 max-w-2xl text-xs leading-relaxed text-muted-foreground">
-        {t("healthHint")}
-      </p>
-
-      <div className="mt-3 grid gap-3 sm:grid-cols-2">
-        {results.map((result) => (
-          <article key={result.id} className="rounded-2xl border border-border bg-card/20 p-4">
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <h4 className="text-sm font-medium text-foreground">
-                  {t(CONTRAST_PAIR_LABEL_KEYS[result.id])}
-                </h4>
-                <div className="mt-2 flex items-center gap-1.5" aria-hidden="true">
-                  <span
-                    className="size-4 rounded-full border border-border"
-                    style={{ background: result.foreground }}
-                  />
-                  <span className="text-xs text-muted-foreground">/</span>
-                  <span
-                    className="size-4 rounded-full border border-border"
-                    style={{ background: result.background }}
-                  />
-                </div>
-              </div>
-              <p className="font-mono text-sm font-semibold tabular-nums text-foreground">
-                {result.ratio.toFixed(2)}:1
-              </p>
-            </div>
-
-            <ul className="mt-3 grid gap-1.5">
-              <ContrastStatus label={t("aaNormal")} passes={result.aaNormal} />
-              <ContrastStatus label={t("aaLarge")} passes={result.aaLarge} />
-              <ContrastStatus label={t("aaaNormal")} passes={result.aaaNormal} />
-              <ContrastStatus label={t("aaaLarge")} passes={result.aaaLarge} />
-            </ul>
-          </article>
-        ))}
-      </div>
-    </section>
+    <div
+      className={cn(
+        "grid min-h-[34rem] overflow-hidden rounded-[1.6rem] border border-white/35 shadow-[0_28px_80px_rgb(20_35_55/0.2)] sm:grid-cols-2",
+        className,
+      )}
+    >
+      {[
+        { label: t("foreground"), color: result.foreground, text: result.background },
+        { label: t("background"), color: result.background, text: result.foreground },
+      ].map((side) => (
+        <div
+          key={side.label}
+          className="flex min-h-64 flex-col justify-between p-7 sm:p-10"
+          style={{ background: side.color, color: side.text }}
+        >
+          <span className="text-xs font-medium uppercase tracking-[0.18em] opacity-65">
+            {side.label}
+          </span>
+          <div>
+            <p className="font-mono text-2xl font-semibold sm:text-3xl">{side.color}</p>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed opacity-70">
+              {t("contrastSample")}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
 
-/** One role of the palette: swatch + label + hex; clicking copies the hex. */
-function ColorChip({ label, value }: { label: string; value: string }) {
-  const tCommon = useTranslations("common");
-  const [copied, setCopied] = useState(false);
+function PairSelector({
+  results,
+  value,
+  onChange,
+  className,
+}: {
+  results: PaletteContrastResult[];
+  value: PaletteContrastPairId;
+  onChange: (value: PaletteContrastPairId) => void;
+  className?: string;
+}) {
+  const t = useTranslations("palettes");
 
   return (
-    <button
-      type="button"
-      onClick={async () => {
-        await navigator.clipboard.writeText(value);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 1200);
-      }}
-      className="flex items-center gap-2 rounded-xl border border-border bg-card/20 px-2.5 py-1.5 text-left transition-colors hover:border-(--color-border-strong)"
-    >
-      <span
-        aria-hidden="true"
-        className="h-6 w-6 shrink-0 rounded-md border border-border"
-        style={{ background: value }}
-      />
-      <span className="flex flex-col leading-tight">
-        <span className="text-xs text-foreground">{label}</span>
-        <span className="font-mono text-[0.65rem] uppercase text-muted-foreground">
-          {copied ? tCommon("copied") : value}
-        </span>
+    <label className={cn("block", className)}>
+      <span className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-white/45">
+        {t("contrastPair")}
       </span>
-    </button>
+      <select
+        value={value}
+        onChange={(event) => onChange(event.target.value as PaletteContrastPairId)}
+        className="mt-2 h-10 w-full rounded-lg border border-white/12 bg-white/[0.055] px-3 text-sm text-white outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+      >
+        {results.map((result) => (
+          <option key={result.id} value={result.id} className="bg-slate-900">
+            {t(CONTRAST_PAIR_LABEL_KEYS[result.id])}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 }
 
-/** Palette comparator: the shared demo scene re-colored, plus per-role swatches. */
-export function PalettesExplorer() {
+function PaletteInspector({
+  active,
+  mode,
+  results,
+  selectedPair,
+  onPairChange,
+  promptLang,
+  onPromptLangChange,
+  className,
+}: {
+  active: (typeof PALETTES)[number];
+  mode: WorkspaceMode;
+  results: PaletteContrastResult[];
+  selectedPair: PaletteContrastPairId;
+  onPairChange: (value: PaletteContrastPairId) => void;
+  promptLang: "zh" | "en";
+  onPromptLangChange: (value: "zh" | "en") => void;
+  className?: string;
+}) {
   const t = useTranslations("palettes");
   const locale = useLocale() as Locale;
+  const shouldReduceMotion = useReducedMotion();
+  const canHover = useHoverCapable();
+  const [copiedRole, setCopiedRole] = useState<keyof PaletteColors | null>(null);
+  const roleFeedbackTimer = useRef<number | null>(null);
+  const selected = results.find((result) => result.id === selectedPair) ?? results[0];
+  const prompt = promptLang === "zh" ? active.promptZh : active.promptEn;
+  const css = paletteToCss(active);
+
+  useEffect(
+    () => () => {
+      if (roleFeedbackTimer.current !== null) {
+        window.clearTimeout(roleFeedbackTimer.current);
+      }
+    },
+    [],
+  );
+
+  const copyRole = async (role: keyof PaletteColors) => {
+    try {
+      await navigator.clipboard.writeText(active.colors[role]);
+    } catch {
+      return;
+    }
+    if (roleFeedbackTimer.current !== null) {
+      window.clearTimeout(roleFeedbackTimer.current);
+    }
+    setCopiedRole(role);
+    roleFeedbackTimer.current = window.setTimeout(() => {
+      setCopiedRole(null);
+      roleFeedbackTimer.current = null;
+    }, 1400);
+  };
+
+  if (!selected) return null;
+
+  return (
+    <aside
+      className={cn(
+        "flex flex-col overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#172235]/[0.94] text-white shadow-[0_32px_90px_rgb(12_22_38/0.38)] backdrop-blur-xl",
+        className,
+      )}
+    >
+      <div className="border-b border-white/10 p-5 sm:p-6">
+        <p className="text-[0.65rem] font-medium uppercase tracking-[0.18em] text-white/42">
+          {t("activePalette")}
+        </p>
+        <div className="mt-2 flex items-baseline gap-2">
+          <h2 className="text-lg font-semibold">{localizedName(active, locale)}</h2>
+          <span className="text-xs text-white/42">
+            {locale === "zh" ? active.name : active.nameZh}
+          </span>
+        </div>
+        <p className="mt-2 text-xs leading-relaxed text-white/50">
+          {localizedDescription(active, locale)}
+        </p>
+      </div>
+
+      <div className="border-b border-white/10 p-5 sm:p-6">
+        <div className="grid grid-cols-4 gap-3 sm:grid-cols-8 lg:grid-cols-4 xl:grid-cols-8">
+          {ROLE_ORDER.map((role) => (
+            <button
+              key={role}
+              type="button"
+              onClick={() => copyRole(role)}
+              className="group min-w-0 text-left focus-visible:outline-none"
+              aria-label={`${t(ROLE_LABEL_KEYS[role])} ${active.colors[role]}`}
+            >
+              <motion.span
+                aria-hidden="true"
+                className="block aspect-square rounded-lg border border-white/15 shadow-inner group-focus-visible:ring-2 group-focus-visible:ring-white"
+                whileHover={
+                  canHover && !shouldReduceMotion
+                    ? { transform: "scale(1.04)" }
+                    : undefined
+                }
+                transition={{ duration: 0.15, ease: EASE_OUT }}
+                style={{ background: active.colors[role] }}
+              />
+              <span className="mt-1.5 block truncate text-[0.62rem] text-white/55">
+                {t(ROLE_LABEL_KEYS[role])}
+              </span>
+              <span
+                aria-live="polite"
+                className={cn(
+                  "block truncate font-mono text-[0.55rem] uppercase transition-colors",
+                  copiedRole === role ? "text-emerald-300" : "text-white/28",
+                )}
+              >
+                {copiedRole === role ? t("copied") : active.colors[role]}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <AnimatePresence initial={false} mode="wait">
+        {mode === "export" ? (
+          <motion.div
+            key="export"
+            className="flex flex-1 flex-col gap-5 p-5 sm:p-6"
+            {...presenceMotion(shouldReduceMotion)}
+          >
+          <div className="flex items-center justify-between gap-3">
+            <p className="text-[0.65rem] font-medium uppercase tracking-[0.18em] text-white/42">
+              {t("exportTitle")}
+            </p>
+            <div className="flex rounded-lg border border-white/10 bg-white/[0.04] p-0.5">
+              {(["zh", "en"] as const).map((lang) => (
+                <button
+                  key={lang}
+                  type="button"
+                  onClick={() => onPromptLangChange(lang)}
+                  aria-pressed={promptLang === lang}
+                  className={cn(
+                    "rounded-md px-2 py-1 text-[0.65rem] transition-colors",
+                    promptLang === lang ? "bg-white/12 text-white" : "text-white/45",
+                  )}
+                >
+                  {lang === "zh" ? t("langZh") : t("langEn")}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-xl border border-white/10 bg-black/15 p-4">
+            <p className="line-clamp-6 text-xs leading-relaxed text-white/58">{prompt}</p>
+            <CopyAction value={prompt} label={t("copyPrompt")} className="mt-4 w-full" />
+          </div>
+          <div className="rounded-xl border border-white/10 bg-black/15 p-4">
+            <pre className="max-h-48 overflow-auto whitespace-pre-wrap font-mono text-[0.65rem] leading-relaxed text-white/45">
+              {css}
+            </pre>
+            <CopyAction value={css} label={t("copyCss")} className="mt-4 w-full" />
+          </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            key={mode}
+            className="flex flex-1 flex-col p-5 sm:p-6"
+            {...presenceMotion(shouldReduceMotion)}
+          >
+          <PairSelector results={results} value={selectedPair} onChange={onPairChange} />
+
+          <div className="mt-4 grid grid-cols-[1fr_auto] items-end gap-4 rounded-xl border border-white/10 bg-black/15 p-4">
+            <div>
+              <p className="font-mono text-3xl font-semibold tracking-tight sm:text-4xl">
+                {selected.ratio.toFixed(2)}:1
+              </p>
+              <p className="mt-1 text-xs text-white/38">{t("contrastRatio")}</p>
+            </div>
+            <div className="flex -space-x-1" aria-hidden="true">
+              <span
+                className="size-8 rounded-full border-2 border-[#172235]"
+                style={{ background: selected.foreground }}
+              />
+              <span
+                className="size-8 rounded-full border-2 border-[#172235]"
+                style={{ background: selected.background }}
+              />
+            </div>
+          </div>
+
+          <div className="mt-4 grid grid-cols-2 gap-2">
+            <StatusMark passes={selected.aaNormal} label={t("aaNormal")} />
+            <StatusMark passes={selected.aaLarge} label={t("aaLarge")} />
+            <StatusMark passes={selected.aaaNormal} label={t("aaaNormal")} />
+            <StatusMark passes={selected.aaaLarge} label={t("aaaLarge")} />
+          </div>
+
+          <div className="mt-6 border-t border-white/10 pt-5">
+            <p className="text-[0.65rem] font-medium uppercase tracking-[0.18em] text-white/42">
+              {t("allContrastPairs")}
+            </p>
+            <div className="mt-2 divide-y divide-white/8">
+              {results.map((result) => (
+                <button
+                  key={result.id}
+                  type="button"
+                  onClick={() => onPairChange(result.id)}
+                  className={cn(
+                    "grid w-full grid-cols-[1fr_auto_auto] items-center gap-3 py-2.5 text-left text-xs transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/60",
+                    result.id === selectedPair ? "text-white" : "text-white/52",
+                  )}
+                >
+                  <span className="truncate">{t(CONTRAST_PAIR_LABEL_KEYS[result.id])}</span>
+                  <span className="font-mono tabular-nums">{result.ratio.toFixed(2)}:1</span>
+                  {result.aaNormal ? (
+                    <CheckCircle2 aria-label={t("passes")} className="size-3.5 text-emerald-300" />
+                  ) : (
+                    <XCircle aria-label={t("fails")} className="size-3.5 text-rose-300" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-auto grid grid-cols-2 gap-2 pt-6">
+            <CopyAction value={prompt} label={t("copyPrompt")} />
+            <CopyAction value={css} label={t("copyCss")} />
+          </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </aside>
+  );
+}
+
+export function PalettesExplorer({ className }: { className?: string }) {
+  const t = useTranslations("palettes");
+  const locale = useLocale() as Locale;
+  const shouldReduceMotion = useReducedMotion();
   const searchParams = useSearchParams();
   const paramSlug = searchParams.get("palette");
-  const [slug, setSlug] = useState(
-    () =>
-      (paramSlug && PALETTES.some((p) => p.slug === paramSlug)
-        ? paramSlug
-        : undefined) ?? PALETTES[0]?.slug,
+  const initialSlug =
+    (paramSlug && PALETTES.some((palette) => palette.slug === paramSlug)
+      ? paramSlug
+      : undefined) ??
+    PALETTES.find((palette) => palette.slug === "business")?.slug ??
+    PALETTES[0]?.slug;
+  const [slug, setSlug] = useState(initialSlug);
+  const [mode, setMode] = useState<WorkspaceMode>("browse");
+  const [mobileSurface, setMobileSurface] = useState<MobileSurface>("preview");
+  const [selectedPair, setSelectedPair] = useState<PaletteContrastPairId>(
+    "muted-on-background",
   );
   const [promptLang, setPromptLang] = useState<"zh" | "en">(
     locale === "zh" ? "zh" : "en",
   );
+  const [isCycling, setIsCycling] = useState(false);
+  const [staticBackground, setStaticBackground] = useState(false);
 
-  // Follow in-app navigations (e.g. site search while already on this page).
-  // Manual switches use replaceState, which doesn't touch useSearchParams.
   useEffect(() => {
-    if (paramSlug && PALETTES.some((p) => p.slug === paramSlug)) {
+    if (paramSlug && PALETTES.some((palette) => palette.slug === paramSlug)) {
       setSlug(paramSlug);
     }
   }, [paramSlug]);
 
-  const active = PALETTES.find((p) => p.slug === slug) ?? PALETTES[0];
+  useEffect(() => {
+    if (!isCycling) return;
+    const timer = window.setInterval(() => {
+      setSlug((current) => {
+        const index = PALETTES.findIndex((palette) => palette.slug === current);
+        return PALETTES[(index + 1) % PALETTES.length]?.slug ?? current;
+      });
+    }, 2600);
+    return () => window.clearInterval(timer);
+  }, [isCycling]);
+
+  const active = PALETTES.find((palette) => palette.slug === slug) ?? PALETTES[0];
   if (!active) return null;
 
-  const prompt = promptLang === "zh" ? active.promptZh : active.promptEn;
-  const recipe = locale === "zh" ? active.recipeZh : active.recipe;
-  const css = paletteToCss(active);
+  const activeIndex = PALETTES.findIndex((palette) => palette.slug === active.slug);
   const contrastResults = paletteContrastReport(active);
+  const activeContrast =
+    contrastResults.find((result) => result.id === selectedPair) ?? contrastResults[0];
 
   const selectPalette = (nextSlug: string) => {
     setSlug(nextSlug);
+    setIsCycling(false);
     window.history.replaceState(null, "", `?palette=${nextSlug}`);
   };
 
+  const stepPalette = (direction: -1 | 1) => {
+    const next = (activeIndex + direction + PALETTES.length) % PALETTES.length;
+    const nextPalette = PALETTES[next];
+    if (nextPalette) selectPalette(nextPalette.slug);
+  };
+
+  const selectMode = (nextMode: WorkspaceMode) => {
+    setMode(nextMode);
+    setMobileSurface(nextMode === "export" ? "details" : "preview");
+  };
+
   return (
-    <div>
-      <div className="flex flex-col gap-3">
-        {PALETTE_GROUPS.map((group) => {
-          const groupPalettes = PALETTES.filter((p) => p.group === group.key);
-          if (!groupPalettes.length) return null;
-          return (
-            <div key={group.key} className="flex flex-wrap items-center gap-2">
-              <span className="w-16 shrink-0 text-[0.65rem] font-medium uppercase tracking-[0.16em] text-muted-foreground/70">
-                {locale === "zh" ? group.labelZh : group.label}
-              </span>
-              {groupPalettes.map((palette) => {
-                const isActive = palette.slug === active.slug;
-                return (
-                  <button
-                    key={palette.slug}
-                    type="button"
-                    onClick={() => selectPalette(palette.slug)}
-                    aria-pressed={isActive}
-                    className={cn(
-                      "flex items-center gap-2 rounded-2xl border px-3 py-1.5 text-sm transition-colors",
-                      isActive
-                        ? "border-(--color-border-strong) bg-card text-foreground"
-                        : "border-border bg-card/20 text-muted-foreground hover:text-foreground",
-                    )}
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="flex h-4.5 w-4.5 flex-col overflow-hidden rounded-md border border-border"
-                    >
-                      <span
-                        className="h-1/2"
-                        style={{ background: palette.colors.bg }}
-                      />
-                      <span className="flex h-1/2">
-                        <span
-                          className="w-1/2"
-                          style={{ background: palette.colors.primary }}
-                        />
-                        <span
-                          className="w-1/2"
-                          style={{ background: palette.colors.accent }}
-                        />
-                      </span>
-                    </span>
-                    {localizedName(palette, locale)}
-                  </button>
-                );
-              })}
-            </div>
-          );
-        })}
+    <div className={cn("relative overflow-clip bg-[#dbe6f2]", className)}>
+      <div className="pointer-events-none absolute inset-0">
+        <ShaderBackground
+          variant="mesh-gradient"
+          colors={[
+            active.colors.bg,
+            active.colors.surface,
+            active.colors.border,
+            active.colors.primary,
+            active.colors.accent,
+          ]}
+          distortion={0.38}
+          swirl={0.22}
+          grainMixer={0.12}
+          grainOverlay={0.08}
+          speed={staticBackground ? 0 : 0.12}
+        />
+        <div className="absolute inset-0 bg-white/55" />
       </div>
 
-      <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22.5rem] lg:items-start">
-        <div className="flex flex-col gap-4">
-          <StyleDemo skin={paletteToSkin(active)} className="min-h-105" />
-          <div>
-            <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              {t("swatches")}
-            </p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {ROLE_ORDER.map((role) => (
-                <ColorChip
-                  key={role}
-                  label={t(ROLE_LABEL_KEYS[role])}
-                  value={active.colors[role]}
-                />
-              ))}
-            </div>
-          </div>
-          <PaletteHealth results={contrastResults} />
-        </div>
-
-        <aside className="flex flex-col gap-6 rounded-3xl border border-border bg-card/20 p-6">
-          <div>
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h2 className="text-xl font-semibold text-foreground">
-                {localizedName(active, locale)}
-              </h2>
-              <span className="text-sm text-muted-foreground">
-                {locale === "zh" ? active.name : active.nameZh}
-              </span>
-            </div>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              {localizedDescription(active, locale)}
-            </p>
-          </div>
-
-          <div>
-            <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              {t("aliases")}
-            </p>
-            <div className="mt-2 flex flex-wrap gap-1.5">
-              {active.aliases.map((alias) => (
-                <span
-                  key={alias}
-                  className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground"
+      <div className="relative mx-auto min-h-screen max-w-[100rem] px-4 py-5 sm:px-6 sm:py-7 lg:px-8">
+        <header className="flex flex-col items-stretch gap-4 border-b border-slate-900/10 pb-4 sm:flex-row sm:items-center sm:justify-between">
+          <LayoutGroup id="palette-workspace-modes">
+            <nav aria-label={t("workspaceModes")} className="flex items-center gap-1">
+              {(["browse", "contrast", "export"] as const).map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  onClick={() => selectMode(item)}
+                  aria-pressed={mode === item}
+                  className={cn(
+                    "relative min-h-9 px-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900",
+                    mode === item
+                      ? "text-slate-950"
+                      : "text-slate-700/65 hover:text-slate-950",
+                  )}
                 >
-                  {alias}
-                </span>
+                  {t(`mode${item[0]?.toUpperCase()}${item.slice(1)}`)}
+                  {mode === item && (
+                    <motion.span
+                      layoutId="active-mode"
+                      data-active-mode-indicator={item}
+                      aria-hidden="true"
+                      className="absolute inset-x-2 -bottom-4 h-0.5 bg-blue-600"
+                      transition={shouldReduceMotion ? { duration: 0 } : SPRING_LAYOUT}
+                    />
+                  )}
+                </button>
               ))}
-            </div>
-          </div>
+            </nav>
+          </LayoutGroup>
 
-          <div>
-            <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              {t("bestFor")}
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-start gap-2 sm:justify-end">
+            <motion.button
+              type="button"
+              onClick={() => setIsCycling((value) => !value)}
+              aria-pressed={isCycling}
+              whileTap={{
+                transform: shouldReduceMotion ? "scale(1)" : "scale(0.97)",
+              }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.15, ease: EASE_OUT }}
+              className="inline-flex min-h-9 items-center gap-2 rounded-lg border border-slate-900/10 bg-white/45 px-3 text-xs font-medium text-slate-800 backdrop-blur hover:bg-white/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
+            >
+              {isCycling ? <Pause aria-hidden="true" className="size-3.5" /> : <Play aria-hidden="true" className="size-3.5" />}
+              {isCycling ? t("stopCycle") : t("cyclePalettes")}
+            </motion.button>
+            <span className="font-mono text-xs text-slate-700/55">
+              {String(activeIndex + 1).padStart(2, "0")} / {PALETTES.length}
+            </span>
+            <label className="inline-flex min-h-9 cursor-pointer items-center gap-2 rounded-lg border border-slate-900/10 bg-white/45 px-3 text-xs text-slate-700 backdrop-blur">
+              <span>{t("staticBackground")}</span>
+              <input
+                type="checkbox"
+                checked={staticBackground}
+                onChange={(event) => setStaticBackground(event.target.checked)}
+                className="size-4 accent-blue-600"
+              />
+            </label>
+          </div>
+        </header>
+
+        <div className="mt-6">
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <div className="flex w-full min-w-0 items-center gap-2 sm:w-auto sm:flex-initial">
+                <motion.button
+                  type="button"
+                  onClick={() => stepPalette(-1)}
+                  aria-label={t("previousPalette")}
+                  whileTap={{
+                    transform: shouldReduceMotion ? "scale(1)" : "scale(0.97)",
+                  }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.15, ease: EASE_OUT }}
+                  className="grid size-9 place-items-center rounded-lg border border-slate-900/10 bg-white/45 text-slate-800 backdrop-blur hover:bg-white/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
+                >
+                  <ChevronLeft aria-hidden="true" className="size-4" />
+                </motion.button>
+                <select
+                  value={active.slug}
+                  onChange={(event) => selectPalette(event.target.value)}
+                  aria-label={t("activePalette")}
+                  className="h-9 min-w-0 max-w-[18rem] flex-1 rounded-lg border border-slate-900/10 bg-white/45 px-3 text-sm font-medium text-slate-900 outline-none backdrop-blur focus-visible:ring-2 focus-visible:ring-slate-900"
+                >
+                  {PALETTES.map((palette, index) => (
+                    <option key={palette.slug} value={palette.slug}>
+                      {String(index + 1).padStart(2, "0")} {localizedName(palette, locale)} / {locale === "zh" ? palette.name : palette.nameZh}
+                    </option>
+                  ))}
+                </select>
+                <motion.button
+                  type="button"
+                  onClick={() => stepPalette(1)}
+                  aria-label={t("nextPalette")}
+                  whileTap={{
+                    transform: shouldReduceMotion ? "scale(1)" : "scale(0.97)",
+                  }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.15, ease: EASE_OUT }}
+                  className="grid size-9 place-items-center rounded-lg border border-slate-900/10 bg-white/45 text-slate-800 backdrop-blur hover:bg-white/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
+                >
+                  <ChevronRight aria-hidden="true" className="size-4" />
+                </motion.button>
+            </div>
+            <p className="w-full max-w-md text-left text-xs leading-relaxed text-slate-700/60 sm:w-auto sm:text-right">
               {locale === "zh" ? active.bestForZh : active.bestFor}
             </p>
           </div>
 
-          <div>
-            <div className="flex items-center justify-between gap-2">
-              <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                {t("promptTitle")}
-              </p>
-              <div className="flex gap-1">
-                {(["zh", "en"] as const).map((lang) => (
+          <LayoutGroup id="palette-mobile-surface">
+            <fieldset
+              className="sticky top-3 z-20 mb-4 grid grid-cols-2 rounded-xl border border-slate-900/10 bg-white/72 p-1 shadow-[0_10px_30px_rgb(30_60_95/0.14)] backdrop-blur-xl lg:hidden"
+            >
+              <legend className="sr-only">{t("mobileViewSwitcher")}</legend>
+              {(["preview", "details"] as const).map((surface) => {
+                const Icon = surface === "preview" ? Eye : SlidersHorizontal;
+                const selected = mobileSurface === surface;
+                return (
                   <button
-                    key={lang}
+                    key={surface}
                     type="button"
-                    onClick={() => setPromptLang(lang)}
-                    aria-pressed={promptLang === lang}
+                    onClick={() => setMobileSurface(surface)}
+                    aria-pressed={selected}
                     className={cn(
-                      "rounded-md px-2 py-0.5 text-xs transition-colors",
-                      promptLang === lang
-                        ? "bg-card text-foreground"
-                        : "text-muted-foreground hover:text-foreground",
+                      "relative isolate inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900",
+                      selected ? "text-slate-950" : "text-slate-600",
                     )}
                   >
-                    {lang === "zh" ? t("langZh") : t("langEn")}
+                    {selected && (
+                      <motion.span
+                        layoutId="active-mobile-surface"
+                        aria-hidden="true"
+                        className="absolute inset-0 -z-10 rounded-lg bg-white shadow-sm"
+                        transition={shouldReduceMotion ? { duration: 0 } : SPRING_LAYOUT}
+                      />
+                    )}
+                    <Icon aria-hidden="true" className="size-4" />
+                    {surface === "preview" ? t("mobilePreview") : t("mobileDetails")}
                   </button>
-                ))}
-              </div>
-            </div>
-            <div className="relative mt-2 rounded-2xl border border-border bg-background/60 p-4 pr-12">
-              <CopyButton
-                text={prompt}
-                className="absolute right-2 top-2"
-                eventName="copy_palette_prompt"
-                eventLabel={`${active.slug}-${promptLang}`}
-              />
-              <p className="whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground">
-                {prompt}
-              </p>
-            </div>
-            <p className="mt-2 text-xs text-muted-foreground/80">{t("promptHint")}</p>
-          </div>
+                );
+              })}
+            </fieldset>
+          </LayoutGroup>
 
-          <div>
-            <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              {t("cssTitle")}
-            </p>
-            <div className="relative mt-2 rounded-2xl border border-border bg-background/60 p-4 pr-12">
-              <CopyButton
-                text={css}
-                className="absolute right-2 top-2"
-                eventName="copy_palette_css"
-                eventLabel={active.slug}
-              />
-              <pre className="overflow-x-auto whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground">
-                {css}
-              </pre>
-            </div>
-            <p className="mt-2 text-xs text-muted-foreground/80">{t("cssHint")}</p>
-          </div>
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_26rem] xl:grid-cols-[minmax(0,1fr)_29rem]">
+            <section
+              aria-label={t("mobilePreview")}
+              className={cn("min-w-0", mobileSurface === "details" && "max-lg:hidden")}
+            >
 
-          <details>
-            <summary className="cursor-pointer text-sm font-medium text-foreground">
-              {t("recipeTitle")}
-            </summary>
-            <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm text-muted-foreground">
-              {recipe.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </details>
-        </aside>
+            <AnimatePresence initial={false} mode="wait">
+              <motion.div
+                key={mode === "contrast" ? "contrast" : "preview"}
+                data-workspace-view={mode === "contrast" ? "contrast" : "preview"}
+                {...presenceMotion(shouldReduceMotion)}
+              >
+                <PaletteSettle slug={active.slug}>
+                  {mode === "contrast" && activeContrast ? (
+                    <ContrastCanvas result={activeContrast} />
+                  ) : (
+                    <StyleDemo
+                      skin={paletteToSkin(active)}
+                      heroVisual={
+                        <Image
+                          src="/palettes/interface-layers.png"
+                          alt=""
+                          width={724}
+                          height={543}
+                          className="relative w-full max-w-md object-contain opacity-80 mix-blend-multiply"
+                          style={{
+                            filter:
+                              "drop-shadow(0 20px 32px color-mix(in srgb, var(--st-accent) 22%, transparent))",
+                          }}
+                        />
+                      }
+                      className="min-h-[30rem] border-white/55 shadow-[0_28px_80px_rgb(20_35_55/0.2)] sm:min-h-[42rem] max-sm:[&>div:last-child]:gap-5 max-sm:[&>div:last-child]:p-5"
+                    />
+                  )}
+                </PaletteSettle>
+              </motion.div>
+            </AnimatePresence>
+          </section>
+
+          <PaletteInspector
+            active={active}
+            mode={mode}
+            results={contrastResults}
+            selectedPair={selectedPair}
+            onPairChange={setSelectedPair}
+            promptLang={promptLang}
+            onPromptLangChange={setPromptLang}
+            className={cn(
+              "lg:min-h-[42rem]",
+              mobileSurface === "preview" && "max-lg:hidden",
+            )}
+          />
+          </div>
+        </div>
       </div>
     </div>
   );
