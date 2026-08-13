@@ -8,7 +8,7 @@
 
 ### Added
 
-- Add an OKLCH palette generator with brand seed, basic/full scope, five harmony models, enforced WCAG AA/AAA semantic pairs, Hex/RGB/HSL/OKLCH output, shareable URL state, and live preview/contrast/export integration.
+- Add an OKLCH palette generator with brand seed, basic/full scope, five harmony models, enforced WCAG AA/AAA semantic pairs, Hex/RGB/HSL/OKLCH output, shareable URL state, and live preview/contrast/export integration. Full output now forms a production-oriented dual-mode color contract with eight 11-step ramps, layered surfaces, interaction states, semantic alpha overlays, success/warning/danger/info roles, and six chart colors.
 - Add bilingual WCAG contrast health reports and a regression baseline for Catalog palettes.
 
 ### 移除

@@ -29,6 +29,7 @@ import {
   formatColor,
   formatGeneratedPaletteCss,
   type GeneratedPalette,
+  GENERATED_RAMP_NAMES,
   type GeneratorParams,
   generatePalette,
   generatorParamsToSearch,
@@ -242,7 +243,7 @@ function GeneratorInspector({
         </p>
         {generated.params.scope === "full" ? (
         <div className="mt-3 space-y-3">
-          {(["primary", "accent", "accent2", "neutral"] as const).map((name) => (
+          {GENERATED_RAMP_NAMES.map((name) => (
             <div key={name}>
               <div className="mb-1 flex justify-between text-[0.6rem] text-white/38">
                 <span>{t(`ramp${name[0]?.toUpperCase()}${name.slice(1)}`)}</span>
@@ -277,6 +278,87 @@ function GeneratorInspector({
           </div>
         )}
       </div>
+
+      {generated.params.scope === "full" && (
+        <div className="border-t border-white/10 p-5 sm:p-6">
+          <div className="flex items-end justify-between gap-3">
+            <div>
+              <p className="text-[0.65rem] font-medium uppercase tracking-[0.18em] text-white/42">
+                {t("generatorSemanticSystem")}
+              </p>
+              <p className="mt-1 text-[0.68rem] text-white/38">
+                {t("generatorSemanticHint")}
+              </p>
+            </div>
+            <span className="font-mono text-[0.62rem] text-white/35">
+              {t("generatorModes")}
+            </span>
+          </div>
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            {(["light", "dark"] as const).map((mode) => {
+              const tokens = generated.modes[mode];
+              return (
+                <div
+                  key={mode}
+                  className="overflow-hidden rounded-xl border border-white/10 p-2.5"
+                  style={{ background: tokens.canvas, color: tokens.text }}
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[0.62rem] font-medium">
+                      {t(mode === "light" ? "generatorModeLight" : "generatorModeDark")}
+                    </span>
+                    <div className="flex -space-x-1">
+                      {Object.values(tokens.statuses).map(
+                        (color) => (
+                          <span
+                            key={color.fill}
+                            className="size-3 rounded-full border"
+                            style={{ background: color.fill, borderColor: tokens.canvas }}
+                          />
+                        ),
+                      )}
+                    </div>
+                  </div>
+                  <div
+                    className="mt-2 rounded-lg border p-2"
+                    style={{ background: tokens.surface, borderColor: tokens.border }}
+                  >
+                    <span className="block h-1.5 w-12 rounded-full" style={{ background: tokens.text }} />
+                    <span
+                      className="mt-1.5 block h-1 w-16 rounded-full"
+                      style={{ background: tokens.textSecondary }}
+                    />
+                    <div className="mt-2 flex items-center gap-1">
+                      <span
+                        className="h-4 w-9 rounded"
+                        style={{ background: tokens.primary }}
+                      />
+                      <span
+                        className="h-4 flex-1 rounded border"
+                        style={{
+                          background: tokens.alpha.overlaySelected.color,
+                          borderColor: tokens.border,
+                          opacity: Math.max(tokens.alpha.overlaySelected.alpha, 0.35),
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="mt-3 flex overflow-hidden rounded-md border border-white/10">
+            {generated.modes.light.charts.map((color, index) => (
+              <span
+                key={color}
+                title={`${t("generatorChart", { number: index + 1 })}: ${formatColor(color, generated.params.format)}`}
+                className="h-5 flex-1"
+                style={{ background: color }}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="mt-auto grid grid-cols-2 gap-2 p-5 pt-0 sm:p-6 sm:pt-0">
         <CopyAction
@@ -1097,7 +1179,7 @@ export function PalettesExplorer({ className }: { className?: string }) {
               generated={generated}
               onChange={updateGenerator}
               className={cn(
-                "lg:min-h-[42rem]",
+                "lg:h-[42rem] lg:min-h-0 lg:overflow-y-auto",
                 mobileSurface === "preview" && "max-lg:hidden",
               )}
             />

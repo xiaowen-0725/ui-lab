@@ -516,6 +516,12 @@
     "generatorContrast": "对比目标",
     "generatorFormat": "输出格式",
     "generatorRamps": "生成色阶",
+    "generatorSemanticSystem": "成品主题语义",
+    "generatorSemanticHint": "双模式 · 状态 · 透明层 · 图表",
+    "generatorModes": "浅色 / 深色",
+    "generatorModeLight": "浅色",
+    "generatorModeDark": "深色",
+    "generatorChart": "图表色 {number}",
     "generatedPalette": "生成配色",
     "scopeBasic": "基础语义色",
     "scopeFull": "完整色阶",
@@ -527,7 +533,11 @@
     "rampPrimary": "品牌色",
     "rampAccent": "强调色",
     "rampAccent2": "第三强调色",
-    "rampNeutral": "匹配中性色"
+    "rampNeutral": "匹配中性色",
+    "rampSuccess": "成功",
+    "rampWarning": "警告",
+    "rampDanger": "危险",
+    "rampInfo": "信息"
   },
   "styles": {
     "eyebrow": "风格",

@@ -516,6 +516,12 @@
     "generatorContrast": "Contrast target",
     "generatorFormat": "Output format",
     "generatorRamps": "Generated ramps",
+    "generatorSemanticSystem": "Production semantics",
+    "generatorSemanticHint": "Dual mode · status · alpha · charts",
+    "generatorModes": "Light / dark",
+    "generatorModeLight": "Light",
+    "generatorModeDark": "Dark",
+    "generatorChart": "Chart {number}",
     "generatedPalette": "Generated palette",
     "scopeBasic": "Basic semantics",
     "scopeFull": "Full ramps",
@@ -527,7 +533,11 @@
     "rampPrimary": "Brand",
     "rampAccent": "Accent",
     "rampAccent2": "Third accent",
-    "rampNeutral": "Matched neutral"
+    "rampNeutral": "Matched neutral",
+    "rampSuccess": "Success",
+    "rampWarning": "Warning",
+    "rampDanger": "Danger",
+    "rampInfo": "Info"
   },
   "styles": {
     "eyebrow": "Styles",

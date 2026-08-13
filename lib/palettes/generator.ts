@@ -25,15 +25,71 @@ export type GeneratorParams = {
 
 export type ColorRamp = Record<RampStep, string>;
 
+export const GENERATED_RAMP_NAMES = [
+  "primary",
+  "accent",
+  "accent2",
+  "neutral",
+  "success",
+  "warning",
+  "danger",
+  "info",
+] as const;
+
+export type GeneratedRampName = (typeof GENERATED_RAMP_NAMES)[number];
+export type GeneratedStatusName = "success" | "warning" | "danger" | "info";
+
+export type AlphaColor = {
+  color: string;
+  alpha: number;
+};
+
+export type GeneratedStatus = {
+  fill: string;
+  foreground: string;
+  subtle: string;
+  text: string;
+  border: string;
+};
+
+export type GeneratedMode = {
+  canvas: string;
+  surface: string;
+  surfaceRaised: string;
+  surfaceSunken: string;
+  text: string;
+  textSecondary: string;
+  textTertiary: string;
+  border: string;
+  borderStrong: string;
+  primary: string;
+  primaryHover: string;
+  primaryActive: string;
+  primaryForeground: string;
+  accent: string;
+  accentForeground: string;
+  statuses: Record<GeneratedStatusName, GeneratedStatus>;
+  ring: string;
+  selection: string;
+  charts: string[];
+  alpha: {
+    surfaceTranslucent: AlphaColor;
+    surfaceRaisedTranslucent: AlphaColor;
+    overlayHover: AlphaColor;
+    overlayActive: AlphaColor;
+    overlaySelected: AlphaColor;
+    overlayScrim: AlphaColor;
+    glassBackground: AlphaColor;
+    glassBorder: AlphaColor;
+    shadowColor: AlphaColor;
+  };
+};
+
 export type GeneratedPalette = {
   params: GeneratorParams;
   entry: PaletteEntry;
-  ramps: {
-    primary: ColorRamp;
-    accent: ColorRamp;
-    accent2: ColorRamp;
-    neutral: ColorRamp;
-  };
+  ramps: Record<GeneratedRampName, ColorRamp>;
+  modes: { light: GeneratedMode; dark: GeneratedMode };
   semanticSteps: Record<keyof PaletteColors, `${"primary" | "accent" | "neutral"}-${RampStep}`>;
 };
 
@@ -150,6 +206,15 @@ function closestStep(
   return order.find((step) => predicate(ramp[step])) ?? order[order.length - 1] ?? 950;
 }
 
+function rampReference(
+  name: "primary" | "accent" | "neutral",
+  ramp: ColorRamp,
+  value: string,
+  fallback: RampStep,
+): `${"primary" | "accent" | "neutral"}-${RampStep}` {
+  return `${name}-${RAMP_STEPS.find((step) => ramp[step] === value) ?? fallback}`;
+}
+
 function semanticPair(
   ramp: ColorRamp,
   background: string,
@@ -162,6 +227,145 @@ function semanticPair(
       : ([500, 400, 300, 200, 100, 50] as const);
   const step = closestStep(ramp, (value) => contrastRatio(value, background) >= minimum, order);
   return { value: ramp[step], step };
+}
+
+function nextRampStep(step: RampStep, direction: "lighter" | "darker"): RampStep {
+  const index = RAMP_STEPS.indexOf(step);
+  const offset = direction === "lighter" ? -1 : 1;
+  return RAMP_STEPS[clamp(index + offset, 0, RAMP_STEPS.length - 1)] ?? step;
+}
+
+function buildSolidPair(
+  ramp: ColorRamp,
+  neutral: ColorRamp,
+  minimum: number,
+  mode: "light" | "dark",
+) {
+  if (mode === "light") {
+    const foreground = neutral[50];
+    const fill = semanticPair(ramp, foreground, minimum, "dark");
+    return {
+      fill: fill.value,
+      foreground,
+      step: fill.step,
+    };
+  }
+
+  const foreground = neutral[950];
+  const fill = semanticPair(ramp, foreground, minimum, "light");
+  return {
+    fill: fill.value,
+    foreground,
+    step: fill.step,
+  };
+}
+
+function buildPrimaryAction(
+  ramp: ColorRamp,
+  neutral: ColorRamp,
+  minimum: number,
+  mode: "light" | "dark",
+) {
+  const pair = buildSolidPair(ramp, neutral, minimum, mode);
+  if (mode === "light") {
+    return {
+      fill: pair.fill,
+      foreground: pair.foreground,
+      hover: ramp[nextRampStep(pair.step, "darker")],
+      active: ramp[nextRampStep(nextRampStep(pair.step, "darker"), "darker")],
+    };
+  }
+  const defaultStep = nextRampStep(pair.step, "lighter");
+  return {
+    fill: ramp[defaultStep],
+    foreground: pair.foreground,
+    hover: ramp[nextRampStep(defaultStep, "lighter")],
+    active: pair.fill,
+  };
+}
+
+function buildMode(
+  ramps: Record<GeneratedRampName, ColorRamp>,
+  minimum: number,
+  mode: "light" | "dark",
+): GeneratedMode {
+  const { primary, accent, accent2, neutral, success, warning, danger, info } = ramps;
+  const isLight = mode === "light";
+  const canvas = isLight ? neutral[100] : neutral[950];
+  const surface = isLight ? neutral[50] : neutral[900];
+  const surfaceRaised = isLight ? "#FFFFFF" : neutral[800];
+  const surfaceSunken = isLight ? neutral[200] : "#000000";
+  const text = isLight ? neutral[950] : neutral[50];
+  const textSecondary = semanticPair(neutral, canvas, minimum, isLight ? "dark" : "light").value;
+  const tertiaryMinimum = Math.min(minimum, 4.65);
+  const textTertiary = semanticPair(
+    neutral,
+    canvas,
+    tertiaryMinimum,
+    isLight ? "dark" : "light",
+  ).value;
+  const brand = buildPrimaryAction(primary, neutral, minimum, mode);
+  const accentSolid = buildSolidPair(accent, neutral, minimum, mode);
+  const status = Object.fromEntries(
+    (["success", "warning", "danger", "info"] as const).map((name) => {
+      const ramp = ramps[name];
+      const solid = buildSolidPair(ramp, neutral, minimum, mode);
+      const subtle = isLight ? ramp[100] : ramp[900];
+      return [
+        name,
+        {
+          fill: solid.fill,
+          foreground: solid.foreground,
+          subtle,
+          text: semanticPair(ramp, subtle, minimum, isLight ? "dark" : "light").value,
+          border: isLight ? ramp[300] : ramp[700],
+        },
+      ];
+    }),
+  ) as Record<GeneratedStatusName, GeneratedStatus>;
+  const primaryMiddle = hexToOklch(primary[500]);
+  const chartRamps =
+    (primaryMiddle?.c ?? 0) < 0.02
+      ? [info, success, warning, danger, createRamp(295, 0.72), createRamp(190, 0.72)]
+      : [primary, accent, accent2, success, warning, danger];
+  const charts = chartRamps.map(
+    (ramp) => semanticPair(ramp, canvas, 3, isLight ? "dark" : "light").value,
+  );
+  const alphaBase = isLight ? neutral[950] : neutral[50];
+  const scrim = neutral[950];
+
+  return {
+    canvas,
+    surface,
+    surfaceRaised,
+    surfaceSunken,
+    text,
+    textSecondary,
+    textTertiary,
+    border: isLight ? neutral[200] : neutral[800],
+    borderStrong: isLight ? neutral[300] : neutral[700],
+    primary: brand.fill,
+    primaryHover: brand.hover,
+    primaryActive: brand.active,
+    primaryForeground: brand.foreground,
+    accent: accentSolid.fill,
+    accentForeground: accentSolid.foreground,
+    statuses: status,
+    ring: isLight ? primary[600] : primary[300],
+    selection: isLight ? primary[200] : primary[800],
+    charts,
+    alpha: {
+      surfaceTranslucent: { color: surface, alpha: isLight ? 0.82 : 0.72 },
+      surfaceRaisedTranslucent: { color: surfaceRaised, alpha: isLight ? 0.92 : 0.88 },
+      overlayHover: { color: alphaBase, alpha: isLight ? 0.04 : 0.06 },
+      overlayActive: { color: alphaBase, alpha: isLight ? 0.08 : 0.1 },
+      overlaySelected: { color: brand.fill, alpha: isLight ? 0.12 : 0.2 },
+      overlayScrim: { color: scrim, alpha: isLight ? 0.48 : 0.72 },
+      glassBackground: { color: surfaceRaised, alpha: isLight ? 0.78 : 0.7 },
+      glassBorder: { color: alphaBase, alpha: isLight ? 0.08 : 0.12 },
+      shadowColor: { color: scrim, alpha: isLight ? 0.14 : 0.48 },
+    },
+  };
 }
 
 function formatName(scheme: GeneratorScheme) {
@@ -202,24 +406,32 @@ export function generatePalette(
     params.scheme === "monochromatic" ? 0.38 : 0.72,
   );
   const neutral = createRamp(hue, Math.min(0.12, chromaPercentage * 0.12), 1);
+  const success = createRamp(150, 0.72);
+  const warning = createRamp(75, 0.82);
+  const danger = createRamp(25, 0.86);
+  const info = createRamp(235, 0.72);
+  const ramps = { primary, accent, accent2, neutral, success, warning, danger, info };
   // Preserve a small safety margin through notation rounding and browser parsing.
   const minimum = (params.contrast === "AAA" ? 7 : 4.5) + 0.15;
-  const bg = neutral[50];
-  const surface = neutral[50];
-  const border = neutral[200];
-  const text = { value: neutral[950], step: 950 as const };
+  const modes = {
+    light: buildMode(ramps, minimum, "light"),
+    dark: buildMode(ramps, minimum, "dark"),
+  };
+  const bg = modes.light.canvas;
+  const surface = modes.light.surface;
+  const border = modes.light.border;
+  const text = { value: modes.light.text, step: 950 as const };
   const muted = semanticPair(neutral, bg, minimum, "dark");
   const primaryFill = semanticPair(primary, primary[50], minimum, "dark");
-  const primaryFg = semanticPair(primary, primaryFill.value, minimum, "light");
   const colors: PaletteColors = {
     bg,
     surface,
     border,
     text: text.value,
     muted: muted.value,
-    primary: primaryFill.value,
-    primaryFg: primaryFg.value,
-    accent: accent[500],
+    primary: modes.light.primary,
+    primaryFg: modes.light.primaryForeground,
+    accent: modes.light.accent,
   };
   const schemeName = formatName(params.scheme);
   const schemeNameZh: Record<GeneratorScheme, string> = {
@@ -261,16 +473,17 @@ export function generatePalette(
   return {
     params,
     entry,
-    ramps: { primary, accent, accent2, neutral },
+    ramps,
+    modes,
     semanticSteps: {
-      bg: "neutral-50",
+      bg: "neutral-100",
       surface: "neutral-50",
       border: "neutral-200",
       text: `neutral-${text.step}`,
       muted: `neutral-${muted.step}`,
-      primary: `primary-${primaryFill.step}`,
-      primaryFg: `primary-${primaryFg.step}`,
-      accent: "accent-500",
+      primary: rampReference("primary", primary, modes.light.primary, primaryFill.step),
+      primaryFg: rampReference("neutral", neutral, modes.light.primaryForeground, 50),
+      accent: rampReference("accent", accent, modes.light.accent, 700),
     },
   };
 }
@@ -310,30 +523,113 @@ export function formatColor(hex: string, format: GeneratorFormat) {
     : hex;
 }
 
+function formatAlphaColor(value: AlphaColor, format: GeneratorFormat) {
+  const alpha = Number(value.alpha.toFixed(2));
+  if (format === "hex") {
+    const channel = Math.round(alpha * 255)
+      .toString(16)
+      .padStart(2, "0")
+      .toUpperCase();
+    return `${value.color.toUpperCase()}${channel}`;
+  }
+  if (format === "rgb") {
+    const rgb = parseHexColor(value.color);
+    return rgb ? `rgb(${rgb.r} ${rgb.g} ${rgb.b} / ${alpha})` : value.color;
+  }
+  if (format === "hsl") {
+    return hexToHslNotation(value.color).replace(/\)$/, ` / ${alpha})`);
+  }
+  const oklch = hexToOklch(value.color);
+  return oklch
+    ? `oklch(${oklch.l.toFixed(3)} ${oklch.c.toFixed(3)} ${(oklch.h ?? 0).toFixed(1)} / ${alpha})`
+    : value.color;
+}
+
+function modeSemanticLines(mode: GeneratedMode, format: GeneratorFormat, full: boolean) {
+  const core: [string, string][] = [
+    ["background", mode.canvas],
+    ["foreground", mode.text],
+    ["card", mode.surface],
+    ["card-foreground", mode.text],
+    ["popover", mode.surfaceRaised],
+    ["popover-foreground", mode.text],
+    ["secondary", mode.surface],
+    ["secondary-foreground", mode.text],
+    ["muted", mode.surfaceSunken],
+    ["muted-foreground", mode.textSecondary],
+    ["border", mode.border],
+    ["input", mode.border],
+    ["ring", mode.ring],
+    ["primary", mode.primary],
+    ["primary-foreground", mode.primaryForeground],
+    ["accent", mode.accent],
+    ["accent-foreground", mode.accentForeground],
+    ["destructive", mode.statuses.danger.fill],
+    ["destructive-foreground", mode.statuses.danger.foreground],
+  ];
+  if (!full) {
+    return core.map(([name, value]) => `  --${name}: ${formatColor(value, format)};`);
+  }
+  const opaque: [string, string][] = [
+    ...core,
+    ["surface", mode.surface],
+    ["surface-raised", mode.surfaceRaised],
+    ["surface-sunken", mode.surfaceSunken],
+    ["faint-foreground", mode.textTertiary],
+    ["border-strong", mode.borderStrong],
+    ["primary-hover", mode.primaryHover],
+    ["primary-active", mode.primaryActive],
+    ["selection", mode.selection],
+  ];
+  for (const name of ["success", "warning", "danger", "info"] as const) {
+    const status = mode.statuses[name];
+    opaque.push(
+      [name, status.fill],
+      [`${name}-foreground`, status.foreground],
+      [`${name}-subtle`, status.subtle],
+      [`${name}-text`, status.text],
+      [`${name}-border`, status.border],
+    );
+  }
+  const lines = opaque.map(([name, value]) => `  --${name}: ${formatColor(value, format)};`);
+  const alphaNames: [string, keyof GeneratedMode["alpha"]][] = [
+    ["surface-translucent", "surfaceTranslucent"],
+    ["surface-raised-translucent", "surfaceRaisedTranslucent"],
+    ["overlay-hover", "overlayHover"],
+    ["overlay-active", "overlayActive"],
+    ["overlay-selected", "overlaySelected"],
+    ["overlay-scrim", "overlayScrim"],
+    ["glass-background", "glassBackground"],
+    ["glass-border", "glassBorder"],
+    ["shadow-color", "shadowColor"],
+  ];
+  lines.push(
+    ...alphaNames.map(
+      ([name, key]) => `  --${name}: ${formatAlphaColor(mode.alpha[key], format)};`,
+    ),
+    ...mode.charts.map(
+      (value, index) => `  --chart-${index + 1}: ${formatColor(value, format)};`,
+    ),
+  );
+  return lines;
+}
+
 export function formatGeneratedPaletteCss(
   generated: GeneratedPalette,
   format: GeneratorFormat = generated.params.format,
 ) {
-  const rampNames = ["primary", "accent", "accent2", "neutral"] as const;
-  const rampLines = rampNames.flatMap((name) =>
+  const rampLines = GENERATED_RAMP_NAMES.flatMap((name) =>
     RAMP_STEPS.map(
       (step) =>
         `  --color-${name.replace("accent2", "accent-2")}-${step}: ${formatColor(generated.ramps[name][step], format)};`,
     ),
   );
-  const c = generated.entry.colors;
-  const semanticLines = [
-    ["background", c.bg],
-    ["foreground", c.text],
-    ["card", c.surface],
-    ["border", c.border],
-    ["muted-foreground", c.muted],
-    ["primary", c.primary],
-    ["primary-foreground", c.primaryFg],
-    ["accent", c.accent],
-  ].map(([name, value]) => `  --${name}: ${formatColor(value, format)};`);
-  const lines = generated.params.scope === "full" ? [...rampLines, "", ...semanticLines] : semanticLines;
-  return `:root {\n${lines.join("\n")}\n}\n`;
+  const full = generated.params.scope === "full";
+  const lightLines = modeSemanticLines(generated.modes.light, format, full);
+  const darkLines = modeSemanticLines(generated.modes.dark, format, full);
+  const rootLines =
+    full ? [...rampLines, "", ...lightLines] : lightLines;
+  return `:root {\n${rootLines.join("\n")}\n}\n\n.dark {\n${darkLines.join("\n")}\n}\n`;
 }
 
 export function generatorParamsToSearch(params: GeneratorParams) {

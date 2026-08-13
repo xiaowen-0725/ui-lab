@@ -66,6 +66,46 @@ describe("palette generator", () => {
     }
   });
 
+  test("builds distinct light and dark semantic surfaces with complete status roles", () => {
+    const result = generatePalette({ base: "#3d7dff", contrast: "AAA", scope: "full" });
+
+    expect(result.modes.light.canvas).not.toBe(result.modes.light.surface);
+    expect(result.modes.light.surface).not.toBe(result.modes.light.surfaceRaised);
+    expect(result.modes.dark.canvas).not.toBe(result.modes.dark.surface);
+    expect(result.modes.dark.surface).not.toBe(result.modes.dark.surfaceRaised);
+
+    for (const mode of [result.modes.light, result.modes.dark]) {
+      expect(contrastRatio(mode.text, mode.canvas)).toBeGreaterThanOrEqual(7);
+      expect(contrastRatio(mode.primaryForeground, mode.primary)).toBeGreaterThanOrEqual(7);
+      expect(contrastRatio(mode.primaryForeground, mode.primaryHover)).toBeGreaterThanOrEqual(7);
+      expect(contrastRatio(mode.primaryForeground, mode.primaryActive)).toBeGreaterThanOrEqual(7);
+      for (const status of Object.values(mode.statuses)) {
+        expect(contrastRatio(status.foreground, status.fill)).toBeGreaterThanOrEqual(7);
+      }
+      expect(mode.charts).toHaveLength(6);
+    }
+  });
+
+  test("models transparency by semantic purpose instead of loose alpha swatches", () => {
+    const result = generatePalette({ base: "#3d7dff", scope: "full" });
+
+    expect(result.modes.light.alpha.overlayHover.alpha).toBe(0.04);
+    expect(result.modes.dark.alpha.overlayHover.alpha).toBe(0.06);
+    expect(result.modes.light.alpha.overlayScrim.alpha).toBe(0.48);
+    expect(result.modes.dark.alpha.overlayScrim.alpha).toBe(0.72);
+    expect(Object.keys(result.modes.light.alpha)).toEqual([
+      "surfaceTranslucent",
+      "surfaceRaisedTranslucent",
+      "overlayHover",
+      "overlayActive",
+      "overlaySelected",
+      "overlayScrim",
+      "glassBackground",
+      "glassBorder",
+      "shadowColor",
+    ]);
+  });
+
   test("formats exports without changing the generated palette", () => {
     const result = generatePalette({ base: "#3d7dff", scope: "full" });
 
@@ -83,11 +123,30 @@ describe("palette generator", () => {
     expect(formatGeneratedPaletteCss(result, "hex")).not.toContain("undefined");
   });
 
-  test("basic scope omits raw ramp exports while full keeps all 44 steps", () => {
+  test("basic scope omits raw ramps while full exports all eight 11-step families", () => {
     const basic = generatePalette({ base: "#3d7dff", scope: "basic" });
     const full = generatePalette({ base: "#3d7dff", scope: "full" });
     expect(formatGeneratedPaletteCss(basic)).not.toContain("--color-primary-50");
-    expect(formatGeneratedPaletteCss(full).match(/--color-/g)).toHaveLength(44);
+    expect(formatGeneratedPaletteCss(basic)).not.toContain("--overlay-scrim:");
+    expect(formatGeneratedPaletteCss(basic)).not.toContain("--chart-1:");
+    expect(formatGeneratedPaletteCss(full).match(/--color-/g)).toHaveLength(88);
+  });
+
+  test("exports a dual-mode production token contract", () => {
+    const result = generatePalette({ base: "#3d7dff", scope: "full" });
+    const css = formatGeneratedPaletteCss(result, "oklch");
+
+    expect(css).toContain(":root {");
+    expect(css).toContain(".dark {");
+    expect(css).toContain("--surface-raised:");
+    expect(css).toContain("--primary-hover:");
+    expect(css).toContain("--success-subtle:");
+    expect(css).toContain("--warning-foreground:");
+    expect(css).toContain("--danger-border:");
+    expect(css).toContain("--info:");
+    expect(css).toContain("--overlay-hover:");
+    expect(css).toContain("--overlay-scrim:");
+    expect(css).toContain("--chart-6:");
   });
 
   test("round-trips the five generator controls through URLSearchParams", () => {

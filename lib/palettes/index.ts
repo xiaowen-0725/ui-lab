@@ -19,6 +19,7 @@ export { paletteContrastReport } from "./contrast";
 export { paletteToCss } from "./css";
 export type {
   GeneratedPalette,
+  GeneratedRampName,
   GeneratorContrast,
   GeneratorFormat,
   GeneratorParams,
@@ -28,6 +29,7 @@ export type {
 export {
   formatColor,
   formatGeneratedPaletteCss,
+  GENERATED_RAMP_NAMES,
   generatePalette,
   generatorParamsToSearch,
   parseGeneratorParams,
