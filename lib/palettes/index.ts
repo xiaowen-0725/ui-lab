@@ -18,6 +18,22 @@ export type {
 export { paletteContrastReport } from "./contrast";
 export { paletteToCss } from "./css";
 export type {
+  GeneratedPalette,
+  GeneratorContrast,
+  GeneratorFormat,
+  GeneratorParams,
+  GeneratorScheme,
+  GeneratorScope,
+} from "./generator";
+export {
+  formatColor,
+  formatGeneratedPaletteCss,
+  generatePalette,
+  generatorParamsToSearch,
+  parseGeneratorParams,
+  RAMP_STEPS,
+} from "./generator";
+export type {
   PaletteColors,
   PaletteEntry,
   PaletteGroup,

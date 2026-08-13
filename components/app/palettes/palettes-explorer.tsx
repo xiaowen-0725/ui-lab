@@ -10,6 +10,7 @@ import {
   Pause,
   Play,
   SlidersHorizontal,
+  WandSparkles,
   XCircle,
 } from "lucide-react";
 import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from "motion/react";
@@ -23,7 +24,14 @@ import type { Locale } from "@/i18n/routing";
 import { EASE_OUT, SPRING_LAYOUT, SPRING_PRESS, SPRING_SWAP } from "@/lib/ease";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { localizedDescription, localizedName } from "@/lib/i18n-content";
+import type { PaletteEntry } from "@/lib/palettes";
 import {
+  formatColor,
+  formatGeneratedPaletteCss,
+  type GeneratedPalette,
+  type GeneratorParams,
+  generatePalette,
+  generatorParamsToSearch,
   PALETTES,
   type PaletteColors,
   type PaletteContrastPairId,
@@ -31,11 +39,14 @@ import {
   paletteContrastReport,
   paletteToCss,
   paletteToSkin,
+  parseGeneratorParams,
+  RAMP_STEPS,
 } from "@/lib/palettes";
 import { cn } from "@/lib/utils";
 
-type WorkspaceMode = "browse" | "contrast" | "export";
+type WorkspaceMode = "browse" | "contrast" | "export" | "generate";
 type MobileSurface = "preview" | "details";
+type PaletteSource = "preset" | "generated";
 
 const ROLE_LABEL_KEYS: Record<keyof PaletteColors, string> = {
   bg: "roleBg",
@@ -56,6 +67,227 @@ const CONTRAST_PAIR_LABEL_KEYS: Record<PaletteContrastPairId, string> = {
   "text-on-surface": "contrastTextOnSurface",
   "primary-foreground-on-primary": "contrastTextOnPrimary",
 };
+
+const GENERATOR_SCHEMES = [
+  "complementary",
+  "analogous",
+  "triadic",
+  "split",
+  "monochromatic",
+] as const;
+
+function GeneratorInspector({
+  generated,
+  onChange,
+  className,
+}: {
+  generated: GeneratedPalette;
+  onChange: (params: GeneratorParams) => void;
+  className?: string;
+}) {
+  const t = useTranslations("palettes");
+  const locale = useLocale() as Locale;
+  const [baseDraft, setBaseDraft] = useState(generated.params.base);
+  const css = formatGeneratedPaletteCss(generated);
+
+  useEffect(() => setBaseDraft(generated.params.base), [generated.params.base]);
+
+  const update = <Key extends keyof GeneratorParams>(
+    key: Key,
+    value: GeneratorParams[Key],
+  ) => onChange({ ...generated.params, [key]: value });
+
+  const commitBase = () => {
+    const normalized = /^#?[0-9a-fA-F]{6}$/.test(baseDraft)
+      ? `#${baseDraft.replace(/^#/, "").toUpperCase()}`
+      : generated.params.base;
+    setBaseDraft(normalized);
+    update("base", normalized);
+  };
+
+  return (
+    <aside
+      className={cn(
+        "flex flex-col overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#172235]/[0.94] text-white shadow-[0_32px_90px_rgb(12_22_38/0.38)] backdrop-blur-xl",
+        className,
+      )}
+    >
+      <div className="border-b border-white/10 p-5 sm:p-6">
+        <p className="text-[0.65rem] font-medium uppercase tracking-[0.18em] text-white/42">
+          {t("generatorEyebrow")}
+        </p>
+        <div className="mt-2 flex items-center gap-2">
+          <WandSparkles aria-hidden="true" className="size-5 text-blue-300" />
+          <h2 className="text-lg font-semibold">{t("generatorTitle")}</h2>
+        </div>
+        <p className="mt-2 text-xs leading-relaxed text-white/50">
+          {t("generatorDescription")}
+        </p>
+      </div>
+
+      <div className="grid gap-5 p-5 sm:p-6">
+        <label className="block">
+          <span className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-white/45">
+            {t("generatorBase")}
+          </span>
+          <div className="mt-2 flex gap-2">
+            <input
+              type="color"
+              value={generated.params.base}
+              onChange={(event) => update("base", event.target.value.toUpperCase())}
+              aria-label={t("generatorBasePicker")}
+              className="size-10 shrink-0 cursor-pointer rounded-lg border border-white/12 bg-white/[0.055] p-1"
+            />
+            <input
+              value={baseDraft}
+              onChange={(event) => setBaseDraft(event.target.value)}
+              onBlur={commitBase}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") event.currentTarget.blur();
+              }}
+              aria-label={t("generatorBaseHex")}
+              className="h-10 min-w-0 flex-1 rounded-lg border border-white/12 bg-white/[0.055] px-3 font-mono text-sm uppercase text-white outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            />
+          </div>
+        </label>
+
+        <label className="block">
+          <span className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-white/45">
+            {t("generatorScheme")}
+          </span>
+          <select
+            value={generated.params.scheme}
+            onChange={(event) =>
+              update("scheme", event.target.value as GeneratorParams["scheme"])
+            }
+            className="mt-2 h-10 w-full rounded-lg border border-white/12 bg-white/[0.055] px-3 text-sm text-white outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+          >
+            {GENERATOR_SCHEMES.map((scheme) => (
+              <option key={scheme} value={scheme} className="bg-slate-900">
+                {t(`scheme${scheme[0]?.toUpperCase()}${scheme.slice(1)}`)}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <div className="grid grid-cols-2 gap-3">
+          <label>
+            <span className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-white/45">
+              {t("generatorScope")}
+            </span>
+            <select
+              value={generated.params.scope}
+              onChange={(event) =>
+                update("scope", event.target.value as GeneratorParams["scope"])
+              }
+              className="mt-2 h-10 w-full rounded-lg border border-white/12 bg-white/[0.055] px-3 text-sm text-white outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            >
+              <option value="basic" className="bg-slate-900">
+                {t("scopeBasic")}
+              </option>
+              <option value="full" className="bg-slate-900">
+                {t("scopeFull")}
+              </option>
+            </select>
+          </label>
+          <label>
+            <span className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-white/45">
+              {t("generatorContrast")}
+            </span>
+            <select
+              value={generated.params.contrast}
+              onChange={(event) =>
+                update("contrast", event.target.value as GeneratorParams["contrast"])
+              }
+              className="mt-2 h-10 w-full rounded-lg border border-white/12 bg-white/[0.055] px-3 text-sm text-white outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            >
+              <option value="AA" className="bg-slate-900">
+                AA · 4.5:1
+              </option>
+              <option value="AAA" className="bg-slate-900">
+                AAA · 7:1
+              </option>
+            </select>
+          </label>
+        </div>
+
+        <fieldset>
+          <legend className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-white/45">
+            {t("generatorFormat")}
+          </legend>
+          <div className="mt-2 grid grid-cols-4 rounded-lg border border-white/10 bg-white/[0.04] p-0.5">
+            {(["hex", "rgb", "hsl", "oklch"] as const).map((format) => (
+              <button
+                key={format}
+                type="button"
+                onClick={() => update("format", format)}
+                aria-pressed={generated.params.format === format}
+                className={cn(
+                  "rounded-md px-2 py-2 text-[0.65rem] uppercase transition-colors",
+                  generated.params.format === format
+                    ? "bg-white/12 text-white"
+                    : "text-white/45 hover:text-white/75",
+                )}
+              >
+                {format}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+      </div>
+
+      <div className="border-t border-white/10 p-5 sm:p-6">
+        <p className="text-[0.65rem] font-medium uppercase tracking-[0.18em] text-white/42">
+          {t("generatorRamps")}
+        </p>
+        {generated.params.scope === "full" ? (
+        <div className="mt-3 space-y-3">
+          {(["primary", "accent", "accent2", "neutral"] as const).map((name) => (
+            <div key={name}>
+              <div className="mb-1 flex justify-between text-[0.6rem] text-white/38">
+                <span>{t(`ramp${name[0]?.toUpperCase()}${name.slice(1)}`)}</span>
+                <span>{RAMP_STEPS.length}</span>
+              </div>
+              <div className="flex overflow-hidden rounded-md border border-white/10">
+                {RAMP_STEPS.map((step) => (
+                  <span
+                    key={step}
+                    title={`${name}-${step}: ${formatColor(generated.ramps[name][step], generated.params.format)}`}
+                    className="h-6 flex-1"
+                    style={{ background: generated.ramps[name][step] }}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        ) : (
+          <div className="mt-3 grid grid-cols-4 gap-2">
+            {ROLE_ORDER.map((role) => (
+              <div key={role} className="min-w-0">
+                <span
+                  className="block aspect-square rounded-lg border border-white/10"
+                  style={{ background: generated.entry.colors[role] }}
+                />
+                <span className="mt-1 block truncate text-[0.58rem] text-white/42">
+                  {t(ROLE_LABEL_KEYS[role])}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="mt-auto grid grid-cols-2 gap-2 p-5 pt-0 sm:p-6 sm:pt-0">
+        <CopyAction
+          value={locale === "zh" ? generated.entry.promptZh : generated.entry.promptEn}
+          label={t("copyPrompt")}
+        />
+        <CopyAction value={css} label={t("copyCss")} />
+      </div>
+    </aside>
+  );
+}
 
 function presenceMotion(shouldReduceMotion: boolean | null) {
   return {
@@ -299,15 +531,17 @@ function PaletteInspector({
   onPairChange,
   promptLang,
   onPromptLangChange,
+  cssOverride,
   className,
 }: {
-  active: (typeof PALETTES)[number];
+  active: PaletteEntry;
   mode: WorkspaceMode;
   results: PaletteContrastResult[];
   selectedPair: PaletteContrastPairId;
   onPairChange: (value: PaletteContrastPairId) => void;
   promptLang: "zh" | "en";
   onPromptLangChange: (value: "zh" | "en") => void;
+  cssOverride?: string;
   className?: string;
 }) {
   const t = useTranslations("palettes");
@@ -318,7 +552,7 @@ function PaletteInspector({
   const roleFeedbackTimer = useRef<number | null>(null);
   const selected = results.find((result) => result.id === selectedPair) ?? results[0];
   const prompt = promptLang === "zh" ? active.promptZh : active.promptEn;
-  const css = paletteToCss(active);
+  const css = cssOverride ?? paletteToCss(active);
 
   useEffect(
     () => () => {
@@ -523,6 +757,9 @@ export function PalettesExplorer({ className }: { className?: string }) {
   const locale = useLocale() as Locale;
   const shouldReduceMotion = useReducedMotion();
   const searchParams = useSearchParams();
+  const initialGeneratorParams = parseGeneratorParams(
+    new URLSearchParams(searchParams.toString()),
+  );
   const paramSlug = searchParams.get("palette");
   const initialSlug =
     (paramSlug && PALETTES.some((palette) => palette.slug === paramSlug)
@@ -531,8 +768,16 @@ export function PalettesExplorer({ className }: { className?: string }) {
     PALETTES.find((palette) => palette.slug === "business")?.slug ??
     PALETTES[0]?.slug;
   const [slug, setSlug] = useState(initialSlug);
-  const [mode, setMode] = useState<WorkspaceMode>("browse");
-  const [mobileSurface, setMobileSurface] = useState<MobileSurface>("preview");
+  const [mode, setMode] = useState<WorkspaceMode>(
+    searchParams.has("b") ? "generate" : "browse",
+  );
+  const [source, setSource] = useState<PaletteSource>(
+    searchParams.has("b") ? "generated" : "preset",
+  );
+  const [generatorParams, setGeneratorParams] = useState(initialGeneratorParams);
+  const [mobileSurface, setMobileSurface] = useState<MobileSurface>(
+    searchParams.has("b") ? "details" : "preview",
+  );
   const [selectedPair, setSelectedPair] = useState<PaletteContrastPairId>(
     "muted-on-background",
   );
@@ -549,6 +794,28 @@ export function PalettesExplorer({ className }: { className?: string }) {
   }, [paramSlug]);
 
   useEffect(() => {
+    const syncFromHistory = () => {
+      const nextSearch = new URLSearchParams(window.location.search);
+      if (nextSearch.has("b")) {
+        setGeneratorParams(parseGeneratorParams(nextSearch));
+        setSource("generated");
+        setMode("generate");
+        setMobileSurface("details");
+        return;
+      }
+      const nextSlug = nextSearch.get("palette");
+      if (nextSlug && PALETTES.some((palette) => palette.slug === nextSlug)) {
+        setSlug(nextSlug);
+      }
+      setSource("preset");
+      setMode("browse");
+      setMobileSurface("preview");
+    };
+    window.addEventListener("popstate", syncFromHistory);
+    return () => window.removeEventListener("popstate", syncFromHistory);
+  }, []);
+
+  useEffect(() => {
     if (!isCycling) return;
     const timer = window.setInterval(() => {
       setSlug((current) => {
@@ -559,10 +826,13 @@ export function PalettesExplorer({ className }: { className?: string }) {
     return () => window.clearInterval(timer);
   }, [isCycling]);
 
-  const active = PALETTES.find((palette) => palette.slug === slug) ?? PALETTES[0];
-  if (!active) return null;
+  const generated = generatePalette(generatorParams);
+  const preset = PALETTES.find((palette) => palette.slug === slug) ?? PALETTES[0];
+  if (!preset) return null;
+  const isGenerated = source === "generated";
+  const active = isGenerated ? generated.entry : preset;
 
-  const activeIndex = PALETTES.findIndex((palette) => palette.slug === active.slug);
+  const activeIndex = PALETTES.findIndex((palette) => palette.slug === preset.slug);
   const contrastResults = paletteContrastReport(active);
   const activeContrast =
     contrastResults.find((result) => result.id === selectedPair) ?? contrastResults[0];
@@ -581,7 +851,23 @@ export function PalettesExplorer({ className }: { className?: string }) {
 
   const selectMode = (nextMode: WorkspaceMode) => {
     setMode(nextMode);
-    setMobileSurface(nextMode === "export" ? "details" : "preview");
+    setIsCycling(false);
+    setMobileSurface(nextMode === "export" || nextMode === "generate" ? "details" : "preview");
+    if (nextMode === "generate") {
+      setSource("generated");
+      window.history.pushState(null, "", `?${generatorParamsToSearch(generatorParams)}`);
+    } else if (nextMode === "browse") {
+      setSource("preset");
+      window.history.pushState(null, "", `?palette=${preset.slug}`);
+    } else if (source === "generated") {
+      window.history.replaceState(null, "", `?${generatorParamsToSearch(generatorParams)}`);
+    }
+  };
+
+  const updateGenerator = (next: GeneratorParams) => {
+    setSource("generated");
+    setGeneratorParams(next);
+    window.history.replaceState(null, "", `?${generatorParamsToSearch(next)}`);
   };
 
   return (
@@ -609,7 +895,7 @@ export function PalettesExplorer({ className }: { className?: string }) {
         <header className="flex flex-col items-stretch gap-4 border-b border-slate-900/10 pb-4 sm:flex-row sm:items-center sm:justify-between">
           <LayoutGroup id="palette-workspace-modes">
             <nav aria-label={t("workspaceModes")} className="flex items-center gap-1">
-              {(["browse", "contrast", "export"] as const).map((item) => (
+              {(["browse", "contrast", "export", "generate"] as const).map((item) => (
                 <button
                   key={item}
                   type="button"
@@ -638,6 +924,7 @@ export function PalettesExplorer({ className }: { className?: string }) {
           </LayoutGroup>
 
           <div className="flex flex-wrap items-center justify-start gap-2 sm:justify-end">
+            {!isGenerated && (
             <motion.button
               type="button"
               onClick={() => setIsCycling((value) => !value)}
@@ -651,8 +938,11 @@ export function PalettesExplorer({ className }: { className?: string }) {
               {isCycling ? <Pause aria-hidden="true" className="size-3.5" /> : <Play aria-hidden="true" className="size-3.5" />}
               {isCycling ? t("stopCycle") : t("cyclePalettes")}
             </motion.button>
+            )}
             <span className="font-mono text-xs text-slate-700/55">
-              {String(activeIndex + 1).padStart(2, "0")} / {PALETTES.length}
+              {isGenerated
+                ? `${generatorParams.contrast} · ${generatorParams.format.toUpperCase()}`
+                : `${String(activeIndex + 1).padStart(2, "0")} / ${PALETTES.length}`}
             </span>
             <label className="inline-flex min-h-9 cursor-pointer items-center gap-2 rounded-lg border border-slate-900/10 bg-white/45 px-3 text-xs text-slate-700 backdrop-blur">
               <span>{t("staticBackground")}</span>
@@ -668,6 +958,16 @@ export function PalettesExplorer({ className }: { className?: string }) {
 
         <div className="mt-6">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            {isGenerated ? (
+              <div className="inline-flex items-center gap-2 rounded-lg border border-slate-900/10 bg-white/45 px-3 py-2 text-sm font-medium text-slate-900 backdrop-blur">
+                <span
+                  aria-hidden="true"
+                  className="size-4 rounded-full border border-slate-900/10"
+                  style={{ background: generatorParams.base }}
+                />
+                {t("generatedPalette")} · {generatorParams.base}
+              </div>
+            ) : (
             <div className="flex w-full min-w-0 items-center gap-2 sm:w-auto sm:flex-initial">
                 <motion.button
                   type="button"
@@ -706,6 +1006,7 @@ export function PalettesExplorer({ className }: { className?: string }) {
                   <ChevronRight aria-hidden="true" className="size-4" />
                 </motion.button>
             </div>
+            )}
             <p className="w-full max-w-md text-left text-xs leading-relaxed text-slate-700/60 sm:w-auto sm:text-right">
               {locale === "zh" ? active.bestForZh : active.bestFor}
             </p>
@@ -758,7 +1059,13 @@ export function PalettesExplorer({ className }: { className?: string }) {
                 data-workspace-view={mode === "contrast" ? "contrast" : "preview"}
                 {...presenceMotion(shouldReduceMotion)}
               >
-                <PaletteSettle slug={active.slug}>
+                <PaletteSettle
+                  slug={
+                    isGenerated
+                      ? generatorParamsToSearch(generatorParams).toString()
+                      : active.slug
+                  }
+                >
                   {mode === "contrast" && activeContrast ? (
                     <ContrastCanvas result={activeContrast} />
                   ) : (
@@ -785,6 +1092,16 @@ export function PalettesExplorer({ className }: { className?: string }) {
             </AnimatePresence>
           </section>
 
+          {mode === "generate" ? (
+            <GeneratorInspector
+              generated={generated}
+              onChange={updateGenerator}
+              className={cn(
+                "lg:min-h-[42rem]",
+                mobileSurface === "preview" && "max-lg:hidden",
+              )}
+            />
+          ) : (
           <PaletteInspector
             active={active}
             mode={mode}
@@ -793,11 +1110,15 @@ export function PalettesExplorer({ className }: { className?: string }) {
             onPairChange={setSelectedPair}
             promptLang={promptLang}
             onPromptLangChange={setPromptLang}
+            cssOverride={
+              isGenerated ? formatGeneratedPaletteCss(generated) : undefined
+            }
             className={cn(
               "lg:min-h-[42rem]",
               mobileSurface === "preview" && "max-lg:hidden",
             )}
           />
+          )}
           </div>
         </div>
       </div>

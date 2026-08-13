@@ -8,6 +8,7 @@
 
 ### Added
 
+- Add an OKLCH palette generator with brand seed, basic/full scope, five harmony models, enforced WCAG AA/AAA semantic pairs, Hex/RGB/HSL/OKLCH output, shareable URL state, and live preview/contrast/export integration.
 - Add bilingual WCAG contrast health reports and a regression baseline for Catalog palettes.
 
 ### 移除
