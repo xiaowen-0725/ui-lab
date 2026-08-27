@@ -56,3 +56,5 @@ bun run check
 ## 致谢
 
 本项目基于 [starc007/ui-components（beUI）](https://github.com/starc007/ui-components) fork 而来，遵循其 MIT 协议。感谢原作者 Saurabh Chauhan 开源的这套组件库，本仓库在此基础上做了品牌与内容上的个人化整理。
+
+部分 Agent 界面原语移植自 [Vercel AI Elements](https://github.com/vercel/ai-elements)，遵循 Apache-2.0。版权归 Vercel, Inc.；许可证全文见 [`licenses/AI-ELEMENTS-APACHE-2.0.txt`](licenses/AI-ELEMENTS-APACHE-2.0.txt)，归属说明见 [`NOTICE`](NOTICE)。移植文件顶部标有来源与许可。

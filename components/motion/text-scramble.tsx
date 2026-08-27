@@ -3,7 +3,7 @@
 // Ported from motion-anything (nexu-io, Apache-2.0); upstream effect: reactbits.dev "Decrypted Text", redistributed with permission.
 
 import { useInView, useReducedMotion } from "motion/react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { type CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +17,7 @@ export interface TextScrambleProps {
   /** Glyphs shown while a character is still unresolved. */
   charset?: string;
   className?: string;
+  style?: CSSProperties;
 }
 
 const DEFAULT_CHARSET = "!<>-_\\/[]{}=+*^?#";
@@ -27,6 +28,7 @@ export function TextScramble({
   duration = 700,
   charset = DEFAULT_CHARSET,
   className,
+  style,
 }: TextScrambleProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const reduce = useReducedMotion();
@@ -116,6 +118,7 @@ export function TextScramble({
     <span
       ref={ref}
       {...hoverHandlers}
+      style={style}
       className={cn("relative inline-block whitespace-nowrap align-baseline", className)}
     >
       <span className="sr-only">{text}</span>

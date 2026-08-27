@@ -83,4 +83,31 @@ describe("catalog component items", () => {
     ).toBe(true);
     expect(bySlug.has("button-metallic")).toBe(false);
   });
+
+  test("registers missing AI-oriented agent catalog slugs with bilingual names", () => {
+    const expected = [
+      ["reasoning-text", "推理文案"],
+      ["agent-progress", "Agent 进度"],
+      ["ai-sidebar", "AI 侧栏"],
+      ["reasoning", "推理披露"],
+      ["chain-of-thought", "思维链"],
+      ["sources", "来源列表"],
+      ["inline-citation", "行内引用"],
+      ["plan", "计划卡"],
+      ["task", "任务步骤"],
+      ["queue", "待办队列"],
+      ["confirmation", "确认条"],
+      ["suggestion", "建议芯片"],
+      ["jsx-preview", "JSX 预览"],
+    ] as const;
+
+    for (const [slug, nameZh] of expected) {
+      const item = components.find((candidate) => candidate.slug === slug);
+      expect(item, `missing catalog slug ${slug}`).toBeDefined();
+      expect(item?.nameZh).toBe(nameZh);
+      expect(item?.nameZh).not.toBe(item?.name);
+      expect(item?.descriptionZh).toBeTruthy();
+      expect(item?.aliases.length).toBeGreaterThan(0);
+    }
+  });
 });

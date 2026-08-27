@@ -430,6 +430,53 @@ export const previews: Record<string, ComponentType> = {
       (m) => m.AgentActivityTracePreview,
     ),
   ),
+  "blocks/reasoning-text": dynamic(() =>
+    import("./blocks/reasoning-text.preview").then(
+      (m) => m.ReasoningTextPreview,
+    ),
+  ),
+  "blocks/agent-progress": dynamic(() =>
+    import("./blocks/agent-progress.preview").then(
+      (m) => m.AgentProgressPreview,
+    ),
+  ),
+  "blocks/ai-sidebar": dynamic(() =>
+    import("./blocks/ai-sidebar.preview").then((m) => m.AISidebarPreview),
+  ),
+  "blocks/reasoning": dynamic(() =>
+    import("./blocks/reasoning.preview").then((m) => m.ReasoningPreview),
+  ),
+  "blocks/chain-of-thought": dynamic(() =>
+    import("./blocks/chain-of-thought.preview").then(
+      (m) => m.ChainOfThoughtPreview,
+    ),
+  ),
+  "blocks/sources": dynamic(() =>
+    import("./blocks/sources.preview").then((m) => m.SourcesPreview),
+  ),
+  "blocks/inline-citation": dynamic(() =>
+    import("./blocks/inline-citation.preview").then(
+      (m) => m.InlineCitationPreview,
+    ),
+  ),
+  "blocks/plan": dynamic(() =>
+    import("./blocks/plan.preview").then((m) => m.PlanPreview),
+  ),
+  "blocks/task": dynamic(() =>
+    import("./blocks/task.preview").then((m) => m.TaskPreview),
+  ),
+  "blocks/queue": dynamic(() =>
+    import("./blocks/queue.preview").then((m) => m.QueuePreview),
+  ),
+  "blocks/confirmation": dynamic(() =>
+    import("./blocks/confirmation.preview").then((m) => m.ConfirmationPreview),
+  ),
+  "blocks/suggestion": dynamic(() =>
+    import("./blocks/suggestion.preview").then((m) => m.SuggestionPreview),
+  ),
+  "blocks/jsx-preview": dynamic(() =>
+    import("./blocks/jsx-preview.preview").then((m) => m.JsxPreviewPreview),
+  ),
 };
 
 export function getPreview(category: string, slug: string) {
