@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-09T08:15:55.852Z",
-  "count": 164,
+  "generatedAt": "2026-08-27T05:29:16.299Z",
+  "count": 167,
   "items": [
     {
       "kind": "component",
@@ -29,8 +29,8 @@
       "name": "Button",
       "nameZh": "按钮",
       "aliases": [],
-      "description": "Spring-pressed Button plus StatefulButton (idle → loading → success / error) and MagneticButton.",
-      "descriptionZh": "带弹簧按压反馈的按钮,还包含状态按钮 StatefulButton(空闲 → 加载中 → 成功 / 失败)与磁吸按钮 MagneticButton。",
+      "description": "Spring-pressed Button plus StatefulButton (idle → loading → success / error), MagneticButton, and MetallicButton.",
+      "descriptionZh": "带弹簧按压反馈的按钮,还包含状态按钮 StatefulButton(空闲 → 加载中 → 成功 / 失败)、磁吸按钮 MagneticButton 与金属按钮 MetallicButton。",
       "pageUrl": "http://localhost:3000/components/motion/button",
       "fetch": {
         "method": "shadcn",
@@ -42,7 +42,8 @@
         "components/motion/button/index.tsx",
         "components/motion/button/base.tsx",
         "components/motion/button/stateful.tsx",
-        "components/motion/button/magnetic.tsx"
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx"
       ]
     },
     {
@@ -995,6 +996,59 @@
     },
     {
       "kind": "component",
+      "category": "motion",
+      "slug": "expandable-control",
+      "name": "Expandable Control",
+      "nameZh": "可展开控件",
+      "aliases": [
+        "expandable button react",
+        "animated chip react",
+        "click to expand",
+        "layout animation button",
+        "reveal action control"
+      ],
+      "description": "Click-to-expand button and chip controls that reveal a label or trailing action through spring layout continuity.",
+      "descriptionZh": "点击展开的按钮与芯片控件,通过弹簧布局连续性揭示标签或尾部操作。",
+      "pageUrl": "http://localhost:3000/components/motion/expandable-control",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/expandable-control.json",
+        "endpoint": "http://localhost:3000/r/expandable-control"
+      },
+      "sourceFile": "components/motion/expandable-control.tsx",
+      "sourceFiles": [
+        "components/motion/expandable-control.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "motion",
+      "slug": "file-tree",
+      "name": "File Tree",
+      "nameZh": "文件树",
+      "aliases": [
+        "animated file tree react",
+        "file explorer component",
+        "folder tree",
+        "project tree",
+        "accessible tree view",
+        "react tree component"
+      ],
+      "description": "Composable file and folder primitives with springing branches, a gliding selection, and complete keyboard navigation.",
+      "descriptionZh": "可组合的文件与文件夹原语,带弹簧展开的树枝、滑动选中态与完整键盘导航。",
+      "pageUrl": "http://localhost:3000/components/motion/file-tree",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/file-tree.json",
+        "endpoint": "http://localhost:3000/r/file-tree"
+      },
+      "sourceFile": "components/motion/file-tree.tsx",
+      "sourceFiles": [
+        "components/motion/file-tree.tsx"
+      ]
+    },
+    {
+      "kind": "component",
       "category": "blocks",
       "slug": "recording-card",
       "name": "Recording Card",
@@ -1464,6 +1518,32 @@
       "sourceFile": "components/motion/command-palette.tsx",
       "sourceFiles": [
         "components/motion/command-palette.tsx"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "blocks",
+      "slug": "morphing-search",
+      "name": "Morphing Search",
+      "nameZh": "变形搜索",
+      "aliases": [
+        "morphing search react",
+        "animated search component",
+        "search overlay react",
+        "keyboard search shortcut",
+        "command search ui"
+      ],
+      "description": "Search field or compact icon that morphs into a glass results surface, whether opened by click or keyboard shortcut.",
+      "descriptionZh": "搜索框或紧凑图标会变形为玻璃感结果面板,支持点击或键盘快捷键打开。",
+      "pageUrl": "http://localhost:3000/components/blocks/morphing-search",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/morphing-search.json",
+        "endpoint": "http://localhost:3000/r/morphing-search"
+      },
+      "sourceFile": "components/motion/morphing-search.tsx",
+      "sourceFiles": [
+        "components/motion/morphing-search.tsx"
       ]
     },
     {

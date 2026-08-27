@@ -46,6 +46,9 @@ export const previews: Record<string, ComponentType> = {
   "blocks/command-palette": dynamic(() =>
     import("./blocks/command-palette.preview").then((m) => m.CommandPalettePreview),
   ),
+  "blocks/morphing-search": dynamic(() =>
+    import("./blocks/morphing-search.preview").then((m) => m.MorphingSearchPreview),
+  ),
   "blocks/feedback-widget": dynamic(() =>
     import("./blocks/feedback-widget.preview").then((m) => m.FeedbackWidgetPreview),
   ),
@@ -230,6 +233,9 @@ export const previews: Record<string, ComponentType> = {
   "motion/button-magnetic": dynamic(() =>
     import("./motion/button-magnetic.preview").then((m) => m.ButtonMagneticPreview),
   ),
+  "motion/button-metallic": dynamic(() =>
+    import("./motion/button-metallic.preview").then((m) => m.ButtonMetallicPreview),
+  ),
   "motion/theme-toggle": dynamic(() =>
     import("./motion/theme-toggle.preview").then((m) => m.ThemeTogglePreview),
   ),
@@ -298,6 +304,14 @@ export const previews: Record<string, ComponentType> = {
   ),
   "motion/expanding-card": dynamic(() =>
     import("./motion/expanding-card.preview").then((m) => m.ExpandingCardPreview),
+  ),
+  "motion/expandable-control": dynamic(() =>
+    import("./motion/expandable-control.preview").then(
+      (m) => m.ExpandableControlPreview,
+    ),
+  ),
+  "motion/file-tree": dynamic(() =>
+    import("./motion/file-tree.preview").then((m) => m.FileTreePreview),
   ),
   "motion/dropdown-menu": dynamic(() =>
     import("./motion/dropdown-menu.preview").then((m) => m.DropdownMenuPreview),

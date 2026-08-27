@@ -532,6 +532,7 @@ describe("ui-lab application kit CLI", () => {
         "components/motion/button/base.tsx",
         "components/motion/button/stateful.tsx",
         "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
       ],
     });
 
