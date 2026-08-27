@@ -20,6 +20,7 @@
 - 灵感库 21 个来源卡片新增带来源和采集日期的真实网站首屏预览，图片整块可直接访问原站，并纳入统一截图质量审计。
 
 ### 新增
+- **「区块 / Blocks」新增 13 个 AI 向界面原语**（活样本 + registry，不含 Agent runtime）：beUI（MIT）补 `reasoning-text`、`agent-progress`、`ai-sidebar`；Vercel AI Elements（Apache-2.0）补 `reasoning`、`chain-of-thought`、`sources`、`inline-citation`、`plan`、`task`、`queue`、`confirmation`、`suggestion`、`jsx-preview`。导入已适配 ui-lab 原语；许可见各文件头、`NOTICE` 与 `licenses/AI-ELEMENTS-APACHE-2.0.txt`。未移植 chat-app / message 族，也未移植 file-tree / artifact / code-block / prompt-input / shimmer。
 - **自 beUI（starc007/ui-components, MIT）移植 4 个组件**：`file-tree`（动画文件树）、`button-metallic`（金属按钮，Button 变体）、`expandable-control`（可展开控件）、`morphing-search`（变形搜索，源码在 `components/motion/`、Catalog 归入区块）。保留上游 MIT 归属，按 UI Lab 公式登记双语名/别名、活预览与 registry。
 - **灵感库新增 4 条经分诊参考**：`motionsites`（`source`，动效与 3D）、`uiverse`（`source`，产品界面）、`aceternity-ui`（`source`，产品界面）与 `animejs`（`site`，开发工具）；均保留第一方 provenance、访问边界、`external-only` 权利状态与核验日期。
 - **灵感库「来源」新增 3 条**：`shadcn-studio`（shadcn/ui 区块与模板市场，freemium）、`react-bits`（开源 React 动效组件图库，freemium）、`checklist-design`（网站/App/移动/设计系统/流程质量清单，public）。均为 `source` 条目、`external-only`，带第一方 provenance 与真实首屏截图。

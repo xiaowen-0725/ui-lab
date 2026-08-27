@@ -1994,6 +1994,268 @@ export const registry: CategoryEntry[] = [
           },
         ],
       },
+      {
+        slug: "reasoning-text",
+        name: "Reasoning Text",
+        nameZh: "推理文案",
+        description:
+          "Cycling agent-status phrases with an ASCII loader and cascade, swap, or scramble transitions plus a shimmer sweep.",
+        descriptionZh:
+          "Agent 推理状态文案：ASCII 加载指示配合 cascade / swap / scramble 切换，并带微光扫过。",
+        file: "components/agents/loading-states/reasoning-text.tsx",
+        extraFiles: ["components/agents/loading-states/text-shimmer-style.ts"],
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "AI reasoning text",
+          "agent thinking animation",
+          "reasoning indicator",
+          "LLM loading phrase",
+          "推理文案",
+          "思考中动画",
+        ],
+      },
+      {
+        slug: "agent-progress",
+        name: "Agent Progress",
+        nameZh: "Agent 进度",
+        description:
+          "A compact 3×3 activity glyph, action verb, and live tabular timer for longer-running agent work.",
+        descriptionZh:
+          "紧凑的 Agent 进度指示：3×3 活动格、动作动词与等宽计时。",
+        file: "components/agents/loading-states/agent-progress.tsx",
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "AI agent progress",
+          "agent timer",
+          "thinking grid",
+          "LLM loading indicator",
+          "Agent 进度",
+          "思考计时",
+        ],
+      },
+      {
+        slug: "ai-sidebar",
+        name: "AI Sidebar",
+        nameZh: "AI 侧栏",
+        description:
+          "A workspace resource tree for folders, projects, files, and bookmarks with keyboard navigation, optimistic moves, inline rename, and overflow-aware labels.",
+        descriptionZh:
+          "AI 工作区资源树：文件夹/项目/文件/书签，支持键盘导航、乐观移动、行内重命名与溢出跑马灯标签。",
+        file: "components/agents/ai-sidebar.tsx",
+        extraFiles: ["lib/hooks/use-touch-capable.ts"],
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "AI sidebar React",
+          "agent workspace sidebar",
+          "draggable resource tree",
+          "project file sidebar",
+          "AI 侧栏",
+          "资源树",
+        ],
+      },
+      {
+        slug: "reasoning",
+        name: "Reasoning",
+        nameZh: "推理披露",
+        description:
+          "A collapsible reasoning disclosure that stays open while tokens stream, then collapses to a timed thought summary.",
+        descriptionZh:
+          "可折叠推理披露：流式进行中保持展开，结束后收成「思考了 N 秒」摘要。",
+        file: "components/agents/reasoning.tsx",
+        extraFiles: ["components/agents/agent-collapsible.tsx"],
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "AI reasoning disclosure",
+          "thinking summary",
+          "collapsible reasoning",
+          "LLM thought process",
+          "推理披露",
+          "思考摘要",
+        ],
+      },
+      {
+        slug: "chain-of-thought",
+        name: "Chain of Thought",
+        nameZh: "思维链",
+        description:
+          "A step-by-step thought trail with status, search chips, and an optional image caption under a collapsible header.",
+        descriptionZh:
+          "逐步思维链：完成/进行中/待定步骤、搜索结果芯片，以及可选配图说明。",
+        file: "components/agents/chain-of-thought.tsx",
+        extraFiles: ["components/agents/agent-collapsible.tsx"],
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "chain of thought UI",
+          "AI reasoning steps",
+          "thought trail",
+          "LLM step list",
+          "思维链",
+          "推理步骤",
+        ],
+      },
+      {
+        slug: "sources",
+        name: "Sources",
+        nameZh: "来源列表",
+        description:
+          "A compact collapsible footer that lists the sources used to write an answer.",
+        descriptionZh:
+          "答案尾部的可折叠来源列表，展示本次回答用到的出处。",
+        file: "components/agents/sources.tsx",
+        extraFiles: ["components/agents/agent-collapsible.tsx"],
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "AI sources list",
+          "answer citations footer",
+          "used N sources",
+          "LLM references",
+          "来源列表",
+          "引用出处",
+        ],
+      },
+      {
+        slug: "inline-citation",
+        name: "Inline Citation",
+        nameZh: "行内引用",
+        description:
+          "Inline citation chips that open a source-preview card with a simple pager, quote, and hostname badge.",
+        descriptionZh:
+          "行内引用角标：悬停或点击打开带翻页的来源预览卡、摘录与域名徽章。",
+        file: "components/agents/inline-citation.tsx",
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "inline citation chip",
+          "source preview popover",
+          "AI citation badge",
+          "行内引用",
+          "引用角标",
+        ],
+      },
+      {
+        slug: "plan",
+        name: "Plan",
+        nameZh: "计划卡",
+        description:
+          "A collapsible plan card with streaming title/description shimmer and room for nested task steps.",
+        descriptionZh:
+          "可折叠计划卡：流式标题/描述微光，内容区可嵌套任务步骤。",
+        file: "components/agents/plan.tsx",
+        extraFiles: ["components/agents/agent-collapsible.tsx"],
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "AI plan card",
+          "agent plan",
+          "streaming plan",
+          "LLM task plan",
+          "计划卡",
+          "执行计划",
+        ],
+      },
+      {
+        slug: "task",
+        name: "Task",
+        nameZh: "任务步骤",
+        description:
+          "A collapsible task step with a search-style trigger, file chips, and a left-ruled detail list.",
+        descriptionZh:
+          "可折叠任务步骤：搜索式触发器、文件芯片与左侧竖线明细。",
+        file: "components/agents/task.tsx",
+        extraFiles: ["components/agents/agent-collapsible.tsx"],
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "AI task step",
+          "agent task disclosure",
+          "file chip",
+          "任务步骤",
+          "工具步骤",
+        ],
+      },
+      {
+        slug: "queue",
+        name: "Queue",
+        nameZh: "待办队列",
+        description:
+          "A queued follow-up list with collapsible sections, completion marks, attachments, and hover actions.",
+        descriptionZh:
+          "待办/排队跟进列表：可折叠分组、完成态、附件与悬停操作。",
+        file: "components/agents/queue.tsx",
+        extraFiles: ["components/agents/agent-collapsible.tsx"],
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "AI message queue",
+          "queued follow-ups",
+          "agent todo queue",
+          "待办队列",
+          "排队消息",
+        ],
+      },
+      {
+        slug: "confirmation",
+        name: "Confirmation",
+        nameZh: "确认条",
+        description:
+          "A human-in-the-loop confirmation strip that swaps request, accepted, and rejected slots from approval state.",
+        descriptionZh:
+          "人机协同确认条：按审批状态切换请求 / 已允许 / 已拒绝插槽。",
+        file: "components/agents/confirmation.tsx",
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "AI confirmation",
+          "tool approval strip",
+          "human in the loop",
+          "确认条",
+          "工具确认",
+        ],
+      },
+      {
+        slug: "suggestion",
+        name: "Suggestion",
+        nameZh: "建议芯片",
+        description:
+          "A horizontal row of follow-up prompt chips that call back with the selected suggestion.",
+        descriptionZh:
+          "横向建议芯片：点击把选中的后续提示交回输入台。",
+        file: "components/agents/suggestion.tsx",
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "AI suggestion chips",
+          "follow-up prompts",
+          "chat suggestions",
+          "建议芯片",
+          "后续提示",
+        ],
+      },
+      {
+        slug: "jsx-preview",
+        name: "JSX Preview",
+        nameZh: "JSX 预览",
+        description:
+          "A streaming-safe allowlisted JSX/HTML preview that completes unfinished tags while tokens arrive.",
+        descriptionZh:
+          "流式安全的 JSX/HTML 预览：白名单标签，流式未闭合标签会先补全再渲染。",
+        file: "components/agents/jsx-preview.tsx",
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "JSX preview",
+          "streaming JSX",
+          "generated UI preview",
+          "JSX 预览",
+          "生成界面预览",
+        ],
+      },
     ],
   },
   {
