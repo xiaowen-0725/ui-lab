@@ -44,5 +44,43 @@ describe("catalog component items", () => {
     expect(hit("网点").map((item) => item.slug)).toContain("halftone-image");
     expect(hit("录屏").map((item) => item.slug)).toContain("recording-card");
     expect(hit("倾斜").map((item) => item.slug)).toContain("tilt-card");
+    expect(hit("文件树").map((item) => item.slug)).toContain("file-tree");
+    expect(hit("可展开控件").map((item) => item.slug)).toContain(
+      "expandable-control",
+    );
+    expect(hit("变形搜索").map((item) => item.slug)).toContain("morphing-search");
+    expect(hit("金属按钮").map((item) => item.slug)).toContain("button");
+  });
+
+  test("registers the four newly ported beUI MIT components", () => {
+    const bySlug = new Map(components.map((item) => [item.slug, item]));
+    const fileTree = bySlug.get("file-tree");
+    const expandable = bySlug.get("expandable-control");
+    const morphingSearch = bySlug.get("morphing-search");
+    const button = bySlug.get("button");
+    const registryButton = allComponents().find((entry) => entry.slug === "button");
+
+    expect(fileTree).toMatchObject({
+      category: "motion",
+      name: "File Tree",
+      nameZh: "文件树",
+    });
+    expect(expandable).toMatchObject({
+      category: "motion",
+      name: "Expandable Control",
+      nameZh: "可展开控件",
+    });
+    expect(morphingSearch).toMatchObject({
+      category: "blocks",
+      name: "Morphing Search",
+      nameZh: "变形搜索",
+    });
+    expect(button?.nameZh).toBe("按钮");
+    expect(
+      registryButton?.examples?.some(
+        (example) => example.installSlug === "button-metallic",
+      ),
+    ).toBe(true);
+    expect(bySlug.has("button-metallic")).toBe(false);
   });
 });

@@ -68,13 +68,14 @@ export const registry: CategoryEntry[] = [
         slug: "button",
         name: "Button",
         nameZh: "按钮",
-        description: "Spring-pressed Button plus StatefulButton (idle → loading → success / error) and MagneticButton.",
-        descriptionZh: "带弹簧按压反馈的按钮,还包含状态按钮 StatefulButton(空闲 → 加载中 → 成功 / 失败)与磁吸按钮 MagneticButton。",
+        description: "Spring-pressed Button plus StatefulButton (idle → loading → success / error), MagneticButton, and MetallicButton.",
+        descriptionZh: "带弹簧按压反馈的按钮,还包含状态按钮 StatefulButton(空闲 → 加载中 → 成功 / 失败)、磁吸按钮 MagneticButton 与金属按钮 MetallicButton。",
         file: "components/motion/button/index.tsx",
         extraFiles: [
           "components/motion/button/base.tsx",
           "components/motion/button/stateful.tsx",
           "components/motion/button/magnetic.tsx",
+          "components/motion/button/metallic.tsx",
         ],
         examples: [
           {
@@ -109,6 +110,19 @@ export const registry: CategoryEntry[] = [
             file: "components/motion/button/magnetic.tsx",
             previewKey: "motion/button-magnetic",
             previewFile: "components/previews/motion/button-magnetic.preview.tsx",
+          },
+          {
+            slug: "metallic",
+            name: "Metallic Button",
+            nameZh: "金属按钮",
+            description:
+              "A neutral button surface framed by a pronounced chrome rim with a straight traveling reflection.",
+            descriptionZh:
+              "中性按钮表面,外圈是明显的铬金属边框,并带有直线移动的高光反射。",
+            installSlug: "button-metallic",
+            file: "components/motion/button/metallic.tsx",
+            previewKey: "motion/button-metallic",
+            previewFile: "components/previews/motion/button-metallic.preview.tsx",
           },
         ],
       },
@@ -947,6 +961,45 @@ export const registry: CategoryEntry[] = [
           "expanding card animation",
         ],
       },
+      {
+        slug: "expandable-control",
+        name: "Expandable Control",
+        nameZh: "可展开控件",
+        description:
+          "Click-to-expand button and chip controls that reveal a label or trailing action through spring layout continuity.",
+        descriptionZh:
+          "点击展开的按钮与芯片控件,通过弹簧布局连续性揭示标签或尾部操作。",
+        file: "components/motion/expandable-control.tsx",
+        badge: "new",
+        launchedAt: "2026-08-22",
+        keywords: [
+          "expandable button react",
+          "animated chip react",
+          "click to expand",
+          "layout animation button",
+          "reveal action control",
+        ],
+      },
+      {
+        slug: "file-tree",
+        name: "File Tree",
+        nameZh: "文件树",
+        description:
+          "Composable file and folder primitives with springing branches, a gliding selection, and complete keyboard navigation.",
+        descriptionZh:
+          "可组合的文件与文件夹原语,带弹簧展开的树枝、滑动选中态与完整键盘导航。",
+        file: "components/motion/file-tree.tsx",
+        badge: "new",
+        launchedAt: "2026-08-27",
+        keywords: [
+          "animated file tree react",
+          "file explorer component",
+          "folder tree",
+          "project tree",
+          "accessible tree view",
+          "react tree component",
+        ],
+      },
     ],
   },
   {
@@ -1291,6 +1344,25 @@ export const registry: CategoryEntry[] = [
         description: "⌘K palette with fuzzy filter, spring-animated active row and glass surface.",
         descriptionZh: "⌘K 呼出的命令面板,支持模糊搜索过滤,当前行带弹簧动效高亮,毛玻璃质感表面。",
         file: "components/motion/command-palette.tsx",
+      },
+      {
+        slug: "morphing-search",
+        name: "Morphing Search",
+        nameZh: "变形搜索",
+        description:
+          "Search field or compact icon that morphs into a glass results surface, whether opened by click or keyboard shortcut.",
+        descriptionZh:
+          "搜索框或紧凑图标会变形为玻璃感结果面板,支持点击或键盘快捷键打开。",
+        file: "components/motion/morphing-search.tsx",
+        badge: "new",
+        launchedAt: "2026-08-18",
+        keywords: [
+          "morphing search react",
+          "animated search component",
+          "search overlay react",
+          "keyboard search shortcut",
+          "command search ui",
+        ],
       },
       {
         slug: "expandable-action-bar",

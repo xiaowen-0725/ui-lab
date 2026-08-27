@@ -5,6 +5,12 @@ import type { ReactElement } from "react";
 
 import { AnimatedBadge } from "@/components/motion/animated-badge";
 import { Button } from "@/components/motion/button";
+import {
+  FileTree,
+  FileTreeFile,
+  FileTreeFolder,
+} from "@/components/motion/file-tree";
+import { MorphingSearch } from "@/components/motion/morphing-search";
 import { Checkbox } from "@/components/motion/checkbox";
 import { Input } from "@/components/motion/input";
 import { BloomMenu } from "@/components/motion/bloom-menu";
@@ -27,6 +33,61 @@ afterEach(cleanup);
 // Render thunks (not bare JSX) keep these out of an iterable literal.
 const cases: Array<[name: string, render: () => ReactElement]> = [
   ["Button", () => <Button>Subscribe</Button>],
+  [
+    "FileTree",
+    () => (
+      <FileTree defaultExpandedIds={["src"]}>
+        <FileTreeFolder value="src" name="src">
+          <FileTreeFile value="index" name="index.ts" />
+        </FileTreeFolder>
+      </FileTree>
+    ),
+  ],
+  [
+    "MorphingSearch closed",
+    () => (
+      <MorphingSearch
+        items={[
+          {
+            id: "docs",
+            title: "Documentation",
+            description: "Read the component guide",
+          },
+        ]}
+      />
+    ),
+  ],
+  [
+    "MorphingSearch open",
+    () => (
+      <MorphingSearch
+        defaultOpen
+        items={[
+          {
+            id: "docs",
+            title: "Documentation",
+            description: "Read the component guide",
+          },
+        ]}
+      />
+    ),
+  ],
+  [
+    "MorphingSearch icon only",
+    () => (
+      <MorphingSearch
+        iconOnly
+        shortcut=""
+        items={[
+          {
+            id: "docs",
+            title: "Documentation",
+            description: "Read the component guide",
+          },
+        ]}
+      />
+    ),
+  ],
   ["Button disabled", () => <Button disabled>Subscribe</Button>],
   ["Button ripple", () => <Button ripple>Subscribe</Button>],
   ["BloomMenu", () => <BloomMenu />],

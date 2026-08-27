@@ -6,3 +6,6 @@ export type { StatefulButtonProps, ButtonState } from "./stateful";
 
 export { MagneticButton } from "./magnetic";
 export type { MagneticButtonProps } from "./magnetic";
+
+export { MetallicButton } from "./metallic";
+export type { MetallicButtonProps } from "./metallic";
