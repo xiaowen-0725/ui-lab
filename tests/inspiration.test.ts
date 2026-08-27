@@ -13,8 +13,8 @@ import {
 } from "@/lib/inspiration";
 
 describe("inspiration sources", () => {
-	test("ships the 24 reviewed sources", () => {
-		expect(INSPIRATION_SOURCES).toHaveLength(24);
+	test("ships the 27 reviewed sources", () => {
+		expect(INSPIRATION_SOURCES).toHaveLength(27);
 		expect(INSPIRATION_SOURCES.map((source) => source.slug)).toEqual(
 			expect.arrayContaining([
 				"dribbble",
@@ -32,6 +32,9 @@ describe("inspiration sources", () => {
 				"shadcn-studio",
 				"react-bits",
 				"checklist-design",
+				"motionsites",
+				"uiverse",
+				"aceternity-ui",
 			]),
 		);
 		expect(
@@ -162,10 +165,10 @@ describe("inspiration brand references", () => {
 });
 
 describe("inspiration sites", () => {
-	test("ships 26 unique accepted external website references", async () => {
-		expect(INSPIRATION_SITES).toHaveLength(26);
-		expect(new Set(INSPIRATION_SITES.map((site) => site.slug)).size).toBe(26);
-		expect(new Set(INSPIRATION_SITES.map((site) => site.canonicalUrl)).size).toBe(26);
+	test("ships 27 unique accepted external website references", async () => {
+		expect(INSPIRATION_SITES).toHaveLength(27);
+		expect(new Set(INSPIRATION_SITES.map((site) => site.slug)).size).toBe(27);
+		expect(new Set(INSPIRATION_SITES.map((site) => site.canonicalUrl)).size).toBe(27);
 		for (const site of INSPIRATION_SITES) {
 			expect(site.entryKind).toBe("site");
 			expect(site.rightsStatus).toBe("external-only");
