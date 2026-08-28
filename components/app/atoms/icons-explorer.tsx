@@ -5,11 +5,11 @@ import { AnimatedIconsSection } from "@/components/app/atoms/animated-icons";
 import { AtomCard } from "@/components/app/atoms/atom-card";
 import { AtomExportActions } from "@/components/app/atoms/atom-export-actions";
 import { CopyValue } from "@/components/app/atoms/copy-value";
-import { IconLibraryLinks } from "@/components/app/atoms/icon-library-links";
 import type { IconLibrary } from "@/components/app/atoms/icon-library-links";
+import { IconLibraryLinks } from "@/components/app/atoms/icon-library-links";
 import type { Locale } from "@/i18n/routing";
-import { createIconsExports, ICON_STYLES } from "@/lib/atoms";
 import type { IconStyleAtom } from "@/lib/atoms";
+import { createIconsExports, ICON_STYLES } from "@/lib/atoms";
 import { cn } from "@/lib/utils";
 
 type IconShape = "home" | "search" | "gear" | "heart" | "star";
@@ -29,6 +29,13 @@ const STATIC_ICON_LIBRARIES: readonly IconLibrary[] = [
     href: "https://heroicons.com",
     desc: "MIT · by the Tailwind team; ships outline + solid (filled) sets.",
     descZh: "MIT · Tailwind 团队出品，线性 + 面性(solid)两套",
+  },
+  {
+    name: "Reicon",
+    href: "https://reicon.dev/icons",
+    desc: "MIT project · 24px outline + filled icons, with React packages and AI-friendly MCP/LLM indexes; review upstream credits for source-specific terms.",
+    descZh:
+      "MIT 项目 · 24px 线性 + 面性图标，提供 React 包与 AI 友好的 MCP/LLM 索引；特定来源的条款请查看上游致谢。",
   },
   {
     name: "Phosphor",
