@@ -1,9 +1,13 @@
 "use client";
 
-import { Check, X } from "lucide-react";
 import { LayoutGroup, motion, useReducedMotion } from "motion/react";
 import { useCallback, useState } from "react";
 import { NumberTicker } from "@/components/motion/number-ticker";
+import {
+  BillingCheckIcon,
+  BillingInfoIcon,
+  BillingXIcon,
+} from "@/components/motion/startup-visuals-icons";
 import { SPRING_LAYOUT, SPRING_PRESS } from "@/lib/ease";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { cn } from "@/lib/utils";
@@ -208,13 +212,20 @@ export function BillingPlanGrid({
                     className="flex items-start gap-2 text-sm text-muted-foreground"
                   >
                     {feature.included ? (
-                      <Check className="mt-0.5 size-4 shrink-0 text-foreground" />
+                      <BillingCheckIcon className="mt-0.5 size-4 shrink-0 text-foreground" />
                     ) : (
-                      <X className="mt-0.5 size-4 shrink-0 text-muted-foreground/50" />
+                      <BillingXIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground/50" />
                     )}
-                    <span className={feature.included ? "text-foreground" : "line-through opacity-60"}>
+                    <span className={cn("min-w-0 flex-1", feature.included ? "text-foreground" : "line-through opacity-60")}>
                       {feature.label}
                     </span>
+                    <button
+                      type="button"
+                      aria-label={`About ${feature.label}`}
+                      className="mt-0.5 text-muted-foreground/70 outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-foreground/20"
+                    >
+                      <BillingInfoIcon />
+                    </button>
                   </li>
                 ))}
               </ul>

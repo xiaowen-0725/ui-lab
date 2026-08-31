@@ -1,8 +1,8 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { type ReactNode, useCallback, useId, useState } from "react";
+import { UpgradeGlyph, UpgradePlusMark } from "@/components/motion/startup-visuals-icons";
 import { EASE_OUT, SPRING_PANEL, SPRING_PRESS } from "@/lib/ease";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { cn } from "@/lib/utils";
@@ -23,7 +23,7 @@ export interface UpgradePaywallProps {
 export function UpgradePaywall({
   title,
   description,
-  actionLabel = "Upgrade plan",
+  actionLabel = "Upgrade Plan",
   onAction,
   icon,
   open: openProp,
@@ -84,8 +84,8 @@ export function UpgradePaywall({
               transition={SPRING_PANEL}
               className="relative z-10 w-full max-w-sm rounded-2xl border border-border bg-card p-6 text-center shadow-xl"
             >
-              <div className="mx-auto mb-4 flex size-11 items-center justify-center rounded-xl bg-foreground text-background">
-                {icon ?? <ArrowUpRight className="size-5" />}
+              <div className="mx-auto mb-4 flex justify-center">
+                {icon ?? <UpgradePlusMark className="size-11" />}
               </div>
               <h3 id={titleId} className="text-lg font-semibold tracking-tight text-foreground">
                 {title}
@@ -103,8 +103,9 @@ export function UpgradePaywall({
                 }}
                 whileTap={reduce || !canHover ? undefined : { scale: 0.96 }}
                 transition={SPRING_PRESS}
-                className="mt-5 inline-flex h-10 w-full items-center justify-center rounded-lg bg-foreground px-4 text-sm font-medium text-background outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
+                className="mt-5 inline-flex h-10 w-full items-center justify-center gap-2 rounded-full bg-foreground px-4 text-sm font-medium text-background outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
               >
+                <UpgradeGlyph className="size-4" />
                 {actionLabel}
               </motion.button>
             </motion.div>

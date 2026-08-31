@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { ViewLayoutSwitch } from "@/components/motion/view-layout-switch";
+import {
+  DEFAULT_SURFACE_LAYOUTS,
+  ViewLayoutSwitch,
+} from "@/components/motion/view-layout-switch";
 
 const COPY: Record<string, { title: string; body: string }> = {
   list: { title: "List", body: "Dense rows with status, owner, and due date." },
@@ -23,7 +26,11 @@ export function ViewLayoutSwitchPreview() {
           <p className="text-sm font-medium text-foreground">{current.title} view</p>
           <p className="text-xs text-muted-foreground">{current.body}</p>
         </div>
-        <ViewLayoutSwitch variant="menu" value={layout} onValueChange={setLayout} />
+        <ViewLayoutSwitch
+          variant="menu"
+          layouts={DEFAULT_SURFACE_LAYOUTS}
+          defaultValue="side-drawer"
+        />
       </div>
       <div className="grid w-full grid-cols-3 gap-2">
         {(layout === "list"

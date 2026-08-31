@@ -2,18 +2,16 @@
 
 import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from "motion/react";
 import {
-  ChevronDown,
-  ChevronRight,
-  PanelLeftClose,
-  PanelLeftOpen,
-  Search,
-} from "lucide-react";
-import {
   type ReactNode,
   useCallback,
   useId,
   useState,
 } from "react";
+import {
+  ChevronDownIcon,
+  ChevronRightIcon,
+  SidebarToggleIcon,
+} from "@/components/motion/startup-visuals-icons";
 import { EASE_OUT, SPRING_LAYOUT, SPRING_PRESS } from "@/lib/ease";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { cn } from "@/lib/utils";
@@ -58,7 +56,7 @@ const RAIL_WIDTH = 64;
 export function CollapsibleSidebar({
   workspaceName,
   workspaceIcon,
-  searchPlaceholder = "Search",
+  searchPlaceholder = "Command",
   onSearch,
   items = [],
   groups = [],
@@ -146,11 +144,7 @@ export function CollapsibleSidebar({
             transition={SPRING_PRESS}
             className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg text-muted-foreground outline-none hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-foreground/20"
           >
-            {collapsed ? (
-              <PanelLeftOpen className="size-4" />
-            ) : (
-              <PanelLeftClose className="size-4" />
-            )}
+            <SidebarToggleIcon className="size-4" />
           </motion.button>
         </div>
 
@@ -164,7 +158,7 @@ export function CollapsibleSidebar({
               transition={SPRING_PRESS}
               className="mx-auto flex size-8 items-center justify-center rounded-lg text-muted-foreground outline-none hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-foreground/20"
             >
-              <Search className="size-4" />
+              <span className="text-sm font-medium">⌘</span>
             </motion.button>
           ) : (
             <button
@@ -172,11 +166,9 @@ export function CollapsibleSidebar({
               onClick={onSearch}
               className="flex h-8 w-full items-center gap-2 rounded-lg border border-border bg-background px-2.5 text-left text-xs text-muted-foreground outline-none hover:border-foreground/20 focus-visible:ring-2 focus-visible:ring-foreground/20"
             >
-              <Search className="size-3.5 shrink-0" />
+              <span className="shrink-0 text-[13px] font-medium">⌘</span>
               <span className="truncate">{searchPlaceholder}</span>
-              <kbd className="ml-auto rounded bg-muted px-1.5 py-0.5 font-mono text-[10px]">
-                ⌘K
-              </kbd>
+              <span className="ml-auto text-muted-foreground/80">/</span>
             </button>
           )}
         </div>
@@ -212,7 +204,7 @@ export function CollapsibleSidebar({
                     className="mb-1 flex w-full items-center gap-1 px-2 text-[11px] font-medium tracking-wide text-muted-foreground uppercase outline-none hover:text-foreground"
                   >
                     <span className="flex-1 truncate text-left">{group.label}</span>
-                    <ChevronDown
+                    <ChevronDownIcon
                       className={cn("size-3 transition-transform", !open && "-rotate-90")}
                     />
                   </button>
@@ -374,7 +366,7 @@ function SidebarRow({
             onClick={() => onToggleFolder(item.id)}
             className="relative z-10 mr-1 inline-flex size-6 items-center justify-center rounded-md text-muted-foreground outline-none hover:bg-background hover:text-foreground focus-visible:ring-2 focus-visible:ring-foreground/20"
           >
-            <ChevronRight
+            <ChevronRightIcon
               className={cn("size-3.5 transition-transform", folderOpen && "rotate-90")}
             />
           </button>

@@ -1,14 +1,5 @@
 "use client";
 
-import {
-  CalendarDays,
-  Check,
-  ChevronDown,
-  Columns3,
-  GanttChart,
-  LayoutDashboard,
-  List,
-} from "lucide-react";
 import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from "motion/react";
 import {
   type ReactNode,
@@ -18,6 +9,19 @@ import {
   useRef,
   useState,
 } from "react";
+import {
+  CalendarViewIcon,
+  ChevronDownIcon,
+  DashboardViewIcon,
+  FullPageIcon,
+  GanttViewIcon,
+  KanbanViewIcon,
+  ListViewIcon,
+  MinimizeIcon,
+  PopUpIcon,
+  SelectedCheckIcon,
+  SideDrawerIcon,
+} from "@/components/motion/startup-visuals-icons";
 import { EASE_OUT, SPRING_LAYOUT, SPRING_PANEL, SPRING_PRESS } from "@/lib/ease";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { cn } from "@/lib/utils";
@@ -39,11 +43,18 @@ export interface ViewLayoutSwitchProps {
 }
 
 export const DEFAULT_VIEW_LAYOUTS: ViewLayoutOption[] = [
-  { id: "list", label: "List", description: "Compact rows", icon: <List className="size-4" /> },
-  { id: "kanban", label: "Kanban", description: "Board columns", icon: <Columns3 className="size-4" /> },
-  { id: "gantt", label: "Gantt", description: "Timeline bars", icon: <GanttChart className="size-4" /> },
-  { id: "calendar", label: "Calendar", description: "Month grid", icon: <CalendarDays className="size-4" /> },
-  { id: "dashboard", label: "Dashboard", description: "Widget mosaic", icon: <LayoutDashboard className="size-4" /> },
+  { id: "list", label: "List", description: "Compact rows", icon: <ListViewIcon /> },
+  { id: "kanban", label: "Kanban", description: "Board columns", icon: <KanbanViewIcon /> },
+  { id: "gantt", label: "Gantt", description: "Timeline bars", icon: <GanttViewIcon /> },
+  { id: "calendar", label: "Calendar", description: "Month grid", icon: <CalendarViewIcon /> },
+  { id: "dashboard", label: "Dashboard", description: "Widget mosaic", icon: <DashboardViewIcon /> },
+];
+
+export const DEFAULT_SURFACE_LAYOUTS: ViewLayoutOption[] = [
+  { id: "side-drawer", label: "Side Drawer", description: "Docked inspector", icon: <SideDrawerIcon /> },
+  { id: "full-page", label: "Full Page", description: "Fill the workspace", icon: <FullPageIcon /> },
+  { id: "pop-up", label: "Pop Up", description: "Centered overlay", icon: <PopUpIcon /> },
+  { id: "minimize", label: "Minimize", description: "Collapse the surface", icon: <MinimizeIcon /> },
 ];
 
 export function ViewLayoutSwitch({
@@ -174,7 +185,7 @@ function LayoutMenu({
           {current?.icon}
           {current?.label ?? "Layout"}
         </span>
-        <ChevronDown className={cn("size-3.5 text-muted-foreground transition-transform", open && "rotate-180")} />
+        <ChevronDownIcon className={cn("size-3.5 text-muted-foreground transition-transform", open && "rotate-180")} />
       </motion.button>
 
       <AnimatePresence>
@@ -224,7 +235,7 @@ function LayoutMenu({
                         <span className="block text-xs text-muted-foreground">{layout.description}</span>
                       ) : null}
                     </span>
-                    {selected ? <Check className="relative z-10 size-4 text-emerald-600" /> : null}
+                    {selected ? <SelectedCheckIcon className="relative z-10 size-4" /> : null}
                   </button>
                 );
               })}

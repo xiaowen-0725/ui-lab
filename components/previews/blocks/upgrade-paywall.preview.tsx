@@ -1,6 +1,5 @@
 "use client";
 
-import { Lock } from "lucide-react";
 import { useState } from "react";
 import { UpgradePaywall } from "@/components/motion/upgrade-paywall";
 
@@ -30,8 +29,7 @@ export function UpgradePaywallPreview() {
         onOpenChange={setOpen}
         title="Upgrade to unlock reports"
         description="This workspace is on the starter plan. Reports, exports, and saved views stay locked until you move to Business."
-        actionLabel="Upgrade plan"
-        icon={<Lock className="size-5" />}
+        actionLabel="Upgrade Plan"
         className="min-h-[360px] border border-border"
       >
         <div className="p-4">

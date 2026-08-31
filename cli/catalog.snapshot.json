@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T07:05:17.541Z",
+  "generatedAt": "2026-08-31T12:50:21.480Z",
   "count": 184,
   "items": [
     {
@@ -2516,7 +2516,8 @@
       },
       "sourceFile": "components/motion/collapsible-sidebar.tsx",
       "sourceFiles": [
-        "components/motion/collapsible-sidebar.tsx"
+        "components/motion/collapsible-sidebar.tsx",
+        "components/motion/startup-visuals-icons.tsx"
       ]
     },
     {
@@ -2542,7 +2543,8 @@
       },
       "sourceFile": "components/motion/upgrade-paywall.tsx",
       "sourceFiles": [
-        "components/motion/upgrade-paywall.tsx"
+        "components/motion/upgrade-paywall.tsx",
+        "components/motion/startup-visuals-icons.tsx"
       ]
     },
     {
@@ -2568,7 +2570,8 @@
       },
       "sourceFile": "components/motion/view-layout-switch.tsx",
       "sourceFiles": [
-        "components/motion/view-layout-switch.tsx"
+        "components/motion/view-layout-switch.tsx",
+        "components/motion/startup-visuals-icons.tsx"
       ]
     },
     {
@@ -2595,7 +2598,8 @@
       "sourceFile": "components/motion/billing-plan-grid.tsx",
       "sourceFiles": [
         "components/motion/billing-plan-grid.tsx",
-        "components/motion/number-ticker.tsx"
+        "components/motion/number-ticker.tsx",
+        "components/motion/startup-visuals-icons.tsx"
       ]
     },
     {

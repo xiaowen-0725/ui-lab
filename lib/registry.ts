@@ -2265,6 +2265,7 @@ export const registry: CategoryEntry[] = [
         descriptionZh:
           "多级工作区导航：在展开树与图标轨之间弹簧切换，支持嵌套文件夹、计数徽章与标签淡出。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
         file: "components/motion/collapsible-sidebar.tsx",
+        extraFiles: ["components/motion/startup-visuals-icons.tsx"],
         badge: "new",
         launchedAt: "2026-08-31",
         keywords: [
@@ -2285,6 +2286,7 @@ export const registry: CategoryEntry[] = [
         descriptionZh:
           "产品内付费墙：底层内容模糊并降饱和，中央升级卡片弹出。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
         file: "components/motion/upgrade-paywall.tsx",
+        extraFiles: ["components/motion/startup-visuals-icons.tsx"],
         badge: "new",
         launchedAt: "2026-08-31",
         keywords: [
@@ -2304,6 +2306,7 @@ export const registry: CategoryEntry[] = [
         descriptionZh:
           "List / Kanban / Gantt / Calendar / Dashboard 的共享布局切换器，提供滑动胶囊页签或紧凑菜单。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
         file: "components/motion/view-layout-switch.tsx",
+        extraFiles: ["components/motion/startup-visuals-icons.tsx"],
         badge: "new",
         launchedAt: "2026-08-31",
         keywords: [
@@ -2323,7 +2326,10 @@ export const registry: CategoryEntry[] = [
         descriptionZh:
           "组织账单方案网格：Free / Pro / Enterprise 三列、月付与年付切换、当前方案高亮，价格数字滚动变形。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
         file: "components/motion/billing-plan-grid.tsx",
-        extraFiles: ["components/motion/number-ticker.tsx"],
+        extraFiles: [
+          "components/motion/number-ticker.tsx",
+          "components/motion/startup-visuals-icons.tsx",
+        ],
         badge: "new",
         launchedAt: "2026-08-31",
         keywords: [
