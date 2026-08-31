@@ -220,7 +220,7 @@ export function CollapsibleSidebar({
             )}
           </div>
 
-          <nav className="mt-3 flex-1 overflow-y-auto px-2 pb-3 [scrollbar-width:thin]">
+          <nav className="mt-2 flex-1 overflow-y-auto px-2 pb-1 [scrollbar-width:thin]">
             <ul className="flex flex-col gap-0.5">
               {items.map((item) => (
                 <SidebarRow
@@ -241,7 +241,7 @@ export function CollapsibleSidebar({
             {groups.map((group) => {
               const open = openGroups[group.id] ?? true;
               return (
-                <div key={group.id} className="mt-2.5">
+                <div key={group.id} className="mt-2">
                   {collapsed ? (
                     <div className="mx-auto mb-1 h-px w-6 bg-[#e4e4e7]" />
                   ) : (

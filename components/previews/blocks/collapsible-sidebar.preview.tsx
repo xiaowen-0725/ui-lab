@@ -164,20 +164,20 @@ function UpgradeCard({ collapsed }: { collapsed: boolean }) {
   }
 
   return (
-    <div className="rounded-[16px] border border-[#ececee] bg-white p-2.5 shadow-[0_8px_24px_rgba(17,17,19,0.04)]">
-      <div className="relative mb-2 overflow-hidden rounded-[12px] bg-[#f3f3f5]">
-        <div className="grid h-[48px] grid-cols-3 gap-1 p-1.5">
+    <div className="rounded-[14px] border border-[#ececee] bg-white p-1.5 shadow-[0_8px_24px_rgba(17,17,19,0.04)]">
+      <div className="relative mb-1.5 overflow-hidden rounded-[10px] bg-[#f3f3f5]">
+        <div className="grid h-9 grid-cols-3 gap-1 p-1">
           <div className="rounded-md bg-white shadow-sm" />
           <div className="rounded-md bg-white shadow-sm" />
           <div className="rounded-md bg-[#ececee]" />
         </div>
         <span className="absolute inset-0 flex items-center justify-center">
-          <PlayGlyph className="size-7 drop-shadow-sm" />
+          <PlayGlyph className="size-5 drop-shadow-sm" />
         </span>
       </div>
       <button
         type="button"
-        className="inline-flex h-8 w-full items-center justify-center gap-1.5 rounded-full bg-[#111113] text-[12px] font-medium text-white"
+        className="inline-flex h-7 w-full items-center justify-center gap-1.5 rounded-full bg-[#111113] text-[12px] font-medium text-white"
       >
         Upgrade Plan
         <UpgradeBowlGlyph className="size-3.5" />
@@ -190,7 +190,7 @@ export function CollapsibleSidebarPreview() {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <ProductChrome scheme="light" className="flex h-[700px]">
+    <ProductChrome scheme="light" className="flex h-[760px]">
       <CollapsibleSidebar
         workspaceName="Starline™ AI"
         workspaceIcon={<BrandMark className="size-8" />}
