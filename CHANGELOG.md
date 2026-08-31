@@ -20,7 +20,7 @@
 - 灵感库 21 个来源卡片新增带来源和采集日期的真实网站首屏预览，图片整块可直接访问原站，并纳入统一截图质量审计。
 
 ### 新增
-- **灵感库「来源」新增 `startup-visuals`**：Louis Nguyen / Startup Visuals 的 B2B SaaS 产品界面动效参考流（侧栏、命令面板、集成抽屉、付费墙、数据表、Agent 工作区），`external-only`，带第一方 provenance（X / 官网 / Dribbble）与 1440×900 首屏截图。
+- **灵感库「来源」新增 `startup-visuals`**：Louis Nguyen / Startup Visuals 的 B2B SaaS 产品界面动效参考（X / Dribbble 动态，不是案例 CMS）。官网是 Hero + logo 跑马灯 + 评价 + 不可点击的 Dribbble ticker；`external-only`，provenance 含 X / 官网 / Dribbble，截图取自 https://startupvisuals.com/ 首屏。
 - **「区块 / Blocks」新增 4 个 SaaS 产品界面模式**（模式受 @startupvisuals / Startup Visuals 启发，实现为原创，未复制品牌或像素稿）：`collapsible-sidebar`（展开树 ⇄ 图标轨）、`upgrade-paywall`（模糊降饱和内容上的升级门禁）、`view-layout-switch`（List / Kanban / Gantt / Calendar / Dashboard 滑动切换）、`billing-plan-grid`（月付/年付方案网格与价格数字变形）。
 - **「区块 / Blocks」新增 13 个 AI 向界面原语**（活样本 + registry，不含 Agent runtime）：beUI（MIT）补 `reasoning-text`、`agent-progress`、`ai-sidebar`；Vercel AI Elements（Apache-2.0）补 `reasoning`、`chain-of-thought`、`sources`、`inline-citation`、`plan`、`task`、`queue`、`confirmation`、`suggestion`、`jsx-preview`。导入已适配 ui-lab 原语；许可见各文件头、`NOTICE` 与 `licenses/AI-ELEMENTS-APACHE-2.0.txt`。未移植 chat-app / message 族，也未移植 file-tree / artifact / code-block / prompt-input / shimmer。
 - **自 beUI（starc007/ui-components, MIT）移植 4 个组件**：`file-tree`（动画文件树）、`button-metallic`（金属按钮，Button 变体）、`expandable-control`（可展开控件）、`morphing-search`（变形搜索，源码在 `components/motion/`、Catalog 归入区块）。保留上游 MIT 归属，按 UI Lab 公式登记双语名/别名、活预览与 registry。
