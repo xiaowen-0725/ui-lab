@@ -241,7 +241,7 @@ export function CollapsibleSidebar({
             {groups.map((group) => {
               const open = openGroups[group.id] ?? true;
               return (
-                <div key={group.id} className="mt-4">
+                <div key={group.id} className="mt-2.5">
                   {collapsed ? (
                     <div className="mx-auto mb-1 h-px w-6 bg-[#e4e4e7]" />
                   ) : (
@@ -397,7 +397,7 @@ function SidebarRow({
           }
           transition={SPRING_PRESS}
           className={cn(
-            "relative z-10 flex min-h-8 min-w-0 flex-1 items-center gap-2 rounded-[10px] px-2 text-left text-[13px] outline-none focus-visible:ring-2 focus-visible:ring-[#111113]/15",
+            "relative z-10 flex min-h-7 min-w-0 flex-1 items-center gap-2 rounded-[10px] px-2 text-left text-[13px] outline-none focus-visible:ring-2 focus-visible:ring-[#111113]/15",
             collapsed && "size-8 flex-none justify-center px-0",
             active ? "text-[#111113]" : "text-[#6f6f78] hover:text-[#111113]",
           )}

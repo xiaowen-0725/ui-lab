@@ -131,7 +131,7 @@ function GlobalRail() {
 
   return (
     <div className="flex h-full flex-col items-center py-3">
-      <div className="flex flex-1 flex-col items-center gap-2 text-[#8a8a93]">
+      <div className="flex flex-1 flex-col items-center gap-1.5 text-[#8a8a93]">
         {icons.map((item) => (
           <span
             key={item.id}
@@ -166,7 +166,7 @@ function UpgradeCard({ collapsed }: { collapsed: boolean }) {
   return (
     <div className="rounded-[16px] border border-[#ececee] bg-white p-2.5 shadow-[0_8px_24px_rgba(17,17,19,0.04)]">
       <div className="relative mb-2 overflow-hidden rounded-[12px] bg-[#f3f3f5]">
-        <div className="grid h-[72px] grid-cols-3 gap-1.5 p-2">
+        <div className="grid h-[48px] grid-cols-3 gap-1 p-1.5">
           <div className="rounded-md bg-white shadow-sm" />
           <div className="rounded-md bg-white shadow-sm" />
           <div className="rounded-md bg-[#ececee]" />
@@ -190,7 +190,7 @@ export function CollapsibleSidebarPreview() {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <ProductChrome scheme="light" className="flex h-[620px]">
+    <ProductChrome scheme="light" className="flex h-[700px]">
       <CollapsibleSidebar
         workspaceName="Starline™ AI"
         workspaceIcon={<BrandMark className="size-8" />}
