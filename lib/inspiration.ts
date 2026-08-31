@@ -1010,6 +1010,47 @@ const INSPIRATION_SOURCE_RECORDS: readonly InspirationSourceRecord[] = [
     ],
     reviewedAt: "2026-08-08",
   },
+  {
+    slug: "startup-visuals",
+    entryKind: "source",
+    name: "Startup Visuals",
+    nameZh: "Startup Visuals 产品界面参考",
+    aliases: ["@startupvisuals", "Louis Nguyen", "louisdainguyen"],
+    url: "https://x.com/startupvisuals",
+    canonicalUrl: "https://x.com/startupvisuals",
+    description:
+      "A B2B SaaS product-UI motion reference — sidebars, command palettes, integrations, paywalls, tables, and agent workspaces — published as an X and Dribbble feed, not a marketing-site eye-candy gallery and not a case-study CMS. The official homepage is a studio hero, client-logo marquee, testimonials, and a non-clickable full-bleed ticker of Dribbble shots (ClickUp-hosted PNGs named \"<Project> Dribbble <n>.png\"); named ticker projects include netair™, Revisions, Boards/Starline™ AI, aether.ai, Adaptio, Stacks, CRM App/Evergreen, AI Host, AI Chatbot, thoughts™, Unpaid, and appship.us. The site light/dark toggle restyles chrome only, not the gallery set.",
+    descriptionZh:
+      "B2B SaaS 产品界面动效参考（侧栏、命令面板、集成、付费墙、数据表、Agent 工作区），以 X / Dribbble 动态发布，既不是营销站花活图库，也不是案例 CMS。官网首页是工作室 Hero、客户 logo 跑马灯、客户评价，外加一条不可点击的 Dribbble 全幅 ticker（ClickUp 托管的「项目名 Dribbble n.png」）；ticker 上出现的项目包括 netair™、Revisions、Boards/Starline™ AI、aether.ai、Adaptio、Stacks、CRM App/Evergreen、AI Host、AI Chatbot、thoughts™、Unpaid、appship.us。站点亮暗切换只改外壳，不换图库。",
+    primaryTheme: "product-ui",
+    secondaryThemes: ["motion-3d", "social-marketing"],
+    contentTypes: ["web-interface", "app-screen", "motion"],
+    useCases: ["ui-inspiration", "product-design", "motion-reference"],
+    visualTraits: ["minimal", "dark-mode", "animated"],
+    access: "public",
+    rightsStatus: "external-only",
+    provenance: [
+      {
+        url: "https://x.com/startupvisuals",
+        kind: "first-party",
+        note: "Official X feed by Louis Nguyen, posting B2B SaaS product-UI motion cases.",
+        noteZh: "Louis Nguyen 的官方 X 动态，发布 B2B SaaS 产品界面动效案例。",
+      },
+      {
+        url: "https://startupvisuals.com/",
+        kind: "first-party",
+        note: "Official studio homepage: hero, client-logo marquee, testimonials, and a non-clickable full-bleed Dribbble image ticker (ClickUp-hosted PNGs). Outbound links go to X, Dribbble, and Cal.com. Light/dark changes chrome only, not the gallery set. First-viewport capture used for the inspiration screenshot.",
+        noteZh: "官方工作室首页：Hero、客户 logo 跑马灯、客户评价，以及不可点击的 Dribbble 全幅图片 ticker（ClickUp 托管 PNG）。出站链接为 X、Dribbble 与 Cal.com。亮暗切换只改外壳，不换图库。灵感截图取自此站首屏。",
+      },
+      {
+        url: "https://dribbble.com/louisdainguyen",
+        kind: "first-party",
+        note: "Official Dribbble profile; the homepage ticker is a non-clickable reel of these shots, not an on-site case CMS.",
+        noteZh: "官方 Dribbble 主页；官网 ticker 是这些稿件的不可点击转轮，不是站内案例 CMS。",
+      },
+    ],
+    reviewedAt: "2026-08-31",
+  },
 ];
 
 export const INSPIRATION_SOURCES: readonly InspirationSource[] =

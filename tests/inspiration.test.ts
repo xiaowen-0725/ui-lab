@@ -13,8 +13,8 @@ import {
 } from "@/lib/inspiration";
 
 describe("inspiration sources", () => {
-	test("ships the 27 reviewed sources", () => {
-		expect(INSPIRATION_SOURCES).toHaveLength(27);
+	test("ships the 28 reviewed sources", () => {
+		expect(INSPIRATION_SOURCES).toHaveLength(28);
 		expect(INSPIRATION_SOURCES.map((source) => source.slug)).toEqual(
 			expect.arrayContaining([
 				"dribbble",
@@ -35,6 +35,7 @@ describe("inspiration sources", () => {
 				"motionsites",
 				"uiverse",
 				"aceternity-ui",
+				"startup-visuals",
 			]),
 		);
 		expect(

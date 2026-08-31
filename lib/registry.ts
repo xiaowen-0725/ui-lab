@@ -2256,6 +2256,90 @@ export const registry: CategoryEntry[] = [
           "生成界面预览",
         ],
       },
+      {
+        slug: "collapsible-sidebar",
+        name: "Collapsible Sidebar",
+        nameZh: "可折叠侧栏",
+        description:
+          "A light dual-pane workspace nav: a persistent global icon strip plus a labeled tree that springs to an icon rail, with nested project folders and count badges. Pattern inspired by @startupvisuals / Startup Visuals; original implementation.",
+        descriptionZh:
+          "浅色双栏工作区导航：左侧常驻全局图标条，右侧带标签的树在展开与图标轨之间弹簧切换，支持嵌套项目文件夹与计数徽章。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
+        file: "components/motion/collapsible-sidebar.tsx",
+        extraFiles: ["components/motion/startup-visuals-icons.tsx"],
+        badge: "new",
+        launchedAt: "2026-08-31",
+        keywords: [
+          "collapsible sidebar react",
+          "icon rail navigation",
+          "workspace sidebar",
+          "nested nav tree",
+          "可折叠侧栏",
+          "图标轨导航",
+        ],
+      },
+      {
+        slug: "upgrade-paywall",
+        name: "Upgrade Paywall",
+        nameZh: "升级付费墙",
+        description:
+          "A light-dashboard paywall that blurs and desaturates a real companies table, then pops a centered Business+ upgrade card. Pattern inspired by @startupvisuals / Startup Visuals; original implementation.",
+        descriptionZh:
+          "浅色看板付费墙：底层真实公司表模糊并降饱和，中央弹出 Business+ 升级卡。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
+        file: "components/motion/upgrade-paywall.tsx",
+        extraFiles: ["components/motion/startup-visuals-icons.tsx"],
+        badge: "new",
+        launchedAt: "2026-08-31",
+        keywords: [
+          "upgrade paywall react",
+          "feature gate overlay",
+          "blurred content lock",
+          "升级付费墙",
+          "功能门禁",
+        ],
+      },
+      {
+        slug: "view-layout-switch",
+        name: "View Layout Switch",
+        nameZh: "视图布局切换",
+        description:
+          "A product-surface switcher: sliding List / Kanban / Gantt / Calendar / Dashboard pills, plus a SWITCH LAYOUT menu for Side Drawer, Full Page, Pop Up, and Minimize. Pattern inspired by @startupvisuals / Startup Visuals; original implementation.",
+        descriptionZh:
+          "产品表面切换器：List / Kanban / Gantt / Calendar / Dashboard 滑动胶囊，外加 Side Drawer / Full Page / Pop Up / Minimize 的 SWITCH LAYOUT 菜单。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
+        file: "components/motion/view-layout-switch.tsx",
+        extraFiles: ["components/motion/startup-visuals-icons.tsx"],
+        badge: "new",
+        launchedAt: "2026-08-31",
+        keywords: [
+          "view layout switch react",
+          "kanban gantt calendar toggle",
+          "sliding pill tabs",
+          "视图布局切换",
+          "看板甘特切换",
+        ],
+      },
+      {
+        slug: "billing-plan-grid",
+        name: "Billing Plan Grid",
+        nameZh: "账单方案网格",
+        description:
+          "A dark organization billing grid with Free / Pro / Enterprise columns, a monthly↔annual pill, purple current-plan treatment, and a number morph on price. Pattern inspired by @startupvisuals / Startup Visuals; original implementation.",
+        descriptionZh:
+          "深色组织账单方案网格：Free / Pro / Enterprise 三列、月付与年付胶囊、紫色当前方案，价格数字滚动变形。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
+        file: "components/motion/billing-plan-grid.tsx",
+        extraFiles: [
+          "components/motion/number-ticker.tsx",
+          "components/motion/startup-visuals-icons.tsx",
+        ],
+        badge: "new",
+        launchedAt: "2026-08-31",
+        keywords: [
+          "billing plan grid react",
+          "pricing table monthly annual",
+          "current plan highlight",
+          "账单方案网格",
+          "月付年付定价",
+        ],
+      },
     ],
   },
   {

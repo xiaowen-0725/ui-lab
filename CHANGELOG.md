@@ -12,6 +12,8 @@
 
 ### 变更
 
+- 四个 Startup Visuals 活样本的预览改为自包含产品 chrome，不再继承文档站深色空画布：`collapsible-sidebar` 默认展开浅色双栏（全局图标条 + 标签导航）并带真实任务表；`upgrade-paywall` 浅色公司表 + 居中 Business+ 卡；`view-layout-switch` 为 Ask Rune 浅色工作面且 SWITCH LAYOUT 菜单默认打开；`billing-plan-grid` 炭黑页、紫色当前方案与细线 check/x/info。项目标改为 Tuesday 日历 / Jammio 气泡 / Create 网格 / Thoughts 橙方 / Consumex 圆盘，不再用字母砖。
+- 四个 Startup Visuals 活样本的可见图标改为按原稿描摹的描边 SVG（双杠折叠、⌘ Command、付费墙 plus/升级箭、布局切换与账单 check/x/info），不再用 Lucide 近似替换。
 - 新增唯一产品北极星 `PRODUCT_DEFINITION.md`，将 UI Lab 固化为以 Catalog + machine-readable contracts 为核心的受约束装配系统；目标六层统一为 Design Intent / System / Asset / Composition / Implementation / Verification，正式链路统一为 versioned Design System Package → OrderDraft → selection approval → OrderLock → implementation → EvidenceBundle → acceptance/release。同步澄清 Theme Kit/System Preset/config/CatalogLock/current Order Manifest/Studio 的 current bridge 边界，Codex 仅为 optional Package/reference，Parking 仅为 Existing Adoption fixture；Skill、Application Kit 与 benchmark 文档不再把 planned Package schema、dedicated capabilities 或 Order CLI 写成已实现。
 - Agent Workbench skin contract 新增语义化 `--wb-overlay-scrim`，完整 token 数由 42 升为 43；`AgentInbox` / `InboxItem` 与 `SettingsGroup` 新增默认不破坏现有 card 外观的 `quiet` 变体，供 Codex 风 Board / Connectors 复用真实 Preset 组件构成扁平 hairline 行；`settings-panel` registry item 同步携带完整 43 项 light / dark token。
 - 灵感库网站与品牌卡片改用带来源、采集日期与版权归属的真实官网首屏截图，整张预览图可直接访问对应网站；新增批量采集与质量审计脚本。
@@ -20,6 +22,8 @@
 - 灵感库 21 个来源卡片新增带来源和采集日期的真实网站首屏预览，图片整块可直接访问原站，并纳入统一截图质量审计。
 
 ### 新增
+- **灵感库「来源」新增 `startup-visuals`**：Louis Nguyen / Startup Visuals 的 B2B SaaS 产品界面动效参考（X / Dribbble 动态，不是案例 CMS）。官网是 Hero + logo 跑马灯 + 评价 + 不可点击的 Dribbble ticker；`external-only`，provenance 含 X / 官网 / Dribbble，截图取自 https://startupvisuals.com/ 首屏。
+- **「区块 / Blocks」新增 4 个 SaaS 产品界面模式**（模式受 @startupvisuals / Startup Visuals 启发，实现为原创，未复制品牌或像素稿）：`collapsible-sidebar`（展开树 ⇄ 图标轨）、`upgrade-paywall`（模糊降饱和内容上的升级门禁）、`view-layout-switch`（List / Kanban / Gantt / Calendar / Dashboard 滑动切换）、`billing-plan-grid`（月付/年付方案网格与价格数字变形）。
 - **「区块 / Blocks」新增 13 个 AI 向界面原语**（活样本 + registry，不含 Agent runtime）：beUI（MIT）补 `reasoning-text`、`agent-progress`、`ai-sidebar`；Vercel AI Elements（Apache-2.0）补 `reasoning`、`chain-of-thought`、`sources`、`inline-citation`、`plan`、`task`、`queue`、`confirmation`、`suggestion`、`jsx-preview`。导入已适配 ui-lab 原语；许可见各文件头、`NOTICE` 与 `licenses/AI-ELEMENTS-APACHE-2.0.txt`。未移植 chat-app / message 族，也未移植 file-tree / artifact / code-block / prompt-input / shimmer。
 - **自 beUI（starc007/ui-components, MIT）移植 4 个组件**：`file-tree`（动画文件树）、`button-metallic`（金属按钮，Button 变体）、`expandable-control`（可展开控件）、`morphing-search`（变形搜索，源码在 `components/motion/`、Catalog 归入区块）。保留上游 MIT 归属，按 UI Lab 公式登记双语名/别名、活预览与 registry。
 - **灵感库新增 4 条经分诊参考**：`motionsites`（`source`，动效与 3D）、`uiverse`（`source`，产品界面）、`aceternity-ui`（`source`，产品界面）与 `animejs`（`site`，开发工具）；均保留第一方 provenance、访问边界、`external-only` 权利状态与核验日期。
