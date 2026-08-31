@@ -2261,9 +2261,9 @@ export const registry: CategoryEntry[] = [
         name: "Collapsible Sidebar",
         nameZh: "可折叠侧栏",
         description:
-          "A multi-level workspace nav that springs between an expanded tree and an icon rail, with nested folders, count badges, and fading labels. Pattern inspired by @startupvisuals / Startup Visuals; original implementation.",
+          "A light dual-pane workspace nav: a persistent global icon strip plus a labeled tree that springs to an icon rail, with nested project folders and count badges. Pattern inspired by @startupvisuals / Startup Visuals; original implementation.",
         descriptionZh:
-          "多级工作区导航：在展开树与图标轨之间弹簧切换，支持嵌套文件夹、计数徽章与标签淡出。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
+          "浅色双栏工作区导航：左侧常驻全局图标条，右侧带标签的树在展开与图标轨之间弹簧切换，支持嵌套项目文件夹与计数徽章。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
         file: "components/motion/collapsible-sidebar.tsx",
         extraFiles: ["components/motion/startup-visuals-icons.tsx"],
         badge: "new",
@@ -2282,9 +2282,9 @@ export const registry: CategoryEntry[] = [
         name: "Upgrade Paywall",
         nameZh: "升级付费墙",
         description:
-          "A product paywall that blurs and desaturates the page underneath, then pops in a centered upgrade card. Pattern inspired by @startupvisuals / Startup Visuals; original implementation.",
+          "A light-dashboard paywall that blurs and desaturates a real companies table, then pops a centered Business+ upgrade card. Pattern inspired by @startupvisuals / Startup Visuals; original implementation.",
         descriptionZh:
-          "产品内付费墙：底层内容模糊并降饱和，中央升级卡片弹出。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
+          "浅色看板付费墙：底层真实公司表模糊并降饱和，中央弹出 Business+ 升级卡。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
         file: "components/motion/upgrade-paywall.tsx",
         extraFiles: ["components/motion/startup-visuals-icons.tsx"],
         badge: "new",
@@ -2302,9 +2302,9 @@ export const registry: CategoryEntry[] = [
         name: "View Layout Switch",
         nameZh: "视图布局切换",
         description:
-          "A shared-layout switcher for List, Kanban, Gantt, Calendar, and Dashboard, as a sliding-pill tab strip or a compact menu. Pattern inspired by @startupvisuals / Startup Visuals; original implementation.",
+          "A product-surface switcher: sliding List / Kanban / Gantt / Calendar / Dashboard pills, plus a SWITCH LAYOUT menu for Side Drawer, Full Page, Pop Up, and Minimize. Pattern inspired by @startupvisuals / Startup Visuals; original implementation.",
         descriptionZh:
-          "List / Kanban / Gantt / Calendar / Dashboard 的共享布局切换器，提供滑动胶囊页签或紧凑菜单。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
+          "产品表面切换器：List / Kanban / Gantt / Calendar / Dashboard 滑动胶囊，外加 Side Drawer / Full Page / Pop Up / Minimize 的 SWITCH LAYOUT 菜单。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
         file: "components/motion/view-layout-switch.tsx",
         extraFiles: ["components/motion/startup-visuals-icons.tsx"],
         badge: "new",
@@ -2322,9 +2322,9 @@ export const registry: CategoryEntry[] = [
         name: "Billing Plan Grid",
         nameZh: "账单方案网格",
         description:
-          "An organization billing grid with Free / Pro / Enterprise columns, a monthly↔annual toggle, current-plan highlight, and a number morph on price. Pattern inspired by @startupvisuals / Startup Visuals; original implementation.",
+          "A dark organization billing grid with Free / Pro / Enterprise columns, a monthly↔annual pill, purple current-plan treatment, and a number morph on price. Pattern inspired by @startupvisuals / Startup Visuals; original implementation.",
         descriptionZh:
-          "组织账单方案网格：Free / Pro / Enterprise 三列、月付与年付切换、当前方案高亮，价格数字滚动变形。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
+          "深色组织账单方案网格：Free / Pro / Enterprise 三列、月付与年付胶囊、紫色当前方案，价格数字滚动变形。模式受 @startupvisuals / Startup Visuals 启发，实现为原创。",
         file: "components/motion/billing-plan-grid.tsx",
         extraFiles: [
           "components/motion/number-ticker.tsx",

@@ -48,7 +48,7 @@ export function UpgradePaywall({
   );
 
   return (
-    <div className={cn("relative isolate overflow-hidden rounded-2xl bg-background", className)}>
+    <div className={cn("relative isolate overflow-hidden rounded-[22px] bg-white", className)}>
       <div
         aria-hidden={open}
         className={cn(open && "pointer-events-none select-none")}
@@ -67,7 +67,7 @@ export function UpgradePaywall({
             className="absolute inset-0 z-10 flex items-center justify-center p-4"
           >
             <div
-              className="absolute inset-0 bg-background/45 [backdrop-filter:blur(8px)_saturate(40%)] [-webkit-backdrop-filter:blur(8px)_saturate(40%)]"
+              className="absolute inset-0 bg-white/55 [backdrop-filter:blur(8px)_saturate(35%)] [-webkit-backdrop-filter:blur(8px)_saturate(35%)]"
             />
             <motion.div
               role="dialog"
@@ -82,16 +82,16 @@ export function UpgradePaywall({
                   : { opacity: 0, y: 6, scale: 0.98, transition: { duration: 0.14, ease: EASE_OUT } }
               }
               transition={SPRING_PANEL}
-              className="relative z-10 w-full max-w-sm rounded-2xl border border-border bg-card p-6 text-center shadow-xl"
+              className="relative z-10 w-full max-w-[360px] rounded-[24px] border border-[#ececee] bg-white p-7 text-center shadow-[0_24px_60px_rgba(17,17,19,0.12)]"
             >
               <div className="mx-auto mb-4 flex justify-center">
                 {icon ?? <UpgradePlusMark className="size-11" />}
               </div>
-              <h3 id={titleId} className="text-lg font-semibold tracking-tight text-foreground">
+              <h3 id={titleId} className="text-[22px] font-semibold tracking-tight text-[#111113]">
                 {title}
               </h3>
               {description ? (
-                <p id={descriptionId} className="mt-2 text-sm leading-6 text-muted-foreground">
+                <p id={descriptionId} className="mt-2 text-[13px] leading-6 text-[#8a8a93]">
                   {description}
                 </p>
               ) : null}
@@ -103,7 +103,7 @@ export function UpgradePaywall({
                 }}
                 whileTap={reduce || !canHover ? undefined : { scale: 0.96 }}
                 transition={SPRING_PRESS}
-                className="mt-5 inline-flex h-10 w-full items-center justify-center gap-2 rounded-full bg-foreground px-4 text-sm font-medium text-background outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
+                className="mt-6 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#111113] px-4 text-[14px] font-medium text-white outline-none focus-visible:ring-2 focus-visible:ring-[#111113]/20"
               >
                 <UpgradeGlyph className="size-4" />
                 {actionLabel}

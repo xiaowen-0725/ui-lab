@@ -39,6 +39,10 @@ export interface ViewLayoutSwitchProps {
   defaultValue?: string;
   onValueChange?: (id: string) => void;
   variant?: "tabs" | "menu";
+  trigger?: ReactNode;
+  defaultOpen?: boolean;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
   className?: string;
 }
 
@@ -63,6 +67,10 @@ export function ViewLayoutSwitch({
   defaultValue,
   onValueChange,
   variant = "tabs",
+  trigger,
+  defaultOpen = false,
+  open,
+  onOpenChange,
   className,
 }: ViewLayoutSwitchProps) {
   const reduce = useReducedMotion();
@@ -85,6 +93,10 @@ export function ViewLayoutSwitch({
         layouts={layouts}
         value={value}
         onValueChange={setValue}
+        trigger={trigger}
+        defaultOpen={defaultOpen}
+        open={open}
+        onOpenChange={onOpenChange}
         reduce={!!reduce}
         canHover={canHover}
         className={className}
@@ -98,7 +110,7 @@ export function ViewLayoutSwitch({
         role="tablist"
         aria-label="Switch layout"
         className={cn(
-          "inline-flex items-center gap-0.5 rounded-xl border border-border bg-muted/60 p-1",
+          "inline-flex items-center gap-0.5 rounded-full border border-[#ececee] bg-[#f4f4f6] p-1",
           className,
         )}
       >
@@ -112,14 +124,14 @@ export function ViewLayoutSwitch({
               aria-selected={active}
               onClick={() => setValue(layout.id)}
               className={cn(
-                "relative inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium outline-none focus-visible:ring-2 focus-visible:ring-foreground/20",
-                active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                "relative inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-medium outline-none focus-visible:ring-2 focus-visible:ring-[#111113]/15",
+                active ? "text-[#111113]" : "text-[#8a8a93] hover:text-[#111113]",
               )}
             >
               {active ? (
                 <motion.span
                   layoutId={reduce ? undefined : "view-layout-pill"}
-                  className="absolute inset-0 rounded-lg bg-card shadow-sm"
+                  className="absolute inset-0 rounded-full bg-white shadow-sm"
                   transition={reduce ? { duration: 0 } : SPRING_LAYOUT}
                 />
               ) : null}
@@ -139,6 +151,10 @@ function LayoutMenu({
   layouts,
   value,
   onValueChange,
+  trigger,
+  defaultOpen,
+  open: openProp,
+  onOpenChange,
   reduce,
   canHover,
   className,
@@ -146,13 +162,26 @@ function LayoutMenu({
   layouts: ViewLayoutOption[];
   value: string;
   onValueChange: (id: string) => void;
+  trigger?: ReactNode;
+  defaultOpen: boolean;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
   reduce: boolean;
   canHover: boolean;
   className?: string;
 }) {
-  const [open, setOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const open = openProp ?? internalOpen;
   const rootRef = useRef<HTMLDivElement>(null);
   const current = layouts.find((layout) => layout.id === value) ?? layouts[0];
+
+  const setOpen = useCallback(
+    (next: boolean) => {
+      if (openProp === undefined) setInternalOpen(next);
+      onOpenChange?.(next);
+    },
+    [onOpenChange, openProp],
+  );
 
   useEffect(() => {
     if (!open) return;
@@ -168,7 +197,7 @@ function LayoutMenu({
       document.removeEventListener("pointerdown", onPointer);
       document.removeEventListener("keydown", onKey);
     };
-  }, [open]);
+  }, [open, setOpen]);
 
   return (
     <div ref={rootRef} className={cn("relative inline-flex", className)}>
@@ -176,16 +205,23 @@ function LayoutMenu({
         type="button"
         aria-haspopup="listbox"
         aria-expanded={open}
-        onClick={() => setOpen((currentOpen) => !currentOpen)}
+        aria-label={current?.label ?? "Switch layout"}
+        onClick={() => setOpen(!open)}
         whileTap={reduce || !canHover ? undefined : { scale: 0.97 }}
         transition={SPRING_PRESS}
-        className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2 text-sm font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
+        className="inline-flex items-center gap-2 rounded-lg px-2 py-1.5 text-[13px] font-medium text-[#111113] outline-none hover:bg-[#f4f4f6] focus-visible:ring-2 focus-visible:ring-[#111113]/15"
       >
-        <span className="inline-flex items-center gap-2">
-          {current?.icon}
-          {current?.label ?? "Layout"}
-        </span>
-        <ChevronDownIcon className={cn("size-3.5 text-muted-foreground transition-transform", open && "rotate-180")} />
+        {trigger ?? (
+          <>
+            <span className="inline-flex items-center gap-2">
+              {current?.icon}
+              {current?.label ?? "Layout"}
+            </span>
+            <ChevronDownIcon
+              className={cn("size-3.5 text-[#8a8a93] transition-transform", open && "rotate-180")}
+            />
+          </>
+        )}
       </motion.button>
 
       <AnimatePresence>
@@ -201,10 +237,10 @@ function LayoutMenu({
                 : { opacity: 0, y: 4, scale: 0.98, transition: { duration: 0.14, ease: EASE_OUT } }
             }
             transition={SPRING_PANEL}
-            className="absolute top-[calc(100%+8px)] right-0 z-20 min-w-56 overflow-hidden rounded-xl border border-border bg-card p-1.5 shadow-xl"
+            className="absolute top-[calc(100%+8px)] right-0 z-20 min-w-[220px] overflow-hidden rounded-[16px] border border-[#ececee] bg-white p-1.5 shadow-[0_16px_40px_rgba(17,17,19,0.12)]"
           >
-            <p className="px-2.5 py-1.5 text-[11px] font-medium tracking-wide text-muted-foreground uppercase">
-              Switch layout
+            <p className="px-2.5 py-1.5 text-[10px] font-medium tracking-[0.14em] text-[#9a9aa3] uppercase">
+              Switch layout:
             </p>
             <LayoutGroup>
               {layouts.map((layout) => {
@@ -219,21 +255,11 @@ function LayoutMenu({
                       onValueChange(layout.id);
                       setOpen(false);
                     }}
-                    className="relative flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
+                    className="relative flex w-full items-center gap-2.5 rounded-[10px] px-2.5 py-2 text-left outline-none hover:bg-[#f7f7f8] focus-visible:ring-2 focus-visible:ring-[#111113]/15"
                   >
-                    {selected ? (
-                      <motion.span
-                        layoutId={reduce ? undefined : "view-layout-menu-active"}
-                        className="absolute inset-0 rounded-lg bg-muted"
-                        transition={reduce ? { duration: 0 } : SPRING_LAYOUT}
-                      />
-                    ) : null}
-                    <span className="relative z-10 text-muted-foreground">{layout.icon}</span>
+                    <span className="relative z-10 text-[#6f6f78]">{layout.icon}</span>
                     <span className="relative z-10 min-w-0 flex-1">
-                      <span className="block text-sm font-medium text-foreground">{layout.label}</span>
-                      {layout.description ? (
-                        <span className="block text-xs text-muted-foreground">{layout.description}</span>
-                      ) : null}
+                      <span className="block text-[13px] font-medium text-[#111113]">{layout.label}</span>
                     </span>
                     {selected ? <SelectedCheckIcon className="relative z-10 size-4" /> : null}
                   </button>
