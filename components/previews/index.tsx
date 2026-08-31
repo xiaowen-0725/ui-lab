@@ -477,6 +477,24 @@ export const previews: Record<string, ComponentType> = {
   "blocks/jsx-preview": dynamic(() =>
     import("./blocks/jsx-preview.preview").then((m) => m.JsxPreviewPreview),
   ),
+  "blocks/collapsible-sidebar": dynamic(() =>
+    import("./blocks/collapsible-sidebar.preview").then(
+      (m) => m.CollapsibleSidebarPreview,
+    ),
+  ),
+  "blocks/upgrade-paywall": dynamic(() =>
+    import("./blocks/upgrade-paywall.preview").then((m) => m.UpgradePaywallPreview),
+  ),
+  "blocks/view-layout-switch": dynamic(() =>
+    import("./blocks/view-layout-switch.preview").then(
+      (m) => m.ViewLayoutSwitchPreview,
+    ),
+  ),
+  "blocks/billing-plan-grid": dynamic(() =>
+    import("./blocks/billing-plan-grid.preview").then(
+      (m) => m.BillingPlanGridPreview,
+    ),
+  ),
 };
 
 export function getPreview(category: string, slug: string) {

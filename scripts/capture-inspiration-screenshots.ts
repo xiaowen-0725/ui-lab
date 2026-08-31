@@ -84,6 +84,10 @@ const overrides: Partial<Record<string, Partial<Target>>> = {
 	"sources/uiverse": { waitMs: 3_000 },
 	"sources/aceternity-ui": { waitMs: 3_000 },
 	"sources/checklist-design": { waitMs: 2_000 },
+	"sources/startup-visuals": {
+		captureUrl: "https://startupvisuals.com/",
+		waitMs: 3_000,
+	},
 	"sources/ogpedia": { captureUrl: "https://ogpedia.xyz/" },
 	"sources/page-flows": { waitMs: 3_000 },
 	"sources/refero": { waitMs: 3_000 },

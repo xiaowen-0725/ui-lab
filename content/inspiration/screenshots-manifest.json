@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T13:24:41.009Z",
+  "generatedAt": "2026-08-31T07:03:57.093Z",
   "viewport": {
     "width": 1440,
     "height": 900
@@ -1409,6 +1409,17 @@
       "status": "captured",
       "assetKind": "screenshot",
       "title": "4430 UI elements: CSS & Tailwind"
+    },
+    "sources/startup-visuals": {
+      "path": "/inspiration/screenshots/sources/startup-visuals.webp",
+      "sourceUrl": "https://x.com/startupvisuals",
+      "finalUrl": "https://www.startupvisuals.com/",
+      "capturedAt": "2026-08-31",
+      "width": 1440,
+      "height": 900,
+      "status": "captured",
+      "assetKind": "screenshot",
+      "title": "Startup Visuals by Louis Nguyen - Product Design for Startup Founders"
     }
   },
   "failures": {}

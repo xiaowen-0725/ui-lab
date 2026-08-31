@@ -1010,6 +1010,47 @@ const INSPIRATION_SOURCE_RECORDS: readonly InspirationSourceRecord[] = [
     ],
     reviewedAt: "2026-08-08",
   },
+  {
+    slug: "startup-visuals",
+    entryKind: "source",
+    name: "Startup Visuals",
+    nameZh: "Startup Visuals 产品界面参考",
+    aliases: ["@startupvisuals", "Louis Nguyen", "louisdainguyen"],
+    url: "https://x.com/startupvisuals",
+    canonicalUrl: "https://x.com/startupvisuals",
+    description:
+      "A B2B SaaS product-UI motion feed of production-style app surfaces — collapsible sidebars, command palettes, integration drawers, paywalls, data tables, and agent workspaces — not a marketing-site eye-candy gallery.",
+    descriptionZh:
+      "B2B SaaS 产品界面动效参考流，收录可折叠侧栏、命令面板、集成抽屉、付费墙、数据表与 Agent 工作区等真实产品界面，而不是营销站花活图库。",
+    primaryTheme: "product-ui",
+    secondaryThemes: ["motion-3d", "social-marketing"],
+    contentTypes: ["web-interface", "app-screen", "motion"],
+    useCases: ["ui-inspiration", "product-design", "motion-reference"],
+    visualTraits: ["minimal", "dark-mode", "animated"],
+    access: "public",
+    rightsStatus: "external-only",
+    provenance: [
+      {
+        url: "https://x.com/startupvisuals",
+        kind: "first-party",
+        note: "Official X feed by Louis Nguyen, posting B2B SaaS product-UI motion cases.",
+        noteZh: "Louis Nguyen 的官方 X 动态，发布 B2B SaaS 产品界面动效案例。",
+      },
+      {
+        url: "https://startupvisuals.com/",
+        kind: "first-party",
+        note: "Official site collecting the same product-UI motion cases.",
+        noteZh: "收录同一批产品界面动效案例的官方站点。",
+      },
+      {
+        url: "https://dribbble.com/louisdainguyen",
+        kind: "first-party",
+        note: "Louis Nguyen Dribbble profile for related product-UI shots.",
+        noteZh: "Louis Nguyen 的 Dribbble 主页，收录相关产品界面作品。",
+      },
+    ],
+    reviewedAt: "2026-08-31",
+  },
 ];
 
 export const INSPIRATION_SOURCES: readonly InspirationSource[] =
