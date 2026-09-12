@@ -2043,8 +2043,15 @@ export const registry: CategoryEntry[] = [
           "A workspace resource tree for folders, projects, files, and bookmarks with keyboard navigation, optimistic moves, inline rename, and overflow-aware labels.",
         descriptionZh:
           "AI 工作区资源树：文件夹/项目/文件/书签，支持键盘导航、乐观移动、行内重命名与溢出跑马灯标签。",
-        file: "components/agents/ai-sidebar.tsx",
-        extraFiles: ["lib/hooks/use-touch-capable.ts"],
+        file: "components/agents/ai-sidebar/index.tsx",
+        extraFiles: [
+          "components/agents/ai-sidebar/types.ts",
+          "components/agents/ai-sidebar/tree-utils.ts",
+          "components/agents/ai-sidebar/marquee-label.tsx",
+          "components/agents/ai-sidebar/resource-menu.tsx",
+          "components/agents/ai-sidebar/resource-row.tsx",
+          "lib/hooks/use-touch-capable.ts",
+        ],
         badge: "new",
         launchedAt: "2026-08-27",
         keywords: [

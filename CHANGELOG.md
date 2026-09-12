@@ -17,6 +17,7 @@
 
 ### 变更
 
+- 将 `ai-sidebar` 拆为单职责模块（`types` / `tree-utils` / `marquee-label` / `resource-menu` / `resource-row` / shell），公开 API 与 `@/components/agents/ai-sidebar` 导入路径保持不变。
 - 四个 Startup Visuals 活样本的预览改为自包含产品 chrome，不再继承文档站深色空画布：`collapsible-sidebar` 默认展开浅色双栏（全局图标条 + 标签导航）并带真实任务表；`upgrade-paywall` 浅色公司表 + 居中 Business+ 卡；`view-layout-switch` 为 Ask Rune 浅色工作面且 SWITCH LAYOUT 菜单默认打开；`billing-plan-grid` 炭黑页、紫色当前方案与细线 check/x/info。项目标改为 Tuesday 日历 / Jammio 气泡 / Create 网格 / Thoughts 橙方 / Consumex 圆盘，不再用字母砖。
 - 四个 Startup Visuals 活样本的可见图标改为按原稿描摹的描边 SVG（双杠折叠、⌘ Command、付费墙 plus/升级箭、布局切换与账单 check/x/info），不再用 Lucide 近似替换。
 - 将 `/palettes` 重构为沉浸式配色工作台：新增实时界面预览、配色轮播、静态背景、WCAG 对比检查与 Prompt/CSS 导出，并以独立深色 Inspector 集中呈现语义色和复制操作。
