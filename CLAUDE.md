@@ -8,12 +8,12 @@
 
 ### Issue tracker
 
-Issues and PRDs are tracked in GitHub Issues for `xiaowen-0725/ui-lab`. See `docs/agents/issue-tracker.md`.
+Issues live in this repo's GitHub Issues (via `gh`). See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
-Use the canonical triage labels: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, and `wontfix`. See `docs/agents/triage-labels.md`.
+Default five-role vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
 
 ### Domain docs
 
-This is a single-context repository. Domain vocabulary belongs in root `CONTEXT.md`, with decisions under `docs/adr/`. See `docs/agents/domain.md`.
+Single-context: root `CONTEXT.md` + `docs/adr/`. See `docs/agents/domain.md`.
