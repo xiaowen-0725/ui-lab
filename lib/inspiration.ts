@@ -440,13 +440,19 @@ const INSPIRATION_SOURCE_RECORDS: readonly InspirationSourceRecord[] = [
         noteZh: "官方产品与界面库说明。",
       },
       {
-        url: "https://help.mobbin.com/en/articles/691776",
+        url: "https://mobbin.com/pricing",
         kind: "first-party",
         note: "Official Free and subscription-plan boundary.",
         noteZh: "官方免费与订阅方案边界。",
       },
+      {
+        url: "https://mobbin.com/discover/apps/ios/latest",
+        kind: "first-party",
+        note: "Official latest-iOS-app discovery view.",
+        noteZh: "官方最新 iOS App 浏览入口。",
+      },
     ],
-    reviewedAt: "2026-07-28",
+    reviewedAt: "2026-09-14",
   },
   {
     slug: "page-flows",
@@ -1646,7 +1652,7 @@ const INSPIRATION_SOURCE_RECORDS: readonly InspirationSourceRecord[] = [
         noteZh: "官方公开资料库与模式浏览页，提供移动端及 Web UI 动画参考。",
       },
     ],
-    reviewedAt: "2026-09-07",
+    reviewedAt: "2026-09-14",
   },
   {
     slug: "navbar-gallery",
