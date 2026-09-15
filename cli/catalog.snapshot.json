@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T14:08:58.819Z",
+  "generatedAt": "2026-09-12T05:16:29.293Z",
   "count": 184,
   "items": [
     {
@@ -2216,9 +2216,14 @@
         "command": "npx shadcn@latest add http://localhost:3000/r/ai-sidebar.json",
         "endpoint": "http://localhost:3000/r/ai-sidebar"
       },
-      "sourceFile": "components/agents/ai-sidebar.tsx",
+      "sourceFile": "components/agents/ai-sidebar/index.tsx",
       "sourceFiles": [
-        "components/agents/ai-sidebar.tsx",
+        "components/agents/ai-sidebar/index.tsx",
+        "components/agents/ai-sidebar/types.ts",
+        "components/agents/ai-sidebar/tree-utils.ts",
+        "components/agents/ai-sidebar/marquee-label.tsx",
+        "components/agents/ai-sidebar/resource-menu.tsx",
+        "components/agents/ai-sidebar/resource-row.tsx",
         "lib/hooks/use-touch-capable.ts"
       ]
     },
