@@ -107,10 +107,10 @@ function colorThemeOf(color: BenchColor): ColorTheme {
   return color === "violet" ? "violet" : "default";
 }
 
-export function LabPresentation() {
+export function LabPresentation({ initialView }: { initialView?: string }) {
   const t = useTranslations("labPresentation");
   const searchParams = useSearchParams();
-  const view = parseView(searchParams.get("view"));
+  const view = parseView(searchParams.get("view") ?? initialView ?? null);
 
   return (
     <section className="mx-auto max-w-6xl px-4 pb-16 pt-24 md:pt-28">

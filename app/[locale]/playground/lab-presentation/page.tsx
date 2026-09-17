@@ -10,11 +10,16 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function LabPresentationPage() {
+export default async function LabPresentationPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ view?: string }>;
+}) {
+  const { view } = await searchParams;
   return (
     <div className="relative">
       <Suspense>
-        <LabPresentation />
+        <LabPresentation initialView={view} />
       </Suspense>
       <SiteFooter />
     </div>
