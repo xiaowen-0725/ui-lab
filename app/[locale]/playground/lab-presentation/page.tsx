@@ -6,7 +6,7 @@ import { LabPresentation } from "@/components/app/playground/lab-presentation";
 export const metadata: Metadata = {
   title: "Lab presentation (throwaway)",
   description:
-    "Throwaway verification page: see a live sample, try it, take the same source. Not a product surface.",
+    "Throwaway overall-feel preview of the lab hall. Not acceptance, and not the official homepage.",
   robots: { index: false, follow: false },
 };
 
