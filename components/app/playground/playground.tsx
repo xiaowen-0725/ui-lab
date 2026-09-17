@@ -1,7 +1,9 @@
 "use client";
 
 import { RotateCw } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
+import { PressLink } from "@/components/app/press-link";
 import { Button } from "@/components/motion/button";
 import {
   Select,
@@ -71,6 +73,7 @@ function PresetSection({
 }
 
 export function Playground() {
+  const tLab = useTranslations("labPresentation");
   const [activeSlug, setActiveSlug] = useState(PLAYGROUND_ITEMS[0].slug);
   const [replayKey, setReplayKey] = useState(0);
   // per-type values so switching types preserves each one's tweaks
@@ -128,6 +131,12 @@ export function Playground() {
           Learn motion by playing. Tweak a property, watch it run, read what the
           code is doing line by line, then copy it.
         </p>
+        <PressLink
+          href="/playground/lab-presentation"
+          className="mt-3 inline-block text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+        >
+          {tLab("playgroundLink")}
+        </PressLink>
       </header>
 
       {/* mobile type switcher */}
