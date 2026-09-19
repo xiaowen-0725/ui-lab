@@ -96,9 +96,9 @@ function PrototypeLocaleSwitch() {
         router.replace(query ? `${pathname}?${query}` : pathname, { locale: next });
       }}
       aria-label={locale === "zh" ? t("localeToEn") : t("localeToZh")}
-      className="h-9 w-9 rounded-2xl border border-border text-xs font-medium text-muted-foreground hover:text-foreground"
+      className="h-9 rounded-2xl border border-border px-2.5 text-xs font-medium text-muted-foreground hover:text-foreground"
     >
-      {locale === "zh" ? "EN" : "中"}
+      {locale === "zh" ? "EN" : "中文"}
     </button>
   );
 }
