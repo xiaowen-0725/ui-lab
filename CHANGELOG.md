@@ -8,6 +8,7 @@
 
 ### Added
 
+- Add a throwaway `/playground/project-redesign` prototype that puts a live composed desk, terms on each sample, and a system rail on one screen. Named presets encode radius / shadow / color / density / type in the URL; twisting the rail restyles every token-fed surface; instance knobs stay separate; the main takeaway is the same registry install command.
 - Add an OKLCH palette generator with brand seed, basic/full scope, five harmony models, enforced WCAG AA/AAA semantic pairs, Hex/RGB/HSL/OKLCH output, shareable URL state, and live preview/contrast/export integration. Full output now forms a production-oriented dual-mode color contract with eight 11-step ramps, layered surfaces, interaction states, semantic alpha overlays, success/warning/danger/info roles, and six chart colors.
 - Add bilingual WCAG contrast health reports and a regression baseline for Catalog palettes.
 
