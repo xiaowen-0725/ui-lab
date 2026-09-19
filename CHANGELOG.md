@@ -8,6 +8,7 @@
 
 ### Added
 
+- Add a throwaway `/playground/site-ia` chrome prototype for the approved whole-site IA: slim Hall / Bench bar, task doors, type chips, 2–4 specimen compare, and one-step bench. Not in the production header or sitemap; not a continuation of `/playground/lab-presentation`.
 - Add an OKLCH palette generator with brand seed, basic/full scope, five harmony models, enforced WCAG AA/AAA semantic pairs, Hex/RGB/HSL/OKLCH output, shareable URL state, and live preview/contrast/export integration. Full output now forms a production-oriented dual-mode color contract with eight 11-step ramps, layered surfaces, interaction states, semantic alpha overlays, success/warning/danger/info roles, and six chart colors.
 - Add bilingual WCAG contrast health reports and a regression baseline for Catalog palettes.
 
