@@ -58,6 +58,7 @@ export type Piece = {
   aliases: readonly string[];
   notNeighborZh: string;
   notNeighborEn: string;
+  sourceFile: string;
 };
 
 export const GROUPS: readonly {
@@ -85,6 +86,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["按键", "CTA", "press button"],
     notNeighborZh: "磁吸按钮（跟随指针）或状态按钮（异步过程）",
     notNeighborEn: "Magnetic Button (cursor pull) or Stateful Button (async process)",
+    sourceFile: "components/motion/button/base.tsx",
   },
   {
     id: "button-stateful",
@@ -97,6 +99,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["过程按钮", "loading button"],
     notNeighborZh: "基础按钮——这是闲/载/成/败，不是一次按压",
     notNeighborEn: "Button — this is idle/loading/success/error, not a single press",
+    sourceFile: "components/motion/button/stateful.tsx",
   },
   {
     id: "button-magnetic",
@@ -109,6 +112,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["跟随按钮", "magnetic"],
     notNeighborZh: "基础按钮——这是指针吸引，不是按压缩放",
     notNeighborEn: "Button — this is cursor attraction, not press scale",
+    sourceFile: "components/motion/button/magnetic.tsx",
   },
   {
     id: "input",
@@ -121,6 +125,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["文本框", "text field"],
     notNeighborZh: "下拉选择（封闭选项）或提示输入（对话输入台）",
     notNeighborEn: "Select (closed options) or Prompt Input (chat composer)",
+    sourceFile: "components/motion/input.tsx",
   },
   {
     id: "select",
@@ -133,6 +138,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["选择器", "dropdown select"],
     notNeighborZh: "下拉菜单（动作列表）或命令面板（搜命令）",
     notNeighborEn: "Dropdown Menu (actions) or Command Palette (search commands)",
+    sourceFile: "components/motion/select.tsx",
   },
   {
     id: "switch",
@@ -145,6 +151,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["切换", "toggle"],
     notNeighborZh: "复选框——立刻生效的偏好，不是表单多项勾选",
     notNeighborEn: "Checkbox — instant preference, not a form multi-select",
+    sourceFile: "components/motion/switch.tsx",
   },
   {
     id: "checkbox",
@@ -157,6 +164,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["勾选", "tick"],
     notNeighborZh: "开关（立刻切换）或单选（互斥一组）",
     notNeighborEn: "Switch (instant toggle) or Radio (exclusive set)",
+    sourceFile: "components/motion/checkbox.tsx",
   },
   {
     id: "radio",
@@ -169,6 +177,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["互斥选项", "radio group"],
     notNeighborZh: "复选框——互斥一组，不是多选",
     notNeighborEn: "Checkbox — exclusive set, not multi-select",
+    sourceFile: "components/motion/radio.tsx",
   },
   {
     id: "range-slider",
@@ -181,6 +190,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["滑块", "slider"],
     notNeighborZh: "数字输入——连续/分档滑，不是键入数字",
     notNeighborEn: "Number input — slide a range, don't type a digit",
+    sourceFile: "components/motion/range-slider.tsx",
   },
   {
     id: "otp-input",
@@ -193,6 +203,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["一次性密码", "PIN slots"],
     notNeighborZh: "输入框——格子验证码，不是单行文本",
     notNeighborEn: "Input — slotted code, not a single text field",
+    sourceFile: "components/motion/otp-input.tsx",
   },
   {
     id: "animated-badge",
@@ -205,6 +216,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["状态徽标", "chip"],
     notNeighborZh: "吐司——贴在现场的状态，不是会自己走的通知",
     notNeighborEn: "Toast — stays on the surface, does not walk away",
+    sourceFile: "components/motion/animated-badge.tsx",
   },
   {
     id: "loader",
@@ -217,6 +229,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["转圈", "spinner"],
     notNeighborZh: "骨架屏——过程还在转，不是占位形状",
     notNeighborEn: "Skeleton — the process is spinning, not a placeholder shape",
+    sourceFile: "components/motion/loader.tsx",
   },
   {
     id: "skeleton",
@@ -229,6 +242,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["占位", "shimmer"],
     notNeighborZh: "加载器——内容形状的占位，不是转圈",
     notNeighborEn: "Loader — a content-shaped placeholder, not a spinner",
+    sourceFile: "components/motion/skeleton.tsx",
   },
   {
     id: "tooltip",
@@ -241,6 +255,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["悬停提示", "hint"],
     notNeighborZh: "弹出层——短提示，里面不能操作",
     notNeighborEn: "Popover — a short hint, not an interactive layer",
+    sourceFile: "components/motion/tooltip.tsx",
   },
   {
     id: "tabs",
@@ -253,6 +268,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["页签", "segmented control"],
     notNeighborZh: "手风琴或可展开页签——同级切换，不是挤开空间",
     notNeighborEn: "Accordion / Expandable Tabs — peer switch, not space-splitting",
+    sourceFile: "components/motion/tabs.tsx",
   },
   {
     id: "theme-toggle",
@@ -265,6 +281,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["日夜开关", "dark mode toggle"],
     notNeighborZh: "开关——换日夜主题，不是通用布尔",
     notNeighborEn: "Switch — day/night theme, not a generic boolean",
+    sourceFile: "components/motion/theme-toggle.tsx",
   },
   {
     id: "scroll-hint",
@@ -277,6 +294,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["向下看", "scroll cue"],
     notNeighborZh: "滚动进度——提示下面还有，不是读了多少",
     notNeighborEn: "Scroll Progress — more below, not how far you've read",
+    sourceFile: "components/motion/scroll-hint.tsx",
   },
   {
     id: "tilt-card",
@@ -289,6 +307,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["透视倾", "tilt"],
     notNeighborZh: "高光扫过——3D 倾斜，不是一层光扫",
     notNeighborEn: "Glare Hover — 3D tilt, not a light sweep",
+    sourceFile: "components/motion/tilt-card.tsx",
   },
   {
     id: "glare-hover",
@@ -301,6 +320,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["光扫", "sheen"],
     notNeighborZh: "倾斜卡片——光扫过表面，不是透视倾",
     notNeighborEn: "Tilt Card — a sheen across the face, not perspective tilt",
+    sourceFile: "components/motion/glare-hover.tsx",
   },
   {
     id: "star-border",
@@ -313,6 +333,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["走边光", "orbiting border"],
     notNeighborZh: "高光扫过——边上走一圈光，不是表面扫过",
     notNeighborEn: "Glare Hover — light travels the rim, not the face",
+    sourceFile: "components/motion/star-border.tsx",
   },
   {
     id: "marquee",
@@ -325,18 +346,20 @@ export const PIECES: readonly Piece[] = [
     aliases: ["无限滚", "ticker"],
     notNeighborZh: "文字动画——轨道循环，不是字本身变形",
     notNeighborEn: "Text Animation — a looping track, not glyph morphing",
+    sourceFile: "components/motion/marquee.tsx",
   },
   {
     id: "number-ticker",
     group: "display",
     category: "motion",
     registrySlug: "number",
-    installSlug: "number",
+    installSlug: "number-ticker",
     name: "Number Ticker",
     nameZh: "数字翻滚",
     aliases: ["计数器", "odometer"],
     notNeighborZh: "文字扰乱——数字翻格，不是解码乱码",
     notNeighborEn: "Text Scramble — digits roll, they don't decode",
+    sourceFile: "components/motion/number-ticker.tsx",
   },
   {
     id: "text-scramble",
@@ -349,6 +372,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["解码字", "decrypted text"],
     notNeighborZh: "跑马灯——字解码成形，不是轨道滚",
     notNeighborEn: "Marquee — glyphs decode in place, they don't scroll",
+    sourceFile: "components/motion/text-scramble.tsx",
   },
   {
     id: "animated-icon",
@@ -361,6 +385,7 @@ export const PIECES: readonly Piece[] = [
     aliases: ["图标微交互", "icon motion"],
     notNeighborZh: "图标样式——这是动法，不是线/面风格",
     notNeighborEn: "Icon style — this is the motion, not outline vs solid",
+    sourceFile: "components/motion/animated-icon.tsx",
   },
   {
     id: "suggestion",
@@ -373,18 +398,20 @@ export const PIECES: readonly Piece[] = [
     aliases: ["快捷建议", "chip suggestions"],
     notNeighborZh: "命令面板——点一条建议，不是搜全部命令",
     notNeighborEn: "Command Palette — tap one suggestion, don't search all commands",
+    sourceFile: "components/agents/suggestion.tsx",
   },
   {
     id: "empty-state",
     group: "blocks",
     category: "blocks",
     registrySlug: "empty-state",
-    installSlug: "empty-state",
+    installSlug: "empty-state-inbox",
     name: "Empty State",
     nameZh: "空状态",
     aliases: ["无内容", "inbox zero"],
     notNeighborZh: "骨架屏——真的没有内容，不是正在加载",
     notNeighborEn: "Skeleton — truly empty, not still loading",
+    sourceFile: "components/motion/empty-state/inbox.tsx",
   },
 ];
 
@@ -601,6 +628,7 @@ export function systemStyle(
     "--pr-row": `${density?.rowHeight ?? 40}px`,
     "--pr-type-size": type?.fontSize ?? "14px",
     "--pr-type-leading": String(type?.lineHeight ?? 1.5),
+    "--radius": radius?.value ?? "10px",
   };
   if (palette) {
     const c = palette.colors;

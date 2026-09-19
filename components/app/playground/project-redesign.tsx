@@ -3,7 +3,7 @@
 import { Check, Copy } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useLocale } from "next-intl";
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { CopyValue, useCopyFeedback } from "@/components/app/atoms/copy-value";
 import { Link, usePathname } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -54,12 +54,17 @@ export function ProjectRedesign() {
     return findPiece(raw ?? "")?.id ?? "button";
   });
   const [instance, setInstance] = useState<InstanceState>(DEFAULT_INSTANCE);
+  const skipScroll = useRef(true);
 
   useEffect(() => {
     writeUrl(pathname, system, focus);
   }, [pathname, system, focus]);
 
   useEffect(() => {
+    if (skipScroll.current) {
+      skipScroll.current = false;
+      return;
+    }
     document.getElementById(`pr-piece-${focus}`)?.scrollIntoView({
       block: "nearest",
       behavior: "smooth",
@@ -82,20 +87,25 @@ export function ProjectRedesign() {
       className="min-h-[calc(100vh-3.5rem)] font-sans"
       style={scopeStyle as CSSProperties}
     >
-      <div className="border-b border-border px-4 py-5 md:px-6">
+      <div className="border-b border-border px-4 py-4 md:px-6">
         <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
           {zh ? "一次性原型 · 不进顶栏" : "Throwaway prototype · not in the header"}
         </p>
-        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
-          {zh ? "看得见的词汇，试得了的系统" : "Visible vocabulary. A system you can twist."}
-        </h1>
-        <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
+        <div className="mt-1 flex flex-wrap items-end justify-between gap-3">
+          <h1 className="text-xl font-semibold tracking-tight text-foreground">
+            {zh ? "看得见的词汇，试得了的系统" : "Visible vocabulary. A system you can twist."}
+          </h1>
+          <p className="font-mono text-[11px] text-muted-foreground">
+            {systemSearch(system, focus) || "?preset=graphite"}
+          </p>
+        </div>
+        <p className="mt-1 max-w-3xl text-xs leading-5 text-muted-foreground">
           {zh
-            ? "整站重做原型。进门就是馆藏：中间是组成，不是白底标本；名字贴在样本上；右边系统轨一拧，吃同一份 token 的面一起变。带走的是 registry 命令，不是提示词。"
-            : "Whole-site redesign prototype. The collection is the first screen: a composition, not a white tray; names sit on the samples; the system rail restyles every token-fed surface at once. You leave with a registry command, not a prompt."}
+            ? "进门就是馆藏。中间是组成；名字贴在样本上；系统轨和名单同屏。一拧，吃同一份 token 的面一起变。带走 registry 源码，不是提示词。"
+            : "The collection is the first screen. A composition in the middle; names on the samples; system rail and index on the same page. One twist restyles every token-fed surface. You leave with registry source, not a prompt."}
         </p>
 
-        <div className="mt-4 flex flex-wrap gap-1.5">
+        <div className="mt-3 flex flex-wrap gap-1.5">
           {NAMED_PRESETS.map((preset) => (
             <button
               key={preset.slug}
@@ -114,21 +124,18 @@ export function ProjectRedesign() {
             </button>
           ))}
         </div>
-        <p className="mt-2 font-mono text-[11px] text-muted-foreground">
-          {systemSearch(system, focus) || "?preset=graphite"}
-        </p>
       </div>
 
       <div className="grid lg:grid-cols-[13.5rem_minmax(0,1fr)_17.5rem]">
-        <aside className="border-b border-border lg:sticky lg:top-14 lg:h-[calc(100vh-3.5rem)] lg:overflow-y-auto lg:border-r lg:border-b-0">
-          <nav className="flex flex-col gap-4 px-3 py-4" aria-label={zh ? "馆藏" : "Collection"}>
+        <aside className="order-2 border-b border-border lg:order-1 lg:sticky lg:top-14 lg:h-[calc(100vh-3.5rem)] lg:overflow-y-auto lg:border-r lg:border-b-0">
+          <nav className="flex flex-col gap-5 px-3 py-4" aria-label={zh ? "馆藏" : "Collection"}>
             {GROUPS.map((group) => {
               const items = piecesInGroup(group.id);
               return (
                 <div key={group.id}>
-                  <p className="flex items-baseline justify-between px-1 text-[11px] text-muted-foreground">
-                    <span>{zh ? group.nameZh : group.name}</span>
-                    <span>{items.length}</span>
+                  <p className="px-1 text-[11px] font-medium tracking-[0.12em] text-muted-foreground uppercase">
+                    {zh ? group.nameZh : group.name}
+                    <span className="ml-1.5 tracking-normal opacity-70">{items.length}</span>
                   </p>
                   <ul className="mt-1.5 flex flex-col">
                     {items.map((item) => (
@@ -159,7 +166,7 @@ export function ProjectRedesign() {
           </nav>
         </aside>
 
-        <div className="min-w-0 px-4 py-4 md:px-5">
+        <div className="order-1 min-w-0 px-4 py-4 md:px-5 lg:order-2">
           <ProjectRedesignCanvas
             focus={focus}
             onSelect={setFocus}
@@ -189,6 +196,9 @@ export function ProjectRedesign() {
             <p className="mt-1 text-xs text-muted-foreground">
               {zh ? `别当成${piece.notNeighborZh}` : `Not ${piece.notNeighborEn}`}
             </p>
+            <p className="mt-2 font-mono text-[11px] text-muted-foreground">
+              {piece.sourceFile}
+            </p>
 
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <code className="min-w-0 flex-1 truncate rounded-md border border-border bg-background px-2.5 py-2 font-mono text-[12px]">
@@ -208,6 +218,15 @@ export function ProjectRedesign() {
                 {zh ? "复制安装" : "Copy install"}
               </button>
             </div>
+            <p className="mt-2 text-[11px] text-muted-foreground">
+              <a
+                href={`/r/${piece.installSlug}.json`}
+                className="underline-offset-2 hover:underline"
+              >
+                /r/{piece.installSlug}.json
+              </a>
+              {zh ? " · 看见的和带走的是同一份" : " · what you see is what you take"}
+            </p>
 
             <div className="mt-3">
               <InstanceKnobs
@@ -224,12 +243,12 @@ export function ProjectRedesign() {
               >
                 {zh ? "打开现有组件页" : "Open the existing component page"}
               </Link>
-              {zh ? " · 提示词只做发现，不放主按钮" : " · prompts stay a discovery layer, not the main button"}
+              {zh ? " · 提示词只做发现" : " · prompts stay discovery"}
             </p>
           </section>
         </div>
 
-        <aside className="border-t border-border lg:sticky lg:top-14 lg:h-[calc(100vh-3.5rem)] lg:overflow-y-auto lg:border-t-0 lg:border-l">
+        <aside className="order-3 border-t border-border lg:sticky lg:top-14 lg:h-[calc(100vh-3.5rem)] lg:overflow-y-auto lg:border-t-0 lg:border-l">
           <div className="flex flex-col gap-5 px-4 py-4">
             <div>
               <p className="text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
