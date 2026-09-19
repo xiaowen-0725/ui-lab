@@ -663,5 +663,126 @@
     "browseAll": "Browse all",
     "github": "GitHub",
     "copyright": "© 2026 UI Lab · MIT License"
+  },
+  "siteIa": {
+    "prototypeBadge": "Whole-site chrome prototype",
+    "prototypeNote": "The site-wide direction is approved. This page is a throwaway chrome prototype — not the production homepage, and not in the header.",
+    "brand": "Lab",
+    "hall": "Hall",
+    "bench": "Bench",
+    "searchPlaceholder": "Search specimens…",
+    "searchAria": "Search sketch",
+    "searchHint": "Search is a sketch here. It does not return a fake shelf.",
+    "exit": "Leave prototype",
+    "tagline": "Vocabulary you can see. Systems you can try.",
+    "evidenceEyebrow": "A few live proofs",
+    "evidenceMotion": "Motion you can press",
+    "evidenceNoun": "A noun with aliases",
+    "evidenceNounAliases": "Button · Submit · CTA",
+    "evidenceSystem": "The same controls, one step",
+    "radiusMd": "Medium",
+    "radiusLg": "Large",
+    "doorsEyebrow": "Enter by situation",
+    "doorUnknownTitle": "I don't know the name",
+    "doorUnknownDesc": "See specimens first. Name them after you recognize them.",
+    "doorPurposeTitle": "I know the job",
+    "doorPurposeDesc": "Two to four candidates for the thing you need to do.",
+    "doorTuneTitle": "I need to twist",
+    "doorTuneDesc": "Twist one step on the same real controls.",
+    "typeNoun": "Nouns",
+    "typeMotion": "Motion",
+    "typeSystem": "System",
+    "typeHint": "Type is a sorter, not a second lobby.",
+    "compareHint": "Compare these, then open one. No long wall.",
+    "purposeTitle": "What are you trying to do?",
+    "purposeSubmit": "Submit one thing",
+    "purposeSubmitDesc": "Press, type, finish.",
+    "purposeOpen": "Open a layer",
+    "purposeOpenDesc": "A panel slides in from the side.",
+    "purposeSwap": "Switch in place",
+    "purposeSwapDesc": "Swap a page or a label in the same spot.",
+    "pickType": "Sort into one layer, then compare two to four.",
+    "see": "See",
+    "try": "Try",
+    "take": "Take",
+    "openItem": "Open this one",
+    "goBench": "Twist this step on the bench",
+    "capPreview": "Preview",
+    "capTune": "Tunable",
+    "capInstall": "Installable",
+    "takeInstall": "Take the same registry source.",
+    "takeToken": "Take the token. Preview only.",
+    "takeTheme": "Take Theme Kit graphite.",
+    "aliases": "Aliases",
+    "notNeighbor": "Don't mistake it for",
+    "back": "Back",
+    "emptyFilter": "Nothing in this layer for the current job. Switch layer, or pick another job.",
+    "benchTitle": "Bench",
+    "benchLead": "The same real button, input, and card. Twist one step and they change together.",
+    "benchAccept": "Copy and keep this pair. Not an order.",
+    "localeToEn": "English",
+    "localeToZh": "中文",
+    "items": {
+      "button": {
+        "name": "Button",
+        "nameEn": "Button",
+        "aliases": "Submit, CTA",
+        "notNeighbor": "Don't treat Stateful Button as the only button."
+      },
+      "input": {
+        "name": "Input",
+        "nameEn": "Input",
+        "aliases": "Text field",
+        "notNeighbor": ""
+      },
+      "drawer": {
+        "name": "Drawer",
+        "nameEn": "Drawer",
+        "aliases": "Side panel, sheet",
+        "notNeighbor": "Don't treat it as a modal."
+      },
+      "tabs": {
+        "name": "Tabs",
+        "nameEn": "Tabs",
+        "aliases": "Segments",
+        "notNeighbor": "Don't treat it as Action Swap."
+      },
+      "press": {
+        "name": "Press",
+        "nameEn": "Press",
+        "aliases": "Button spring, tap feedback",
+        "notNeighbor": ""
+      },
+      "swap": {
+        "name": "Action Swap",
+        "nameEn": "Action Swap",
+        "aliases": "Slot spring",
+        "notNeighbor": "Don't treat it as tabs."
+      },
+      "panel": {
+        "name": "Panel",
+        "nameEn": "Panel",
+        "aliases": "Overlay spring",
+        "notNeighbor": ""
+      },
+      "radius": {
+        "name": "Radius",
+        "nameEn": "Radius",
+        "aliases": "Button radius, card radius",
+        "notNeighbor": ""
+      },
+      "shadow": {
+        "name": "Shadow",
+        "nameEn": "Shadow",
+        "aliases": "Card shadow, raised",
+        "notNeighbor": ""
+      },
+      "graphite": {
+        "name": "Graphite",
+        "nameEn": "Graphite",
+        "aliases": "Agent workbench baseline, graphite console",
+        "notNeighbor": ""
+      }
+    }
   }
 }

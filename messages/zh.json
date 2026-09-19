@@ -663,5 +663,126 @@
     "browseAll": "浏览全部",
     "github": "GitHub",
     "copyright": "© 2026 组件实验室 · MIT 协议"
+  },
+  "siteIa": {
+    "prototypeBadge": "整站 chrome 原型",
+    "prototypeNote": "用户已批准宏观方向。这页是一次性架子，不是正式首页，也不进顶栏。",
+    "brand": "实验室",
+    "hall": "展馆",
+    "bench": "试样台",
+    "searchPlaceholder": "搜索标本…",
+    "searchAria": "搜索示意",
+    "searchHint": "搜索是示意，这里不会列出假结果。",
+    "exit": "退出原型",
+    "tagline": "看得见的词汇，试得了的系统。",
+    "evidenceEyebrow": "很少的活证据",
+    "evidenceMotion": "可点的运动",
+    "evidenceNoun": "带别名的名词",
+    "evidenceNounAliases": "按钮 · 提交 · CTA",
+    "evidenceSystem": "同一组控件拧一档",
+    "radiusMd": "中",
+    "radiusLg": "大",
+    "doorsEyebrow": "从处境进门",
+    "doorUnknownTitle": "不知道叫什么",
+    "doorUnknownDesc": "先看见标本，认出再给名字。",
+    "doorPurposeTitle": "知道用途",
+    "doorPurposeDesc": "按要做的事给两到四个候选。",
+    "doorTuneTitle": "要拧",
+    "doorTuneDesc": "在同一组真控件上拧一档。",
+    "typeNoun": "名词",
+    "typeMotion": "动效",
+    "typeSystem": "系统",
+    "typeHint": "类型用来收，不当大门。",
+    "compareHint": "并排看完再进一条。不多摊。",
+    "purposeTitle": "你要做哪件事？",
+    "purposeSubmit": "提交一条",
+    "purposeSubmitDesc": "按下、写入、完成。",
+    "purposeOpen": "打开一层",
+    "purposeOpenDesc": "从旁边滑出一层面板。",
+    "purposeSwap": "并排切换",
+    "purposeSwapDesc": "同一位置换页或换文案。",
+    "pickType": "先收成一层，再比两到四个。",
+    "see": "看见",
+    "try": "试",
+    "take": "拿走",
+    "openItem": "看这一条",
+    "goBench": "到试样台拧这一档",
+    "capPreview": "可预览",
+    "capTune": "可调节",
+    "capInstall": "可安装",
+    "takeInstall": "拿走同一份 registry 源码",
+    "takeToken": "拿走对应 token。只标可预览。",
+    "takeTheme": "拿走 Theme Kit graphite。",
+    "aliases": "别名",
+    "notNeighbor": "别当成邻居",
+    "back": "返回",
+    "emptyFilter": "这一层在当前处境里没有标本。换一层，或换一件要做的事。",
+    "benchTitle": "试样台",
+    "benchLead": "同一组真实按钮、输入和卡片。拧一档，一起变。",
+    "benchAccept": "记下 / 复制这对值。不是订单。",
+    "localeToEn": "English",
+    "localeToZh": "中文",
+    "items": {
+      "button": {
+        "name": "按钮",
+        "nameEn": "Button",
+        "aliases": "提交、CTA、提交钮",
+        "notNeighbor": "别把状态按钮当成唯一按钮。"
+      },
+      "input": {
+        "name": "输入框",
+        "nameEn": "Input",
+        "aliases": "文本框、字段",
+        "notNeighbor": ""
+      },
+      "drawer": {
+        "name": "抽屉面板",
+        "nameEn": "Drawer",
+        "aliases": "侧栏、sheet",
+        "notNeighbor": "别当成 Modal。"
+      },
+      "tabs": {
+        "name": "选项卡",
+        "nameEn": "Tabs",
+        "aliases": "分段、页签",
+        "notNeighbor": "别当成操作切换器。"
+      },
+      "press": {
+        "name": "按压",
+        "nameEn": "Press",
+        "aliases": "按钮弹簧、点击反馈",
+        "notNeighbor": ""
+      },
+      "swap": {
+        "name": "操作切换器",
+        "nameEn": "Action Swap",
+        "aliases": "内容换位、槽位弹簧",
+        "notNeighbor": "别当成选项卡。"
+      },
+      "panel": {
+        "name": "面板弹簧",
+        "nameEn": "Panel",
+        "aliases": "弹层弹簧、模态弹簧",
+        "notNeighbor": ""
+      },
+      "radius": {
+        "name": "圆角阶",
+        "nameEn": "Radius",
+        "aliases": "按钮圆角、卡片圆角",
+        "notNeighbor": ""
+      },
+      "shadow": {
+        "name": "阴影阶",
+        "nameEn": "Shadow",
+        "aliases": "卡片阴影、浮起",
+        "notNeighbor": ""
+      },
+      "graphite": {
+        "name": "石墨",
+        "nameEn": "Graphite",
+        "aliases": "工具型 Agent 工作台、graphite console",
+        "notNeighbor": ""
+      }
+    }
   }
 }
