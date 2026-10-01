@@ -13,6 +13,15 @@
     "brand": "组件实验室",
     "components": "组件",
     "blocks": "区块",
+    "dictionary": "词典",
+    "concepts": "概念",
+    "motion": "动效",
+    "pages": "页面",
+    "sites": "整站",
+    "themes": "主题",
+    "docs": "文档",
+    "openMenu": "打开导航",
+    "menu": "菜单",
     "vocabulary": "词汇表",
     "styles": "风格",
     "palettes": "配色",
@@ -37,9 +46,9 @@
   },
   "search": {
     "trigger": "搜索",
-    "placeholder": "搜索视觉词汇…",
-    "aria": "搜索视觉词汇",
-    "pages": "页面"
+    "placeholder": "搜索目录…",
+    "aria": "搜索目录",
+    "pages": "文档"
   },
   "sidebar": {
     "intro": "入门",
@@ -51,7 +60,7 @@
   "hero": {
     "badge": "{count} 个组件 · {styles} 种风格 · Tailwind 4 + React 19",
     "headline": ["看得见的", "前端视觉词汇表"],
-    "subtitle": "动效组件、复合区块、设计风格的活样本。肉眼感受,复制源码,或拿走「对 AI 这样说」。",
+    "subtitle": "看见名字，再安装同一份源码。词典、组件、区块、页面、整站、主题和灵感在同一目录里。",
     "browse": "浏览组件",
     "aiAgents": "AI 接入"
   },
@@ -61,11 +70,15 @@
     "newEyebrow": "新增",
     "newTitle": "最近上新",
     "componentsEyebrow": "组件",
-    "componentsTitle": "动效基础组件",
+    "componentsTitle": "组件",
     "spacesEyebrow": "导览",
     "spacesTitle": "从这里开始逛",
-    "spaceComponentsDesc": "动效基础组件,复制即用。",
-    "spaceBlocksDesc": "成套的复合产品区块。",
+    "spaceDictionaryDesc": "看见了叫不出名字，从这里查中文名、英文名和别名。",
+    "spaceComponentsDesc": "一个名字、一次安装、一件事。",
+    "spaceBlocksDesc": "排好的一段布局，安装时带走其中的组件。",
+    "spacePagesDesc": "一整屏，以及这一屏怎样划分空间。",
+    "spaceSitesDesc": "多页共用的壳，只登记页面名字。",
+    "spaceThemesDesc": "一套明暗取值，包含配色、圆角、字号、间距和皮。",
     "spaceStylesDesc": "看到风格,拿走「对 AI 的说法」。",
     "spacePalettesDesc": "认出你想要的那组颜色,连色值一起带走。",
     "spaceSectionsDesc": "落地页解剖图:开头那块原来叫 hero。",
@@ -75,6 +88,82 @@
     "spaceAtomsDesc": "曲线、圆角、间距、描边、字体、图标与背景，一处复制真值。",
     "spaceInspirationDesc": "收藏值得反复翻看的设计网站与灵感目录。",
     "spacePlaygroundDesc": "现场调参,感受动效手感。"
+  },
+  "catalog": {
+    "alsoCalled": "也叫",
+    "entry": {
+      "sayToAi": "对 AI 这样说",
+      "install": "安装",
+      "openComponent": "在组件里打开",
+      "sameComponent": "同一组件里还有",
+      "oneWay": "我们的一种做法"
+    },
+    "dictionary": {
+      "eyebrow": "词典",
+      "title": "词典",
+      "intro": "看见了、叫不出正式名字时从这里查。一条词有中文名、英文名和别名；库里已有对应条目时指向它。"
+    },
+    "concepts": {
+      "eyebrow": "概念",
+      "title": "概念词典",
+      "intro": "前端日常会用到的概念和黑话。点进去看到活样本。正好有我们的组件时，可以安装那一个。"
+    },
+    "motion": {
+      "eyebrow": "动效",
+      "title": "动效词典",
+      "intro": "可以重放、也可以直接对 AI 说的动效行话。卡片上先看到它怎么动。已有组件时可以安装，其余只保留名字和样本。"
+    },
+    "blocks": {
+      "eyebrow": "区块",
+      "title": "区块",
+      "intro": "已经排好的一段布局。一次安装带走它引用的组件。"
+    },
+    "pages": {
+      "eyebrow": "页面",
+      "title": "页面",
+      "intro": "一整屏。下面是这一屏怎样划分空间。"
+    },
+    "sites": {
+      "eyebrow": "整站",
+      "title": "整站",
+      "intro": "多页共用的壳。这里只登记外壳，不另存一份页面源码。"
+    },
+    "themes": {
+      "eyebrow": "主题",
+      "title": "主题",
+      "intro": "一套语义取值，含明暗两态。配色、圆角、字号、间距和工作台的皮都在这里。"
+    },
+    "docs": {
+      "eyebrow": "文档",
+      "title": "文档",
+      "intro": "安装方式，以及让 AI 读取这份目录的说明。"
+    },
+    "groups": {
+      "components": "组件",
+      "blocks": "区块",
+      "sections": "页面中的一段",
+      "appear": "出现",
+      "text": "文字",
+      "scroll": "滚动",
+      "loop": "循环",
+      "change": "切换",
+      "motionRules": "缓动和弹簧",
+      "iconMotion": "图标动效",
+      "styles": "风格",
+      "palettes": "配色",
+      "skins": "工作台的皮",
+      "tokens": "圆角、字号、间距和其他取值",
+      "patterns": "整页骨架",
+      "shells": "外壳",
+      "actions": "操作",
+      "writing": "填写",
+      "choice": "选择",
+      "navigation": "导航",
+      "jargon": "黑话",
+      "overlay": "浮层",
+      "feedback": "反馈",
+      "content": "内容"
+    }
   },
   "inspiration": {
     "eyebrow": "灵感来源",
@@ -230,6 +319,10 @@
       "portfolio": "作品集",
       "web-interface": "网页界面",
       "app-screen": "App 界面",
+      "component": "组件",
+      "design-prompt": "设计提示词",
+      "illustration": "插画",
+      "icon": "图标",
       "social-post": "社交帖子",
       "og-image": "OG 分享图",
       "logo": "Logo",
@@ -245,6 +338,12 @@
       "web-design-inspiration": "网页设计灵感",
       "ui-inspiration": "界面灵感",
       "product-design": "产品设计",
+      "direction-finding": "寻找整体方向",
+      "section-reference": "局部区块参考",
+      "agent-ready": "喂给 Agent",
+      "component-source": "组件来源",
+      "micro-interaction": "精致交互细节",
+      "visual-assets": "视觉资源",
       "social-marketing": "社交营销",
       "product-launch": "产品发布",
       "brand-identity": "品牌识别",

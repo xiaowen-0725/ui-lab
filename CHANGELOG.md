@@ -17,6 +17,9 @@
 
 ### 变更
 
+- 顶栏改为词典、组件、区块、页面、整站、主题、灵感。词典内分概念与动效，文档放在顶栏右侧。中英两套文案。原有风格、配色、区块、页面骨架和动效样本从新的门进入，原来的地址仍可打开。
+- 概念词典先走通「按钮」一条：同一屏里左边是中英名、别名、一句人话和对 AI 的说法，右边用现有按钮预览。安装指向 `button-base`。
+- 概念词典按日常界面概念收了第一批：操作、填写、选择、导航、黑话、浮层、反馈、内容。有对应组件的指向现有安装，其余只保留名字和活样本。
 - 将 `ai-sidebar` 拆为单职责模块（`types` / `tree-utils` / `marquee-label` / `resource-menu` / `resource-row` / shell），公开 API 与 `@/components/agents/ai-sidebar` 导入路径保持不变。
 - 四个 Startup Visuals 活样本的预览改为自包含产品 chrome，不再继承文档站深色空画布：`collapsible-sidebar` 默认展开浅色双栏（全局图标条 + 标签导航）并带真实任务表；`upgrade-paywall` 浅色公司表 + 居中 Business+ 卡；`view-layout-switch` 为 Ask Rune 浅色工作面且 SWITCH LAYOUT 菜单默认打开；`billing-plan-grid` 炭黑页、紫色当前方案与细线 check/x/info。项目标改为 Tuesday 日历 / Jammio 气泡 / Create 网格 / Thoughts 橙方 / Consumex 圆盘，不再用字母砖。
 - 四个 Startup Visuals 活样本的可见图标改为按原稿描摹的描边 SVG（双杠折叠、⌘ Command、付费墙 plus/升级箭、布局切换与账单 check/x/info），不再用 Lucide 近似替换。
@@ -29,6 +32,9 @@
 - 灵感库 21 个来源卡片新增带来源和采集日期的真实网站首屏预览，图片整块可直接访问原站，并纳入统一截图质量审计。
 
 ### 新增
+- 动效词典再补主流界面里还缺的动作：对比滑杆、裁切显现、打勾、滑块、下拉刷新、来回进度、轮换、横向滚动、滚动缩放、滚动提示、转圈、轮播、环绕、浮动、彩纸、光束、追光、边缘模糊、侧滑、翻转、插入补位。已有组件的指向 `checkbox`、`switch`、`scroll-hint`、`loader`、`drawer`。
+- 动效词典补上日常界面还缺的词：退出、交叉淡化、从触发点长出、共享元素、方向过渡、页面过渡、视图过渡、划走、拖拽排序、橡皮筋、错误抖动、骨架闪动、打字机、按住确认。已有组件的指向 `dropdown-menu`、`expanding-card`、`animated-toast-stack`、`input`、`skeleton`。
+- 动效词典改成和概念词典一样的卡片：每张卡片先播一段样本，点进去才是一句人话和对 AI 的说法。已经有组件的条目给出安装命令，包括按压、磁吸、倾斜、掠光、走马灯、流光边、弹开卡片、文字显现、扫光、乱序、数字跳动、滚动显现、视差、平滑滚动和惯性拖拽。没有对应组件的词，例如淡入、错峰、缓出和弹簧，只保留名字和样本。
 - **灵感库「来源」新增 `startup-visuals`**：Louis Nguyen / Startup Visuals 的 B2B SaaS 产品界面动效参考（X / Dribbble 动态，不是案例 CMS）。官网是 Hero + logo 跑马灯 + 评价 + 不可点击的 Dribbble ticker；`external-only`，provenance 含 X / 官网 / Dribbble，截图取自 https://startupvisuals.com/ 首屏。
 - **「区块 / Blocks」新增 4 个 SaaS 产品界面模式**（模式受 @startupvisuals / Startup Visuals 启发，实现为原创，未复制品牌或像素稿）：`collapsible-sidebar`（展开树 ⇄ 图标轨）、`upgrade-paywall`（模糊降饱和内容上的升级门禁）、`view-layout-switch`（List / Kanban / Gantt / Calendar / Dashboard 滑动切换）、`billing-plan-grid`（月付/年付方案网格与价格数字变形）。
 - **「区块 / Blocks」新增 13 个 AI 向界面原语**（活样本 + registry，不含 Agent runtime）：beUI（MIT）补 `reasoning-text`、`agent-progress`、`ai-sidebar`；Vercel AI Elements（Apache-2.0）补 `reasoning`、`chain-of-thought`、`sources`、`inline-citation`、`plan`、`task`、`queue`、`confirmation`、`suggestion`、`jsx-preview`。导入已适配 ui-lab 原语；许可见各文件头、`NOTICE` 与 `licenses/AI-ELEMENTS-APACHE-2.0.txt`。未移植 chat-app / message 族，也未移植 file-tree / artifact / code-block / prompt-input / shimmer。

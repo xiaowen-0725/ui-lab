@@ -12,7 +12,7 @@
 
 词汇条目遵循统一公式：**活样本 + 名字(中英 + 别名)+「对 AI 这样说」prompt + 可选配方**；应用级 Recipe 用 `entryComponent` / `components` / `optionalComponents` / `sections` / `slots` / `states` / `responsive` / `assets` / `required` / `forbidden` 声明当前机器契约。prompt 是发现辅助，不能替代语义组件、Compatibility Graph 或用户批准。
 
-主题按**顶级模块**扩展(现有:组件 / 区块 / 风格 / 演练场;规划中:配色方案、字体排印、页面区块等)。加新主题三步:顶级路由 `app/[locale]/<theme>/` → `lib/nav.ts` 注册空间(所有导航面自动跟上)→ 首页 `SpaceCards` 补一条描述文案(`landing.space*Desc`)。每个主题的数据真源独立建 `lib/<theme>.ts`,不塞进 `lib/registry.ts`。如果新增的是跨区块的应用外壳或页面组合契约,应建 Catalog `kind: "recipe"` 的 Recipe,不要伪装成普通顶级主题或单个 Block;首批固定为 `agent-workbench` / `saas-landing`。
+顶栏七个名词:词典、组件、区块、页面、整站、主题、灵感。词典里再分概念和动效(`DICTIONARY_SECTIONS`)。文档在顶栏右侧,不占这七个名词。加新空间三步:顶级路由 `app/[locale]/<space>/` → `lib/nav.ts` 的 `NAV_SPACES` → 首页 `SpaceCards` 补一条描述文案(`landing.space*Desc`),中英都要写。每个空间的数据真源独立建 `lib/<space>.ts`,不塞进 `lib/registry.ts`。如果新增的是跨区块的应用外壳或页面组合契约,应建 Catalog `kind: "recipe"` 的 Recipe,不要伪装成普通顶级主题或单个 Block;首批固定为 `agent-workbench` / `saas-landing`。
 
 ## 命令
 
@@ -37,7 +37,7 @@ bun run benchmark:greenfield # 独立 Greenfield fixture 的完整高成本验�
 - `components/previews/` — 每个组件的演示,注册在 `components/previews/index.tsx`。预览也随 registry 分发;agents 原语预览在 `components/previews/blocks/`(与 category 路径约定一致)。
 - `components/app/` — 站点外壳(顶栏、hero、dock、代码块),**不属于组件库**。
 - `lib/registry.ts` — **组件目录的真源**(slug、文件、示例、中英文名/描述)。现有组件查这里,别在本文档里找清单。两个分类:`motion`(显示名「组件」,基础组件)和 `blocks`(复合产品组件,发 `registry:block`)。
-- `lib/nav.ts` — **顶级空间导航真源**(`NAV_SPACES` + `isSpaceActive`)。site-header、mobile-nav、首页入口卡都消费它;加新空间只改这里。
+- `lib/nav.ts` — **顶栏真源**(`NAV_SPACES` + `DICTIONARY_SECTIONS` + `isSpaceActive`)。site-header、mobile-nav、首页入口卡都消费它;加新空间只改这里。
 - `lib/styles.ts` — **「风格」模块数据真源**:每个风格 = 皮肤 CSS 变量(`--st-*`)+ 别名 + 适用场景 + 中英 prompt + 配方。
 - `components/app/styles/` — 风格换皮对比器(`/styles` 页面),属站点功能,**不入 registry**。
 - `lib/registry-server.ts` — 构建 registry item,会跟随每个文件的 `@/` 与相对 import 把依赖一起打包。所以内部 import 是安全且鼓励的(import `@/lib/ease` 就会连 `lib/ease.ts` 一起发)。

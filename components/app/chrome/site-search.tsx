@@ -5,47 +5,59 @@ import {
   CircleDashed,
   Droplets,
   FileText,
-  Lightbulb,
   LayoutTemplate,
+  Lightbulb,
   MoveVertical,
   Palette,
   PanelsTopLeft,
   Search,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import { useMemo, useState } from "react";
+import { NewBadge } from "@/components/app/docs/new-badge";
+import {
+  type CommandItem,
+  CommandPalette,
+} from "@/components/motion/command-palette";
 import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
-import { useMemo, useState } from "react";
-import { cn } from "@/lib/utils";
-import {
-  CommandPalette,
-  type CommandItem,
-} from "@/components/motion/command-palette";
-import { NewBadge } from "@/components/app/docs/new-badge";
-import { registry } from "@/lib/registry";
-import { PALETTES } from "@/lib/palettes";
-import { LAYOUT_PATTERNS } from "@/lib/patterns";
-import { ATOM_SEARCH_ITEMS } from "@/lib/atoms";
-import { SECTIONS } from "@/lib/sections";
-import { SCROLL_PATTERNS } from "@/lib/scroll";
-import { STYLES } from "@/lib/styles";
+import { ATOM_SEARCH_ITEMS, ICON_MOTIONS } from "@/lib/atoms";
+import { CONCEPTS } from "@/lib/concepts";
 import { localizedName } from "@/lib/i18n-content";
 import { INSPIRATION_SOURCES } from "@/lib/inspiration";
 import { INSPIRATION_BRANDS } from "@/lib/inspiration-brands";
+import { INSPIRATION_SITES } from "@/lib/inspiration-sites";
 import {
   INSPIRATION_COLLECTION_META,
   INSPIRATION_DOMAIN_META,
 } from "@/lib/inspiration-taxonomy";
-import { INSPIRATION_SITES } from "@/lib/inspiration-sites";
+import { DESIGN_SYSTEMS } from "@/lib/layouts";
+import { MOTIONS } from "@/lib/motions";
+import { DOCS_HREF } from "@/lib/nav";
+import { PALETTES } from "@/lib/palettes";
+import { LAYOUT_PATTERNS } from "@/lib/patterns";
+import { registry } from "@/lib/registry";
+import { SCROLL_PATTERNS } from "@/lib/scroll";
+import { SECTIONS } from "@/lib/sections";
+import { STYLES } from "@/lib/styles";
+import { cn } from "@/lib/utils";
 
 const PAGES = [
-  { slug: "ai-agents", labelKey: "aiAgents", href: "/docs/ai-agents" },
+  { slug: "docs", labelKey: "docs" as const, href: DOCS_HREF, namespace: "nav" as const },
+  { slug: "ai-agents", labelKey: "aiAgents" as const, href: "/docs/ai-agents", namespace: "sidebar" as const },
   {
     slug: "motion-patterns",
-    labelKey: "motionGuides",
+    labelKey: "motionGuides" as const,
     href: "/docs/motion-patterns",
+    namespace: "sidebar" as const,
   },
 ] as const;
+
+const ICON_MOTION_SLUGS = new Set(ICON_MOTIONS.map((entry) => entry.slug));
+const MOTION_SLUGS = new Set(MOTIONS.map((entry) => entry.slug));
+const MOTION_ICON_SLUGS = new Set(
+  MOTIONS.filter((entry) => entry.group === "iconMotion").map((entry) => entry.slug),
+);
 
 const INSPIRATION_DOMAIN_NAMES = new Map(
   INSPIRATION_DOMAIN_META.map((domain) => [
@@ -69,6 +81,7 @@ export function SiteSearch({ className }: { className?: string }) {
   const tInspiration = useTranslations("inspiration");
   const tSidebar = useTranslations("sidebar");
   const tNav = useTranslations("nav");
+  const tCatalog = useTranslations("catalog");
   const [open, setOpen] = useState(false);
 
   const items = useMemo<CommandItem[]>(
@@ -96,7 +109,7 @@ export function SiteSearch({ className }: { className?: string }) {
       ...STYLES.map((style) => ({
         id: `style-${style.slug}`,
         label: localizedName(style, locale),
-        group: tNav("styles"),
+        group: tNav("themes"),
         keywords: [
           style.slug,
           style.name,
@@ -109,7 +122,7 @@ export function SiteSearch({ className }: { className?: string }) {
       ...PALETTES.map((palette) => ({
         id: `palette-${palette.slug}`,
         label: localizedName(palette, locale),
-        group: tNav("palettes"),
+        group: tNav("themes"),
         keywords: [
           palette.slug,
           palette.name,
@@ -122,7 +135,7 @@ export function SiteSearch({ className }: { className?: string }) {
       ...SECTIONS.map((section) => ({
         id: `section-${section.slug}`,
         label: localizedName(section, locale),
-        group: tNav("sections"),
+        group: tNav("blocks"),
         keywords: [
           section.slug,
           section.name,
@@ -135,7 +148,7 @@ export function SiteSearch({ className }: { className?: string }) {
       ...LAYOUT_PATTERNS.map((pattern) => ({
         id: `pattern-${pattern.slug}`,
         label: localizedName(pattern, locale),
-        group: tNav("patterns"),
+        group: tNav("pages"),
         keywords: [
           pattern.slug,
           pattern.name,
@@ -145,10 +158,10 @@ export function SiteSearch({ className }: { className?: string }) {
         icon: LayoutTemplate,
         onSelect: () => router.push(`/patterns#${pattern.slug}`),
       })),
-      ...SCROLL_PATTERNS.map((pattern) => ({
+      ...SCROLL_PATTERNS.filter((pattern) => !MOTION_SLUGS.has(pattern.slug)).map((pattern) => ({
         id: `scroll-${pattern.slug}`,
         label: localizedName(pattern, locale),
-        group: tNav("scroll"),
+        group: tNav("motion"),
         keywords: [
           pattern.slug,
           pattern.name,
@@ -158,10 +171,16 @@ export function SiteSearch({ className }: { className?: string }) {
         icon: MoveVertical,
         onSelect: () => router.push(`/scroll#${pattern.slug}`),
       })),
-      ...ATOM_SEARCH_ITEMS.map((atom) => ({
+      ...ATOM_SEARCH_ITEMS.filter(
+        (atom) => !(atom.category === "icons" && MOTION_ICON_SLUGS.has(atom.slug)),
+      ).map((atom) => ({
         id: `atom-${atom.category}-${atom.slug}`,
         label: locale === "zh" ? atom.nameZh : atom.name,
-        group: tNav("atoms"),
+        group:
+          atom.category === "motion" ||
+          (atom.category === "icons" && ICON_MOTION_SLUGS.has(atom.slug))
+            ? tNav("motion")
+            : tNav("themes"),
         keywords: [
           atom.slug,
           atom.name,
@@ -224,16 +243,67 @@ export function SiteSearch({ className }: { className?: string }) {
         icon: Lightbulb,
         onSelect: () => router.push(`/inspiration/brands/${brand.slug}`),
       })),
+      ...DESIGN_SYSTEMS.map((system) => ({
+        id: `skin-${system.slug}`,
+        label: localizedName(system, locale),
+        group: tNav("themes"),
+        keywords: [system.slug, system.name, system.nameZh, ...system.aliases],
+        icon: Palette,
+        onSelect: () => router.push(`/layouts?ds=${system.slug}`),
+      })),
+      ...MOTIONS.map((entry) => ({
+        id: `motion-${entry.slug}`,
+        label: localizedName(entry, locale),
+        group: tNav("dictionary"),
+        keywords: [entry.slug, entry.name, entry.nameZh, ...entry.aliases],
+        icon: MoveVertical,
+        onSelect: () => router.push(`/dictionary/motion/${entry.slug}`),
+      })),
+      ...CONCEPTS.map((entry) => ({
+        id: `concept-${entry.slug}`,
+        label: localizedName(entry, locale),
+        group: tNav("dictionary"),
+        keywords: [entry.slug, entry.name, entry.nameZh, ...entry.aliases],
+        icon: FileText,
+        onSelect: () => router.push(`/dictionary/concepts/${entry.slug}`),
+      })),
+      {
+        id: "door-concepts",
+        label: tCatalog("concepts.title"),
+        group: tNav("dictionary"),
+        keywords: ["概念", "concepts", "dictionary", "词典"],
+        icon: FileText,
+        onSelect: () => router.push("/dictionary/concepts"),
+      },
+      {
+        id: "door-motion",
+        label: tCatalog("motion.title"),
+        group: tNav("dictionary"),
+        keywords: ["动效", "motion", "dictionary", "词典"],
+        icon: FileText,
+        onSelect: () => router.push("/dictionary/motion"),
+      },
+      {
+        id: "site-workbench",
+        label: locale === "zh" ? "Agent 工作台" : "Agent workbench",
+        group: tNav("sites"),
+        keywords: ["整站", "sites", "workbench", "工作台"],
+        icon: FileText,
+        onSelect: () => router.push("/layouts"),
+      },
       ...PAGES.map((page) => ({
         id: page.slug,
-        label: tSidebar(page.labelKey),
+        label:
+          page.namespace === "nav"
+            ? tNav(page.labelKey)
+            : tSidebar(page.labelKey),
         group: t("pages"),
         keywords: [page.slug],
         icon: FileText,
         onSelect: () => router.push(page.href),
       })),
     ],
-    [router, locale, t, tInspiration, tSidebar, tNav],
+    [router, locale, t, tCatalog, tInspiration, tSidebar, tNav],
   );
 
   return (

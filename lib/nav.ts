@@ -1,90 +1,74 @@
-// Single source of truth for the site's top-level spaces (导航真源).
-// Every nav surface (desktop header, mobile nav, future docks/menus) renders
-// from NAV_SPACES — add a new space here and all of them pick it up.
+// Top-level catalog doors. Header, mobile nav, and the homepage cards
+// all render NAV_SPACES. Dictionary sections stay inside that door.
+
+export type NavKey =
+  | "dictionary"
+  | "concepts"
+  | "motion"
+  | "components"
+  | "blocks"
+  | "pages"
+  | "sites"
+  | "themes"
+  | "inspiration";
 
 export type NavSpace = {
   /** Label key under the "nav" messages namespace. */
-  key:
-    | "components"
-    | "blocks"
-    | "styles"
-    | "palettes"
-    | "sections"
-    | "scroll"
-    | "layouts"
-    | "patterns"
-    | "atoms"
-    | "inspiration"
-    | "playground";
-  /** Route the nav item links to. */
+  key: NavKey;
   href: string;
-  /** Pathname prefix that marks this space active. */
-  match: string;
-  /** Sibling prefixes that must not activate this space (longest-match wins). */
+  /** Pathname prefixes that mark this space active. */
+  match: readonly string[];
+  /** Prefixes that must not activate this space. */
   exclude?: readonly string[];
 };
 
-export type NavTopItem =
-  | { kind: "space"; space: NavSpace }
-  | {
-      kind: "group";
-      key: "vocabulary";
-      children: readonly NavSpace[];
-    };
-
 export const NAV_SPACES: readonly NavSpace[] = [
+  { key: "dictionary", href: "/dictionary", match: ["/dictionary"] },
   {
     key: "components",
     href: "/components/motion",
-    match: "/components",
+    match: ["/components"],
     exclude: ["/components/blocks"],
   },
-  { key: "blocks", href: "/components/blocks", match: "/components/blocks" },
-  { key: "styles", href: "/styles", match: "/styles" },
-  { key: "palettes", href: "/palettes", match: "/palettes" },
-  { key: "sections", href: "/sections", match: "/sections" },
-  { key: "scroll", href: "/scroll", match: "/scroll" },
-  { key: "layouts", href: "/layouts", match: "/layouts" },
-  { key: "patterns", href: "/patterns", match: "/patterns" },
-  { key: "atoms", href: "/atoms", match: "/atoms" },
-  { key: "inspiration", href: "/inspiration", match: "/inspiration" },
-  { key: "playground", href: "/playground", match: "/playground" },
-];
-
-function getNavSpace(key: NavSpace["key"]): NavSpace {
-  const space = NAV_SPACES.find((item) => item.key === key);
-  if (!space) throw new Error(`Unknown nav space: ${key}`);
-  return space;
-}
-
-export const NAV_TOP: readonly NavTopItem[] = [
-  { kind: "space", space: getNavSpace("components") },
-  { kind: "space", space: getNavSpace("blocks") },
   {
-    kind: "group",
-    key: "vocabulary",
-    children: [
-      getNavSpace("styles"),
-      getNavSpace("palettes"),
-      getNavSpace("sections"),
-      getNavSpace("scroll"),
-      getNavSpace("layouts"),
-      getNavSpace("patterns"),
-      getNavSpace("atoms"),
-    ],
+    key: "blocks",
+    href: "/blocks",
+    match: ["/blocks", "/components/blocks", "/sections"],
   },
-  { kind: "space", space: getNavSpace("inspiration") },
-  { kind: "space", space: getNavSpace("playground") },
+  { key: "pages", href: "/pages", match: ["/pages", "/patterns"] },
+  { key: "sites", href: "/sites", match: ["/sites", "/layouts"] },
+  {
+    key: "themes",
+    href: "/themes",
+    match: ["/themes", "/styles", "/palettes", "/atoms"],
+  },
+  { key: "inspiration", href: "/inspiration", match: ["/inspiration"] },
 ];
+
+export const DICTIONARY_SECTIONS: readonly NavSpace[] = [
+  {
+    key: "concepts",
+    href: "/dictionary/concepts",
+    match: ["/dictionary/concepts"],
+  },
+  {
+    key: "motion",
+    href: "/dictionary/motion",
+    match: ["/dictionary/motion"],
+  },
+];
+
+export const DOCS_HREF = "/docs";
 
 export function isSpaceActive(space: NavSpace, pathname: string): boolean {
-  if (!pathname.startsWith(space.match)) return false;
-  return !space.exclude?.some((prefix) => pathname.startsWith(prefix));
-}
-
-export function isGroupActive(
-  children: readonly NavSpace[],
-  pathname: string,
-): boolean {
-  return children.some((space) => isSpaceActive(space, pathname));
+  if (
+    space.exclude?.some(
+      (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+    )
+  ) {
+    return false;
+  }
+  return space.match.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  );
 }

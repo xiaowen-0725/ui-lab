@@ -13,6 +13,15 @@
     "brand": "UI Lab",
     "components": "Components",
     "blocks": "Blocks",
+    "dictionary": "Dictionary",
+    "concepts": "Concepts",
+    "motion": "Motion",
+    "pages": "Pages",
+    "sites": "Sites",
+    "themes": "Themes",
+    "docs": "Docs",
+    "openMenu": "Open navigation",
+    "menu": "Menu",
     "vocabulary": "Vocabulary",
     "styles": "Styles",
     "palettes": "Palettes",
@@ -37,9 +46,9 @@
   },
   "search": {
     "trigger": "Search",
-    "placeholder": "Search the visual vocabulary…",
-    "aria": "Search visual vocabulary",
-    "pages": "Pages"
+    "placeholder": "Search the catalog…",
+    "aria": "Search the catalog",
+    "pages": "Docs"
   },
   "sidebar": {
     "intro": "Intro",
@@ -51,7 +60,7 @@
   "hero": {
     "badge": "{count} components · {styles} styles · Tailwind 4 + React 19",
     "headline": ["The visual vocabulary", "for building the web"],
-    "subtitle": "Live samples of motion components, blocks and design styles. See them, copy the source, or take the words to tell your AI.",
+    "subtitle": "See the name, then install the same source. Dictionary, components, blocks, pages, sites, themes, and inspiration live in one catalog.",
     "browse": "Browse components",
     "aiAgents": "AI agents"
   },
@@ -61,11 +70,15 @@
     "newEyebrow": "New",
     "newTitle": "Recently launched",
     "componentsEyebrow": "Components",
-    "componentsTitle": "Motion primitives",
+    "componentsTitle": "Components",
     "spacesEyebrow": "Explore",
     "spacesTitle": "Start here",
-    "spaceComponentsDesc": "Motion primitives, copy-paste ready.",
-    "spaceBlocksDesc": "Composite product blocks.",
+    "spaceDictionaryDesc": "You can see it and cannot name it. Look up the Chinese name, English name, and aliases.",
+    "spaceComponentsDesc": "One name, one install, one job.",
+    "spaceBlocksDesc": "An arranged section. Installing it brings its components.",
+    "spacePagesDesc": "One full screen, and how that screen divides space.",
+    "spaceSitesDesc": "A shell shared by several screens. It registers page names.",
+    "spaceThemesDesc": "One light-and-dark value set: color, radius, type, spacing, and skins.",
     "spaceStylesDesc": "See a style, take the words for AI.",
     "spacePalettesDesc": "Recognize the colors you want, hexes included.",
     "spaceSectionsDesc": "Landing-page anatomy: that top block is a hero.",
@@ -75,6 +88,82 @@
     "spaceAtomsDesc": "Curves, radii, spacing, lines, type, icons, and backgrounds — copy the truth in one place.",
     "spaceInspirationDesc": "Keep remarkable design sites and directories within reach.",
     "spacePlaygroundDesc": "Tune motion parameters live."
+  },
+  "catalog": {
+    "alsoCalled": "Also called",
+    "entry": {
+      "sayToAi": "Say this to AI",
+      "install": "Install",
+      "openComponent": "Open the component",
+      "sameComponent": "Also in this component",
+      "oneWay": "One way we ship it"
+    },
+    "dictionary": {
+      "eyebrow": "Dictionary",
+      "title": "Dictionary",
+      "intro": "Look up the formal name of something you can already see. An entry has a Chinese name, an English name, and aliases, and points at the matching item when one exists."
+    },
+    "concepts": {
+      "eyebrow": "Concepts",
+      "title": "Concept dictionary",
+      "intro": "Everyday interface concepts and the words people use for them. Open one for the live sample. When we already ship that concept, you can install it."
+    },
+    "motion": {
+      "eyebrow": "Motion",
+      "title": "Motion dictionary",
+      "intro": "Named motion you can replay and hand to an AI. The card shows how it moves. Install it when we already ship the component. Otherwise the entry keeps the name and the sample."
+    },
+    "blocks": {
+      "eyebrow": "Blocks",
+      "title": "Blocks",
+      "intro": "An arranged section. Installing it brings the components it uses."
+    },
+    "pages": {
+      "eyebrow": "Pages",
+      "title": "Pages",
+      "intro": "One full screen. These entries show how that screen divides space."
+    },
+    "sites": {
+      "eyebrow": "Sites",
+      "title": "Sites",
+      "intro": "A shell shared by several screens. It registers the shell and does not keep a second copy of page source."
+    },
+    "themes": {
+      "eyebrow": "Themes",
+      "title": "Themes",
+      "intro": "A set of semantic values, including light and dark. Color, radius, type, spacing, and workbench skins live here."
+    },
+    "docs": {
+      "eyebrow": "Docs",
+      "title": "Docs",
+      "intro": "How to install the catalog, and how an AI reads it."
+    },
+    "groups": {
+      "components": "Components",
+      "blocks": "Blocks",
+      "sections": "A section inside a page",
+      "appear": "Appear",
+      "text": "Text",
+      "scroll": "Scroll",
+      "loop": "Loops",
+      "change": "Changes",
+      "motionRules": "Eases and springs",
+      "iconMotion": "Icon motion",
+      "styles": "Styles",
+      "palettes": "Palettes",
+      "skins": "Workbench skins",
+      "tokens": "Radius, type, spacing, and other values",
+      "patterns": "Page skeletons",
+      "shells": "Shells",
+      "actions": "Actions",
+      "writing": "Writing",
+      "choice": "Choices",
+      "navigation": "Navigation",
+      "jargon": "Jargon",
+      "overlay": "Overlays",
+      "feedback": "Feedback",
+      "content": "Content"
+    }
   },
   "inspiration": {
     "eyebrow": "Inspiration sources",
@@ -230,6 +319,10 @@
       "portfolio": "Portfolio",
       "web-interface": "Web interface",
       "app-screen": "App screen",
+      "component": "Component",
+      "design-prompt": "Design prompt",
+      "illustration": "Illustration",
+      "icon": "Icon",
       "social-post": "Social post",
       "og-image": "OG image",
       "logo": "Logo",
@@ -245,6 +338,12 @@
       "web-design-inspiration": "Web design inspiration",
       "ui-inspiration": "UI inspiration",
       "product-design": "Product design",
+      "direction-finding": "Direction finding",
+      "section-reference": "Section reference",
+      "agent-ready": "Agent-ready input",
+      "component-source": "Component source",
+      "micro-interaction": "Polished interaction details",
+      "visual-assets": "Visual assets",
       "social-marketing": "Social marketing",
       "product-launch": "Product launches",
       "brand-identity": "Brand identity",
