@@ -20,6 +20,9 @@
 - 顶栏改为词典、组件、区块、页面、整站、主题、灵感。词典内分概念与动效，文档放在顶栏右侧。中英两套文案。原有风格、配色、区块、页面骨架和动效样本从新的门进入，原来的地址仍可打开。
 - 概念词典先走通「按钮」一条：同一屏里左边是中英名、别名、一句人话和对 AI 的说法，右边用现有按钮预览。安装指向 `button-base`。
 - 概念词典按日常界面概念收了第一批：操作、填写、选择、导航、黑话、浮层、反馈、内容。有对应组件的指向现有安装，其余只保留名字和活样本。
+- 分类原则定为单一职责、可组合、可分发：组件按职责划分，不按体积；定义时的源码就是引入后的那一份。术语写入 `CONTEXT.md`，取舍写入 `docs/adr/0001-component-classification.md`。现有文件不因本原则搬迁。
+- Token 分三桶：主题里已有的语义色与 Theme Kit、按需随组件带走的 `lib/ease.ts`、只属于单个组件的私有值。安装是合并，不覆盖用户主题。
+- 工作台的 `--wb-*` 从各个组件的 `cssVars` 挪到单独的系统项 `system-workbench`。相关组件只声明对它的依赖。
 - 将 `ai-sidebar` 拆为单职责模块（`types` / `tree-utils` / `marquee-label` / `resource-menu` / `resource-row` / shell），公开 API 与 `@/components/agents/ai-sidebar` 导入路径保持不变。
 - 四个 Startup Visuals 活样本的预览改为自包含产品 chrome，不再继承文档站深色空画布：`collapsible-sidebar` 默认展开浅色双栏（全局图标条 + 标签导航）并带真实任务表；`upgrade-paywall` 浅色公司表 + 居中 Business+ 卡；`view-layout-switch` 为 Ask Rune 浅色工作面且 SWITCH LAYOUT 菜单默认打开；`billing-plan-grid` 炭黑页、紫色当前方案与细线 check/x/info。项目标改为 Tuesday 日历 / Jammio 气泡 / Create 网格 / Thoughts 橙方 / Consumex 圆盘，不再用字母砖。
 - 四个 Startup Visuals 活样本的可见图标改为按原稿描摹的描边 SVG（双杠折叠、⌘ Command、付费墙 plus/升级箭、布局切换与账单 check/x/info），不再用 Lucide 近似替换。
@@ -32,6 +35,7 @@
 - 灵感库 21 个来源卡片新增带来源和采集日期的真实网站首屏预览，图片整块可直接访问原站，并纳入统一截图质量审计。
 
 ### 新增
+- 灵感库「来源」补上 28 条已复核条目，包括 `21st-dev`、`3dicons`、`404s-design`、`appshot-gallery`、`bencho`、`circle-loaders`、`colorion-text-effects`、`component-gallery`、`designmd-ai`、`evilcharts`、`footer-design`、`getlayers`、`gradient-buttons`、`kage`、`kinetics`、`kitbitz`、`liquid-glass`、`magic-ui`、`mapcn`、`microkit`、`minimal-gallery`、`motion-primitives`、`neuform`、`open-design`、`rewamp-ui`、`shadcn-ui`、`uiable`、`vibeprompts`。`cta-gallery`、`inspora`、`navbar-gallery` 换上较新的首屏截图。
 - 动效词典再补主流界面里还缺的动作：对比滑杆、裁切显现、打勾、滑块、下拉刷新、来回进度、轮换、横向滚动、滚动缩放、滚动提示、转圈、轮播、环绕、浮动、彩纸、光束、追光、边缘模糊、侧滑、翻转、插入补位。已有组件的指向 `checkbox`、`switch`、`scroll-hint`、`loader`、`drawer`。
 - 动效词典补上日常界面还缺的词：退出、交叉淡化、从触发点长出、共享元素、方向过渡、页面过渡、视图过渡、划走、拖拽排序、橡皮筋、错误抖动、骨架闪动、打字机、按住确认。已有组件的指向 `dropdown-menu`、`expanding-card`、`animated-toast-stack`、`input`、`skeleton`。
 - 动效词典改成和概念词典一样的卡片：每张卡片先播一段样本，点进去才是一句人话和对 AI 的说法。已经有组件的条目给出安装命令，包括按压、磁吸、倾斜、掠光、走马灯、流光边、弹开卡片、文字显现、扫光、乱序、数字跳动、滚动显现、视差、平滑滚动和惯性拖拽。没有对应组件的词，例如淡入、错峰、缓出和弹簧，只保留名字和样本。

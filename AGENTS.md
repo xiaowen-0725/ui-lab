@@ -32,11 +32,11 @@ bun run benchmark:greenfield # 独立 Greenfield fixture 的完整高成本验�
 
 ## 目录结构
 
-- `components/motion/` — 组件库本体。一个组件一个文件;多文件组件用文件夹(`swap/`、`button/`)。
-- `components/agents/` — AI Agents 界面原语(如 `prompt-input`、`todo-list`、`tool-approval` 等),registry 归入 `blocks`;内部共享 `agent-disclosure` / `agent-code` 等辅助文件,随依赖图打包,不单独成条。
+- `components/motion/` — 现有动效组件的源码。一个组件一个文件;多文件组件用文件夹(`swap/`、`button/`)。它们是组件,见 `PRODUCT_DEFINITION.md` 的「分类原则」。
+- `components/agents/` — AI Agents 界面原语(如 `prompt-input`、`todo-list`、`tool-approval` 等)。当前 registry 归入 `blocks`;内部共享 `agent-disclosure` / `agent-code` 等辅助文件,随依赖图打包,不单独成条。新条目按分类原则归类,不按文件夹名归类。
 - `components/previews/` — 每个组件的演示,注册在 `components/previews/index.tsx`。预览也随 registry 分发;agents 原语预览在 `components/previews/blocks/`(与 category 路径约定一致)。
 - `components/app/` — 站点外壳(顶栏、hero、dock、代码块),**不属于组件库**。
-- `lib/registry.ts` — **组件目录的真源**(slug、文件、示例、中英文名/描述)。现有组件查这里,别在本文档里找清单。两个分类:`motion`(显示名「组件」,基础组件)和 `blocks`(复合产品组件,发 `registry:block`)。
+- `lib/registry.ts` — slug、文件、示例、中英文名的真源。新增或改分类前先读 `PRODUCT_DEFINITION.md` 的「分类原则」和 `CONTEXT.md`。现有分类 slug 仍是 `motion`(显示名「组件」)和 `blocks`(显示名「区块」,发 `registry:block`)。
 - `lib/nav.ts` — **顶栏真源**(`NAV_SPACES` + `DICTIONARY_SECTIONS` + `isSpaceActive`)。site-header、mobile-nav、首页入口卡都消费它;加新空间只改这里。
 - `lib/styles.ts` — **「风格」模块数据真源**:每个风格 = 皮肤 CSS 变量(`--st-*`)+ 别名 + 适用场景 + 中英 prompt + 配方。
 - `components/app/styles/` — 风格换皮对比器(`/styles` 页面),属站点功能,**不入 registry**。

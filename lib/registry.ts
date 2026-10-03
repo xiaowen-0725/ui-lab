@@ -53,8 +53,8 @@ export const registry: CategoryEntry[] = [
     slug: "motion",
     name: "Components",
     nameZh: "组件",
-    description: "Motion primitives with shadcn-compatible registry endpoints.",
-    descriptionZh: "兼容 shadcn 注册表规范的动效基础组件。",
+    description: "One name, one install, one interface job. Size does not decide the category.",
+    descriptionZh: "一个名字、一次安装、一件界面上的事。体积不改变分类。",
     components: [
       {
         slug: "tilt-card",
@@ -1006,8 +1006,8 @@ export const registry: CategoryEntry[] = [
     slug: "blocks",
     name: "Blocks",
     nameZh: "区块",
-    description: "Composed, product-ready widgets built from UI Lab motion primitives.",
-    descriptionZh: "基于 UI Lab 动效原语组合而成、可直接用于产品的复合组件。",
+    description: "An arranged section. Installing it brings the components it uses.",
+    descriptionZh: "一段已经排好的布局。一次安装带走它引用的组件。",
     components: [
       {
         slug: "recording-card",

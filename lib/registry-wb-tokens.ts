@@ -2,6 +2,21 @@
 // agent workbench token defaults change; they are not extracted at build time.
 export const WB_TOKEN_COUNT = 43;
 
+/** Installable token system. Workbench components depend on this item instead of copying the full set. */
+export const WORKBENCH_SYSTEM_SLUG = "system-workbench";
+
+export const WB_COMPONENT_SLUGS = new Set([
+  "agent-thread",
+  "agent-composer",
+  "agent-workbench",
+  "agent-trace",
+  "agent-inbox",
+  "thread-list",
+  "artifact-panel",
+  "settings-panel",
+  "prompt-bar",
+]);
+
 export const WB_TOKENS_LIGHT: Record<string, string> = {
   "wb-hover": "rgb(0 0 0 / 0.05)",
   "wb-hover-subtle": "rgb(0 0 0 / 0.04)",

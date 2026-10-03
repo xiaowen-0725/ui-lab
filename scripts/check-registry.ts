@@ -1,24 +1,26 @@
 import { allComponents } from "../lib/registry";
-import { allShadcnTargets, buildEntry, buildShadcnItem, buildThemeItem } from "../lib/registry-server";
-import { WB_TOKENS_DARK, WB_TOKENS_LIGHT } from "../lib/registry-wb-tokens";
+import {
+  allShadcnTargets,
+  buildEntry,
+  buildShadcnItem,
+  buildThemeItem,
+  buildWorkbenchSystemItem,
+} from "../lib/registry-server";
+import {
+  WB_COMPONENT_SLUGS,
+  WB_TOKENS_DARK,
+  WB_TOKENS_LIGHT,
+  WORKBENCH_SYSTEM_SLUG,
+} from "../lib/registry-wb-tokens";
+import { SITE_URL } from "../lib/site";
 import { readSourceFile } from "../lib/source-files";
 import { THEME_KITS, themeKitToCss } from "../lib/theme-kits";
 
 const errors: string[] = [];
 const slugLabels = new Map<string, string[]>();
 const installSlugLabels = new Map<string, string[]>();
-const validatedWbTokenSlugs = new Set<string>();
-const WB_TOKEN_REGISTRY_SLUGS = new Set([
-  "agent-thread",
-  "agent-composer",
-  "agent-workbench",
-  "agent-trace",
-  "agent-inbox",
-  "thread-list",
-  "artifact-panel",
-  "settings-panel",
-  "prompt-bar",
-]);
+const validatedWbComponentSlugs = new Set<string>();
+const workbenchSystemUrl = `${SITE_URL}/r/${WORKBENCH_SYSTEM_SLUG}.json`;
 
 function parseWbTokens(css: string, selector: string): Record<string, string> {
   const selectorIndex = css.indexOf(selector);
@@ -101,11 +103,14 @@ for (const target of allShadcnTargets()) {
       errors.push(`${label}: shadcn item was not created`);
     } else if (!item.files || item.files.length === 0) {
       errors.push(`${label}: shadcn item has no files`);
-    } else if (WB_TOKEN_REGISTRY_SLUGS.has(target.slug)) {
-      validatedWbTokenSlugs.add(target.slug);
-      const registryJson = JSON.parse(JSON.stringify(item)) as typeof item;
-      validateTokenMap(`${label}: cssVars.light`, registryJson.cssVars?.light, globalsWbTokensLight);
-      validateTokenMap(`${label}: cssVars.dark`, registryJson.cssVars?.dark, globalsWbTokensDark);
+    } else if (WB_COMPONENT_SLUGS.has(target.slug)) {
+      validatedWbComponentSlugs.add(target.slug);
+      if (item.cssVars !== undefined) {
+        errors.push(`${label}: workbench tokens must come from ${WORKBENCH_SYSTEM_SLUG}, not component cssVars`);
+      }
+      if (!item.registryDependencies.includes(workbenchSystemUrl)) {
+        errors.push(`${label}: missing registry dependency ${workbenchSystemUrl}`);
+      }
     } else if (item.cssVars !== undefined) {
       errors.push(`${label}: unexpected cssVars`);
     }
@@ -114,11 +119,26 @@ for (const target of allShadcnTargets()) {
   }
 }
 
-for (const slug of WB_TOKEN_REGISTRY_SLUGS) {
-  if (!validatedWbTokenSlugs.has(slug)) {
-    errors.push(`Required --wb-* registry item "${slug}" was not validated`);
+for (const slug of WB_COMPONENT_SLUGS) {
+  if (!validatedWbComponentSlugs.has(slug)) {
+    errors.push(`Required workbench component "${slug}" was not validated`);
   }
 }
+
+const workbenchSystem = buildWorkbenchSystemItem();
+if (slugLabels.has(WORKBENCH_SYSTEM_SLUG) || installSlugLabels.has(WORKBENCH_SYSTEM_SLUG)) {
+  errors.push(`${WORKBENCH_SYSTEM_SLUG}: collides with a component slug`);
+}
+validateTokenMap(
+  `${WORKBENCH_SYSTEM_SLUG}: cssVars.light`,
+  workbenchSystem.cssVars?.light,
+  globalsWbTokensLight,
+);
+validateTokenMap(
+  `${WORKBENCH_SYSTEM_SLUG}: cssVars.dark`,
+  workbenchSystem.cssVars?.dark,
+  globalsWbTokensDark,
+);
 
 // registry:theme items (lib/theme-kits) are a distinct item shape — no
 // files, cssVars-only — so they get their own validation branch rather than
@@ -193,6 +213,6 @@ if (errors.length > 0) {
 
 console.log(`Validated ${allComponents().length} registry components.`);
 console.log(
-  `Verified ${Object.keys(globalsWbTokensLight).length} light and ${Object.keys(globalsWbTokensDark).length} dark --wb-* tokens on ${validatedWbTokenSlugs.size} registry items.`,
+  `Verified ${Object.keys(globalsWbTokensLight).length} light and ${Object.keys(globalsWbTokensDark).length} dark --wb-* tokens on ${WORKBENCH_SYSTEM_SLUG}, referenced by ${validatedWbComponentSlugs.size} components.`,
 );
 console.log(`Validated ${validatedThemeSlugs.size} registry:theme items.`);

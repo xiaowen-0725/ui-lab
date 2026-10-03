@@ -13,8 +13,8 @@ import {
 } from "@/lib/inspiration";
 
 describe("inspiration sources", () => {
-	test("ships the 28 reviewed sources", () => {
-		expect(INSPIRATION_SOURCES).toHaveLength(28);
+	test("ships the 79 reviewed sources", () => {
+		expect(INSPIRATION_SOURCES).toHaveLength(79);
 		expect(INSPIRATION_SOURCES.map((source) => source.slug)).toEqual(
 			expect.arrayContaining([
 				"dribbble",
@@ -31,6 +31,37 @@ describe("inspiration sources", () => {
 				"saasframe",
 				"shadcn-studio",
 				"react-bits",
+				"getlayers",
+				"minimal-gallery",
+				"kage",
+				"component-gallery",
+				"appshot-gallery",
+				"navbar-gallery",
+				"footer-design",
+				"cta-gallery",
+				"404s-design",
+				"designmd-ai",
+				"vibeprompts",
+				"21st-dev",
+				"kinetics",
+				"shadcn-ui",
+				"magic-ui",
+				"motion-primitives",
+				"uiable",
+				"mapcn",
+				"microkit",
+				"liquid-glass",
+				"colorion-text-effects",
+				"circle-loaders",
+				"gradient-buttons",
+				"kitbitz",
+				"3dicons",
+				"evilcharts",
+				"rewamp-ui",
+				"bencho",
+				"inspora",
+				"neuform",
+				"open-design",
 				"checklist-design",
 				"motionsites",
 				"uiverse",
@@ -166,10 +197,10 @@ describe("inspiration brand references", () => {
 });
 
 describe("inspiration sites", () => {
-	test("ships 27 unique accepted external website references", async () => {
-		expect(INSPIRATION_SITES).toHaveLength(27);
-		expect(new Set(INSPIRATION_SITES.map((site) => site.slug)).size).toBe(27);
-		expect(new Set(INSPIRATION_SITES.map((site) => site.canonicalUrl)).size).toBe(27);
+	test("ships 28 unique accepted external website references", async () => {
+		expect(INSPIRATION_SITES).toHaveLength(28);
+		expect(new Set(INSPIRATION_SITES.map((site) => site.slug)).size).toBe(28);
+		expect(new Set(INSPIRATION_SITES.map((site) => site.canonicalUrl)).size).toBe(28);
 		for (const site of INSPIRATION_SITES) {
 			expect(site.entryKind).toBe("site");
 			expect(site.rightsStatus).toBe("external-only");

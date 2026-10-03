@@ -6,8 +6,10 @@ import {
   buildEntry,
   buildShadcnItem,
   buildThemeItem,
+  buildWorkbenchSystemItem,
   findCategoryBySlug,
 } from "@/lib/registry-server";
+import { WORKBENCH_SYSTEM_SLUG } from "@/lib/registry-wb-tokens";
 
 export const dynamic = "force-static";
 
@@ -17,6 +19,8 @@ export function generateStaticParams() {
     ...allShadcnTargets().map((component) => ({ slug: `${component.slug}.json` })),
     ...allThemeItemSlugs().map((slug) => ({ slug })),
     ...allThemeItemSlugs().map((slug) => ({ slug: `${slug}.json` })),
+    { slug: WORKBENCH_SYSTEM_SLUG },
+    { slug: `${WORKBENCH_SYSTEM_SLUG}.json` },
   ];
 }
 
@@ -30,6 +34,16 @@ export async function GET(
   const cat = findCategoryBySlug(componentSlug);
 
   if (!cat) {
+    if (componentSlug === WORKBENCH_SYSTEM_SLUG) {
+      return NextResponse.json(buildWorkbenchSystemItem(), {
+        headers: {
+          "cache-control": "public, max-age=300, s-maxage=3600",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "GET, OPTIONS",
+          "link": '</r/registry.json>; rel="collection"; type="application/json"',
+        },
+      });
+    }
     if (componentSlug.startsWith("theme-")) {
       const themeItem = buildThemeItem(componentSlug.replace(/^theme-/, ""));
       if (themeItem) {

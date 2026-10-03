@@ -37,6 +37,30 @@ UI Lab 是一个中文优先、中英双语的 **可视前端词汇表与 AI-fir
 
 未来如果重新讨论创建器、视觉选择面或更高阶交付协议，必须先形成新的产品定义和用户批准，再决定对象、术语、交互和机器契约。不得直接复活旧 Studio 或旧下单生命周期。
 
+## 分类原则
+
+分类遵循单一职责、可组合、可分发。术语见 [CONTEXT.md](CONTEXT.md)。取舍见 [docs/adr/0001-component-classification.md](docs/adr/0001-component-classification.md)。
+
+- **单一职责**：一个名字只做一件事。体积不改变分类。
+- **可组合**：区块引用组件，页面引用区块和组件，整站只登记页面名字。上一层不把下一层的源码再写一遍。
+- **可分发**：定义时的名字、接口和源码，就是引入后得到的那一份。预览、文档和 registry 安装结果一致。prompt 只帮助发现，不能另生成一份替代品。
+
+组件是一个名字、一个安装入口、一件界面上的事。动效组件和 shadcn/ui 原语都是组件。区块是一段已经排好的布局，一次安装带走它引用的组件。页面是一屏。整站是多屏共用的壳，只引用页面。
+
+新组件、新页面、新整站使用 Next.js 15、React 19、TypeScript、Tailwind CSS 4，控件优先用 shadcn/ui。现有 `components/motion` 与 `components/agents` 的文件位置先保持不动；之后按本原则重分类，不按本原则批量搬迁。
+
+### Token 分发
+
+Token 分三桶。安装组件时只带走它真正依赖的那一桶，并且是合并，不是覆盖。
+
+| 桶 | 现在的东西 | 安装时 |
+| --- | --- | --- |
+| 主题里已有 | `globals.css` 的语义色：`background`、`foreground`、`primary`、`card`、`border`、`accent`、`destructive`，以及 `success`、`warning`、`danger`、`border-strong`。明暗成对。Theme Kit（`lib/theme-kits/`）是一整套取值，含 shadcn 语义、`--wb-*`、图表色、圆角、间距、字号和缓动的 CSS 静态值 | 项目初始化或用户选定 Theme Kit 时写入。之后安装组件不得重写这些变量 |
+| 按需带走的系统 | `lib/ease.ts` 的 `EASE_*` 与 `SPRING_*`。组件 import 它，registry 发布时把这个文件打进组件包。`lib/atoms/motion.ts` 只是这同一份值的目录说明，不是第二份可编辑的源。`use-hover-capable` 这类共享钩子同样随 import 带走 | 组件声明依赖。已存在则跳过。不因为装一个按钮而装上整套主题或全部动效文档 |
+| 组件私有 | 只有一个组件使用、且语义层表达不了的值。今天多数组件没有私有 CSS 变量 | 写在该组件自己的 `cssVars` 上，名字带组件前缀。不得提升进 `lib/ease.ts` 或主题 |
+
+`--wb-*` 只服务 Agent 工作台。Theme Kit 里已经带有同一份值。工作台组件不再各自写入 `cssVars`，只依赖单独的系统项 `system-workbench`（`/r/system-workbench.json`）。安装该系统项时合并这一份变量；之后再装工作台组件不会把整份变量再写一遍。
+
 ## 条目公式
 
 词汇条目遵循统一公式：

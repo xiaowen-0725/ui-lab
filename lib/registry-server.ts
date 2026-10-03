@@ -1,5 +1,10 @@
 import { allComponents, findCategory, registry } from "@/lib/registry";
-import { WB_TOKENS_DARK, WB_TOKENS_LIGHT } from "@/lib/registry-wb-tokens";
+import {
+  WB_COMPONENT_SLUGS,
+  WB_TOKENS_DARK,
+  WB_TOKENS_LIGHT,
+  WORKBENCH_SYSTEM_SLUG,
+} from "@/lib/registry-wb-tokens";
 import { pageUrlFor, withSignature } from "@/lib/signature";
 import { REGISTRY_NAME, SITE_URL } from "@/lib/site";
 import { readOptionalSourceFile, readSourceFile, resolveSourceImport, type SourceFile } from "@/lib/source-files";
@@ -72,17 +77,6 @@ export type RegistryTarget = {
 const STATIC_IMPORT_RE = /\b(?:import|export)\s+(?:type\s+)?(?:[^'";]*?\s+from\s*)?["']([^"']+)["']/g;
 const DYNAMIC_IMPORT_RE = /\bimport\s*\(\s*["']([^"']+)["']\s*\)/g;
 const SHADCN_DEP_SKIP = new Set(["next", "react", "react-dom"]);
-const WB_TOKEN_REGISTRY_SLUGS = new Set([
-  "agent-thread",
-  "agent-composer",
-  "agent-workbench",
-  "agent-trace",
-  "agent-inbox",
-  "thread-list",
-  "artifact-panel",
-  "settings-panel",
-  "prompt-bar",
-]);
 
 function parseDeps(source: string) {
   const external = new Set<string>();
@@ -331,10 +325,9 @@ export async function buildShadcnItem(
     description: comp.description,
     author: "UI Lab",
     dependencies,
-    registryDependencies: [],
-    ...(WB_TOKEN_REGISTRY_SLUGS.has(comp.slug)
-      ? { cssVars: { light: WB_TOKENS_LIGHT, dark: WB_TOKENS_DARK } }
-      : {}),
+    registryDependencies: WB_COMPONENT_SLUGS.has(comp.slug)
+      ? [`${SITE_URL}/r/${WORKBENCH_SYSTEM_SLUG}.json`]
+      : [],
     files: uniqueByPath(
       graph.files.map((file) => {
         if (!includeContent) return shadcnFile(file.path);
@@ -386,6 +379,24 @@ export function allThemeItemSlugs(): string[] {
   return THEME_KITS.map((kit) => `theme-${kit.slug}`);
 }
 
+/** `--wb-*` defaults as one registry item. Components depend on it; they do not copy the set. */
+export function buildWorkbenchSystemItem(): ShadcnRegistryItem {
+  return {
+    $schema: "https://ui.shadcn.com/schema/registry-item.json",
+    name: WORKBENCH_SYSTEM_SLUG,
+    type: "registry:theme",
+    title: "Workbench tokens",
+    description: "Shared --wb-* tokens for agent workbench components. Light and dark.",
+    author: "UI Lab",
+    dependencies: [],
+    registryDependencies: [],
+    cssVars: {
+      light: WB_TOKENS_LIGHT,
+      dark: WB_TOKENS_DARK,
+    },
+  };
+}
+
 export async function buildShadcnRegistry(): Promise<ShadcnRegistry> {
   const items = await Promise.all(
     allShadcnTargets().map(async (component) => {
@@ -402,12 +413,13 @@ export async function buildShadcnRegistry(): Promise<ShadcnRegistry> {
     const { $schema: _schema, ...entry } = item;
     return entry;
   });
+  const { $schema: _systemSchema, ...workbenchSystem } = buildWorkbenchSystemItem();
 
   return {
     $schema: "https://ui.shadcn.com/schema/registry.json",
     name: REGISTRY_NAME,
     homepage: SITE_URL,
-    items: [...items, ...themeItems].filter(
+    items: [...items, ...themeItems, workbenchSystem].filter(
       (item): item is Omit<ShadcnRegistryItem, "$schema"> => item !== null,
     ),
   };
