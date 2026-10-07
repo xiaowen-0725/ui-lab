@@ -8,12 +8,12 @@
 
 ### Issue tracker
 
-Issues live in this repo's GitHub Issues (via `gh`). See `docs/agents/issue-tracker.md`.
+需求与问题跟踪使用 `xiaowen-0725/ui-lab` 的 GitHub Issues（`gh`）。见 [issue-tracker.md](docs/agents/issue-tracker.md)。
 
 ### Triage labels
 
-Default five-role vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+分诊使用五个默认标签；角色映射见 [triage-labels.md](docs/agents/triage-labels.md)。
 
 ### Domain docs
 
-Single-context: root `CONTEXT.md` + `docs/adr/`. See `docs/agents/domain.md`.
+单上下文：根 `GLOSSARY.md` + `docs/adr/`；术语表建立前读取现有 `CONTEXT.md`。读取与迁移规则见 [domain.md](docs/agents/domain.md)。

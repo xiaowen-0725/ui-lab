@@ -1,10 +1,10 @@
 # Issue tracker: GitHub
 
-Issues and specs for this repo live as GitHub issues. Use the `gh` CLI for all operations.
+Issues and specs for this repo live in `xiaowen-0725/ui-lab` GitHub Issues. Use the `gh` CLI from this clone, or pass `--repo xiaowen-0725/ui-lab` when outside it. Read operations may proceed; create/comment/label/close operations require the task's authorization to cover that write.
 
 ## Conventions
 
-- **Create an issue**: `gh issue create --title "..." --body "..."`. Use a heredoc for multi-line bodies.
+- **Create an issue**: `gh issue create --title "..." --body "..."`. For multi-line bodies, write the exact text to a temporary file and pass `--body-file <path>`.
 - **Read an issue**: `gh issue view <number> --comments`, filtering comments by `jq` and also fetching labels.
 - **List issues**: `gh issue list --state open --json number,title,body,labels,comments --jq '[.[] | {number, title, body, labels: [.labels[].name], comments: [.comments[].body]}]'` with appropriate `--label` and `--state` filters.
 - **Comment on an issue**: `gh issue comment <number> --body "..."`
