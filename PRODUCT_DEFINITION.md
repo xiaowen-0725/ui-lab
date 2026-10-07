@@ -48,7 +48,7 @@ UI Lab 是一个中文优先、中英双语的 **可视前端词汇表与 AI-fir
 
 组件是一个名字、一个安装入口、一件界面上的事。动效组件和 shadcn/ui 原语都是组件。区块是一段已经排好的布局，一次安装带走它引用的组件。页面是一屏。整站是多屏共用的壳，只引用页面。
 
-站点使用 Next.js 15；可安装组件、页面与多页组合使用 React 19、TypeScript、Tailwind CSS 4，控件优先复用现有 shadcn-compatible 原语，框架适配放在消费项目。新增或参考外部资产时按 [语义与命名规则](CODING_STANDARDS.md#语义与命名) 独立定义本项目名称及接口。现有 `components/motion` 与 `components/agents` 的文件位置先保持不动；之后按本原则重分类，不按本原则批量搬迁。
+站点使用 Next.js 15；可安装组件、页面与多页组合使用 React 19、TypeScript、Tailwind CSS 4，支持按需组合 shadcn-compatible 原语与 Motion 动效，框架适配放在消费项目。具体复用选择见[组件化与依赖方向](CODING_STANDARDS.md#组件化与依赖方向)。新增或参考外部资产时按 [语义与命名规则](CODING_STANDARDS.md#语义与命名) 独立定义本项目名称及接口。现有 `components/motion` 与 `components/agents` 的文件位置先保持不动；之后按本原则重分类，不按本原则批量搬迁。
 
 ### 目录与安装契约
 

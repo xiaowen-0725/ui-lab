@@ -7,7 +7,7 @@
 - `lib/catalog.ts` 的 `buildCatalog()` 聚合领域真源，站点、机器端点和 CLI 快照消费它。新增领域建 `lib/<domain>.ts` 或目录；registry 只登记安装资产。
 - `lib/registry.ts` 登记资产，`lib/registry-server.ts` 构建安装身份及 import 闭包。历史 category 与路径保持兼容，职责读 `assetRole`；取舍见 [ADR 0002](../adr/0002-catalog-roles-and-install-identities.md)。
 - `lib/nav.ts` 的 `NAV_SPACES`、`DICTIONARY_SECTIONS`、`isSpaceActive` 是导航真源；新空间同时更新路由、首页 `SpaceCards` 描述和双语 messages。
-- `components/motion/`、`components/agents/` 保留既有组织，helper 随依赖分发。`sections/`、`pages/`、`site-shells/` 保存各自实现。
+- `components/motion/` 保存可复用 UI 资产，包含 Motion 动效实现；`components/agents/` 保存 Agent 界面组件及共享实现。二者沿用已有目录组织，helper 随依赖分发。`sections/`、`pages/`、`site-shells/` 保存各自实现。
 - `components/previews/` 是站点包装，`components/examples/` 是独立用法。自定义 detail/raw 可含预览，shadcn 安装只带资产必需源码。
 - `components/app/` 是站点功能；各领域 `lib/styles.ts` 等维护视觉词汇。`lib/ease.ts` 是 motion token 真源，`lib/hooks/` 提供共享行为，`lib/utils.ts` 提供 `cn()`。
 
