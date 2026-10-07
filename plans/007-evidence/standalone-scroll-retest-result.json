@@ -1,0 +1,181 @@
+{
+  "generatedAt": "2026-10-07T04:34:49.662Z",
+  "verdict": "passed",
+  "globalErrors": [],
+  "root": "/Users/zhoujw/develop/github/ui-lab",
+  "evidence": "/var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-standalone-usage-99hZN0",
+  "typescript": "5.9.3",
+  "browserVersion": "154.0.8037.98",
+  "dependencyVersions": {
+    "react": "19.2.6",
+    "motion": "11.18.2"
+  },
+  "usages": 4,
+  "browserEnabled": true,
+  "expectedBrowserChecks": 8,
+  "results": [
+    {
+      "key": "scroll-animation",
+      "installSlug": "scroll-animation",
+      "usageFile": "components/examples/motion/scroll-animation.example.tsx",
+      "files": [
+        {
+          "path": "components/motion/smooth-scroll.tsx",
+          "sha256": "ad3bea093f06bdf032307b7f730099c1f25a8da4ecc761832aba58a4e5ac22db"
+        },
+        {
+          "path": "components/motion/scroll-progress.tsx",
+          "sha256": "2fe83204f1ab768da078cd6f3f6066034d7cb59bd3cf3c03a74f347bfd77f810"
+        },
+        {
+          "path": "components/motion/parallax.tsx",
+          "sha256": "f07236f59f3a3c68dfa37fb080cfa7751fd87ef8338b5b9d1c04ba493b666540"
+        },
+        {
+          "path": "components/motion/scroll-to.tsx",
+          "sha256": "f42dcc0a1910fabd6154ed35aaa311f43e50cc143ee6272a4d00878020eec76a"
+        },
+        {
+          "path": "components/motion/scroll-reveal.tsx",
+          "sha256": "7e682253dec8f4e494859793aaad6bc44768b7a019867557694763ee8c615871"
+        },
+        {
+          "path": "lib/hooks/use-hydrated-reduced-motion.ts",
+          "sha256": "3f0d529e4eb45df69d4ddf9bb6a731af2a99a2549fe2711a2e0cbffa412dbd72"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "lib/ease.ts",
+          "sha256": "a24fb30b2859fbd652f8a4c5a7db0ff50f66adb4e581aa009e5105ea54a07105"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "smooth-scroll",
+      "installSlug": "smooth-scroll",
+      "usageFile": "components/examples/motion/smooth-scroll.example.tsx",
+      "files": [
+        {
+          "path": "components/motion/smooth-scroll.tsx",
+          "sha256": "ad3bea093f06bdf032307b7f730099c1f25a8da4ecc761832aba58a4e5ac22db"
+        },
+        {
+          "path": "lib/hooks/use-hydrated-reduced-motion.ts",
+          "sha256": "3f0d529e4eb45df69d4ddf9bb6a731af2a99a2549fe2711a2e0cbffa412dbd72"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "scroll-progress",
+      "installSlug": "scroll-progress",
+      "usageFile": "components/examples/motion/scroll-progress.example.tsx",
+      "files": [
+        {
+          "path": "components/motion/scroll-progress.tsx",
+          "sha256": "2fe83204f1ab768da078cd6f3f6066034d7cb59bd3cf3c03a74f347bfd77f810"
+        },
+        {
+          "path": "components/motion/smooth-scroll.tsx",
+          "sha256": "fa2411ac728d6de4683e319d5fc338ebd43d609a75e00b1f5f140fc63f854c11"
+        },
+        {
+          "path": "lib/hooks/use-hydrated-reduced-motion.ts",
+          "sha256": "3f0d529e4eb45df69d4ddf9bb6a731af2a99a2549fe2711a2e0cbffa412dbd72"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "scroll-to",
+      "installSlug": "scroll-to",
+      "usageFile": "components/examples/motion/scroll-to.example.tsx",
+      "files": [
+        {
+          "path": "components/motion/scroll-to.tsx",
+          "sha256": "f42dcc0a1910fabd6154ed35aaa311f43e50cc143ee6272a4d00878020eec76a"
+        },
+        {
+          "path": "components/motion/smooth-scroll.tsx",
+          "sha256": "fa2411ac728d6de4683e319d5fc338ebd43d609a75e00b1f5f140fc63f854c11"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "lib/hooks/use-hydrated-reduced-motion.ts",
+          "sha256": "3f0d529e4eb45df69d4ddf9bb6a731af2a99a2549fe2711a2e0cbffa412dbd72"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    }
+  ],
+  "browserChecks": [
+    {
+      "key": "scroll-animation",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "smooth-scroll",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "scroll-progress",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "scroll-to",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "scroll-animation",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "smooth-scroll",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "scroll-progress",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "scroll-to",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    }
+  ],
+  "interactionChecks": []
+}

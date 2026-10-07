@@ -7,7 +7,8 @@ import {
   FileCode2,
   LoaderCircle,
 } from "lucide-react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import {
   type ReactNode,
   useCallback,

@@ -1,0 +1,95 @@
+$ bun run typecheck && bun run lint && bun run check:registry && bun run check:catalog && bun run check:architecture && bun run check:snapshot && bun run check:skills
+$ tsc --noEmit
+$ biome lint .
+.agents/skills/setup-ts-deep-modules/dependency-cruiser.config.cjs:70:50 lint/suspicious/noTemplateCurlyInString ━━━━━━━━━━
+
+  ! Unexpected template string placeholder.
+
+    68 │     {
+    69 │       name: "no-circular",
+  > 70 │       comment: "No dependency cycles. Scope to `^${R}/` if you want to allow cycles outside packages.",
+       │                                                  ^^^^
+    71 │       severity: "error",
+    72 │       from: {},
+
+  i Turn the string into a template string.
+
+
+.claude/skills/setup-ts-deep-modules/dependency-cruiser.config.cjs:70:50 lint/suspicious/noTemplateCurlyInString ━━━━━━━━━━
+
+  ! Unexpected template string placeholder.
+
+    68 │     {
+    69 │       name: "no-circular",
+  > 70 │       comment: "No dependency cycles. Scope to `^${R}/` if you want to allow cycles outside packages.",
+       │                                                  ^^^^
+    71 │       severity: "error",
+    72 │       from: {},
+
+  i Turn the string into a template string.
+
+
+.grok/skills/setup-ts-deep-modules/dependency-cruiser.config.cjs:70:50 lint/suspicious/noTemplateCurlyInString ━━━━━━━━━━
+
+  ! Unexpected template string placeholder.
+
+    68 │     {
+    69 │       name: "no-circular",
+  > 70 │       comment: "No dependency cycles. Scope to `^${R}/` if you want to allow cycles outside packages.",
+       │                                                  ^^^^
+    71 │       severity: "error",
+    72 │       from: {},
+
+  i Turn the string into a template string.
+
+
+Checked 881 files in 197ms. No fixes applied.
+Found 3 warnings.
+$ bun scripts/check-registry.ts
+Validated 128 registry components.
+Verified 43 light and 43 dark --wb-* tokens on system-workbench, referenced by 9 components.
+Validated 14 registry:theme items.
+$ bun test tests/catalog-coverage.test.ts tests/catalog-contract.test.ts tests/nav-contract.test.ts tests/standalone-usage.test.ts
+bun test v1.3.14 (0d9b296a)
+
+tests/nav-contract.test.ts:
+(pass) semantic navigation follows historical detail paths without double activation [0.40ms]
+
+tests/catalog-coverage.test.ts:
+(pass) every baseline record and expanded variant has a real source and machine identity [45.33ms]
+(pass) all knowledge and references project from their domain truths without fake installs [33.37ms]
+(pass) every emitted installation command and standalone usage resolves to real distribution [100.93ms]
+
+tests/standalone-usage.test.ts:
+(pass) every family and displayed variant declares a real standalone usage [1.93ms]
+(pass) machine detail delivers copyable usage while installation remains implementation-only [225.60ms]
+(pass) base variants retain their own source entry and narrow copyable usage [1.53ms]
+
+tests/catalog-contract.test.ts:
+(pass) Catalog installation contract > display families and every variant are installable without duplicate identities [34.46ms]
+(pass) Catalog installation contract > owned family and mandatory installation closure are separate [28.34ms]
+
+ 9 pass
+ 0 fail
+ 6059 expect() calls
+Ran 9 tests across 4 files. [553.00ms]
+$ bun scripts/check-architecture.ts
+Architecture: 158 targets, 211 source files; portable imports, named exports, bilingual metadata and localized navigation passed.
+$ bun scripts/gen-catalog-snapshot.ts --check
+Catalog snapshot matches 558 current items (generatedAt excluded).
+$ bun scripts/check-skills.ts && bun test tests/ui-lab-skill.test.ts
+Validated 3 skills, 7 Markdown files, 4 relative links, and 3 OpenAI agent prompt(s).
+bun test v1.3.14 (0d9b296a)
+
+tests/ui-lab-skill.test.ts:
+(pass) UI Lab skill routing contract > keeps a two-route component discover/install router [0.56ms]
+(pass) UI Lab skill routing contract > keeps required references present and linked [0.24ms]
+(pass) UI Lab skill routing contract > discover stays read-only and points at catalog commands [0.12ms]
+(pass) UI Lab skill routing contract > install uses shadcn registry commands and does not auto-run by default [0.09ms]
+(pass) UI Lab skill routing contract > explicitly excludes design-system lifecycle and admin template work [0.13ms]
+(pass) UI Lab skill metadata > gives the model-invoked skill an explicit default prompt [0.09ms]
+
+ 6 pass
+ 0 fail
+ 22 expect() calls
+Ran 6 tests across 1 file. [64.00ms]

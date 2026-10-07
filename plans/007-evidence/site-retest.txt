@@ -1,0 +1,3 @@
+$ bun scripts/verify-catalog-site.ts && bun scripts/verify-catalog-deep-links.ts
+PASS Catalog/source/snapshot, 158 JSON+raw targets, 439 zh/en routes, 120 browser scenarios. Evidence: /var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-catalog-site-7kyinK
+PASS 110 actual historical anchors in zh/en: query/hash and target scrolling. Evidence: /var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-deep-links-TKvvCi

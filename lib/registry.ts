@@ -5,6 +5,8 @@ import { SITES } from "@/lib/sites";
 export type AssetRole = "component" | "block" | "page" | "shell" | "site";
 
 export type ComponentExample = {
+  /** Provider-free copyable usage for this independently installable variant. */
+  usageFile?: string;
   slug: string;
   name: string;
   description?: string;
@@ -86,6 +88,7 @@ export const registry: CategoryEntry[] = [
     descriptionZh: "一个名字、一次安装、一件界面上的事。体积不改变分类。",
     components: [
       {
+        usageFile: "components/examples/motion/tilt-card.example.tsx",
         assetRole: "component",
         slug: "tilt-card",
         name: "Tilt Card",
@@ -95,6 +98,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/tilt-card.tsx",
       },
       {
+        usageFile: "components/examples/motion/button.example.tsx",
         assetRole: "component",
         slug: "button",
         name: "Button",
@@ -110,6 +114,7 @@ export const registry: CategoryEntry[] = [
         ],
         examples: [
           {
+            usageFile: "components/examples/motion/button-base.example.tsx",
             slug: "base",
             name: "Button",
             nameZh: "基础按钮",
@@ -121,6 +126,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/button-base.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/button-stateful.example.tsx",
             slug: "stateful",
             name: "Stateful Button",
             nameZh: "状态按钮",
@@ -132,6 +138,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/button-stateful.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/button-magnetic.example.tsx",
             slug: "magnetic",
             name: "Magnetic Button",
             nameZh: "磁吸按钮",
@@ -143,6 +150,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/button-magnetic.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/button-metallic.example.tsx",
             slug: "metallic",
             name: "Metallic Button",
             nameZh: "金属按钮",
@@ -158,6 +166,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/marquee.example.tsx",
         assetRole: "component",
         slug: "marquee",
         name: "Marquee",
@@ -167,6 +176,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/marquee.tsx",
       },
       {
+        usageFile: "components/examples/motion/tabs.example.tsx",
         assetRole: "component",
         slug: "tabs",
         name: "Tabs",
@@ -176,6 +186,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/tabs.tsx",
       },
       {
+        usageFile: "components/examples/motion/switch.example.tsx",
         assetRole: "component",
         slug: "switch",
         name: "Switch",
@@ -185,6 +196,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/switch.tsx",
       },
       {
+        usageFile: "components/examples/motion/input.example.tsx",
         assetRole: "component",
         slug: "input",
         name: "Input",
@@ -201,6 +213,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/select.example.tsx",
         assetRole: "component",
         slug: "select",
         name: "Select",
@@ -212,6 +225,7 @@ export const registry: CategoryEntry[] = [
         launchedAt: "2026-06-28",
         examples: [
           {
+            usageFile: "components/examples/motion/select.example.tsx",
             slug: "default",
             name: "Select",
             nameZh: "标准下拉选择器",
@@ -223,6 +237,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/select.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/select-morph.example.tsx",
             slug: "morph",
             name: "Morph Select",
             nameZh: "变形下拉选择器",
@@ -236,6 +251,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/checkbox.example.tsx",
         assetRole: "component",
         slug: "checkbox",
         name: "Checkbox",
@@ -249,6 +265,7 @@ export const registry: CategoryEntry[] = [
         launchedAt: "2026-06-23",
       },
       {
+        usageFile: "components/examples/motion/radio.example.tsx",
         assetRole: "component",
         slug: "radio",
         name: "Radio Group",
@@ -262,6 +279,7 @@ export const registry: CategoryEntry[] = [
         launchedAt: "2026-06-23",
       },
       {
+        usageFile: "components/examples/motion/bottom-sheet.example.tsx",
         assetRole: "component",
         slug: "bottom-sheet",
         name: "Bottom Sheet",
@@ -271,6 +289,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/bottom-sheet.tsx",
       },
       {
+        usageFile: "components/examples/motion/shared-layout-bg.example.tsx",
         assetRole: "component",
         slug: "shared-layout-bg",
         name: "Shared Layout Background",
@@ -280,6 +299,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/shared-layout-bg.tsx",
       },
       {
+        usageFile: "components/examples/motion/preview-rail.example.tsx",
         assetRole: "component",
         slug: "preview-rail",
         name: "Preview Rail",
@@ -303,6 +323,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/dock.example.tsx",
         assetRole: "component",
         slug: "dock",
         name: "Dock",
@@ -312,6 +333,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/dock.tsx",
       },
       {
+        usageFile: "components/examples/motion/tooltip.example.tsx",
         assetRole: "component",
         slug: "tooltip",
         name: "Tooltip",
@@ -331,6 +353,7 @@ export const registry: CategoryEntry[] = [
         ],
         examples: [
           {
+            usageFile: "components/examples/motion/tooltip.example.tsx",
             slug: "default",
             name: "Tooltip",
             nameZh: "标准文字提示",
@@ -344,6 +367,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/tooltip.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/tooltip-morph.example.tsx",
             slug: "morph",
             name: "Morph Tooltip",
             nameZh: "变形文字提示",
@@ -359,6 +383,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/popover.example.tsx",
         assetRole: "component",
         slug: "popover",
         name: "Popover",
@@ -382,6 +407,7 @@ export const registry: CategoryEntry[] = [
         ],
         examples: [
           {
+            usageFile: "components/examples/motion/popover.example.tsx",
             slug: "gooey",
             name: "Gooey Popover",
             nameZh: "果冻气泡浮层",
@@ -395,6 +421,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/popover.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/popover-morph.example.tsx",
             slug: "morph",
             name: "Morph Popover",
             nameZh: "变形气泡浮层",
@@ -410,6 +437,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/morphing-modal.example.tsx",
         assetRole: "component",
         slug: "morphing-modal",
         name: "Morphing Modal",
@@ -419,6 +447,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/morphing-modal.tsx",
       },
       {
+        usageFile: "components/examples/motion/text-animation.example.tsx",
         assetRole: "component",
         slug: "text-animation",
         name: "Text Animation",
@@ -432,6 +461,7 @@ export const registry: CategoryEntry[] = [
         ],
         examples: [
           {
+            usageFile: "components/examples/motion/text-reveal.example.tsx",
             slug: "reveal",
             name: "Text Reveal",
             nameZh: "文字揭示",
@@ -443,6 +473,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/text-reveal.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/text-shimmer.example.tsx",
             slug: "shimmer",
             name: "Text Shimmer",
             nameZh: "文字微光",
@@ -454,6 +485,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/text-shimmer.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/text-cascade.example.tsx",
             slug: "cascade",
             name: "Text Cascade",
             nameZh: "文字瀑布流",
@@ -467,6 +499,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/number.example.tsx",
         assetRole: "component",
         slug: "number",
         name: "Number Animation",
@@ -477,6 +510,7 @@ export const registry: CategoryEntry[] = [
         extraFiles: ["components/motion/number-ticker.tsx"],
         examples: [
           {
+            usageFile: "components/examples/motion/number-ticker.example.tsx",
             slug: "ticker",
             name: "Number Ticker",
             nameZh: "数字翻转器",
@@ -488,6 +522,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/number-ticker.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/animated-number.example.tsx",
             slug: "animated",
             name: "Animated Number",
             nameZh: "数字递增动画",
@@ -501,6 +536,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/animated-badge.example.tsx",
         assetRole: "component",
         slug: "animated-badge",
         name: "Animated Badge",
@@ -510,6 +546,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/animated-badge.tsx",
       },
       {
+        usageFile: "components/examples/motion/action-swap.example.tsx",
         assetRole: "component",
         slug: "action-swap",
         name: "Action Swap",
@@ -519,6 +556,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/action-swap.tsx",
         examples: [
           {
+            usageFile: "components/examples/motion/action-swap-cascade.example.tsx",
             slug: "cascade",
             name: "Cascade",
             nameZh: "瀑布流切换",
@@ -530,6 +568,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/action-swap-cascade.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/action-swap-blur.example.tsx",
             slug: "blur",
             name: "Blur",
             nameZh: "模糊切换",
@@ -541,6 +580,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/action-swap-blur.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/action-swap-roll.example.tsx",
             slug: "roll",
             name: "Roll",
             nameZh: "滚动切换",
@@ -554,6 +594,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/animated-toast-stack.example.tsx",
         assetRole: "component",
         slug: "animated-toast-stack",
         name: "Animated Toast Stack",
@@ -563,6 +604,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/animated-toast-stack.tsx",
       },
       {
+        usageFile: "components/examples/motion/theme-toggle.example.tsx",
         assetRole: "component",
         slug: "theme-toggle",
         name: "Theme Toggle",
@@ -572,6 +614,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/theme-toggle.tsx",
       },
       {
+        usageFile: "components/examples/motion/bouncy-accordion.example.tsx",
         assetRole: "component",
         slug: "bouncy-accordion",
         name: "Bouncy Accordion",
@@ -581,6 +624,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/bouncy-accordion.tsx",
       },
       {
+        usageFile: "components/examples/motion/drawer.example.tsx",
         assetRole: "component",
         slug: "drawer",
         name: "Drawer",
@@ -590,6 +634,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/drawer.tsx",
       },
       {
+        usageFile: "components/examples/motion/scroll-animation.example.tsx",
         assetRole: "component",
         slug: "scroll-animation",
         name: "Scroll Animation",
@@ -613,6 +658,7 @@ export const registry: CategoryEntry[] = [
         ],
         examples: [
           {
+            usageFile: "components/examples/motion/smooth-scroll.example.tsx",
             slug: "smooth-scroll",
             name: "Smooth Scroll",
             nameZh: "平滑滚动",
@@ -624,6 +670,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/smooth-scroll.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/scroll-progress.example.tsx",
             slug: "scroll-progress",
             name: "Scroll Progress",
             nameZh: "滚动进度条",
@@ -635,6 +682,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/scroll-progress.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/parallax.example.tsx",
             slug: "parallax",
             name: "Parallax",
             nameZh: "视差滚动",
@@ -646,6 +694,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/parallax.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/scroll-to.example.tsx",
             slug: "scroll-to",
             name: "Scroll To",
             nameZh: "滚动至指定位置",
@@ -657,6 +706,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/scroll-to.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/scroll-reveal.example.tsx",
             slug: "scroll-reveal",
             name: "Scroll Reveal",
             nameZh: "滚动揭示",
@@ -670,6 +720,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/range-slider.example.tsx",
         assetRole: "component",
         slug: "range-slider",
         name: "Range Slider",
@@ -682,6 +733,7 @@ export const registry: CategoryEntry[] = [
         keywords: ["slider", "range slider", "range input", "stepped slider", "ticks"],
       },
       {
+        usageFile: "components/examples/motion/wheel-picker.example.tsx",
         assetRole: "component",
         slug: "wheel-picker",
         name: "Wheel Picker",
@@ -694,6 +746,7 @@ export const registry: CategoryEntry[] = [
         keywords: ["picker", "wheel picker", "ios picker", "drum picker", "spinner", "time picker", "date picker", "scroll picker"],
       },
       {
+        usageFile: "components/examples/motion/table.example.tsx",
         assetRole: "component",
         slug: "table",
         name: "Table",
@@ -715,6 +768,7 @@ export const registry: CategoryEntry[] = [
         ],
         examples: [
           {
+            usageFile: "components/examples/motion/table.example.tsx",
             slug: "data",
             name: "Data Table",
             nameZh: "数据表格",
@@ -728,6 +782,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/table.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/table-editable.example.tsx",
             slug: "editable",
             name: "Editable Table",
             nameZh: "可编辑表格",
@@ -741,6 +796,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/motion/table-editable.preview.tsx",
           },
           {
+            usageFile: "components/examples/motion/table-async.example.tsx",
             slug: "async",
             name: "Async Table",
             nameZh: "异步加载表格",
@@ -756,6 +812,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/shader-background.example.tsx",
         assetRole: "component",
         slug: "shader-background",
         name: "Shader Background",
@@ -777,6 +834,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/cylinder-carousel.example.tsx",
         assetRole: "component",
         slug: "cylinder-carousel",
         name: "Cylinder Carousel",
@@ -797,6 +855,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/loader.example.tsx",
         assetRole: "component",
         slug: "loader",
         name: "Loader",
@@ -817,6 +876,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/text-scramble.example.tsx",
         assetRole: "component",
         slug: "text-scramble",
         name: "Text Scramble",
@@ -837,6 +897,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/webgl-background.example.tsx",
         assetRole: "component",
         slug: "webgl-background",
         name: "WebGL Background",
@@ -857,6 +918,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/halftone-image.example.tsx",
         assetRole: "component",
         slug: "halftone-image",
         name: "Halftone Image",
@@ -877,6 +939,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/star-border.example.tsx",
         assetRole: "component",
         slug: "star-border",
         name: "Star Border",
@@ -897,6 +960,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/bounce-cards.example.tsx",
         assetRole: "component",
         slug: "bounce-cards",
         name: "Bounce Cards",
@@ -916,6 +980,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/glare-hover.example.tsx",
         assetRole: "component",
         slug: "glare-hover",
         name: "Glare Hover",
@@ -935,6 +1000,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/skeleton.example.tsx",
         assetRole: "component",
         slug: "skeleton",
         name: "Skeleton",
@@ -954,6 +1020,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/scroll-hint.example.tsx",
         assetRole: "component",
         slug: "scroll-hint",
         name: "Scroll Hint",
@@ -973,6 +1040,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/animated-icon.example.tsx",
         assetRole: "component",
         slug: "animated-icon",
         name: "Animated Icon",
@@ -992,6 +1060,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/dropdown-menu.example.tsx",
         assetRole: "component",
         slug: "dropdown-menu",
         name: "Dropdown Menu",
@@ -1013,6 +1082,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/expanding-card.example.tsx",
         assetRole: "component",
         slug: "expanding-card",
         name: "Expanding Card",
@@ -1033,6 +1103,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/expandable-control.example.tsx",
         assetRole: "component",
         slug: "expandable-control",
         name: "Expandable Control",
@@ -1053,6 +1124,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/motion/file-tree.example.tsx",
         assetRole: "component",
         slug: "file-tree",
         name: "File Tree",
@@ -1083,6 +1155,7 @@ export const registry: CategoryEntry[] = [
     descriptionZh: "一段已经排好的布局。一次安装带走它引用的组件。",
     components: [
       {
+        usageFile: "components/examples/blocks/recording-card.example.tsx",
         assetRole: "component",
         slug: "recording-card",
         name: "Recording Card",
@@ -1103,6 +1176,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/login-card.example.tsx",
         assetRole: "block",
         slug: "login-card",
         name: "Login Card",
@@ -1124,6 +1198,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/thread-list.example.tsx",
         assetRole: "component",
         slug: "thread-list",
         name: "Thread List",
@@ -1144,6 +1219,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/artifact-panel.example.tsx",
         assetRole: "component",
         slug: "artifact-panel",
         name: "Artifact Panel",
@@ -1164,6 +1240,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/agent-inbox.example.tsx",
         assetRole: "component",
         slug: "agent-inbox",
         name: "Agent Inbox",
@@ -1185,6 +1262,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/agent-trace.example.tsx",
         assetRole: "component",
         slug: "agent-trace",
         name: "Agent Trace",
@@ -1206,6 +1284,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/streaming-json.example.tsx",
         assetRole: "component",
         slug: "streaming-json",
         name: "Streaming JSON",
@@ -1226,6 +1305,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/citations.example.tsx",
         assetRole: "component",
         slug: "citations",
         name: "Citations",
@@ -1246,6 +1326,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/voice-orb.example.tsx",
         assetRole: "component",
         slug: "voice-orb",
         name: "Voice Orb",
@@ -1266,6 +1347,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/activity-stats.example.tsx",
         assetRole: "block",
         slug: "activity-stats",
         name: "Activity Stats",
@@ -1287,6 +1369,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/settings-panel.example.tsx",
         assetRole: "component",
         slug: "settings-panel",
         name: "Settings Panel",
@@ -1308,6 +1391,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/agent-thread.example.tsx",
         assetRole: "component",
         slug: "agent-thread",
         name: "Agent Thread",
@@ -1337,6 +1421,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/agent-composer.example.tsx",
         assetRole: "component",
         slug: "agent-composer",
         name: "Agent Composer",
@@ -1365,6 +1450,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/agent-workbench.example.tsx",
         assetRole: "shell",
         slug: "agent-workbench",
         name: "Agent Workbench",
@@ -1391,6 +1477,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/availability-scheduler.example.tsx",
         assetRole: "block",
         slug: "availability-scheduler",
         name: "Availability Scheduler",
@@ -1410,6 +1497,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/swap.example.tsx",
         assetRole: "block",
         slug: "swap",
         name: "Multi-chain Swap",
@@ -1419,6 +1507,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/swap.tsx",
       },
       {
+        usageFile: "components/examples/blocks/dynamic-island.example.tsx",
         assetRole: "component",
         slug: "dynamic-island",
         name: "Dynamic Island",
@@ -1428,6 +1517,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/dynamic-island.tsx",
       },
       {
+        usageFile: "components/examples/blocks/command-palette.example.tsx",
         assetRole: "component",
         slug: "command-palette",
         name: "Command Palette",
@@ -1437,6 +1527,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/command-palette.tsx",
       },
       {
+        usageFile: "components/examples/blocks/morphing-search.example.tsx",
         assetRole: "component",
         slug: "morphing-search",
         name: "Morphing Search",
@@ -1457,6 +1548,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/expandable-action-bar.example.tsx",
         assetRole: "component",
         slug: "expandable-action-bar",
         name: "Expandable Action Bar",
@@ -1466,6 +1558,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/expandable-action-bar.tsx",
       },
       {
+        usageFile: "components/examples/blocks/overflow-actions.example.tsx",
         assetRole: "component",
         slug: "overflow-actions",
         name: "Overflow Actions",
@@ -1475,6 +1568,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/overflow-actions.tsx",
       },
       {
+        usageFile: "components/examples/blocks/expandable-tabs.example.tsx",
         assetRole: "component",
         slug: "expandable-tabs",
         name: "Expandable Tabs",
@@ -1484,6 +1578,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/expandable-tabs.tsx",
       },
       {
+        usageFile: "components/examples/blocks/swipeable-list.example.tsx",
         assetRole: "component",
         slug: "swipeable-list",
         name: "Swipeable List",
@@ -1493,6 +1588,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/swipeable-list.tsx",
       },
       {
+        usageFile: "components/examples/blocks/file-upload.example.tsx",
         assetRole: "component",
         slug: "file-upload",
         name: "File Upload",
@@ -1502,6 +1598,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/file-upload.tsx",
       },
       {
+        usageFile: "components/examples/blocks/prediction-market.example.tsx",
         assetRole: "block",
         slug: "prediction-market",
         name: "Prediction Market",
@@ -1511,6 +1608,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/prediction-market.tsx",
       },
       {
+        usageFile: "components/examples/blocks/wallet-card.example.tsx",
         assetRole: "block",
         slug: "wallet-card",
         name: "Wallet Card",
@@ -1529,6 +1627,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/otp-input.example.tsx",
         assetRole: "component",
         slug: "otp-input",
         name: "OTP Input",
@@ -1538,6 +1637,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/otp-input.tsx",
       },
       {
+        usageFile: "components/examples/blocks/bloom-menu.example.tsx",
         assetRole: "component",
         slug: "bloom-menu",
         name: "Bloom Menu",
@@ -1549,6 +1649,7 @@ export const registry: CategoryEntry[] = [
         launchedAt: "2026-06-26",
       },
       {
+        usageFile: "components/examples/blocks/feedback-widget.example.tsx",
         assetRole: "component",
         slug: "feedback-widget",
         name: "Feedback Widget",
@@ -1567,6 +1668,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/not-found.example.tsx",
         assetRole: "page",
         slug: "not-found",
         name: "404 / Not Found",
@@ -1584,6 +1686,7 @@ export const registry: CategoryEntry[] = [
         ],
         examples: [
           {
+            usageFile: "components/examples/blocks/not-found-glitch.example.tsx",
             slug: "glitch",
             name: "Glitch",
             nameZh: "故障风格",
@@ -1597,6 +1700,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/blocks/not-found-glitch.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/not-found-magnetic.example.tsx",
             slug: "magnetic",
             name: "Magnetic",
             nameZh: "磁吸风格",
@@ -1610,6 +1714,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/blocks/not-found-magnetic.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/not-found-spotlight.example.tsx",
             slug: "spotlight",
             name: "Spotlight",
             nameZh: "聚光灯风格",
@@ -1623,6 +1728,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/blocks/not-found-spotlight.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/not-found-stacked.example.tsx",
             slug: "stacked",
             name: "Stacked",
             nameZh: "堆叠风格",
@@ -1636,6 +1742,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/blocks/not-found-stacked.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/not-found-terminal.example.tsx",
             slug: "terminal",
             name: "Terminal",
             nameZh: "终端风格",
@@ -1651,6 +1758,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/step-form.example.tsx",
         assetRole: "block",
         slug: "step-form",
         name: "Step Form",
@@ -1672,6 +1780,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/empty-state.example.tsx",
         assetRole: "component",
         slug: "empty-state",
         name: "Empty State",
@@ -1698,6 +1807,7 @@ export const registry: CategoryEntry[] = [
         ],
         examples: [
           {
+            usageFile: "components/examples/blocks/empty-state-inbox.example.tsx",
             slug: "inbox",
             name: "Inbox Zero",
             nameZh: "收件箱清零",
@@ -1711,6 +1821,7 @@ export const registry: CategoryEntry[] = [
             previewFile: "components/previews/blocks/empty-state-inbox.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/empty-state-archive.example.tsx",
             slug: "archive",
             name: "Archive Drawer",
             nameZh: "档案柜抽屉",
@@ -1725,6 +1836,7 @@ export const registry: CategoryEntry[] = [
               "components/previews/blocks/empty-state-archive.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/empty-state-search.example.tsx",
             slug: "search",
             name: "Search Lens",
             nameZh: "搜索无果",
@@ -1741,6 +1853,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/prompt-bar.example.tsx",
         assetRole: "component",
         slug: "prompt-bar",
         name: "Prompt Bar",
@@ -1762,6 +1875,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/prompt-input.example.tsx",
         assetRole: "component",
         slug: "prompt-input",
         name: "Prompt Input",
@@ -1783,6 +1897,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/todo-list.example.tsx",
         assetRole: "component",
         slug: "todo-list",
         name: "Todo List",
@@ -1804,6 +1919,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/code-block.example.tsx",
         assetRole: "component",
         slug: "code-block",
         name: "Code Block",
@@ -1825,6 +1941,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/approval-card.example.tsx",
         assetRole: "component",
         slug: "approval-card",
         name: "Approval Card",
@@ -1847,6 +1964,7 @@ export const registry: CategoryEntry[] = [
         ],
         examples: [
           {
+            usageFile: "components/examples/blocks/approval-card-questions.example.tsx",
             slug: "questions",
             name: "Questions",
             nameZh: "提问澄清",
@@ -1860,6 +1978,7 @@ export const registry: CategoryEntry[] = [
               "components/previews/blocks/approval-card-question.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/approval-card-review.example.tsx",
             slug: "review",
             name: "Review and Approve",
             nameZh: "审阅批准",
@@ -1875,6 +1994,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/file-diff.example.tsx",
         assetRole: "component",
         slug: "file-diff",
         name: "File Diff",
@@ -1895,6 +2015,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/tool-result.example.tsx",
         assetRole: "component",
         slug: "tool-result",
         name: "Tool Result",
@@ -1915,6 +2036,7 @@ export const registry: CategoryEntry[] = [
         ],
         examples: [
           {
+            usageFile: "components/examples/blocks/tool-result-terminal-output.example.tsx",
             slug: "terminal-output",
             name: "Terminal Output",
             nameZh: "终端输出",
@@ -1928,6 +2050,7 @@ export const registry: CategoryEntry[] = [
               "components/previews/blocks/tool-result-terminal.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/tool-result-request-result.example.tsx",
             slug: "request-result",
             name: "Request Result",
             nameZh: "请求结果",
@@ -1943,6 +2066,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/streaming-response.example.tsx",
         assetRole: "component",
         slug: "streaming-response",
         name: "Streaming Response",
@@ -1964,6 +2088,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/image-generation.example.tsx",
         assetRole: "component",
         slug: "image-generation",
         name: "Image Generation",
@@ -1985,6 +2110,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/tool-approval.example.tsx",
         assetRole: "component",
         slug: "tool-approval",
         name: "Tool Approval",
@@ -2005,6 +2131,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/agent-activity.example.tsx",
         assetRole: "component",
         slug: "agent-activity",
         name: "Agent Activity",
@@ -2031,6 +2158,7 @@ export const registry: CategoryEntry[] = [
         ],
         examples: [
           {
+            usageFile: "components/examples/blocks/agent-activity-streaming-text.example.tsx",
             slug: "streaming-text",
             name: "Streaming Text",
             nameZh: "流式文本",
@@ -2044,6 +2172,7 @@ export const registry: CategoryEntry[] = [
               "components/previews/blocks/agent-activity-text.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/agent-activity-reasoning-steps.example.tsx",
             slug: "reasoning-steps",
             name: "Reasoning Steps",
             nameZh: "推理步骤",
@@ -2057,6 +2186,7 @@ export const registry: CategoryEntry[] = [
               "components/previews/blocks/agent-activity-steps.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/agent-activity-web-search.example.tsx",
             slug: "web-search",
             name: "Web Search",
             nameZh: "网页搜索",
@@ -2070,6 +2200,7 @@ export const registry: CategoryEntry[] = [
               "components/previews/blocks/agent-activity-search.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/agent-activity-tool-calls.example.tsx",
             slug: "tool-calls",
             name: "Tool Calls",
             nameZh: "工具调用",
@@ -2083,6 +2214,7 @@ export const registry: CategoryEntry[] = [
               "components/previews/blocks/agent-activity-tools.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/agent-activity-mixed-activity.example.tsx",
             slug: "mixed-activity",
             name: "Mixed Activity",
             nameZh: "混合活动",
@@ -2096,6 +2228,7 @@ export const registry: CategoryEntry[] = [
               "components/previews/blocks/agent-activity.preview.tsx",
           },
           {
+            usageFile: "components/examples/blocks/agent-activity-activity-trace.example.tsx",
             slug: "activity-trace",
             name: "Agent Trace",
             nameZh: "执行轨迹",
@@ -2111,6 +2244,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/reasoning-text.example.tsx",
         assetRole: "component",
         slug: "reasoning-text",
         name: "Reasoning Text",
@@ -2133,6 +2267,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/agent-progress.example.tsx",
         assetRole: "component",
         slug: "agent-progress",
         name: "Agent Progress",
@@ -2154,6 +2289,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/ai-sidebar.example.tsx",
         assetRole: "component",
         slug: "ai-sidebar",
         name: "AI Sidebar",
@@ -2183,6 +2319,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/reasoning.example.tsx",
         assetRole: "component",
         slug: "reasoning",
         name: "Reasoning",
@@ -2205,6 +2342,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/chain-of-thought.example.tsx",
         assetRole: "component",
         slug: "chain-of-thought",
         name: "Chain of Thought",
@@ -2227,6 +2365,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/sources.example.tsx",
         assetRole: "component",
         slug: "sources",
         name: "Sources",
@@ -2249,6 +2388,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/inline-citation.example.tsx",
         assetRole: "component",
         slug: "inline-citation",
         name: "Inline Citation",
@@ -2269,6 +2409,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/plan.example.tsx",
         assetRole: "component",
         slug: "plan",
         name: "Plan",
@@ -2291,6 +2432,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/task.example.tsx",
         assetRole: "component",
         slug: "task",
         name: "Task",
@@ -2312,6 +2454,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/queue.example.tsx",
         assetRole: "component",
         slug: "queue",
         name: "Queue",
@@ -2333,6 +2476,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/confirmation.example.tsx",
         assetRole: "component",
         slug: "confirmation",
         name: "Confirmation",
@@ -2353,6 +2497,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/suggestion.example.tsx",
         assetRole: "component",
         slug: "suggestion",
         name: "Suggestion",
@@ -2373,6 +2518,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/jsx-preview.example.tsx",
         assetRole: "component",
         slug: "jsx-preview",
         name: "JSX Preview",
@@ -2393,6 +2539,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/collapsible-sidebar.example.tsx",
         assetRole: "component",
         slug: "collapsible-sidebar",
         name: "Collapsible Sidebar",
@@ -2415,6 +2562,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/upgrade-paywall.example.tsx",
         assetRole: "block",
         slug: "upgrade-paywall",
         name: "Upgrade Paywall",
@@ -2436,6 +2584,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/view-layout-switch.example.tsx",
         assetRole: "component",
         slug: "view-layout-switch",
         name: "View Layout Switch",
@@ -2457,6 +2606,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        usageFile: "components/examples/blocks/billing-plan-grid.example.tsx",
         assetRole: "block",
         slug: "billing-plan-grid",
         name: "Billing Plan Grid",

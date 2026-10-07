@@ -10,7 +10,8 @@ import {
   Table,
   X,
 } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { type ComponentType, useEffect, useId, useRef, useState } from "react";
 import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";

@@ -1,6 +1,6 @@
 "use client";
 
-import { useReducedMotion } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import {
   type KeyboardEvent,
   type PointerEvent,
@@ -508,7 +508,7 @@ export function WheelPicker({
             style={{
               top: -itemHeight / 2,
               height: itemHeight,
-              transform: `rotateX(${-itemAngle * i}deg) translateZ(${radius}px)`,
+              transform: `rotateX(${Number((-itemAngle * i).toPrecision(6))}deg) translateZ(${Number(radius.toPrecision(6))}px)`,
             }}
           >
             {optionLabel(option)}
@@ -536,7 +536,7 @@ export function WheelPicker({
               style={{
                 top: -itemHeight / 2,
                 height: itemHeight,
-                transform: `rotateX(${-itemAngle * i}deg) translateZ(${radius}px)`,
+                transform: `rotateX(${Number((-itemAngle * i).toPrecision(6))}deg) translateZ(${Number(radius.toPrecision(6))}px)`,
               }}
             >
               {optionLabel(option)}

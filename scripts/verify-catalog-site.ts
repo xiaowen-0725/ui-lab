@@ -36,6 +36,10 @@ try {
   await batch(targets, async (target) => {
     const item = JSON.parse(await get(`/r/${target.slug}.json`, "json"));
     assert(item.name === target.slug && item.files?.length, `Invalid registry target ${target.slug}`);
+    assert(!item.files.some((file: { path: string }) => file.path.startsWith("components/examples/")), `Usage leaked into installation ${target.slug}`);
+    const detail = JSON.parse(await get(`/r/${target.slug}`, "json"));
+    assert(detail.usage?.path === target.usageFile, `Missing standalone usage ${target.slug}`);
+    assert(detail.usage.content === await readFile(target.usageFile as string, "utf8"), `Stale standalone usage ${target.slug}`);
     assert((await get(`/r/${target.slug}/raw`, "text")).length > 50, `Empty raw ${target.slug}`);
   });
   await batch(THEME_KITS, async (kit) => {

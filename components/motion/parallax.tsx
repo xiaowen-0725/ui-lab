@@ -1,13 +1,7 @@
 "use client";
 
-import {
-  motion,
-  type MotionStyle,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "motion/react";
+import { motion, type MotionStyle, useScroll, useSpring, useTransform } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { type ReactNode, type RefObject, useRef } from "react";
 
 import { cn } from "@/lib/utils";

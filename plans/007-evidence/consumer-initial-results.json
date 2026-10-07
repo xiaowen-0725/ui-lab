@@ -1,0 +1,18 @@
+[
+  {
+    "profile": "next-app",
+    "ok": true,
+    "directory": "/tmp/uilab-catalog-assets-LgzHBi/next-app"
+  },
+  {
+    "profile": "vite-app",
+    "ok": true,
+    "directory": "/tmp/uilab-catalog-assets-LgzHBi/vite-app"
+  },
+  {
+    "profile": "electron-renderer",
+    "ok": false,
+    "directory": "/tmp/uilab-catalog-assets-LgzHBi/electron-renderer",
+    "error": "Error: Expected exit 0, got 1: bun install --frozen-lockfile\nbun install v1.3.14 (0d9b296a)\n\nwarn: electron's postinstall cost you 1m15.2s\nRequestError: connect ETIMEDOUT 20.205.243.166:443\n    at ClientRequest.<anonymous> (/private/tmp/uilab-catalog-assets-LgzHBi/electron-renderer/node_modules/got/dist/source/core/index.js:970:111)\n    at Object.onceWrapper (node:events:623:26)\n    at ClientRequest.emit (node:events:520:35)\n    at origin.emit (/private/tmp/uilab-catalog-assets-LgzHBi/electron-renderer/node_modules/@szmarczak/http-timer/dist/source/index.js:43:20)\n    at emitErrorEvent (node:_http_client:107:11)\n    at TLSSocket.socketErrorListener (node:_http_client:574:5)\n    at TLSSocket.emit (node:events:508:28)\n    at emitErrorNT (node:internal/streams/destroy:170:8)\n    at emitErrorCloseNT (node:internal/streams/destroy:129:3)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)\n\nerror: postinstall script from \"electron\" exited with 1\n"
+  }
+]

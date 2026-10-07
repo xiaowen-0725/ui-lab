@@ -2,7 +2,8 @@
 
 // Ported from beUI (starc007/ui-components, MIT).
 
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { ChevronRight, File, Folder, FolderOpen } from "lucide-react";
 import {
   Children,

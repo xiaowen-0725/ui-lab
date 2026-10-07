@@ -1,12 +1,7 @@
 "use client";
 
-import {
-  animate,
-  useMotionValue,
-  useMotionValueEvent,
-  useReducedMotion,
-  type MotionValue,
-} from "motion/react";
+import { animate, useMotionValue, useMotionValueEvent, type MotionValue } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import {
   cloneElement,
   createContext,

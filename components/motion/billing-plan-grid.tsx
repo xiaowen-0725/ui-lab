@@ -1,6 +1,7 @@
 "use client";
 
-import { LayoutGroup, motion, useReducedMotion } from "motion/react";
+import { LayoutGroup, motion } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { useCallback, useState } from "react";
 import { NumberTicker } from "@/components/motion/number-ticker";
 import {

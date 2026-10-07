@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-10-07T04:10:46.697Z",
+  "verdict": "failed",
+  "globalErrors": [],
+  "root": "/Users/zhoujw/develop/github/ui-lab",
+  "evidence": "/var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-standalone-usage-GSqT1c",
+  "typescript": "5.9.3",
+  "browserVersion": "154.0.8037.98",
+  "dependencyVersions": {
+    "react": "19.2.6",
+    "motion": "11.18.2"
+  },
+  "usages": 1,
+  "browserEnabled": true,
+  "expectedBrowserChecks": 2,
+  "results": [
+    {
+      "key": "jsx-preview",
+      "installSlug": "jsx-preview",
+      "usageFile": "components/examples/blocks/jsx-preview.example.tsx",
+      "files": [
+        {
+          "path": "components/agents/jsx-preview.tsx",
+          "sha256": "8767242c0362f04c92c2c44e6448b45a66599c0b1e66543a22616899e330e8c0"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    }
+  ],
+  "browserChecks": [
+    {
+      "key": "jsx-preview",
+      "mode": "no-preference",
+      "errors": [
+        "React recoverable error Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:\n\n- A server/client branch `if (typeof window !== 'undefined')`.\n- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.\n- Date formatting in a user's locale which doesn't match the server.\n- External changing data without sending a snapshot of it along with the HTML.\n- Invalid HTML tag nesting.\n\nIt can also happen if the client has a browser extension installed which messes with the HTML before React loaded.\n\nhttps://react.dev/link/hydration-mismatch\n\n  <qR>\n    <BR>\n      <section className=\"max-w-xl s...\">\n        <form className=\"space-y-3\" onSubmit={function onSubmit}>\n          <label htmlFor=\"_R_0_\" className=\"block font-medium\">\n+           编辑展示片段\n-           缂栬緫灞曠ず鐗囨\n          ...\n        ...\n\n    at R0 (http://127.0.0.1:63077/jsx-preview/browser.js:73:2580)\n    at hQ (http://127.0.0.1:63077/jsx-preview/browser.js:83:1085)\n    at rR (http://127.0.0.1:63077/jsx-preview/browser.js:140:17861)\n    at d (http://127.0.0.1:63077/jsx-preview/browser.js:33:108)\n    at y9 (http://127.0.0.1:63077/jsx-preview/browser.js:153:38975)\n    at kB (http://127.0.0.1:63077/jsx-preview/browser.js:153:38107)\n    at SB (http://127.0.0.1:63077/jsx-preview/browser.js:153:36756)\n    at y1 (http://127.0.0.1:63077/jsx-preview/browser.js:153:36595)\n    at TB (http://127.0.0.1:63077/jsx-preview/browser.js:153:29225)\n    at aB (http://127.0.0.1:63077/jsx-preview/browser.js:175:2102)"
+      ],
+      "mounted": true
+    },
+    {
+      "key": "jsx-preview",
+      "mode": "reduce",
+      "errors": [
+        "React recoverable error Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:\n\n- A server/client branch `if (typeof window !== 'undefined')`.\n- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.\n- Date formatting in a user's locale which doesn't match the server.\n- External changing data without sending a snapshot of it along with the HTML.\n- Invalid HTML tag nesting.\n\nIt can also happen if the client has a browser extension installed which messes with the HTML before React loaded.\n\nhttps://react.dev/link/hydration-mismatch\n\n  <qR>\n    <BR>\n      <section className=\"max-w-xl s...\">\n        <form className=\"space-y-3\" onSubmit={function onSubmit}>\n          <label htmlFor=\"_R_0_\" className=\"block font-medium\">\n+           编辑展示片段\n-           缂栬緫灞曠ず鐗囨\n          ...\n        ...\n\n    at R0 (http://127.0.0.1:63077/jsx-preview/browser.js:73:2580)\n    at hQ (http://127.0.0.1:63077/jsx-preview/browser.js:83:1085)\n    at rR (http://127.0.0.1:63077/jsx-preview/browser.js:140:17861)\n    at d (http://127.0.0.1:63077/jsx-preview/browser.js:33:108)\n    at y9 (http://127.0.0.1:63077/jsx-preview/browser.js:153:38975)\n    at kB (http://127.0.0.1:63077/jsx-preview/browser.js:153:38107)\n    at SB (http://127.0.0.1:63077/jsx-preview/browser.js:153:36756)\n    at y1 (http://127.0.0.1:63077/jsx-preview/browser.js:153:36595)\n    at TB (http://127.0.0.1:63077/jsx-preview/browser.js:153:29225)\n    at aB (http://127.0.0.1:63077/jsx-preview/browser.js:175:2102)"
+      ],
+      "mounted": true
+    }
+  ]
+}

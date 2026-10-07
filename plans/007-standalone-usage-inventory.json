@@ -1,0 +1,2449 @@
+{
+  "generatedAt": "2026-10-07T04:12:19.996Z",
+  "historicalFamilies": 104,
+  "newUsageFiles": 144,
+  "usages": [
+    {
+      "key": "navbar-simple",
+      "installSlug": "navbar-simple",
+      "category": "sections",
+      "sourceFile": "components/sections/basics.tsx",
+      "usageFile": "components/examples/sections/navbar-simple.example.tsx",
+      "usageSha256": "9df9bf128aba26b9bd63c37e87aee858c273efb14763791ade86f3d94635ee59"
+    },
+    {
+      "key": "navbar-centered",
+      "installSlug": "navbar-centered",
+      "category": "sections",
+      "sourceFile": "components/sections/basics.tsx",
+      "usageFile": "components/examples/sections/navbar-centered.example.tsx",
+      "usageSha256": "c5f54352e265491631a37454ac79c945548d2e4a79fabfa10f7261321962302b"
+    },
+    {
+      "key": "hero-centered",
+      "installSlug": "hero-centered",
+      "category": "sections",
+      "sourceFile": "components/sections/hero.tsx",
+      "usageFile": "components/examples/sections/hero-centered.example.tsx",
+      "usageSha256": "22337bcdfdcc554e51247803dc6d6f3a6cb62b48e8050e4efb3dc897b99a7095"
+    },
+    {
+      "key": "hero-split",
+      "installSlug": "hero-split",
+      "category": "sections",
+      "sourceFile": "components/sections/hero.tsx",
+      "usageFile": "components/examples/sections/hero-split.example.tsx",
+      "usageSha256": "c233d6c16f5496c31b5fbcc7158a785d16239335f07576e721a98955fdc73425"
+    },
+    {
+      "key": "hero-screenshot",
+      "installSlug": "hero-screenshot",
+      "category": "sections",
+      "sourceFile": "components/sections/hero.tsx",
+      "usageFile": "components/examples/sections/hero-screenshot.example.tsx",
+      "usageSha256": "03518adc5c92b42fca39be8bc4358dc889411084bb3379bed72ba3ffb093c2b8"
+    },
+    {
+      "key": "logo-wall-row",
+      "installSlug": "logo-wall-row",
+      "category": "sections",
+      "sourceFile": "components/sections/basics.tsx",
+      "usageFile": "components/examples/sections/logo-wall-row.example.tsx",
+      "usageSha256": "5beacd9382ee88b4647cfcc7ab664ea940d4af1a0f94f5576d09e04185f719e0"
+    },
+    {
+      "key": "features-grid",
+      "installSlug": "features-grid",
+      "category": "sections",
+      "sourceFile": "components/sections/content.tsx",
+      "usageFile": "components/examples/sections/features-grid.example.tsx",
+      "usageSha256": "8924d78aa33393f813e4f7aa33bff7c72877a028d2118b77cac4d9a780e0feb9"
+    },
+    {
+      "key": "features-alternating",
+      "installSlug": "features-alternating",
+      "category": "sections",
+      "sourceFile": "components/sections/content.tsx",
+      "usageFile": "components/examples/sections/features-alternating.example.tsx",
+      "usageSha256": "8ddd6fe51bcce4406300b643147b4db274d0329850749ba823d923d7b2031d6c"
+    },
+    {
+      "key": "stats-row",
+      "installSlug": "stats-row",
+      "category": "sections",
+      "sourceFile": "components/sections/basics.tsx",
+      "usageFile": "components/examples/sections/stats-row.example.tsx",
+      "usageSha256": "efec06f0c1d7ab730ef66c8aa26ac4b9066be67f41e080f5bf73d1920f21932d"
+    },
+    {
+      "key": "testimonials-cards",
+      "installSlug": "testimonials-cards",
+      "category": "sections",
+      "sourceFile": "components/sections/content.tsx",
+      "usageFile": "components/examples/sections/testimonials-cards.example.tsx",
+      "usageSha256": "e981640bde2e9b70f230f5c0e05158460653715170f65f86cf439a5e247ad18d"
+    },
+    {
+      "key": "testimonials-quote",
+      "installSlug": "testimonials-quote",
+      "category": "sections",
+      "sourceFile": "components/sections/content.tsx",
+      "usageFile": "components/examples/sections/testimonials-quote.example.tsx",
+      "usageSha256": "b00f6f594af3bd861577ef49ed8ce651575d0da2c016d0000a1297afe5b3d077"
+    },
+    {
+      "key": "pricing-tiers",
+      "installSlug": "pricing-tiers",
+      "category": "sections",
+      "sourceFile": "components/sections/commerce.tsx",
+      "usageFile": "components/examples/sections/pricing-tiers.example.tsx",
+      "usageSha256": "fb8a718d83eaa8996e9cb28b088dbfecaad61fd0c72c6b50c7244eb6f8fd7c5b"
+    },
+    {
+      "key": "pricing-simple",
+      "installSlug": "pricing-simple",
+      "category": "sections",
+      "sourceFile": "components/sections/commerce.tsx",
+      "usageFile": "components/examples/sections/pricing-simple.example.tsx",
+      "usageSha256": "73fab934ba6b444d897ca170d3fc5c10a762404dcceab7bb40c1dae278b59000"
+    },
+    {
+      "key": "faq-accordion",
+      "installSlug": "faq-accordion",
+      "category": "sections",
+      "sourceFile": "components/sections/commerce.tsx",
+      "usageFile": "components/examples/sections/faq-accordion.example.tsx",
+      "usageSha256": "55103b03909939e689e03019eafdf40f338db83be3393c200ac2ea9361588af0"
+    },
+    {
+      "key": "faq-two-column",
+      "installSlug": "faq-two-column",
+      "category": "sections",
+      "sourceFile": "components/sections/commerce.tsx",
+      "usageFile": "components/examples/sections/faq-two-column.example.tsx",
+      "usageSha256": "9f489bf2de496025a1f1c55e7e02ce1afb2237601fbeb802a9ae4b34c8b117d0"
+    },
+    {
+      "key": "cta-banner",
+      "installSlug": "cta-banner",
+      "category": "sections",
+      "sourceFile": "components/sections/basics.tsx",
+      "usageFile": "components/examples/sections/cta-banner.example.tsx",
+      "usageSha256": "a7e7a854f6fabc91b93c150c5e5d4b63317f7d7056632efa6d1580b3fde05dcd"
+    },
+    {
+      "key": "cta-boxed",
+      "installSlug": "cta-boxed",
+      "category": "sections",
+      "sourceFile": "components/sections/basics.tsx",
+      "usageFile": "components/examples/sections/cta-boxed.example.tsx",
+      "usageSha256": "635cb55673928967a78675379a31dbaa7412ea2a79ac34085c87cd545e4ba9b4"
+    },
+    {
+      "key": "footer-columns",
+      "installSlug": "footer-columns",
+      "category": "sections",
+      "sourceFile": "components/sections/commerce.tsx",
+      "usageFile": "components/examples/sections/footer-columns.example.tsx",
+      "usageSha256": "918dff4a6c3bace7af1727bb6ec0db90d2a8d12c6301a95b627e30976a9deb4b"
+    },
+    {
+      "key": "footer-minimal",
+      "installSlug": "footer-minimal",
+      "category": "sections",
+      "sourceFile": "components/sections/commerce.tsx",
+      "usageFile": "components/examples/sections/footer-minimal.example.tsx",
+      "usageSha256": "b0ee6ce7695d78d8c89964d3412f709134783016913141ea53cfbd8c90b2c6c6"
+    },
+    {
+      "key": "saas-landing-page",
+      "installSlug": "saas-landing-page",
+      "category": "pages",
+      "sourceFile": "components/pages/saas-landing-page.tsx",
+      "usageFile": "components/examples/pages/saas-landing-page.example.tsx",
+      "usageSha256": "d25becb56846ce24726fad571a0ebe5de99b91fbbe278c8b0fe6844b02774d26"
+    },
+    {
+      "key": "workbench-conversation-page",
+      "installSlug": "workbench-conversation-page",
+      "category": "pages",
+      "sourceFile": "components/pages/workbench-conversation-page.tsx",
+      "usageFile": "components/examples/pages/workbench-conversation-page.example.tsx",
+      "usageSha256": "4fe6a3fef39d1f0fe89cf9a12190fb88d7c3a549e53c58ce873571fdae01eb32"
+    },
+    {
+      "key": "workbench-artifact-page",
+      "installSlug": "workbench-artifact-page",
+      "category": "pages",
+      "sourceFile": "components/pages/workbench-artifact-page.tsx",
+      "usageFile": "components/examples/pages/workbench-artifact-page.example.tsx",
+      "usageSha256": "757bd4a5279afd7d5ceb3bbcf0e1bdc3e99d58664d6f68d8599638edd4e86b7b"
+    },
+    {
+      "key": "workbench-settings-page",
+      "installSlug": "workbench-settings-page",
+      "category": "pages",
+      "sourceFile": "components/pages/workbench-settings-page.tsx",
+      "usageFile": "components/examples/pages/workbench-settings-page.example.tsx",
+      "usageSha256": "36a1406d62958707afcb1c6c1984bdc1dad2bcb9ae746c60c778b61d4f43e1ba"
+    },
+    {
+      "key": "agent-workbench-site",
+      "installSlug": "agent-workbench-site",
+      "category": "sites",
+      "sourceFile": "components/site-shells/agent-workbench-site.tsx",
+      "usageFile": "components/examples/sites/agent-workbench-site.example.tsx",
+      "usageSha256": "054561b13e0ae0a5514ef121d74a96e010383d7192ee6441e8f7dec3f72251aa"
+    },
+    {
+      "key": "tilt-card",
+      "installSlug": "tilt-card",
+      "category": "motion",
+      "sourceFile": "components/motion/tilt-card.tsx",
+      "usageFile": "components/examples/motion/tilt-card.example.tsx",
+      "usageSha256": "7761867c572eb0e861358e034cab28dbaceaba4bdb9bd802585765be2e9073d1"
+    },
+    {
+      "key": "button",
+      "installSlug": "button",
+      "category": "motion",
+      "sourceFile": "components/motion/button/index.tsx",
+      "usageFile": "components/examples/motion/button.example.tsx",
+      "usageSha256": "8a3a93f7f67b67b19f966ad0578c738712c1f482e62b625363af573b50feb3a1"
+    },
+    {
+      "key": "button-base",
+      "installSlug": "button-base",
+      "category": "motion",
+      "sourceFile": "components/motion/button/base.tsx",
+      "usageFile": "components/examples/motion/button-base.example.tsx",
+      "usageSha256": "a754b5bee98847297901baa3a4906e3e5dd484803fd2ff939a1a79ac7b7d5166"
+    },
+    {
+      "key": "button-stateful",
+      "installSlug": "button-stateful",
+      "category": "motion",
+      "sourceFile": "components/motion/button/stateful.tsx",
+      "usageFile": "components/examples/motion/button-stateful.example.tsx",
+      "usageSha256": "0668fa18fd20a553340e8a75b35d222fb6c514045120d687442fe32fafe09ec6"
+    },
+    {
+      "key": "button-magnetic",
+      "installSlug": "button-magnetic",
+      "category": "motion",
+      "sourceFile": "components/motion/button/magnetic.tsx",
+      "usageFile": "components/examples/motion/button-magnetic.example.tsx",
+      "usageSha256": "a501d29992ea7eb847fdab3b8e112a46cc8bc895f0d1722a2f299f4e894e81f2"
+    },
+    {
+      "key": "button-metallic",
+      "installSlug": "button-metallic",
+      "category": "motion",
+      "sourceFile": "components/motion/button/metallic.tsx",
+      "usageFile": "components/examples/motion/button-metallic.example.tsx",
+      "usageSha256": "b1f0892aaa1419e177f35f91840bacba9863c64182f7586d585a45f4163e48db"
+    },
+    {
+      "key": "marquee",
+      "installSlug": "marquee",
+      "category": "motion",
+      "sourceFile": "components/motion/marquee.tsx",
+      "usageFile": "components/examples/motion/marquee.example.tsx",
+      "usageSha256": "135dba38f4987033eadfe861ab2419da9327015e3ddef4d0babd51c3831d8df0"
+    },
+    {
+      "key": "tabs",
+      "installSlug": "tabs",
+      "category": "motion",
+      "sourceFile": "components/motion/tabs.tsx",
+      "usageFile": "components/examples/motion/tabs.example.tsx",
+      "usageSha256": "cba395ff6bcd64c9040c5e8eccaf436527c8c05d30cb9647df8314b4a31324f2"
+    },
+    {
+      "key": "switch",
+      "installSlug": "switch",
+      "category": "motion",
+      "sourceFile": "components/motion/switch.tsx",
+      "usageFile": "components/examples/motion/switch.example.tsx",
+      "usageSha256": "413b4ec3e8b7b185048eb1ac13911100ee1306a649c2dc58804629258899ab86"
+    },
+    {
+      "key": "input",
+      "installSlug": "input",
+      "category": "motion",
+      "sourceFile": "components/motion/input.tsx",
+      "usageFile": "components/examples/motion/input.example.tsx",
+      "usageSha256": "82ec66471a1bbfa36c5f78fb4ded99dc612c5f2b036104471753970285fafe8d"
+    },
+    {
+      "key": "select",
+      "installSlug": "select",
+      "category": "motion",
+      "sourceFile": "components/motion/select.tsx",
+      "usageFile": "components/examples/motion/select.example.tsx",
+      "usageSha256": "32893cf834a20a604af4a7a77e712b264a0a7f68be0d722a35c8dcb84c4612f6"
+    },
+    {
+      "key": "select-morph",
+      "installSlug": "select-morph",
+      "category": "motion",
+      "sourceFile": "components/motion/select-morph.tsx",
+      "usageFile": "components/examples/motion/select-morph.example.tsx",
+      "usageSha256": "09fc08763daf097a6ba830665fbdcbc460d96b2f406fa5525e577d63b6e02b54"
+    },
+    {
+      "key": "checkbox",
+      "installSlug": "checkbox",
+      "category": "motion",
+      "sourceFile": "components/motion/checkbox.tsx",
+      "usageFile": "components/examples/motion/checkbox.example.tsx",
+      "usageSha256": "f94af15e5d755081795e3b9c5a9181809bce6378d254814323838cdacc79d77f"
+    },
+    {
+      "key": "radio",
+      "installSlug": "radio",
+      "category": "motion",
+      "sourceFile": "components/motion/radio.tsx",
+      "usageFile": "components/examples/motion/radio.example.tsx",
+      "usageSha256": "466714541b2d14fbb35d9b9daefcdd4ffe2fda9a519bc873c54c68e394fe971b"
+    },
+    {
+      "key": "bottom-sheet",
+      "installSlug": "bottom-sheet",
+      "category": "motion",
+      "sourceFile": "components/motion/bottom-sheet.tsx",
+      "usageFile": "components/examples/motion/bottom-sheet.example.tsx",
+      "usageSha256": "d1556d727b758ced08cdad4390cfb25c88ace2af82015725f13fd5d8b60237e8"
+    },
+    {
+      "key": "shared-layout-bg",
+      "installSlug": "shared-layout-bg",
+      "category": "motion",
+      "sourceFile": "components/motion/shared-layout-bg.tsx",
+      "usageFile": "components/examples/motion/shared-layout-bg.example.tsx",
+      "usageSha256": "22162b002bffb96c33a7ca8a3d4f226909c3bfe06a2d660ca6db9a63a7d5c838"
+    },
+    {
+      "key": "preview-rail",
+      "installSlug": "preview-rail",
+      "category": "motion",
+      "sourceFile": "components/motion/preview-rail.tsx",
+      "usageFile": "components/examples/motion/preview-rail.example.tsx",
+      "usageSha256": "6f47a35af9d5c2112835a4b794c8ef4b63147f4c8b080f216b7354c9ade70450"
+    },
+    {
+      "key": "dock",
+      "installSlug": "dock",
+      "category": "motion",
+      "sourceFile": "components/motion/dock.tsx",
+      "usageFile": "components/examples/motion/dock.example.tsx",
+      "usageSha256": "32c37dbffa97d45b5239e86b867346cc7b27d06b8b7226481eb1bf03f95fae2f"
+    },
+    {
+      "key": "tooltip",
+      "installSlug": "tooltip",
+      "category": "motion",
+      "sourceFile": "components/motion/tooltip.tsx",
+      "usageFile": "components/examples/motion/tooltip.example.tsx",
+      "usageSha256": "bdb1a8b92b048f08b47da3832a12a94710d5570f7961d02cbd3130e5c9c86ec9"
+    },
+    {
+      "key": "tooltip-morph",
+      "installSlug": "tooltip-morph",
+      "category": "motion",
+      "sourceFile": "components/motion/tooltip-morph.tsx",
+      "usageFile": "components/examples/motion/tooltip-morph.example.tsx",
+      "usageSha256": "d0e5a743001e9a94324045f80a49bd0b48a26836cdf7bae6d259638592707dad"
+    },
+    {
+      "key": "popover",
+      "installSlug": "popover",
+      "category": "motion",
+      "sourceFile": "components/motion/popover.tsx",
+      "usageFile": "components/examples/motion/popover.example.tsx",
+      "usageSha256": "e6f52cfd1068cb75da204b343cea28b2f64c2008f9128a17838108057d9fd02e"
+    },
+    {
+      "key": "popover-morph",
+      "installSlug": "popover-morph",
+      "category": "motion",
+      "sourceFile": "components/motion/popover-morph.tsx",
+      "usageFile": "components/examples/motion/popover-morph.example.tsx",
+      "usageSha256": "f71f675721461970b6e8a4a460a956a583171ec8e192db62e1409dbc97d54fb1"
+    },
+    {
+      "key": "morphing-modal",
+      "installSlug": "morphing-modal",
+      "category": "motion",
+      "sourceFile": "components/motion/morphing-modal.tsx",
+      "usageFile": "components/examples/motion/morphing-modal.example.tsx",
+      "usageSha256": "ac2c4a52bf517e8788f2bf92472d41b8f31ceacc352ec148f1a2b15d523f924d"
+    },
+    {
+      "key": "text-animation",
+      "installSlug": "text-animation",
+      "category": "motion",
+      "sourceFile": "components/motion/text-reveal.tsx",
+      "usageFile": "components/examples/motion/text-animation.example.tsx",
+      "usageSha256": "7b8b68c005fa0d1cc3e3e0fc2f8a1a304e06c67d9a88a51b60d4ab9131af3bf5"
+    },
+    {
+      "key": "text-reveal",
+      "installSlug": "text-reveal",
+      "category": "motion",
+      "sourceFile": "components/motion/text-reveal.tsx",
+      "usageFile": "components/examples/motion/text-reveal.example.tsx",
+      "usageSha256": "825c97ff6b192b77b1c9fec8203173d4cc28bbecd35cfb4d7ecafe8ef9e2d49e"
+    },
+    {
+      "key": "text-shimmer",
+      "installSlug": "text-shimmer",
+      "category": "motion",
+      "sourceFile": "components/motion/text-shimmer.tsx",
+      "usageFile": "components/examples/motion/text-shimmer.example.tsx",
+      "usageSha256": "d7090efb61e336cecaeffe3925169e58f6c0f788c0f0b0e7d91204f772e9d552"
+    },
+    {
+      "key": "text-cascade",
+      "installSlug": "text-cascade",
+      "category": "motion",
+      "sourceFile": "components/motion/text-cascade.tsx",
+      "usageFile": "components/examples/motion/text-cascade.example.tsx",
+      "usageSha256": "6f11dca36f16a1a490388ea8d13bdb67359fa217e69fe5808599ac885e140684"
+    },
+    {
+      "key": "number",
+      "installSlug": "number",
+      "category": "motion",
+      "sourceFile": "components/motion/animated-number.tsx",
+      "usageFile": "components/examples/motion/number.example.tsx",
+      "usageSha256": "7d8910ba8d96feb92777a5d646627e35d0e8a0fd78f56f80aa9282168cf383a6"
+    },
+    {
+      "key": "number-ticker",
+      "installSlug": "number-ticker",
+      "category": "motion",
+      "sourceFile": "components/motion/number-ticker.tsx",
+      "usageFile": "components/examples/motion/number-ticker.example.tsx",
+      "usageSha256": "6f0f457167655c7e9ba182887b89bbac6ccccef7a08966c33bceb4b4b6f55c20"
+    },
+    {
+      "key": "animated-number",
+      "installSlug": "animated-number",
+      "category": "motion",
+      "sourceFile": "components/motion/animated-number.tsx",
+      "usageFile": "components/examples/motion/animated-number.example.tsx",
+      "usageSha256": "3d1f387084a74b344904025c53e552bc30749b29da85051aea47689d968e1196"
+    },
+    {
+      "key": "animated-badge",
+      "installSlug": "animated-badge",
+      "category": "motion",
+      "sourceFile": "components/motion/animated-badge.tsx",
+      "usageFile": "components/examples/motion/animated-badge.example.tsx",
+      "usageSha256": "e62e2bc55a446cc66f54de4652fffe8c315ee1f442bae137e8539cfee22df211"
+    },
+    {
+      "key": "action-swap",
+      "installSlug": "action-swap",
+      "category": "motion",
+      "sourceFile": "components/motion/action-swap.tsx",
+      "usageFile": "components/examples/motion/action-swap.example.tsx",
+      "usageSha256": "a9a811ee3e0d04b48c5e6d3b52aa7aabd48bcfe19763c9f2f6a7415f6f10ec74"
+    },
+    {
+      "key": "action-swap-cascade",
+      "installSlug": "action-swap-cascade",
+      "category": "motion",
+      "sourceFile": "components/motion/action-swap-cascade.tsx",
+      "usageFile": "components/examples/motion/action-swap-cascade.example.tsx",
+      "usageSha256": "d6b519ed836037f0a7692775f96fc7d44d9956b77b7692866e025326217e1ba4"
+    },
+    {
+      "key": "action-swap-blur",
+      "installSlug": "action-swap-blur",
+      "category": "motion",
+      "sourceFile": "components/motion/action-swap-blur.tsx",
+      "usageFile": "components/examples/motion/action-swap-blur.example.tsx",
+      "usageSha256": "f5b14b02fa00532c5cf7bfccaa8dfdfa5989e531f8f2b29fe577c9fe86b38034"
+    },
+    {
+      "key": "action-swap-roll",
+      "installSlug": "action-swap-roll",
+      "category": "motion",
+      "sourceFile": "components/motion/action-swap-roll.tsx",
+      "usageFile": "components/examples/motion/action-swap-roll.example.tsx",
+      "usageSha256": "cbce36b535f7405dfcaf7341e2c99a84cdbae91f0acad603c8fc8ca7c9542734"
+    },
+    {
+      "key": "animated-toast-stack",
+      "installSlug": "animated-toast-stack",
+      "category": "motion",
+      "sourceFile": "components/motion/animated-toast-stack.tsx",
+      "usageFile": "components/examples/motion/animated-toast-stack.example.tsx",
+      "usageSha256": "f3a05b5f3d91d231f81142eb367d58bd3bc5c7d27fb92404e2f64e6717243ed7"
+    },
+    {
+      "key": "theme-toggle",
+      "installSlug": "theme-toggle",
+      "category": "motion",
+      "sourceFile": "components/motion/theme-toggle.tsx",
+      "usageFile": "components/examples/motion/theme-toggle.example.tsx",
+      "usageSha256": "bb6411af0cb4bd8c010c9dfa30145518e8a0218b2b840ec56f26631424dce424"
+    },
+    {
+      "key": "bouncy-accordion",
+      "installSlug": "bouncy-accordion",
+      "category": "motion",
+      "sourceFile": "components/motion/bouncy-accordion.tsx",
+      "usageFile": "components/examples/motion/bouncy-accordion.example.tsx",
+      "usageSha256": "6f415e562fb7c6b6e7ad8eee97250601d24aa3cd6f0310d8f0d28df72752c6b5"
+    },
+    {
+      "key": "drawer",
+      "installSlug": "drawer",
+      "category": "motion",
+      "sourceFile": "components/motion/drawer.tsx",
+      "usageFile": "components/examples/motion/drawer.example.tsx",
+      "usageSha256": "5172cbf3e99a5736004109bbf6ec314841009de7d8f928c8ed65c95cf2b66bd6"
+    },
+    {
+      "key": "scroll-animation",
+      "installSlug": "scroll-animation",
+      "category": "motion",
+      "sourceFile": "components/motion/smooth-scroll.tsx",
+      "usageFile": "components/examples/motion/scroll-animation.example.tsx",
+      "usageSha256": "5e3a76f04ea13067d332216785264b690966bd404dd599eee6dcf3809eb1725f"
+    },
+    {
+      "key": "smooth-scroll",
+      "installSlug": "smooth-scroll",
+      "category": "motion",
+      "sourceFile": "components/motion/smooth-scroll.tsx",
+      "usageFile": "components/examples/motion/smooth-scroll.example.tsx",
+      "usageSha256": "1449f4f9e2ecf7bc2b6398653702767409d1243a56027296e77200ebd189cef1"
+    },
+    {
+      "key": "scroll-progress",
+      "installSlug": "scroll-progress",
+      "category": "motion",
+      "sourceFile": "components/motion/scroll-progress.tsx",
+      "usageFile": "components/examples/motion/scroll-progress.example.tsx",
+      "usageSha256": "32f37a49bde677597fe630ed8ed34dd4d21ecbc01cf6aaf447b31d7264b6c8ec"
+    },
+    {
+      "key": "parallax",
+      "installSlug": "parallax",
+      "category": "motion",
+      "sourceFile": "components/motion/parallax.tsx",
+      "usageFile": "components/examples/motion/parallax.example.tsx",
+      "usageSha256": "571ddb8552714dd982beed3aaa2ed76808b0564e98f6c5f3c9b0af9dd6bf026e"
+    },
+    {
+      "key": "scroll-to",
+      "installSlug": "scroll-to",
+      "category": "motion",
+      "sourceFile": "components/motion/scroll-to.tsx",
+      "usageFile": "components/examples/motion/scroll-to.example.tsx",
+      "usageSha256": "1ab472d3fef9dbd1ab7219c624b14f99c4a1022fadf0793ce34c96ca8bd28f0c"
+    },
+    {
+      "key": "scroll-reveal",
+      "installSlug": "scroll-reveal",
+      "category": "motion",
+      "sourceFile": "components/motion/scroll-reveal.tsx",
+      "usageFile": "components/examples/motion/scroll-reveal.example.tsx",
+      "usageSha256": "361e96b6fbebd264ff56e296d3ff3c69b7045d91a0e6ea542e0b4ee9b3a5fa1c"
+    },
+    {
+      "key": "range-slider",
+      "installSlug": "range-slider",
+      "category": "motion",
+      "sourceFile": "components/motion/range-slider.tsx",
+      "usageFile": "components/examples/motion/range-slider.example.tsx",
+      "usageSha256": "fcbdeaeb81bbe6dfee219e38fdd6a2d87fb5c3a3aaa09ebd246eeee4d41a3321"
+    },
+    {
+      "key": "wheel-picker",
+      "installSlug": "wheel-picker",
+      "category": "motion",
+      "sourceFile": "components/motion/wheel-picker.tsx",
+      "usageFile": "components/examples/motion/wheel-picker.example.tsx",
+      "usageSha256": "8c6376458021d9a968bf8b5e900bc0bba0764ec88ea5917174f168ca66c6758c"
+    },
+    {
+      "key": "table",
+      "installSlug": "table",
+      "category": "motion",
+      "sourceFile": "components/motion/table/index.tsx",
+      "usageFile": "components/examples/motion/table.example.tsx",
+      "usageSha256": "df99a3e42a363ee85b923e35909ddb50297e97fcb1f9bfd87898deb2724c3711"
+    },
+    {
+      "key": "table-editable",
+      "installSlug": "table-editable",
+      "category": "motion",
+      "sourceFile": "components/motion/table/index.tsx",
+      "usageFile": "components/examples/motion/table-editable.example.tsx",
+      "usageSha256": "d1149b425d72919f2284827a5631294ddd2ad27a0fe3671de4f05946ab2bda2b"
+    },
+    {
+      "key": "table-async",
+      "installSlug": "table-async",
+      "category": "motion",
+      "sourceFile": "components/motion/table/index.tsx",
+      "usageFile": "components/examples/motion/table-async.example.tsx",
+      "usageSha256": "a6baf3741e89a48b4788915517b1ba2fd36e5f3926d333d33040f84cf6ce8cd2"
+    },
+    {
+      "key": "shader-background",
+      "installSlug": "shader-background",
+      "category": "motion",
+      "sourceFile": "components/motion/shader-background.tsx",
+      "usageFile": "components/examples/motion/shader-background.example.tsx",
+      "usageSha256": "05aadff01c0505663fa10507948c22137513d505ff50f4b22443f15902138e9e"
+    },
+    {
+      "key": "cylinder-carousel",
+      "installSlug": "cylinder-carousel",
+      "category": "motion",
+      "sourceFile": "components/motion/cylinder-carousel.tsx",
+      "usageFile": "components/examples/motion/cylinder-carousel.example.tsx",
+      "usageSha256": "e296b4d86b751403021c7cb74e1fc6ed1473cb9e4aaa8f7b1056d3fda083d773"
+    },
+    {
+      "key": "loader",
+      "installSlug": "loader",
+      "category": "motion",
+      "sourceFile": "components/motion/loader.tsx",
+      "usageFile": "components/examples/motion/loader.example.tsx",
+      "usageSha256": "27e7f5e5785d0fe443fc4116bc22b5c2b6c4911f9a5d17da76aace5be9b2f3c5"
+    },
+    {
+      "key": "text-scramble",
+      "installSlug": "text-scramble",
+      "category": "motion",
+      "sourceFile": "components/motion/text-scramble.tsx",
+      "usageFile": "components/examples/motion/text-scramble.example.tsx",
+      "usageSha256": "972a72fa75b74e9212237dd15019781482993b79e8875be3af0553d63627fde7"
+    },
+    {
+      "key": "webgl-background",
+      "installSlug": "webgl-background",
+      "category": "motion",
+      "sourceFile": "components/motion/webgl-background.tsx",
+      "usageFile": "components/examples/motion/webgl-background.example.tsx",
+      "usageSha256": "45934f2f0420b666b6c108eadef10681a0745b8e02a70f5942ad35f289536884"
+    },
+    {
+      "key": "halftone-image",
+      "installSlug": "halftone-image",
+      "category": "motion",
+      "sourceFile": "components/motion/halftone-image.tsx",
+      "usageFile": "components/examples/motion/halftone-image.example.tsx",
+      "usageSha256": "59853444c95bfa0c29eed173a047f34a50814a35d180a4ea5887ef0d492cdeb0"
+    },
+    {
+      "key": "star-border",
+      "installSlug": "star-border",
+      "category": "motion",
+      "sourceFile": "components/motion/star-border.tsx",
+      "usageFile": "components/examples/motion/star-border.example.tsx",
+      "usageSha256": "5c156b2a5041bcc3685ccb3333c67d901167dc1a04250ee01948e1799c5ab38d"
+    },
+    {
+      "key": "bounce-cards",
+      "installSlug": "bounce-cards",
+      "category": "motion",
+      "sourceFile": "components/motion/bounce-cards.tsx",
+      "usageFile": "components/examples/motion/bounce-cards.example.tsx",
+      "usageSha256": "fb265a2b00bcdd4dcb6f8f5885bd883289efda7117d351e4b6fb0ef1fed0e212"
+    },
+    {
+      "key": "glare-hover",
+      "installSlug": "glare-hover",
+      "category": "motion",
+      "sourceFile": "components/motion/glare-hover.tsx",
+      "usageFile": "components/examples/motion/glare-hover.example.tsx",
+      "usageSha256": "8d9d01c90f6d4a09cf6ebd43316b82e20f735d936c0ba0c1c08d1b4ff4d52904"
+    },
+    {
+      "key": "skeleton",
+      "installSlug": "skeleton",
+      "category": "motion",
+      "sourceFile": "components/motion/skeleton.tsx",
+      "usageFile": "components/examples/motion/skeleton.example.tsx",
+      "usageSha256": "dd4d882b4d207b43707f90195e0f53c323b27c73fa14c11bd7116c0619a26a65"
+    },
+    {
+      "key": "scroll-hint",
+      "installSlug": "scroll-hint",
+      "category": "motion",
+      "sourceFile": "components/motion/scroll-hint.tsx",
+      "usageFile": "components/examples/motion/scroll-hint.example.tsx",
+      "usageSha256": "653027aac9b164f8e6fe19951687451d068be0b72802687b3a137580ec578240"
+    },
+    {
+      "key": "animated-icon",
+      "installSlug": "animated-icon",
+      "category": "motion",
+      "sourceFile": "components/motion/animated-icon.tsx",
+      "usageFile": "components/examples/motion/animated-icon.example.tsx",
+      "usageSha256": "fe78ff0c47fc9c3d1a52fca5bbf8da2d198aa4010bf5ffcb1aeb014994116f2a"
+    },
+    {
+      "key": "dropdown-menu",
+      "installSlug": "dropdown-menu",
+      "category": "motion",
+      "sourceFile": "components/motion/dropdown-menu.tsx",
+      "usageFile": "components/examples/motion/dropdown-menu.example.tsx",
+      "usageSha256": "93a3fa39b22c323ef299b597e1441dea8be73363191742737a8302ae0e23624b"
+    },
+    {
+      "key": "expanding-card",
+      "installSlug": "expanding-card",
+      "category": "motion",
+      "sourceFile": "components/motion/expanding-card.tsx",
+      "usageFile": "components/examples/motion/expanding-card.example.tsx",
+      "usageSha256": "e3d752bc3dbec2556994cf010024877fc852a16fe1c6fc64529a6fc7093798bb"
+    },
+    {
+      "key": "expandable-control",
+      "installSlug": "expandable-control",
+      "category": "motion",
+      "sourceFile": "components/motion/expandable-control.tsx",
+      "usageFile": "components/examples/motion/expandable-control.example.tsx",
+      "usageSha256": "2b72460da13d1d6bfa03d428f483ce71e88a33c6146d4a097ef55dc16b321116"
+    },
+    {
+      "key": "file-tree",
+      "installSlug": "file-tree",
+      "category": "motion",
+      "sourceFile": "components/motion/file-tree.tsx",
+      "usageFile": "components/examples/motion/file-tree.example.tsx",
+      "usageSha256": "aed5047ba58447debc5160739c21a22ed01db2142aa65e96e223eed0ebf044fb"
+    },
+    {
+      "key": "recording-card",
+      "installSlug": "recording-card",
+      "category": "blocks",
+      "sourceFile": "components/motion/recording-card.tsx",
+      "usageFile": "components/examples/blocks/recording-card.example.tsx",
+      "usageSha256": "4adc6c8cfb4abc02f6aab7f2432ca4d83d3047bc10351371d9682ffb18a8f37c"
+    },
+    {
+      "key": "login-card",
+      "installSlug": "login-card",
+      "category": "blocks",
+      "sourceFile": "components/motion/login-card.tsx",
+      "usageFile": "components/examples/blocks/login-card.example.tsx",
+      "usageSha256": "7e4b6082888f9a341b2c7825899b8fce80542d80c583d21e3ec9b761a8fc03d7"
+    },
+    {
+      "key": "thread-list",
+      "installSlug": "thread-list",
+      "category": "blocks",
+      "sourceFile": "components/motion/thread-list/index.tsx",
+      "usageFile": "components/examples/blocks/thread-list.example.tsx",
+      "usageSha256": "24bbeb407e045dca5217aeaa14575b2c090c964f160c7f267024df52e384b842"
+    },
+    {
+      "key": "artifact-panel",
+      "installSlug": "artifact-panel",
+      "category": "blocks",
+      "sourceFile": "components/motion/artifact-panel/index.tsx",
+      "usageFile": "components/examples/blocks/artifact-panel.example.tsx",
+      "usageSha256": "c0d277791b8ef533966252aad318b8f7df4cf305af3914dddd8ef5a448cefda9"
+    },
+    {
+      "key": "agent-inbox",
+      "installSlug": "agent-inbox",
+      "category": "blocks",
+      "sourceFile": "components/motion/agent-inbox/index.tsx",
+      "usageFile": "components/examples/blocks/agent-inbox.example.tsx",
+      "usageSha256": "2dbe522c1aa75b9463d4e8200c268188e8921cd97d51437b3a0726dcd3fb0fdb"
+    },
+    {
+      "key": "agent-trace",
+      "installSlug": "agent-trace",
+      "category": "blocks",
+      "sourceFile": "components/motion/agent-trace/index.tsx",
+      "usageFile": "components/examples/blocks/agent-trace.example.tsx",
+      "usageSha256": "3fe21369d21e58103eea77259cf6ed2ae6b238d7da8a8e66324e93ef87ee7b36"
+    },
+    {
+      "key": "streaming-json",
+      "installSlug": "streaming-json",
+      "category": "blocks",
+      "sourceFile": "components/motion/streaming-json/index.tsx",
+      "usageFile": "components/examples/blocks/streaming-json.example.tsx",
+      "usageSha256": "f5ff6e868cb151abd279eee81a9b6022fa68b357945f79106c6ac09b5a5cb072"
+    },
+    {
+      "key": "citations",
+      "installSlug": "citations",
+      "category": "blocks",
+      "sourceFile": "components/motion/citations/index.tsx",
+      "usageFile": "components/examples/blocks/citations.example.tsx",
+      "usageSha256": "6f71e690bcab1f1c8958d4880db2f785e353e321e2cb2dc02fa93c817dcc2f43"
+    },
+    {
+      "key": "voice-orb",
+      "installSlug": "voice-orb",
+      "category": "blocks",
+      "sourceFile": "components/motion/voice-orb/index.tsx",
+      "usageFile": "components/examples/blocks/voice-orb.example.tsx",
+      "usageSha256": "9344e0d331657eb94e72e0792184390cbb712c7c9c57f8ac59ea984d10427d34"
+    },
+    {
+      "key": "activity-stats",
+      "installSlug": "activity-stats",
+      "category": "blocks",
+      "sourceFile": "components/motion/activity-stats/index.tsx",
+      "usageFile": "components/examples/blocks/activity-stats.example.tsx",
+      "usageSha256": "19fb2ea40b2070956b956b0b27fda595c92d7e10f57552071795334c0f7306a8"
+    },
+    {
+      "key": "settings-panel",
+      "installSlug": "settings-panel",
+      "category": "blocks",
+      "sourceFile": "components/motion/settings-panel/index.tsx",
+      "usageFile": "components/examples/blocks/settings-panel.example.tsx",
+      "usageSha256": "e5aa401f11b0242b5609a4dc82e11329193f756b22c040c53bd171a7fc505e8c"
+    },
+    {
+      "key": "agent-thread",
+      "installSlug": "agent-thread",
+      "category": "blocks",
+      "sourceFile": "components/motion/agent-thread/index.tsx",
+      "usageFile": "components/examples/blocks/agent-thread.example.tsx",
+      "usageSha256": "eba857b8a934dda991ad92ae4309827b3097ebf3e2eb287a622c06f8213cd2d5"
+    },
+    {
+      "key": "agent-composer",
+      "installSlug": "agent-composer",
+      "category": "blocks",
+      "sourceFile": "components/motion/agent-composer/index.tsx",
+      "usageFile": "components/examples/blocks/agent-composer.example.tsx",
+      "usageSha256": "182806781a71b87252fb2977a450d5bdd61446176cf9bf2f7cf77d36dc59c790"
+    },
+    {
+      "key": "agent-workbench",
+      "installSlug": "agent-workbench",
+      "category": "blocks",
+      "sourceFile": "components/motion/agent-workbench/index.tsx",
+      "usageFile": "components/examples/blocks/agent-workbench.example.tsx",
+      "usageSha256": "a15b1d200eb285dc2de7eba0c3b1c1b65e70f50b779f6dd5517b0fd55bf145d6"
+    },
+    {
+      "key": "availability-scheduler",
+      "installSlug": "availability-scheduler",
+      "category": "blocks",
+      "sourceFile": "components/motion/availability-scheduler/index.tsx",
+      "usageFile": "components/examples/blocks/availability-scheduler.example.tsx",
+      "usageSha256": "924a13c1d209e98c1503098a4c0b0502471faeffc5ace57b302e9ac8ea4957fe"
+    },
+    {
+      "key": "swap",
+      "installSlug": "swap",
+      "category": "blocks",
+      "sourceFile": "components/motion/swap.tsx",
+      "usageFile": "components/examples/blocks/swap.example.tsx",
+      "usageSha256": "c9b46125f5ba966efeb72419f0b7697f7daf0b310204516f147e90593cd0cda8"
+    },
+    {
+      "key": "dynamic-island",
+      "installSlug": "dynamic-island",
+      "category": "blocks",
+      "sourceFile": "components/motion/dynamic-island.tsx",
+      "usageFile": "components/examples/blocks/dynamic-island.example.tsx",
+      "usageSha256": "6dd4785a825329e167cf7cd027e703e8a0110b6795862fb544161cefb9b31812"
+    },
+    {
+      "key": "command-palette",
+      "installSlug": "command-palette",
+      "category": "blocks",
+      "sourceFile": "components/motion/command-palette.tsx",
+      "usageFile": "components/examples/blocks/command-palette.example.tsx",
+      "usageSha256": "94cefeba3218cd916b6be5b89fa08f265dfc11163841dff2a1c88f8ab9f1999e"
+    },
+    {
+      "key": "morphing-search",
+      "installSlug": "morphing-search",
+      "category": "blocks",
+      "sourceFile": "components/motion/morphing-search.tsx",
+      "usageFile": "components/examples/blocks/morphing-search.example.tsx",
+      "usageSha256": "c797e028fd24e6e7c5e23317b72c16b7cad23dd11bcdd41e6c3e2ced23b0c064"
+    },
+    {
+      "key": "expandable-action-bar",
+      "installSlug": "expandable-action-bar",
+      "category": "blocks",
+      "sourceFile": "components/motion/expandable-action-bar.tsx",
+      "usageFile": "components/examples/blocks/expandable-action-bar.example.tsx",
+      "usageSha256": "2cc6a051354364b18ddbaf6ecdf01de6157449fc21f6e209a8a0807321b7eda9"
+    },
+    {
+      "key": "overflow-actions",
+      "installSlug": "overflow-actions",
+      "category": "blocks",
+      "sourceFile": "components/motion/overflow-actions.tsx",
+      "usageFile": "components/examples/blocks/overflow-actions.example.tsx",
+      "usageSha256": "1f7b671cf96323931a27823d0328a4d3b460270278db85aeaa3a04b91509896a"
+    },
+    {
+      "key": "expandable-tabs",
+      "installSlug": "expandable-tabs",
+      "category": "blocks",
+      "sourceFile": "components/motion/expandable-tabs.tsx",
+      "usageFile": "components/examples/blocks/expandable-tabs.example.tsx",
+      "usageSha256": "42c67f90817f23a5233bfec72d9c6802c1ea6a2dbd6f8dd8c4bf72441d7293a1"
+    },
+    {
+      "key": "swipeable-list",
+      "installSlug": "swipeable-list",
+      "category": "blocks",
+      "sourceFile": "components/motion/swipeable-list.tsx",
+      "usageFile": "components/examples/blocks/swipeable-list.example.tsx",
+      "usageSha256": "79faab556e1228f525cee2561b21cb921538942d6b848dba5a74d0d403bbb342"
+    },
+    {
+      "key": "file-upload",
+      "installSlug": "file-upload",
+      "category": "blocks",
+      "sourceFile": "components/motion/file-upload.tsx",
+      "usageFile": "components/examples/blocks/file-upload.example.tsx",
+      "usageSha256": "0ab675d34d9791719fa9f7de074083c73d62d29d79aeff6fb3c1bf5e26ec5ba9"
+    },
+    {
+      "key": "prediction-market",
+      "installSlug": "prediction-market",
+      "category": "blocks",
+      "sourceFile": "components/motion/prediction-market.tsx",
+      "usageFile": "components/examples/blocks/prediction-market.example.tsx",
+      "usageSha256": "29fecbf4c53dad0c5050bf8cd5f731be06ec220f0f26a1ab0112284637115b72"
+    },
+    {
+      "key": "wallet-card",
+      "installSlug": "wallet-card",
+      "category": "blocks",
+      "sourceFile": "components/motion/wallet-card/index.tsx",
+      "usageFile": "components/examples/blocks/wallet-card.example.tsx",
+      "usageSha256": "a77e19c4ee471261f0cbd48d8d6e5a2ebdd10cd6e0b3dbf1be96e064a9e83857"
+    },
+    {
+      "key": "otp-input",
+      "installSlug": "otp-input",
+      "category": "blocks",
+      "sourceFile": "components/motion/otp-input.tsx",
+      "usageFile": "components/examples/blocks/otp-input.example.tsx",
+      "usageSha256": "064b380dca63b4e406838f44f20882442491a00a7c42c0db5f6361611e2748df"
+    },
+    {
+      "key": "bloom-menu",
+      "installSlug": "bloom-menu",
+      "category": "blocks",
+      "sourceFile": "components/motion/bloom-menu.tsx",
+      "usageFile": "components/examples/blocks/bloom-menu.example.tsx",
+      "usageSha256": "51cc1b4fb05e467ae1bb45566dca714bc582360d1c1cd9db33bc25bda571f051"
+    },
+    {
+      "key": "feedback-widget",
+      "installSlug": "feedback-widget",
+      "category": "blocks",
+      "sourceFile": "components/motion/feedback-widget.tsx",
+      "usageFile": "components/examples/blocks/feedback-widget.example.tsx",
+      "usageSha256": "41a9f144b4905ad1d86d6a7587ed69e4384c15e96aebd255da49891bfa1e52a2"
+    },
+    {
+      "key": "not-found",
+      "installSlug": "not-found",
+      "category": "blocks",
+      "sourceFile": "components/motion/not-found/index.tsx",
+      "usageFile": "components/examples/blocks/not-found.example.tsx",
+      "usageSha256": "44ce61561b3eb67a52a647e43de8654dd6a9c5443b28c266a9a68fbde91fdff9"
+    },
+    {
+      "key": "not-found-glitch",
+      "installSlug": "not-found-glitch",
+      "category": "blocks",
+      "sourceFile": "components/motion/not-found/glitch.tsx",
+      "usageFile": "components/examples/blocks/not-found-glitch.example.tsx",
+      "usageSha256": "a106911e7466f45e7c3007e61c993b5a04c1dc62ac35b5dd3f241468edaf5f9c"
+    },
+    {
+      "key": "not-found-magnetic",
+      "installSlug": "not-found-magnetic",
+      "category": "blocks",
+      "sourceFile": "components/motion/not-found/magnetic.tsx",
+      "usageFile": "components/examples/blocks/not-found-magnetic.example.tsx",
+      "usageSha256": "4b434f41f4d6fb0ce0c3cf22f39c0845fc5aba525ad5e64cc018fb8ded87b8e5"
+    },
+    {
+      "key": "not-found-spotlight",
+      "installSlug": "not-found-spotlight",
+      "category": "blocks",
+      "sourceFile": "components/motion/not-found/spotlight.tsx",
+      "usageFile": "components/examples/blocks/not-found-spotlight.example.tsx",
+      "usageSha256": "2880d65cb961ecc4e6e2b7f1e49a6c91869f5fb91220fce25dea3788a6b99295"
+    },
+    {
+      "key": "not-found-stacked",
+      "installSlug": "not-found-stacked",
+      "category": "blocks",
+      "sourceFile": "components/motion/not-found/stacked.tsx",
+      "usageFile": "components/examples/blocks/not-found-stacked.example.tsx",
+      "usageSha256": "a36dfeb24b8ffd1095bbbd4e0b84b5198646212457cb0a5976eddb0567036f29"
+    },
+    {
+      "key": "not-found-terminal",
+      "installSlug": "not-found-terminal",
+      "category": "blocks",
+      "sourceFile": "components/motion/not-found/terminal.tsx",
+      "usageFile": "components/examples/blocks/not-found-terminal.example.tsx",
+      "usageSha256": "5886d4894980f378512e52b2fab12de0a027213d0597b60305a3284fd1bbb323"
+    },
+    {
+      "key": "step-form",
+      "installSlug": "step-form",
+      "category": "blocks",
+      "sourceFile": "components/motion/step-form.tsx",
+      "usageFile": "components/examples/blocks/step-form.example.tsx",
+      "usageSha256": "1eba7c29315a235e08c7f3d747a628beb8d398149992eb164d4a4ac3e93a8018"
+    },
+    {
+      "key": "empty-state",
+      "installSlug": "empty-state",
+      "category": "blocks",
+      "sourceFile": "components/motion/empty-state/index.tsx",
+      "usageFile": "components/examples/blocks/empty-state.example.tsx",
+      "usageSha256": "8e2556a613f419de5110018684adf265939083ee52033a22bb8a38d31c68bd46"
+    },
+    {
+      "key": "empty-state-inbox",
+      "installSlug": "empty-state-inbox",
+      "category": "blocks",
+      "sourceFile": "components/motion/empty-state/inbox.tsx",
+      "usageFile": "components/examples/blocks/empty-state-inbox.example.tsx",
+      "usageSha256": "9b4c45ad86403e873a8cce91058381675073dc6a008893ca7e5c6bfa383a4298"
+    },
+    {
+      "key": "empty-state-archive",
+      "installSlug": "empty-state-archive",
+      "category": "blocks",
+      "sourceFile": "components/motion/empty-state/archive.tsx",
+      "usageFile": "components/examples/blocks/empty-state-archive.example.tsx",
+      "usageSha256": "ee299530f1a61888066f2b94364f4a216c11ca85e4d2ec381cece577df595db6"
+    },
+    {
+      "key": "empty-state-search",
+      "installSlug": "empty-state-search",
+      "category": "blocks",
+      "sourceFile": "components/motion/empty-state/search.tsx",
+      "usageFile": "components/examples/blocks/empty-state-search.example.tsx",
+      "usageSha256": "56a6e42b80d984a6844c52cc7c13bdcd10fcf84a9acc00bc41b10015bea1b8ad"
+    },
+    {
+      "key": "prompt-bar",
+      "installSlug": "prompt-bar",
+      "category": "blocks",
+      "sourceFile": "components/motion/prompt-bar.tsx",
+      "usageFile": "components/examples/blocks/prompt-bar.example.tsx",
+      "usageSha256": "7f8677cc5a72874330825ee614b88c017277f89eb3cbab296ccef8a76cb0e79b"
+    },
+    {
+      "key": "prompt-input",
+      "installSlug": "prompt-input",
+      "category": "blocks",
+      "sourceFile": "components/agents/prompt-input.tsx",
+      "usageFile": "components/examples/blocks/prompt-input.example.tsx",
+      "usageSha256": "838a4ded53c8b137bee0cef05e6e30eb8b278756fa550e019ee5d9b563ca4625"
+    },
+    {
+      "key": "todo-list",
+      "installSlug": "todo-list",
+      "category": "blocks",
+      "sourceFile": "components/agents/todo-list.tsx",
+      "usageFile": "components/examples/blocks/todo-list.example.tsx",
+      "usageSha256": "84cbbd4119a6d83e22fcd287611870de79a65a5ed421f39831356499f73914b5"
+    },
+    {
+      "key": "code-block",
+      "installSlug": "code-block",
+      "category": "blocks",
+      "sourceFile": "components/agents/code-block.tsx",
+      "usageFile": "components/examples/blocks/code-block.example.tsx",
+      "usageSha256": "17cde36130d63f05e829507f96fb9d87a66d666b19748c03f2713276aa69cb6b"
+    },
+    {
+      "key": "approval-card",
+      "installSlug": "approval-card",
+      "category": "blocks",
+      "sourceFile": "components/agents/approval-card/index.tsx",
+      "usageFile": "components/examples/blocks/approval-card.example.tsx",
+      "usageSha256": "21b20e02519ea5e492b99c07c5e7082c928a2b971e0ab0e04fc219bdb1a08704"
+    },
+    {
+      "key": "file-diff",
+      "installSlug": "file-diff",
+      "category": "blocks",
+      "sourceFile": "components/agents/file-diff.tsx",
+      "usageFile": "components/examples/blocks/file-diff.example.tsx",
+      "usageSha256": "e44820736e6f149cc7360958b5d34ce660978c7d2799c0c2b04c9bcc97e8e84b"
+    },
+    {
+      "key": "tool-result",
+      "installSlug": "tool-result",
+      "category": "blocks",
+      "sourceFile": "components/agents/tool-result.tsx",
+      "usageFile": "components/examples/blocks/tool-result.example.tsx",
+      "usageSha256": "9c0d886edf708518e83c405131439a15145e104b387a262f4ab479c0e60f205c"
+    },
+    {
+      "key": "streaming-response",
+      "installSlug": "streaming-response",
+      "category": "blocks",
+      "sourceFile": "components/agents/streaming-response.tsx",
+      "usageFile": "components/examples/blocks/streaming-response.example.tsx",
+      "usageSha256": "1e373f6a12d4b689675119476916a4e3667a51efe6309a267b8a032bcaa368c1"
+    },
+    {
+      "key": "image-generation",
+      "installSlug": "image-generation",
+      "category": "blocks",
+      "sourceFile": "components/agents/image-generation.tsx",
+      "usageFile": "components/examples/blocks/image-generation.example.tsx",
+      "usageSha256": "8bae20afe8335bbb450ece06c48babb1f9026d2fdecabadbdedd952b27354826"
+    },
+    {
+      "key": "tool-approval",
+      "installSlug": "tool-approval",
+      "category": "blocks",
+      "sourceFile": "components/agents/tool-approval.tsx",
+      "usageFile": "components/examples/blocks/tool-approval.example.tsx",
+      "usageSha256": "3518cd6d0232d27e7b04b1c90317a9491dd5d28bed2cf8e2268485b7e50da54b"
+    },
+    {
+      "key": "agent-activity",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity.example.tsx",
+      "usageSha256": "3611f6d4c25b4b744a517492a969c72f9fd58b6630dd3aa3d850f63c2d75d886"
+    },
+    {
+      "key": "reasoning-text",
+      "installSlug": "reasoning-text",
+      "category": "blocks",
+      "sourceFile": "components/agents/loading-states/reasoning-text.tsx",
+      "usageFile": "components/examples/blocks/reasoning-text.example.tsx",
+      "usageSha256": "289202183a0f0499d7ac1df3df9cf401a1e10816a7b2efcc59c70eaf51995c13"
+    },
+    {
+      "key": "agent-progress",
+      "installSlug": "agent-progress",
+      "category": "blocks",
+      "sourceFile": "components/agents/loading-states/agent-progress.tsx",
+      "usageFile": "components/examples/blocks/agent-progress.example.tsx",
+      "usageSha256": "e57068a1b2e5473c427f085c4dffb9d3c4d80bdac7da62c11e7f80bdfa38523f"
+    },
+    {
+      "key": "ai-sidebar",
+      "installSlug": "ai-sidebar",
+      "category": "blocks",
+      "sourceFile": "components/agents/ai-sidebar/index.tsx",
+      "usageFile": "components/examples/blocks/ai-sidebar.example.tsx",
+      "usageSha256": "673e5d1e01c71aba46ca34387a75675205c01b65c4da0dd0fcbdde15bf30a361"
+    },
+    {
+      "key": "reasoning",
+      "installSlug": "reasoning",
+      "category": "blocks",
+      "sourceFile": "components/agents/reasoning.tsx",
+      "usageFile": "components/examples/blocks/reasoning.example.tsx",
+      "usageSha256": "452248aa8814e9e04305320f21cc5618275e4cde6d2159efcd33f845731af709"
+    },
+    {
+      "key": "chain-of-thought",
+      "installSlug": "chain-of-thought",
+      "category": "blocks",
+      "sourceFile": "components/agents/chain-of-thought.tsx",
+      "usageFile": "components/examples/blocks/chain-of-thought.example.tsx",
+      "usageSha256": "14e4fc9bd894fae783e95b2bb7f755ab0dc73a5980a0af092ffa8623f15bed9b"
+    },
+    {
+      "key": "sources",
+      "installSlug": "sources",
+      "category": "blocks",
+      "sourceFile": "components/agents/sources.tsx",
+      "usageFile": "components/examples/blocks/sources.example.tsx",
+      "usageSha256": "650f59f27cd655d501e3264d94143c79ca8474258f84871d42e8f1e5902beb7d"
+    },
+    {
+      "key": "inline-citation",
+      "installSlug": "inline-citation",
+      "category": "blocks",
+      "sourceFile": "components/agents/inline-citation.tsx",
+      "usageFile": "components/examples/blocks/inline-citation.example.tsx",
+      "usageSha256": "0b69d99c19709e730fd5fec81fd7bb876f36bd3a464bac847f3fabf9a9972b0a"
+    },
+    {
+      "key": "plan",
+      "installSlug": "plan",
+      "category": "blocks",
+      "sourceFile": "components/agents/plan.tsx",
+      "usageFile": "components/examples/blocks/plan.example.tsx",
+      "usageSha256": "a4f3ae6552457d3cb84cb7c41484fb3ea2f8a4ef6612f56d4cfef99a446958d8"
+    },
+    {
+      "key": "task",
+      "installSlug": "task",
+      "category": "blocks",
+      "sourceFile": "components/agents/task.tsx",
+      "usageFile": "components/examples/blocks/task.example.tsx",
+      "usageSha256": "0102af876db638256a09e83d7e8cd3de36cfd9fd8089d26eb96cd32d7f6ae785"
+    },
+    {
+      "key": "queue",
+      "installSlug": "queue",
+      "category": "blocks",
+      "sourceFile": "components/agents/queue.tsx",
+      "usageFile": "components/examples/blocks/queue.example.tsx",
+      "usageSha256": "cc809d8c21f91b654a3d3c6497318510c95d45cce973a6b6e65a06b0179ead79"
+    },
+    {
+      "key": "confirmation",
+      "installSlug": "confirmation",
+      "category": "blocks",
+      "sourceFile": "components/agents/confirmation.tsx",
+      "usageFile": "components/examples/blocks/confirmation.example.tsx",
+      "usageSha256": "a4932f2d30791b7622652afb41941c0cb4df0912d1a02a815d42d1f5435bea66"
+    },
+    {
+      "key": "suggestion",
+      "installSlug": "suggestion",
+      "category": "blocks",
+      "sourceFile": "components/agents/suggestion.tsx",
+      "usageFile": "components/examples/blocks/suggestion.example.tsx",
+      "usageSha256": "8bd84e5bef8891fa6a75877e3bd9bafec775f9d3dfb7f589ec7595bfb6b67b50"
+    },
+    {
+      "key": "jsx-preview",
+      "installSlug": "jsx-preview",
+      "category": "blocks",
+      "sourceFile": "components/agents/jsx-preview.tsx",
+      "usageFile": "components/examples/blocks/jsx-preview.example.tsx",
+      "usageSha256": "2f53f1107bdfe4f99e9b07db1c0b7f0166ad7d11306639d4ab4d945899ee1fdf"
+    },
+    {
+      "key": "collapsible-sidebar",
+      "installSlug": "collapsible-sidebar",
+      "category": "blocks",
+      "sourceFile": "components/motion/collapsible-sidebar.tsx",
+      "usageFile": "components/examples/blocks/collapsible-sidebar.example.tsx",
+      "usageSha256": "851a83343c08406c81b429583b99743e112ceb0ace468cc52812409791dfefb4"
+    },
+    {
+      "key": "upgrade-paywall",
+      "installSlug": "upgrade-paywall",
+      "category": "blocks",
+      "sourceFile": "components/motion/upgrade-paywall.tsx",
+      "usageFile": "components/examples/blocks/upgrade-paywall.example.tsx",
+      "usageSha256": "c5aa84dca9f7ecf5a9e2cea40c4ee6c722fc1284692be90cd0ac245d9b1b1f7b"
+    },
+    {
+      "key": "view-layout-switch",
+      "installSlug": "view-layout-switch",
+      "category": "blocks",
+      "sourceFile": "components/motion/view-layout-switch.tsx",
+      "usageFile": "components/examples/blocks/view-layout-switch.example.tsx",
+      "usageSha256": "24a0de17eddc2c926d8fb92fd51661cbe8875e65e3c07e71b4d18cf2cc504709"
+    },
+    {
+      "key": "billing-plan-grid",
+      "installSlug": "billing-plan-grid",
+      "category": "blocks",
+      "sourceFile": "components/motion/billing-plan-grid.tsx",
+      "usageFile": "components/examples/blocks/billing-plan-grid.example.tsx",
+      "usageSha256": "ba50a000962e9af61dcd436ed0864b67fc969475057fd28929810d09ddb8863e"
+    },
+    {
+      "key": "approval-card-questions",
+      "installSlug": "approval-card",
+      "category": "blocks",
+      "sourceFile": "components/agents/approval-card/index.tsx",
+      "usageFile": "components/examples/blocks/approval-card-questions.example.tsx",
+      "usageSha256": "74bbf74ca018ca43b77f69e7cfaa62505e00ebab7f85741645e4bc9d65f0b001"
+    },
+    {
+      "key": "approval-card-review",
+      "installSlug": "approval-card",
+      "category": "blocks",
+      "sourceFile": "components/agents/approval-card/index.tsx",
+      "usageFile": "components/examples/blocks/approval-card-review.example.tsx",
+      "usageSha256": "9e81ade30382187fecaeaa3a23a8788427fd4cdeae66935faa17fb4bc710f678"
+    },
+    {
+      "key": "tool-result-terminal-output",
+      "installSlug": "tool-result",
+      "category": "blocks",
+      "sourceFile": "components/agents/tool-result.tsx",
+      "usageFile": "components/examples/blocks/tool-result-terminal-output.example.tsx",
+      "usageSha256": "eba8e87bdc938a449b52d18e305f1ab00801275d0643a856700fd0a5b5c68bf4"
+    },
+    {
+      "key": "tool-result-request-result",
+      "installSlug": "tool-result",
+      "category": "blocks",
+      "sourceFile": "components/agents/tool-result.tsx",
+      "usageFile": "components/examples/blocks/tool-result-request-result.example.tsx",
+      "usageSha256": "29ca81eda52ffdceaaa228272095de5a465fda046e19711e11652e592f52d87e"
+    },
+    {
+      "key": "agent-activity-streaming-text",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity-streaming-text.example.tsx",
+      "usageSha256": "8bf693abea7b477476635cc0498a57b6b271fd2e27f87db2bbddd1ecbf0d5555"
+    },
+    {
+      "key": "agent-activity-reasoning-steps",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity-reasoning-steps.example.tsx",
+      "usageSha256": "ab306780ccd01c728ee69f4f5153d6a21ac7a12edd457e99f6d5ff706184bbe9"
+    },
+    {
+      "key": "agent-activity-web-search",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity-web-search.example.tsx",
+      "usageSha256": "7782ce595835d926a35a65ed38c243adf74fb0a0c1c5550960b9ec9eefeaf081"
+    },
+    {
+      "key": "agent-activity-tool-calls",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity-tool-calls.example.tsx",
+      "usageSha256": "5000c3989e597a83ede0c7875d8b2a094b8b52ba33b6368cbcfb4db78e7398f2"
+    },
+    {
+      "key": "agent-activity-mixed-activity",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity-mixed-activity.example.tsx",
+      "usageSha256": "ba2c61c567ca65855a190de0dc2ff7bf4769c21a52eb224db60be8c40fadf916"
+    },
+    {
+      "key": "agent-activity-activity-trace",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity-activity-trace.example.tsx",
+      "usageSha256": "05b19a4d7c22dff80846aecbb0026f5df606fe9ef08407a5e65e7237fa125ea5"
+    }
+  ],
+  "migrationResults": [
+    {
+      "group": 1,
+      "examples": [
+        {
+          "slug": "agent-activity",
+          "installSlug": "agent-activity",
+          "usageFile": "components/examples/blocks/agent-activity.example.tsx",
+          "exportName": "AgentActivityExample",
+          "notes": "中文混合活动记录；受控展开/收起，并在本地显示详情状态。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "agent-activity-streaming-text",
+          "installSlug": "agent-activity",
+          "usageFile": "components/examples/blocks/agent-activity-streaming-text.example.tsx",
+          "exportName": "AgentActivityStreamingTextExample",
+          "notes": "使用稳定 id 更新同一文本项；按钮逐段模拟流式输入、完成和重放，未接 AI runtime。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "agent-activity-reasoning-steps",
+          "installSlug": "agent-activity",
+          "usageFile": "components/examples/blocks/agent-activity-reasoning-steps.example.tsx",
+          "exportName": "AgentActivityReasoningStepsExample",
+          "notes": "中文步骤状态 pending/active/complete；按钮推进步骤和重置，并展示展开状态。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "agent-activity-web-search",
+          "installSlug": "agent-activity",
+          "usageFile": "components/examples/blocks/agent-activity-web-search.example.tsx",
+          "exportName": "AgentActivityWebSearchExample",
+          "notes": "静态中文搜索记录及公开资料链接；受控展开/收起，不发送搜索请求。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "agent-activity-tool-calls",
+          "installSlug": "agent-activity",
+          "usageFile": "components/examples/blocks/agent-activity-tool-calls.example.tsx",
+          "exportName": "AgentActivityToolCallsExample",
+          "notes": "独立工具调用示例；按钮逐项追加 read/edit/run 记录，不操作真实文件或执行命令。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "agent-activity-mixed-activity",
+          "installSlug": "agent-activity",
+          "usageFile": "components/examples/blocks/agent-activity-mixed-activity.example.tsx",
+          "exportName": "AgentActivityMixedActivityExample",
+          "notes": "专属混合活动示例，包含 step/search/tool/text；按钮追加活动与重放。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "agent-activity-activity-trace",
+          "installSlug": "agent-activity",
+          "usageFile": "components/examples/blocks/agent-activity-activity-trace.example.tsx",
+          "exportName": "AgentActivityActivityTraceExample",
+          "notes": "专属 trace 轨迹示例，包含 thinking/read/write/message；受控详情开关。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "select",
+          "installSlug": "select",
+          "usageFile": "components/examples/motion/select.example.tsx",
+          "exportName": "SelectExample",
+          "notes": "仅导入 select 安装入口；中文受控通知频率，选择结果本地显示。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "select-morph",
+          "installSlug": "select-morph",
+          "usageFile": "components/examples/motion/select-morph.example.tsx",
+          "exportName": "SelectMorphExample",
+          "notes": "仅导入 select-morph 窄安装入口的 MorphSelect 系列，不依赖 select；中文受控选择与结果。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "marquee",
+          "installSlug": "marquee",
+          "usageFile": "components/examples/motion/marquee.example.tsx",
+          "exportName": "MarqueeExample",
+          "notes": "安装图没有站点动画 CSS，示例局部定义水平滚动关键帧、悬停暂停和减少动态样式；不改组件实现。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "radio",
+          "installSlug": "radio",
+          "usageFile": "components/examples/motion/radio.example.tsx",
+          "exportName": "RadioExample",
+          "notes": "中文报告格式单选；受控值、禁用选项及本地结果反馈。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "animated-badge",
+          "installSlug": "animated-badge",
+          "usageFile": "components/examples/motion/animated-badge.example.tsx",
+          "exportName": "AnimatedBadgeExample",
+          "notes": "中文状态徽标；按钮依次切换待检查/检查中/检查完成并重置，不执行业务检查。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "wheel-picker",
+          "installSlug": "wheel-picker",
+          "usageFile": "components/examples/motion/wheel-picker.example.tsx",
+          "exportName": "WheelPickerExample",
+          "notes": "稳定时间选项数组；受控时间、中文可访问标签和本地选择结果。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "halftone-image",
+          "installSlug": "halftone-image",
+          "usageFile": "components/examples/motion/halftone-image.example.tsx",
+          "exportName": "HalftoneImageExample",
+          "notes": "内联 data SVG 风景图，无 public 路径或远程图片；固定容器尺寸、彩色悬停与受控网点间距。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "animated-icon",
+          "installSlug": "animated-icon",
+          "usageFile": "components/examples/motion/animated-icon.example.tsx",
+          "exportName": "AnimatedIconExample",
+          "notes": "lucide-react 已在原始安装依赖内；提醒按钮受控开关及中文操作反馈，悬停图标展示摆动。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "login-card",
+          "installSlug": "login-card",
+          "usageFile": "components/examples/blocks/login-card.example.tsx",
+          "exportName": "LoginCardExample",
+          "notes": "沿用内部非受控表单和既有 onSendCode/onSubmit；本地演示验证码 123456、校验反馈及自包含扫码槽位，不发送短信或建立会话。内部协议/反馈链接为源码固定占位，现有 API 无对应替换入口，未改公共接口。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "citations",
+          "installSlug": "citations",
+          "usageFile": "components/examples/blocks/citations.example.tsx",
+          "exportName": "CitationsExample",
+          "notes": "中文内联引用与来源卡片，使用本地文字图标；可悬停/聚焦预览并打开资料链接，无图标包或远程图片。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "agent-workbench",
+          "installSlug": "agent-workbench",
+          "usageFile": "components/examples/blocks/agent-workbench.example.tsx",
+          "exportName": "AgentWorkbenchExample",
+          "notes": "仅使用真实工作台入口及其自有 hook/组合部件，不导入预览依赖的 composer/thread 或 lucide-react；受控侧栏/摘要、任务选择、原生草稿表单和本地结果。工作台视觉 token 仍由原始 registryDependencies 的 system-workbench 提供。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "expandable-action-bar",
+          "installSlug": "expandable-action-bar",
+          "usageFile": "components/examples/blocks/expandable-action-bar.example.tsx",
+          "exportName": "ExpandableActionBarExample",
+          "notes": "原始安装依赖无 lucide-react，使用文字图标；受控展开、活动项及本地模式切换结果。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "wallet-card",
+          "installSlug": "wallet-card",
+          "usageFile": "components/examples/blocks/wallet-card.example.tsx",
+          "exportName": "WalletCardExample",
+          "notes": "受控中文账户与演示余额；文字头像避免组件默认远程头像；所有钱包/通知/搜索回调均在本地展示结果，不执行金融动作。源码部分固定英文标签沿用既有 API。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "prompt-input",
+          "installSlug": "prompt-input",
+          "usageFile": "components/examples/blocks/prompt-input.example.tsx",
+          "exportName": "PromptInputExample",
+          "notes": "中文演示模式与提纲动作；受控提示/模式/处理状态；发送后本地显示提交内容，可停止或手动结束演示，未调用模型。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "tool-approval",
+          "installSlug": "tool-approval",
+          "usageFile": "components/examples/blocks/tool-approval.example.tsx",
+          "exportName": "ToolApprovalExample",
+          "notes": "中文工具参数与描述；受控授权和展开状态，一次允许/演示始终允许/拒绝/重置均有本地反馈，未执行或持久化工具权限。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "sources",
+          "installSlug": "sources",
+          "usageFile": "components/examples/blocks/sources.example.tsx",
+          "exportName": "SourcesExample",
+          "notes": "中文资料链接列表；受控展开/收起并本地记录打开的链接，无远程图片或数据请求。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        },
+        {
+          "slug": "suggestion",
+          "installSlug": "suggestion",
+          "usageFile": "components/examples/blocks/suggestion.example.tsx",
+          "exportName": "SuggestionExample",
+          "notes": "中文建议芯片填入受控可编辑草稿，点击回调结果在本地显示。 验证：定向 TypeScript 及 Biome lint、安装图导入核对、零参数 SSR 通过；浏览器目标打包通过（包依赖 externalize，未运行实际浏览器交互）。"
+        }
+      ]
+    },
+    {
+      "group": 2,
+      "examples": [
+        {
+          "slug": "scroll-animation",
+          "installSlug": "scroll-animation",
+          "usageFile": "components/examples/motion/scroll-animation.example.tsx",
+          "exportName": "ScrollAnimationExample",
+          "notes": "组合 SmoothScroll、ScrollProgress、ScrollTo 和 ScrollReveal；contained 模式展示中文阅读内容，无站点 provider。历史 previewFile 不存在，已直接依据真实源码接口实现。"
+        },
+        {
+          "slug": "smooth-scroll",
+          "installSlug": "smooth-scroll",
+          "usageFile": "components/examples/motion/smooth-scroll.example.tsx",
+          "exportName": "SmoothScrollExample",
+          "notes": "contained 平滑滚动；通过同入口 useSmoothScroll 返回顶部，展示本地滚动请求反馈。只依赖自身窄安装图。"
+        },
+        {
+          "slug": "scroll-progress",
+          "installSlug": "scroll-progress",
+          "usageFile": "components/examples/motion/scroll-progress.example.tsx",
+          "exportName": "ScrollProgressExample",
+          "notes": "原生局部滚动事件驱动 MotionValue，展示进度条、圆环与中文百分比；不依赖其他滚动变体。滚动区域保留键盘焦点入口。"
+        },
+        {
+          "slug": "parallax",
+          "installSlug": "parallax",
+          "usageFile": "components/examples/motion/parallax.example.tsx",
+          "exportName": "ParallaxExample",
+          "notes": "使用本地容器 ref 与两种 speed 展示远近景视差；无图片资源，滚动区域支持键盘。"
+        },
+        {
+          "slug": "scroll-to",
+          "installSlug": "scroll-to",
+          "usageFile": "components/examples/motion/scroll-to.example.tsx",
+          "exportName": "ScrollToExample",
+          "notes": "使用安装图已有 SmoothScroll helper，useId 生成实例内唯一章节目标；展示章节跳转和返回目录。"
+        },
+        {
+          "slug": "scroll-reveal",
+          "installSlug": "scroll-reveal",
+          "usageFile": "components/examples/motion/scroll-reveal.example.tsx",
+          "exportName": "ScrollRevealExample",
+          "notes": "使用独立滚动 root 与中文段落，重复进入显示；无需 SmoothScroll 或其他变体，滚动区域支持键盘。"
+        },
+        {
+          "slug": "approval-card",
+          "installSlug": "approval-card",
+          "usageFile": "components/examples/blocks/approval-card.example.tsx",
+          "exportName": "ApprovalCardExample",
+          "notes": "受控审批状态、同意/拒绝/关闭/重新确认；本地显示操作结果。API 的 Reject、Dismiss 和状态徽标为内置英文，仅 approveLabel 可覆盖；未修改公共接口。"
+        },
+        {
+          "slug": "approval-card-questions",
+          "installSlug": "approval-card",
+          "usageFile": "components/examples/blocks/approval-card-questions.example.tsx",
+          "exportName": "ApprovalCardQuestionsExample",
+          "notes": "专属问答用法：受控 answers、step、status，单选、多选、自定义主题，提交后展示中文答案摘要和重置。API 导航与 aria-label 为内置英文，使用现有 submitLabel。"
+        },
+        {
+          "slug": "approval-card-review",
+          "installSlug": "approval-card",
+          "usageFile": "components/examples/blocks/approval-card-review.example.tsx",
+          "exportName": "ApprovalCardReviewExample",
+          "notes": "专属审阅用法：中文文案、受控审阅意见、通过/拒绝/请求修改及结果。Request changes、Reject 为 API 内置英文；操作只更新本地状态，不发布或发送。"
+        },
+        {
+          "slug": "tabs",
+          "installSlug": "tabs",
+          "usageFile": "components/examples/motion/tabs.example.tsx",
+          "exportName": "TabsExample",
+          "notes": "受控选项卡、三个中文内容面板与当前选择结果。"
+        },
+        {
+          "slug": "bottom-sheet",
+          "installSlug": "bottom-sheet",
+          "usageFile": "components/examples/motion/bottom-sheet.example.tsx",
+          "exportName": "BottomSheetExample",
+          "notes": "受控打开/关闭，中文表单编辑、提交与取消；结果仅保存到本地，使用现有安装图内 modal。"
+        },
+        {
+          "slug": "animated-toast-stack",
+          "installSlug": "animated-toast-stack",
+          "usageFile": "components/examples/motion/animated-toast-stack.example.tsx",
+          "exportName": "AnimatedToastStackExample",
+          "notes": "同入口 useAnimatedToastStack 管理静态嵌入消息栈，演示添加/自动到期/关闭/清空/撤销；本地展示回调反馈，无服务请求。"
+        },
+        {
+          "slug": "shader-background",
+          "installSlug": "shader-background",
+          "usageFile": "components/examples/motion/shader-background.example.tsx",
+          "exportName": "ShaderBackgroundExample",
+          "notes": "直接使用 mesh-gradient，显式尺寸与自包含插画配色，暂停/继续状态；组件自身处理减少动效。不使用额外 Tabs 或远程图片；WebGL 视觉表现留给真实浏览器验收。"
+        },
+        {
+          "slug": "star-border",
+          "installSlug": "star-border",
+          "usageFile": "components/examples/motion/star-border.example.tsx",
+          "exportName": "StarBorderExample",
+          "notes": "星光描边包裹可操作按钮，受控本地阅读清单选中状态及结果，无额外组件依赖。"
+        },
+        {
+          "slug": "dropdown-menu",
+          "installSlug": "dropdown-menu",
+          "usageFile": "components/examples/motion/dropdown-menu.example.tsx",
+          "exportName": "DropdownMenuExample",
+          "notes": "受控菜单开关与置顶复选状态；复制/归档回调展示本地演示反馈，无真实业务服务。"
+        },
+        {
+          "slug": "thread-list",
+          "installSlug": "thread-list",
+          "usageFile": "components/examples/blocks/thread-list.example.tsx",
+          "exportName": "ThreadListExample",
+          "notes": "仅 import 真实 index 入口；中文会话内容、选择、标记已读、归档及恢复。未引入安装图未声明的 lucide-react。"
+        },
+        {
+          "slug": "voice-orb",
+          "installSlug": "voice-orb",
+          "usageFile": "components/examples/blocks/voice-orb.example.tsx",
+          "exportName": "VoiceOrbExample",
+          "notes": "受控四种视觉状态与中文可访问状态说明；不采集麦克风、不调用语音服务；未引入 lucide-react。"
+        },
+        {
+          "slug": "availability-scheduler",
+          "installSlug": "availability-scheduler",
+          "usageFile": "components/examples/blocks/availability-scheduler.example.tsx",
+          "exportName": "AvailabilitySchedulerExample",
+          "notes": "同入口 defaultWeek 初始化受控周安排，编辑/关闭/复制可用时间由原组件处理，中文摘要随 onChange 更新，可恢复默认。API 星期及内部控件文案固定英文且无 locale/content 接口，以中文摘要补充说明；未更改组件。"
+        },
+        {
+          "slug": "overflow-actions",
+          "installSlug": "overflow-actions",
+          "usageFile": "components/examples/blocks/overflow-actions.example.tsx",
+          "exportName": "OverflowActionsExample",
+          "notes": "受控展开与操作回调，选择后自动收起。onExpandedChange 发生在 onAction 之后，已分开显示展开状态与操作结果，避免覆盖反馈。"
+        },
+        {
+          "slug": "otp-input",
+          "installSlug": "otp-input",
+          "usageFile": "components/examples/blocks/otp-input.example.tsx",
+          "exportName": "OtpInputExample",
+          "notes": "具名导出 OtpInputExample；本地六位演示校验、成功/失败/清空重试及完整输入后的纠错。API onComplete 仅空缺到填满时触发，onChange 补充满值编辑校验；重试用 key 重置内部活动槽位。"
+        },
+        {
+          "slug": "todo-list",
+          "installSlug": "todo-list",
+          "usageFile": "components/examples/blocks/todo-list.example.tsx",
+          "exportName": "TodoListExample",
+          "notes": "受控任务 items 与展开状态，推进演示任务、完成自动收起及重置；中文结果，无业务运行时。"
+        },
+        {
+          "slug": "reasoning-text",
+          "installSlug": "reasoning-text",
+          "usageFile": "components/examples/blocks/reasoning-text.example.tsx",
+          "exportName": "ReasoningTextExample",
+          "notes": "中文 phrases，切换工作展示/本地演示结果/重新演示；未接入模型或 AI runtime。"
+        },
+        {
+          "slug": "inline-citation",
+          "installSlug": "inline-citation",
+          "usageFile": "components/examples/blocks/inline-citation.example.tsx",
+          "exportName": "InlineCitationExample",
+          "notes": "两条自包含中文来源与引用，本地 fragment 标识，无远程资源。使用受控开关和现有 trigger 事件 props 保持翻页控件可操作。当前 Carousel count 来自直接 children 数量，使用 header+content 两个直接子节点配合两条来源；未修改 API。"
+        },
+        {
+          "slug": "jsx-preview",
+          "installSlug": "jsx-preview",
+          "usageFile": "components/examples/blocks/jsx-preview.example.tsx",
+          "exportName": "JsxPreviewExample",
+          "notes": "具名导出 JsxPreviewExample；自包含中文片段，编辑/更新/重置及本地反馈。真实 JSXPreviewContent 在 useEffect 后用 DOMParser 解析，SSR 预览内容区为空但编辑器含初始片段，客户端显示实际内容；API onError 当前无实际行为，因此不伪造错误回调。"
+        }
+      ]
+    },
+    {
+      "group": 3,
+      "examples": [
+        {
+          "slug": "not-found",
+          "installSlug": "not-found",
+          "usageFile": "components/examples/blocks/not-found.example.tsx",
+          "exportName": "NotFoundExample",
+          "notes": "父条目的 previewFile 不存在；直接使用安装入口 index 导出的 NotFoundGlitch。中文内容和两个 href 均指向示例自身的学习首页与笔记目录，无站点路由依赖。"
+        },
+        {
+          "slug": "not-found-glitch",
+          "installSlug": "not-found-glitch",
+          "usageFile": "components/examples/blocks/not-found-glitch.example.tsx",
+          "exportName": "NotFoundGlitchExample",
+          "notes": "中文 404 内容与两条本地锚点导航，直接导入对应窄变体真实安装入口；不依赖父项或其他变体 helper。源码内固定英文装饰文案无公开配置入口，保留当前 API。"
+        },
+        {
+          "slug": "not-found-magnetic",
+          "installSlug": "not-found-magnetic",
+          "usageFile": "components/examples/blocks/not-found-magnetic.example.tsx",
+          "exportName": "NotFoundMagneticExample",
+          "notes": "中文 404 内容与两条本地锚点导航，直接导入对应窄变体真实安装入口；不依赖父项或其他变体 helper。源码内固定英文装饰文案无公开配置入口，保留当前 API。"
+        },
+        {
+          "slug": "not-found-spotlight",
+          "installSlug": "not-found-spotlight",
+          "usageFile": "components/examples/blocks/not-found-spotlight.example.tsx",
+          "exportName": "NotFoundSpotlightExample",
+          "notes": "中文 404 内容与两条本地锚点导航，直接导入对应窄变体真实安装入口；不依赖父项或其他变体 helper。源码内固定英文装饰文案无公开配置入口，保留当前 API。"
+        },
+        {
+          "slug": "not-found-stacked",
+          "installSlug": "not-found-stacked",
+          "usageFile": "components/examples/blocks/not-found-stacked.example.tsx",
+          "exportName": "NotFoundStackedExample",
+          "notes": "中文 404 内容与两条本地锚点导航，直接导入对应窄变体真实安装入口；不依赖父项或其他变体 helper。源码内固定英文装饰文案无公开配置入口，保留当前 API。"
+        },
+        {
+          "slug": "not-found-terminal",
+          "installSlug": "not-found-terminal",
+          "usageFile": "components/examples/blocks/not-found-terminal.example.tsx",
+          "exportName": "NotFoundTerminalExample",
+          "notes": "中文 404 内容与两条本地锚点导航，直接导入对应窄变体真实安装入口；不依赖父项或其他变体 helper。源码内固定英文装饰文案无公开配置入口，保留当前 API。"
+        },
+        {
+          "slug": "tool-result",
+          "installSlug": "tool-result",
+          "usageFile": "components/examples/blocks/tool-result.example.tsx",
+          "exportName": "ToolResultExample",
+          "notes": "具名入口提供自定义检索结果；受控展开/收起、本地失败与重试成功、重置，均展示本地状态文字，不执行检索服务。"
+        },
+        {
+          "slug": "tool-result-terminal-output",
+          "installSlug": "tool-result",
+          "usageFile": "components/examples/blocks/tool-result-terminal-output.example.tsx",
+          "exportName": "ToolResultTerminalOutputExample",
+          "notes": "父安装项的专属终端示例；固定中文终端输出，展开/收起、重试次数与复制反馈，不执行命令。剪贴板失败时隐藏复制按钮并提示手动复制，避免内置成功图标误导。"
+        },
+        {
+          "slug": "tool-result-request-result",
+          "installSlug": "tool-result",
+          "usageFile": "components/examples/blocks/tool-result-request-result.example.tsx",
+          "exportName": "ToolResultRequestResultExample",
+          "notes": "父安装项的专属请求结果示例；预置 503/200 模拟 JSON，重试切换为成功响应，不调用接口。"
+        },
+        {
+          "slug": "switch",
+          "installSlug": "switch",
+          "usageFile": "components/examples/motion/switch.example.tsx",
+          "exportName": "SwitchExample",
+          "notes": "受控阅读提醒开关，中文 label 与实时本地状态反馈。"
+        },
+        {
+          "slug": "shared-layout-bg",
+          "installSlug": "shared-layout-bg",
+          "usageFile": "components/examples/motion/shared-layout-bg.example.tsx",
+          "exportName": "SharedLayoutBgExample",
+          "notes": "直接安装入口包裹三个可选择的中文学习主题；共享 hover 背景由原组件实现，点击结果在本地展示。"
+        },
+        {
+          "slug": "theme-toggle",
+          "installSlug": "theme-toggle",
+          "usageFile": "components/examples/motion/theme-toggle.example.tsx",
+          "exportName": "ThemeToggleExample",
+          "notes": "真实 API 只通过 next-themes useTheme 工作，没有受控 theme/onChange props。使用安装项已声明的 next-themes ThemeProvider 构成最小独立消费者配置（attribute=class、固定浅色默认、关闭系统主题、独立 storageKey），不导入站点 provider。切换结果在消费者页面展示，SSR 首次文本稳定。此 provider 是现有 API 实际操作所必需；切换作用于消费者 html，非仅局部卡片。"
+        },
+        {
+          "slug": "cylinder-carousel",
+          "installSlug": "cylinder-carousel",
+          "usageFile": "components/examples/motion/cylinder-carousel.example.tsx",
+          "exportName": "CylinderCarouselExample",
+          "notes": "七个自包含中文主题按钮；本地 index 与选择反馈，支持原组件拖动、滚轮及左右键，不使用图片或额外依赖。"
+        },
+        {
+          "slug": "bounce-cards",
+          "installSlug": "bounce-cards",
+          "usageFile": "components/examples/motion/bounce-cards.example.tsx",
+          "exportName": "BounceCardsExample",
+          "notes": "三张自包含中文学习步骤卡片，直接使用原组件扇形入场，不引入图片、外部服务或交互状态。"
+        },
+        {
+          "slug": "expanding-card",
+          "installSlug": "expanding-card",
+          "usageFile": "components/examples/motion/expanding-card.example.tsx",
+          "exportName": "ExpandingCardExample",
+          "notes": "受控卡片展开与关闭，中文阅读计划；加入本地清单后关闭弹层并展示结果。"
+        },
+        {
+          "slug": "artifact-panel",
+          "installSlug": "artifact-panel",
+          "usageFile": "components/examples/blocks/artifact-panel.example.tsx",
+          "exportName": "ArtifactPanelExample",
+          "notes": "直接导入 index 入口的面板各部件；受控预览/代码、历史版本、恢复为新本地草稿及复制反馈。复用该安装项自动关联的工作台 token，不依赖预览中的 agent-thread 等其他安装图。"
+        },
+        {
+          "slug": "activity-stats",
+          "installSlug": "activity-stats",
+          "usageFile": "components/examples/blocks/activity-stats.example.tsx",
+          "exportName": "ActivityStatsExample",
+          "notes": "直接导入 index 入口的统计部件；近四周/十二周切换，固定确定性数据、中文轴标签与 tooltip，汇总随选择变化；不导入不在安装图内的 AnimatedNumber。"
+        },
+        {
+          "slug": "swap",
+          "installSlug": "swap",
+          "usageFile": "components/examples/blocks/swap.example.tsx",
+          "exportName": "SwapExample",
+          "notes": "现有 MultiChainSwap 仅提供 chains/tokens/defaultFromId/defaultToId，没有交易、设置或选择状态回调。传入完整中文演示链与积分数据并使用原组件内部数量/币种/方向/地址状态；界面明确交易与设置按钮未接动作，不假造钱包连接或交易成功，也不拦截内部 DOM 拼接伪回调。"
+        },
+        {
+          "slug": "expandable-tabs",
+          "installSlug": "expandable-tabs",
+          "usageFile": "components/examples/blocks/expandable-tabs.example.tsx",
+          "exportName": "ExpandableTabsExample",
+          "notes": "受控打开/切换/关闭两块中文面板；面板内本地待回顾/完成操作有反馈。使用自包含字符图标，安装项不含 lucide-react。"
+        },
+        {
+          "slug": "bloom-menu",
+          "installSlug": "bloom-menu",
+          "usageFile": "components/examples/blocks/bloom-menu.example.tsx",
+          "exportName": "BloomMenuExample",
+          "notes": "提供中文笔记/看板/文件夹项目，已有 lucide-react 依赖用于图标；选择后累计本地草稿类型。当前 API 不支持自定义 Create/关闭按钮等内置文案，保留源码现有字符串，不修改公共 API。"
+        },
+        {
+          "slug": "code-block",
+          "installSlug": "code-block",
+          "usageFile": "components/examples/blocks/code-block.example.tsx",
+          "exportName": "CodeBlockExample",
+          "notes": "中文固定 TypeScript 数据，文件名/行号/高亮与本地复制反馈；剪贴板不可用时隐藏内置复制按钮并提示手动复制，避免内置成功图标误导。"
+        },
+        {
+          "slug": "agent-progress",
+          "installSlug": "agent-progress",
+          "usageFile": "components/examples/blocks/agent-progress.example.tsx",
+          "exportName": "AgentProgressExample",
+          "notes": "本地受控计时，开始/暂停/继续/结束/重启，不调用 Agent runtime。running prop 在传入 elapsedSeconds 时被忽略，且源码装饰动画不按 running 暂停；示例暂停时显示静态文字，运行时渲染原进度组件。"
+        },
+        {
+          "slug": "plan",
+          "installSlug": "plan",
+          "usageFile": "components/examples/blocks/plan.example.tsx",
+          "exportName": "PlanExample",
+          "notes": "直接使用复合入口 Plan 及其部件，中文三步计划、受控展开/收起、采用和重置结果；不执行后台任务。"
+        },
+        {
+          "slug": "collapsible-sidebar",
+          "installSlug": "collapsible-sidebar",
+          "usageFile": "components/examples/blocks/collapsible-sidebar.example.tsx",
+          "exportName": "CollapsibleSidebarExample",
+          "notes": "中文学习空间、分组与嵌套条目，受控折叠和活动页面；搜索/添加/更多操作均提供真实本地反馈。使用自包含字符图标，安装项不含 lucide-react，清除预览品牌和 ProductChrome。"
+        }
+      ]
+    },
+    {
+      "group": 4,
+      "examples": [
+        {
+          "slug": "button",
+          "installSlug": "button",
+          "usageFile": "components/examples/motion/button.example.tsx",
+          "exportName": "ButtonExample",
+          "notes": "从父安装入口导入 Button；保存/撤销本地草稿状态，展示 primary/outline 与 ripple。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "button-base",
+          "installSlug": "button-base",
+          "usageFile": "components/examples/motion/button-base.example.tsx",
+          "exportName": "ButtonBaseExample",
+          "notes": "从窄 base 入口导入 Button；零参数任务标题表单、提交与禁用状态，本地显示创建结果。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "button-stateful",
+          "installSlug": "button-stateful",
+          "usageFile": "components/examples/motion/button-stateful.example.tsx",
+          "exportName": "ButtonStatefulExample",
+          "notes": "受控 idle/loading/success/error；700ms 本地延时与可切换失败场景，重试可恢复；effect 清理计时器。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "button-magnetic",
+          "installSlug": "button-magnetic",
+          "usageFile": "components/examples/motion/button-magnetic.example.tsx",
+          "exportName": "ButtonMagneticExample",
+          "notes": "窄入口 MagneticButton；指针磁吸与受控收藏开关，aria-pressed 和本地结果。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "button-metallic",
+          "installSlug": "button-metallic",
+          "usageFile": "components/examples/motion/button-metallic.example.tsx",
+          "exportName": "ButtonMetallicExample",
+          "notes": "窄入口 MetallicButton；本地添加计数与 paused 反光开关。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "table",
+          "installSlug": "table",
+          "usageFile": "components/examples/motion/table.example.tsx",
+          "exportName": "TableExample",
+          "notes": "中文团队数据、稳定行 ID、受控选择/排序及列宽/顺序回调结果；直接从 index 安装入口导入。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "table-editable",
+          "installSlug": "table-editable",
+          "usageFile": "components/examples/motion/table-editable.example.tsx",
+          "exportName": "TableEditableExample",
+          "notes": "专属编辑用法，未借用父示例；受控单元格/列标题、行插入/删除与空列表恢复，只依赖本变体安装图。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "table-async",
+          "installSlug": "table-async",
+          "usageFile": "components/examples/motion/table-async.example.tsx",
+          "exportName": "TableAsyncExample",
+          "notes": "专属本地异步分页用法；确定性首屏数据、滚动/按钮追加、loading 骨架、防并发、页数上限与计时器清理；无网络请求。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "popover",
+          "installSlug": "popover",
+          "usageFile": "components/examples/motion/popover.example.tsx",
+          "exportName": "PopoverExample",
+          "notes": "受控浮层、中文通知偏好表单、应用/关闭及本地结果；触发器使用原生 button，未额外导入 Button。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "popover-morph",
+          "installSlug": "popover-morph",
+          "usageFile": "components/examples/motion/popover-morph.example.tsx",
+          "exportName": "PopoverMorphExample",
+          "notes": "专属 MorphPopover 用法；打开/关闭、文档操作回调与本地操作结果；仅使用 morph 安装入口。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "preview-rail",
+          "installSlug": "preview-rail",
+          "usageFile": "components/examples/motion/preview-rail.example.tsx",
+          "exportName": "PreviewRailExample",
+          "notes": "中文导航项、受控 activeId、本例 useId 生成的区段锚点；悬停/焦点预览及点击后结果，无站点路由。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "bouncy-accordion",
+          "installSlug": "bouncy-accordion",
+          "usageFile": "components/examples/motion/bouncy-accordion.example.tsx",
+          "exportName": "BouncyAccordionExample",
+          "notes": "中文常见问题、受控单项展开/收起及状态说明；当前接口内可直接完成，无 API 阻塞。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "loader",
+          "installSlug": "loader",
+          "usageFile": "components/examples/motion/loader.example.tsx",
+          "exportName": "LoaderExample",
+          "notes": "中文可访问加载 label；本地延时加载/完成与重播，计时器清理，不读取外部资源。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "glare-hover",
+          "installSlug": "glare-hover",
+          "usageFile": "components/examples/motion/glare-hover.example.tsx",
+          "exportName": "GlareHoverExample",
+          "notes": "真实 GlareHover 包裹不透明内容卡片，提供本地收藏交互与结果；无图片依赖。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "expandable-control",
+          "installSlug": "expandable-control",
+          "usageFile": "components/examples/motion/expandable-control.example.tsx",
+          "exportName": "ExpandableControlExample",
+          "notes": "同一安装入口导入 ExpandableButton/ExpandableChip；受控展开、说明和完成/恢复待办动作。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "agent-inbox",
+          "installSlug": "agent-inbox",
+          "usageFile": "components/examples/blocks/agent-inbox.example.tsx",
+          "exportName": "AgentInboxExample",
+          "notes": "实际 API 为 AgentInbox/InboxItem/ActionReceipt 组合；两条中文请求、批准/拒绝、pending 计数、撤销及重置；不执行业务动作。源码内置 Details 和风险词没有文案 props，保留当前接口，不改源码。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "settings-panel",
+          "installSlug": "settings-panel",
+          "usageFile": "components/examples/blocks/settings-panel.example.tsx",
+          "exportName": "SettingsPanelExample",
+          "notes": "实际入口提供 SettingsGroup/SettingsRow/字段与按钮；受控名称、颜色和提醒偏好。SettingsSelectButton 仅是触发器，使用本地原生 fieldset 挂接预设选择；未借用额外 Popover/Switch 安装项。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "dynamic-island",
+          "installSlug": "dynamic-island",
+          "usageFile": "components/examples/blocks/dynamic-island.example.tsx",
+          "exportName": "DynamicIslandExample",
+          "notes": "实际 API 是受控 view 与 DynamicIslandView 组合；紧凑/准备/完成三种本地视图，开始、模拟完成及收起。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "swipeable-list",
+          "installSlug": "swipeable-list",
+          "usageFile": "components/examples/blocks/swipeable-list.example.tsx",
+          "exportName": "SwipeableListExample",
+          "notes": "中文草稿、受控滑动展开、左右动作及本地移除结果，支持恢复列表；动作图标用自包含文本符号。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "feedback-widget",
+          "installSlug": "feedback-widget",
+          "usageFile": "components/examples/blocks/feedback-widget.example.tsx",
+          "exportName": "FeedbackWidgetExample",
+          "notes": "onSubmit 将中文反馈保存到本地列表，稳定 ID；自包含 relative 容器支持原组件绝对定位。title/placeholder 可中文化，Submit/Cancel/Thanks 等内置文案无公开 props，保留既有 API。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "file-diff",
+          "installSlug": "file-diff",
+          "usageFile": "components/examples/blocks/file-diff.example.tsx",
+          "exportName": "FileDiffExample",
+          "notes": "自包含中文标题差异数据、complete 状态与受控详情。通过 onCopy 复制至本地预览区，明确未写系统剪贴板；不用真实文件写入或外部剪贴板服务。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "ai-sidebar",
+          "installSlug": "ai-sidebar",
+          "usageFile": "components/examples/blocks/ai-sidebar.example.tsx",
+          "exportName": "AiSidebarExample",
+          "notes": "中文资源树、选择、受控 items、重命名/移动回调与中文本地行菜单；主导出仍是 AISidebar，示例按 slug PascalCase 导出 AiSidebarExample；无站点侧栏壳/provider。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "task",
+          "installSlug": "task",
+          "usageFile": "components/examples/blocks/task.example.tsx",
+          "exportName": "TaskExample",
+          "notes": "Task/TaskTrigger/TaskContent/TaskItem/TaskItemFile 真实组合；中文步骤、受控折叠及本地校对完成勾选；无助手运行时。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        },
+        {
+          "slug": "upgrade-paywall",
+          "installSlug": "upgrade-paywall",
+          "usageFile": "components/examples/blocks/upgrade-paywall.example.tsx",
+          "exportName": "UpgradePaywallExample",
+          "notes": "受控遮罩与中文自包含报表；action 仅开启本地预览，支持关闭/重开，明确不创建订单或开通权益。 验证：本组定向 TypeScript 0 诊断、lint 通过、真实 installSlug 导入图核对通过、根依赖环境零参数 SSR 与内存 browser bundle 通过；未运行实际浏览器或隔离消费者验收。"
+        }
+      ]
+    },
+    {
+      "group": 5,
+      "examples": [
+        {
+          "slug": "text-animation",
+          "installSlug": "text-animation",
+          "usageFile": "components/examples/motion/text-animation.example.tsx",
+          "exportName": "TextAnimationExample",
+          "notes": "从真实 text-reveal 入口演示两行中文逐字标题；重播计数展示本地操作结果。"
+        },
+        {
+          "slug": "text-reveal",
+          "installSlug": "text-reveal",
+          "usageFile": "components/examples/motion/text-reveal.example.tsx",
+          "exportName": "TextRevealExample",
+          "notes": "仅使用 text-reveal 安装入口，中文标题进入视野逐字展开，可重播；未引用兄弟变体。"
+        },
+        {
+          "slug": "text-shimmer",
+          "installSlug": "text-shimmer",
+          "usageFile": "components/examples/motion/text-shimmer.example.tsx",
+          "exportName": "TextShimmerExample",
+          "notes": "CSS 文字微光展示中文加载提示，无额外交互、数据请求或运行时。"
+        },
+        {
+          "slug": "text-cascade",
+          "installSlug": "text-cascade",
+          "usageFile": "components/examples/motion/text-cascade.example.tsx",
+          "exportName": "TextCascadeExample",
+          "notes": "切换三个本地练习阶段，使用现有 text 字段触发级联，不引入 action-swap 的额外用法入口。"
+        },
+        {
+          "slug": "empty-state",
+          "installSlug": "empty-state",
+          "usageFile": "components/examples/blocks/empty-state.example.tsx",
+          "exportName": "EmptyStateExample",
+          "notes": "父安装入口没有名为 EmptyState 的通用组件；直接使用其导出的 EmptyStateInbox，演示添加和清空本地消息。"
+        },
+        {
+          "slug": "empty-state-inbox",
+          "installSlug": "empty-state-inbox",
+          "usageFile": "components/examples/blocks/empty-state-inbox.example.tsx",
+          "exportName": "EmptyStateInboxExample",
+          "notes": "窄 inbox 入口；动作打开中文草稿表单，保存后显示草稿文本，可取消。"
+        },
+        {
+          "slug": "empty-state-archive",
+          "installSlug": "empty-state-archive",
+          "usageFile": "components/examples/blocks/empty-state-archive.example.tsx",
+          "exportName": "EmptyStateArchiveExample",
+          "notes": "窄 archive 入口；归档示例记录后显示本地列表，可移出归档。现有图形按钮 aria-label 为内置英文，API 未提供覆盖项。"
+        },
+        {
+          "slug": "empty-state-search",
+          "installSlug": "empty-state-search",
+          "usageFile": "components/examples/blocks/empty-state-search.example.tsx",
+          "exportName": "EmptyStateSearchExample",
+          "notes": "窄 search 入口；使用三个中文本地记录执行搜索，初始无匹配，清空后显示结果数量和列表。"
+        },
+        {
+          "slug": "tilt-card",
+          "installSlug": "tilt-card",
+          "usageFile": "components/examples/motion/tilt-card.example.tsx",
+          "exportName": "TiltCardExample",
+          "notes": "中文练习卡片通过 children 提供真实内容，倾斜与高光交给原组件，无图片资源。"
+        },
+        {
+          "slug": "input",
+          "installSlug": "input",
+          "usageFile": "components/examples/motion/input.example.tsx",
+          "exportName": "InputExample",
+          "notes": "受控项目名称表单，展示至少两个字符校验、错误、成功与本地保存结果。"
+        },
+        {
+          "slug": "dock",
+          "installSlug": "dock",
+          "usageFile": "components/examples/motion/dock.example.tsx",
+          "exportName": "DockExample",
+          "notes": "使用同一入口的 Dock/DockItem/DockSeparator，本地切换概览、文件、笔记和设置，显示对应视图内容。"
+        },
+        {
+          "slug": "drawer",
+          "installSlug": "drawer",
+          "usageFile": "components/examples/motion/drawer.example.tsx",
+          "exportName": "DrawerExample",
+          "notes": "受控打开/关闭；抽屉保存本地布局偏好，取消后再次打开恢复已保存值。既有遮罩 Close 文案无覆盖 prop。"
+        },
+        {
+          "slug": "text-scramble",
+          "installSlug": "text-scramble",
+          "usageFile": "components/examples/motion/text-scramble.example.tsx",
+          "exportName": "TextScrambleExample",
+          "notes": "悬停解密与本地中文提示切换，显示当前提示结果，无外部内容。"
+        },
+        {
+          "slug": "skeleton",
+          "installSlug": "skeleton",
+          "usageFile": "components/examples/motion/skeleton.example.tsx",
+          "exportName": "SkeletonExample",
+          "notes": "中文加载占位与本地文章内容手动切换，保留 aria-busy 与可见状态。"
+        },
+        {
+          "slug": "file-tree",
+          "installSlug": "file-tree",
+          "usageFile": "components/examples/motion/file-tree.example.tsx",
+          "exportName": "FileTreeExample",
+          "notes": "仅从真实 file-tree 入口导入复合部件；受控选择及目录展开，显示中文名称和展开数量。"
+        },
+        {
+          "slug": "agent-trace",
+          "installSlug": "agent-trace",
+          "usageFile": "components/examples/blocks/agent-trace.example.tsx",
+          "exportName": "AgentTraceExample",
+          "notes": "手动推进固定本地轨迹，原始数据与子步骤受控展开并显示结果；没有工具执行或 AI 服务。现有 View raw 按钮没有文案覆盖 prop。"
+        },
+        {
+          "slug": "agent-thread",
+          "installSlug": "agent-thread",
+          "usageFile": "components/examples/blocks/agent-thread.example.tsx",
+          "exportName": "AgentThreadExample",
+          "notes": "仅使用原始 thread 安装入口；原生表单发送本地消息、固定模板回复、建议填入、折叠及赞同均有可见反馈；不导入预览使用的额外 composer。"
+        },
+        {
+          "slug": "command-palette",
+          "installSlug": "command-palette",
+          "usageFile": "components/examples/blocks/command-palette.example.tsx",
+          "exportName": "CommandPaletteExample",
+          "notes": "受控面板、中文命令分组和搜索；选择命令切换本地视图或新建示例笔记，显示结果；未执行路由或业务服务。"
+        },
+        {
+          "slug": "file-upload",
+          "installSlug": "file-upload",
+          "usageFile": "components/examples/blocks/file-upload.example.tsx",
+          "exportName": "FileUploadExample",
+          "notes": "受控文件队列，支持添加、移除、重试和手动模拟完成。初始项目只有示例元数据，选择的 File 保留本地，不上传。内置状态与重试/移除标签是现有英文 API，未修改组件。"
+        },
+        {
+          "slug": "step-form",
+          "installSlug": "step-form",
+          "usageFile": "components/examples/blocks/step-form.example.tsx",
+          "exportName": "StepFormExample",
+          "notes": "中文名称及重点两步表单，包含自定义校验、回调结果和 key 重挂载重启。组件 onRestart 只通知消费者，示例负责重置；内置 Continue/Back/Restart 等按钮及 required 错误没有文案覆盖 prop。"
+        },
+        {
+          "slug": "streaming-response",
+          "installSlug": "streaming-response",
+          "usageFile": "components/examples/blocks/streaming-response.example.tsx",
+          "exportName": "StreamingResponseExample",
+          "notes": "固定中文文本由清理过的本地定时器逐段显示，完成后支持本地评价和重播；未引用 AI runtime。内置反馈/重试按钮名称为英文且无文案覆盖 prop。"
+        },
+        {
+          "slug": "reasoning",
+          "installSlug": "reasoning",
+          "usageFile": "components/examples/blocks/reasoning.example.tsx",
+          "exportName": "ReasoningExample",
+          "notes": "受控披露中文示例分析过程，以 getThinkingMessage 定制触发文案，展示展开状态；分析内容和耗时明确标注为演示数据。"
+        },
+        {
+          "slug": "queue",
+          "installSlug": "queue",
+          "usageFile": "components/examples/blocks/queue.example.tsx",
+          "exportName": "QueueExample",
+          "notes": "仅使用 queue 入口的复合部件；中文待办支持添加、完成/恢复、受控折叠，显示本地操作与剩余数量。"
+        },
+        {
+          "slug": "view-layout-switch",
+          "installSlug": "view-layout-switch",
+          "usageFile": "components/examples/blocks/view-layout-switch.example.tsx",
+          "exportName": "ViewLayoutSwitchExample",
+          "notes": "受控中文列表/网格选项，选择后真实切换三条本地资料的布局并显示结果；组件内置 Switch layout aria-label 未提供覆盖 prop。"
+        }
+      ]
+    },
+    {
+      "group": 6,
+      "examples": [
+        {
+          "slug": "action-swap",
+          "installSlug": "action-swap",
+          "usageFile": "components/examples/motion/action-swap.example.tsx",
+          "exportName": "ActionSwapExample",
+          "notes": [
+            "受控阅读密度切换，回调结果直接显示当前布局。"
+          ]
+        },
+        {
+          "slug": "action-swap-cascade",
+          "installSlug": "action-swap-cascade",
+          "usageFile": "components/examples/motion/action-swap-cascade.example.tsx",
+          "exportName": "ActionSwapCascadeExample",
+          "notes": [
+            "直接导入 cascade 窄入口，受控摘要/详情视图切换。"
+          ]
+        },
+        {
+          "slug": "action-swap-blur",
+          "installSlug": "action-swap-blur",
+          "usageFile": "components/examples/motion/action-swap-blur.example.tsx",
+          "exportName": "ActionSwapBlurExample",
+          "notes": [
+            "直接导入 blur 窄入口，受控专注开关实际显示/隐藏次要内容。"
+          ]
+        },
+        {
+          "slug": "action-swap-roll",
+          "installSlug": "action-swap-roll",
+          "usageFile": "components/examples/motion/action-swap-roll.example.tsx",
+          "exportName": "ActionSwapRollExample",
+          "notes": [
+            "直接导入 roll 窄入口，受控统计周期切换并显示对应演示数据。"
+          ]
+        },
+        {
+          "slug": "number",
+          "installSlug": "number",
+          "usageFile": "components/examples/motion/number.example.tsx",
+          "exportName": "NumberExample",
+          "notes": [
+            "使用真实 AnimatedNumber 入口展示可增加的本地计数，不依赖 ticker 安装图。"
+          ]
+        },
+        {
+          "slug": "number-ticker",
+          "installSlug": "number-ticker",
+          "usageFile": "components/examples/motion/number-ticker.example.tsx",
+          "exportName": "NumberTickerExample",
+          "notes": [
+            "直接导入 NumberTicker 窄入口，展示 0099 到 0100 的位数滚动与重置。"
+          ]
+        },
+        {
+          "slug": "animated-number",
+          "installSlug": "animated-number",
+          "usageFile": "components/examples/motion/animated-number.example.tsx",
+          "exportName": "AnimatedNumberExample",
+          "notes": [
+            "直接导入 AnimatedNumber 窄入口，展示百分比更新、完成与重置。"
+          ]
+        },
+        {
+          "slug": "tooltip",
+          "installSlug": "tooltip",
+          "usageFile": "components/examples/motion/tooltip.example.tsx",
+          "exportName": "TooltipExample",
+          "notes": [
+            "收藏按钮展示提示，点击更新本地收藏状态；支持组件自身的焦点/悬停提示。"
+          ]
+        },
+        {
+          "slug": "tooltip-morph",
+          "installSlug": "tooltip-morph",
+          "usageFile": "components/examples/motion/tooltip-morph.example.tsx",
+          "exportName": "TooltipMorphExample",
+          "notes": [
+            "MorphTooltipGroup 内组合三个专属提示，按钮选择实际改变示例段落对齐。"
+          ]
+        },
+        {
+          "slug": "checkbox",
+          "installSlug": "checkbox",
+          "usageFile": "components/examples/motion/checkbox.example.tsx",
+          "exportName": "CheckboxExample",
+          "notes": [
+            "受控两项通知偏好，提交表单在本地展示保存内容。"
+          ]
+        },
+        {
+          "slug": "morphing-modal",
+          "installSlug": "morphing-modal",
+          "usageFile": "components/examples/motion/morphing-modal.example.tsx",
+          "exportName": "MorphingModalExample",
+          "notes": [
+            "受控打开/关闭与编辑/确认两步变形，保存显示本地结果。",
+            "原 API 不提供 dialog 语义、Escape 或焦点管理；消费示例通过内容层 role/aria、键盘处理与焦点恢复补充，不修改组件。"
+          ]
+        },
+        {
+          "slug": "range-slider",
+          "installSlug": "range-slider",
+          "usageFile": "components/examples/motion/range-slider.example.tsx",
+          "exportName": "RangeSliderExample",
+          "notes": [
+            "受控音量滑块提供中文可访问名称，显示数值并可恢复默认值；不接音频服务。"
+          ]
+        },
+        {
+          "slug": "webgl-background",
+          "installSlug": "webgl-background",
+          "usageFile": "components/examples/motion/webgl-background.example.tsx",
+          "exportName": "WebglBackgroundExample",
+          "notes": [
+            "有实际高度的背景容器，内容位于独立上层，可切换极光/丝绸；无需资源文件或站点 provider。"
+          ]
+        },
+        {
+          "slug": "scroll-hint",
+          "installSlug": "scroll-hint",
+          "usageFile": "components/examples/motion/scroll-hint.example.tsx",
+          "exportName": "ScrollHintExample",
+          "notes": [
+            "滚动提示放在实际可滚动的局部内容区域中，下方提供可到达的中文内容。"
+          ]
+        },
+        {
+          "slug": "recording-card",
+          "installSlug": "recording-card",
+          "usageFile": "components/examples/blocks/recording-card.example.tsx",
+          "exportName": "RecordingCardExample",
+          "notes": [
+            "自包含静态看板作为屏幕内容，播放回调显示计时状态，提供展开视图。",
+            "原 API 的播放行为为本地计时，并非视频播放；示例明确没有录制或音视频服务，内置控制文案无中文 props。"
+          ]
+        },
+        {
+          "slug": "streaming-json",
+          "installSlug": "streaming-json",
+          "usageFile": "components/examples/blocks/streaming-json.example.tsx",
+          "exportName": "StreamingJsonExample",
+          "notes": [
+            "定时追加本地 JSON 片段，同时展示结构化文本与函数调用外观；暂停/重新播放有可见反馈，定时器卸载清理。",
+            "没有实际工具或 AI 调用；函数调用展示在 JSON 完整前不显示结束括号。"
+          ]
+        },
+        {
+          "slug": "agent-composer",
+          "installSlug": "agent-composer",
+          "usageFile": "components/examples/blocks/agent-composer.example.tsx",
+          "exportName": "AgentComposerExample",
+          "notes": [
+            "直接导入分发 index，组合受控 textarea、发送、演示附件增删、菜单与详略选择；回调显示本地消息及选项。",
+            "没有 AI runtime、网络或文件服务；工作台 token 由安装项已声明的 system-workbench 依赖提供，未引入站点 provider。"
+          ]
+        },
+        {
+          "slug": "morphing-search",
+          "installSlug": "morphing-search",
+          "usageFile": "components/examples/blocks/morphing-search.example.tsx",
+          "exportName": "MorphingSearchExample",
+          "notes": [
+            "自包含中文本地搜索条目，受控打开/关闭，查询及选择结果本地可见，不依赖站点导航。"
+          ]
+        },
+        {
+          "slug": "prediction-market",
+          "installSlug": "prediction-market",
+          "usageFile": "components/examples/blocks/prediction-market.example.tsx",
+          "exportName": "PredictionMarketExample",
+          "notes": [
+            "受控订单草稿、中文预测选项、本地演示会话入口与买卖回调；展示订单份额和金额，无资金操作。",
+            "原组件内置英文买卖/交易文案与 650ms 演示成交动画，不提供全部文案或运行状态控制 props；示例保留现有 API 并明确模拟范围。"
+          ]
+        },
+        {
+          "slug": "prompt-bar",
+          "installSlug": "prompt-bar",
+          "usageFile": "components/examples/blocks/prompt-bar.example.tsx",
+          "exportName": "PromptBarExample",
+          "notes": [
+            "传入中文技能及演示模型，提交回调显示文本、技能、附件、联网选项；额度提示回调本地显示结果。",
+            "原组件内置演示附件名、英文操作文案、积分扣减与等待动画；示例明确全部为本地界面演示，联网选项不触发请求。"
+          ]
+        },
+        {
+          "slug": "image-generation",
+          "installSlug": "image-generation",
+          "usageFile": "components/examples/blocks/image-generation.example.tsx",
+          "exportName": "ImageGenerationExample",
+          "notes": [
+            "使用内联 SVG 山间日出插画，无 public 路径或远程资源；中文状态文案、手动状态切换及 onRetry 均通过受控 state 展示。",
+            "重试按钮内置英文文案没有对应 props；生成/失败/重试仅模拟状态，不调用图像服务。"
+          ]
+        },
+        {
+          "slug": "chain-of-thought",
+          "installSlug": "chain-of-thought",
+          "usageFile": "components/examples/blocks/chain-of-thought.example.tsx",
+          "exportName": "ChainOfThoughtExample",
+          "notes": [
+            "组合受控折叠、步骤及资料标签；本地完成/重置按钮更新步骤和摘要，不展示或调用真实 AI 推理。"
+          ]
+        },
+        {
+          "slug": "confirmation",
+          "installSlug": "confirmation",
+          "usageFile": "components/examples/blocks/confirmation.example.tsx",
+          "exportName": "ConfirmationExample",
+          "notes": [
+            "真实复合入口组合请求、同意/拒绝状态与 action；本地响应和重新请求均可实际操作，无后端调用。"
+          ]
+        },
+        {
+          "slug": "billing-plan-grid",
+          "installSlug": "billing-plan-grid",
+          "usageFile": "components/examples/blocks/billing-plan-grid.example.tsx",
+          "exportName": "BillingPlanGridExample",
+          "notes": [
+            "中文三档演示方案、受控月/年周期及方案选择，回调更新当前方案和本地反馈，无订阅扣款。",
+            "原组件内置计费周期、当前方案、管理按钮及单价单位英文文案，无对应本地化 props；保留现有 API，外部显示中文周期说明。"
+          ]
+        }
+      ]
+    }
+  ],
+  "remainingHistoricalFamilies": 0,
+  "usageOptional": []
+}

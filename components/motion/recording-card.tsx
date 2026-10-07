@@ -5,7 +5,7 @@
 // of techniques observed on unabyss.com; no upstream source was used.
 
 import { Maximize2, Volume2, X } from "lucide-react";
-import { useReducedMotion } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { type CSSProperties, type ReactNode, useEffect, useId, useRef, useState } from "react";
 import { EASE_OUT_CSS } from "@/lib/ease";
 import { cn } from "@/lib/utils";

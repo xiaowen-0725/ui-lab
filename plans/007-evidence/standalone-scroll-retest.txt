@@ -1,0 +1,7 @@
+$ bun scripts/verify-standalone-usage.ts --browser scroll-animation smooth-scroll scroll-progress scroll-to
+Standalone usage evidence: /var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-standalone-usage-99hZN0; 4 usages
+PASS scroll-animation: isolated strict typecheck, SSR, browser bundle
+PASS smooth-scroll: isolated strict typecheck, SSR, browser bundle
+PASS scroll-progress: isolated strict typecheck, SSR, browser bundle
+PASS scroll-to: isolated strict typecheck, SSR, browser bundle
+PASS 4 isolated usages; 8 browser hydration checks. Evidence: /var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-standalone-usage-99hZN0

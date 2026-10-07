@@ -1,12 +1,7 @@
 "use client";
 
-import {
-  AnimatePresence,
-  motion,
-  type PanInfo,
-  useDragControls,
-  useReducedMotion,
-} from "motion/react";
+import { AnimatePresence, motion, type PanInfo, useDragControls } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { type ReactNode, useEffect, useId, useRef, useState } from "react";
 import { Modal } from "@/components/ui/modal";
 import { EASE_DRAWER } from "@/lib/ease";

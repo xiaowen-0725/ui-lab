@@ -3,7 +3,6 @@
 import {
   AnimatePresence,
   motion,
-  useReducedMotion,
   type HTMLMotionProps,
 } from "motion/react";
 import {
@@ -17,6 +16,7 @@ import {
 import { EASE_OUT, SPRING_PRESS } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
+import { useHydratedReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
 export type ButtonSize = "sm" | "md" | "lg" | "icon";
@@ -64,7 +64,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) {
-    const reduce = useReducedMotion();
+    const reduce = useHydratedReducedMotion();
     const canHover = useHoverCapable();
     const [ripples, setRipples] = useState<Ripple[]>([]);
     const nextId = useRef(0);

@@ -1,6 +1,7 @@
 "use client";
 
-import { LayoutGroup, motion, useReducedMotion, type Transition } from "motion/react";
+import { LayoutGroup, motion, type Transition } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import {
   useCallback,
   useEffect,

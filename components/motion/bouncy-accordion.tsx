@@ -1,10 +1,7 @@
 "use client";
 
-import {
-  motion,
-  useReducedMotion,
-  type Transition,
-} from "motion/react";
+import { motion, type Transition } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { ChevronDown } from "lucide-react";
 import {
   useCallback,

@@ -2,14 +2,8 @@
 
 // Ported from beUI (starc007/ui-components, MIT).
 
-import {
-  AnimatePresence,
-  type HTMLMotionProps,
-  motion,
-  type Transition,
-  useReducedMotion,
-  type Variants,
-} from "motion/react";
+import { AnimatePresence, type HTMLMotionProps, motion, type Transition, type Variants } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import {
   type MouseEvent,
   type ReactNode,

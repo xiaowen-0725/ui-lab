@@ -1,0 +1,622 @@
+{
+  "profile": "electron-renderer",
+  "checks": [
+    {
+      "scenario": "runtime",
+      "check": "actual-electron-file-renderer",
+      "electron": "38.2.0",
+      "chrome": "140.0.7339.133",
+      "hidden": true,
+      "appPath": "/private/tmp/uilab-catalog-assets-DLjm7z/electron-renderer",
+      "fileURL": "file:///private/tmp/uilab-catalog-assets-DLjm7z/electron-renderer/dist/index.html",
+      "electronRuntime": "38.2.0",
+      "hiddenBrowserWindow": true
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "theme-locale-media",
+      "surface": "#fff",
+      "background": "oklch(97.8% .0015 250)",
+      "foreground": "oklch(15% 0 0)",
+      "reduced": false
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "installed-parent-base-and-all-button-variants"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "page-change-focus-heading"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "input-send-save-download-retained-form"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "site-loading"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "site-empty"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "site-error"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "landing-loading"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "landing-empty"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "landing-error"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "conversation-loading"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "conversation-empty"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "conversation-error"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "artifacts-loading"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "artifacts-empty"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "artifacts-error"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "settings-loading"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "settings-empty"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "settings-error"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "landing-faq-toggle"
+    },
+    {
+      "scenario": "desktop-zh-light",
+      "check": "five-assets-states-no-horizontal-overflow"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "theme-locale-media",
+      "surface": "oklch(20.5% 0 0)",
+      "background": "#151515",
+      "foreground": "oklch(96% 0 0)",
+      "reduced": true
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "installed-parent-base-and-all-button-variants"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "page-change-focus-heading"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "input-send-save-download-retained-form"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "site-loading"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "site-empty"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "site-error"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "landing-loading"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "landing-empty"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "landing-error"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "conversation-loading"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "conversation-empty"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "conversation-error"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "artifacts-loading"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "artifacts-empty"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "artifacts-error"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "settings-loading"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "settings-empty"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "settings-error"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "landing-faq-toggle"
+    },
+    {
+      "scenario": "desktop-en-dark-reduced",
+      "check": "five-assets-states-no-horizontal-overflow"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "theme-locale-media",
+      "surface": "oklch(20.5% 0 0)",
+      "background": "#151515",
+      "foreground": "oklch(96% 0 0)",
+      "reduced": false
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "installed-parent-base-and-all-button-variants"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "page-change-focus-heading"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "input-send-save-download-retained-form"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "site-loading"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "site-empty"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "site-error"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "landing-loading"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "landing-empty"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "landing-error"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "conversation-loading"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "conversation-empty"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "conversation-error"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "artifacts-loading"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "artifacts-empty"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "artifacts-error"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "settings-loading"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "settings-empty"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "settings-error"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "landing-faq-toggle"
+    },
+    {
+      "scenario": "tablet-zh-dark",
+      "check": "five-assets-states-no-horizontal-overflow"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "theme-locale-media",
+      "surface": "#fff",
+      "background": "oklch(97.8% .0015 250)",
+      "foreground": "oklch(15% 0 0)",
+      "reduced": true
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "installed-parent-base-and-all-button-variants"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "page-change-focus-heading"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "input-send-save-download-retained-form"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "site-loading"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "site-empty"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "site-error"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "landing-loading"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "landing-empty"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "landing-error"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "conversation-loading"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "conversation-empty"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "conversation-error"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "artifacts-loading"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "artifacts-empty"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "artifacts-error"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "settings-loading"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "settings-empty"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "settings-error"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "landing-faq-toggle"
+    },
+    {
+      "scenario": "tablet-en-light-reduced",
+      "check": "five-assets-states-no-horizontal-overflow"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "theme-locale-media",
+      "surface": "#fff",
+      "background": "oklch(97.8% .0015 250)",
+      "foreground": "oklch(15% 0 0)",
+      "reduced": true
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "installed-parent-base-and-all-button-variants"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "page-change-focus-heading"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "input-send-save-download-retained-form"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "site-loading"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "site-empty"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "site-error"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "landing-loading"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "landing-empty"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "landing-error"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "conversation-loading"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "conversation-empty"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "conversation-error"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "artifacts-loading"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "artifacts-empty"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "artifacts-error"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "settings-loading"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "settings-empty"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "settings-error"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "mobile-landing-disclosure-and-anchor"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "landing-faq-toggle"
+    },
+    {
+      "scenario": "mobile-zh-light-reduced",
+      "check": "five-assets-states-no-horizontal-overflow"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "theme-locale-media",
+      "surface": "oklch(20.5% 0 0)",
+      "background": "#151515",
+      "foreground": "oklch(96% 0 0)",
+      "reduced": false
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "installed-parent-base-and-all-button-variants"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "page-change-focus-heading"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "input-send-save-download-retained-form"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "site-loading"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "site-empty"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "site-error"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "landing-loading"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "landing-empty"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "landing-error"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "conversation-loading"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "conversation-empty"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "conversation-error"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "artifacts-loading"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "artifacts-empty"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "artifacts-error"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "settings-loading"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "settings-empty"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "settings-error"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "mobile-landing-disclosure-and-anchor"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "landing-faq-toggle"
+    },
+    {
+      "scenario": "mobile-en-dark",
+      "check": "five-assets-states-no-horizontal-overflow"
+    }
+  ],
+  "errors": [],
+  "diagnostics": [],
+  "screenshots": [
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-zh-light-site-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-zh-light-site-loading.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-zh-light-site-empty.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-zh-light-site-error.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-zh-light-landing-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-zh-light-landing-loading.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-zh-light-landing-empty.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-zh-light-landing-error.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-zh-light-conversation-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-zh-light-artifacts-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-zh-light-settings-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-en-dark-reduced-site-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-en-dark-reduced-site-loading.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-en-dark-reduced-site-empty.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-en-dark-reduced-site-error.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-en-dark-reduced-landing-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-en-dark-reduced-landing-loading.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-en-dark-reduced-landing-empty.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-en-dark-reduced-landing-error.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-en-dark-reduced-conversation-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-en-dark-reduced-artifacts-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-desktop-en-dark-reduced-settings-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-zh-dark-site-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-zh-dark-site-loading.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-zh-dark-site-empty.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-zh-dark-site-error.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-zh-dark-landing-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-zh-dark-landing-loading.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-zh-dark-landing-empty.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-zh-dark-landing-error.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-zh-dark-conversation-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-zh-dark-artifacts-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-zh-dark-settings-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-en-light-reduced-site-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-en-light-reduced-site-loading.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-en-light-reduced-site-empty.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-en-light-reduced-site-error.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-en-light-reduced-landing-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-en-light-reduced-landing-loading.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-en-light-reduced-landing-empty.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-en-light-reduced-landing-error.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-en-light-reduced-conversation-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-en-light-reduced-artifacts-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-tablet-en-light-reduced-settings-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-zh-light-reduced-site-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-zh-light-reduced-site-loading.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-zh-light-reduced-site-empty.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-zh-light-reduced-site-error.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-zh-light-reduced-landing-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-zh-light-reduced-landing-loading.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-zh-light-reduced-landing-empty.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-zh-light-reduced-landing-error.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-zh-light-reduced-conversation-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-zh-light-reduced-artifacts-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-zh-light-reduced-settings-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-en-dark-site-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-en-dark-site-loading.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-en-dark-site-empty.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-en-dark-site-error.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-en-dark-landing-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-en-dark-landing-loading.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-en-dark-landing-empty.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-en-dark-landing-error.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-en-dark-conversation-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-en-dark-artifacts-ready.png",
+    "/tmp/uilab-catalog-assets-DLjm7z/electron-renderer-mobile-en-dark-settings-ready.png"
+  ]
+}

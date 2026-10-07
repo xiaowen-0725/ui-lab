@@ -1,0 +1,13 @@
+$ bun test scripts/smooth-scroll-lifecycle.test.tsx
+bun test v1.3.14 (0d9b296a)
+
+scripts/smooth-scroll-lifecycle.test.tsx:
+(pass) real Lenis switches to native and back without remounting or losing local state [588.46ms]
+(pass) CSR first frame with reduce keeps children and exposes native metrics [507.96ms]
+(pass) SSR hydration commit with reduce keeps children and exposes native metrics [389.46ms]
+(pass) root native scroll metrics track window after SSR hydration and cleanup removes the engine [368.45ms]
+
+ 4 pass
+ 0 fail
+ 30 expect() calls
+Ran 4 tests across 1 file. [3.29s]

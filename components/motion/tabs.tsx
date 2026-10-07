@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, MotionConfig, useReducedMotion, type Transition } from "motion/react";
+import { motion, MotionConfig, type Transition } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { createContext, useContext, useId, useState, type ReactNode } from "react";
 import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";

@@ -3,7 +3,7 @@
 // Ported from motion-anything (nexu-io, Apache-2.0); aurora/silk/light-rays/pixel-blast/dither
 // upstream: reactbits.dev, redistributed with permission.
 
-import { useReducedMotion } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { type RefObject, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 

@@ -321,7 +321,8 @@ async function ExampleBlock({
   const t = await getTranslations("detail");
   const Preview = previews[example.previewKey];
   const source = await loadSource(example.file);
-  const usage = await loadSource(example.previewFile);
+  const usageFile = example.usageFile ?? example.previewFile;
+  const usage = await loadSource(usageFile);
   const installSlug = example.installSlug ?? null;
   const propsDocs = getComponentProps(example.file);
   const exampleDescription = localizedDescription(example, locale);
@@ -354,7 +355,7 @@ async function ExampleBlock({
             </div>
           </TabsContent>
           <TabsContent value="usage" className="mt-4">
-            <CodeBlock code={usage} filename={example.previewFile} />
+            <CodeBlock code={usage} filename={usageFile} />
           </TabsContent>
           <TabsContent value="source" className="mt-4">
             <CodeBlock

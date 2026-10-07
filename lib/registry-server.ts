@@ -18,6 +18,8 @@ export type RegistryFile = {
 };
 
 export type RegistryEntry = {
+  /** Copyable consumer usage, separate from installation files and site preview. */
+  usage?: { path: string; content: string };
   slug: string;
   name: string;
   description: string;
@@ -65,6 +67,7 @@ export type ShadcnRegistry = {
 };
 
 export type RegistryTarget = {
+  usageFile?: string;
   assetRole: AssetRole;
   slug: string;
   name: string;
@@ -163,6 +166,7 @@ export function allShadcnTargets(): RegistryTarget[] {
         categorySlug: component.category.slug,
         pageSlug: component.slug,
         previewFile: example.previewFile,
+        usageFile: example.usageFile ?? component.usageFile,
       }));
     // Some default variants already have the parent's slug. Keep their narrow
     // install identity rather than publishing a second item with the same name.
@@ -176,6 +180,7 @@ export function allShadcnTargets(): RegistryTarget[] {
       extraFiles: [...new Set([...(component.extraFiles ?? []), ...variants.map((variant) => variant.file)])].filter((file) => file !== component.file),
       categorySlug: component.category.slug,
       pageSlug: component.slug,
+      usageFile: component.usageFile,
     }, ...variants];
   });
 }
@@ -261,6 +266,7 @@ export async function buildEntry(categorySlug: string, slug: string): Promise<Re
 
   return {
     slug: comp.slug,
+    usage: comp.usageFile ? { path: comp.usageFile, content: await readSourceFile(comp.usageFile) } : undefined,
     name: comp.name,
     description: comp.description,
     category: cat.slug,

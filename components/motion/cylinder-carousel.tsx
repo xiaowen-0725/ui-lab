@@ -1,14 +1,7 @@
 "use client";
 
-import {
-  animate,
-  type AnimationPlaybackControls,
-  motion,
-  type MotionValue,
-  useMotionValue,
-  useReducedMotion,
-  useTransform,
-} from "motion/react";
+import { animate, type AnimationPlaybackControls, motion, type MotionValue, useMotionValue, useTransform } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import {
   Children,
   type PointerEvent as ReactPointerEvent,

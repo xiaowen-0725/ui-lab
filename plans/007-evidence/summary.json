@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-07",
+  "historicalFamiliesCompleted": 104,
+  "newExampleFiles": 144,
+  "inventory": {
+    "families": 128,
+    "targets": 158,
+    "usages": 168,
+    "missingParents": 0,
+    "missingVariants": 0
+  },
+  "currentUsageVerification": {
+    "verdict": "passed",
+    "usages": 168,
+    "uniqueBrowserHydrationChecks": 336,
+    "interactionChecks": 10
+  },
+  "rootTests": {
+    "passed": 260,
+    "failed": 0,
+    "assertions": 12551
+  },
+  "scrollLifecycle": {
+    "passed": 4,
+    "failed": 0,
+    "assertions": 30
+  },
+  "profiles": {
+    "next-app": {
+      "browserChecks": 129,
+      "errors": 0
+    },
+    "vite-app": {
+      "browserChecks": 129,
+      "errors": 0
+    },
+    "electron-renderer": {
+      "browserChecks": 129,
+      "errors": 0,
+      "runtime": "38.2.0"
+    }
+  },
+  "productionSite": {
+    "browserScenarios": 120,
+    "retainedRoutes": 439,
+    "installationTargets": 158,
+    "historicalAnchors": 110,
+    "localeAnchorChecks": 220
+  },
+  "rootCheck": "passed",
+  "rootBuild": "passed",
+  "cliCheck": "passed",
+  "ciUsageGateAdded": true,
+  "remoteCiExecuted": false,
+  "committed": false,
+  "published": false,
+  "deployed": false,
+  "ownedProductionServerStopped": true
+}

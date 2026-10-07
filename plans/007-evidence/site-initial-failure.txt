@@ -1,0 +1,14 @@
+$ bun scripts/verify-catalog-site.ts && bun scripts/verify-catalog-deep-links.ts
+11 | const base = process.env.UILAB_SITE_BASE ?? "http://localhost:3000";
+12 | const evidence = await mkdtemp(join(tmpdir(), "uilab-catalog-site-"));
+13 | await mkdir(join(evidence, "screenshots"));
+14 | const results: { path: string; status: number; kind: string }[] = [];
+15 | function assert(value: unknown, message: string): asserts value {
+16 |   if (!value) throw new Error(`${message}; evidence: ${evidence}`);
+                             ^
+error: Browser exceptions: en/light/768/http://localhost:3000/en/sites/agent-workbench-site: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.; evidence: /var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-catalog-site-xwUAGu
+      at assert (/Users/zhoujw/develop/github/ui-lab/scripts/verify-catalog-site.ts:16:25)
+      at /Users/zhoujw/develop/github/ui-lab/scripts/verify-catalog-site.ts:101:5
+
+Bun v1.3.14 (macOS arm64)
+error: script "check:catalog-site" exited with code 1

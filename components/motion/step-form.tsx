@@ -1,12 +1,13 @@
 "use client";
 
+import { useHydratedReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
+
 import { Loader2 } from "lucide-react";
 import {
   AnimatePresence,
   type AnimationControls,
   motion,
   useAnimationControls,
-  useReducedMotion,
   type Variants,
 } from "motion/react";
 import { useEffect, useId, useRef, useState } from "react";
@@ -189,7 +190,7 @@ export function StepForm({
   onRestart,
   className,
 }: StepFormProps) {
-  const reduce = useReducedMotion();
+  const reduce = useHydratedReducedMotion();
   const baseId = useId();
   const fieldId = `${baseId}-field`;
   const errorId = `${baseId}-error`;

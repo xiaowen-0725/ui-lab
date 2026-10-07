@@ -2,7 +2,8 @@
 
 // Ported from motion-anything (nexu-io, Apache-2.0); upstream effect: reactbits.dev "Decrypted Text", redistributed with permission.
 
-import { useInView, useReducedMotion } from "motion/react";
+import { useInView } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { type CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { cn } from "@/lib/utils";

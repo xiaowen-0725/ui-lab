@@ -1,0 +1,4125 @@
+{
+  "installedAssets": [
+    "agent-composer",
+    "agent-thread",
+    "agent-workbench",
+    "agent-workbench-site",
+    "artifact-panel",
+    "button",
+    "button-base",
+    "saas-landing-page",
+    "system-workbench",
+    "theme-graphite",
+    "thread-list",
+    "workbench-artifact-page",
+    "workbench-conversation-page",
+    "workbench-settings-page"
+  ],
+  "installedGraph": [
+    "components/motion/agent-composer/autonomy-dial.tsx",
+    "components/motion/agent-composer/effort-slider.tsx",
+    "components/motion/agent-composer/index.tsx",
+    "components/motion/agent-thread/cards.tsx",
+    "components/motion/agent-thread/index.tsx",
+    "components/motion/agent-thread/status.tsx",
+    "components/motion/agent-workbench/index.tsx",
+    "components/motion/agent-workbench/resize-handle.tsx",
+    "components/motion/agent-workbench/summary-card.tsx",
+    "components/motion/artifact-panel/index.tsx",
+    "components/motion/button/base.tsx",
+    "components/motion/button/index.tsx",
+    "components/motion/button/magnetic.tsx",
+    "components/motion/button/metallic.tsx",
+    "components/motion/button/stateful.tsx",
+    "components/motion/magnetic.tsx",
+    "components/motion/settings-panel/index.tsx",
+    "components/motion/switch.tsx",
+    "components/motion/thread-list/index.tsx",
+    "components/pages/page-state.tsx",
+    "components/pages/saas-landing-page.tsx",
+    "components/pages/workbench-artifact-page.tsx",
+    "components/pages/workbench-conversation-page.tsx",
+    "components/pages/workbench-settings-page.tsx",
+    "components/sections/basics.tsx",
+    "components/sections/commerce.tsx",
+    "components/sections/content.tsx",
+    "components/sections/hero.tsx",
+    "components/sections/shared.tsx",
+    "components/site-shells/agent-workbench-site.tsx",
+    "lib/color.ts",
+    "lib/ease.ts",
+    "lib/hooks/use-hover-capable.ts",
+    "lib/hooks/use-hydrated-reduced-motion.ts",
+    "lib/utils.ts"
+  ],
+  "installedFiles": [
+    "components/motion/agent-composer/autonomy-dial.tsx",
+    "components/motion/agent-composer/effort-slider.tsx",
+    "components/motion/agent-composer/index.tsx",
+    "components/motion/agent-thread/cards.tsx",
+    "components/motion/agent-thread/index.tsx",
+    "components/motion/agent-thread/status.tsx",
+    "components/motion/agent-workbench/index.tsx",
+    "components/motion/agent-workbench/resize-handle.tsx",
+    "components/motion/agent-workbench/summary-card.tsx",
+    "components/motion/artifact-panel/index.tsx",
+    "components/motion/button/base.tsx",
+    "components/motion/button/index.tsx",
+    "components/motion/button/magnetic.tsx",
+    "components/motion/button/metallic.tsx",
+    "components/motion/button/stateful.tsx",
+    "components/motion/magnetic.tsx",
+    "components/motion/settings-panel/index.tsx",
+    "components/motion/switch.tsx",
+    "components/motion/thread-list/index.tsx",
+    "components/pages/page-state.tsx",
+    "components/pages/saas-landing-page.tsx",
+    "components/pages/workbench-artifact-page.tsx",
+    "components/pages/workbench-conversation-page.tsx",
+    "components/pages/workbench-settings-page.tsx",
+    "components/sections/basics.tsx",
+    "components/sections/commerce.tsx",
+    "components/sections/content.tsx",
+    "components/sections/hero.tsx",
+    "components/sections/shared.tsx",
+    "components/site-shells/agent-workbench-site.tsx",
+    "lib/color.ts",
+    "lib/ease.ts",
+    "lib/hooks/use-hover-capable.ts",
+    "lib/hooks/use-hydrated-reduced-motion.ts",
+    "lib/utils.ts"
+  ],
+  "selected": [
+    {
+      "key": "navbar-simple",
+      "installSlug": "navbar-simple",
+      "category": "sections",
+      "sourceFile": "components/sections/basics.tsx",
+      "usageFile": "components/examples/sections/navbar-simple.example.tsx",
+      "requiredGraph": [
+        "components/sections/basics.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "navbar-centered",
+      "installSlug": "navbar-centered",
+      "category": "sections",
+      "sourceFile": "components/sections/basics.tsx",
+      "usageFile": "components/examples/sections/navbar-centered.example.tsx",
+      "requiredGraph": [
+        "components/sections/basics.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "hero-centered",
+      "installSlug": "hero-centered",
+      "category": "sections",
+      "sourceFile": "components/sections/hero.tsx",
+      "usageFile": "components/examples/sections/hero-centered.example.tsx",
+      "requiredGraph": [
+        "components/sections/hero.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "hero-split",
+      "installSlug": "hero-split",
+      "category": "sections",
+      "sourceFile": "components/sections/hero.tsx",
+      "usageFile": "components/examples/sections/hero-split.example.tsx",
+      "requiredGraph": [
+        "components/sections/hero.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "hero-screenshot",
+      "installSlug": "hero-screenshot",
+      "category": "sections",
+      "sourceFile": "components/sections/hero.tsx",
+      "usageFile": "components/examples/sections/hero-screenshot.example.tsx",
+      "requiredGraph": [
+        "components/sections/hero.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "logo-wall-row",
+      "installSlug": "logo-wall-row",
+      "category": "sections",
+      "sourceFile": "components/sections/basics.tsx",
+      "usageFile": "components/examples/sections/logo-wall-row.example.tsx",
+      "requiredGraph": [
+        "components/sections/basics.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "features-grid",
+      "installSlug": "features-grid",
+      "category": "sections",
+      "sourceFile": "components/sections/content.tsx",
+      "usageFile": "components/examples/sections/features-grid.example.tsx",
+      "requiredGraph": [
+        "components/sections/content.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "features-alternating",
+      "installSlug": "features-alternating",
+      "category": "sections",
+      "sourceFile": "components/sections/content.tsx",
+      "usageFile": "components/examples/sections/features-alternating.example.tsx",
+      "requiredGraph": [
+        "components/sections/content.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "stats-row",
+      "installSlug": "stats-row",
+      "category": "sections",
+      "sourceFile": "components/sections/basics.tsx",
+      "usageFile": "components/examples/sections/stats-row.example.tsx",
+      "requiredGraph": [
+        "components/sections/basics.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "testimonials-cards",
+      "installSlug": "testimonials-cards",
+      "category": "sections",
+      "sourceFile": "components/sections/content.tsx",
+      "usageFile": "components/examples/sections/testimonials-cards.example.tsx",
+      "requiredGraph": [
+        "components/sections/content.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "testimonials-quote",
+      "installSlug": "testimonials-quote",
+      "category": "sections",
+      "sourceFile": "components/sections/content.tsx",
+      "usageFile": "components/examples/sections/testimonials-quote.example.tsx",
+      "requiredGraph": [
+        "components/sections/content.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "pricing-tiers",
+      "installSlug": "pricing-tiers",
+      "category": "sections",
+      "sourceFile": "components/sections/commerce.tsx",
+      "usageFile": "components/examples/sections/pricing-tiers.example.tsx",
+      "requiredGraph": [
+        "components/sections/commerce.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "pricing-simple",
+      "installSlug": "pricing-simple",
+      "category": "sections",
+      "sourceFile": "components/sections/commerce.tsx",
+      "usageFile": "components/examples/sections/pricing-simple.example.tsx",
+      "requiredGraph": [
+        "components/sections/commerce.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "faq-accordion",
+      "installSlug": "faq-accordion",
+      "category": "sections",
+      "sourceFile": "components/sections/commerce.tsx",
+      "usageFile": "components/examples/sections/faq-accordion.example.tsx",
+      "requiredGraph": [
+        "components/sections/commerce.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "faq-two-column",
+      "installSlug": "faq-two-column",
+      "category": "sections",
+      "sourceFile": "components/sections/commerce.tsx",
+      "usageFile": "components/examples/sections/faq-two-column.example.tsx",
+      "requiredGraph": [
+        "components/sections/commerce.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "cta-banner",
+      "installSlug": "cta-banner",
+      "category": "sections",
+      "sourceFile": "components/sections/basics.tsx",
+      "usageFile": "components/examples/sections/cta-banner.example.tsx",
+      "requiredGraph": [
+        "components/sections/basics.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "cta-boxed",
+      "installSlug": "cta-boxed",
+      "category": "sections",
+      "sourceFile": "components/sections/basics.tsx",
+      "usageFile": "components/examples/sections/cta-boxed.example.tsx",
+      "requiredGraph": [
+        "components/sections/basics.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "footer-columns",
+      "installSlug": "footer-columns",
+      "category": "sections",
+      "sourceFile": "components/sections/commerce.tsx",
+      "usageFile": "components/examples/sections/footer-columns.example.tsx",
+      "requiredGraph": [
+        "components/sections/commerce.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "footer-minimal",
+      "installSlug": "footer-minimal",
+      "category": "sections",
+      "sourceFile": "components/sections/commerce.tsx",
+      "usageFile": "components/examples/sections/footer-minimal.example.tsx",
+      "requiredGraph": [
+        "components/sections/commerce.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "saas-landing-page",
+      "installSlug": "saas-landing-page",
+      "category": "pages",
+      "sourceFile": "components/pages/saas-landing-page.tsx",
+      "usageFile": "components/examples/pages/saas-landing-page.example.tsx",
+      "requiredGraph": [
+        "components/pages/page-state.tsx",
+        "components/pages/saas-landing-page.tsx",
+        "components/sections/basics.tsx",
+        "components/sections/commerce.tsx",
+        "components/sections/content.tsx",
+        "components/sections/hero.tsx",
+        "components/sections/shared.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-asset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "workbench-conversation-page",
+      "installSlug": "workbench-conversation-page",
+      "category": "pages",
+      "sourceFile": "components/pages/workbench-conversation-page.tsx",
+      "usageFile": "components/examples/pages/workbench-conversation-page.example.tsx",
+      "requiredGraph": [
+        "components/motion/agent-composer/autonomy-dial.tsx",
+        "components/motion/agent-composer/effort-slider.tsx",
+        "components/motion/agent-composer/index.tsx",
+        "components/motion/agent-thread/cards.tsx",
+        "components/motion/agent-thread/index.tsx",
+        "components/motion/agent-thread/status.tsx",
+        "components/pages/page-state.tsx",
+        "components/pages/workbench-conversation-page.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-asset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "workbench-artifact-page",
+      "installSlug": "workbench-artifact-page",
+      "category": "pages",
+      "sourceFile": "components/pages/workbench-artifact-page.tsx",
+      "usageFile": "components/examples/pages/workbench-artifact-page.example.tsx",
+      "requiredGraph": [
+        "components/motion/artifact-panel/index.tsx",
+        "components/pages/page-state.tsx",
+        "components/pages/workbench-artifact-page.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-asset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "workbench-settings-page",
+      "installSlug": "workbench-settings-page",
+      "category": "pages",
+      "sourceFile": "components/pages/workbench-settings-page.tsx",
+      "usageFile": "components/examples/pages/workbench-settings-page.example.tsx",
+      "requiredGraph": [
+        "components/motion/settings-panel/index.tsx",
+        "components/motion/switch.tsx",
+        "components/pages/page-state.tsx",
+        "components/pages/workbench-settings-page.tsx",
+        "lib/color.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-asset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "agent-workbench-site",
+      "installSlug": "agent-workbench-site",
+      "category": "sites",
+      "sourceFile": "components/site-shells/agent-workbench-site.tsx",
+      "usageFile": "components/examples/sites/agent-workbench-site.example.tsx",
+      "requiredGraph": [
+        "components/motion/agent-composer/autonomy-dial.tsx",
+        "components/motion/agent-composer/effort-slider.tsx",
+        "components/motion/agent-composer/index.tsx",
+        "components/motion/agent-thread/cards.tsx",
+        "components/motion/agent-thread/index.tsx",
+        "components/motion/agent-thread/status.tsx",
+        "components/motion/agent-workbench/index.tsx",
+        "components/motion/agent-workbench/resize-handle.tsx",
+        "components/motion/agent-workbench/summary-card.tsx",
+        "components/motion/artifact-panel/index.tsx",
+        "components/motion/settings-panel/index.tsx",
+        "components/motion/switch.tsx",
+        "components/motion/thread-list/index.tsx",
+        "components/pages/page-state.tsx",
+        "components/pages/workbench-artifact-page.tsx",
+        "components/pages/workbench-conversation-page.tsx",
+        "components/pages/workbench-settings-page.tsx",
+        "components/site-shells/agent-workbench-site.tsx",
+        "lib/color.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-asset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "button",
+      "installSlug": "button",
+      "category": "motion",
+      "sourceFile": "components/motion/button/index.tsx",
+      "usageFile": "components/examples/motion/button.example.tsx",
+      "requiredGraph": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-asset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "button-base",
+      "installSlug": "button-base",
+      "category": "motion",
+      "sourceFile": "components/motion/button/base.tsx",
+      "usageFile": "components/examples/motion/button-base.example.tsx",
+      "requiredGraph": [
+        "components/motion/button/base.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-asset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "button-stateful",
+      "installSlug": "button-stateful",
+      "category": "motion",
+      "sourceFile": "components/motion/button/stateful.tsx",
+      "usageFile": "components/examples/motion/button-stateful.example.tsx",
+      "requiredGraph": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/stateful.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "button-magnetic",
+      "installSlug": "button-magnetic",
+      "category": "motion",
+      "sourceFile": "components/motion/button/magnetic.tsx",
+      "usageFile": "components/examples/motion/button-magnetic.example.tsx",
+      "requiredGraph": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "button-metallic",
+      "installSlug": "button-metallic",
+      "category": "motion",
+      "sourceFile": "components/motion/button/metallic.tsx",
+      "usageFile": "components/examples/motion/button-metallic.example.tsx",
+      "requiredGraph": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/metallic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "switch",
+      "installSlug": "switch",
+      "category": "motion",
+      "sourceFile": "components/motion/switch.tsx",
+      "usageFile": "components/examples/motion/switch.example.tsx",
+      "requiredGraph": [
+        "components/motion/switch.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "thread-list",
+      "installSlug": "thread-list",
+      "category": "blocks",
+      "sourceFile": "components/motion/thread-list/index.tsx",
+      "usageFile": "components/examples/blocks/thread-list.example.tsx",
+      "requiredGraph": [
+        "components/motion/thread-list/index.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-asset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "artifact-panel",
+      "installSlug": "artifact-panel",
+      "category": "blocks",
+      "sourceFile": "components/motion/artifact-panel/index.tsx",
+      "usageFile": "components/examples/blocks/artifact-panel.example.tsx",
+      "requiredGraph": [
+        "components/motion/artifact-panel/index.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-asset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "settings-panel",
+      "installSlug": "settings-panel",
+      "category": "blocks",
+      "sourceFile": "components/motion/settings-panel/index.tsx",
+      "usageFile": "components/examples/blocks/settings-panel.example.tsx",
+      "requiredGraph": [
+        "components/motion/settings-panel/index.tsx",
+        "lib/color.ts",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-graph-subset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "agent-thread",
+      "installSlug": "agent-thread",
+      "category": "blocks",
+      "sourceFile": "components/motion/agent-thread/index.tsx",
+      "usageFile": "components/examples/blocks/agent-thread.example.tsx",
+      "requiredGraph": [
+        "components/motion/agent-thread/cards.tsx",
+        "components/motion/agent-thread/index.tsx",
+        "components/motion/agent-thread/status.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-asset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "agent-composer",
+      "installSlug": "agent-composer",
+      "category": "blocks",
+      "sourceFile": "components/motion/agent-composer/index.tsx",
+      "usageFile": "components/examples/blocks/agent-composer.example.tsx",
+      "requiredGraph": [
+        "components/motion/agent-composer/autonomy-dial.tsx",
+        "components/motion/agent-composer/effort-slider.tsx",
+        "components/motion/agent-composer/index.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-asset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    },
+    {
+      "key": "agent-workbench",
+      "installSlug": "agent-workbench",
+      "category": "blocks",
+      "sourceFile": "components/motion/agent-workbench/index.tsx",
+      "usageFile": "components/examples/blocks/agent-workbench.example.tsx",
+      "requiredGraph": [
+        "components/motion/agent-workbench/index.tsx",
+        "components/motion/agent-workbench/resize-handle.tsx",
+        "components/motion/agent-workbench/summary-card.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "installed-asset",
+      "missingGraphFiles": [],
+      "missingInstalledFiles": []
+    }
+  ],
+  "excluded": [
+    {
+      "key": "tilt-card",
+      "installSlug": "tilt-card",
+      "category": "motion",
+      "sourceFile": "components/motion/tilt-card.tsx",
+      "usageFile": "components/examples/motion/tilt-card.example.tsx",
+      "requiredGraph": [
+        "components/motion/tilt-card.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/tilt-card.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/tilt-card.tsx"
+      ]
+    },
+    {
+      "key": "marquee",
+      "installSlug": "marquee",
+      "category": "motion",
+      "sourceFile": "components/motion/marquee.tsx",
+      "usageFile": "components/examples/motion/marquee.example.tsx",
+      "requiredGraph": [
+        "components/motion/marquee.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/marquee.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/marquee.tsx"
+      ]
+    },
+    {
+      "key": "tabs",
+      "installSlug": "tabs",
+      "category": "motion",
+      "sourceFile": "components/motion/tabs.tsx",
+      "usageFile": "components/examples/motion/tabs.example.tsx",
+      "requiredGraph": [
+        "components/motion/tabs.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/tabs.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/tabs.tsx"
+      ]
+    },
+    {
+      "key": "input",
+      "installSlug": "input",
+      "category": "motion",
+      "sourceFile": "components/motion/input.tsx",
+      "usageFile": "components/examples/motion/input.example.tsx",
+      "requiredGraph": [
+        "components/motion/input.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/input.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/input.tsx"
+      ]
+    },
+    {
+      "key": "select",
+      "installSlug": "select",
+      "category": "motion",
+      "sourceFile": "components/motion/select.tsx",
+      "usageFile": "components/examples/motion/select.example.tsx",
+      "requiredGraph": [
+        "components/motion/select.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/select.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/select.tsx"
+      ]
+    },
+    {
+      "key": "select-morph",
+      "installSlug": "select-morph",
+      "category": "motion",
+      "sourceFile": "components/motion/select-morph.tsx",
+      "usageFile": "components/examples/motion/select-morph.example.tsx",
+      "requiredGraph": [
+        "components/motion/select-morph.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/select-morph.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/select-morph.tsx"
+      ]
+    },
+    {
+      "key": "checkbox",
+      "installSlug": "checkbox",
+      "category": "motion",
+      "sourceFile": "components/motion/checkbox.tsx",
+      "usageFile": "components/examples/motion/checkbox.example.tsx",
+      "requiredGraph": [
+        "components/motion/checkbox.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/checkbox.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/checkbox.tsx"
+      ]
+    },
+    {
+      "key": "radio",
+      "installSlug": "radio",
+      "category": "motion",
+      "sourceFile": "components/motion/radio.tsx",
+      "usageFile": "components/examples/motion/radio.example.tsx",
+      "requiredGraph": [
+        "components/motion/radio.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/radio.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/radio.tsx"
+      ]
+    },
+    {
+      "key": "bottom-sheet",
+      "installSlug": "bottom-sheet",
+      "category": "motion",
+      "sourceFile": "components/motion/bottom-sheet.tsx",
+      "usageFile": "components/examples/motion/bottom-sheet.example.tsx",
+      "requiredGraph": [
+        "components/motion/bottom-sheet.tsx",
+        "components/ui/modal.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/hooks/use-modal-dialog.ts",
+        "lib/hooks/use-modal-scroll-lock.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/bottom-sheet.tsx",
+        "components/ui/modal.tsx",
+        "lib/hooks/use-modal-dialog.ts",
+        "lib/hooks/use-modal-scroll-lock.ts"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/bottom-sheet.tsx",
+        "components/ui/modal.tsx",
+        "lib/hooks/use-modal-dialog.ts",
+        "lib/hooks/use-modal-scroll-lock.ts"
+      ]
+    },
+    {
+      "key": "shared-layout-bg",
+      "installSlug": "shared-layout-bg",
+      "category": "motion",
+      "sourceFile": "components/motion/shared-layout-bg.tsx",
+      "usageFile": "components/examples/motion/shared-layout-bg.example.tsx",
+      "requiredGraph": [
+        "components/motion/shared-layout-bg.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/shared-layout-bg.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/shared-layout-bg.tsx"
+      ]
+    },
+    {
+      "key": "preview-rail",
+      "installSlug": "preview-rail",
+      "category": "motion",
+      "sourceFile": "components/motion/preview-rail.tsx",
+      "usageFile": "components/examples/motion/preview-rail.example.tsx",
+      "requiredGraph": [
+        "components/motion/preview-rail.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/preview-rail.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/preview-rail.tsx"
+      ]
+    },
+    {
+      "key": "dock",
+      "installSlug": "dock",
+      "category": "motion",
+      "sourceFile": "components/motion/dock.tsx",
+      "usageFile": "components/examples/motion/dock.example.tsx",
+      "requiredGraph": [
+        "components/motion/dock.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/dock.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/dock.tsx"
+      ]
+    },
+    {
+      "key": "tooltip",
+      "installSlug": "tooltip",
+      "category": "motion",
+      "sourceFile": "components/motion/tooltip.tsx",
+      "usageFile": "components/examples/motion/tooltip.example.tsx",
+      "requiredGraph": [
+        "components/motion/tooltip.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/tooltip.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/tooltip.tsx"
+      ]
+    },
+    {
+      "key": "tooltip-morph",
+      "installSlug": "tooltip-morph",
+      "category": "motion",
+      "sourceFile": "components/motion/tooltip-morph.tsx",
+      "usageFile": "components/examples/motion/tooltip-morph.example.tsx",
+      "requiredGraph": [
+        "components/motion/tooltip-morph.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/tooltip-morph.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/tooltip-morph.tsx"
+      ]
+    },
+    {
+      "key": "popover",
+      "installSlug": "popover",
+      "category": "motion",
+      "sourceFile": "components/motion/popover.tsx",
+      "usageFile": "components/examples/motion/popover.example.tsx",
+      "requiredGraph": [
+        "components/motion/popover.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/popover.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/popover.tsx"
+      ]
+    },
+    {
+      "key": "popover-morph",
+      "installSlug": "popover-morph",
+      "category": "motion",
+      "sourceFile": "components/motion/popover-morph.tsx",
+      "usageFile": "components/examples/motion/popover-morph.example.tsx",
+      "requiredGraph": [
+        "components/motion/popover-morph.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/popover-morph.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/popover-morph.tsx"
+      ]
+    },
+    {
+      "key": "morphing-modal",
+      "installSlug": "morphing-modal",
+      "category": "motion",
+      "sourceFile": "components/motion/morphing-modal.tsx",
+      "usageFile": "components/examples/motion/morphing-modal.example.tsx",
+      "requiredGraph": [
+        "components/motion/morphing-modal.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/morphing-modal.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/morphing-modal.tsx"
+      ]
+    },
+    {
+      "key": "text-animation",
+      "installSlug": "text-animation",
+      "category": "motion",
+      "sourceFile": "components/motion/text-reveal.tsx",
+      "usageFile": "components/examples/motion/text-animation.example.tsx",
+      "requiredGraph": [
+        "components/motion/action-swap.tsx",
+        "components/motion/text-cascade.tsx",
+        "components/motion/text-reveal.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/action-swap.tsx",
+        "components/motion/text-cascade.tsx",
+        "components/motion/text-reveal.tsx",
+        "components/motion/text-shimmer.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/action-swap.tsx",
+        "components/motion/text-cascade.tsx",
+        "components/motion/text-reveal.tsx",
+        "components/motion/text-shimmer.tsx"
+      ]
+    },
+    {
+      "key": "text-reveal",
+      "installSlug": "text-reveal",
+      "category": "motion",
+      "sourceFile": "components/motion/text-reveal.tsx",
+      "usageFile": "components/examples/motion/text-reveal.example.tsx",
+      "requiredGraph": [
+        "components/motion/text-reveal.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/text-reveal.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/text-reveal.tsx"
+      ]
+    },
+    {
+      "key": "text-shimmer",
+      "installSlug": "text-shimmer",
+      "category": "motion",
+      "sourceFile": "components/motion/text-shimmer.tsx",
+      "usageFile": "components/examples/motion/text-shimmer.example.tsx",
+      "requiredGraph": [
+        "components/motion/text-shimmer.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/text-shimmer.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/text-shimmer.tsx"
+      ]
+    },
+    {
+      "key": "text-cascade",
+      "installSlug": "text-cascade",
+      "category": "motion",
+      "sourceFile": "components/motion/text-cascade.tsx",
+      "usageFile": "components/examples/motion/text-cascade.example.tsx",
+      "requiredGraph": [
+        "components/motion/action-swap.tsx",
+        "components/motion/text-cascade.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/action-swap.tsx",
+        "components/motion/text-cascade.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/action-swap.tsx",
+        "components/motion/text-cascade.tsx"
+      ]
+    },
+    {
+      "key": "number",
+      "installSlug": "number",
+      "category": "motion",
+      "sourceFile": "components/motion/animated-number.tsx",
+      "usageFile": "components/examples/motion/number.example.tsx",
+      "requiredGraph": [
+        "components/motion/animated-number.tsx",
+        "components/motion/number-ticker.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/animated-number.tsx",
+        "components/motion/number-ticker.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/animated-number.tsx",
+        "components/motion/number-ticker.tsx"
+      ]
+    },
+    {
+      "key": "number-ticker",
+      "installSlug": "number-ticker",
+      "category": "motion",
+      "sourceFile": "components/motion/number-ticker.tsx",
+      "usageFile": "components/examples/motion/number-ticker.example.tsx",
+      "requiredGraph": [
+        "components/motion/number-ticker.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/number-ticker.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/number-ticker.tsx"
+      ]
+    },
+    {
+      "key": "animated-number",
+      "installSlug": "animated-number",
+      "category": "motion",
+      "sourceFile": "components/motion/animated-number.tsx",
+      "usageFile": "components/examples/motion/animated-number.example.tsx",
+      "requiredGraph": [
+        "components/motion/animated-number.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/animated-number.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/animated-number.tsx"
+      ]
+    },
+    {
+      "key": "animated-badge",
+      "installSlug": "animated-badge",
+      "category": "motion",
+      "sourceFile": "components/motion/animated-badge.tsx",
+      "usageFile": "components/examples/motion/animated-badge.example.tsx",
+      "requiredGraph": [
+        "components/motion/animated-badge.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/animated-badge.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/animated-badge.tsx"
+      ]
+    },
+    {
+      "key": "action-swap",
+      "installSlug": "action-swap",
+      "category": "motion",
+      "sourceFile": "components/motion/action-swap.tsx",
+      "usageFile": "components/examples/motion/action-swap.example.tsx",
+      "requiredGraph": [
+        "components/motion/action-swap-blur.tsx",
+        "components/motion/action-swap-cascade.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/action-swap-blur.tsx",
+        "components/motion/action-swap-cascade.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/action-swap-blur.tsx",
+        "components/motion/action-swap-cascade.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx"
+      ]
+    },
+    {
+      "key": "action-swap-cascade",
+      "installSlug": "action-swap-cascade",
+      "category": "motion",
+      "sourceFile": "components/motion/action-swap-cascade.tsx",
+      "usageFile": "components/examples/motion/action-swap-cascade.example.tsx",
+      "requiredGraph": [
+        "components/motion/action-swap-cascade.tsx",
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/action-swap-cascade.tsx",
+        "components/motion/action-swap.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/action-swap-cascade.tsx",
+        "components/motion/action-swap.tsx"
+      ]
+    },
+    {
+      "key": "action-swap-blur",
+      "installSlug": "action-swap-blur",
+      "category": "motion",
+      "sourceFile": "components/motion/action-swap-blur.tsx",
+      "usageFile": "components/examples/motion/action-swap-blur.example.tsx",
+      "requiredGraph": [
+        "components/motion/action-swap-blur.tsx",
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/action-swap-blur.tsx",
+        "components/motion/action-swap.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/action-swap-blur.tsx",
+        "components/motion/action-swap.tsx"
+      ]
+    },
+    {
+      "key": "action-swap-roll",
+      "installSlug": "action-swap-roll",
+      "category": "motion",
+      "sourceFile": "components/motion/action-swap-roll.tsx",
+      "usageFile": "components/examples/motion/action-swap-roll.example.tsx",
+      "requiredGraph": [
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx"
+      ]
+    },
+    {
+      "key": "animated-toast-stack",
+      "installSlug": "animated-toast-stack",
+      "category": "motion",
+      "sourceFile": "components/motion/animated-toast-stack.tsx",
+      "usageFile": "components/examples/motion/animated-toast-stack.example.tsx",
+      "requiredGraph": [
+        "components/motion/animated-toast-stack.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/animated-toast-stack.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/animated-toast-stack.tsx"
+      ]
+    },
+    {
+      "key": "theme-toggle",
+      "installSlug": "theme-toggle",
+      "category": "motion",
+      "sourceFile": "components/motion/theme-toggle.tsx",
+      "usageFile": "components/examples/motion/theme-toggle.example.tsx",
+      "requiredGraph": [
+        "components/motion/action-swap.tsx",
+        "components/motion/theme-toggle.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/action-swap.tsx",
+        "components/motion/theme-toggle.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/action-swap.tsx",
+        "components/motion/theme-toggle.tsx"
+      ]
+    },
+    {
+      "key": "bouncy-accordion",
+      "installSlug": "bouncy-accordion",
+      "category": "motion",
+      "sourceFile": "components/motion/bouncy-accordion.tsx",
+      "usageFile": "components/examples/motion/bouncy-accordion.example.tsx",
+      "requiredGraph": [
+        "components/motion/bouncy-accordion.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/bouncy-accordion.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/bouncy-accordion.tsx"
+      ]
+    },
+    {
+      "key": "drawer",
+      "installSlug": "drawer",
+      "category": "motion",
+      "sourceFile": "components/motion/drawer.tsx",
+      "usageFile": "components/examples/motion/drawer.example.tsx",
+      "requiredGraph": [
+        "components/motion/drawer.tsx",
+        "components/ui/modal.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/hooks/use-modal-dialog.ts",
+        "lib/hooks/use-modal-scroll-lock.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/drawer.tsx",
+        "components/ui/modal.tsx",
+        "lib/hooks/use-modal-dialog.ts",
+        "lib/hooks/use-modal-scroll-lock.ts"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/drawer.tsx",
+        "components/ui/modal.tsx",
+        "lib/hooks/use-modal-dialog.ts",
+        "lib/hooks/use-modal-scroll-lock.ts"
+      ]
+    },
+    {
+      "key": "scroll-animation",
+      "installSlug": "scroll-animation",
+      "category": "motion",
+      "sourceFile": "components/motion/smooth-scroll.tsx",
+      "usageFile": "components/examples/motion/scroll-animation.example.tsx",
+      "requiredGraph": [
+        "components/motion/parallax.tsx",
+        "components/motion/scroll-progress.tsx",
+        "components/motion/scroll-reveal.tsx",
+        "components/motion/scroll-to.tsx",
+        "components/motion/smooth-scroll.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/parallax.tsx",
+        "components/motion/scroll-progress.tsx",
+        "components/motion/scroll-reveal.tsx",
+        "components/motion/scroll-to.tsx",
+        "components/motion/smooth-scroll.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/parallax.tsx",
+        "components/motion/scroll-progress.tsx",
+        "components/motion/scroll-reveal.tsx",
+        "components/motion/scroll-to.tsx",
+        "components/motion/smooth-scroll.tsx"
+      ]
+    },
+    {
+      "key": "smooth-scroll",
+      "installSlug": "smooth-scroll",
+      "category": "motion",
+      "sourceFile": "components/motion/smooth-scroll.tsx",
+      "usageFile": "components/examples/motion/smooth-scroll.example.tsx",
+      "requiredGraph": [
+        "components/motion/smooth-scroll.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/smooth-scroll.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/smooth-scroll.tsx"
+      ]
+    },
+    {
+      "key": "scroll-progress",
+      "installSlug": "scroll-progress",
+      "category": "motion",
+      "sourceFile": "components/motion/scroll-progress.tsx",
+      "usageFile": "components/examples/motion/scroll-progress.example.tsx",
+      "requiredGraph": [
+        "components/motion/scroll-progress.tsx",
+        "components/motion/smooth-scroll.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/scroll-progress.tsx",
+        "components/motion/smooth-scroll.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/scroll-progress.tsx",
+        "components/motion/smooth-scroll.tsx"
+      ]
+    },
+    {
+      "key": "parallax",
+      "installSlug": "parallax",
+      "category": "motion",
+      "sourceFile": "components/motion/parallax.tsx",
+      "usageFile": "components/examples/motion/parallax.example.tsx",
+      "requiredGraph": [
+        "components/motion/parallax.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/parallax.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/parallax.tsx"
+      ]
+    },
+    {
+      "key": "scroll-to",
+      "installSlug": "scroll-to",
+      "category": "motion",
+      "sourceFile": "components/motion/scroll-to.tsx",
+      "usageFile": "components/examples/motion/scroll-to.example.tsx",
+      "requiredGraph": [
+        "components/motion/scroll-to.tsx",
+        "components/motion/smooth-scroll.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/scroll-to.tsx",
+        "components/motion/smooth-scroll.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/scroll-to.tsx",
+        "components/motion/smooth-scroll.tsx"
+      ]
+    },
+    {
+      "key": "scroll-reveal",
+      "installSlug": "scroll-reveal",
+      "category": "motion",
+      "sourceFile": "components/motion/scroll-reveal.tsx",
+      "usageFile": "components/examples/motion/scroll-reveal.example.tsx",
+      "requiredGraph": [
+        "components/motion/scroll-reveal.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/scroll-reveal.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/scroll-reveal.tsx"
+      ]
+    },
+    {
+      "key": "range-slider",
+      "installSlug": "range-slider",
+      "category": "motion",
+      "sourceFile": "components/motion/range-slider.tsx",
+      "usageFile": "components/examples/motion/range-slider.example.tsx",
+      "requiredGraph": [
+        "components/motion/range-slider.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/range-slider.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/range-slider.tsx"
+      ]
+    },
+    {
+      "key": "wheel-picker",
+      "installSlug": "wheel-picker",
+      "category": "motion",
+      "sourceFile": "components/motion/wheel-picker.tsx",
+      "usageFile": "components/examples/motion/wheel-picker.example.tsx",
+      "requiredGraph": [
+        "components/motion/wheel-picker.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/wheel-picker.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/wheel-picker.tsx"
+      ]
+    },
+    {
+      "key": "table",
+      "installSlug": "table",
+      "category": "motion",
+      "sourceFile": "components/motion/table/index.tsx",
+      "usageFile": "components/examples/motion/table.example.tsx",
+      "requiredGraph": [
+        "components/motion/checkbox.tsx",
+        "components/motion/table/editable-cell.tsx",
+        "components/motion/table/index.tsx",
+        "components/motion/table/row-handle.tsx",
+        "components/motion/table/skeleton-rows.tsx",
+        "components/motion/table/table-header.tsx",
+        "components/motion/table/table-menu.tsx",
+        "components/motion/table/types.ts",
+        "components/motion/table/use-column-reorder.ts",
+        "components/motion/table/use-column-resize.ts",
+        "components/motion/table/use-column-sort.ts",
+        "components/motion/table/use-row-selection.ts",
+        "components/motion/table/utils.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/checkbox.tsx",
+        "components/motion/table/editable-cell.tsx",
+        "components/motion/table/index.tsx",
+        "components/motion/table/row-handle.tsx",
+        "components/motion/table/skeleton-rows.tsx",
+        "components/motion/table/table-header.tsx",
+        "components/motion/table/table-menu.tsx",
+        "components/motion/table/types.ts",
+        "components/motion/table/use-column-reorder.ts",
+        "components/motion/table/use-column-resize.ts",
+        "components/motion/table/use-column-sort.ts",
+        "components/motion/table/use-row-selection.ts",
+        "components/motion/table/utils.ts"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/checkbox.tsx",
+        "components/motion/table/editable-cell.tsx",
+        "components/motion/table/index.tsx",
+        "components/motion/table/row-handle.tsx",
+        "components/motion/table/skeleton-rows.tsx",
+        "components/motion/table/table-header.tsx",
+        "components/motion/table/table-menu.tsx",
+        "components/motion/table/types.ts",
+        "components/motion/table/use-column-reorder.ts",
+        "components/motion/table/use-column-resize.ts",
+        "components/motion/table/use-column-sort.ts",
+        "components/motion/table/use-row-selection.ts",
+        "components/motion/table/utils.ts"
+      ]
+    },
+    {
+      "key": "table-editable",
+      "installSlug": "table-editable",
+      "category": "motion",
+      "sourceFile": "components/motion/table/index.tsx",
+      "usageFile": "components/examples/motion/table-editable.example.tsx",
+      "requiredGraph": [
+        "components/motion/checkbox.tsx",
+        "components/motion/table/editable-cell.tsx",
+        "components/motion/table/index.tsx",
+        "components/motion/table/row-handle.tsx",
+        "components/motion/table/skeleton-rows.tsx",
+        "components/motion/table/table-header.tsx",
+        "components/motion/table/table-menu.tsx",
+        "components/motion/table/types.ts",
+        "components/motion/table/use-column-reorder.ts",
+        "components/motion/table/use-column-resize.ts",
+        "components/motion/table/use-column-sort.ts",
+        "components/motion/table/use-row-selection.ts",
+        "components/motion/table/utils.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/checkbox.tsx",
+        "components/motion/table/editable-cell.tsx",
+        "components/motion/table/index.tsx",
+        "components/motion/table/row-handle.tsx",
+        "components/motion/table/skeleton-rows.tsx",
+        "components/motion/table/table-header.tsx",
+        "components/motion/table/table-menu.tsx",
+        "components/motion/table/types.ts",
+        "components/motion/table/use-column-reorder.ts",
+        "components/motion/table/use-column-resize.ts",
+        "components/motion/table/use-column-sort.ts",
+        "components/motion/table/use-row-selection.ts",
+        "components/motion/table/utils.ts"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/checkbox.tsx",
+        "components/motion/table/editable-cell.tsx",
+        "components/motion/table/index.tsx",
+        "components/motion/table/row-handle.tsx",
+        "components/motion/table/skeleton-rows.tsx",
+        "components/motion/table/table-header.tsx",
+        "components/motion/table/table-menu.tsx",
+        "components/motion/table/types.ts",
+        "components/motion/table/use-column-reorder.ts",
+        "components/motion/table/use-column-resize.ts",
+        "components/motion/table/use-column-sort.ts",
+        "components/motion/table/use-row-selection.ts",
+        "components/motion/table/utils.ts"
+      ]
+    },
+    {
+      "key": "table-async",
+      "installSlug": "table-async",
+      "category": "motion",
+      "sourceFile": "components/motion/table/index.tsx",
+      "usageFile": "components/examples/motion/table-async.example.tsx",
+      "requiredGraph": [
+        "components/motion/checkbox.tsx",
+        "components/motion/table/editable-cell.tsx",
+        "components/motion/table/index.tsx",
+        "components/motion/table/row-handle.tsx",
+        "components/motion/table/skeleton-rows.tsx",
+        "components/motion/table/table-header.tsx",
+        "components/motion/table/table-menu.tsx",
+        "components/motion/table/types.ts",
+        "components/motion/table/use-column-reorder.ts",
+        "components/motion/table/use-column-resize.ts",
+        "components/motion/table/use-column-sort.ts",
+        "components/motion/table/use-row-selection.ts",
+        "components/motion/table/utils.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/checkbox.tsx",
+        "components/motion/table/editable-cell.tsx",
+        "components/motion/table/index.tsx",
+        "components/motion/table/row-handle.tsx",
+        "components/motion/table/skeleton-rows.tsx",
+        "components/motion/table/table-header.tsx",
+        "components/motion/table/table-menu.tsx",
+        "components/motion/table/types.ts",
+        "components/motion/table/use-column-reorder.ts",
+        "components/motion/table/use-column-resize.ts",
+        "components/motion/table/use-column-sort.ts",
+        "components/motion/table/use-row-selection.ts",
+        "components/motion/table/utils.ts"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/checkbox.tsx",
+        "components/motion/table/editable-cell.tsx",
+        "components/motion/table/index.tsx",
+        "components/motion/table/row-handle.tsx",
+        "components/motion/table/skeleton-rows.tsx",
+        "components/motion/table/table-header.tsx",
+        "components/motion/table/table-menu.tsx",
+        "components/motion/table/types.ts",
+        "components/motion/table/use-column-reorder.ts",
+        "components/motion/table/use-column-resize.ts",
+        "components/motion/table/use-column-sort.ts",
+        "components/motion/table/use-row-selection.ts",
+        "components/motion/table/utils.ts"
+      ]
+    },
+    {
+      "key": "shader-background",
+      "installSlug": "shader-background",
+      "category": "motion",
+      "sourceFile": "components/motion/shader-background.tsx",
+      "usageFile": "components/examples/motion/shader-background.example.tsx",
+      "requiredGraph": [
+        "components/motion/shader-background.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/shader-background.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/shader-background.tsx"
+      ]
+    },
+    {
+      "key": "cylinder-carousel",
+      "installSlug": "cylinder-carousel",
+      "category": "motion",
+      "sourceFile": "components/motion/cylinder-carousel.tsx",
+      "usageFile": "components/examples/motion/cylinder-carousel.example.tsx",
+      "requiredGraph": [
+        "components/motion/cylinder-carousel.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/cylinder-carousel.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/cylinder-carousel.tsx"
+      ]
+    },
+    {
+      "key": "loader",
+      "installSlug": "loader",
+      "category": "motion",
+      "sourceFile": "components/motion/loader.tsx",
+      "usageFile": "components/examples/motion/loader.example.tsx",
+      "requiredGraph": [
+        "components/motion/loader.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/loader.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/loader.tsx"
+      ]
+    },
+    {
+      "key": "text-scramble",
+      "installSlug": "text-scramble",
+      "category": "motion",
+      "sourceFile": "components/motion/text-scramble.tsx",
+      "usageFile": "components/examples/motion/text-scramble.example.tsx",
+      "requiredGraph": [
+        "components/motion/text-scramble.tsx",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/text-scramble.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/text-scramble.tsx"
+      ]
+    },
+    {
+      "key": "webgl-background",
+      "installSlug": "webgl-background",
+      "category": "motion",
+      "sourceFile": "components/motion/webgl-background.tsx",
+      "usageFile": "components/examples/motion/webgl-background.example.tsx",
+      "requiredGraph": [
+        "components/motion/webgl-background.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/webgl-background.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/webgl-background.tsx"
+      ]
+    },
+    {
+      "key": "halftone-image",
+      "installSlug": "halftone-image",
+      "category": "motion",
+      "sourceFile": "components/motion/halftone-image.tsx",
+      "usageFile": "components/examples/motion/halftone-image.example.tsx",
+      "requiredGraph": [
+        "components/motion/halftone-image.tsx",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/halftone-image.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/halftone-image.tsx"
+      ]
+    },
+    {
+      "key": "star-border",
+      "installSlug": "star-border",
+      "category": "motion",
+      "sourceFile": "components/motion/star-border.tsx",
+      "usageFile": "components/examples/motion/star-border.example.tsx",
+      "requiredGraph": [
+        "components/motion/star-border.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/star-border.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/star-border.tsx"
+      ]
+    },
+    {
+      "key": "bounce-cards",
+      "installSlug": "bounce-cards",
+      "category": "motion",
+      "sourceFile": "components/motion/bounce-cards.tsx",
+      "usageFile": "components/examples/motion/bounce-cards.example.tsx",
+      "requiredGraph": [
+        "components/motion/bounce-cards.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/bounce-cards.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/bounce-cards.tsx"
+      ]
+    },
+    {
+      "key": "glare-hover",
+      "installSlug": "glare-hover",
+      "category": "motion",
+      "sourceFile": "components/motion/glare-hover.tsx",
+      "usageFile": "components/examples/motion/glare-hover.example.tsx",
+      "requiredGraph": [
+        "components/motion/glare-hover.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/glare-hover.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/glare-hover.tsx"
+      ]
+    },
+    {
+      "key": "skeleton",
+      "installSlug": "skeleton",
+      "category": "motion",
+      "sourceFile": "components/motion/skeleton.tsx",
+      "usageFile": "components/examples/motion/skeleton.example.tsx",
+      "requiredGraph": [
+        "components/motion/skeleton.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/skeleton.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/skeleton.tsx"
+      ]
+    },
+    {
+      "key": "scroll-hint",
+      "installSlug": "scroll-hint",
+      "category": "motion",
+      "sourceFile": "components/motion/scroll-hint.tsx",
+      "usageFile": "components/examples/motion/scroll-hint.example.tsx",
+      "requiredGraph": [
+        "components/motion/scroll-hint.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/scroll-hint.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/scroll-hint.tsx"
+      ]
+    },
+    {
+      "key": "animated-icon",
+      "installSlug": "animated-icon",
+      "category": "motion",
+      "sourceFile": "components/motion/animated-icon.tsx",
+      "usageFile": "components/examples/motion/animated-icon.example.tsx",
+      "requiredGraph": [
+        "components/motion/animated-icon.tsx",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/animated-icon.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/animated-icon.tsx"
+      ]
+    },
+    {
+      "key": "dropdown-menu",
+      "installSlug": "dropdown-menu",
+      "category": "motion",
+      "sourceFile": "components/motion/dropdown-menu.tsx",
+      "usageFile": "components/examples/motion/dropdown-menu.example.tsx",
+      "requiredGraph": [
+        "components/motion/dropdown-menu.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/dropdown-menu.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/dropdown-menu.tsx"
+      ]
+    },
+    {
+      "key": "expanding-card",
+      "installSlug": "expanding-card",
+      "category": "motion",
+      "sourceFile": "components/motion/expanding-card.tsx",
+      "usageFile": "components/examples/motion/expanding-card.example.tsx",
+      "requiredGraph": [
+        "components/motion/expanding-card.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/expanding-card.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/expanding-card.tsx"
+      ]
+    },
+    {
+      "key": "expandable-control",
+      "installSlug": "expandable-control",
+      "category": "motion",
+      "sourceFile": "components/motion/expandable-control.tsx",
+      "usageFile": "components/examples/motion/expandable-control.example.tsx",
+      "requiredGraph": [
+        "components/motion/expandable-control.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/expandable-control.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/expandable-control.tsx"
+      ]
+    },
+    {
+      "key": "file-tree",
+      "installSlug": "file-tree",
+      "category": "motion",
+      "sourceFile": "components/motion/file-tree.tsx",
+      "usageFile": "components/examples/motion/file-tree.example.tsx",
+      "requiredGraph": [
+        "components/motion/file-tree.tsx",
+        "components/motion/shared-layout-bg.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/file-tree.tsx",
+        "components/motion/shared-layout-bg.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/file-tree.tsx",
+        "components/motion/shared-layout-bg.tsx"
+      ]
+    },
+    {
+      "key": "recording-card",
+      "installSlug": "recording-card",
+      "category": "blocks",
+      "sourceFile": "components/motion/recording-card.tsx",
+      "usageFile": "components/examples/blocks/recording-card.example.tsx",
+      "requiredGraph": [
+        "components/motion/recording-card.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/recording-card.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/recording-card.tsx"
+      ]
+    },
+    {
+      "key": "login-card",
+      "installSlug": "login-card",
+      "category": "blocks",
+      "sourceFile": "components/motion/login-card.tsx",
+      "usageFile": "components/examples/blocks/login-card.example.tsx",
+      "requiredGraph": [
+        "components/motion/login-card.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/login-card.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/login-card.tsx"
+      ]
+    },
+    {
+      "key": "agent-inbox",
+      "installSlug": "agent-inbox",
+      "category": "blocks",
+      "sourceFile": "components/motion/agent-inbox/index.tsx",
+      "usageFile": "components/examples/blocks/agent-inbox.example.tsx",
+      "requiredGraph": [
+        "components/motion/agent-inbox/index.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/agent-inbox/index.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/agent-inbox/index.tsx"
+      ]
+    },
+    {
+      "key": "agent-trace",
+      "installSlug": "agent-trace",
+      "category": "blocks",
+      "sourceFile": "components/motion/agent-trace/index.tsx",
+      "usageFile": "components/examples/blocks/agent-trace.example.tsx",
+      "requiredGraph": [
+        "components/motion/agent-trace/index.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/agent-trace/index.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/agent-trace/index.tsx"
+      ]
+    },
+    {
+      "key": "streaming-json",
+      "installSlug": "streaming-json",
+      "category": "blocks",
+      "sourceFile": "components/motion/streaming-json/index.tsx",
+      "usageFile": "components/examples/blocks/streaming-json.example.tsx",
+      "requiredGraph": [
+        "components/motion/streaming-json/index.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/streaming-json/index.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/streaming-json/index.tsx"
+      ]
+    },
+    {
+      "key": "citations",
+      "installSlug": "citations",
+      "category": "blocks",
+      "sourceFile": "components/motion/citations/index.tsx",
+      "usageFile": "components/examples/blocks/citations.example.tsx",
+      "requiredGraph": [
+        "components/motion/citations/index.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/citations/index.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/citations/index.tsx"
+      ]
+    },
+    {
+      "key": "voice-orb",
+      "installSlug": "voice-orb",
+      "category": "blocks",
+      "sourceFile": "components/motion/voice-orb/index.tsx",
+      "usageFile": "components/examples/blocks/voice-orb.example.tsx",
+      "requiredGraph": [
+        "components/motion/voice-orb/index.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/voice-orb/index.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/voice-orb/index.tsx"
+      ]
+    },
+    {
+      "key": "activity-stats",
+      "installSlug": "activity-stats",
+      "category": "blocks",
+      "sourceFile": "components/motion/activity-stats/index.tsx",
+      "usageFile": "components/examples/blocks/activity-stats.example.tsx",
+      "requiredGraph": [
+        "components/motion/activity-stats/index.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/activity-stats/index.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/activity-stats/index.tsx"
+      ]
+    },
+    {
+      "key": "availability-scheduler",
+      "installSlug": "availability-scheduler",
+      "category": "blocks",
+      "sourceFile": "components/motion/availability-scheduler/index.tsx",
+      "usageFile": "components/examples/blocks/availability-scheduler.example.tsx",
+      "requiredGraph": [
+        "components/motion/availability-scheduler/copy-menu.tsx",
+        "components/motion/availability-scheduler/day-row.tsx",
+        "components/motion/availability-scheduler/icon-button.tsx",
+        "components/motion/availability-scheduler/index.tsx",
+        "components/motion/availability-scheduler/time-select.tsx",
+        "components/motion/availability-scheduler/types.ts",
+        "components/motion/checkbox.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/select.tsx",
+        "components/motion/switch.tsx",
+        "components/motion/tooltip.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/availability-scheduler/copy-menu.tsx",
+        "components/motion/availability-scheduler/day-row.tsx",
+        "components/motion/availability-scheduler/icon-button.tsx",
+        "components/motion/availability-scheduler/index.tsx",
+        "components/motion/availability-scheduler/time-select.tsx",
+        "components/motion/availability-scheduler/types.ts",
+        "components/motion/checkbox.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/select.tsx",
+        "components/motion/tooltip.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/availability-scheduler/copy-menu.tsx",
+        "components/motion/availability-scheduler/day-row.tsx",
+        "components/motion/availability-scheduler/icon-button.tsx",
+        "components/motion/availability-scheduler/index.tsx",
+        "components/motion/availability-scheduler/time-select.tsx",
+        "components/motion/availability-scheduler/types.ts",
+        "components/motion/checkbox.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/select.tsx",
+        "components/motion/tooltip.tsx"
+      ]
+    },
+    {
+      "key": "swap",
+      "installSlug": "swap",
+      "category": "blocks",
+      "sourceFile": "components/motion/swap.tsx",
+      "usageFile": "components/examples/blocks/swap.example.tsx",
+      "requiredGraph": [
+        "components/motion/swap.tsx",
+        "components/motion/swap/constants.ts",
+        "components/motion/swap/controls.tsx",
+        "components/motion/swap/data.ts",
+        "components/motion/swap/field.tsx",
+        "components/motion/swap/quote-row.tsx",
+        "components/motion/swap/token-badges.tsx",
+        "components/motion/swap/token-picker.tsx",
+        "components/motion/swap/types.ts",
+        "components/motion/swap/utils.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/swap.tsx",
+        "components/motion/swap/constants.ts",
+        "components/motion/swap/controls.tsx",
+        "components/motion/swap/data.ts",
+        "components/motion/swap/field.tsx",
+        "components/motion/swap/quote-row.tsx",
+        "components/motion/swap/token-badges.tsx",
+        "components/motion/swap/token-picker.tsx",
+        "components/motion/swap/types.ts",
+        "components/motion/swap/utils.ts"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/swap.tsx",
+        "components/motion/swap/constants.ts",
+        "components/motion/swap/controls.tsx",
+        "components/motion/swap/data.ts",
+        "components/motion/swap/field.tsx",
+        "components/motion/swap/quote-row.tsx",
+        "components/motion/swap/token-badges.tsx",
+        "components/motion/swap/token-picker.tsx",
+        "components/motion/swap/types.ts",
+        "components/motion/swap/utils.ts"
+      ]
+    },
+    {
+      "key": "dynamic-island",
+      "installSlug": "dynamic-island",
+      "category": "blocks",
+      "sourceFile": "components/motion/dynamic-island.tsx",
+      "usageFile": "components/examples/blocks/dynamic-island.example.tsx",
+      "requiredGraph": [
+        "components/motion/dynamic-island.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/dynamic-island.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/dynamic-island.tsx"
+      ]
+    },
+    {
+      "key": "command-palette",
+      "installSlug": "command-palette",
+      "category": "blocks",
+      "sourceFile": "components/motion/command-palette.tsx",
+      "usageFile": "components/examples/blocks/command-palette.example.tsx",
+      "requiredGraph": [
+        "components/motion/command-palette.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/command-palette.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/command-palette.tsx"
+      ]
+    },
+    {
+      "key": "morphing-search",
+      "installSlug": "morphing-search",
+      "category": "blocks",
+      "sourceFile": "components/motion/morphing-search.tsx",
+      "usageFile": "components/examples/blocks/morphing-search.example.tsx",
+      "requiredGraph": [
+        "components/motion/morphing-search.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/hooks/use-on-open.ts",
+        "lib/hooks/use-row-cursor.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/morphing-search.tsx",
+        "lib/hooks/use-on-open.ts",
+        "lib/hooks/use-row-cursor.ts"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/morphing-search.tsx",
+        "lib/hooks/use-on-open.ts",
+        "lib/hooks/use-row-cursor.ts"
+      ]
+    },
+    {
+      "key": "expandable-action-bar",
+      "installSlug": "expandable-action-bar",
+      "category": "blocks",
+      "sourceFile": "components/motion/expandable-action-bar.tsx",
+      "usageFile": "components/examples/blocks/expandable-action-bar.example.tsx",
+      "requiredGraph": [
+        "components/motion/expandable-action-bar.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/expandable-action-bar.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/expandable-action-bar.tsx"
+      ]
+    },
+    {
+      "key": "overflow-actions",
+      "installSlug": "overflow-actions",
+      "category": "blocks",
+      "sourceFile": "components/motion/overflow-actions.tsx",
+      "usageFile": "components/examples/blocks/overflow-actions.example.tsx",
+      "requiredGraph": [
+        "components/motion/overflow-actions.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/overflow-actions.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/overflow-actions.tsx"
+      ]
+    },
+    {
+      "key": "expandable-tabs",
+      "installSlug": "expandable-tabs",
+      "category": "blocks",
+      "sourceFile": "components/motion/expandable-tabs.tsx",
+      "usageFile": "components/examples/blocks/expandable-tabs.example.tsx",
+      "requiredGraph": [
+        "components/motion/expandable-tabs.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/expandable-tabs.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/expandable-tabs.tsx"
+      ]
+    },
+    {
+      "key": "swipeable-list",
+      "installSlug": "swipeable-list",
+      "category": "blocks",
+      "sourceFile": "components/motion/swipeable-list.tsx",
+      "usageFile": "components/examples/blocks/swipeable-list.example.tsx",
+      "requiredGraph": [
+        "components/motion/swipeable-list.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/swipeable-list.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/swipeable-list.tsx"
+      ]
+    },
+    {
+      "key": "file-upload",
+      "installSlug": "file-upload",
+      "category": "blocks",
+      "sourceFile": "components/motion/file-upload.tsx",
+      "usageFile": "components/examples/blocks/file-upload.example.tsx",
+      "requiredGraph": [
+        "components/motion/file-upload.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/file-upload.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/file-upload.tsx"
+      ]
+    },
+    {
+      "key": "prediction-market",
+      "installSlug": "prediction-market",
+      "category": "blocks",
+      "sourceFile": "components/motion/prediction-market.tsx",
+      "usageFile": "components/examples/blocks/prediction-market.example.tsx",
+      "requiredGraph": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/number-ticker.tsx",
+        "components/motion/prediction-market.tsx",
+        "components/motion/tabs.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/number-ticker.tsx",
+        "components/motion/prediction-market.tsx",
+        "components/motion/tabs.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/number-ticker.tsx",
+        "components/motion/prediction-market.tsx",
+        "components/motion/tabs.tsx"
+      ]
+    },
+    {
+      "key": "wallet-card",
+      "installSlug": "wallet-card",
+      "category": "blocks",
+      "sourceFile": "components/motion/wallet-card/index.tsx",
+      "usageFile": "components/examples/blocks/wallet-card.example.tsx",
+      "requiredGraph": [
+        "components/motion/action-swap.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/wallet-card/account-avatar.tsx",
+        "components/motion/wallet-card/account-switcher.tsx",
+        "components/motion/wallet-card/actions.tsx",
+        "components/motion/wallet-card/balance-delta.tsx",
+        "components/motion/wallet-card/constants.ts",
+        "components/motion/wallet-card/copy-button.tsx",
+        "components/motion/wallet-card/index.tsx",
+        "components/motion/wallet-card/search-bar.tsx",
+        "components/motion/wallet-card/types.ts",
+        "components/motion/wallet-card/use-dismiss.ts",
+        "components/motion/wallet-card/utils.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/action-swap.tsx",
+        "components/motion/wallet-card/account-avatar.tsx",
+        "components/motion/wallet-card/account-switcher.tsx",
+        "components/motion/wallet-card/actions.tsx",
+        "components/motion/wallet-card/balance-delta.tsx",
+        "components/motion/wallet-card/constants.ts",
+        "components/motion/wallet-card/copy-button.tsx",
+        "components/motion/wallet-card/index.tsx",
+        "components/motion/wallet-card/search-bar.tsx",
+        "components/motion/wallet-card/types.ts",
+        "components/motion/wallet-card/use-dismiss.ts",
+        "components/motion/wallet-card/utils.ts"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/action-swap.tsx",
+        "components/motion/wallet-card/account-avatar.tsx",
+        "components/motion/wallet-card/account-switcher.tsx",
+        "components/motion/wallet-card/actions.tsx",
+        "components/motion/wallet-card/balance-delta.tsx",
+        "components/motion/wallet-card/constants.ts",
+        "components/motion/wallet-card/copy-button.tsx",
+        "components/motion/wallet-card/index.tsx",
+        "components/motion/wallet-card/search-bar.tsx",
+        "components/motion/wallet-card/types.ts",
+        "components/motion/wallet-card/use-dismiss.ts",
+        "components/motion/wallet-card/utils.ts"
+      ]
+    },
+    {
+      "key": "otp-input",
+      "installSlug": "otp-input",
+      "category": "blocks",
+      "sourceFile": "components/motion/otp-input.tsx",
+      "usageFile": "components/examples/blocks/otp-input.example.tsx",
+      "requiredGraph": [
+        "components/motion/otp-input.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/otp-input.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/otp-input.tsx"
+      ]
+    },
+    {
+      "key": "bloom-menu",
+      "installSlug": "bloom-menu",
+      "category": "blocks",
+      "sourceFile": "components/motion/bloom-menu.tsx",
+      "usageFile": "components/examples/blocks/bloom-menu.example.tsx",
+      "requiredGraph": [
+        "components/motion/bloom-menu.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/bloom-menu.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/bloom-menu.tsx"
+      ]
+    },
+    {
+      "key": "feedback-widget",
+      "installSlug": "feedback-widget",
+      "category": "blocks",
+      "sourceFile": "components/motion/feedback-widget.tsx",
+      "usageFile": "components/examples/blocks/feedback-widget.example.tsx",
+      "requiredGraph": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/feedback-widget.tsx",
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/feedback-widget.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/feedback-widget.tsx"
+      ]
+    },
+    {
+      "key": "not-found",
+      "installSlug": "not-found",
+      "category": "blocks",
+      "sourceFile": "components/motion/not-found/index.tsx",
+      "usageFile": "components/examples/blocks/not-found.example.tsx",
+      "requiredGraph": [
+        "components/motion/magnetic.tsx",
+        "components/motion/not-found/glitch.tsx",
+        "components/motion/not-found/index.tsx",
+        "components/motion/not-found/magnetic.tsx",
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/spotlight.tsx",
+        "components/motion/not-found/stacked.tsx",
+        "components/motion/not-found/terminal.tsx",
+        "components/motion/text-reveal.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/not-found/glitch.tsx",
+        "components/motion/not-found/index.tsx",
+        "components/motion/not-found/magnetic.tsx",
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/spotlight.tsx",
+        "components/motion/not-found/stacked.tsx",
+        "components/motion/not-found/terminal.tsx",
+        "components/motion/text-reveal.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/not-found/glitch.tsx",
+        "components/motion/not-found/index.tsx",
+        "components/motion/not-found/magnetic.tsx",
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/spotlight.tsx",
+        "components/motion/not-found/stacked.tsx",
+        "components/motion/not-found/terminal.tsx",
+        "components/motion/text-reveal.tsx"
+      ]
+    },
+    {
+      "key": "not-found-glitch",
+      "installSlug": "not-found-glitch",
+      "category": "blocks",
+      "sourceFile": "components/motion/not-found/glitch.tsx",
+      "usageFile": "components/examples/blocks/not-found-glitch.example.tsx",
+      "requiredGraph": [
+        "components/motion/not-found/glitch.tsx",
+        "components/motion/not-found/shared.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/not-found/glitch.tsx",
+        "components/motion/not-found/shared.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/not-found/glitch.tsx",
+        "components/motion/not-found/shared.tsx"
+      ]
+    },
+    {
+      "key": "not-found-magnetic",
+      "installSlug": "not-found-magnetic",
+      "category": "blocks",
+      "sourceFile": "components/motion/not-found/magnetic.tsx",
+      "usageFile": "components/examples/blocks/not-found-magnetic.example.tsx",
+      "requiredGraph": [
+        "components/motion/magnetic.tsx",
+        "components/motion/not-found/magnetic.tsx",
+        "components/motion/not-found/shared.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/not-found/magnetic.tsx",
+        "components/motion/not-found/shared.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/not-found/magnetic.tsx",
+        "components/motion/not-found/shared.tsx"
+      ]
+    },
+    {
+      "key": "not-found-spotlight",
+      "installSlug": "not-found-spotlight",
+      "category": "blocks",
+      "sourceFile": "components/motion/not-found/spotlight.tsx",
+      "usageFile": "components/examples/blocks/not-found-spotlight.example.tsx",
+      "requiredGraph": [
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/spotlight.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/spotlight.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/spotlight.tsx"
+      ]
+    },
+    {
+      "key": "not-found-stacked",
+      "installSlug": "not-found-stacked",
+      "category": "blocks",
+      "sourceFile": "components/motion/not-found/stacked.tsx",
+      "usageFile": "components/examples/blocks/not-found-stacked.example.tsx",
+      "requiredGraph": [
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/stacked.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/stacked.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/stacked.tsx"
+      ]
+    },
+    {
+      "key": "not-found-terminal",
+      "installSlug": "not-found-terminal",
+      "category": "blocks",
+      "sourceFile": "components/motion/not-found/terminal.tsx",
+      "usageFile": "components/examples/blocks/not-found-terminal.example.tsx",
+      "requiredGraph": [
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/terminal.tsx",
+        "components/motion/text-reveal.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/terminal.tsx",
+        "components/motion/text-reveal.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/terminal.tsx",
+        "components/motion/text-reveal.tsx"
+      ]
+    },
+    {
+      "key": "step-form",
+      "installSlug": "step-form",
+      "category": "blocks",
+      "sourceFile": "components/motion/step-form.tsx",
+      "usageFile": "components/examples/blocks/step-form.example.tsx",
+      "requiredGraph": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/input.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/step-form.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/input.tsx",
+        "components/motion/step-form.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/input.tsx",
+        "components/motion/step-form.tsx"
+      ]
+    },
+    {
+      "key": "empty-state",
+      "installSlug": "empty-state",
+      "category": "blocks",
+      "sourceFile": "components/motion/empty-state/index.tsx",
+      "usageFile": "components/examples/blocks/empty-state.example.tsx",
+      "requiredGraph": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/empty-state/archive.tsx",
+        "components/motion/empty-state/inbox.tsx",
+        "components/motion/empty-state/index.tsx",
+        "components/motion/empty-state/search.tsx",
+        "components/motion/empty-state/shared.tsx",
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/empty-state/archive.tsx",
+        "components/motion/empty-state/inbox.tsx",
+        "components/motion/empty-state/index.tsx",
+        "components/motion/empty-state/search.tsx",
+        "components/motion/empty-state/shared.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/empty-state/archive.tsx",
+        "components/motion/empty-state/inbox.tsx",
+        "components/motion/empty-state/index.tsx",
+        "components/motion/empty-state/search.tsx",
+        "components/motion/empty-state/shared.tsx"
+      ]
+    },
+    {
+      "key": "empty-state-inbox",
+      "installSlug": "empty-state-inbox",
+      "category": "blocks",
+      "sourceFile": "components/motion/empty-state/inbox.tsx",
+      "usageFile": "components/examples/blocks/empty-state-inbox.example.tsx",
+      "requiredGraph": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/empty-state/inbox.tsx",
+        "components/motion/empty-state/shared.tsx",
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/empty-state/inbox.tsx",
+        "components/motion/empty-state/shared.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/empty-state/inbox.tsx",
+        "components/motion/empty-state/shared.tsx"
+      ]
+    },
+    {
+      "key": "empty-state-archive",
+      "installSlug": "empty-state-archive",
+      "category": "blocks",
+      "sourceFile": "components/motion/empty-state/archive.tsx",
+      "usageFile": "components/examples/blocks/empty-state-archive.example.tsx",
+      "requiredGraph": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/empty-state/archive.tsx",
+        "components/motion/empty-state/shared.tsx",
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/empty-state/archive.tsx",
+        "components/motion/empty-state/shared.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/empty-state/archive.tsx",
+        "components/motion/empty-state/shared.tsx"
+      ]
+    },
+    {
+      "key": "empty-state-search",
+      "installSlug": "empty-state-search",
+      "category": "blocks",
+      "sourceFile": "components/motion/empty-state/search.tsx",
+      "usageFile": "components/examples/blocks/empty-state-search.example.tsx",
+      "requiredGraph": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/empty-state/search.tsx",
+        "components/motion/empty-state/shared.tsx",
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/empty-state/search.tsx",
+        "components/motion/empty-state/shared.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/empty-state/search.tsx",
+        "components/motion/empty-state/shared.tsx"
+      ]
+    },
+    {
+      "key": "prompt-bar",
+      "installSlug": "prompt-bar",
+      "category": "blocks",
+      "sourceFile": "components/motion/prompt-bar.tsx",
+      "usageFile": "components/examples/blocks/prompt-bar.example.tsx",
+      "requiredGraph": [
+        "components/motion/prompt-bar.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/prompt-bar.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/prompt-bar.tsx"
+      ]
+    },
+    {
+      "key": "prompt-input",
+      "installSlug": "prompt-input",
+      "category": "blocks",
+      "sourceFile": "components/agents/prompt-input.tsx",
+      "usageFile": "components/examples/blocks/prompt-input.example.tsx",
+      "requiredGraph": [
+        "components/agents/prompt-input.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/select.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/prompt-input.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/select.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/prompt-input.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/select.tsx"
+      ]
+    },
+    {
+      "key": "todo-list",
+      "installSlug": "todo-list",
+      "category": "blocks",
+      "sourceFile": "components/agents/todo-list.tsx",
+      "usageFile": "components/examples/blocks/todo-list.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/todo-list.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/todo-list.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/todo-list.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx"
+      ]
+    },
+    {
+      "key": "code-block",
+      "installSlug": "code-block",
+      "category": "blocks",
+      "sourceFile": "components/agents/code-block.tsx",
+      "usageFile": "components/examples/blocks/code-block.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-code.tsx",
+        "components/agents/code-block.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-code.tsx",
+        "components/agents/code-block.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-code.tsx",
+        "components/agents/code-block.tsx"
+      ]
+    },
+    {
+      "key": "approval-card",
+      "installSlug": "approval-card",
+      "category": "blocks",
+      "sourceFile": "components/agents/approval-card/index.tsx",
+      "usageFile": "components/examples/blocks/approval-card.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/approval-card/index.tsx",
+        "components/agents/approval-card/types.ts",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/checkbox.tsx",
+        "components/motion/input.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/radio.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/approval-card/index.tsx",
+        "components/agents/approval-card/types.ts",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "components/motion/checkbox.tsx",
+        "components/motion/input.tsx",
+        "components/motion/radio.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/approval-card/index.tsx",
+        "components/agents/approval-card/types.ts",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "components/motion/checkbox.tsx",
+        "components/motion/input.tsx",
+        "components/motion/radio.tsx"
+      ]
+    },
+    {
+      "key": "file-diff",
+      "installSlug": "file-diff",
+      "category": "blocks",
+      "sourceFile": "components/agents/file-diff.tsx",
+      "usageFile": "components/examples/blocks/file-diff.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/file-diff.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/file-diff.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/file-diff.tsx"
+      ]
+    },
+    {
+      "key": "tool-result",
+      "installSlug": "tool-result",
+      "category": "blocks",
+      "sourceFile": "components/agents/tool-result.tsx",
+      "usageFile": "components/examples/blocks/tool-result.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-result.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-result.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-result.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx"
+      ]
+    },
+    {
+      "key": "streaming-response",
+      "installSlug": "streaming-response",
+      "category": "blocks",
+      "sourceFile": "components/agents/streaming-response.tsx",
+      "usageFile": "components/examples/blocks/streaming-response.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/citations.tsx",
+        "components/agents/streaming-response.tsx",
+        "lib/ease.ts",
+        "lib/favicon.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/citations.tsx",
+        "components/agents/streaming-response.tsx",
+        "lib/favicon.ts"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/citations.tsx",
+        "components/agents/streaming-response.tsx",
+        "lib/favicon.ts"
+      ]
+    },
+    {
+      "key": "image-generation",
+      "installSlug": "image-generation",
+      "category": "blocks",
+      "sourceFile": "components/agents/image-generation.tsx",
+      "usageFile": "components/examples/blocks/image-generation.example.tsx",
+      "requiredGraph": [
+        "components/agents/image-generation.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/image-generation.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/image-generation.tsx"
+      ]
+    },
+    {
+      "key": "tool-approval",
+      "installSlug": "tool-approval",
+      "category": "blocks",
+      "sourceFile": "components/agents/tool-approval.tsx",
+      "usageFile": "components/examples/blocks/tool-approval.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-approval.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-approval.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-approval.tsx"
+      ]
+    },
+    {
+      "key": "agent-activity",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ]
+    },
+    {
+      "key": "reasoning-text",
+      "installSlug": "reasoning-text",
+      "category": "blocks",
+      "sourceFile": "components/agents/loading-states/reasoning-text.tsx",
+      "usageFile": "components/examples/blocks/reasoning-text.example.tsx",
+      "requiredGraph": [
+        "components/agents/loading-states/reasoning-text.tsx",
+        "components/agents/loading-states/text-shimmer-style.ts",
+        "components/motion/loader.tsx",
+        "components/motion/text-scramble.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/loading-states/reasoning-text.tsx",
+        "components/agents/loading-states/text-shimmer-style.ts",
+        "components/motion/loader.tsx",
+        "components/motion/text-scramble.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/loading-states/reasoning-text.tsx",
+        "components/agents/loading-states/text-shimmer-style.ts",
+        "components/motion/loader.tsx",
+        "components/motion/text-scramble.tsx"
+      ]
+    },
+    {
+      "key": "agent-progress",
+      "installSlug": "agent-progress",
+      "category": "blocks",
+      "sourceFile": "components/agents/loading-states/agent-progress.tsx",
+      "usageFile": "components/examples/blocks/agent-progress.example.tsx",
+      "requiredGraph": [
+        "components/agents/loading-states/agent-progress.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/loading-states/agent-progress.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/loading-states/agent-progress.tsx"
+      ]
+    },
+    {
+      "key": "ai-sidebar",
+      "installSlug": "ai-sidebar",
+      "category": "blocks",
+      "sourceFile": "components/agents/ai-sidebar/index.tsx",
+      "usageFile": "components/examples/blocks/ai-sidebar.example.tsx",
+      "requiredGraph": [
+        "components/agents/ai-sidebar/index.tsx",
+        "components/agents/ai-sidebar/marquee-label.tsx",
+        "components/agents/ai-sidebar/resource-menu.tsx",
+        "components/agents/ai-sidebar/resource-row.tsx",
+        "components/agents/ai-sidebar/tree-utils.ts",
+        "components/agents/ai-sidebar/types.ts",
+        "components/motion/popover-morph.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/hooks/use-touch-capable.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/ai-sidebar/index.tsx",
+        "components/agents/ai-sidebar/marquee-label.tsx",
+        "components/agents/ai-sidebar/resource-menu.tsx",
+        "components/agents/ai-sidebar/resource-row.tsx",
+        "components/agents/ai-sidebar/tree-utils.ts",
+        "components/agents/ai-sidebar/types.ts",
+        "components/motion/popover-morph.tsx",
+        "lib/hooks/use-touch-capable.ts"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/ai-sidebar/index.tsx",
+        "components/agents/ai-sidebar/marquee-label.tsx",
+        "components/agents/ai-sidebar/resource-menu.tsx",
+        "components/agents/ai-sidebar/resource-row.tsx",
+        "components/agents/ai-sidebar/tree-utils.ts",
+        "components/agents/ai-sidebar/types.ts",
+        "components/motion/popover-morph.tsx",
+        "lib/hooks/use-touch-capable.ts"
+      ]
+    },
+    {
+      "key": "reasoning",
+      "installSlug": "reasoning",
+      "category": "blocks",
+      "sourceFile": "components/agents/reasoning.tsx",
+      "usageFile": "components/examples/blocks/reasoning.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/agents/reasoning.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/agents/reasoning.tsx",
+        "components/motion/text-shimmer.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/agents/reasoning.tsx",
+        "components/motion/text-shimmer.tsx"
+      ]
+    },
+    {
+      "key": "chain-of-thought",
+      "installSlug": "chain-of-thought",
+      "category": "blocks",
+      "sourceFile": "components/agents/chain-of-thought.tsx",
+      "usageFile": "components/examples/blocks/chain-of-thought.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/chain-of-thought.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/chain-of-thought.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/chain-of-thought.tsx"
+      ]
+    },
+    {
+      "key": "sources",
+      "installSlug": "sources",
+      "category": "blocks",
+      "sourceFile": "components/agents/sources.tsx",
+      "usageFile": "components/examples/blocks/sources.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/sources.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/sources.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/sources.tsx"
+      ]
+    },
+    {
+      "key": "inline-citation",
+      "installSlug": "inline-citation",
+      "category": "blocks",
+      "sourceFile": "components/agents/inline-citation.tsx",
+      "usageFile": "components/examples/blocks/inline-citation.example.tsx",
+      "requiredGraph": [
+        "components/agents/inline-citation.tsx",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/inline-citation.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/inline-citation.tsx"
+      ]
+    },
+    {
+      "key": "plan",
+      "installSlug": "plan",
+      "category": "blocks",
+      "sourceFile": "components/agents/plan.tsx",
+      "usageFile": "components/examples/blocks/plan.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/agents/plan.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/agents/plan.tsx",
+        "components/motion/text-shimmer.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/agents/plan.tsx",
+        "components/motion/text-shimmer.tsx"
+      ]
+    },
+    {
+      "key": "task",
+      "installSlug": "task",
+      "category": "blocks",
+      "sourceFile": "components/agents/task.tsx",
+      "usageFile": "components/examples/blocks/task.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/task.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/task.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/task.tsx"
+      ]
+    },
+    {
+      "key": "queue",
+      "installSlug": "queue",
+      "category": "blocks",
+      "sourceFile": "components/agents/queue.tsx",
+      "usageFile": "components/examples/blocks/queue.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/queue.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/queue.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/queue.tsx"
+      ]
+    },
+    {
+      "key": "confirmation",
+      "installSlug": "confirmation",
+      "category": "blocks",
+      "sourceFile": "components/agents/confirmation.tsx",
+      "usageFile": "components/examples/blocks/confirmation.example.tsx",
+      "requiredGraph": [
+        "components/agents/confirmation.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/confirmation.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/confirmation.tsx"
+      ]
+    },
+    {
+      "key": "suggestion",
+      "installSlug": "suggestion",
+      "category": "blocks",
+      "sourceFile": "components/agents/suggestion.tsx",
+      "usageFile": "components/examples/blocks/suggestion.example.tsx",
+      "requiredGraph": [
+        "components/agents/suggestion.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/suggestion.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/suggestion.tsx"
+      ]
+    },
+    {
+      "key": "jsx-preview",
+      "installSlug": "jsx-preview",
+      "category": "blocks",
+      "sourceFile": "components/agents/jsx-preview.tsx",
+      "usageFile": "components/examples/blocks/jsx-preview.example.tsx",
+      "requiredGraph": [
+        "components/agents/jsx-preview.tsx",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/jsx-preview.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/jsx-preview.tsx"
+      ]
+    },
+    {
+      "key": "collapsible-sidebar",
+      "installSlug": "collapsible-sidebar",
+      "category": "blocks",
+      "sourceFile": "components/motion/collapsible-sidebar.tsx",
+      "usageFile": "components/examples/blocks/collapsible-sidebar.example.tsx",
+      "requiredGraph": [
+        "components/motion/collapsible-sidebar.tsx",
+        "components/motion/startup-visuals-icons.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/collapsible-sidebar.tsx",
+        "components/motion/startup-visuals-icons.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/collapsible-sidebar.tsx",
+        "components/motion/startup-visuals-icons.tsx"
+      ]
+    },
+    {
+      "key": "upgrade-paywall",
+      "installSlug": "upgrade-paywall",
+      "category": "blocks",
+      "sourceFile": "components/motion/upgrade-paywall.tsx",
+      "usageFile": "components/examples/blocks/upgrade-paywall.example.tsx",
+      "requiredGraph": [
+        "components/motion/startup-visuals-icons.tsx",
+        "components/motion/upgrade-paywall.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/startup-visuals-icons.tsx",
+        "components/motion/upgrade-paywall.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/startup-visuals-icons.tsx",
+        "components/motion/upgrade-paywall.tsx"
+      ]
+    },
+    {
+      "key": "view-layout-switch",
+      "installSlug": "view-layout-switch",
+      "category": "blocks",
+      "sourceFile": "components/motion/view-layout-switch.tsx",
+      "usageFile": "components/examples/blocks/view-layout-switch.example.tsx",
+      "requiredGraph": [
+        "components/motion/startup-visuals-icons.tsx",
+        "components/motion/view-layout-switch.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/startup-visuals-icons.tsx",
+        "components/motion/view-layout-switch.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/startup-visuals-icons.tsx",
+        "components/motion/view-layout-switch.tsx"
+      ]
+    },
+    {
+      "key": "billing-plan-grid",
+      "installSlug": "billing-plan-grid",
+      "category": "blocks",
+      "sourceFile": "components/motion/billing-plan-grid.tsx",
+      "usageFile": "components/examples/blocks/billing-plan-grid.example.tsx",
+      "requiredGraph": [
+        "components/motion/billing-plan-grid.tsx",
+        "components/motion/number-ticker.tsx",
+        "components/motion/startup-visuals-icons.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/motion/billing-plan-grid.tsx",
+        "components/motion/number-ticker.tsx",
+        "components/motion/startup-visuals-icons.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/motion/billing-plan-grid.tsx",
+        "components/motion/number-ticker.tsx",
+        "components/motion/startup-visuals-icons.tsx"
+      ]
+    },
+    {
+      "key": "approval-card-questions",
+      "installSlug": "approval-card",
+      "category": "blocks",
+      "sourceFile": "components/agents/approval-card/index.tsx",
+      "usageFile": "components/examples/blocks/approval-card-questions.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/approval-card/index.tsx",
+        "components/agents/approval-card/types.ts",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/checkbox.tsx",
+        "components/motion/input.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/radio.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/approval-card/index.tsx",
+        "components/agents/approval-card/types.ts",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "components/motion/checkbox.tsx",
+        "components/motion/input.tsx",
+        "components/motion/radio.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/approval-card/index.tsx",
+        "components/agents/approval-card/types.ts",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "components/motion/checkbox.tsx",
+        "components/motion/input.tsx",
+        "components/motion/radio.tsx"
+      ]
+    },
+    {
+      "key": "approval-card-review",
+      "installSlug": "approval-card",
+      "category": "blocks",
+      "sourceFile": "components/agents/approval-card/index.tsx",
+      "usageFile": "components/examples/blocks/approval-card-review.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/approval-card/index.tsx",
+        "components/agents/approval-card/types.ts",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/checkbox.tsx",
+        "components/motion/input.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/radio.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/approval-card/index.tsx",
+        "components/agents/approval-card/types.ts",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "components/motion/checkbox.tsx",
+        "components/motion/input.tsx",
+        "components/motion/radio.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/approval-card/index.tsx",
+        "components/agents/approval-card/types.ts",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "components/motion/checkbox.tsx",
+        "components/motion/input.tsx",
+        "components/motion/radio.tsx"
+      ]
+    },
+    {
+      "key": "tool-result-terminal-output",
+      "installSlug": "tool-result",
+      "category": "blocks",
+      "sourceFile": "components/agents/tool-result.tsx",
+      "usageFile": "components/examples/blocks/tool-result-terminal-output.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-result.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-result.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-result.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx"
+      ]
+    },
+    {
+      "key": "tool-result-request-result",
+      "installSlug": "tool-result",
+      "category": "blocks",
+      "sourceFile": "components/agents/tool-result.tsx",
+      "usageFile": "components/examples/blocks/tool-result-request-result.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-result.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-result.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-result.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx"
+      ]
+    },
+    {
+      "key": "agent-activity-streaming-text",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity-streaming-text.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ]
+    },
+    {
+      "key": "agent-activity-reasoning-steps",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity-reasoning-steps.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ]
+    },
+    {
+      "key": "agent-activity-web-search",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity-web-search.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ]
+    },
+    {
+      "key": "agent-activity-tool-calls",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity-tool-calls.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ]
+    },
+    {
+      "key": "agent-activity-mixed-activity",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity-mixed-activity.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ]
+    },
+    {
+      "key": "agent-activity-activity-trace",
+      "installSlug": "agent-activity",
+      "category": "blocks",
+      "sourceFile": "components/agents/agent-activity/index.tsx",
+      "usageFile": "components/examples/blocks/agent-activity-activity-trace.example.tsx",
+      "requiredGraph": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "lib/utils.ts"
+      ],
+      "reason": "outside-installed-graph",
+      "missingGraphFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ],
+      "missingInstalledFiles": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx"
+      ]
+    }
+  ],
+  "installedRecipes": [
+    "agent-workbench"
+  ]
+}

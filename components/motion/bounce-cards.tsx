@@ -1,7 +1,8 @@
 // Ported from motion-anything (nexu-io, Apache-2.0); upstream: reactbits.dev "Bounce Cards", redistributed with permission.
 "use client";
 
-import { motion, useInView, useReducedMotion, type Transition } from "motion/react";
+import { motion, useInView, type Transition } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { useRef, type ReactNode } from "react";
 import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";

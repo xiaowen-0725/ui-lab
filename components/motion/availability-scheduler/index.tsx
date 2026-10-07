@@ -1,6 +1,7 @@
 "use client";
 
-import { LayoutGroup, useReducedMotion } from "motion/react";
+import { LayoutGroup } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { useCallback, useId, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { DayRow } from "./day-row";

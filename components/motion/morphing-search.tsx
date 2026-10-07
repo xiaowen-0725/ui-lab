@@ -3,13 +3,8 @@
 // Ported from beUI (starc007/ui-components, MIT).
 
 import { type LucideIcon, Search } from "lucide-react";
-import {
-  AnimatePresence,
-  LayoutGroup,
-  motion,
-  type Transition,
-  useReducedMotion,
-} from "motion/react";
+import { AnimatePresence, LayoutGroup, motion, type Transition } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import {
   type KeyboardEvent as ReactKeyboardEvent,
   useCallback,

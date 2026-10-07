@@ -1,12 +1,7 @@
 "use client";
 
-import {
-  type MotionValue,
-  motion,
-  useReducedMotion,
-  useSpring,
-  useTransform,
-} from "motion/react";
+import { type MotionValue, motion, useSpring, useTransform } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 
 import { useSmoothScroll } from "@/components/motion/smooth-scroll";
 import { cn } from "@/lib/utils";

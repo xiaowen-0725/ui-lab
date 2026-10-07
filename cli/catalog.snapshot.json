@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T15:44:11.595Z",
+  "generatedAt": "2026-10-07T04:34:40.777Z",
   "count": 558,
   "items": [
     {
@@ -824,10 +824,11 @@
         "components/motion/agent-composer/autonomy-dial.tsx",
         "components/motion/agent-composer/effort-slider.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/motion/agent-thread/cards.tsx",
         "components/motion/agent-thread/status.tsx"
       ],
-      "sourceVersion": "2eb686a78e2a3a5483dc4eff7c7194e74c071ec669ad512076cce12b73d4bb34",
+      "sourceVersion": "f74205528ddd15192d71ea6f26af6f745a8631abbf7cd347c2b918fee88b7fdf",
       "installTargets": [
         "workbench-conversation-page"
       ]
@@ -875,9 +876,10 @@
         "components/pages/page-state.tsx",
         "components/motion/artifact-panel/index.tsx",
         "lib/utils.ts",
-        "lib/ease.ts"
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "c0383a3b8ee55483c3ae321eff673372d9c2f90beb6b33501737db46ff4eba43",
+      "sourceVersion": "0e659df44a66cfc4bf351a259e704af0ccaa980aed4bb2024c95e71dfcfbac0c",
       "installTargets": [
         "workbench-artifact-page"
       ]
@@ -932,9 +934,10 @@
         "components/motion/switch.tsx",
         "lib/utils.ts",
         "lib/color.ts",
-        "lib/ease.ts"
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "6289889fb48e7b7b16cf611d113faaede346bef0316754ff0f62446239be56f2",
+      "sourceVersion": "3f55bdc06ba721f5299e63057e40b3ab36ab2c96cb2656132c46bcfc3b57f886",
       "installTargets": [
         "workbench-settings-page"
       ]
@@ -1017,6 +1020,7 @@
         "components/motion/agent-workbench/resize-handle.tsx",
         "components/motion/agent-workbench/summary-card.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/pages/page-state.tsx",
         "components/motion/artifact-panel/index.tsx",
         "components/motion/agent-composer/index.tsx",
@@ -1029,7 +1033,7 @@
         "components/motion/agent-thread/status.tsx",
         "lib/color.ts"
       ],
-      "sourceVersion": "5e3479b014048b1de5ce6d71b3016a401db8b3f0b6d5d36022f2f2ab946552c2",
+      "sourceVersion": "0ed4a63d677cf2f9768a17a948cb8c3a7eb03ecd617c3c67e225d01ce957fb84",
       "installTargets": [
         "agent-workbench-site"
       ]
@@ -1058,9 +1062,10 @@
         "components/motion/tilt-card.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "41928e285f04e8435f9553d1e6050a68c0ec748f77fb7fef60b7ddd29e9138bf",
+      "sourceVersion": "63866aae16ba9b6dcae97c52a646f17144f4e12a422f781f30a68517735fff8e",
       "installTargets": [
         "tilt-card"
       ]
@@ -1097,10 +1102,11 @@
         "components/motion/button/metallic.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "0e5419f41a4483c79eb5fe1dceeaf520fce356765ec6ddbd5cc85344b12204e3",
+      "sourceVersion": "e03272198f3f8330076f790086b3b106c487785c295d2f7f9c87513adb322777",
       "installTargets": [
         "button",
         "button-base",
@@ -1133,9 +1139,10 @@
         "components/motion/button/base.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "ec7bf3e8e128af45f31277c035abde1bc4245d59098ae0f097d449a8ce5a8254",
+      "sourceVersion": "f19251969232b94a873fe2520754d4ec45e5b127bbcbb14fd33bed9b0e531fca",
       "installTargets": [
         "button",
         "button-base",
@@ -1168,10 +1175,11 @@
         "components/motion/button/stateful.tsx",
         "components/motion/button/base.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/hooks/use-hover-capable.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "baaf0762186a81ca828fa16ccafad201714f7cf20770da04ffee2ffbd17af051",
+      "sourceVersion": "1333db22f6aab41ba16f02ac1b0a59303a6a7c3e5951d9e6466683fd5602c396",
       "installTargets": [
         "button",
         "button-base",
@@ -1206,9 +1214,10 @@
         "components/motion/button/base.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "1bbddfefbdb8e1f699df63032d4eb7ec3c489b8cfdeffbc43db886a95ba73cbe",
+      "sourceVersion": "f527925d631644a7a5ef7b274410a666fe54d9aa6a4016f3ec151f2d3a313b36",
       "installTargets": [
         "button",
         "button-base",
@@ -1241,10 +1250,11 @@
         "components/motion/button/metallic.tsx",
         "components/motion/button/base.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "lib/hooks/use-hover-capable.ts"
       ],
-      "sourceVersion": "dd1db7d0e18496b8e181c8ec9f4d03d705f77c027318d76a43307d9a50d24e4b",
+      "sourceVersion": "e3f25cb210ee18ad9dbb89157029c397fba12ddea5804f7b861d7f51d1ebf9a8",
       "installTargets": [
         "button",
         "button-base",
@@ -1305,9 +1315,10 @@
       "installationFiles": [
         "components/motion/tabs.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "ff364bb91959d3fa585480513991c6ac5f13c6397456a1572e72b9eaf77f239d",
+      "sourceVersion": "3f8d55eec8bbe76a683ba91d5f61802f58798f072ee81fc383bb9ff96bb38c30",
       "installTargets": [
         "tabs"
       ]
@@ -1334,9 +1345,10 @@
       ],
       "installationFiles": [
         "components/motion/switch.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "419aa0898ec5a901fdd5e033a3fa541b84cf58db48a71341e35e245564a65b21",
+      "sourceVersion": "eb6db66bf0788d0641cf89c3cf9a67f0d3c16b8990e07c20cc62c0286fde868e",
       "installTargets": [
         "switch"
       ]
@@ -1369,9 +1381,10 @@
       ],
       "installationFiles": [
         "components/motion/input.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "de51e9f068a1fce1d8f4b439aa455d10170854b46e1fb7e88bc02be475556294",
+      "sourceVersion": "fbe5ff6cf12a020b0b1b2a6b3a1c748805f47e39a3d18fc21b319a90cf2125e2",
       "installTargets": [
         "input"
       ]
@@ -1399,9 +1412,10 @@
       "installationFiles": [
         "components/motion/select.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "c2bc89ffdde89e64b46a91f11e30efb821c15692ad781c454f776be2710a13e7",
+      "sourceVersion": "2210dcb4d1c4c9ad88b614e87e6c42c346ebf5f33850eb908efdfa2f07611261",
       "installTargets": [
         "select",
         "select-morph"
@@ -1429,9 +1443,10 @@
       ],
       "installationFiles": [
         "components/motion/select-morph.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "e44f2eef9be53c120557a5b203840b8abcacb6c1e7773a998747397f5b3f7718",
+      "sourceVersion": "e87a170831f48250e61a5c85a1ec3ece2259058f5dca6f61b6628cda3d87da18",
       "installTargets": [
         "select",
         "select-morph"
@@ -1460,9 +1475,10 @@
       "installationFiles": [
         "components/motion/checkbox.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "fe09a40deb2d36e83a350a0b493acd9fae025f64ee6c7f9ef83098dc2d15bfa5",
+      "sourceVersion": "09a02004a2caced170c948037e9b30e81b5ae160acfa7caa68efb2d04ac9c1e7",
       "installTargets": [
         "checkbox"
       ]
@@ -1490,9 +1506,10 @@
       "installationFiles": [
         "components/motion/radio.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "fa7d715ed11c1945e0792a1e62595dcc3c764a6230334e62e7c03252e4dcc897",
+      "sourceVersion": "86a6b270d188c2689e2c51d547dcb0b0d62af154ca77812bbf9be0381bc37fd4",
       "installTargets": [
         "radio"
       ]
@@ -1521,11 +1538,12 @@
         "components/motion/bottom-sheet.tsx",
         "components/ui/modal.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "lib/hooks/use-modal-dialog.ts",
         "lib/hooks/use-modal-scroll-lock.ts"
       ],
-      "sourceVersion": "ae0687adb754b722754d150fd16874ef89ecc7baa2ff7f04d411fe83168758a5",
+      "sourceVersion": "fa3d79010419f4e4077209793cfa962d1522a637b7da15fa53b3e0b6d74ef807",
       "installTargets": [
         "bottom-sheet"
       ]
@@ -1553,9 +1571,10 @@
       "installationFiles": [
         "components/motion/shared-layout-bg.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "c9c80e215dc12be68767d814fab19077e1ccf1fdd750d45e5c7831ae5d9f9cbc",
+      "sourceVersion": "87cea3f5a67bd9f1611ced792389d2e9257c69e7164511e07beedd96322b0f88",
       "installTargets": [
         "shared-layout-bg"
       ]
@@ -1595,9 +1614,10 @@
         "components/motion/preview-rail.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "070fd1ed2a0ae3ab28430c4dd9f988343a14982b877c951bb546e0107c2d4fd0",
+      "sourceVersion": "235a83f400b8f078900f46322fd61085ba118f43ade96c202703779a406fda01",
       "installTargets": [
         "preview-rail"
       ]
@@ -1625,9 +1645,10 @@
       "installationFiles": [
         "components/motion/dock.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "2a988e75a27dc1b4c0d990040547dc50c9a048bd77957a8f1d4d7a813161239c",
+      "sourceVersion": "4216117971e3966dc02a2c6353c18f3b599c7074f8ee5ed75e0d2ee02082a230",
       "installTargets": [
         "dock"
       ]
@@ -1661,9 +1682,10 @@
         "components/motion/tooltip.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "a6f422718b86d4bbbac3a572427ee927ef444faebb839675c64229368017e7b7",
+      "sourceVersion": "fb8eed31c068953ed4e22b584a896345f84a8fe0b2e25cd069922d79b0ddccf3",
       "installTargets": [
         "tooltip",
         "tooltip-morph"
@@ -1698,9 +1720,10 @@
         "components/motion/tooltip-morph.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "12b6a2f23ec4956346044aa386886b284a0d1b9477256f0d4408a0919330413f",
+      "sourceVersion": "e5367b1284846206b226a4ceaffd9fff4b09e23e914b28db615072fb8b437ed8",
       "installTargets": [
         "tooltip",
         "tooltip-morph"
@@ -1737,9 +1760,10 @@
       ],
       "installationFiles": [
         "components/motion/popover.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "2d32bcddd4328362ed781122944026172c3349f728827912d08592108340d72f",
+      "sourceVersion": "42d5ad7f05157aacd78ba805cbc74877b09d4f58da646020121b14479bc6bf6d",
       "installTargets": [
         "popover",
         "popover-morph"
@@ -1777,9 +1801,10 @@
       "installationFiles": [
         "components/motion/popover-morph.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "b05b70e0dca96a25aa3cd75e054af8ea3728f70e37196e42d08f5dfef5d20f79",
+      "sourceVersion": "8d7b6299c5834348f6151c75adfc93ae7bb364f7c6d409810ddab29fe6a34f83",
       "installTargets": [
         "popover",
         "popover-morph"
@@ -1808,9 +1833,10 @@
       "installationFiles": [
         "components/motion/morphing-modal.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "9b4c329376edfdb643ad96193a14a9aa28fb5f643b4931a446f53fd0a996f34d",
+      "sourceVersion": "57e5d9672c3458f9dde530aea6d5cb0c0fa46e7fb5a4d963ef9295ed19b5c033",
       "installTargets": [
         "morphing-modal"
       ]
@@ -1842,10 +1868,11 @@
         "components/motion/text-shimmer.tsx",
         "components/motion/text-cascade.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/action-swap.tsx"
       ],
-      "sourceVersion": "516c00e1cb8ec5dc9a8362b298590a007d674015e6984aed7e15b95ac82d7097",
+      "sourceVersion": "29021bba21b99231df7b43f8beeeb4c5d6d552126e6d32119b20121e14277520",
       "installTargets": [
         "text-animation",
         "text-reveal",
@@ -1876,9 +1903,10 @@
       "installationFiles": [
         "components/motion/text-reveal.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "ea37ae85daaef908fcb03b6881dd679d08161d05bcff8739a537d28e47223507",
+      "sourceVersion": "b1f752005d86fc121d89ae526feb9c9dc69fbaf265c1c16c1485c321daa01b06",
       "installTargets": [
         "text-animation",
         "text-reveal",
@@ -1942,9 +1970,10 @@
         "components/motion/text-cascade.tsx",
         "components/motion/action-swap.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "46ab19661b321ff2d76b04af62bd5cf557a353ed37addb14bf56e1d66a497108",
+      "sourceVersion": "c00e950b9ef435955360f01421d68683bd81928cb1db546ecad73ae9cce8167e",
       "installTargets": [
         "text-animation",
         "text-reveal",
@@ -1977,9 +2006,10 @@
         "components/motion/animated-number.tsx",
         "components/motion/number-ticker.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "f8a475879c91f3af1ee0670a4be568584862082eada701e40e7c192374cf670c",
+      "sourceVersion": "2376ae650bf60de8caee87f98412885fc8f291f5bb963e0bbfdf231abda24ab5",
       "installTargets": [
         "number",
         "number-ticker",
@@ -2009,9 +2039,10 @@
       "installationFiles": [
         "components/motion/number-ticker.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "cfa93de18f5b0ec782373f8c9caa954e6a1a96a82fab88c4e9a72c1c1cf9a670",
+      "sourceVersion": "4ca96ad8eae322c4046fcca0452b0c40794026a994b213b2d0445c7b7a0c9a8c",
       "installTargets": [
         "number",
         "number-ticker",
@@ -2041,9 +2072,10 @@
       "installationFiles": [
         "components/motion/animated-number.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "46fad9be20cf63e3aca3341621f4f63be5d3c0767c401c7c8c64fff0cd25dc92",
+      "sourceVersion": "0056421de50a01a301d5b33d93fab8dc4fa0564d96737e197348b25ced4b980d",
       "installTargets": [
         "number",
         "number-ticker",
@@ -2073,9 +2105,10 @@
       "installationFiles": [
         "components/motion/animated-badge.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "37cdfa0d62448e56f1e900bf4f7b685413eb867067f34c0d58886092ab8ed7c3",
+      "sourceVersion": "f1bef1c0d05e0d84fe78dbf25c475de4bba39d3bf3230e26929898afa2e650ef",
       "installTargets": [
         "animated-badge"
       ]
@@ -2109,9 +2142,10 @@
         "components/motion/action-swap-blur.tsx",
         "components/motion/action-swap-roll.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "09f9677e65760cdb5195272098c08b53b1138a4f90ec9aa662a121fe783760cf",
+      "sourceVersion": "7378d9997f417fc06ac7593e84aeab4147553336c499518d090186854459f3f1",
       "installTargets": [
         "action-swap",
         "action-swap-cascade",
@@ -2143,9 +2177,10 @@
         "components/motion/action-swap-cascade.tsx",
         "components/motion/action-swap.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "76c2a01a9472fb90afc119576d09d66106689759c20a2ceae5ef4d769f80d168",
+      "sourceVersion": "6d08ac00363647d74b1e245a03755ea7f119637e53fda3ff108989fc9df2500c",
       "installTargets": [
         "action-swap",
         "action-swap-cascade",
@@ -2177,9 +2212,10 @@
         "components/motion/action-swap-blur.tsx",
         "components/motion/action-swap.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "e9efc0a21c900e12cacf30a3b63223df2cf65a5bf12804915dd9f020c2318fb1",
+      "sourceVersion": "9a3c3c4fa6ee96cca0c5e853ca61e9b221c223534214dd729255b2c1e33d5461",
       "installTargets": [
         "action-swap",
         "action-swap-cascade",
@@ -2211,9 +2247,10 @@
         "components/motion/action-swap-roll.tsx",
         "components/motion/action-swap.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "c62b0c1e04266deefa827df16efc29cf41b66083c1d0f79a7149dac9415a66c1",
+      "sourceVersion": "e87a61e180829b3e06a885a7e52e8471b98571e113452bda7118c0fa0e900452",
       "installTargets": [
         "action-swap",
         "action-swap-cascade",
@@ -2244,9 +2281,10 @@
       "installationFiles": [
         "components/motion/animated-toast-stack.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "692f4075fac85d1359f33c2554dbef0d5715f3f6bd436598acf05437f7eca459",
+      "sourceVersion": "6c4f3100179cb13311e3d2508edcaffc80234240cfd332479b1b8e8496841dc8",
       "installTargets": [
         "animated-toast-stack"
       ]
@@ -2274,10 +2312,11 @@
       "installationFiles": [
         "components/motion/theme-toggle.tsx",
         "components/motion/action-swap.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "lib/ease.ts"
       ],
-      "sourceVersion": "a917ef2efb883158092664710c544cd0ebff76254be6ee5e0d5b018f08b2b5e4",
+      "sourceVersion": "2aaa6c962c8b24a95e9b1e532758edf62b8b6e8b106959282f04eebde90f4219",
       "installTargets": [
         "theme-toggle"
       ]
@@ -2305,9 +2344,10 @@
       "installationFiles": [
         "components/motion/bouncy-accordion.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "11784085063c76a010657e4493ebc01c193342b777ebf22fe5e76b9cf0d56ad5",
+      "sourceVersion": "31fb5b657f696ed9a18fd94712ec5ea20b3ede65b0e374f3c443dd5a78c22dd7",
       "installTargets": [
         "bouncy-accordion"
       ]
@@ -2336,11 +2376,12 @@
         "components/motion/drawer.tsx",
         "components/ui/modal.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "lib/hooks/use-modal-dialog.ts",
         "lib/hooks/use-modal-scroll-lock.ts"
       ],
-      "sourceVersion": "c9456b63db773cb9392d2848bc93262c50cceca2e9d352c48c148641b5e94c0b",
+      "sourceVersion": "d0f3aca29416b34659282054a980ef9ed99638fac511c81831fd4be678553240",
       "installTargets": [
         "drawer"
       ]
@@ -2382,10 +2423,11 @@
         "components/motion/parallax.tsx",
         "components/motion/scroll-to.tsx",
         "components/motion/scroll-reveal.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "lib/ease.ts"
       ],
-      "sourceVersion": "5182b11b4e199996c37110b7832361406ed11d7e0dd1cb6365dfbcefa822e16c",
+      "sourceVersion": "ac3adaeed84d2d2ff585bc6c5c9ac17716d07d0c7908b334bcdf7d8f61259a64",
       "installTargets": [
         "scroll-animation",
         "smooth-scroll",
@@ -2423,9 +2465,10 @@
         "components/motion/smooth-scroll.tsx"
       ],
       "installationFiles": [
-        "components/motion/smooth-scroll.tsx"
+        "components/motion/smooth-scroll.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "14866955b9d2f3220071e194266f3f966b00f9844067d13672409a20f367b535",
+      "sourceVersion": "c6f03835c5f60915db832b3097b7242b7914a5f3a7924fde5d7ecb3d2b34cc0b",
       "installTargets": [
         "scroll-animation",
         "smooth-scroll",
@@ -2465,9 +2508,10 @@
       "installationFiles": [
         "components/motion/scroll-progress.tsx",
         "components/motion/smooth-scroll.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "b1fea285700ab36032ec74bceb125326ea27d329451ffe66d100c1885b0f05a3",
+      "sourceVersion": "527a23409f53e3fe68fd476db2357f78738a815727e6e59617289bfcc0a7f72b",
       "installTargets": [
         "scroll-animation",
         "smooth-scroll",
@@ -2506,9 +2550,10 @@
       ],
       "installationFiles": [
         "components/motion/parallax.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "66e2cba835500078769af2521dbf5ab2a1938fadaee5f55a42448449737f7def",
+      "sourceVersion": "2c0d6dce34d01e86f2ebec2ad53c70399e7f91b73ad2765ebcda01b3953983e3",
       "installTargets": [
         "scroll-animation",
         "smooth-scroll",
@@ -2548,9 +2593,10 @@
       "installationFiles": [
         "components/motion/scroll-to.tsx",
         "components/motion/smooth-scroll.tsx",
-        "lib/utils.ts"
+        "lib/utils.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "d7a07e473a15c9d15f52f1c159ce468b52050a28c7dded635a239b08367100c1",
+      "sourceVersion": "46562163493925bcee5786f755d0113b9581c54935e93c0a22f5fdd3d36d7517",
       "installTargets": [
         "scroll-animation",
         "smooth-scroll",
@@ -2590,9 +2636,10 @@
       "installationFiles": [
         "components/motion/scroll-reveal.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "6ab5e96f2c2eb442b6c8d1f1825915eb24232a2ca4a214de29651e7289fb01f6",
+      "sourceVersion": "033c9277d4fbc7f323db685981459fcaa633427f1d8d0e875ee5057d41d42bc6",
       "installTargets": [
         "scroll-animation",
         "smooth-scroll",
@@ -2630,9 +2677,10 @@
       ],
       "installationFiles": [
         "components/motion/range-slider.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "00918731328efdadbe12028425055b21eb9d52b411c42fdbc05706472fe117f7",
+      "sourceVersion": "71e8117cc19ef548d129cc64867a53dea3c5b3d36d8b05617a0b637c8bc6f763",
       "installTargets": [
         "range-slider"
       ]
@@ -2668,9 +2716,10 @@
       ],
       "installationFiles": [
         "components/motion/wheel-picker.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "8ea1a4408739f0139a944402839bb464bd8c73be247e4d9193d06edf9ac73da4",
+      "sourceVersion": "e6338d680dad9283e68b03889b56f4893ad85544e3432bdf2df960964743282d",
       "installTargets": [
         "wheel-picker"
       ]
@@ -2715,11 +2764,12 @@
         "components/motion/table/use-row-selection.ts",
         "components/motion/table/utils.ts",
         "components/motion/checkbox.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/table/table-menu.tsx",
         "lib/ease.ts"
       ],
-      "sourceVersion": "56ab6cb52f4c5d3dfe1c2469214bedf6c90ef2b47e73a2211a899503d16d9915",
+      "sourceVersion": "0227a1f3ce5a0b6aea405b2dfa9ed2038ab7a0d4eac71bd536de01d34b6d0a60",
       "installTargets": [
         "table",
         "table-editable",
@@ -2766,11 +2816,12 @@
         "components/motion/table/use-row-selection.ts",
         "components/motion/table/utils.ts",
         "components/motion/checkbox.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/table/table-menu.tsx",
         "lib/ease.ts"
       ],
-      "sourceVersion": "56ab6cb52f4c5d3dfe1c2469214bedf6c90ef2b47e73a2211a899503d16d9915",
+      "sourceVersion": "0227a1f3ce5a0b6aea405b2dfa9ed2038ab7a0d4eac71bd536de01d34b6d0a60",
       "installTargets": [
         "table",
         "table-editable",
@@ -2817,11 +2868,12 @@
         "components/motion/table/use-row-selection.ts",
         "components/motion/table/utils.ts",
         "components/motion/checkbox.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/table/table-menu.tsx",
         "lib/ease.ts"
       ],
-      "sourceVersion": "56ab6cb52f4c5d3dfe1c2469214bedf6c90ef2b47e73a2211a899503d16d9915",
+      "sourceVersion": "0227a1f3ce5a0b6aea405b2dfa9ed2038ab7a0d4eac71bd536de01d34b6d0a60",
       "installTargets": [
         "table",
         "table-editable",
@@ -2857,9 +2909,10 @@
       ],
       "installationFiles": [
         "components/motion/shader-background.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "511801d430a039d7424ac80cb7bf571faf63d5719667be3788f4d0e505664aec",
+      "sourceVersion": "0995570d8ee6a4fc9be06ea07b6dc2a7682469fe3711bc872a2cddf34d356933",
       "installTargets": [
         "shader-background"
       ]
@@ -2892,9 +2945,10 @@
       ],
       "installationFiles": [
         "components/motion/cylinder-carousel.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "22be5f96caa10b45cd24c0201cc8c78bee65b9e7a139e380d9192e288fba9920",
+      "sourceVersion": "84bbe93badf01024274c4aedfe86721534229b667286218687263ecc036eea8d",
       "installTargets": [
         "cylinder-carousel"
       ]
@@ -2928,9 +2982,10 @@
       "installationFiles": [
         "components/motion/loader.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "8cec6fdac0f9a26f541df0d5a9c94c180730493ab33ac998c7516862f10690f4",
+      "sourceVersion": "e99a64a0e5af9468796c2c52c39ddd838cbc5a6ae48cb8b46487c083887a8f3f",
       "installTargets": [
         "loader"
       ]
@@ -2964,9 +3019,10 @@
       "installationFiles": [
         "components/motion/text-scramble.tsx",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "bcaf48bc392a89e500985199c62d19eb4ffdf151722212da588e52dc5564829a",
+      "sourceVersion": "f022a15f8ecd7b3774a34ce03c924571ce30fbea35e2008d09eabf3bd91bd071",
       "installTargets": [
         "text-scramble"
       ]
@@ -2999,9 +3055,10 @@
       ],
       "installationFiles": [
         "components/motion/webgl-background.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "a9ea381098fdf59d0fbd719351f1752a4652a8982c4045f6607633c94927b2b1",
+      "sourceVersion": "36fbed8b32fe493afa4187330b982f397417681f21252f48d1d4591d7261b853",
       "installTargets": [
         "webgl-background"
       ]
@@ -3105,9 +3162,10 @@
       "installationFiles": [
         "components/motion/bounce-cards.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "fece2588d4305fd3c5268fecaaec5b1f79be7797e3a22ffaf7e327d1314fc544",
+      "sourceVersion": "fecedb8082d309ef239a3c8ee14dde4fca97c629c0cb39afe6ec89303ca7d9a0",
       "installTargets": [
         "bounce-cards"
       ]
@@ -3141,9 +3199,10 @@
         "components/motion/glare-hover.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "4eaca587e595f75824ccba91b6c7db6cb3eac638588299124101990559db4b8f",
+      "sourceVersion": "ad9416e6464c64fbe222db7ff046ebf5e4fab25479e86d12deea8c1834f168d5",
       "installTargets": [
         "glare-hover"
       ]
@@ -3245,9 +3304,10 @@
       "installationFiles": [
         "components/motion/animated-icon.tsx",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "541c7f116a9f4eb1942733ee924b8ed25cc82ee32ec1d7f109f23b4224ad3bf1",
+      "sourceVersion": "85bc7d82761802414edccd08a8659f013b5a617418ace2ba909b05629956c3a7",
       "installTargets": [
         "animated-icon"
       ]
@@ -3282,9 +3342,10 @@
       "installationFiles": [
         "components/motion/dropdown-menu.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "11fbcffeeab8e8be2d5453bd511fa135a109bd78b1f15ff5f9263487a86592b9",
+      "sourceVersion": "74da5b128d308748e52f82191aae152562fb7000fd1c385550cd259f9553e5b9",
       "installTargets": [
         "dropdown-menu"
       ]
@@ -3318,9 +3379,10 @@
       "installationFiles": [
         "components/motion/expanding-card.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "54db4956cc8b597a3382f41990f312b64e702dc9ea8e3b5346dd3cedbc76f735",
+      "sourceVersion": "9bd298207c6f4ecde58253bc8d2e7723b8f338d78d8fa9e7f642942af5994218",
       "installTargets": [
         "expanding-card"
       ]
@@ -3353,9 +3415,10 @@
       ],
       "installationFiles": [
         "components/motion/expandable-control.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "d3cf83466527fa33dc4fb58d40c13846c233fddfcdedbb1fe7f82829331a44ef",
+      "sourceVersion": "6cd088ac03a61e2ff988369b2a97d39c3f37013a07c5ec3763a5307c71dda21e",
       "installTargets": [
         "expandable-control"
       ]
@@ -3391,9 +3454,10 @@
         "components/motion/file-tree.tsx",
         "components/motion/shared-layout-bg.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "07d6a0a74f885cdc33ed3a3f63f855b9e6fb5d9ec60b0d76d301963cb20836d8",
+      "sourceVersion": "222fc06e2e20acb56302aa8e222bed052328ed34362ca97c749c74a706c6b71b",
       "installTargets": [
         "file-tree"
       ]
@@ -3427,9 +3491,10 @@
       "installationFiles": [
         "components/motion/recording-card.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "a1faa553b4f660dfe2a030be89b239b88882f0221e4bdf1116afbca639dedf23",
+      "sourceVersion": "51d933d7de23ace2e96f61f21a97571d8959c94aabf7c0cb78b40df261136771",
       "installTargets": [
         "recording-card"
       ]
@@ -3464,9 +3529,10 @@
       "installationFiles": [
         "components/motion/login-card.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "5d073c4f666c82184411e9e22825a46e12e331b7dc239eba6f8e55b7d48405f5",
+      "sourceVersion": "03af456f37a370799f7cf482a5dfc2ce89a0bba50a6843488351978f26211cdc",
       "installTargets": [
         "login-card"
       ]
@@ -3500,9 +3566,10 @@
       "installationFiles": [
         "components/motion/thread-list/index.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "fe59d875876493df36e771cbcfa4f80bb87a4c1fd7302b93a79364f2ea233470",
+      "sourceVersion": "2669e5f9cceaf440385853b2b6456f4c3a8062d8286ea549b6c02022a4626d57",
       "installTargets": [
         "thread-list"
       ]
@@ -3536,9 +3603,10 @@
       "installationFiles": [
         "components/motion/artifact-panel/index.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "7b2bb13b101b23646ff00522e668f9191813d3ee157484b8373499593412c0f1",
+      "sourceVersion": "8af8f5a4375b57db6137b6e57654074fdca0aaee0407047828e0320cc705f78f",
       "installTargets": [
         "artifact-panel"
       ]
@@ -3573,9 +3641,10 @@
       "installationFiles": [
         "components/motion/agent-inbox/index.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "dcbef498db19d7f533c44588a2511a1718695b7bebe36ad05c83700f7cd9f24f",
+      "sourceVersion": "e607c58a9140e850bdb8c3a0b8031ab801fa6681096dfde776518f229c7eda9c",
       "installTargets": [
         "agent-inbox"
       ]
@@ -3610,9 +3679,10 @@
       "installationFiles": [
         "components/motion/agent-trace/index.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "57d4142279d5ad406d662c4f86fe69b2377fd72f1ac178560748bcf23c87c2e7",
+      "sourceVersion": "52ec4207f3514dba622f9ed548f4afe2ea7afee775bcb1ec67c364785e15fe33",
       "installTargets": [
         "agent-trace"
       ]
@@ -3646,9 +3716,10 @@
       "installationFiles": [
         "components/motion/streaming-json/index.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "7514491391ed0f9fa6365db5b21a21f4bca32aacf510fa15086e99650dbad731",
+      "sourceVersion": "2221ce3642ffbf2ee4133265ade37a9336d323d9cad919ad4ad1b016fdd8b34c",
       "installTargets": [
         "streaming-json"
       ]
@@ -3682,9 +3753,10 @@
       "installationFiles": [
         "components/motion/citations/index.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "ce80566b3f7184c918fb77fa9600395fb896fce8873bee27dc21eb50a64aec22",
+      "sourceVersion": "6cbfdfa2b3c5450323baf930a16c0cd5c4dc57cb9ab632f5bb338dd9673a341d",
       "installTargets": [
         "citations"
       ]
@@ -3718,9 +3790,10 @@
       "installationFiles": [
         "components/motion/voice-orb/index.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "e4c428ac7e07d4bd3669dbcad64ce56501b75ab39e4288760e2288eb019bbafd",
+      "sourceVersion": "ce670b0481af8340ced76a9e972ec4e0d34bb466b5f878d7230166b31650be53",
       "installTargets": [
         "voice-orb"
       ]
@@ -3755,9 +3828,10 @@
       "installationFiles": [
         "components/motion/activity-stats/index.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "ed12cde104b06030e52c9700589712082f5b5fd7f407bd3797a95b95e940b566",
+      "sourceVersion": "ed98287663fe050b7d095dab4277a53d08772f8857285a0ec90a567404cee9fd",
       "installTargets": [
         "activity-stats"
       ]
@@ -3838,9 +3912,10 @@
         "components/motion/agent-thread/cards.tsx",
         "components/motion/agent-thread/status.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "8df6648edf6f327aed0c6ed47acd1c1bbc7c49736488890bdbc5999dde8aab6d",
+      "sourceVersion": "3987d5493a3ba0b59fbc02671220d689531e7dcc203da9e8850bfc2fd0b273e1",
       "installTargets": [
         "agent-thread"
       ]
@@ -3882,9 +3957,10 @@
         "components/motion/agent-composer/effort-slider.tsx",
         "components/motion/agent-composer/autonomy-dial.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "56d0a816a5509604440085def393395bb42656045099372bc22ba18485a8d195",
+      "sourceVersion": "fa1b47fb23f6e3187ab6070142a67b3c56393ac81dad1dec4f655d827a012b1e",
       "installTargets": [
         "agent-composer"
       ]
@@ -3924,9 +4000,10 @@
         "components/motion/agent-workbench/resize-handle.tsx",
         "components/motion/agent-workbench/summary-card.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "95f32d1fb7898fc243444f124a7471732958dd8fb9f6126e86908f0e280c3ee9",
+      "sourceVersion": "d2bd1182f956256aec6648e95d13671538555bb9ba2f799857245586d027ba8c",
       "installTargets": [
         "agent-workbench"
       ]
@@ -3962,6 +4039,7 @@
         "components/motion/availability-scheduler/index.tsx",
         "components/motion/availability-scheduler/day-row.tsx",
         "components/motion/availability-scheduler/types.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/availability-scheduler/copy-menu.tsx",
         "components/motion/availability-scheduler/icon-button.tsx",
@@ -3974,7 +4052,7 @@
         "components/motion/select.tsx",
         "lib/hooks/use-hover-capable.ts"
       ],
-      "sourceVersion": "b6f76bbc157180949ad628a39c9b949042a2ac7eeb54916034f8de327a0ae208",
+      "sourceVersion": "f0e7c63342d40c7f67c4268f699f3f19423b09dbd284864f847b6e1ef48e4cb3",
       "installTargets": [
         "availability-scheduler"
       ]
@@ -4009,11 +4087,12 @@
         "components/motion/swap/token-picker.tsx",
         "components/motion/swap/types.ts",
         "components/motion/swap/utils.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "lib/ease.ts",
         "components/motion/swap/token-badges.tsx"
       ],
-      "sourceVersion": "66e153543a9168fcab6f960fb72d1e8c741d849bf7cf9dd63c58987117501875",
+      "sourceVersion": "41150472db5c7317b5974d4edc98f3eb3efa0857f87467f9de5484c969646fa6",
       "installTargets": [
         "swap"
       ]
@@ -4041,9 +4120,10 @@
       "installationFiles": [
         "components/motion/dynamic-island.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "12e8c26ef0d4a2033c39957c61daa370e85603362c9986b81795d5b428212059",
+      "sourceVersion": "61ae2cb6013d76d97640ee18569ba54744261c2e4359ff2cd5646aaadffb8845",
       "installTargets": [
         "dynamic-island"
       ]
@@ -4071,9 +4151,10 @@
       "installationFiles": [
         "components/motion/command-palette.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "d0b0cbd511dab645ad0c868194b92edf110ad900d9018ca32adac4b8011c783b",
+      "sourceVersion": "491bb51bfe9152fd6174251bb42592df37912cf2546ab32987f3d0464b6ba7b4",
       "installTargets": [
         "command-palette"
       ]
@@ -4107,11 +4188,12 @@
       "installationFiles": [
         "components/motion/morphing-search.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/hooks/use-on-open.ts",
         "lib/hooks/use-row-cursor.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "31118d6929652380c5608dbdf8950e27633d57bff8852d740bd0e6e2867046b3",
+      "sourceVersion": "62b01d7d68595c31e38e3782768751f78ee4400debb8fc04a35ed508f513aad8",
       "installTargets": [
         "morphing-search"
       ]
@@ -4138,9 +4220,10 @@
       ],
       "installationFiles": [
         "components/motion/expandable-action-bar.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "c82e3d2069e0bd0253ee9d0be54aa18b259eea45f26c328d25f294ca297ca4d9",
+      "sourceVersion": "fd9bfaeb01a84a6ae333af11e03534b6dc6a97d3f756238f2326486874588184",
       "installTargets": [
         "expandable-action-bar"
       ]
@@ -4169,9 +4252,10 @@
         "components/motion/overflow-actions.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "88d01d785fe0b829459372a96e25991b21ce24f887f7002583ed7a599ccea901",
+      "sourceVersion": "b9df75a3f77756678869a323cf46b78c0285d8e8ead70829bc917ff3ba7cacf7",
       "installTargets": [
         "overflow-actions"
       ]
@@ -4199,9 +4283,10 @@
       "installationFiles": [
         "components/motion/expandable-tabs.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "ce2ea45becc59b53c088a13f47ec8e0b2794ecdcfd233e3539b4e168e9253ea4",
+      "sourceVersion": "4579df45535b80d0e7c6330d038cc88678eebd5b63d573253ba416b4a70e7787",
       "installTargets": [
         "expandable-tabs"
       ]
@@ -4228,9 +4313,10 @@
       ],
       "installationFiles": [
         "components/motion/swipeable-list.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "6c2f51deb28ee4ad2210593ea4db359a108cdde231b576ed86c60d5f537b6bee",
+      "sourceVersion": "6fe4b014e4a32a2f04958cdf0ddda25cb9f7d218ffcb562416ca839755d62792",
       "installTargets": [
         "swipeable-list"
       ]
@@ -4258,9 +4344,10 @@
       "installationFiles": [
         "components/motion/file-upload.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "cf99b56df27a8e35f42370035b821fb68c4364aa2135fb9f69e26bc31b0a2e3f",
+      "sourceVersion": "03511a265771c9f0148450358d31f37d612f1f7586402fa4ec81d714e18957ea",
       "installTargets": [
         "file-upload"
       ]
@@ -4291,11 +4378,12 @@
         "components/motion/number-ticker.tsx",
         "components/motion/tabs.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/button/base.tsx",
         "lib/hooks/use-hover-capable.ts"
       ],
-      "sourceVersion": "fc54f97431ee503d76982d11dbe6dec25b997e82eef83ed26e7cfc52a28df9c1",
+      "sourceVersion": "41b0788db36c8950e42e8673f1c8c2158443a5bd32f9a1a1fbac59c2cf3d9d50",
       "installTargets": [
         "prediction-market"
       ]
@@ -4341,6 +4429,7 @@
         "components/motion/wallet-card/copy-button.tsx",
         "components/motion/wallet-card/use-dismiss.ts",
         "components/motion/wallet-card/utils.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/ease.ts",
         "components/motion/button/base.tsx",
         "components/motion/button/magnetic.tsx",
@@ -4349,7 +4438,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "c4d3c8d61f3849bd74c58cac0355980fbc92eec3dcad00254139c6d1e9a0c9d8",
+      "sourceVersion": "5d88daa52ef204a06289222a412952fc577ba084130969d3314738f2a8d445cd",
       "installTargets": [
         "wallet-card"
       ]
@@ -4377,9 +4466,10 @@
       "installationFiles": [
         "components/motion/otp-input.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "4624e9186c98e3a734d527794294132c3971b8e7fba035b830d1e67b3122ed86",
+      "sourceVersion": "b619c124fadb23089f3e1c08f4fd9a3fd32fca3aa96a9cfb47ee19aa3b146e99",
       "installTargets": [
         "otp-input"
       ]
@@ -4407,9 +4497,10 @@
       "installationFiles": [
         "components/motion/bloom-menu.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "99fcc877de33fc0cfed3cbd213802fd88e132f59583fd1ab74fa7db4cdfb45cf",
+      "sourceVersion": "ef02de0901b5c501f80e38bf4eedb650b6b80da5c399f35221b5ef463d7d023b",
       "installTargets": [
         "bloom-menu"
       ]
@@ -4444,6 +4535,7 @@
         "components/motion/feedback-widget.tsx",
         "components/motion/button/index.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/button/base.tsx",
         "components/motion/button/magnetic.tsx",
@@ -4452,7 +4544,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "0e47ef1beda392bec81978de558fb9131a59dc8bdd5cc6d3d92c1c0939b42ca0",
+      "sourceVersion": "a6b2a37236b35564401e70cf356dfdd539040b76768dba4d6c76749c0d352c6d",
       "installTargets": [
         "feedback-widget"
       ]
@@ -4493,11 +4585,12 @@
         "components/motion/not-found/terminal.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/magnetic.tsx",
         "components/motion/text-reveal.tsx"
       ],
-      "sourceVersion": "1177a90d4706b8dec69fa58114d11a230d132000d1819e91fd119fcc4c1237a6",
+      "sourceVersion": "839b7825b68df7a62873701de7fe70f70777976527b35d07343018a1ce4eb593",
       "installTargets": [
         "not-found",
         "not-found-glitch",
@@ -4530,11 +4623,12 @@
       "installationFiles": [
         "components/motion/not-found/glitch.tsx",
         "components/motion/not-found/shared.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "b792afa8cb30aaea9b3ea0ec2ac13496462044b13f0056c0f757a2850fa48ce8",
+      "sourceVersion": "cf751d8dfba70e6a02c8d590d0ebfbda5278b6b681c63cd5a14207bfe49b12f5",
       "installTargets": [
         "not-found",
         "not-found-glitch",
@@ -4570,9 +4664,10 @@
         "components/motion/magnetic.tsx",
         "lib/utils.ts",
         "lib/ease.ts",
-        "lib/hooks/use-hover-capable.ts"
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "8dc5fd91f59d2dfaea0dc8db103c9ab855091460360ed59affdeb5a377c4e470",
+      "sourceVersion": "bc22168f4ded2b862a282f87bbde622316cec124152bf3cbbc9ed0567c96435f",
       "installTargets": [
         "not-found",
         "not-found-glitch",
@@ -4606,10 +4701,11 @@
         "components/motion/not-found/spotlight.tsx",
         "components/motion/not-found/shared.tsx",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "lib/ease.ts"
       ],
-      "sourceVersion": "1a501bdc082fe474a1127aac3ed2fea8a444677168e477ef70f33a05c758bdbb",
+      "sourceVersion": "0be6ed64c39b6a293b9c341bb72ae26648005c2ac236465f885be5996fdf09e5",
       "installTargets": [
         "not-found",
         "not-found-glitch",
@@ -4644,9 +4740,10 @@
         "components/motion/not-found/shared.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "e68d756ddc190ba76d3c25021509f938dbff8841fed918a1b9d32d907c6dded0",
+      "sourceVersion": "c626dc58e5bfa214827fca614836dbc24223999368a050c3f1e8915694bd72cc",
       "installTargets": [
         "not-found",
         "not-found-glitch",
@@ -4682,9 +4779,10 @@
         "components/motion/text-reveal.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "0c60dedbe4c53f9918d812f0da56255fcad872d3c4cf287e13438f67ab5a4ce8",
+      "sourceVersion": "7f2db1f41079beb4eba524c48a748214e9e3cc7f804b2d63203ba236af785bc7",
       "installTargets": [
         "not-found",
         "not-found-glitch",
@@ -4726,6 +4824,7 @@
         "components/motion/button/index.tsx",
         "components/motion/input.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/button/base.tsx",
         "components/motion/button/magnetic.tsx",
@@ -4734,7 +4833,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "160530acd94559b8089db214b43f270f05200dc039efd9a429a2f8b44d579ca7",
+      "sourceVersion": "46ca2c34f52ae381f9ac328e445b94493c7055928126ddc63e87fd89a134697e",
       "installTargets": [
         "step-form"
       ]
@@ -4778,6 +4877,7 @@
         "components/motion/button/index.tsx",
         "lib/utils.ts",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/hooks/use-hover-capable.ts",
         "components/motion/button/base.tsx",
         "components/motion/button/magnetic.tsx",
@@ -4785,7 +4885,7 @@
         "components/motion/button/stateful.tsx",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "65cb9ff75f70258174ee36a30f0971eba19e91f8e3d8b3a5ebdc0b4942b4aa1a",
+      "sourceVersion": "cba6ecd2695e42d47c421b58e1b6e83472a09a435ffec1a689ceb7478b354b75",
       "installTargets": [
         "empty-state",
         "empty-state-inbox",
@@ -4823,6 +4923,7 @@
         "components/motion/empty-state/inbox.tsx",
         "components/motion/empty-state/shared.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/motion/button/index.tsx",
         "lib/utils.ts",
         "components/motion/button/base.tsx",
@@ -4832,7 +4933,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "918f0349def1801f0fd37faf3b435043f432a52ad8e390d19975489beb04bfd2",
+      "sourceVersion": "05948b3aae5aa6686b266efe91e8855d21e76d52a8846bad68b025bcc420b487",
       "installTargets": [
         "empty-state",
         "empty-state-inbox",
@@ -4871,6 +4972,7 @@
         "components/motion/empty-state/shared.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/motion/button/index.tsx",
         "lib/utils.ts",
         "components/motion/button/base.tsx",
@@ -4879,7 +4981,7 @@
         "components/motion/button/stateful.tsx",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "9076bede1c10b8caa866825c50cd07d6b2445ab44a8326966e44cdcbd1f21426",
+      "sourceVersion": "e35c6bcd1a5e4c8e21ee960cf7ebe8db75c6a747abfaee5df387b1cc0320d22d",
       "installTargets": [
         "empty-state",
         "empty-state-inbox",
@@ -4917,6 +5019,7 @@
         "components/motion/empty-state/search.tsx",
         "components/motion/empty-state/shared.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/motion/button/index.tsx",
         "lib/utils.ts",
         "components/motion/button/base.tsx",
@@ -4926,7 +5029,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "4274f69a8cc8acf11091c1b8b4090cc73535133eb7b478a5fc17294c2265a8a7",
+      "sourceVersion": "f30bceb7903c23017244b466bcd65c8421c28fe642c78b73b38eaae68d253099",
       "installTargets": [
         "empty-state",
         "empty-state-inbox",
@@ -4964,9 +5067,10 @@
       "installationFiles": [
         "components/motion/prompt-bar.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "aba69f237f1428a5e438067f6f7da7b63dc31730a38ab05dde3b69a961cfcd2d",
+      "sourceVersion": "50c3629d2a99915c9bdc875b2f2788fd0abf429ee15e418b60efb80a0728d1ef",
       "installTargets": [
         "prompt-bar"
       ]
@@ -5004,6 +5108,7 @@
         "components/motion/popover-morph.tsx",
         "components/motion/select.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/button/base.tsx",
         "components/motion/button/magnetic.tsx",
@@ -5012,7 +5117,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "94a1cbab70ba7161160dca3eaa2279f5b96bcc7973841a7add0ad76f814e643e",
+      "sourceVersion": "9b4fa4a23366aa7e33e9f932205a6e2a7186e21d46bb8b28caea78a6f8e209b5",
       "installTargets": [
         "prompt-input"
       ]
@@ -5049,10 +5154,11 @@
         "components/agents/agent-disclosure.tsx",
         "components/motion/action-swap-roll.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/action-swap.tsx"
       ],
-      "sourceVersion": "1943957c26f9320856aeee28cead40f1372f4488f584600e6ec8b10afe733201",
+      "sourceVersion": "d64ab8aec632337808c5aaaa6c389d00d601ca67d0c63d1962b48144e996219f",
       "installTargets": [
         "todo-list"
       ]
@@ -5088,9 +5194,10 @@
         "components/agents/code-block.tsx",
         "components/agents/agent-code.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "5c11f716bde5bcea087259226625204dc0135d74b1b117066f8c47e86ca0b01c",
+      "sourceVersion": "1ebe81b4c295610e3a7fd27b282f0e1672cdd8dc54a95888d57ddff95211a81b",
       "installTargets": [
         "code-block"
       ]
@@ -5133,6 +5240,7 @@
         "components/motion/input.tsx",
         "components/motion/radio.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/action-swap.tsx",
         "components/motion/button/base.tsx",
@@ -5142,7 +5250,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "4a57b35de5f9dccfda694556c2d3d2ab7e11bcf07795688826e522fe5b19866f",
+      "sourceVersion": "549f3b4c785bcbb6c47af577523b9cff5a15de0428afdc1c89f72a88f8075365",
       "installTargets": [
         "approval-card"
       ]
@@ -5178,9 +5286,10 @@
         "components/agents/agent-code.tsx",
         "components/agents/agent-disclosure.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "584c4a8ba66ee6c8c61243343f6992d3f7c4b2bc1bad0a75e69d088491cd5a64",
+      "sourceVersion": "6294b24283ca226a31ad82295be45254ec45ee158e035acbeb91ab8171a5dbce",
       "installTargets": [
         "file-diff"
       ]
@@ -5217,10 +5326,11 @@
         "components/agents/agent-disclosure.tsx",
         "components/motion/action-swap-roll.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/action-swap.tsx"
       ],
-      "sourceVersion": "a3f34067509c2d643351634a13ed7ccfa77945353d1ca16da27955f666110bc2",
+      "sourceVersion": "83ed003d64e51be778ba225881fccdf2df2625a6cfdfa9aa9305f7062b85ef6c",
       "installTargets": [
         "tool-result"
       ]
@@ -5257,10 +5367,11 @@
         "components/agents/agent-disclosure.tsx",
         "components/agents/citations.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "lib/favicon.ts"
       ],
-      "sourceVersion": "97216f69f5c6ac7a1050735ebaab2a1e20c94afc2bdd38e06132be9846f000c8",
+      "sourceVersion": "4cecd2c443382183c770098b597c6af144b771232ec13364efcb9aecafe99f30",
       "installTargets": [
         "streaming-response"
       ]
@@ -5296,9 +5407,10 @@
         "components/agents/image-generation.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "7937e42c25c002155e42a8637426137390c08caabc6344ba23274c6a80ccad89",
+      "sourceVersion": "9304e2b07da243db8689888606c7f53ba3c1285b4ebc75337e2ac300f5d87036",
       "installTargets": [
         "image-generation"
       ]
@@ -5334,9 +5446,10 @@
         "components/agents/agent-code.tsx",
         "components/agents/agent-disclosure.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "4649fcf473834a3d37c002b0bd2bbf9c4a4e1d9dc388a367f453fe7110eb4b3f",
+      "sourceVersion": "1aab2e007861e70c5a47b0497772a36baa20f89dfe66ff1d91044e8f67631b22",
       "installTargets": [
         "tool-approval"
       ]
@@ -5378,10 +5491,11 @@
         "components/agents/agent-disclosure.tsx",
         "components/agents/loading-states/thinking-shimmer.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "components/motion/text-shimmer.tsx"
       ],
-      "sourceVersion": "d3b5d27e44355ee3b1cf52300bfe18c70a247db96b2aa335323273601f1a1275",
+      "sourceVersion": "62d65af79267835fa00b973846868faed42f570c7db2085a770de0b5a26552a9",
       "installTargets": [
         "agent-activity"
       ]
@@ -5420,10 +5534,11 @@
         "components/motion/loader.tsx",
         "components/motion/text-scramble.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts",
         "lib/hooks/use-hover-capable.ts"
       ],
-      "sourceVersion": "7cd7be98103e0de5efbc3f51eb43e4e380f7cb801bbc408b5218486121c2802e",
+      "sourceVersion": "2e1fb7b45817363eba88905711eadcf47894312136f7780c91c280e52a634eb3",
       "installTargets": [
         "reasoning-text"
       ]
@@ -5458,9 +5573,10 @@
       "installationFiles": [
         "components/agents/loading-states/agent-progress.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "47f0a2d6dd6e7aecfd9993706003d39b52e6f25668213e6e1725e6fcc8ca5fdc",
+      "sourceVersion": "be6f447224b46b49a6691e9c895e57e642d915651a4996a5ea4cb32f05799a0c",
       "installTargets": [
         "agent-progress"
       ]
@@ -5508,9 +5624,10 @@
         "lib/hooks/use-touch-capable.ts",
         "lib/utils.ts",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/motion/popover-morph.tsx"
       ],
-      "sourceVersion": "05373bfef0dabd841e73be081067961fbe1d967a42f3b290c269168cff6fd7a9",
+      "sourceVersion": "3d13e4d4dd81f89ddcd6fe3b588f6ea115516055fb54fbc94512c16620ea8a8e",
       "installTargets": [
         "ai-sidebar"
       ]
@@ -5550,9 +5667,10 @@
         "lib/utils.ts",
         "components/agents/agent-disclosure.tsx",
         "components/motion/text-shimmer.tsx",
-        "lib/ease.ts"
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "7df0b1c24569a572b02f850c07f2023ade3588025723bed76f7a07604ede7348",
+      "sourceVersion": "0d1b4537d0fd92dcdb0a3e34e36cc42b3c5f048977d67637e39a315cf2de5a4b",
       "installTargets": [
         "reasoning"
       ]
@@ -5590,9 +5708,10 @@
         "components/agents/agent-collapsible.tsx",
         "lib/utils.ts",
         "components/agents/agent-disclosure.tsx",
-        "lib/ease.ts"
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "e8eb784e46abda20f00b338df875d4e693efb47537bce345b08be217f1d43e53",
+      "sourceVersion": "f855f6919db562d723c9b6a0e1660ccd123d29b4f0ee21b438057737b369adec",
       "installTargets": [
         "chain-of-thought"
       ]
@@ -5630,9 +5749,10 @@
         "components/agents/agent-collapsible.tsx",
         "lib/utils.ts",
         "components/agents/agent-disclosure.tsx",
-        "lib/ease.ts"
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "fa0668ee826d81435f2996edebf7a1d67ad58e49f7558ff2ab7a933230a0b87b",
+      "sourceVersion": "4fd73a063c33c21cc429101f4a55f5d6a37d19624b062a330dfba8a17a288799",
       "installTargets": [
         "sources"
       ]
@@ -5708,9 +5828,10 @@
         "lib/utils.ts",
         "components/agents/agent-disclosure.tsx",
         "components/motion/text-shimmer.tsx",
-        "lib/ease.ts"
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "7389195ff654627276861b54796a972d5757b6d4440275d7d57b943a544bbe2a",
+      "sourceVersion": "5b84b944f9a9c856cb5a1e499c2ca3a66a566bc007ae1fce0f8aa7d7626c2e17",
       "installTargets": [
         "plan"
       ]
@@ -5747,9 +5868,10 @@
         "components/agents/agent-collapsible.tsx",
         "lib/utils.ts",
         "components/agents/agent-disclosure.tsx",
-        "lib/ease.ts"
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "f77b82fdcd8c86ae7618bbe583704c69e697d8f13cc29aeeeb4d4ab73c8fe072",
+      "sourceVersion": "c919f9c2912fd81389ae30d9466450e384ec2d0f234e40d283df4eb2ff245242",
       "installTargets": [
         "task"
       ]
@@ -5792,10 +5914,11 @@
         "components/motion/button/metallic.tsx",
         "components/motion/button/stateful.tsx",
         "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "13a598330f4679def7e6dec117222815e2a4a9f91e519948fe8bc02b94d3d153",
+      "sourceVersion": "f50f3f3235ed3ff73c154460044de24a06d8d54ebb2b3319fc3578ab6c3136dc",
       "installTargets": [
         "queue"
       ]
@@ -5836,9 +5959,10 @@
         "components/motion/button/stateful.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "8289f66c3ff3b5b2ea34df6fb7f81b31187e2ae411377ed60e9ca52830b30779",
+      "sourceVersion": "512c067f3f8ac4fef5955c6e01096fd097c6faad1ab4a7d2abb4681c8fa06ff7",
       "installTargets": [
         "confirmation"
       ]
@@ -5879,9 +6003,10 @@
         "components/motion/button/stateful.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "525b10c95ecf6841cd717e8fc9ec931992071944c48fda8bae02f44cc4ee05da",
+      "sourceVersion": "71048ed511234aedb4f6e1ffef1b0db6bc43429b89aeab3c1318c391336d8046",
       "installTargets": [
         "suggestion"
       ]
@@ -5954,9 +6079,10 @@
         "components/motion/startup-visuals-icons.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "e13344d80cf21dcd15fe02cec54e2ac320cf0b71a2824d68457d6da1134690b5",
+      "sourceVersion": "ac28e9d4cdaa5d492c88b62ab0507ae079d7a0ce7bc9eaf95a7a6b2c8660aea6",
       "installTargets": [
         "collapsible-sidebar"
       ]
@@ -5993,9 +6119,10 @@
         "components/motion/startup-visuals-icons.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "ea01eabeb9c5ffd68cc9479b3f37063c39b030209c654fd4e80e8072dbbcc549",
+      "sourceVersion": "98666d62d5d04eb99720fef23a46c4d45397f4ce98212f8d4b648471a0022520",
       "installTargets": [
         "upgrade-paywall"
       ]
@@ -6032,9 +6159,10 @@
         "components/motion/startup-visuals-icons.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "5f8b73c9f7e8894140562aeaed1b5b466ac85c24f2a13a0760242b10e5bf3c7d",
+      "sourceVersion": "32269404ccd0d9eb6826603aa21cf316a43c14d755ceea395b05627c74ecb998",
       "installTargets": [
         "view-layout-switch"
       ]
@@ -6073,9 +6201,10 @@
         "components/motion/startup-visuals-icons.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "4be21319071941cb8fa2c9358bf4b768c3b84efdb89092050ef72cd1f04df85a",
+      "sourceVersion": "a091b8bc91b388a39ff4b2809548244701d84c22e445af75b2254d77f08d1a0d",
       "installTargets": [
         "billing-plan-grid"
       ]

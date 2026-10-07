@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Settings } from "lucide-react";
-import { useReducedMotion } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { cn } from "@/lib/utils";
 import { CHAINS, TOKENS } from "./swap/data";
 import { ActionButton, DestinationRow, FlipButton } from "./swap/controls";

@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { useState } from "react";
 import { EASE_OUT, SPRING_PANEL } from "@/lib/ease";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";

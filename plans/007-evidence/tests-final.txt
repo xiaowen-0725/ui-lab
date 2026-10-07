@@ -1,0 +1,333 @@
+$ bun test ./tests
+bun test v1.3.14 (0d9b296a)
+
+tests/catalog-i18n.test.ts:
+(pass) catalog component items > carries every registry Chinese name through to agents [0.39ms]
+(pass) catalog component items > carries Chinese descriptions through as well [0.34ms]
+(pass) catalog component items > surfaces registry keywords as catalog aliases [0.33ms]
+(pass) catalog component items > keeps a Chinese query reaching the component it names [0.21ms]
+(pass) catalog component items > registers the four newly ported beUI MIT components [0.11ms]
+(pass) catalog component items > registers missing AI-oriented agent catalog slugs with bilingual names [0.13ms]
+
+tests/nav-contract.test.ts:
+(pass) semantic navigation follows historical detail paths without double activation [1.05ms]
+
+tests/settings-panel.test.tsx:
+(pass) SettingsPanel token contract > uses workbench semantic surfaces for the group and controls [18.02ms]
+(pass) SettingsPanel token contract > keeps card as the default and exposes a quiet row group [2.85ms]
+
+tests/cli-integrity.test.ts:
+(pass) CLI CatalogLock baseline integrity (R6) > legacy v1 lock and optional sourceFiles remain compatible without implicit repair [107.56ms]
+(pass) CLI CatalogLock baseline integrity (R6) > mandatory installation graph affects hashes and never replaces the owned family [109.46ms]
+(pass) CLI CatalogLock baseline integrity (R6) > add and compose preserve old hashes/families; only explicit lock rebases [436.34ms]
+(pass) CLI CatalogLock baseline integrity (R6) > mixed catalog sources preserve provenance of old and new entries [151.71ms]
+(pass) CLI CatalogLock baseline integrity (R6) > invalid existing lock blocks config mutations; explicit lock can repair it [155.17ms]
+(pass) CLI explicit Catalog source failure isolation (R7) > connection failures and invalid explicit URLs do not write snapshot selections [540.17ms]
+(pass) CLI explicit Catalog source failure isolation (R7) > new vocabulary/reference kinds and provenance survive live CLI discovery [60.30ms]
+(pass) CLI explicit Catalog source failure isolation (R7) > missing configured items block add/compose/lock before any file mutation [130.32ms]
+(pass) CLI explicit Catalog source failure isolation (R7) > 404, invalid JSON, malformed and incomplete catalogs never mutate write-command files [487.03ms]
+(pass) CLI explicit Catalog source failure isolation (R7) > timeout fails all writes without creating files [3062.80ms]
+(pass) CLI explicit Catalog source failure isolation (R7) > read-only discovery falls back with source on stderr and clean JSON [101.24ms]
+(pass) CLI explicit Catalog source failure isolation (R7) > UILAB_REGISTRY is also explicit and cannot silently write snapshot data [25.43ms]
+(pass) CLI explicit Catalog source failure isolation (R7) > duplicate identities, bad fields and broken recipe references are rejected before init [459.20ms]
+
+tests/catalog-coverage.test.ts:
+(pass) every baseline record and expanded variant has a real source and machine identity [42.02ms]
+(pass) all knowledge and references project from their domain truths without fake installs [33.06ms]
+(pass) every emitted installation command and standalone usage resolves to real distribution [122.03ms]
+
+tests/agent-workbench.test.tsx:
+(pass) AgentWorkbench responsive contract > uses the desktop inline layout at 1440px [20.04ms]
+(pass) AgentWorkbench responsive contract > uses an artifact overlay and collapses navigation first at 1000px [14.21ms]
+(pass) AgentWorkbench responsive contract > uses one mobile task surface at a time and backdrop close [26.37ms]
+
+tests/standalone-usage.test.ts:
+(pass) every family and displayed variant declares a real standalone usage [3.91ms]
+(pass) machine detail delivers copyable usage while installation remains implementation-only [327.63ms]
+(pass) base variants retain their own source entry and narrow copyable usage [1.57ms]
+
+tests/application-kit.test.ts:
+(pass) application recipes catalog > llms index directs Theme Kits through the theme command [35.35ms]
+(pass) application recipes catalog > component items expose their complete registry source family for consumer audits [33.11ms]
+(pass) application recipes catalog > publishes installable application and landing recipes with valid references [31.22ms]
+(pass) application recipes catalog > saas landing publishes a real section composition contract [36.76ms]
+(pass) ui-lab application kit CLI > help presents the Application Kit commands and current catalog source [19.31ms]
+(pass) ui-lab application kit CLI > rejects unknown and command-inapplicable flags before loading the catalog [71.29ms]
+(pass) ui-lab application kit CLI > show renders a recipe as a composition contract instead of an empty fetch block [78.27ms]
+(pass) ui-lab application kit CLI > init creates a versioned project binding and refuses to overwrite it [128.12ms]
+(pass) ui-lab application kit CLI > init only overwrites when force is an explicit true boolean [93.91ms]
+(pass) ui-lab application kit CLI > explicit false values apply to every boolean flag [24.85ms]
+(pass) ui-lab application kit CLI > compose updates the project binding and returns an executable-free install plan [73.40ms]
+(pass) ui-lab application kit CLI > init, compose, and add keep a deterministic catalog contract lock in sync [223.00ms]
+(pass) ui-lab application kit CLI > compose distinguishes adopt review from replace installation [197.06ms]
+(pass) ui-lab application kit CLI > add registers a component when a project binding exists and stays print-only otherwise [110.88ms]
+(pass) ui-lab application kit CLI > audit uses the catalog source hint when slug and filename differ [201.64ms]
+(pass) ui-lab application kit CLI > audit accepts the canonical nested registry source file [163.38ms]
+(pass) ui-lab application kit CLI > audit accepts the canonical nested registry index file [155.01ms]
+(pass) ui-lab application kit CLI > audit permits an adopt-mode auxiliary component family to be intentionally narrowed [155.76ms]
+(pass) ui-lab application kit CLI > audit reports stale locks as warnings and strict mode fails on them [97.39ms]
+(pass) ui-lab application kit CLI > strict audit requires a lock while ordinary audit remains backward compatible [56.17ms]
+(pass) ui-lab application kit CLI > lock safely repairs stale or missing locks without changing config [560.08ms]
+(pass) ui-lab application kit CLI > audit checks nested canonical and sibling direct sidecars for Recipe-required families [129.06ms]
+(pass) ui-lab application kit CLI > audit accepts a tokenized implementation when a flat compatibility wrapper also matches [156.57ms]
+(pass) ui-lab application kit CLI > audit only accepts component sources inside the configured alias directory [179.88ms]
+(pass) ui-lab application kit CLI > audit rejects unknown project binding fields with a clear schema error [24.25ms]
+(pass) ui-lab application kit CLI > audit validates the shadcn components.json aliases contract [72.45ms]
+(pass) ui-lab application kit CLI > audit enforces TypeScript and the selected profile runtime [225.60ms]
+(pass) ui-lab application kit CLI > audit reports missing golden-path contracts and passes a conforming project [518.73ms]
+
+tests/agent-inbox.test.tsx:
+(pass) AgentInbox variants > inherits quiet composition without promising list semantics [5.56ms]
+
+tests/application-assets.test.tsx:
+(pass) distributable section entry points > all 19 public variants render in both locales without a site provider [27.77ms]
+(pass) distributable section entry points > content and action overrides work through the same public implementation [2.71ms]
+(pass) distributable section entry points > navigation is made of genuine links and supplied feature arrays are not fixed to sample data [1.07ms]
+(pass) complete SaaS page > contains real section layouts, working anchors, plan actions and native FAQ [8.79ms]
+(pass) complete SaaS page > pricing is optional and action URLs are consumer-owned [4.54ms]
+(pass) conversation page behavior > renders supplied messages and dispatches trimmed sends by button and Enter [4.79ms]
+(pass) conversation page behavior > controlled text remains parent-owned; loading blocks both send paths [1.34ms]
+(pass) conversation page behavior > empty is inferred from absent data and no demonstration messages are injected [0.63ms]
+(pass) artifact page behavior > selection, code/preview switching and downloads use actual supplied artifacts [3.47ms]
+(pass) artifact page behavior > controlled selection/view do not change until the parent updates [1.67ms]
+(pass) artifact page behavior > missing data and invalid controlled selection show empty rather than fabricated artifacts [0.47ms]
+(pass) settings page behavior > local preferences edit and submit through the public callback [8.49ms]
+(pass) settings page behavior > controlled preferences remain unchanged until supplied by the parent [2.75ms]
+(pass) public page state contracts > SaasLandingPage renders loading and exposes retry only for errors [1.90ms]
+(pass) public page state contracts > WorkbenchConversationPage renders loading and exposes retry only for errors [0.83ms]
+(pass) public page state contracts > WorkbenchArtifactPage renders loading and exposes retry only for errors [0.28ms]
+(pass) public page state contracts > WorkbenchSettingsPage renders loading and exposes retry only for errors [0.26ms]
+(pass) public page state contracts > SaasLandingPage renders empty and exposes retry only for errors [1.64ms]
+(pass) public page state contracts > WorkbenchConversationPage renders empty and exposes retry only for errors [0.61ms]
+(pass) public page state contracts > WorkbenchArtifactPage renders empty and exposes retry only for errors [0.23ms]
+(pass) public page state contracts > WorkbenchSettingsPage renders empty and exposes retry only for errors [0.22ms]
+(pass) public page state contracts > SaasLandingPage renders error and exposes retry only for errors [1.50ms]
+(pass) public page state contracts > WorkbenchConversationPage renders error and exposes retry only for errors [1.25ms]
+(pass) public page state contracts > WorkbenchArtifactPage renders error and exposes retry only for errors [1.16ms]
+(pass) public page state contracts > WorkbenchSettingsPage renders error and exposes retry only for errors [0.53ms]
+(pass) multi-page site using the shared shell > mobile navigation opens and closes through the existing responsive shell [18.65ms]
+(pass) multi-page site using the shared shell > switches among three pages, moves focus and preserves local drafts and the shell [26.79ms]
+(pass) multi-page site using the shared shell > controlled page changes notify without navigating until parent updates [8.14ms]
+(pass) multi-page site using the shared shell > forwards page-specific actions and lets a consumer control navigation and states [5.64ms]
+(pass) multi-page site using the shared shell > individual page labels/content remain replaceable in a bilingual shell [4.49ms]
+(pass) application asset distribution contracts > the frozen data refers to real page slugs and source entry files [0.97ms]
+(pass) application asset distribution contracts > source closures resolve without Next, next-intl, previews or site metadata [24.10ms]
+
+tests/inspiration.test.ts:
+(pass) inspiration sources > ships the 79 reviewed sources [0.11ms]
+(pass) inspiration sources > keeps slugs and canonical URLs unique [0.05ms]
+(pass) inspiration sources > uses known primary themes and external-only rights [0.05ms]
+(pass) inspiration sources > records a real attributed preview for every source [41.43ms]
+(pass) inspiration brand references > pins the reviewed upstream revision and all 74 documents [0.05ms]
+(pass) inspiration brand references > keeps manifest identifiers and document hashes unique [0.09ms]
+(pass) inspiration brand references > matches every vendored document to its recorded sha256 [12.46ms]
+(pass) inspiration brand references > preserves the upstream parser and metadata provenance split [0.22ms]
+(pass) inspiration brand references > uses known domains and keeps document and brand rights separate [0.09ms]
+(pass) inspiration brand references > records an official URL and a real attributed image for every brand [25.06ms]
+(pass) inspiration sites > ships 28 unique accepted external website references [7.39ms]
+(pass) inspiration sites > keeps related brand links and retro collections precise [0.20ms]
+
+tests/recording-card.test.ts:
+(pass) formatElapsed > pads seconds so the timer never changes width mid-recording [0.04ms]
+(pass) formatElapsed > rolls over at the minute rather than showing 0:60 [0.01ms]
+(pass) formatElapsed > keeps counting past ten minutes without dropping a digit
+(pass) formatElapsed > floors fractional seconds instead of rendering decimals
+
+tests/motions.test.ts:
+(pass) motion dictionary > every entry is a unique word in a known group [1.07ms]
+(pass) motion dictionary > an install points at a component we already ship [0.18ms]
+(pass) motion dictionary > a related link points at a real component [0.02ms]
+
+tests/input.test.tsx:
+(pass) Input > exposes its input ref and configurable slots [1.75ms]
+(pass) Input > composes native focus events with internal state [0.90ms]
+(pass) Input > keeps the string value change callback [0.47ms]
+
+tests/morphing-search.test.tsx:
+(pass) MorphingSearch async results > keeps what the user types, and filters by it [6.87ms]
+(pass) MorphingSearch async results > keeps what the user types when the consumer tracks the query [3.01ms]
+(pass) MorphingSearch async results > does not call the consumer back while it is rendering [3.72ms]
+(pass) MorphingSearch async results > never points at a row that the new results no longer have [5.83ms]
+(pass) MorphingSearch async results > selects the first row on a key pressed as the list shrinks [5.24ms]
+(pass) MorphingSearch async results > drops the highlight when the results change without changing length [6.55ms]
+(pass) MorphingSearch async results > does not revive the old row when the results come back [4.95ms]
+(pass) MorphingSearch async results > moves one row per key when two keys land in one batch [2.51ms]
+
+tests/palette-generator.test.ts:
+(pass) palette generator > builds deterministic 11-step OKLCH-derived ramps from one brand color [4.94ms]
+(pass) palette generator > derives each documented harmony at its intended hue rotation [1.22ms]
+(pass) palette generator > keeps achromatic brand seeds achromatic instead of inventing blue [0.87ms]
+(pass) palette generator > moves semantic steps until every declared pair meets AA or AAA [0.47ms]
+(pass) palette generator > builds distinct light and dark semantic surfaces with complete status roles [0.26ms]
+(pass) palette generator > models transparency by semantic purpose instead of loose alpha swatches [0.22ms]
+(pass) palette generator > formats exports without changing the generated palette [1.26ms]
+(pass) palette generator > basic scope omits raw ramps while full exports all eight 11-step families [0.73ms]
+(pass) palette generator > exports a dual-mode production token contract [0.42ms]
+(pass) palette generator > round-trips the five generator controls through URLSearchParams [0.07ms]
+
+tests/installation-audit.test.ts:
+(pass) audit falls back when the consumer TypeScript module exposes no compiler API [35.30ms]
+(pass) audit catches missing shared dependencies for an individually added variant [50.55ms]
+(pass) audit follows consumer TypeScript suffix resolution and ignores import-looking strings [37.33ms]
+
+tests/modal-dialog.test.tsx:
+(pass) drawer modal > moves focus into its content and restores the launcher after closing [8.53ms]
+(pass) drawer modal > cycles Tab in both directions and rejects focus outside the content [2.88ms]
+(pass) drawer modal > makes the background inert, closes with Escape, and releases the scroll lock [2.20ms]
+(pass) drawer modal > focuses a content surface with no controls and keeps Tab there [0.95ms]
+(pass) drawer modal > does not lose focus or the launcher when an inline callback changes [4.43ms]
+(pass) drawer modal > skips unavailable controls and follows the live Tab order [5.53ms]
+(pass) drawer modal > restores the launcher even when a child requests autofocus [2.24ms]
+(pass) drawer modal > keeps native cancellation controlled and ignores an IME Escape [1.40ms]
+(pass) drawer modal > chooses the first control after native showModal focuses a content surface [1.41ms]
+(pass) drawer modal > reports native close requests without leaving a controlled-open modal unlocked [0.89ms]
+(pass) drawer modal > includes an editable region in the Tab cycle without requiring tabindex [1.57ms]
+(pass) sheet modal > moves focus into its content and restores the launcher after closing [8.49ms]
+(pass) sheet modal > cycles Tab in both directions and rejects focus outside the content [2.69ms]
+(pass) sheet modal > makes the background inert, closes with Escape, and releases the scroll lock [2.09ms]
+(pass) sheet modal > focuses a content surface with no controls and keeps Tab there [1.21ms]
+(pass) sheet modal > does not lose focus or the launcher when an inline callback changes [4.87ms]
+(pass) sheet modal > skips unavailable controls and follows the live Tab order [2.77ms]
+(pass) sheet modal > restores the launcher even when a child requests autofocus [3.52ms]
+(pass) sheet modal > keeps native cancellation controlled and ignores an IME Escape [1.59ms]
+(pass) sheet modal > chooses the first control after native showModal focuses a content surface [1.85ms]
+(pass) sheet modal > reports native close requests without leaving a controlled-open modal unlocked [1.39ms]
+(pass) sheet modal > includes an editable region in the Tab cycle without requiring tabindex [2.39ms]
+(pass) nested modals > drawer keeps the lower layer locked and restores focus one layer at a time [4.27ms]
+(pass) nested modals > sheet keeps the lower layer locked and restores focus one layer at a time [3.56ms]
+(pass) nested modals > releases every lock when an outer layer closes with its child still open [8.35ms]
+(pass) nested modals > keeps a surviving sibling modal locked when the lower layer is unmounted first [4.31ms]
+(pass) nested modals > preserves existing inert and body styles and isolates newly inserted background roots [2.67ms]
+
+tests/registry-server.test.ts:
+(pass) registry workbench token distribution > workbench components depend on one token system and do not copy cssVars [0.84ms]
+
+tests/application-consumer-usage.test.ts:
+(pass) available registry graphs and stray files do not count as installed assets [0.17ms]
+(pass) an installed entry is insufficient when a required helper is absent [0.02ms]
+(pass) a narrow base install excludes the parent and its uninstalled variants [0.04ms]
+(pass) missing candidate graphs are excluded and missing installed graphs fail explicitly [0.10ms]
+(pass) the actual benchmark installation retains all 24 original section/page/site usages [100.63ms]
+
+tests/halftone-image.test.ts:
+(pass) coverFit > fills the box on the constrained axis and centres the overflow [0.04ms]
+(pass) coverFit > never letterboxes — the scaled bitmap covers both axes [0.03ms]
+(pass) dotRadius > makes dot area — not radius — proportional to tone [0.02ms]
+(pass) dotRadius > a full tone at dotScale 1 exactly spans the cell
+(pass) dotRadius > clamps tones outside 0..1 instead of producing NaN [0.01ms]
+(pass) screenLattice > leaves no bare corner when the screen is rotated [0.39ms]
+(pass) screenLattice > keeps the grid pitch under rotation [0.24ms]
+(pass) screenLattice > an unrotated screen lands on an axis-aligned grid [0.05ms]
+(pass) screenLattice > stays bounded — no runaway lattice for a thin box [0.41ms]
+
+tests/theme-kits.test.ts:
+(pass) theme kits > produces exactly 14 kits with unique slugs [0.04ms]
+(pass) theme kits > every kit has a complete token set for each of its modes [0.11ms]
+(pass) theme kits > single-mode kits render the same --wb-accent value in :root and .dark [0.93ms]
+(pass) theme kits > chart colors sit in the documented lightness band and stay in gamut [0.11ms]
+(pass) theme kits > chart colors contrast at least 2:1 against the kit's background, where resolvable [0.26ms]
+(pass) theme kits > graphite's shadcn tokens equal BASE_LIGHT/BASE_DARK verbatim [0.05ms]
+(pass) theme kits > graphite's rendered CSS includes the expected token families [0.10ms]
+
+tests/ai-sidebar-tree.test.ts:
+(pass) ai-sidebar tree-utils > moveResource reorders siblings and reparents into a folder [0.18ms]
+(pass) ai-sidebar tree-utils > moveResource rejects disabled items, cycles, and non-containers [0.03ms]
+(pass) ai-sidebar tree-utils > renameResource updates a nested label and flatten respects expand state [0.10ms]
+
+tests/palettes-contrast.test.ts:
+(pass) palette contrast reports > reports the four semantic foreground/background pairs with WCAG states [0.12ms]
+(pass) palette contrast reports > does not introduce new normal-text AA failures beyond known palette debt [0.13ms]
+
+tests/color-contrast.test.ts:
+(pass) contrast + mix helpers > black on white is the maximum WCAG contrast ratio [0.02ms]
+(pass) contrast + mix helpers > identical colors have no contrast
+(pass) contrast + mix helpers > mixing white over black at 50% lands exactly at mid-gray [0.06ms]
+
+tests/a11y.test.tsx:
+(pass) accessibility > Button has no axe violations [11.17ms]
+(pass) accessibility > FileTree has no axe violations [17.77ms]
+(pass) accessibility > MorphingSearch closed has no axe violations [7.85ms]
+(pass) accessibility > MorphingSearch open has no axe violations [11.94ms]
+(pass) accessibility > MorphingSearch icon only has no axe violations [8.12ms]
+(pass) accessibility > Button disabled has no axe violations [10.02ms]
+(pass) accessibility > Button ripple has no axe violations [4.67ms]
+(pass) accessibility > BloomMenu has no axe violations [5.95ms]
+(pass) accessibility > Switch has no axe violations [11.23ms]
+(pass) accessibility > AnimatedBadge has no axe violations [5.09ms]
+(pass) accessibility > SmoothScroll has no axe violations [4.94ms]
+(pass) accessibility > ScrollProgress bar has no axe violations [8.14ms]
+(pass) accessibility > ScrollProgress circle has no axe violations [5.84ms]
+(pass) accessibility > Parallax has no axe violations [9.81ms]
+(pass) accessibility > ScrollTo has no axe violations [3.41ms]
+(pass) accessibility > RangeSlider has no axe violations [4.49ms]
+(pass) accessibility > Checkbox has no axe violations [4.00ms]
+(pass) accessibility > Input has no axe violations [7.04ms]
+(pass) accessibility > RadioGroup has no axe violations [5.80ms]
+(pass) accessibility > ScrollReveal has no axe violations [3.57ms]
+(pass) accessibility > TextReveal has no axe violations [3.60ms]
+(pass) accessibility > Tooltip has no axe violations [8.51ms]
+(pass) accessibility > Tabs has no axe violations [5.74ms]
+
+tests/ui-lab-skill.test.ts:
+(pass) UI Lab skill routing contract > keeps a two-route component discover/install router [1.50ms]
+(pass) UI Lab skill routing contract > keeps required references present and linked [0.33ms]
+(pass) UI Lab skill routing contract > discover stays read-only and points at catalog commands [2.74ms]
+(pass) UI Lab skill routing contract > install uses shadcn registry commands and does not auto-run by default [0.42ms]
+(pass) UI Lab skill routing contract > explicitly excludes design-system lifecycle and admin template work [0.27ms]
+(pass) UI Lab skill metadata > gives the model-invoked skill an explicit default prompt [0.37ms]
+
+tests/architecture-check.test.ts:
+(pass) new portable assets pass with standalone usage and fail without it [225.51ms]
+(pass) a transitive helper cannot bring a site provider into an installable asset [107.64ms]
+(pass) literal require dependencies absent from distribution fail the gate [100.06ms]
+(pass) parents and installable variants must each resolve a standalone usage [292.89ms]
+(pass) retired standalone usage exceptions cannot be reintroduced [186.22ms]
+(pass) absolute source paths and file URLs cannot bypass portable graph checks [388.99ms]
+(pass) usage external package roots must belong to the exact install dependencies [905.52ms]
+(pass) literal dynamic, re-export, require and import-type references cannot borrow external packages [420.18ms]
+(pass) an installable variant cannot borrow its parent's external dependency declaration [99.78ms]
+(pass) displayed variants without install slugs use the parent graph and their own entry [312.04ms]
+(pass) displayed variants without install slugs reject site providers and undeclared packages [400.63ms]
+
+tests/architecture-rules.test.ts:
+(pass) portable boundaries recognize static, re-export and literal dynamic dependencies [1.23ms]
+(pass) localized navigation rejects aliases and namespace imports but permits read-only queries [0.44ms]
+(pass) portable default exports cannot hide behind re-exports [8.97ms]
+(pass) portable module specifiers exclude absolute paths, URLs and unsupported aliases [0.23ms]
+(pass) external package identities keep scoped roots and exact React baseline names [0.04ms]
+(pass) import-type dependencies receive the same boundary checks as value imports [0.20ms]
+
+tests/catalog-contract.test.ts:
+(pass) Catalog installation contract > display families and every variant are installable without duplicate identities [35.53ms]
+(pass) Catalog installation contract > owned family and mandatory installation closure are separate [28.95ms]
+
+tests/atoms-export.test.ts:
+(pass) atom category exports > renders a CSS variable block from exact atom values [0.03ms]
+(pass) atom category exports > renders the same exact values as a Tailwind v4 theme [0.01ms]
+(pass) atom category exports > renders an English DESIGN.md section with values and one rule [0.01ms]
+(pass) atom category exports > maps the complete spacing category to its fixed token names [0.03ms]
+(pass) atom category exports > includes the widest breakpoint token in the spacing export [0.02ms]
+(pass) atom category exports > keeps paired line values and the focus offset in the export [0.02ms]
+(pass) atom category exports > exports icon vocabulary as DESIGN.md only [0.03ms]
+(pass) atom category exports > exports background recipes as a code-first DESIGN.md section only [0.07ms]
+(pass) atom category exports > omits the fade section entirely when no fades are passed [0.02ms]
+(pass) atom category exports > appends fade masks after the textures and teaches the layer rule [0.03ms]
+(pass) atom category exports > keeps every halftone step on its own cell size so the ladder stays distinct [0.04ms]
+(pass) atom category exports > tiles the noise recipe seamlessly instead of stretching one instance [0.03ms]
+(pass) atom category exports > maps motion curves, spring physics, and durations without losing values [0.03ms]
+(pass) atom category exports > maps radius, paired shadow, and layer values into one shape export [0.03ms]
+(pass) atom category exports > maps every font pairing and type-scale measure to distinct variables [0.04ms]
+
+tests/catalog-snapshot.test.ts:
+(pass) snapshot checking ignores its timestamp but rejects changed discovery and source revisions [16.40ms]
+(pass) snapshot checking rejects malformed counts and broken installation identities [2.00ms]
+
+tests/palettes-css.test.ts:
+(pass) palettes CSS export > maps the 8 semantic roles of a specific palette to the right token lines [0.09ms]
+(pass) palettes CSS export > starts with a block comment and contains a balanced :root block [0.04ms]
+(pass) palettes CSS export > every palette in the catalog renders non-empty, drop-in CSS [0.09ms]
+
+ 260 pass
+ 0 fail
+ 12551 expect() calls
+Ran 260 tests across 33 files. [15.12s]

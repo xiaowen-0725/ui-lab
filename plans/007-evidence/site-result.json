@@ -1,0 +1,6995 @@
+{
+  "base": "http://localhost:3000",
+  "catalog": 558,
+  "installationTargets": 158,
+  "retainedVisualRoutes": 439,
+  "browser": "154.0.8037.98",
+  "browserScenarios": 120,
+  "localeThemeViewportCombinations": 12,
+  "screenshots": [
+    "zh-light-390-_pages_saas-landing-page.png",
+    "zh-light-390-_sites_agent-workbench-site.png",
+    "zh-light-390-_themes_graphite.png",
+    "zh-light-768-_pages_saas-landing-page.png",
+    "zh-light-768-_sites_agent-workbench-site.png",
+    "zh-light-768-_themes_graphite.png",
+    "zh-light-1440-_pages_saas-landing-page.png",
+    "zh-light-1440-_sites_agent-workbench-site.png",
+    "zh-light-1440-_themes_graphite.png",
+    "zh-dark-390-_pages_saas-landing-page.png",
+    "zh-dark-390-_sites_agent-workbench-site.png",
+    "zh-dark-390-_themes_graphite.png",
+    "zh-dark-768-_pages_saas-landing-page.png",
+    "zh-dark-768-_sites_agent-workbench-site.png",
+    "zh-dark-768-_themes_graphite.png",
+    "zh-dark-1440-_pages_saas-landing-page.png",
+    "zh-dark-1440-_sites_agent-workbench-site.png",
+    "zh-dark-1440-_themes_graphite.png",
+    "en-light-390-_pages_saas-landing-page.png",
+    "en-light-390-_sites_agent-workbench-site.png",
+    "en-light-390-_themes_graphite.png",
+    "en-light-768-_pages_saas-landing-page.png",
+    "en-light-768-_sites_agent-workbench-site.png",
+    "en-light-768-_themes_graphite.png",
+    "en-light-1440-_pages_saas-landing-page.png",
+    "en-light-1440-_sites_agent-workbench-site.png",
+    "en-light-1440-_themes_graphite.png",
+    "en-dark-390-_pages_saas-landing-page.png",
+    "en-dark-390-_sites_agent-workbench-site.png",
+    "en-dark-390-_themes_graphite.png",
+    "en-dark-768-_pages_saas-landing-page.png",
+    "en-dark-768-_sites_agent-workbench-site.png",
+    "en-dark-768-_themes_graphite.png",
+    "en-dark-1440-_pages_saas-landing-page.png",
+    "en-dark-1440-_sites_agent-workbench-site.png",
+    "en-dark-1440-_themes_graphite.png"
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "path": "/catalog.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/navbar-simple.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/features-alternating.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/features-grid.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/logo-wall-row.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/hero-screenshot.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/hero-split.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/hero-centered.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/navbar-centered.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/navbar-simple",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/features-alternating",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/features-grid",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/logo-wall-row",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/hero-split",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/hero-screenshot",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/hero-centered",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/navbar-centered",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/navbar-simple/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/features-grid/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/features-alternating/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/hero-screenshot/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/hero-split/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/logo-wall-row/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/hero-centered/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/navbar-centered/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/stats-row.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/testimonials-quote.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/pricing-tiers.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/testimonials-cards.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/faq-two-column.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/pricing-simple.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/cta-banner.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/faq-accordion.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/stats-row",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/testimonials-quote",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/testimonials-cards",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/faq-two-column",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/pricing-tiers",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/pricing-simple",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/cta-banner",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/faq-accordion",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/stats-row/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/testimonials-quote/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/faq-two-column/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/pricing-tiers/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/testimonials-cards/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/pricing-simple/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/cta-banner/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/faq-accordion/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/workbench-artifact-page.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/cta-boxed.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/footer-columns.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/saas-landing-page.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/workbench-conversation-page.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/workbench-settings-page.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/footer-minimal.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-workbench-site.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/cta-boxed",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/workbench-artifact-page",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/footer-minimal",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/footer-columns",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/saas-landing-page",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/workbench-conversation-page",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/workbench-settings-page",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/cta-boxed/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/agent-workbench-site",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/workbench-artifact-page/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/footer-minimal/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/footer-columns/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/workbench-conversation-page/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/saas-landing-page/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/workbench-settings-page/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/agent-workbench-site/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/tilt-card.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/button-stateful.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/button-base.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/button.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/button-metallic.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/button-magnetic.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/tabs.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/marquee.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/button-stateful",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/tilt-card",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/button",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/button-base",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/button-magnetic",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/marquee",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/tabs",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/button-metallic",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/button-base/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/button/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/tilt-card/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/button-stateful/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/button-magnetic/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/tabs/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/marquee/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/button-metallic/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/select.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/input.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/switch.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/select-morph.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/radio.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/checkbox.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/bottom-sheet.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/shared-layout-bg.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/select",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/radio",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/input",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/switch",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/select-morph",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/checkbox",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/bottom-sheet",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/shared-layout-bg",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/switch/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/input/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/select/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/radio/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/checkbox/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/select-morph/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/shared-layout-bg/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/bottom-sheet/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/tooltip-morph.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/dock.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/morphing-modal.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/tooltip.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/popover-morph.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/preview-rail.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/popover.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/text-animation.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/tooltip-morph",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/morphing-modal",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/popover",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/popover-morph",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/dock",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/tooltip",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/preview-rail",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/text-animation",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/morphing-modal/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/popover/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/popover-morph/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/dock/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/tooltip-morph/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/tooltip/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/preview-rail/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/text-animation/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/text-shimmer.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/text-reveal.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/text-cascade.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/animated-badge.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/number-ticker.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/animated-number.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/number.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/action-swap.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/text-reveal",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/text-shimmer",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/text-cascade",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/animated-number",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/number-ticker",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/animated-badge",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/number",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/action-swap",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/text-reveal/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/text-shimmer/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/text-cascade/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/animated-number/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/number-ticker/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/animated-badge/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/number/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/action-swap/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/action-swap-cascade.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-toggle.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/action-swap-blur.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/bouncy-accordion.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/animated-toast-stack.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/action-swap-roll.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/scroll-animation.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/drawer.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/action-swap-cascade",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-toggle",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/bouncy-accordion",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/action-swap-blur",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/animated-toast-stack",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/action-swap-roll",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/scroll-animation",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/drawer",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-toggle/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/action-swap-cascade/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/bouncy-accordion/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/action-swap-blur/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/action-swap-roll/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/animated-toast-stack/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/scroll-animation/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/drawer/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/parallax.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/scroll-progress.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/scroll-to.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/smooth-scroll.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/range-slider.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/scroll-reveal.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/wheel-picker.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/table.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/parallax",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/scroll-to",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/wheel-picker",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/scroll-progress",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/scroll-reveal",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/range-slider",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/smooth-scroll",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/table",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/range-slider/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/scroll-to/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/parallax/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/wheel-picker/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/scroll-reveal/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/scroll-progress/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/smooth-scroll/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/table/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/shader-background.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/table-editable.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/cylinder-carousel.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/loader.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/table-async.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/halftone-image.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/text-scramble.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/webgl-background.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/cylinder-carousel",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/table-editable",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/loader",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/shader-background",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/table-async",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/text-scramble",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/halftone-image",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/webgl-background",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/cylinder-carousel/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/table-editable/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/shader-background/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/table-async/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/loader/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/text-scramble/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/halftone-image/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/webgl-background/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/bounce-cards.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/star-border.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/skeleton.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/animated-icon.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/scroll-hint.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/glare-hover.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/expanding-card.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/dropdown-menu.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/bounce-cards",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/star-border",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/skeleton",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/scroll-hint",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/animated-icon",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/glare-hover",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/expanding-card",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/dropdown-menu",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/bounce-cards/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/star-border/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/animated-icon/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/scroll-hint/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/skeleton/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/glare-hover/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/expanding-card/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/dropdown-menu/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/expandable-control.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/file-tree.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/recording-card.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/login-card.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/thread-list.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-inbox.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/artifact-panel.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-trace.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/file-tree",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/recording-card",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/thread-list",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/login-card",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/expandable-control",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-inbox",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/artifact-panel",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-trace",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/file-tree/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/expandable-control/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/recording-card/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/agent-inbox/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/thread-list/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/agent-trace/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/login-card/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/artifact-panel/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/citations.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/streaming-json.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/voice-orb.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-thread.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/activity-stats.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/settings-panel.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-workbench.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-composer.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/streaming-json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/citations",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/voice-orb",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-thread",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/activity-stats",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/settings-panel",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-composer",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-workbench",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/streaming-json/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/citations/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/agent-thread/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/activity-stats/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/settings-panel/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/voice-orb/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/agent-workbench/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/agent-composer/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/swap.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/dynamic-island.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/command-palette.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/availability-scheduler.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/overflow-actions.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/morphing-search.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/expandable-action-bar.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/expandable-tabs.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/swap",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/command-palette",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/availability-scheduler",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/morphing-search",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/overflow-actions",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/dynamic-island",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/expandable-tabs",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/expandable-action-bar",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/command-palette/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/swap/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/availability-scheduler/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/morphing-search/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/overflow-actions/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/dynamic-island/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/expandable-tabs/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/expandable-action-bar/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/swipeable-list.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/prediction-market.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/file-upload.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/wallet-card.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/not-found.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/feedback-widget.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/bloom-menu.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/otp-input.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/swipeable-list",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/wallet-card",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/prediction-market",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/file-upload",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/bloom-menu",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/otp-input",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/not-found",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/feedback-widget",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/prediction-market/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/wallet-card/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/otp-input/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/bloom-menu/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/file-upload/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/swipeable-list/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/feedback-widget/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/not-found/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/not-found-magnetic.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/not-found-glitch.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/not-found-spotlight.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/not-found-stacked.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/not-found-terminal.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/empty-state-inbox.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/empty-state.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/step-form.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/not-found-magnetic",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/not-found-glitch",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/not-found-stacked",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/not-found-terminal",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/not-found-spotlight",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/empty-state-inbox",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/empty-state",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/step-form",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/not-found-magnetic/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/empty-state-inbox/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/not-found-terminal/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/not-found-glitch/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/not-found-spotlight/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/not-found-stacked/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/empty-state/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/step-form/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/empty-state-archive.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/empty-state-search.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/prompt-input.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/todo-list.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/code-block.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/prompt-bar.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/file-diff.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/approval-card.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/empty-state-archive",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/empty-state-search",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/code-block",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/todo-list",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/prompt-input",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/prompt-bar",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/file-diff",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/approval-card",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/code-block/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/empty-state-search/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/todo-list/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/prompt-input/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/prompt-bar/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/empty-state-archive/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/file-diff/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/approval-card/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/streaming-response.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/image-generation.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/tool-result.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/tool-approval.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-activity.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-progress.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/ai-sidebar.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/reasoning-text.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/tool-approval",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/image-generation",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/tool-result",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-activity",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/streaming-response",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/agent-progress",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/reasoning-text",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/ai-sidebar",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/image-generation/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/tool-approval/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/tool-result/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/streaming-response/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/agent-activity/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/agent-progress/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/ai-sidebar/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/reasoning-text/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/reasoning.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/chain-of-thought.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/inline-citation.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/plan.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/task.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/sources.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/queue.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/confirmation.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/chain-of-thought",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/reasoning",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/task",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/inline-citation",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/sources",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/confirmation",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/queue",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/plan",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/chain-of-thought/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/reasoning/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/sources/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/task/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/inline-citation/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/queue/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/plan/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/confirmation/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/collapsible-sidebar.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/jsx-preview.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/suggestion.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/view-layout-switch.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/upgrade-paywall.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/billing-plan-grid.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/collapsible-sidebar",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/suggestion",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/jsx-preview",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/upgrade-paywall",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/billing-plan-grid",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/view-layout-switch",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/collapsible-sidebar/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/jsx-preview/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/suggestion/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/upgrade-paywall/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/view-layout-switch/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/billing-plan-grid/raw",
+      "status": 200,
+      "kind": "text"
+    },
+    {
+      "path": "/r/theme-terracotta.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-stark.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-paper.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-indigo.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-nightflight.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-pearl.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-jade.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-graphite.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/themes/terracotta.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/themes/paper.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/themes/stark.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/themes/nightflight.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/themes/pearl.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/themes/indigo.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/themes/jade.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/themes/graphite.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/r/theme-prism.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-coral.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-stone.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-parchment.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-eclipse.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/r/theme-frost.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/themes/prism.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/themes/coral.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/themes/eclipse.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/themes/frost.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/themes/stone.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/themes/parchment.css",
+      "status": 200,
+      "kind": "css"
+    },
+    {
+      "path": "/r/system-workbench.json",
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "path": "/registry.json",
+      "status": 200,
+      "kind": "machine"
+    },
+    {
+      "path": "/llms.txt",
+      "status": 200,
+      "kind": "machine"
+    },
+    {
+      "path": "/llms-full.txt",
+      "status": 200,
+      "kind": "machine"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "kind": "machine"
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "kind": "machine"
+    },
+    {
+      "path": "/theme.css",
+      "status": 200,
+      "kind": "machine"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "kind": "xml"
+    },
+    {
+      "path": "/dictionary?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/blocks?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/pages?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sites?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/tilt-card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/tilt-card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sites?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/pages?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/blocks?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/marquee?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/tabs?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/switch?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/input?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/checkbox?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/radio?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/select?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/button?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/marquee?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/tabs?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/switch?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/radio?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/checkbox?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/input?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/select?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/button?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/dock?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/shared-layout-bg?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/bottom-sheet?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/preview-rail?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/text-animation?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/morphing-modal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/tooltip?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/popover?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/dock?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/shared-layout-bg?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/bottom-sheet?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/preview-rail?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/morphing-modal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/text-animation?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/tooltip?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/popover?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/animated-badge?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/number?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/theme-toggle?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/bouncy-accordion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/animated-toast-stack?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/drawer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/action-swap?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/scroll-animation?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/animated-badge?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/number?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/bouncy-accordion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/theme-toggle?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/animated-toast-stack?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/drawer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/action-swap?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/scroll-animation?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/text-scramble?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/wheel-picker?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/shader-background?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/range-slider?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/cylinder-carousel?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/loader?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/webgl-background?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/table?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/text-scramble?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/range-slider?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/shader-background?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/wheel-picker?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/cylinder-carousel?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/loader?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/webgl-background?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/table?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/star-border?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/bounce-cards?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/halftone-image?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/glare-hover?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/scroll-hint?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/skeleton?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/animated-icon?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/dropdown-menu?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/star-border?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/bounce-cards?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/skeleton?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/glare-hover?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/scroll-hint?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/halftone-image?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/animated-icon?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/dropdown-menu?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/expanding-card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/recording-card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/file-tree?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/motion/expandable-control?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/thread-list?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/login-card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/agent-inbox?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/artifact-panel?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/expanding-card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/expandable-control?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/recording-card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/thread-list?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/motion/file-tree?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/login-card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/agent-inbox?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/artifact-panel?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/citations?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/activity-stats?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/voice-orb?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/agent-trace?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/streaming-json?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/settings-panel?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/agent-composer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/agent-thread?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/voice-orb?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/activity-stats?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/citations?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/agent-trace?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/streaming-json?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/settings-panel?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/agent-composer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/agent-thread?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/expandable-action-bar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/overflow-actions?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/command-palette?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/swap?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/dynamic-island?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/morphing-search?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/availability-scheduler?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/agent-workbench?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/expandable-action-bar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/command-palette?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/overflow-actions?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/swap?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/morphing-search?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/dynamic-island?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/availability-scheduler?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/agent-workbench?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/bloom-menu?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/swipeable-list?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/otp-input?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/file-upload?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/expandable-tabs?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/feedback-widget?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/wallet-card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/prediction-market?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/bloom-menu?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/swipeable-list?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/expandable-tabs?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/otp-input?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/file-upload?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/feedback-widget?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/prediction-market?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/wallet-card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/code-block?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/todo-list?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/not-found?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/step-form?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/prompt-bar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/prompt-input?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/empty-state?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/approval-card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/code-block?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/todo-list?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/prompt-bar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/step-form?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/not-found?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/prompt-input?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/approval-card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/empty-state?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/tool-approval?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/streaming-response?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/agent-progress?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/image-generation?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/file-diff?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/reasoning-text?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/tool-result?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/agent-activity?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/agent-progress?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/image-generation?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/streaming-response?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/tool-approval?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/file-diff?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/reasoning-text?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/tool-result?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/agent-activity?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/plan?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/chain-of-thought?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/sources?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/task?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/inline-citation?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/reasoning?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/queue?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/ai-sidebar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/sources?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/chain-of-thought?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/task?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/inline-citation?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/plan?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/reasoning?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/queue?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/ai-sidebar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/button?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/suggestion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/jsx-preview?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/confirmation?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/view-layout-switch?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/upgrade-paywall?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/billing-plan-grid?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/blocks/collapsible-sidebar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/jsx-preview?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/suggestion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/confirmation?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/upgrade-paywall?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/view-layout-switch?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/billing-plan-grid?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/blocks/collapsible-sidebar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/button?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/icon-button?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/link?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/text-field?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/text-area?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/search-field?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/password-field?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/checkbox?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/radio?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/icon-button?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/link?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/text-area?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/password-field?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/search-field?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/text-field?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/checkbox?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/radio?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/switch?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/select?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/combobox?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/slider?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/sidebar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/header?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/tabs?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/breadcrumb?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/header?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/sidebar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/slider?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/combobox?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/breadcrumb?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/select?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/switch?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/tabs?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/pagination?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/menu?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/hamburger?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/kebab?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/dialog?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/drawer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/popover?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/tooltip?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/pagination?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/kebab?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/hamburger?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/menu?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/dialog?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/tooltip?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/popover?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/drawer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/dropdown-menu?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/toast?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/alert?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/badge?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/progress?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/spinner?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/skeleton?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/empty-state?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/progress?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/toast?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/dropdown-menu?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/alert?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/badge?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/empty-state?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/spinner?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/skeleton?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/table?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/avatar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/tag?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/accordion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/concepts/list?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/fade?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/exit?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/card?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/avatar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/fade?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/exit?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/tag?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/list?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/table?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/concepts/accordion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/slide?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/pop-in?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/blur-fade?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/clip-reveal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/stagger?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/press?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/magnetic?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/tilt?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/slide?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/blur-fade?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/clip-reveal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/pop-in?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/stagger?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/press?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/magnetic?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/tilt?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/glare?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/ripple?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/shake?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/swipe-dismiss?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/reorder?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/rubber-band?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/hold?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/check?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/reorder?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/rubber-band?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/hold?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/swipe-dismiss?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/glare?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/shake?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/ripple?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/check?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/thumb?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/pull-refresh?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/indeterminate?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/text-reveal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/text-shimmer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/text-scramble?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/number-ticker?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/count-up?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/thumb?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/indeterminate?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/pull-refresh?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/number-ticker?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/text-shimmer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/text-scramble?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/text-reveal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/count-up?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/text-cascade?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/typewriter?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/word-rotate?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/parallax?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/scroll-reveal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/scroll-progress?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/smooth-scroll?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/pinned?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/word-rotate?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/typewriter?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/pinned?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/scroll-reveal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/scroll-progress?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/smooth-scroll?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/text-cascade?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/parallax?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/stacking?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/snap?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/horizontal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/zoom?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/scroll-hint?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/marquee?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/star-border?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/bounce-cards?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/stacking?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/zoom?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/horizontal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/snap?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/marquee?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/scroll-hint?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/star-border?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/bounce-cards?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/magnify?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/skeleton?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/spinner?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/carousel?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/orbit?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/float?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/confetti?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/beam?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/magnify?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/float?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/orbit?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/confetti?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/spinner?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/carousel?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/beam?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/skeleton?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/spotlight?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/progressive-blur?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/shared-layout?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/morph?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/crossfade?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/origin-aware?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/shared-element?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/direction?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/spotlight?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/progressive-blur?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/crossfade?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/morph?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/shared-layout?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/origin-aware?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/direction?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/shared-element?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/page-transition?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/view-transition?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/swap?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/expand?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/inertia?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/drawer-slide?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/compare?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/flip?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/page-transition?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/compare?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/view-transition?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/flip?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/drawer-slide?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/expand?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/swap?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/inertia?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/insert?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/ease-out?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/ease-in-out?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/spring?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/draw?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/wiggle?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/spin?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/dictionary/motion/pulse?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/insert?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/ease-in-out?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/ease-out?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/spring?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/pulse?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/draw?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/spin?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/dictionary/motion/wiggle?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sections?section=navbar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sections?section=hero?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sections?section=logo-wall?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sections?section=features?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sections?section=stats?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sections?section=testimonials?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sections?section=pricing?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sections?section=faq?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sections?section=logo-wall?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sections?section=hero?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sections?section=navbar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sections?section=testimonials?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sections?section=stats?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sections?section=faq?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sections?section=pricing?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sections?section=features?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sections?section=cta?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sections?section=footer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/patterns?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/scroll?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=glassmorphism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=neumorphism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=claymorphism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=liquid-glass?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/scroll?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=neumorphism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sections?section=cta?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=liquid-glass?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=claymorphism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sections?section=footer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/patterns?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=glassmorphism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=neubrutalism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=brutalism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=maximalism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=swiss?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=minimalism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=editorial?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=japanese-minimal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=y2k?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=editorial?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=neubrutalism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=swiss?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=brutalism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=japanese-minimal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=minimalism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=maximalism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=y2k?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=vaporwave?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=pixel-art?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=frutiger-aero?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=memphis?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=bauhaus?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=art-deco?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=retro-terminal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=dark-tech?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=frutiger-aero?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=retro-terminal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=art-deco?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=memphis?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=dark-tech?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=vaporwave?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=bauhaus?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=pixel-art?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=cyberpunk?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=aurora?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=sci-fi-hud?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=bento-grid?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=organic-shapes?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=hand-drawn?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=dopamine-colors?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=material-design?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=material-design?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=cyberpunk?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=aurora?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=organic-shapes?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=bento-grid?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=sci-fi-hud?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=dopamine-colors?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=hand-drawn?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/styles?style=flat-design?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=morandi?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=cream?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=macaron?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=sage?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=dopamine?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=neon?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=sunset?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=morandi?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=macaron?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=neon?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=dopamine?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=sunset?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=cream?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=sage?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/styles?style=flat-design?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=pop?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=dark-luxe?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=midnight?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=forest-night?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=mono-slate?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=earth?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=ocean?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=business?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=pop?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=ocean?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=midnight?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=forest-night?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=business?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=dark-luxe?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=mono-slate?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=earth?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/palettes?palette=ink-wash?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/stark?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/nightflight?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/paper?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/graphite?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/indigo?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/terracotta?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/pearl?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/nightflight?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/graphite?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/stark?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/terracotta?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/indigo?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/paper?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/pearl?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/palettes?palette=ink-wash?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/atoms?cat=motion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/jade?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/frost?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/prism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/parchment?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/eclipse?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/stone?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/themes/coral?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/jade?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/frost?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/coral?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/parchment?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/prism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/eclipse?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/themes/stone?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/atoms?cat=motion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/atoms?cat=shape?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/atoms?cat=typography?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/atoms?cat=spacing?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/atoms?cat=lines?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/atoms?cat=icons?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/atoms?cat=backgrounds?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=graphite?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=nightflight?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/atoms?cat=lines?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/atoms?cat=icons?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/atoms?cat=shape?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/atoms?cat=typography?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/atoms?cat=spacing?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/atoms?cat=backgrounds?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=graphite?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=nightflight?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=stark?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=paper?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=terracotta?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=indigo?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=pearl?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=jade?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=prism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=coral?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=stark?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=terracotta?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=indigo?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=paper?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=pearl?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=prism?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=coral?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=jade?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=stone?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=parchment?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=frost?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?ds=eclipse?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/layouts?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sections?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/anthropic?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/mistral-ai?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/anthropic?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/mistral-ai?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=stone?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=frost?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sections?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=eclipse?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?ds=parchment?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/layouts?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/animejs?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/cursor?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/metalforge?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/supabase?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/sentry?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/linear?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/notion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/vercel?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/cursor?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/animejs?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/supabase?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/metalforge?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/notion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/linear?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/vercel?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/sentry?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/figma?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/stripe?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/wise?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/framer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/aesop?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/shopify?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/the-verge?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/spotify?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/figma?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/wise?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/stripe?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/framer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/the-verge?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/shopify?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/aesop?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/spotify?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/polestar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/nothing?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/ssense?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/headspace?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/active-theory?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/duolingo?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/apple?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/aman?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/polestar?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/nothing?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/duolingo?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/active-theory?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/apple?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/ssense?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/headspace?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/aman?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/oatly?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/binance?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/apple?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/airbnb?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/sites/moma?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/airtable?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/bmw?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/bmw-m?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/oatly?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/sites/moma?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/apple?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/binance?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/airbnb?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/airtable?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/bmw?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/bmw-m?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/bugatti?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/cal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/clickhouse?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/claude?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/cohere?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/coinbase?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/composio?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/clay?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/clickhouse?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/cohere?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/bugatti?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/coinbase?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/claude?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/composio?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/cal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/clay?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/expo?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/dell-1996?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/cursor?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/elevenlabs?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/figma?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/framer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/hashicorp?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/ferrari?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/expo?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/dell-1996?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/hashicorp?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/ferrari?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/cursor?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/elevenlabs?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/framer?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/figma?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/hp?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/ibm?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/intercom?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/lovable?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/kraken?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/meta?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/lamborghini?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/mastercard?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/hp?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/ibm?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/intercom?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/lovable?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/kraken?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/lamborghini?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/meta?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/mastercard?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/minimax?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/nike?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/miro?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/mintlify?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/nintendo-2001?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/mongodb?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/notion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/nvidia?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/minimax?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/nintendo-2001?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/miro?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/nike?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/mintlify?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/mongodb?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/notion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/nvidia?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/renault?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/raycast?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/ollama?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/posthog?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/replicate?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/playstation?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/pinterest?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/resend?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/renault?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/ollama?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/raycast?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/playstation?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/replicate?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/pinterest?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/posthog?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/resend?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/shopify?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/runwayml?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/spotify?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/spacex?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/revolut?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/sanity?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/slack?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/sentry?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/runwayml?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/shopify?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/spotify?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/spacex?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/slack?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/sanity?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/revolut?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/sentry?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/supabase?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/vercel?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/uber?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/starbucks?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/superhuman?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/theverge?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/stripe?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/tesla?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/supabase?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/superhuman?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/uber?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/tesla?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/starbucks?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/stripe?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/vercel?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/theverge?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/vodafone?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/wise?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/voltagent?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/wired?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/warp?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/webflow?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/inspiration/brands/zapier?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/navbar-simple?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/vodafone?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/warp?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/wired?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/wise?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/voltagent?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/webflow?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/inspiration/brands/zapier?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/navbar-simple?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/navbar-centered?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/hero-screenshot?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/hero-split?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/logo-wall-row?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/hero-centered?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/stats-row?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/features-grid?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/features-alternating?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/hero-centered?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/hero-screenshot?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/navbar-centered?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/logo-wall-row?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/features-grid?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/hero-split?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/stats-row?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/features-alternating?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/testimonials-cards?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/pricing-simple?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/testimonials-quote?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/faq-two-column?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/faq-accordion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/pricing-tiers?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/cta-banner?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/cta-boxed?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/testimonials-cards?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/cta-banner?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/pricing-simple?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/pricing-tiers?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/faq-two-column?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/testimonials-quote?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/cta-boxed?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/faq-accordion?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/footer-columns?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/components/sections/footer-minimal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/pages/saas-landing-page?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/pages/workbench-artifact-page?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/pages/workbench-conversation-page?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/pages/workbench-settings-page?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/sites/agent-workbench-site?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/footer-columns?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/components/sections/footer-minimal?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/pages/saas-landing-page?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/pages/workbench-conversation-page?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/pages/workbench-settings-page?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/pages/workbench-artifact-page?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    },
+    {
+      "path": "/en/sites/agent-workbench-site?acceptance=005#sample",
+      "status": 200,
+      "kind": "html"
+    }
+  ]
+}

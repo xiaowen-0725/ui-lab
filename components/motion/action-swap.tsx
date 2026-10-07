@@ -1,6 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion, type HTMLMotionProps, type Variants } from "motion/react";
+import { AnimatePresence, motion, type HTMLMotionProps, type Variants } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { EASE_OUT, EASE_OUT_CSS, SPRING_PRESS, SPRING_SWAP } from "@/lib/ease";
 import { cn } from "@/lib/utils";

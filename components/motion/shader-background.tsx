@@ -44,7 +44,7 @@ import {
   Waves,
   type WavesProps,
 } from "@paper-design/shaders-react";
-import { useReducedMotion } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import type { ComponentType } from "react";
 import { cn } from "@/lib/utils";
 

@@ -58,7 +58,7 @@ Catalog 的 `sourceFile` / `sourceFiles` 声明资产拥有的源码 family，`i
 
 ## Recipe
 
-Recipe 是 Catalog 的 `kind: "recipe"`，用于组合 Theme Kit、Block、组件或页面 section。每个 Recipe 可以声明：
+Recipe 是 Catalog 的 `kind: "recipe"`，用于组合 Theme Kit、Block、组件或页面 section。每个新增 Recipe 按 [开发流程](CONTRIBUTING.md) 声明以下契约；仅适用于页面组合的 sections 按配方职责填写：
 
 - `profiles` / `recommendedSystem`；
 - `entryComponent`、`components`、`optionalComponents`；

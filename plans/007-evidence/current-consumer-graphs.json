@@ -1,0 +1,43 @@
+{
+  "verdict": "passed",
+  "runs": [
+    {
+      "evidence": "/tmp/uilab-catalog-assets-LgzHBi",
+      "verifiedRegistryGraphs": [
+        "saas-landing-page",
+        "workbench-conversation-page",
+        "workbench-artifact-page",
+        "workbench-settings-page",
+        "agent-workbench-site",
+        "button",
+        "button-base",
+        "animated-badge",
+        "recording-card",
+        "thread-list",
+        "artifact-panel",
+        "agent-thread",
+        "agent-composer",
+        "agent-workbench"
+      ]
+    },
+    {
+      "evidence": "/tmp/uilab-catalog-assets-DLjm7z",
+      "verifiedRegistryGraphs": [
+        "saas-landing-page",
+        "workbench-conversation-page",
+        "workbench-artifact-page",
+        "workbench-settings-page",
+        "agent-workbench-site",
+        "button",
+        "button-base",
+        "animated-badge",
+        "recording-card",
+        "thread-list",
+        "artifact-panel",
+        "agent-thread",
+        "agent-composer",
+        "agent-workbench"
+      ]
+    }
+  ]
+}

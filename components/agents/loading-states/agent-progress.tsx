@@ -2,7 +2,8 @@
 
 // Ported from beUI (starc007/ui-components, MIT).
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { useEffect, useState } from "react";
 import { EASE_IN_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";

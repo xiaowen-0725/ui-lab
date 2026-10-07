@@ -2,7 +2,7 @@
 
 本项目的完整约定见 @AGENTS.md(所有 agent 通用,单一真源)。Claude Code 会随本文件一并加载它。
 
-不在此重复内容 —— 有新增约定请写进 `AGENTS.md`,这里只保留导入。
+新增流程写入 `CONTRIBUTING.md`，判断规则写入 `CODING_STANDARDS.md`，机械规则进入检查脚本；`AGENTS.md` 只保留必要边界和按任务读取的指针。
 
 ## Agent skills
 

@@ -1,0 +1,12 @@
+[
+  {
+    "path": "Electron.app/Contents/MacOS/Electron",
+    "sha256": "cbf8b90abb0fb2f01a5d11c1a96f6ddf70817321eaacbbd3eeab0f2ec79cbb3f",
+    "matchedArchive": true
+  },
+  {
+    "path": "Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework",
+    "sha256": "3de9f493850b35cee9f3c5b3ceec957bb477c247d028d4a9cd65d1ed22489ee4",
+    "matchedArchive": true
+  }
+]

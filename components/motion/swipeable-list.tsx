@@ -1,12 +1,7 @@
 "use client";
 
-import {
-  animate,
-  motion,
-  useMotionValue,
-  useReducedMotion,
-  type PanInfo,
-} from "motion/react";
+import { animate, motion, useMotionValue, type PanInfo } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import {
   useCallback,
   useEffect,

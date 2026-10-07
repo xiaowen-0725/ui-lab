@@ -1,0 +1,4 @@
+{
+  "reason": "All legacy installation identities now declare standalone usage. New entries and variants must satisfy the same gate.",
+  "usageOptional": []
+}

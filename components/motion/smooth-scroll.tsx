@@ -1,8 +1,8 @@
 "use client";
 
-import type Lenis from "lenis";
-import { ReactLenis, useLenis } from "lenis/react";
-import { type MotionValue, useMotionValue, useReducedMotion } from "motion/react";
+import Lenis from "lenis";
+import { type MotionValue, useMotionValue } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import {
   createContext,
   type ReactNode,
@@ -11,6 +11,7 @@ import {
   useEffect,
   useMemo,
   useRef,
+  useState,
 } from "react";
 
 // Lenis' own expo-out curve — the canonical smooth-scroll easing. Kept as a
@@ -91,30 +92,20 @@ function resolveTop(
   return el.offsetTop + offset;
 }
 
-/** Pushes Lenis' live scroll state into the shared motion values. */
-function LenisBridge({
-  scrollY,
-  progress,
-  velocity,
-  lenisRef,
-}: {
-  scrollY: MotionValue<number>;
-  progress: MotionValue<number>;
-  velocity: MotionValue<number>;
-  lenisRef: { current: Lenis | null };
-}) {
-  const lenis = useLenis((instance) => {
-    scrollY.set(instance.scroll);
-    progress.set(instance.progress);
-    velocity.set(instance.velocity);
-  });
+/** Motion 11 reads media preferences once. This engine also needs to release
+ * wheel/touch interception when the preference changes while mounted. */
+function useScrollReducedMotion() {
+  const initialPreference = useReducedMotion();
+  const [livePreference, setLivePreference] = useState<boolean | null>(null);
   useEffect(() => {
-    lenisRef.current = lenis ?? null;
-    return () => {
-      lenisRef.current = null;
-    };
-  }, [lenis, lenisRef]);
-  return null;
+    if (typeof window.matchMedia !== "function") return;
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setLivePreference(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+  return livePreference ?? initialPreference;
 }
 
 /** Native scroll listener for the reduced-motion path and the no-provider fallback. */
@@ -157,12 +148,47 @@ export function SmoothScroll({
   touch = false,
   className,
 }: SmoothScrollProps) {
-  const reduce = useReducedMotion();
+  const reduce = useScrollReducedMotion();
   const scrollY = useMotionValue(0);
   const progress = useMotionValue(0);
   const velocity = useMotionValue(0);
   const lenisRef = useRef<Lenis | null>(null);
+  const [lenis, setLenis] = useState<Lenis | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  // Unknown SSR/hydration preferences stay native until the browser resolves
+  // them. Only the engine changes; the wrapper and child tree never change.
+  const native = reduce !== false;
+
+  useEffect(() => {
+    if (native || !containerRef.current || !contentRef.current) return;
+    const instance = new Lenis({
+      wrapper: root ? window : containerRef.current,
+      content: root ? document.documentElement : contentRef.current,
+      autoRaf: true,
+      lerp,
+      duration,
+      orientation,
+      wheelMultiplier,
+      smoothWheel: true,
+      syncTouch: touch,
+      easing: EASE_SCROLL,
+    });
+    const sync = () => {
+      scrollY.set(instance.scroll);
+      progress.set(instance.progress);
+      velocity.set(instance.velocity);
+    };
+    instance.on("scroll", sync);
+    sync();
+    lenisRef.current = instance;
+    setLenis(instance);
+    return () => {
+      lenisRef.current = null;
+      instance.destroy();
+      setLenis(null);
+    };
+  }, [native, root, lerp, duration, orientation, wheelMultiplier, touch, scrollY, progress, velocity]);
 
   const nativeSource = useCallback(
     (): ScrollSource | null => (root ? window : containerRef.current),
@@ -172,7 +198,7 @@ export function SmoothScroll({
   const scrollTo = useCallback(
     (target: ScrollTarget, options?: ScrollToOptions) => {
       const lenis = lenisRef.current;
-      if (lenis && !reduce) {
+      if (lenis && !native) {
         lenis.scrollTo(target, {
           offset: options?.offset,
           duration: options?.duration,
@@ -181,55 +207,25 @@ export function SmoothScroll({
         return;
       }
       const source = nativeSource();
-      const behavior = reduce || options?.immediate ? "auto" : "smooth";
+      const behavior = native || options?.immediate ? "auto" : "smooth";
       const top = resolveTop(target, source ?? window, options?.offset);
       (source ?? window).scrollTo({ top, behavior });
     },
-    [reduce, nativeSource],
+    [native, nativeSource],
   );
 
-  // Reduced motion drives the native listener; the Lenis path leaves it
-  // disabled and lets LenisBridge feed the values instead.
-  useNativeScrollSync(!!reduce, nativeSource, scrollY, progress, velocity);
+  useNativeScrollSync(native, nativeSource, scrollY, progress, velocity);
 
   const api = useMemo<SmoothScrollApi>(
-    () => ({ lenis: lenisRef.current, scrollY, progress, velocity, scrollTo }),
-    [scrollY, progress, velocity, scrollTo],
+    () => ({ lenis: native ? null : lenis, scrollY, progress, velocity, scrollTo }),
+    [native, lenis, scrollY, progress, velocity, scrollTo],
   );
-
-  if (reduce) {
-    return (
-      <SmoothScrollContext.Provider value={api}>
-        <div ref={containerRef} className={className}>
-          {children}
-        </div>
-      </SmoothScrollContext.Provider>
-    );
-  }
 
   return (
     <SmoothScrollContext.Provider value={api}>
-      <ReactLenis
-        root={root}
-        className={className}
-        options={{
-          lerp,
-          duration,
-          orientation,
-          wheelMultiplier,
-          smoothWheel: true,
-          syncTouch: touch,
-          easing: EASE_SCROLL,
-        }}
-      >
-        <LenisBridge
-          scrollY={scrollY}
-          progress={progress}
-          velocity={velocity}
-          lenisRef={lenisRef}
-        />
-        {children}
-      </ReactLenis>
+      <div ref={containerRef} className={className}>
+        <div ref={contentRef}>{children}</div>
+      </div>
     </SmoothScrollContext.Provider>
   );
 }

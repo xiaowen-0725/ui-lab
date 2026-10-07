@@ -1,10 +1,12 @@
 /** Clean, real shadcn -> CLI -> build -> runtime consumers. No root build required. */
 import { createHash } from "node:crypto";
-import { cp, mkdtemp, readdir, readFile, rename, writeFile } from "node:fs/promises";
-import { join, resolve } from "node:path";
+import { cp, mkdir, mkdtemp, readdir, readFile, rename, writeFile } from "node:fs/promises";
+import { dirname, join, relative, resolve } from "node:path";
 import { buildCatalog } from "../lib/catalog";
 import { allShadcnTargets, buildShadcnItem, buildThemeItem, buildWorkbenchSystemItem } from "../lib/registry-server";
 import { SITE_URL } from "../lib/site";
+import { allStandaloneUsages } from "../lib/standalone-usage";
+import { selectConsumerUsages } from "./application-consumer-usage";
 
 const root = resolve(import.meta.dir, "..");
 const templates = join(root, "benchmarks/runs/catalog-assets");
@@ -22,12 +24,15 @@ const catalog = await buildCatalog();
 await writeFile(join(evidence, "catalog.json"), JSON.stringify(catalog, null, 2));
 const targets = allShadcnTargets();
 const assets = ["button", "button-base", "saas-landing-page", "workbench-conversation-page", "workbench-artifact-page", "workbench-settings-page", "agent-workbench-site"];
+const usages = allStandaloneUsages();
+const requiredGraphs = new Map<string, string[]>();
 const served = new Map<string, NonNullable<Awaited<ReturnType<typeof buildShadcnItem>>>>();
 for (const target of targets) {
+  const item = await buildShadcnItem(target.categorySlug, target.slug);
+  if (!item) throw new Error(`Missing registry target ${target.slug}`);
+  requiredGraphs.set(target.slug, (item.files ?? []).map((file) => file.path));
   // Recipe dependencies may change while other Agents implement them. Freeze this run.
   if (assets.includes(target.slug) || catalog.some((item) => item.kind === "recipe" && item.components?.includes(target.slug))) {
-    const item = await buildShadcnItem(target.categorySlug, target.slug);
-    if (!item) throw new Error(`Missing registry target ${target.slug}`);
     served.set(target.slug, item);
   }
 }
@@ -35,6 +40,9 @@ const theme = buildThemeItem("graphite");
 if (!theme) throw new Error("Missing Graphite Theme Kit");
 served.set("theme-graphite", theme);
 served.set("system-workbench", buildWorkbenchSystemItem());
+for (const slug of ["theme-graphite", "system-workbench"]) {
+  requiredGraphs.set(slug, (served.get(slug)?.files ?? []).map((file) => file.path));
+}
 await writeFile(join(evidence, "registry.json"), JSON.stringify(Object.fromEntries(served), null, 2));
 const server = Bun.serve({
   hostname: "127.0.0.1", port: 0,
@@ -66,11 +74,22 @@ async function seed(profile: string, directory: string) {
   await cp(join(templates, profile), directory, { recursive: true, filter: (path) => !/(?:^|\/)(node_modules|\.next|dist|components|lib)(?:\/|$)/.test(path) && !path.endsWith(".tsbuildinfo") });
   await cp(join(templates, "consumer.tsx"), join(directory, "consumer.tsx"));
   await cp(join(templates, "styles.css"), join(directory, profile === "next-app" ? "app/globals.css" : "src/globals.css"));
-  const examples = join(root, "components/examples");
-  if (await Bun.file(join(examples, "pages/saas-landing-page.example.tsx")).exists()) {
-    await cp(examples, join(directory, "copied-usage"), { recursive: true });
-    await writeFile(join(evidence, `${profile}-copied-usage.json`), JSON.stringify(await filesIn(join(directory, "copied-usage")), null, 2));
+}
+async function copyInstalledUsages(profile: string, directory: string, installedAssets: string[], installedRecipes: string[]) {
+  const installedFiles = [...await filesIn(join(directory, "components")), ...await filesIn(join(directory, "lib"))]
+    .map((path) => relative(directory, path));
+  const selection = selectConsumerUsages(usages, requiredGraphs, installedAssets, installedFiles);
+  // Record exclusions even if a selected usage cannot be copied.
+  await writeFile(join(evidence, `${profile}-usage-selection.json`), JSON.stringify({ ...selection, installedRecipes }, null, 2));
+  const copiedFiles: string[] = [];
+  for (const usageFile of new Set(selection.selected.map((usage) => usage.usageFile))) {
+    const destination = join(directory, "copied-usage", relative("components/examples", usageFile));
+    await mkdir(dirname(destination), { recursive: true });
+    await cp(join(root, usageFile), destination);
+    copiedFiles.push(destination);
   }
+  await writeFile(join(evidence, `${profile}-copied-usage.json`), JSON.stringify(copiedFiles.sort(), null, 2));
+  console.log(`${profile}: copied ${copiedFiles.length} usages; excluded ${selection.excluded.length} (see ${profile}-usage-selection.json)`);
 }
 async function filesIn(directory: string): Promise<string[]> {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -124,11 +143,13 @@ try {
       const themed = await readFile(cssPath, "utf8");
       await install(["button-base"]);
       assert(!await Bun.file(join(directory, "components/motion/button/index.tsx")).exists(), "Narrow base install unexpectedly wrote parent index");
-      await install([...new Set([...assets, ...recipeAssets])]);
+      const installedAssets = [...new Set([...assets, ...recipeAssets])];
+      await install(installedAssets);
       assert(hash(await readFile(cssPath, "utf8")) === hash(themed), "Indirect system dependency changed explicit Graphite theme");
       await install(["system-workbench"]);
       assert(hash(await readFile(cssPath, "utf8")) === hash(themed), "Repeat system install changed Graphite theme");
       await closure(directory, profile);
+      await copyInstalledUsages(profile, directory, [...installedAssets, "theme-graphite", "system-workbench"], [composition.config.recipe]);
       for (const slug of assets) await cli(["add", slug]);
       await cli(["lock", "--json"]);
       await cli(["audit", "--json", "--strict"]);
@@ -172,7 +193,8 @@ try {
   await writeFile(join(evidence, "requests.json"), JSON.stringify(requests, null, 2));
   await writeFile(join(evidence, "results.json"), JSON.stringify(outcomes, null, 2));
   const report = `\n## Run ${new Date().toISOString()}\n\nEvidence root: \`${evidence}\`. Registry: \`${origin}\`. Catalog frozen from current buildCatalog(); source graphs frozen using actual builders.\n\n| Profile | Result | Evidence/package |\n| --- | --- | --- |\n${outcomes.map((outcome) => `| ${outcome.profile} | ${outcome.ok ? "PASS engineering/runtime" : "FAIL"} | ${outcome.directory} |`).join("\n")}\n\n${outcomes.filter((outcome) => !outcome.ok).map((outcome) => `Failure ${outcome.profile}:\n\n\`\`\`text\n${outcome.error}\n\`\`\`\n`).join("\n")}\nCommands and exit codes: [commands.json](${evidence}/commands.json). HTTP requests: [requests.json](${evidence}/requests.json). Registry graphs: [registry.json](${evidence}/registry.json). Screenshots, assertions and runtime errors: \`<Profile>-browser.json\`, \`<Profile>-*.png\`, and command/runtime logs in the same evidence root.\n\n| Profile | Command | Exit | Log |\n| --- | --- | --- | --- |\n${commands.map((command) => `| ${command.profile} | \`${command.command}\` | ${command.exitCode} | ${command.log} |`).join("\n")}\n`;
-  const acceptance = join(templates, "ACCEPTANCE.md");
+  // Allow isolated runs to retain their report without editing shared history.
+  const acceptance = process.env.UILAB_CONSUMER_REPORT ?? join(templates, "ACCEPTANCE.md");
   const previous = await Bun.file(acceptance).exists() ? await readFile(acceptance, "utf8") : "# Plan 005 independent consumer acceptance\n\nRun from repository root: `bun scripts/verify-application-consumers.ts` (optional Profile arguments). Each run creates fresh packages in /tmp. Templates are independent packages; shadcn 4.21.1 writes all registry implementation files. Graphite is installed by its real theme registry item. Local unpublished CLI uses one --dir throughout init/compose/add/lock/audit. Browser checks are engineering evidence, not user visual approval. No commit/push/publish.\n\nMissing-helper audit: failure must be exit 1, restored helper audit must be exit 0. Each run remains below to retain failure/fix/retest history.\n";
   await writeFile(acceptance, previous + report);
 }

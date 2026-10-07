@@ -1,13 +1,8 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import {
-  AnimatePresence,
-  type AnimationControls,
-  motion,
-  useAnimationControls,
-  useReducedMotion,
-} from "motion/react";
+import { AnimatePresence, type AnimationControls, motion, useAnimationControls } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { EASE_OUT, SPRING_PRESS } from "@/lib/ease";
 import { cn } from "@/lib/utils";

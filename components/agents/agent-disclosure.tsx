@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, type HTMLMotionProps, useReducedMotion } from "motion/react";
+import { motion, type HTMLMotionProps } from "motion/react";
+import { useHydratedReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import type { CSSProperties } from "react";
 import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";
@@ -20,7 +21,7 @@ export function AgentDisclosure({
   transition,
   ...props
 }: AgentDisclosureProps) {
-  const reduce = useReducedMotion() ?? false;
+  const reduce = useHydratedReducedMotion() ?? false;
 
   return (
     <motion.div

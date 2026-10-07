@@ -2,7 +2,7 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useReducedMotion } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import { useEffect, useState, type ComponentPropsWithoutRef } from "react";
 import { ActionSwapIcon } from "@/components/motion/action-swap";
 import { cn } from "@/lib/utils";

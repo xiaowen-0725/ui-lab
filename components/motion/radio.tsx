@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, MotionConfig, useReducedMotion } from "motion/react";
+import { motion, MotionConfig } from "motion/react";
+import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import {
   createContext,
   useContext,
