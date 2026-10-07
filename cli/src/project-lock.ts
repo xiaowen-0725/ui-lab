@@ -11,6 +11,8 @@ export type ProjectLockItem = {
   slug: string;
   contractHash: string;
   sourceFiles?: string[];
+  /** Optional override for entries added from a different catalog source. */
+  catalogSource?: string;
 };
 
 export type ProjectLock = {
@@ -20,7 +22,7 @@ export type ProjectLock = {
 };
 
 const LOCK_KEYS = new Set(["schemaVersion", "catalogSource", "items"]);
-const LOCK_ITEM_KEYS = new Set(["kind", "slug", "contractHash", "sourceFiles"]);
+const LOCK_ITEM_KEYS = new Set(["kind", "slug", "contractHash", "sourceFiles", "catalogSource"]);
 const CATALOG_KINDS = new Set<CatalogItem["kind"]>([
   "component",
   "atom-set",
@@ -30,6 +32,8 @@ const CATALOG_KINDS = new Set<CatalogItem["kind"]>([
   "palette",
   "design-system",
   "recipe",
+  "vocabulary",
+  "reference",
 ]);
 
 function stableSerialize(value: unknown): string {
@@ -53,6 +57,14 @@ function contractPayload(item: CatalogItem): Record<string, unknown> {
   if (item.kind === "component") {
     payload.sourceFile = item.sourceFile;
     payload.sourceFiles = item.sourceFiles;
+    payload.installTargets = item.installTargets;
+    payload.installationFiles = item.installationFiles;
+    payload.sourceVersion = item.sourceVersion;
+    payload.exportName = item.exportName;
+    payload.profiles = item.profiles;
+    payload.components = item.components;
+    payload.pages = item.pages;
+    payload.shellComponent = item.shellComponent;
   }
   if (item.themePreview) {
     payload.themePreview = item.themePreview;
@@ -95,26 +107,34 @@ function selectedCatalogItems(
   config: ProjectConfig,
 ): CatalogItem[] {
   const selected: CatalogItem[] = [];
-  const system = items.find(
+  const systems = items.filter(
     (item) => item.slug === config.system && item.themePreview,
   );
-  if (system) selected.push(system);
+  if (systems.length !== 1) {
+    throw new Error(`Configured system "${config.system}" is missing or ambiguous in the catalog.`);
+  }
+  selected.push(systems[0]);
 
   if (config.recipe) {
     const recipe = items.find(
       (item) => item.kind === "recipe" && item.slug === config.recipe,
     );
-    if (recipe) selected.push(recipe);
+    if (!recipe) throw new Error(`Configured recipe "${config.recipe}" does not exist in the catalog.`);
+    if (!recipe.profiles?.includes(config.profile)) {
+      throw new Error(`Recipe "${config.recipe}" does not support profile "${config.profile}".`);
+    }
+    selected.push(recipe);
   }
 
   for (const slug of config.components) {
     const component = items.find(
       (item) => item.kind === "component" && item.slug === slug,
     );
-    if (component) selected.push(component);
+    if (!component) throw new Error(`Configured component "${slug}" does not exist in the catalog.`);
+    selected.push(component);
   }
 
-  return selected;
+  return [...new Map(selected.map((item) => [`${item.kind}:${item.slug}`, item])).values()];
 }
 
 export function buildProjectLock(
@@ -141,6 +161,29 @@ export function buildProjectLock(
     schemaVersion: 1,
     catalogSource,
     items: lockItems,
+  };
+}
+
+/** Keep the baseline of still-selected entries; only new identities are pinned.
+ * Removed selections are dropped, but existing contracts are never refreshed.
+ * The top-level source remains the default provenance for legacy v1 entries.
+ */
+export function updateProjectLock(
+  items: CatalogItem[],
+  config: ProjectConfig,
+  catalogSource: string,
+  previous?: ProjectLock,
+): ProjectLock {
+  const current = buildProjectLock(items, config, catalogSource);
+  if (!previous) return current;
+  const baseline = new Map(previous.items.map((item) => [`${item.kind}:${item.slug}`, item]));
+  return {
+    schemaVersion: 1,
+    catalogSource: previous.catalogSource,
+    items: current.items.map((item) => baseline.get(`${item.kind}:${item.slug}`) ?? {
+      ...item,
+      ...(catalogSource === previous.catalogSource ? {} : { catalogSource }),
+    }),
   };
 }
 
@@ -211,6 +254,9 @@ export function parseProjectLock(value: unknown): ProjectLock {
         `field "items[${index}].sourceFiles" is only valid for components.`,
       );
     }
+    if (item.catalogSource !== undefined && (typeof item.catalogSource !== "string" || !item.catalogSource.trim())) {
+      invalidLock(`field "items[${index}].catalogSource" must be a non-empty string.`);
+    }
 
     return {
       kind: item.kind as CatalogItem["kind"],
@@ -219,6 +265,7 @@ export function parseProjectLock(value: unknown): ProjectLock {
       ...(item.sourceFiles === undefined
         ? {}
         : { sourceFiles: [...(item.sourceFiles as string[])] }),
+      ...(item.catalogSource === undefined ? {} : { catalogSource: item.catalogSource as string }),
     };
   });
 
@@ -251,5 +298,11 @@ export function readProjectLock(directory: string): {
 
 export function writeProjectLock(path: string, lock: ProjectLock): void {
   mkdirSync(dirname(path), { recursive: true });
-  writeFileSync(path, `${JSON.stringify(lock, null, 2)}\n`, "utf8");
+  const text = `${JSON.stringify(lock, null, 2)}\n`;
+  try {
+    if (readFileSync(path, "utf8") === text) return;
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+  }
+  writeFileSync(path, text, "utf8");
 }

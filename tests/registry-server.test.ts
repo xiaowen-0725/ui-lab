@@ -7,6 +7,7 @@ describe("registry workbench token distribution", () => {
   test("workbench components depend on one token system and do not copy cssVars", async () => {
     const system = buildWorkbenchSystemItem();
     expect(system.name).toBe(WORKBENCH_SYSTEM_SLUG);
+    expect(system.type).toBe("registry:lib");
     expect(Object.keys(system.cssVars?.light ?? {})).toHaveLength(WB_TOKEN_COUNT);
     expect(Object.keys(system.cssVars?.dark ?? {})).toHaveLength(WB_TOKEN_COUNT);
     expect(system.cssVars?.light?.["wb-overlay-scrim"]).toBe("rgb(0 0 0 / 0.06)");

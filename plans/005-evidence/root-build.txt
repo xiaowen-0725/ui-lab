@@ -1,0 +1,188 @@
+$ next build
+   ▲ Next.js 15.5.18
+
+   Creating an optimized production build ...
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Parsing of /Users/zhoujw/develop/github/ui-lab/node_modules/next-intl/dist/esm/production/extractor/format/index.js for build dependencies failed at 'import(t)'.
+<w> Build dependencies behind this expression are ignored and might cause incorrect cache invalidation.
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Parsing of /Users/zhoujw/develop/github/ui-lab/node_modules/next-intl/dist/esm/production/extractor/format/index.js for build dependencies failed at 'import(t)'.
+<w> Build dependencies behind this expression are ignored and might cause incorrect cache invalidation.
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Parsing of /Users/zhoujw/develop/github/ui-lab/node_modules/next-intl/dist/esm/production/extractor/format/index.js for build dependencies failed at 'import(t)'.
+<w> Build dependencies behind this expression are ignored and might cause incorrect cache invalidation.
+ ✓ Compiled successfully in 6.8s
+   Linting and checking validity of types ...
+   Collecting page data ...
+ ⚠ Using edge runtime on a page currently disables static generation for that page
+   Generating static pages (0/1317) ...
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+   Generating static pages (329/1317) 
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+   Generating static pages (658/1317) 
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+   Generating static pages (987/1317) 
+ ✓ Generating static pages (1317/1317)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                        Size  First Load JS
+┌ ○ /_not-found                                   187 B         109 kB
+├ ● /[locale]                                   12.8 kB         281 kB
+├   ├ /zh
+├   └ /en
+├ ● /[locale]/atoms                             19.5 kB         207 kB
+├   ├ /zh/atoms
+├   └ /en/atoms
+├ ● /[locale]/blocks                            2.08 kB         127 kB
+├   ├ /zh/blocks
+├   └ /en/blocks
+├ ● /[locale]/components                        2.08 kB         127 kB
+├   ├ /zh/components
+├   └ /en/components
+├ ● /[locale]/components/[category]             2.08 kB         127 kB
+├   ├ /zh/components/sections
+├   ├ /zh/components/pages
+├   ├ /zh/components/sites
+├   └ [+9 more paths]
+├ ● /[locale]/components/[category]/[slug]        218 B         603 kB
+├   ├ /zh/components/sections/navbar-simple
+├   ├ /zh/components/sections/navbar-centered
+├   ├ /zh/components/sections/hero-centered
+├   └ [+253 more paths]
+├ ● /[locale]/dictionary                        2.08 kB         127 kB
+├   ├ /zh/dictionary
+├   └ /en/dictionary
+├ ● /[locale]/dictionary/concepts               3.98 kB         196 kB
+├   ├ /zh/dictionary/concepts
+├   └ /en/dictionary/concepts
+├ ● /[locale]/dictionary/concepts/[slug]         198 kB         607 kB
+├   ├ /zh/dictionary/concepts/button
+├   ├ /zh/dictionary/concepts/icon-button
+├   ├ /zh/dictionary/concepts/link
+├   └ [+75 more paths]
+├ ● /[locale]/dictionary/motion                 5.77 kB         203 kB
+├   ├ /zh/dictionary/motion
+├   └ /en/dictionary/motion
+├ ● /[locale]/dictionary/motion/[slug]           192 kB         613 kB
+├   ├ /zh/dictionary/motion/fade
+├   ├ /zh/dictionary/motion/exit
+├   ├ /zh/dictionary/motion/slide
+├   └ [+145 more paths]
+├ ● /[locale]/docs                              2.08 kB         127 kB
+├   ├ /zh/docs
+├   └ /en/docs
+├ ● /[locale]/docs/ai-agents                      151 B         184 kB
+├   ├ /zh/docs/ai-agents
+├   └ /en/docs/ai-agents
+├ ● /[locale]/docs/motion-patterns              7.46 kB         181 kB
+├   ├ /zh/docs/motion-patterns
+├   └ /en/docs/motion-patterns
+├ ● /[locale]/docs/theme                          151 B         184 kB
+├   ├ /zh/docs/theme
+├   └ /en/docs/theme
+├ ● /[locale]/inspiration                       2.42 kB         201 kB
+├   ├ /zh/inspiration
+├   └ /en/inspiration
+├ ● /[locale]/inspiration/brands                 2.3 kB         201 kB
+├   ├ /zh/inspiration/brands
+├   └ /en/inspiration/brands
+├ ● /[locale]/inspiration/brands/[slug]         4.15 kB         189 kB
+├   ├ /zh/inspiration/brands/airbnb
+├   ├ /zh/inspiration/brands/airtable
+├   ├ /zh/inspiration/brands/apple
+├   └ [+145 more paths]
+├ ● /[locale]/inspiration/sites                  2.5 kB         202 kB
+├   ├ /zh/inspiration/sites
+├   └ /en/inspiration/sites
+├ ● /[locale]/inspiration/sites/[slug]          2.44 kB         132 kB
+├   ├ /zh/inspiration/sites/anthropic
+├   ├ /zh/inspiration/sites/mistral-ai
+├   ├ /zh/inspiration/sites/vercel
+├   └ [+53 more paths]
+├ ● /[locale]/layouts                           25.2 kB         233 kB
+├   ├ /zh/layouts
+├   └ /en/layouts
+├ ● /[locale]/pages                             2.08 kB         127 kB
+├   ├ /zh/pages
+├   └ /en/pages
+├ ● /[locale]/pages/[slug]                        218 B         603 kB
+├   ├ /zh/pages/saas-landing-page
+├   ├ /zh/pages/workbench-conversation-page
+├   ├ /zh/pages/workbench-artifact-page
+├   └ [+5 more paths]
+├ ● /[locale]/palettes                          13.3 kB         261 kB
+├   ├ /zh/palettes
+├   └ /en/palettes
+├ ● /[locale]/patterns                          13.6 kB         193 kB
+├   ├ /zh/patterns
+├   └ /en/patterns
+├ ● /[locale]/playground                        16.1 kB         233 kB
+├   ├ /zh/playground
+├   └ /en/playground
+├ ● /[locale]/playground/visual-work-prototype  7.68 kB         184 kB
+├   ├ /zh/playground/visual-work-prototype
+├   └ /en/playground/visual-work-prototype
+├ ● /[locale]/scroll                            16.2 kB         199 kB
+├   ├ /zh/scroll
+├   └ /en/scroll
+├ ● /[locale]/sections                          11.8 kB         213 kB
+├   ├ /zh/sections
+├   └ /en/sections
+├ ● /[locale]/sites                             2.08 kB         127 kB
+├   ├ /zh/sites
+├   └ /en/sites
+├ ● /[locale]/sites/[slug]                        217 B         603 kB
+├   ├ /zh/sites/agent-workbench-site
+├   └ /en/sites/agent-workbench-site
+├ ● /[locale]/styles                             5.4 kB         222 kB
+├   ├ /zh/styles
+├   └ /en/styles
+├ ● /[locale]/themes                            2.08 kB         127 kB
+├   ├ /zh/themes
+├   └ /en/themes
+├ ● /[locale]/themes/[slug]                     6.49 kB         234 kB
+├   ├ /zh/themes/graphite
+├   ├ /zh/themes/nightflight
+├   ├ /zh/themes/stark
+├   └ [+25 more paths]
+├ ƒ /api/og                                       187 B         109 kB
+├ ○ /catalog.json                                 187 B         109 kB
+├ ○ /llms-full.txt                                187 B         109 kB
+├ ○ /llms.txt                                     187 B         109 kB
+├ ○ /manifest.webmanifest                         187 B         109 kB
+├ ƒ /opengraph-image                              187 B         109 kB
+├ ○ /r                                            187 B         109 kB
+├ ● /r/[slug]                                     187 B         109 kB
+├   ├ /r/navbar-simple
+├   ├ /r/navbar-centered
+├   ├ /r/hero-centered
+├   └ [+343 more paths]
+├ ● /r/[slug]/raw                                 187 B         109 kB
+├   ├ /r/navbar-simple/raw
+├   ├ /r/navbar-centered/raw
+├   ├ /r/hero-centered/raw
+├   └ [+155 more paths]
+├ ○ /r/registry.json                              187 B         109 kB
+├ ○ /registry.json                                187 B         109 kB
+├ ○ /robots.txt                                   187 B         109 kB
+├ ○ /sitemap.xml                                  187 B         109 kB
+├ ○ /theme.css                                    187 B         109 kB
+└ ● /themes/[slug]                                187 B         109 kB
+    ├ /themes/graphite.css
+    ├ /themes/nightflight.css
+    ├ /themes/stark.css
+    └ [+11 more paths]
++ First Load JS shared by all                    109 kB
+  ├ chunks/31255-c7473391749ab718.js              46 kB
+  ├ chunks/4bd1b696-bad92808725a934a.js         54.2 kB
+  └ other shared chunks (total)                 9.06 kB
+
+
+ƒ Middleware                                    46.4 kB
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

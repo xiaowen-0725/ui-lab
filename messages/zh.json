@@ -59,7 +59,10 @@
   },
   "hero": {
     "badge": "{count} 个组件 · {styles} 种风格 · Tailwind 4 + React 19",
-    "headline": ["看得见的", "前端视觉词汇表"],
+    "headline": [
+      "看得见的",
+      "前端视觉词汇表"
+    ],
     "subtitle": "看见名字，再安装同一份源码。词典、组件、区块、页面、整站、主题和灵感在同一目录里。",
     "browse": "浏览组件",
     "aiAgents": "AI 接入"
@@ -121,12 +124,12 @@
     "pages": {
       "eyebrow": "页面",
       "title": "页面",
-      "intro": "一整屏。下面是这一屏怎样划分空间。"
+      "intro": "完整页面可以直接安装；整页骨架提供布局参考，两者分别列出。"
     },
     "sites": {
       "eyebrow": "整站",
       "title": "整站",
-      "intro": "多页共用的壳。这里只登记外壳，不另存一份页面源码。"
+      "intro": "多页组合引用独立页面和共享外壳，页面源码只保存一份。共享外壳也可单独使用。"
     },
     "themes": {
       "eyebrow": "主题",
@@ -162,7 +165,35 @@
       "jargon": "黑话",
       "overlay": "浮层",
       "feedback": "反馈",
-      "content": "内容"
+      "content": "内容",
+      "completePages": "完整页面",
+      "completeSites": "多页组合",
+      "themeKits": "可运行主题套件",
+      "motionTokens": "动效取值",
+      "scrollPatterns": "滚动叙事样本",
+      "iconPatterns": "图标动效模式"
+    },
+    "components": {
+      "eyebrow": "组件",
+      "title": "组件",
+      "intro": "一次安装、一件界面上的事。按职责归类，沿用既有详情和安装路径。"
+    },
+    "themeDetail": {
+      "back": "返回主题",
+      "install": "安装主题套件",
+      "note": "这是显式主题替换，会应用这套变量。系统依赖只补缺；查看源码后再运行安装命令。",
+      "light": "浅色",
+      "dark": "深色",
+      "css": "完整主题 CSS",
+      "download": "打开 CSS 端点"
+    },
+    "previewControls": {
+      "language": "预览语言",
+      "state": "预览状态",
+      "ready": "正常",
+      "loading": "加载中",
+      "empty": "空白",
+      "error": "错误"
     }
   },
   "inspiration": {

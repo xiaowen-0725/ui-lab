@@ -1,0 +1,125 @@
+{
+  "method": "Actual React/Motion SSR with only useReducedMotion preference injected; HTML topology excludes style and Motion-generated tabindex attributes; native buttons remain focusable, accessible-name via DOM parser; captured reduced variants checked for opacity-only and zero stagger. No hydrateRoot/build/browser run.",
+  "scenarios": 14,
+  "renders": 42,
+  "results": [
+    {
+      "name": "cascade-button",
+      "topologyEqual": true,
+      "accessibleName": "保存草稿 Save draft",
+      "letterCount": 15,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "icon-only",
+      "topologyEqual": true,
+      "accessibleName": "保存草稿 Save draft",
+      "letterCount": 0,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "explicit-aria",
+      "topologyEqual": true,
+      "accessibleName": "自定义名称",
+      "letterCount": 4,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "cascade-text",
+      "topologyEqual": true,
+      "accessibleName": null,
+      "letterCount": 15,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "rich-blur",
+      "topologyEqual": true,
+      "accessibleName": "保存 Save",
+      "letterCount": 0,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "rich-roll",
+      "topologyEqual": true,
+      "accessibleName": "保存 Save",
+      "letterCount": 0,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "rich-cascade",
+      "topologyEqual": true,
+      "accessibleName": "保存 Save",
+      "letterCount": 0,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "state-idle",
+      "topologyEqual": true,
+      "accessibleName": "保存草稿 Save draft",
+      "letterCount": 15,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "state-loading",
+      "topologyEqual": true,
+      "accessibleName": "加载中 Loading",
+      "letterCount": 11,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "state-success",
+      "topologyEqual": true,
+      "accessibleName": "完成 Done",
+      "letterCount": 7,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "state-error",
+      "topologyEqual": true,
+      "accessibleName": "重试 Retry",
+      "letterCount": 8,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "state-rich",
+      "topologyEqual": true,
+      "accessibleName": "完成 Done",
+      "letterCount": 0,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "ripple",
+      "topologyEqual": true,
+      "accessibleName": "保存草稿 Save draft",
+      "letterCount": 0,
+      "rippleContainer": true,
+      "rawHtmlEqual": false
+    },
+    {
+      "name": "plain",
+      "topologyEqual": true,
+      "accessibleName": "保存草稿 Save draft",
+      "letterCount": 0,
+      "rippleContainer": false,
+      "rawHtmlEqual": false
+    }
+  ],
+  "reducedRippleCallbackCount": 1,
+  "sourceSha256": {
+    "components/motion/action-swap.tsx": "0a38b01b9fdc8cee036bf7833f7625cf8cc8e1afe2a9384412283cd1f1c6ec2d",
+    "components/motion/button/stateful.tsx": "fbc5967c8c5c3c3e49e098a056be7b51629f4d4380370c0d50e40e7af45b545b",
+    "components/motion/button/base.tsx": "932fdc24d87046858b186273da21074ccf39c94ee32a7f3b6ff4f7d77f372740"
+  }
+}

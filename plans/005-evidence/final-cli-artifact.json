@@ -1,0 +1,45 @@
+[
+  {
+    "args": [
+      "--help"
+    ],
+    "exit": 0,
+    "stderr": "",
+    "stdout": "ui-lab — compose, discover, and audit coherent React frontends\n\nUsage:\n  ui-lab <command> [args] [flags]\n\nCommands:\n  list [--kind"
+  },
+  {
+    "args": [
+      "show",
+      "saas-landing-page",
+      "--kind",
+      "component",
+      "--json"
+    ],
+    "exit": 0,
+    "stderr": "Using bundled snapshot (generated 2026-10-03T15:00:24.856Z, 558 items).\n",
+    "kind": "component",
+    "slug": "saas-landing-page"
+  },
+  {
+    "args": [
+      "show",
+      "agent-workbench",
+      "--kind",
+      "recipe",
+      "--json"
+    ],
+    "exit": 0,
+    "stderr": "Using bundled snapshot (generated 2026-10-03T15:00:24.856Z, 558 items).\n",
+    "kind": "recipe",
+    "slug": "agent-workbench"
+  },
+  {
+    "args": [
+      "audit",
+      "--impossible-005-flag"
+    ],
+    "exit": 1,
+    "stderr": "Unknown flag for command \"audit\": --impossible-005-flag.\n",
+    "stdout": ""
+  }
+]

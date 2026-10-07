@@ -59,7 +59,10 @@
   },
   "hero": {
     "badge": "{count} components · {styles} styles · Tailwind 4 + React 19",
-    "headline": ["The visual vocabulary", "for building the web"],
+    "headline": [
+      "The visual vocabulary",
+      "for building the web"
+    ],
     "subtitle": "See the name, then install the same source. Dictionary, components, blocks, pages, sites, themes, and inspiration live in one catalog.",
     "browse": "Browse components",
     "aiAgents": "AI agents"
@@ -121,12 +124,12 @@
     "pages": {
       "eyebrow": "Pages",
       "title": "Pages",
-      "intro": "One full screen. These entries show how that screen divides space."
+      "intro": "Install complete pages directly, or study a layout skeleton. Each is listed with its actual capability."
     },
     "sites": {
       "eyebrow": "Sites",
       "title": "Sites",
-      "intro": "A shell shared by several screens. It registers the shell and does not keep a second copy of page source."
+      "intro": "Multi-page compositions reference independent pages and a shared shell. The shell is also available separately."
     },
     "themes": {
       "eyebrow": "Themes",
@@ -162,7 +165,35 @@
       "jargon": "Jargon",
       "overlay": "Overlays",
       "feedback": "Feedback",
-      "content": "Content"
+      "content": "Content",
+      "completePages": "Complete pages",
+      "completeSites": "Multi-page compositions",
+      "themeKits": "Installable theme kits",
+      "motionTokens": "Motion tokens",
+      "scrollPatterns": "Scroll storytelling",
+      "iconPatterns": "Icon motion patterns"
+    },
+    "components": {
+      "eyebrow": "Components",
+      "title": "Components",
+      "intro": "One installation, one interface responsibility. Existing detail and installation paths remain available."
+    },
+    "themeDetail": {
+      "back": "Back to themes",
+      "install": "Install theme kit",
+      "note": "This explicit theme installation applies the kit variables. System dependencies only fill missing values. Review the CSS before running the command.",
+      "light": "Light",
+      "dark": "Dark",
+      "css": "Complete theme CSS",
+      "download": "Open CSS endpoint"
+    },
+    "previewControls": {
+      "language": "Preview language",
+      "state": "Preview state",
+      "ready": "Ready",
+      "loading": "Loading",
+      "empty": "Empty",
+      "error": "Error"
     }
   },
   "inspiration": {

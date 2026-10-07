@@ -1,0 +1,146 @@
+[
+  {
+    "profile": "tooling",
+    "command": "bun install --frozen-lockfile",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/000-tooling-command.log"
+  },
+  {
+    "profile": "tooling",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js --version",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/001-tooling-command.log"
+  },
+  {
+    "profile": "tooling",
+    "command": "bun cli/src/index.ts --help",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/002-tooling-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun install",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/003-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts init --profile electron-renderer --system graphite --json --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/004-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts compose agent-workbench --json --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/005-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js add http://127.0.0.1:61672/r/theme-graphite.json --yes --overwrite --cwd /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/006-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js add http://127.0.0.1:61672/r/button-base.json --yes --overwrite --cwd /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/007-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js add http://127.0.0.1:61672/r/button.json http://127.0.0.1:61672/r/button-base.json http://127.0.0.1:61672/r/saas-landing-page.json http://127.0.0.1:61672/r/workbench-conversation-page.json http://127.0.0.1:61672/r/workbench-artifact-page.json http://127.0.0.1:61672/r/workbench-settings-page.json http://127.0.0.1:61672/r/agent-workbench-site.json http://127.0.0.1:61672/r/agent-workbench.json http://127.0.0.1:61672/r/thread-list.json http://127.0.0.1:61672/r/agent-thread.json http://127.0.0.1:61672/r/agent-composer.json http://127.0.0.1:61672/r/artifact-panel.json --yes --overwrite --cwd /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/008-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js add http://127.0.0.1:61672/r/system-workbench.json --yes --overwrite --cwd /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/009-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts add button --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/010-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts add button-base --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/011-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts add saas-landing-page --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/012-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts add workbench-conversation-page --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/013-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts add workbench-artifact-page --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/014-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts add workbench-settings-page --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/015-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts add agent-workbench-site --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/016-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts lock --json --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/017-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts audit --json --strict --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/018-electron-renderer-audit.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts audit --json --strict --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 1,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/019-electron-renderer-audit.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun cli/src/index.ts audit --json --strict --dir /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer --registry http://127.0.0.1:61672",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/020-electron-renderer-audit.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun run typecheck",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/021-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "bun run build",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/022-electron-renderer-command.log"
+  },
+  {
+    "profile": "electron-renderer",
+    "command": "node browser.mjs electron-renderer /tmp/uilab-catalog-assets-Bdvh1a/electron-renderer /tmp/uilab-catalog-assets-Bdvh1a",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-Bdvh1a/023-electron-renderer-command.log"
+  }
+]

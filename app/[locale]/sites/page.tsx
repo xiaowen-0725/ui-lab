@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
-import { toCatalogLink } from "@/components/app/catalog/catalog-door";
+import { describedLink, toCatalogLink } from "@/components/app/catalog/catalog-door";
 import { CatalogScreen } from "@/components/app/catalog/catalog-screen";
 import type { Locale } from "@/i18n/routing";
+import { SITES } from "@/lib/sites";
 
 export const metadata: Metadata = {
   title: "Sites",
@@ -21,6 +22,7 @@ export default async function SitesPage() {
       intro={t("sites.intro")}
       alsoCalled={t("alsoCalled")}
       groups={[
+        { title: t("groups.completeSites"), items: SITES.map((entry) => describedLink(locale, entry.pagePath, entry)) },
         {
           title: t("groups.shells"),
           items: [

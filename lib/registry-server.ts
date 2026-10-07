@@ -1,4 +1,5 @@
-import { allComponents, findCategory, registry } from "@/lib/registry";
+import { createHash } from "node:crypto";
+import { type AssetRole, allComponents, findCategory, registry } from "@/lib/registry";
 import {
   WB_COMPONENT_SLUGS,
   WB_TOKENS_DARK,
@@ -42,7 +43,7 @@ export type ShadcnRegistryFile = {
 export type ShadcnRegistryItem = {
   $schema: "https://ui.shadcn.com/schema/registry-item.json";
   name: string;
-  type: "registry:component" | "registry:block" | "registry:theme";
+  type: "registry:component" | "registry:block" | "registry:theme" | "registry:lib";
   title: string;
   description: string;
   author: string;
@@ -64,6 +65,7 @@ export type ShadcnRegistry = {
 };
 
 export type RegistryTarget = {
+  assetRole: AssetRole;
   slug: string;
   name: string;
   description: string;
@@ -146,21 +148,14 @@ function uniqueByPath(files: ShadcnRegistryFile[]) {
   });
 }
 
-export function allRegistryTargets(): RegistryTarget[] {
+/** Public display identities remain installable; variant identities carry only
+ * their own source closure. Historical category paths are compatibility URLs. */
+export function allShadcnTargets(): RegistryTarget[] {
   return allComponents().flatMap((component) => {
-    const visibleTarget: RegistryTarget = {
-      slug: component.slug,
-      name: component.name,
-      description: component.description,
-      file: component.file,
-      extraFiles: component.extraFiles,
-      categorySlug: component.category.slug,
-      pageSlug: component.slug,
-    };
-
-    const variantTargets: RegistryTarget[] = (component.examples ?? [])
+    const variants: RegistryTarget[] = (component.examples ?? [])
       .filter((example) => example.installSlug)
       .map((example) => ({
+        assetRole: component.assetRole,
         slug: example.installSlug as string,
         name: `${component.name} ${example.name}`,
         description: example.description ?? component.description,
@@ -169,37 +164,24 @@ export function allRegistryTargets(): RegistryTarget[] {
         pageSlug: component.slug,
         previewFile: example.previewFile,
       }));
-
-    return [visibleTarget, ...variantTargets];
+    // Some default variants already have the parent's slug. Keep their narrow
+    // install identity rather than publishing a second item with the same name.
+    if (variants.some((target) => target.slug === component.slug)) return variants;
+    return [{
+      assetRole: component.assetRole,
+      slug: component.slug,
+      name: component.name,
+      description: component.description,
+      file: component.file,
+      extraFiles: [...new Set([...(component.extraFiles ?? []), ...variants.map((variant) => variant.file)])].filter((file) => file !== component.file),
+      categorySlug: component.category.slug,
+      pageSlug: component.slug,
+    }, ...variants];
   });
 }
 
-export function allShadcnTargets(): RegistryTarget[] {
-  return allComponents().flatMap((component) => {
-    const variantTargets: RegistryTarget[] = (component.examples ?? [])
-      .filter((example) => example.installSlug)
-      .map((example) => ({
-        slug: example.installSlug as string,
-        name: `${component.name} ${example.name}`,
-        description: example.description ?? component.description,
-        file: example.file,
-        categorySlug: component.category.slug,
-        pageSlug: component.slug,
-        previewFile: example.previewFile,
-      }));
-
-    if (variantTargets.length > 0) return variantTargets;
-
-    return [{
-      slug: component.slug,
-      name: component.name,
-      description: component.description,
-      file: component.file,
-      extraFiles: component.extraFiles,
-      categorySlug: component.category.slug,
-      pageSlug: component.slug,
-    }];
-  });
+export function allRegistryTargets(): RegistryTarget[] {
+  return allShadcnTargets();
 }
 
 export function findRegistryTarget(slug: string) {
@@ -251,6 +233,18 @@ async function collectSourceGraph(initialFiles: string[]): Promise<CollectedSour
   };
 }
 
+/** A deterministic source revision for upgrade comparisons. Hash original
+ * contents, not signature comments or deployment-specific URLs. */
+export async function buildInstallationContract(categorySlug: string, slug: string) {
+  const target = findShadcnTarget(slug);
+  if (!target || target.categorySlug !== categorySlug) return null;
+  const graph = await collectSourceGraph([target.file, ...(target.extraFiles ?? [])]);
+  const sourceVersion = createHash("sha256").update(JSON.stringify(
+    [...graph.files].sort((a, b) => a.path.localeCompare(b.path)).map((file) => [file.path, file.content]),
+  )).digest("hex");
+  return { sourceVersion, installationFiles: graph.files.map((file) => file.path) };
+}
+
 export async function buildEntry(categorySlug: string, slug: string): Promise<RegistryEntry | null> {
   const cat = findCategory(categorySlug);
   const comp = findRegistryTarget(slug);
@@ -273,7 +267,7 @@ export async function buildEntry(categorySlug: string, slug: string): Promise<Re
     source_url: `${SITE_URL}/r/${slug}/raw`,
     detail_url: `${SITE_URL}/r/${slug}`,
     raw_url: `${SITE_URL}/r/${slug}/raw`,
-    page_url: `${SITE_URL}/components/${categorySlug}/${comp.pageSlug}`,
+    page_url: pageUrlFor(categorySlug, comp.pageSlug),
     dependencies: Array.from(new Set([...componentGraph.external, ...(previewGraph?.external ?? [])])).sort(),
     internal: Array.from(new Set([...componentGraph.internal, ...(previewGraph?.internal ?? [])])).sort(),
     files,
@@ -320,12 +314,12 @@ export async function buildShadcnItem(
   return {
     $schema: "https://ui.shadcn.com/schema/registry-item.json",
     name: comp.slug,
-    type: comp.categorySlug === "blocks" ? "registry:block" : "registry:component",
+    type: comp.assetRole === "component" ? "registry:component" : "registry:block",
     title: comp.name,
     description: comp.description,
     author: "UI Lab",
     dependencies,
-    registryDependencies: WB_COMPONENT_SLUGS.has(comp.slug)
+    registryDependencies: (WB_COMPONENT_SLUGS.has(comp.slug) || graph.files.some((file) => file.content.includes("--wb-")))
       ? [`${SITE_URL}/r/${WORKBENCH_SYSTEM_SLUG}.json`]
       : [],
     files: uniqueByPath(
@@ -379,12 +373,13 @@ export function allThemeItemSlugs(): string[] {
   return THEME_KITS.map((kit) => `theme-${kit.slug}`);
 }
 
-/** `--wb-*` defaults as one registry item. Components depend on it; they do not copy the set. */
+/** Fill-only system defaults. A regular lib item preserves existing variables
+ * even when installed directly; explicit theme-* items own replacement. */
 export function buildWorkbenchSystemItem(): ShadcnRegistryItem {
   return {
     $schema: "https://ui.shadcn.com/schema/registry-item.json",
     name: WORKBENCH_SYSTEM_SLUG,
-    type: "registry:theme",
+    type: "registry:lib",
     title: "Workbench tokens",
     description: "Shared --wb-* tokens for agent workbench components. Light and dark.",
     author: "UI Lab",

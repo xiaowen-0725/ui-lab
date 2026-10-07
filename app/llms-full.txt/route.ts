@@ -21,6 +21,13 @@ function renderItem(item: CatalogItem): string[] {
   lines.push(`### ${item.name} (${item.kind})`);
   // Machine endpoints stay English-normative (see AGENTS.md).
   lines.push(item.description);
+  if (item.assetRole) lines.push(`Role: ${item.assetRole}`);
+  if (item.exportName) lines.push(`Import: ${item.exportName} from the installed ${item.sourceFile}`);
+  if (item.sourceVersion) lines.push(`Source revision: ${item.sourceVersion}`);
+  if (item.related?.length) lines.push(`Related: ${item.related.map((ref) => `${ref.kind}/${ref.slug}`).join(", ")}`);
+  if (item.reference) {
+    lines.push(`Reference: ${item.reference.url}; rights: ${item.reference.rightsStatus}${item.reference.documentLicense ? `; document license: ${item.reference.documentLicense}` : ""}; reviewed: ${item.reference.reviewedAt}`);
+  }
 
   if (item.fetch.value === undefined) {
     // Components have no inlined value — their source lives behind the

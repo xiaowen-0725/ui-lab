@@ -20,6 +20,7 @@ import {
 import { DESIGN_SYSTEMS } from "@/lib/layouts";
 import { PALETTES } from "@/lib/palettes";
 import { STYLES } from "@/lib/styles";
+import { THEME_KITS } from "@/lib/theme-kits";
 
 export const metadata: Metadata = {
   title: "Themes",
@@ -42,6 +43,7 @@ export default async function ThemesPage() {
       intro={t("themes.intro")}
       alsoCalled={t("alsoCalled")}
       groups={[
+        { title: t("groups.themeKits"), items: THEME_KITS.map((entry) => describedLink(locale, `/themes/${entry.slug}`, entry)) },
         {
           title: t("groups.styles"),
           items: STYLES.map((entry) =>

@@ -20,11 +20,12 @@ UI Lab 是一个中文优先、中英双语的 **可视前端词汇表与 AI-fir
 
 当前真实存在的产品对象只有：
 
-- **Catalog**：统一聚合 `component`、`atom-set`、`icon-style`、`icon-motion`、`style`、`palette`、`design-system` 与 `recipe`；
-- **Registry**：分发可 vendoring 的组件和区块源码；
+- **Catalog**：统一聚合 `component`、`atom-set`、`icon-style`、`icon-motion`、`style`、`palette`、`design-system`、`recipe`、只读 `vocabulary` 与外部 `reference`；
+- **Registry**：分发可 vendoring 的组件、区块、完整页面与多页组合源码，展示父项和独立安装变体都有真实安装身份；
+- **页面与整站资产**：19 个可复用区段变体、4 个完整页面和一个引用独立页面的 Agent 多页工作台；`lib/pages.ts` / `lib/sites.ts` 登记实际源码及依赖，不复制页面实现；
 - **Theme Kit**：提供可运行的主题与 token，不代表完整应用系统；
 - **Recipe**：描述页面或应用外壳的组合约束，不承载业务逻辑；
-- **CLI**：提供查询、查看、Theme Kit、组件登记、Recipe compose、CatalogLock 与 Audit 等当前 `ui-lab --help` 可见命令；
+- **CLI**：提供查询、查看、Theme Kit、组件登记、Recipe compose、CatalogLock 与 Audit 等当前仓库 `ui-lab --help` 可见命令（新增源码尚未代表 npm 已发布）；
 - **Skill**：`$ui-lab` 只路由已有组件/区块的 discover 与 install；其他产品工作流不属于它的当前能力。
 
 `ui-lab.config.json` 只表达 Profile、System、Recipe、组件与 adopt/replace 装配意图。`ui-lab.lock.json` 只保存当前 Catalog contract/provenance 的 **CatalogLock**。Audit 只验证已实现的确定性规则，不能替代视觉判断、业务验证或用户批准。
@@ -49,6 +50,14 @@ UI Lab 是一个中文优先、中英双语的 **可视前端词汇表与 AI-fir
 
 新组件、新页面、新整站使用 Next.js 15、React 19、TypeScript、Tailwind CSS 4，控件优先用 shadcn/ui。现有 `components/motion` 与 `components/agents` 的文件位置先保持不动；之后按本原则重分类，不按本原则批量搬迁。
 
+### 目录与安装契约
+
+`assetRole` 独立声明 component / block / page / shell / site，历史 category 和源码路径保留兼容。`installTargets` 区分展示族及变体；`sourceFiles` 是拥有的源码，`installationFiles` 是必需 import 闭包，`sourceVersion` 是原始闭包内容的 SHA-256 修订摘要。独立页面与配方可以是示例关联，不意味着两份组合语义完全等价。详见 [ADR 0002](docs/adr/0002-catalog-roles-and-install-identities.md)。
+
+只读词条保留 prompt/token 和真实资产关联；外部参考保留 provenance / 权利信息，没有安装命令。必需 Catalog 领域、安装身份及 Recipe section 引用失败时停止发布快照。
+
+增量 add / compose 保留已有 CatalogLock 基准和逐项来源；显式 lock 才重建。显式线上源失败时，写入命令失败且不改 config/lock；只读发现可以注明来源后回退快照。Audit 用消费方 TypeScript 解析实际 vendored imports，允许合法源码适配，发现缺失的真实 helper；不据此宣称源码/API 或视觉完全相同。
+
 ### Token 分发
 
 Token 分三桶。安装组件时只带走它真正依赖的那一桶，并且是合并，不是覆盖。
@@ -59,7 +68,7 @@ Token 分三桶。安装组件时只带走它真正依赖的那一桶，并且�
 | 按需带走的系统 | `lib/ease.ts` 的 `EASE_*` 与 `SPRING_*`。组件 import 它，registry 发布时把这个文件打进组件包。`lib/atoms/motion.ts` 只是这同一份值的目录说明，不是第二份可编辑的源。`use-hover-capable` 这类共享钩子同样随 import 带走 | 组件声明依赖。已存在则跳过。不因为装一个按钮而装上整套主题或全部动效文档 |
 | 组件私有 | 只有一个组件使用、且语义层表达不了的值。今天多数组件没有私有 CSS 变量 | 写在该组件自己的 `cssVars` 上，名字带组件前缀。不得提升进 `lib/ease.ts` 或主题 |
 
-`--wb-*` 只服务 Agent 工作台。Theme Kit 里已经带有同一份值。工作台组件不再各自写入 `cssVars`，只依赖单独的系统项 `system-workbench`（`/r/system-workbench.json`）。安装该系统项时合并这一份变量；之后再装工作台组件不会把整份变量再写一遍。
+`--wb-*` 只服务 Agent 工作台。Theme Kit 里已经带有同一份值。工作台组件不再各自写入 `cssVars`，只依赖单独的系统项 `system-workbench`（`/r/system-workbench.json`）。该系统项为补缺型 `registry:lib`，直接或间接安装均保留已有变量；显式 `theme-*` 才替换主题。安装该系统项时合并这一份变量；之后再装工作台组件不会把整份变量再写一遍。
 
 ## 条目公式
 

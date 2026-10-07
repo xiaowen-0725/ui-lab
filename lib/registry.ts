@@ -1,3 +1,9 @@
+import { PAGES } from "@/lib/pages";
+import { SECTION_ASSETS } from "@/lib/section-assets";
+import { SITES } from "@/lib/sites";
+
+export type AssetRole = "component" | "block" | "page" | "shell" | "site";
+
 export type ComponentExample = {
   slug: string;
   name: string;
@@ -17,6 +23,13 @@ export type ComponentExample = {
 };
 
 export type ComponentEntry = {
+  /** Semantic role, independent of historical source/category paths. */
+  assetRole: AssetRole;
+  /** Public primary export, when a module contains multiple assets. */
+  exportName?: string;
+  /** Provider-free copyable usage; site previews remain separate. */
+  usageFile?: string;
+  section?: { slug: string; variant: string };
   slug: string;
   name: string;
   description: string;
@@ -50,6 +63,22 @@ export type CategoryEntry = {
 
 export const registry: CategoryEntry[] = [
   {
+    slug: "sections", name: "Page sections", nameZh: "页面区段",
+    description: "Distributable page sections with explicit structural variants.", descriptionZh: "带有明确结构变体的可分发页面区段。",
+    components: SECTION_ASSETS.map((entry) => ({ ...entry, section: { slug: entry.sectionSlug, variant: entry.variantKey }, usageFile: `components/examples/sections/${entry.slug}.example.tsx`, assetRole: "block" as const })),
+  },
+  {
+    slug: "pages", name: "Complete pages", nameZh: "完整页面",
+    description: "Reusable complete screens, with consumer-owned content and actions.", descriptionZh: "完整可复用页面，内容和操作由消费方提供。",
+    components: PAGES.map((entry) => ({ ...entry, file: `components/pages/${entry.componentSlug}.tsx`, usageFile: `components/examples/pages/${entry.slug}.example.tsx`, keywords: entry.aliases, assetRole: "page" as const })),
+  },
+  {
+    slug: "sites", name: "Multi-page sites", nameZh: "多页组合",
+    description: "Independent pages composed inside a shared shell.", descriptionZh: "独立页面在共享外壳中组合。",
+    components: SITES.map((entry) => ({ ...entry, file: `components/site-shells/${entry.componentSlug}.tsx`, usageFile: `components/examples/sites/${entry.slug}.example.tsx`, keywords: entry.aliases, assetRole: "site" as const })),
+  },
+
+  {
     slug: "motion",
     name: "Components",
     nameZh: "组件",
@@ -57,6 +86,7 @@ export const registry: CategoryEntry[] = [
     descriptionZh: "一个名字、一次安装、一件界面上的事。体积不改变分类。",
     components: [
       {
+        assetRole: "component",
         slug: "tilt-card",
         name: "Tilt Card",
         nameZh: "3D 倾斜卡片",
@@ -65,6 +95,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/tilt-card.tsx",
       },
       {
+        assetRole: "component",
         slug: "button",
         name: "Button",
         nameZh: "按钮",
@@ -127,6 +158,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "marquee",
         name: "Marquee",
         nameZh: "跑马灯",
@@ -135,6 +167,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/marquee.tsx",
       },
       {
+        assetRole: "component",
         slug: "tabs",
         name: "Tabs",
         nameZh: "选项卡",
@@ -143,6 +176,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/tabs.tsx",
       },
       {
+        assetRole: "component",
         slug: "switch",
         name: "Switch",
         nameZh: "开关",
@@ -151,6 +185,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/switch.tsx",
       },
       {
+        assetRole: "component",
         slug: "input",
         name: "Input",
         nameZh: "输入框",
@@ -166,6 +201,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "select",
         name: "Select",
         nameZh: "下拉选择器",
@@ -200,6 +236,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "checkbox",
         name: "Checkbox",
         nameZh: "复选框",
@@ -212,6 +249,7 @@ export const registry: CategoryEntry[] = [
         launchedAt: "2026-06-23",
       },
       {
+        assetRole: "component",
         slug: "radio",
         name: "Radio Group",
         nameZh: "单选组",
@@ -224,6 +262,7 @@ export const registry: CategoryEntry[] = [
         launchedAt: "2026-06-23",
       },
       {
+        assetRole: "component",
         slug: "bottom-sheet",
         name: "Bottom Sheet",
         nameZh: "底部弹出面板",
@@ -232,6 +271,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/bottom-sheet.tsx",
       },
       {
+        assetRole: "component",
         slug: "shared-layout-bg",
         name: "Shared Layout Background",
         nameZh: "共享布局背景块",
@@ -240,6 +280,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/shared-layout-bg.tsx",
       },
       {
+        assetRole: "component",
         slug: "preview-rail",
         name: "Preview Rail",
         nameZh: "预览导航栏",
@@ -262,6 +303,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "dock",
         name: "Dock",
         nameZh: "Dock 程序坞",
@@ -270,6 +312,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/dock.tsx",
       },
       {
+        assetRole: "component",
         slug: "tooltip",
         name: "Tooltip",
         nameZh: "文字提示 / Tooltip",
@@ -316,6 +359,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "popover",
         name: "Popover",
         nameZh: "气泡浮层",
@@ -366,6 +410,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "morphing-modal",
         name: "Morphing Modal",
         nameZh: "变形弹窗",
@@ -374,6 +419,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/morphing-modal.tsx",
       },
       {
+        assetRole: "component",
         slug: "text-animation",
         name: "Text Animation",
         nameZh: "文字动效",
@@ -421,6 +467,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "number",
         name: "Number Animation",
         nameZh: "数字动效",
@@ -454,6 +501,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "animated-badge",
         name: "Animated Badge",
         nameZh: "动效徽标",
@@ -462,6 +510,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/animated-badge.tsx",
       },
       {
+        assetRole: "component",
         slug: "action-swap",
         name: "Action Swap",
         nameZh: "操作切换器",
@@ -505,6 +554,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "animated-toast-stack",
         name: "Animated Toast Stack",
         nameZh: "动效消息通知栈",
@@ -513,6 +563,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/animated-toast-stack.tsx",
       },
       {
+        assetRole: "component",
         slug: "theme-toggle",
         name: "Theme Toggle",
         nameZh: "主题切换按钮",
@@ -521,6 +572,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/theme-toggle.tsx",
       },
       {
+        assetRole: "component",
         slug: "bouncy-accordion",
         name: "Bouncy Accordion",
         nameZh: "弹性手风琴",
@@ -529,6 +581,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/bouncy-accordion.tsx",
       },
       {
+        assetRole: "component",
         slug: "drawer",
         name: "Drawer",
         nameZh: "抽屉面板",
@@ -537,6 +590,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/drawer.tsx",
       },
       {
+        assetRole: "component",
         slug: "scroll-animation",
         name: "Scroll Animation",
         nameZh: "滚动动效",
@@ -616,6 +670,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "range-slider",
         name: "Range Slider",
         nameZh: "范围滑块",
@@ -627,6 +682,7 @@ export const registry: CategoryEntry[] = [
         keywords: ["slider", "range slider", "range input", "stepped slider", "ticks"],
       },
       {
+        assetRole: "component",
         slug: "wheel-picker",
         name: "Wheel Picker",
         nameZh: "滚轮选择器",
@@ -638,6 +694,7 @@ export const registry: CategoryEntry[] = [
         keywords: ["picker", "wheel picker", "ios picker", "drum picker", "spinner", "time picker", "date picker", "scroll picker"],
       },
       {
+        assetRole: "component",
         slug: "table",
         name: "Table",
         nameZh: "表格",
@@ -699,6 +756,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "shader-background",
         name: "Shader Background",
         nameZh: "着色器背景",
@@ -719,6 +777,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "cylinder-carousel",
         name: "Cylinder Carousel",
         nameZh: "圆柱轮播",
@@ -738,6 +797,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "loader",
         name: "Loader",
         nameZh: "加载指示器",
@@ -757,6 +817,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "text-scramble",
         name: "Text Scramble",
         nameZh: "文字解密",
@@ -776,6 +837,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "webgl-background",
         name: "WebGL Background",
         nameZh: "WebGL 着色器背景",
@@ -795,6 +857,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "halftone-image",
         name: "Halftone Image",
         nameZh: "网点图像",
@@ -814,6 +877,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "star-border",
         name: "Star Border",
         nameZh: "星光描边",
@@ -833,6 +897,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "bounce-cards",
         name: "Bounce Cards",
         nameZh: "弹跳卡组",
@@ -851,6 +916,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "glare-hover",
         name: "Glare Hover",
         nameZh: "眩光悬停",
@@ -869,6 +935,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "skeleton",
         name: "Skeleton",
         nameZh: "骨架屏",
@@ -887,6 +954,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "scroll-hint",
         name: "Scroll Hint",
         nameZh: "滚动提示",
@@ -905,6 +973,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "animated-icon",
         name: "Animated Icon",
         nameZh: "动效图标",
@@ -923,6 +992,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "dropdown-menu",
         name: "Dropdown Menu",
         nameZh: "下拉菜单",
@@ -943,6 +1013,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "expanding-card",
         name: "Expanding Card",
         nameZh: "卡片展开弹层",
@@ -962,6 +1033,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "expandable-control",
         name: "Expandable Control",
         nameZh: "可展开控件",
@@ -981,6 +1053,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "file-tree",
         name: "File Tree",
         nameZh: "文件树",
@@ -1010,6 +1083,7 @@ export const registry: CategoryEntry[] = [
     descriptionZh: "一段已经排好的布局。一次安装带走它引用的组件。",
     components: [
       {
+        assetRole: "component",
         slug: "recording-card",
         name: "Recording Card",
         nameZh: "录屏演示卡",
@@ -1029,6 +1103,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "block",
         slug: "login-card",
         name: "Login Card",
         nameZh: "登录卡片",
@@ -1049,6 +1124,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "thread-list",
         name: "Thread List",
         nameZh: "会话列表",
@@ -1068,6 +1144,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "artifact-panel",
         name: "Artifact Panel",
         nameZh: "制品画布面板",
@@ -1087,6 +1164,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "agent-inbox",
         name: "Agent Inbox",
         nameZh: "Agent 审批收件箱",
@@ -1107,6 +1185,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "agent-trace",
         name: "Agent Trace",
         nameZh: "Agent 执行轨迹",
@@ -1127,6 +1206,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "streaming-json",
         name: "Streaming JSON",
         nameZh: "流式结构化输出",
@@ -1146,6 +1226,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "citations",
         name: "Citations",
         nameZh: "引用与来源",
@@ -1165,6 +1246,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "voice-orb",
         name: "Voice Orb",
         nameZh: "语音律动球",
@@ -1184,6 +1266,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "block",
         slug: "activity-stats",
         name: "Activity Stats",
         nameZh: "活动统计",
@@ -1204,6 +1287,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "settings-panel",
         name: "Settings Panel",
         nameZh: "设置面板",
@@ -1224,6 +1308,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "agent-thread",
         name: "Agent Thread",
         nameZh: "Agent 会话流",
@@ -1252,6 +1337,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "agent-composer",
         name: "Agent Composer",
         nameZh: "Agent 输入台",
@@ -1279,6 +1365,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "shell",
         slug: "agent-workbench",
         name: "Agent Workbench",
         nameZh: "Agent 工作台",
@@ -1304,6 +1391,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "block",
         slug: "availability-scheduler",
         name: "Availability Scheduler",
         nameZh: "可用时间编辑器",
@@ -1322,6 +1410,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "block",
         slug: "swap",
         name: "Multi-chain Swap",
         nameZh: "多链兑换",
@@ -1330,6 +1419,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/swap.tsx",
       },
       {
+        assetRole: "component",
         slug: "dynamic-island",
         name: "Dynamic Island",
         nameZh: "灵动岛",
@@ -1338,6 +1428,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/dynamic-island.tsx",
       },
       {
+        assetRole: "component",
         slug: "command-palette",
         name: "Command Palette",
         nameZh: "命令面板",
@@ -1346,6 +1437,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/command-palette.tsx",
       },
       {
+        assetRole: "component",
         slug: "morphing-search",
         name: "Morphing Search",
         nameZh: "变形搜索",
@@ -1365,6 +1457,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "expandable-action-bar",
         name: "Expandable Action Bar",
         nameZh: "可展开操作栏",
@@ -1373,6 +1466,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/expandable-action-bar.tsx",
       },
       {
+        assetRole: "component",
         slug: "overflow-actions",
         name: "Overflow Actions",
         nameZh: "溢出操作栏",
@@ -1381,6 +1475,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/overflow-actions.tsx",
       },
       {
+        assetRole: "component",
         slug: "expandable-tabs",
         name: "Expandable Tabs",
         nameZh: "可展开选项卡",
@@ -1389,6 +1484,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/expandable-tabs.tsx",
       },
       {
+        assetRole: "component",
         slug: "swipeable-list",
         name: "Swipeable List",
         nameZh: "可滑动列表",
@@ -1397,6 +1493,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/swipeable-list.tsx",
       },
       {
+        assetRole: "component",
         slug: "file-upload",
         name: "File Upload",
         nameZh: "文件上传",
@@ -1405,6 +1502,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/file-upload.tsx",
       },
       {
+        assetRole: "block",
         slug: "prediction-market",
         name: "Prediction Market",
         nameZh: "预测市场交易卡",
@@ -1413,6 +1511,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/prediction-market.tsx",
       },
       {
+        assetRole: "block",
         slug: "wallet-card",
         name: "Wallet Card",
         nameZh: "钱包卡片",
@@ -1430,6 +1529,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "otp-input",
         name: "OTP Input",
         nameZh: "验证码输入框",
@@ -1438,6 +1538,7 @@ export const registry: CategoryEntry[] = [
         file: "components/motion/otp-input.tsx",
       },
       {
+        assetRole: "component",
         slug: "bloom-menu",
         name: "Bloom Menu",
         nameZh: "绽放菜单",
@@ -1448,6 +1549,7 @@ export const registry: CategoryEntry[] = [
         launchedAt: "2026-06-26",
       },
       {
+        assetRole: "component",
         slug: "feedback-widget",
         name: "Feedback Widget",
         nameZh: "反馈小组件",
@@ -1465,6 +1567,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "page",
         slug: "not-found",
         name: "404 / Not Found",
         nameZh: "404 页面",
@@ -1548,6 +1651,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "block",
         slug: "step-form",
         name: "Step Form",
         nameZh: "分步表单",
@@ -1568,6 +1672,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "empty-state",
         name: "Empty State",
         nameZh: "空状态",
@@ -1636,6 +1741,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "prompt-bar",
         name: "Prompt Bar",
         nameZh: "AI 提示输入条",
@@ -1656,6 +1762,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "prompt-input",
         name: "Prompt Input",
         nameZh: "提示输入",
@@ -1676,6 +1783,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "todo-list",
         name: "Todo List",
         nameZh: "任务清单",
@@ -1696,6 +1804,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "code-block",
         name: "Code Block",
         nameZh: "代码块",
@@ -1716,6 +1825,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "approval-card",
         name: "Approval Card",
         nameZh: "审批卡片",
@@ -1765,6 +1875,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "file-diff",
         name: "File Diff",
         nameZh: "文件差异",
@@ -1784,6 +1895,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "tool-result",
         name: "Tool Result",
         nameZh: "工具结果",
@@ -1831,6 +1943,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "streaming-response",
         name: "Streaming Response",
         nameZh: "流式回复",
@@ -1851,6 +1964,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "image-generation",
         name: "Image Generation",
         nameZh: "图像生成",
@@ -1871,6 +1985,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "tool-approval",
         name: "Tool Approval",
         nameZh: "工具授权",
@@ -1890,6 +2005,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "agent-activity",
         name: "Agent Activity",
         nameZh: "Agent 活动流",
@@ -1995,6 +2111,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "reasoning-text",
         name: "Reasoning Text",
         nameZh: "推理文案",
@@ -2016,6 +2133,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "agent-progress",
         name: "Agent Progress",
         nameZh: "Agent 进度",
@@ -2036,6 +2154,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "ai-sidebar",
         name: "AI Sidebar",
         nameZh: "AI 侧栏",
@@ -2064,6 +2183,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "reasoning",
         name: "Reasoning",
         nameZh: "推理披露",
@@ -2085,6 +2205,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "chain-of-thought",
         name: "Chain of Thought",
         nameZh: "思维链",
@@ -2106,6 +2227,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "sources",
         name: "Sources",
         nameZh: "来源列表",
@@ -2127,6 +2249,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "inline-citation",
         name: "Inline Citation",
         nameZh: "行内引用",
@@ -2146,6 +2269,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "plan",
         name: "Plan",
         nameZh: "计划卡",
@@ -2167,6 +2291,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "task",
         name: "Task",
         nameZh: "任务步骤",
@@ -2187,6 +2312,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "queue",
         name: "Queue",
         nameZh: "待办队列",
@@ -2207,6 +2333,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "confirmation",
         name: "Confirmation",
         nameZh: "确认条",
@@ -2226,6 +2353,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "suggestion",
         name: "Suggestion",
         nameZh: "建议芯片",
@@ -2245,6 +2373,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "jsx-preview",
         name: "JSX Preview",
         nameZh: "JSX 预览",
@@ -2264,6 +2393,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "collapsible-sidebar",
         name: "Collapsible Sidebar",
         nameZh: "可折叠侧栏",
@@ -2285,6 +2415,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "block",
         slug: "upgrade-paywall",
         name: "Upgrade Paywall",
         nameZh: "升级付费墙",
@@ -2305,6 +2436,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "component",
         slug: "view-layout-switch",
         name: "View Layout Switch",
         nameZh: "视图布局切换",
@@ -2325,6 +2457,7 @@ export const registry: CategoryEntry[] = [
         ],
       },
       {
+        assetRole: "block",
         slug: "billing-plan-grid",
         name: "Billing Plan Grid",
         nameZh: "账单方案网格",

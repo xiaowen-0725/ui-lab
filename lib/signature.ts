@@ -1,3 +1,4 @@
+import { assetPagePath } from "@/lib/asset-paths";
 import { SITE_URL } from "@/lib/site";
 
 const CODE_EXT = /\.(tsx?|jsx?|css|mjs|cjs)$/;
@@ -7,7 +8,7 @@ const DIRECTIVE_RE = /^\s*(["']use (?:client|server)["'];?[^\n]*\n)/;
 
 /** Component docs page URL, e.g. https://uilab.dev/components/motion/tabs */
 export function pageUrlFor(categorySlug: string, pageSlug: string) {
-  return `${SITE_URL}/components/${categorySlug}/${pageSlug}`;
+  return `${SITE_URL}${assetPagePath(categorySlug, pageSlug)}`;
 }
 
 /**

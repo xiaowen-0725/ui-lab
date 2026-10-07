@@ -81,7 +81,8 @@ describe("catalog component items", () => {
         (example) => example.installSlug === "button-metallic",
       ),
     ).toBe(true);
-    expect(bySlug.has("button-metallic")).toBe(false);
+    expect(bySlug.has("button-metallic")).toBe(true);
+    expect(button?.installTargets).toContain("button-metallic");
   });
 
   test("registers missing AI-oriented agent catalog slugs with bilingual names", () => {

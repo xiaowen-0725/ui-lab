@@ -51,9 +51,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     sentence: "A control a person presses to do one thing.",
     sentenceZh: "让人点一下就做一件事的控件。",
     prompt:
-      "Install UI Lab button-base and import Button from it. Press feedback uses the spring in that component. Idle, loading, success, and error use StatefulButton from the same component. When it should follow the pointer, use MagneticButton.",
+      "Install UI Lab button-base and import Button from it. Press feedback uses its spring. Install button-stateful for StatefulButton with idle, loading, success, and error states; install button-magnetic for MagneticButton. The button target installs the whole family.",
     promptZh:
-      "安装 UI Lab 的 button-base，引入其中的 Button。按压用它自带的弹簧。空闲、加载中、成功、失败用同一个组件里的 StatefulButton。要跟着指针走，用 MagneticButton。",
+      "安装 UI Lab 的 button-base，引入其中的 Button，按压用它自带的弹簧。空闲、加载中、成功、失败安装 button-stateful 并使用 StatefulButton；跟随指针安装 button-magnetic 并使用 MagneticButton。button 入口安装整个组件族。",
     component: {
       category: "motion",
       slug: "button",

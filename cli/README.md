@@ -198,9 +198,11 @@ lock warning before rerunning strict audit.
 }
 ```
 
-Hashes use stable serialization of behavior-contract fields such as fetch
-instructions, registry source files, Theme Kit previews, and Recipe machine
-fields. Display names, descriptions, prompts, page URLs, and timestamps are
+Incremental `add` and `compose` preserve existing baselines and per-item catalog
+provenance. Only explicit `lock` rebases every selected item; review upstream
+changes before rebasing. Hashes include source revisions (`sourceVersion`),
+installation closures and composition contracts as well as fetch instructions,
+owned files, Theme Kit previews, and Recipe machine fields. Display names, descriptions, prompts, page URLs, and timestamps are
 excluded. Do not edit the lock by hand; regenerate it with `ui-lab lock`.
 
 ## Project root and monorepos
@@ -258,3 +260,9 @@ written to **stderr**. Command output — including everything printed by
 `--json` — goes to **stdout** only. That means you can always pipe
 `ui-lab ... --json` straight into `jq` or another parser without stripping
 anything first.
+
+## Current source contracts (unpublished changes)
+
+Use `bun cli/src/index.ts --help` from the repository for new flags until a new npm version is explicitly published. `list --kind component --role block` replaces the invalid `--kind block`; roles are component/block/page/shell/site, and `--category` filters historical or domain groups. Dictionary knowledge and external inspiration use read-only vocabulary/reference kinds. `sourceFiles` is ownership, `installationFiles` is the installation graph, and `sourceVersion` tracks changes even when paths stay fixed.
+
+Explicit registry failures or invalid structures/references abort init/compose/add/lock before changing files. Read-only discovery may fall back to the snapshot, with provenance on stderr so JSON stays clean. Audit parses real installed sources with the consumer's installed TypeScript, honoring paths/extends/project references and legitimate adaptations; it does not certify source identity, API equivalence or visual fidelity.

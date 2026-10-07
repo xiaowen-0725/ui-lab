@@ -1,0 +1,77 @@
+{
+  "method": "Real React/Motion SSR; injected reduced/hover preferences; compare DOM tree excluding style/Motion tabindex; inspect actual motion props, no browser/build",
+  "icons": [
+    {
+      "variant": "draw",
+      "combinations": 6,
+      "topologyEqual": true,
+      "reduceAndTouchHoverGate": true
+    },
+    {
+      "variant": "wiggle",
+      "combinations": 6,
+      "topologyEqual": true,
+      "reduceAndTouchHoverGate": true
+    },
+    {
+      "variant": "spin",
+      "combinations": 6,
+      "topologyEqual": true,
+      "reduceAndTouchHoverGate": true
+    },
+    {
+      "variant": "bounce",
+      "combinations": 6,
+      "topologyEqual": true,
+      "reduceAndTouchHoverGate": true
+    },
+    {
+      "variant": "pop",
+      "combinations": 6,
+      "topologyEqual": true,
+      "reduceAndTouchHoverGate": true
+    },
+    {
+      "variant": "pulse",
+      "combinations": 6,
+      "topologyEqual": true,
+      "reduceAndTouchHoverGate": true
+    },
+    {
+      "variant": "nudge",
+      "combinations": 6,
+      "topologyEqual": true,
+      "reduceAndTouchHoverGate": true
+    }
+  ],
+  "tracks": [
+    {
+      "mode": null,
+      "trackCount": 13,
+      "staticCount": 13,
+      "dynamicCount": 13,
+      "topologyEqual": true,
+      "reduceTargetsVerified": false
+    },
+    {
+      "mode": false,
+      "trackCount": 13,
+      "staticCount": 13,
+      "dynamicCount": 13,
+      "topologyEqual": true,
+      "reduceTargetsVerified": false
+    },
+    {
+      "mode": true,
+      "trackCount": 13,
+      "staticCount": 13,
+      "dynamicCount": 13,
+      "topologyEqual": true,
+      "reduceTargetsVerified": true
+    }
+  ],
+  "sourceSha256": {
+    "components/app/atoms/motion-explorer.tsx": "e0aaafdf213becbbe07fa08444f6af7649fb4920270650e2811aba0034b645a0",
+    "components/motion/animated-icon.tsx": "10384797019ec50865e483ec47a3340b5711d85c6c1c41941317dbaaddae1e5d"
+  }
+}

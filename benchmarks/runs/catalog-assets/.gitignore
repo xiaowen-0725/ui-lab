@@ -1,0 +1,9 @@
+node_modules/
+.next/
+dist/
+components/
+lib/
+ui-lab.config.json
+ui-lab.lock.json
+*.tsbuildinfo
+next-env.d.ts

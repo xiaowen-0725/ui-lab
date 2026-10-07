@@ -30,6 +30,30 @@ export function AtomsExplorer() {
     if (validCategory(paramCategory)) setCategory(paramCategory);
   }, [paramCategory]);
 
+  // This explorer renders after the static Suspense fallback. Native fragment
+  // scrolling can run before its cards exist, so replay it after each category commit.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: A category switch mounts a new card tree; replay its fragment after that commit.
+  useEffect(() => {
+    let frame = 0;
+    const scrollToHash = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const raw = window.location.hash.slice(1);
+        if (!raw) return;
+        let id = raw;
+        try { id = decodeURIComponent(raw); }
+        catch { /* A malformed fragment has no matching decoded target. */ }
+        document.getElementById(id)?.scrollIntoView({ behavior: "auto", block: "start" });
+      });
+    };
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("hashchange", scrollToHash);
+    };
+  }, [category]);
+
   const selectCategory = (nextCategory: AtomCategorySlug) => {
     setCategory(nextCategory);
     window.history.replaceState(null, "", `?cat=${nextCategory}`);

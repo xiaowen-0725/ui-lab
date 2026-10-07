@@ -1,0 +1,76 @@
+{
+  "currentCount": 558,
+  "currentSnapshotEqualsCurrentSource": true,
+  "snapshotGeneratedAt": "2026-10-03T15:44:11.595Z",
+  "consumerRuns": [
+    {
+      "run": "/tmp/uilab-catalog-assets-jFoRH2",
+      "catalogChanges": [
+        {
+          "id": "component/animated-icon",
+          "fields": [
+            "installationFiles",
+            "sourceVersion"
+          ],
+          "beforeSourceVersion": "67c812ac79924b09f1ab3478d2f8f941fcaf6554b949340ffc883309f584b9f6",
+          "afterSourceVersion": "541c7f116a9f4eb1942733ee924b8ed25cc82ee32ec1d7f109f23b4224ad3bf1",
+          "beforeInstallationFiles": [
+            "components/motion/animated-icon.tsx",
+            "lib/utils.ts"
+          ],
+          "afterInstallationFiles": [
+            "components/motion/animated-icon.tsx",
+            "lib/hooks/use-hover-capable.ts",
+            "lib/utils.ts"
+          ]
+        }
+      ],
+      "frozenRegistryMatchesCurrent": true,
+      "installedAnimatedIconTargets": [],
+      "manifestHashMatches": [
+        {
+          "profile": "next-app",
+          "files": 34,
+          "match": true
+        },
+        {
+          "profile": "vite-app",
+          "files": 34,
+          "match": true
+        }
+      ]
+    },
+    {
+      "run": "/tmp/uilab-catalog-assets-Bdvh1a",
+      "catalogChanges": [
+        {
+          "id": "component/animated-icon",
+          "fields": [
+            "installationFiles",
+            "sourceVersion"
+          ],
+          "beforeSourceVersion": "67c812ac79924b09f1ab3478d2f8f941fcaf6554b949340ffc883309f584b9f6",
+          "afterSourceVersion": "541c7f116a9f4eb1942733ee924b8ed25cc82ee32ec1d7f109f23b4224ad3bf1",
+          "beforeInstallationFiles": [
+            "components/motion/animated-icon.tsx",
+            "lib/utils.ts"
+          ],
+          "afterInstallationFiles": [
+            "components/motion/animated-icon.tsx",
+            "lib/hooks/use-hover-capable.ts",
+            "lib/utils.ts"
+          ]
+        }
+      ],
+      "frozenRegistryMatchesCurrent": true,
+      "installedAnimatedIconTargets": [],
+      "manifestHashMatches": [
+        {
+          "profile": "electron-renderer",
+          "files": 34,
+          "match": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,9 @@
 import type { JsonLdSchema } from "@/components/app/analytics/json-ld";
+import { assetPagePath } from "@/lib/asset-paths";
 import {
+  allComponents,
   type CategoryEntry,
   type ComponentEntry,
-  allComponents,
   registry,
 } from "@/lib/registry";
 import { REPO_URL, SITE_URL } from "@/lib/site";
@@ -137,7 +138,7 @@ export function componentJsonLd(
   cat: CategoryEntry,
   comp: ComponentEntry,
 ): JsonLdSchema {
-  const url = abs(`/components/${cat.slug}/${comp.slug}`);
+  const url = abs(assetPagePath(cat.slug, comp.slug));
   return {
     "@context": "https://schema.org",
     "@type": "TechArticle",
@@ -181,7 +182,7 @@ export function categoryJsonLd(cat: CategoryEntry): JsonLdSchema {
         "@type": "ListItem",
         position: i + 1,
         name: comp.name,
-        url: abs(`/components/${cat.slug}/${comp.slug}`),
+        url: abs(assetPagePath(cat.slug, comp.slug)),
       })),
     },
   };

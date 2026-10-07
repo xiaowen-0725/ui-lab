@@ -67,38 +67,42 @@ function StaticEndpoints() {
 
 function CurveTrack({ entry, run }: { entry: MotionCurveAtom; run: number }) {
   const reducedMotion = useReducedMotion();
-  if (reducedMotion) return <StaticEndpoints />;
 
   return (
     <div className="relative h-10 overflow-hidden">
+      <div className="hidden motion-reduce:block"><StaticEndpoints /></div>
+      <div className="motion-reduce:hidden">
       <span className="absolute inset-x-3 top-5 h-px bg-border" />
       <motion.span
         key={run}
         className="absolute left-1 top-2 h-6 w-6 rounded-lg bg-accent shadow-sm"
         initial={{ x: 0, opacity: 0.55 }}
-        animate={{ x: 120, opacity: 1 }}
-        transition={{ duration: 0.8, ease: entry.value }}
+        animate={reducedMotion ? { x: 0, opacity: 1 } : { x: 120, opacity: 1 }}
+        transition={reducedMotion ? { duration: 0.15 } : { duration: 0.8, ease: entry.value }}
       />
+      </div>
     </div>
   );
 }
 
 function SpringTrack({ entry, run }: { entry: MotionSpringAtom; run: number }) {
   const reducedMotion = useReducedMotion();
-  if (reducedMotion) return <StaticEndpoints />;
 
   return (
     <div className="relative h-12 overflow-hidden">
+      <div className="hidden motion-reduce:block"><StaticEndpoints /></div>
+      <div className="motion-reduce:hidden">
       <span className="absolute inset-x-3 top-6 h-px bg-border" />
       <motion.span
         key={run}
         className="absolute left-1 top-2 flex h-8 w-10 items-center justify-center rounded-lg border border-(--color-border-strong) bg-card text-[0.55rem] font-semibold uppercase tracking-wider text-foreground shadow-sm"
-        initial={{ x: 0, opacity: 0.5, scale: 0.94 }}
-        animate={{ x: 112, opacity: 1, scale: 1 }}
-        transition={{ type: "spring", ...entry.value }}
+        initial={{ x: 0, opacity: 0.5, scale: reducedMotion ? 1 : 0.94 }}
+        animate={reducedMotion ? { x: 0, opacity: 1, scale: 1 } : { x: 112, opacity: 1, scale: 1 }}
+        transition={reducedMotion ? { duration: 0.15 } : { type: "spring", ...entry.value }}
       >
         {entry.slug.slice(0, 2)}
       </motion.span>
+      </div>
     </div>
   );
 }

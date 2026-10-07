@@ -21,6 +21,7 @@ import {
 } from "@/components/motion/command-palette";
 import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { assetPagePath } from "@/lib/asset-paths";
 import { ATOM_SEARCH_ITEMS, ICON_MOTIONS } from "@/lib/atoms";
 import { CONCEPTS } from "@/lib/concepts";
 import { localizedName } from "@/lib/i18n-content";
@@ -40,6 +41,7 @@ import { registry } from "@/lib/registry";
 import { SCROLL_PATTERNS } from "@/lib/scroll";
 import { SECTIONS } from "@/lib/sections";
 import { STYLES } from "@/lib/styles";
+import { THEME_KITS } from "@/lib/theme-kits";
 import { cn } from "@/lib/utils";
 
 const PAGES = [
@@ -90,20 +92,27 @@ export function SiteSearch({ className }: { className?: string }) {
         cat.components.map((comp) => ({
           id: `${cat.slug}-${comp.slug}`,
           label: localizedName(comp, locale),
-          group: localizedName(cat, locale),
+          group: tNav(comp.assetRole === "block" ? "blocks" : comp.assetRole === "page" ? "pages" : comp.assetRole === "site" || comp.assetRole === "shell" ? "sites" : "components"),
           // Keep both languages searchable regardless of active locale.
           keywords: [
             comp.slug,
             comp.name,
             comp.nameZh ?? "",
+            ...(comp.keywords ?? []),
+            ...(comp.examples ?? []).flatMap((example) => [example.installSlug ?? "", example.name, example.nameZh ?? ""]),
             cat.name,
             cat.nameZh ?? "",
           ].filter(Boolean),
           icon: CircleDashed,
           badge: comp.badge === "new" ? <NewBadge /> : undefined,
-          onSelect: () => router.push(`/components/${cat.slug}/${comp.slug}`),
+          onSelect: () => router.push(assetPagePath(cat.slug, comp.slug)),
         })),
       ),
+      ...THEME_KITS.map((kit) => ({
+        id: `theme-kit-${kit.slug}`, label: localizedName(kit, locale), group: tNav("themes"),
+        keywords: [kit.slug, kit.name, kit.nameZh, "theme kit", "主题套件"], icon: Palette,
+        onSelect: () => router.push(`/themes/${kit.slug}`),
+      })),
       // Styles are searchable by every alias — typing "毛玻璃" lands on
       // glassmorphism. The vocabulary layer is the point of the module.
       ...STYLES.map((style) => ({

@@ -1,0 +1,18 @@
+{
+  "method": "AST-extracted current effect executed with controlled RAF/event/document stubs; no browser, React mount, build or actual scrolling",
+  "checks": 9,
+  "passed": [
+    "initial target appears before deferred frame; scroll once auto/start; no self scheduling",
+    "hashchange burst coalesces and reads latest fragment",
+    "category commit cleanup cancels stale frame and leaves one listener/frame",
+    "unmount cancels work; hash events after unmount do nothing",
+    "encoded unicode decoded exactly; query/hash untouched",
+    "malformed fragment is exception safe, literal ID fallback",
+    "empty hash cancels pending target without scrolling",
+    "missing target is a safe no-op without retry loop",
+    "CSS selector metacharacters are treated as literal element ID"
+  ],
+  "sourceSha256": "b168bdc0a615b524498e4518c6f8da7f5e41896df895fe28144a66bd77b59d23",
+  "deps": "[category]",
+  "productionOldHash220": "pending"
+}

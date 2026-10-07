@@ -3,7 +3,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { describedLink } from "@/components/app/catalog/catalog-door";
 import { CatalogScreen } from "@/components/app/catalog/catalog-screen";
 import type { Locale } from "@/i18n/routing";
-import { findCategory } from "@/lib/registry";
+import { allComponents } from "@/lib/registry";
 import { SECTIONS } from "@/lib/sections";
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default async function BlocksPage() {
   const locale = (await getLocale()) as Locale;
   const t = await getTranslations("catalog");
-  const blocks = findCategory("blocks")?.components ?? [];
+  const blocks = allComponents().filter((entry) => entry.assetRole === "block");
 
   return (
     <CatalogScreen
@@ -27,7 +27,7 @@ export default async function BlocksPage() {
         {
           title: t("groups.blocks"),
           items: blocks.map((entry) =>
-            describedLink(locale, `/components/blocks/${entry.slug}`, entry),
+            describedLink(locale, `/components/${entry.category.slug}/${entry.slug}`, entry),
           ),
         },
         {

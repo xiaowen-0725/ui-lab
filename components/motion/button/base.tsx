@@ -108,7 +108,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {...rest}
       >
-        {ripple && !reduce ? (
+        {ripple ? (
           <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]">
             <AnimatePresence>
               {ripples.map((r) => (

@@ -1,0 +1,99 @@
+{
+  "fixture": "/var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-system-tokens-Tn5XJ9",
+  "method": "Read existing fixture; run cached shadcn transformCssVars on in-memory strings only. No CLI install, server, dependency installation, or fixture writes.",
+  "systemType": "registry:lib",
+  "themeType": "registry:theme",
+  "blockRegistryDependencies": [
+    "http://localhost:3000/r/system-workbench.json"
+  ],
+  "direct": {
+    "light": {
+      "expectedCount": 43,
+      "wbCount": 43,
+      "missing": [],
+      "mismatch": [],
+      "duplicate": [],
+      "surface": "hotpink"
+    },
+    "dark": {
+      "expectedCount": 43,
+      "wbCount": 43,
+      "missing": [],
+      "mismatch": [],
+      "duplicate": [],
+      "surface": "rebeccapurple"
+    }
+  },
+  "fresh": {
+    "light": {
+      "expectedCount": 43,
+      "wbCount": 43,
+      "missing": [],
+      "mismatch": [],
+      "duplicate": [],
+      "surface": "rgb(255 255 255)"
+    },
+    "dark": {
+      "expectedCount": 43,
+      "wbCount": 43,
+      "missing": [],
+      "mismatch": [],
+      "duplicate": [],
+      "surface": "oklch(20.5% 0 0)"
+    }
+  },
+  "explicitTheme": {
+    "light": {
+      "expectedCount": 76,
+      "wbCount": 43,
+      "missing": [],
+      "mismatch": [],
+      "duplicate": [],
+      "surface": "rgb(255 255 255)"
+    },
+    "dark": {
+      "expectedCount": 76,
+      "wbCount": 43,
+      "missing": [],
+      "mismatch": [],
+      "duplicate": [],
+      "surface": "oklch(20.5% 0 0)"
+    }
+  },
+  "finalFixture": {
+    "light": {
+      "expectedCount": 76,
+      "wbCount": 43,
+      "missing": [],
+      "mismatch": [],
+      "duplicate": [],
+      "surface": "rgb(255 255 255)"
+    },
+    "dark": {
+      "expectedCount": 76,
+      "wbCount": 43,
+      "missing": [],
+      "mismatch": [],
+      "duplicate": [],
+      "surface": "oklch(20.5% 0 0)"
+    }
+  },
+  "repeatedByteIdentical": true,
+  "defaultsAfterThemeByteIdentical": true,
+  "fixtureFinalEqualsInMemoryTheme": true,
+  "scriptSha256": "67dece64ffd90e9046b6456139948f6340e1fda797affd6e9d2c74fe704ccfd1",
+  "fixtureCssSha256": "7c79b41aa3cf10bc72128d10e1516eb4fd765ab4f91312372fa9da0a6e8ea9e6",
+  "upstreamPackage": "0.1.0",
+  "shadcnVersion": "4.21.1",
+  "existingLogs": [
+    "settings-panel-1791035302567.log",
+    "system-workbench-1791035239145.log",
+    "system-workbench-1791035239673.log",
+    "system-workbench-1791035303764.log",
+    "theme-graphite-1791035303283.log"
+  ],
+  "upstreamSourceSha256": {
+    "/private/var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/bunx-501-shadcn@4.21.1/node_modules/@shadcn/registry/dist/chunk-5YG4Q2LA.js": "b028f020f40ebac1a29469dd384f8ab94ffe3efde7d6a2b9493d7a481378f391",
+    "/private/var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/bunx-501-shadcn@4.21.1/node_modules/@shadcn/registry/dist/chunk-57ZPSYVQ.js": "99e9ce48969728425e517d5644f094bea8a8fcbc55f57c1b60e5e2e4cdbf82cf"
+  }
+}

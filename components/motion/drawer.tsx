@@ -1,7 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { useEffect, type ReactNode } from "react";
+import { type ReactNode, useRef } from "react";
+import { Modal } from "@/components/ui/modal";
 import { EASE_OUT, SPRING_PANEL } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 
@@ -30,31 +31,18 @@ export function Drawer({
   dismissable = true,
 }: DrawerProps) {
   const reduce = useReducedMotion();
-
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onOpenChange(false);
-    };
-    window.addEventListener("keydown", onKey);
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prevOverflow;
-    };
-  }, [open, onOpenChange]);
+  const panelRef = useRef<HTMLElement>(null);
 
   const offscreen = side === "right" ? "100%" : "-100%";
 
   return (
     <AnimatePresence>
       {open ? (
-        <div className="fixed inset-0 z-50">
+        <Modal contentRef={panelRef} ariaLabel={ariaLabel} onDismiss={() => onOpenChange(false)}>
           <motion.button
             type="button"
             aria-label="Close"
-            tabIndex={dismissable ? 0 : -1}
+            tabIndex={-1}
             onClick={() => dismissable && onOpenChange(false)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -66,9 +54,8 @@ export function Drawer({
             )}
           />
           <motion.aside
-            role="dialog"
-            aria-modal="true"
-            aria-label={ariaLabel}
+            ref={panelRef}
+            tabIndex={-1}
             initial={reduce ? { opacity: 0 } : { x: offscreen }}
             animate={reduce ? { opacity: 1 } : { x: 0 }}
             exit={reduce ? { opacity: 0 } : { x: offscreen }}
@@ -83,7 +70,7 @@ export function Drawer({
           >
             {children}
           </motion.aside>
-        </div>
+        </Modal>
       ) : null}
     </AnimatePresence>
   );

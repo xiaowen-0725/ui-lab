@@ -525,6 +525,7 @@ describe("ui-lab application kit CLI", () => {
       (item: { kind: string; slug: string }) =>
         item.kind === "component" && item.slug === "button",
     );
+    const originalButtonHash = button.contractHash;
     expect(button).toMatchObject({
       contractHash: expect.stringMatching(/^[a-f0-9]{64}$/),
       sourceFiles: [
@@ -543,7 +544,13 @@ describe("ui-lab application kit CLI", () => {
     ).contractHash = "0".repeat(64);
     writeFileSync(lockPath, `${JSON.stringify(tamperedLock, null, 2)}\n`);
     expect(runCli("add", "button", "--dir", directory).exitCode).toBe(0);
-    expect(readFileSync(lockPath, "utf8")).toBe(addedText);
+    expect(JSON.parse(readFileSync(lockPath, "utf8")).items.find(
+      (item: { slug: string }) => item.slug === "button",
+    ).contractHash).toBe("0".repeat(64));
+    expect(runCli("lock", "--dir", directory).exitCode).toBe(0);
+    expect(JSON.parse(readFileSync(lockPath, "utf8")).items.find(
+      (item: { slug: string }) => item.slug === "button",
+    ).contractHash).toBe(originalButtonHash);
 
     const catalog = await buildCatalog();
     const recipe = catalog.find(

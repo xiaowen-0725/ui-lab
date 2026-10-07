@@ -1,0 +1,272 @@
+[
+  {
+    "profile": "tooling",
+    "command": "bun install --frozen-lockfile",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/000-tooling-command.log"
+  },
+  {
+    "profile": "tooling",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js --version",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/001-tooling-command.log"
+  },
+  {
+    "profile": "tooling",
+    "command": "bun cli/src/index.ts --help",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/002-tooling-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun install --frozen-lockfile",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/003-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts init --profile next-app --system graphite --json --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/004-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts compose agent-workbench --json --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/005-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js add http://127.0.0.1:58469/r/theme-graphite.json --yes --overwrite --cwd /tmp/uilab-catalog-assets-jFoRH2/next-app",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/006-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js add http://127.0.0.1:58469/r/button-base.json --yes --overwrite --cwd /tmp/uilab-catalog-assets-jFoRH2/next-app",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/007-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js add http://127.0.0.1:58469/r/button.json http://127.0.0.1:58469/r/button-base.json http://127.0.0.1:58469/r/saas-landing-page.json http://127.0.0.1:58469/r/workbench-conversation-page.json http://127.0.0.1:58469/r/workbench-artifact-page.json http://127.0.0.1:58469/r/workbench-settings-page.json http://127.0.0.1:58469/r/agent-workbench-site.json http://127.0.0.1:58469/r/agent-workbench.json http://127.0.0.1:58469/r/thread-list.json http://127.0.0.1:58469/r/agent-thread.json http://127.0.0.1:58469/r/agent-composer.json http://127.0.0.1:58469/r/artifact-panel.json --yes --overwrite --cwd /tmp/uilab-catalog-assets-jFoRH2/next-app",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/008-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js add http://127.0.0.1:58469/r/system-workbench.json --yes --overwrite --cwd /tmp/uilab-catalog-assets-jFoRH2/next-app",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/009-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts add button --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/010-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts add button-base --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/011-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts add saas-landing-page --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/012-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts add workbench-conversation-page --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/013-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts add workbench-artifact-page --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/014-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts add workbench-settings-page --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/015-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts add agent-workbench-site --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/016-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts lock --json --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/017-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts audit --json --strict --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/018-next-app-audit.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts audit --json --strict --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 1,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/019-next-app-audit.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun cli/src/index.ts audit --json --strict --dir /tmp/uilab-catalog-assets-jFoRH2/next-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/020-next-app-audit.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun run typecheck",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/021-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "bun run build",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/022-next-app-command.log"
+  },
+  {
+    "profile": "next-app",
+    "command": "node browser.mjs next-app /tmp/uilab-catalog-assets-jFoRH2/next-app /tmp/uilab-catalog-assets-jFoRH2 http://127.0.0.1:58561",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/023-next-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun install --frozen-lockfile",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/024-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts init --profile vite-app --system graphite --json --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/025-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts compose agent-workbench --json --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/026-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js add http://127.0.0.1:58469/r/theme-graphite.json --yes --overwrite --cwd /tmp/uilab-catalog-assets-jFoRH2/vite-app",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/027-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js add http://127.0.0.1:58469/r/button-base.json --yes --overwrite --cwd /tmp/uilab-catalog-assets-jFoRH2/vite-app",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/028-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js add http://127.0.0.1:58469/r/button.json http://127.0.0.1:58469/r/button-base.json http://127.0.0.1:58469/r/saas-landing-page.json http://127.0.0.1:58469/r/workbench-conversation-page.json http://127.0.0.1:58469/r/workbench-artifact-page.json http://127.0.0.1:58469/r/workbench-settings-page.json http://127.0.0.1:58469/r/agent-workbench-site.json http://127.0.0.1:58469/r/agent-workbench.json http://127.0.0.1:58469/r/thread-list.json http://127.0.0.1:58469/r/agent-thread.json http://127.0.0.1:58469/r/agent-composer.json http://127.0.0.1:58469/r/artifact-panel.json --yes --overwrite --cwd /tmp/uilab-catalog-assets-jFoRH2/vite-app",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/029-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "node /Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js add http://127.0.0.1:58469/r/system-workbench.json --yes --overwrite --cwd /tmp/uilab-catalog-assets-jFoRH2/vite-app",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/030-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts add button --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/031-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts add button-base --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/032-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts add saas-landing-page --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/033-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts add workbench-conversation-page --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/034-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts add workbench-artifact-page --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/035-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts add workbench-settings-page --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/036-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts add agent-workbench-site --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/037-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts lock --json --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/038-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts audit --json --strict --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/039-vite-app-audit.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts audit --json --strict --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 1,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/040-vite-app-audit.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun cli/src/index.ts audit --json --strict --dir /tmp/uilab-catalog-assets-jFoRH2/vite-app --registry http://127.0.0.1:58469",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/041-vite-app-audit.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun run typecheck",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/042-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "bun run build",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/043-vite-app-command.log"
+  },
+  {
+    "profile": "vite-app",
+    "command": "node browser.mjs vite-app /tmp/uilab-catalog-assets-jFoRH2/vite-app /tmp/uilab-catalog-assets-jFoRH2 http://127.0.0.1:58670",
+    "exitCode": 0,
+    "log": "/tmp/uilab-catalog-assets-jFoRH2/044-vite-app-command.log"
+  }
+]

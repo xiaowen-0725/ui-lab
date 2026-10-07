@@ -17,13 +17,17 @@
 ## 步骤
 
 1. 运行 `ui-lab --help`，确认当前 CLI 能力
-2. 把用户需求翻译成关键词 / kind / slug
+2. 把用户需求翻译成关键词 / kind / slug；以当前 --help 为准。区块不是独立 kind，组件安装条目可用 --role block 筛选；旧 CLI 无此参数时只查 component，再读取 assetRole 或历史 category。
 3. 查询：
 
 ```bash
 ui-lab search "<need>" --json
 ui-lab list --kind component --json
-ui-lab list --kind block --json
+ui-lab list --kind component --role block --json
+ui-lab list --kind component --role page --json
+ui-lab list --kind component --role site --json
+ui-lab list --kind vocabulary --json
+ui-lab list --kind reference --json
 ui-lab show <slug> --json
 ```
 

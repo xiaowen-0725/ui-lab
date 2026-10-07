@@ -1,0 +1,22 @@
+{
+  "catalogCount": 558,
+  "snapshotEqualsSource": true,
+  "consumerCatalogEqualsSource": true,
+  "profiles": {
+    "next-app": {
+      "installedFiles": 34,
+      "sourceAstMismatches": [],
+      "missingRequired": []
+    },
+    "vite-app": {
+      "installedFiles": 34,
+      "sourceAstMismatches": [],
+      "missingRequired": []
+    }
+  },
+  "frozenRegistryCurrentMismatches": [],
+  "modal": {
+    "fileComparisons": 12,
+    "sourceAstMismatches": []
+  }
+}

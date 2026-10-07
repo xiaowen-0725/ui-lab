@@ -2,8 +2,8 @@
 // (components, atoms, icon styles/motions, styles, palettes, design systems,
 // and application recipes) into one flat list of CatalogItem so `/catalog.json`,
 // `/llms.txt`, and `/llms-full.txt` can expose the whole vocabulary — not
-// just components — to AI agents. Each aggregator below is isolated behind
-// try/catch so one module failing to build never takes down the others.
+// just components — to AI agents. Required builders fail closed: a partial
+// catalog must not become an authoritative snapshot or installation source.
 
 import {
   BACKGROUND_FADES,
@@ -29,7 +29,9 @@ import {
   SPACING_SCALE,
   TYPE_SCALE,
 } from "@/lib/atoms";
+import { buildReferenceItems, buildVocabularyItems } from "@/lib/catalog-vocabulary";
 import { DESIGN_SYSTEMS } from "@/lib/layouts";
+import { PAGES } from "@/lib/pages";
 import { PALETTES, paletteToCss } from "@/lib/palettes";
 import {
   type ApplicationProfile,
@@ -40,9 +42,10 @@ import {
   type RecipeSlot,
   type RecipeState,
 } from "@/lib/recipes";
-import { allComponents } from "@/lib/registry";
-import { buildIndex } from "@/lib/registry-server";
+import { type AssetRole, allComponents } from "@/lib/registry";
+import { allShadcnTargets, buildInstallationContract } from "@/lib/registry-server";
 import { SITE_URL } from "@/lib/site";
+import { SITES } from "@/lib/sites";
 import { STYLES } from "@/lib/styles";
 import { findThemeKit, type ThemeKit, type ThemeMode } from "@/lib/theme-kits";
 
@@ -54,7 +57,9 @@ export type CatalogKind =
   | "style"
   | "palette"
   | "design-system"
-  | "recipe";
+  | "recipe"
+  | "vocabulary"
+  | "reference";
 
 export type CatalogFetch = {
   method: "shadcn" | "copy-prompt" | "copy-tokens" | "endpoint";
@@ -68,6 +73,15 @@ export type CatalogFetch = {
 
 export type CatalogItem = {
   kind: CatalogKind;
+  related?: readonly { kind: CatalogKind; slug: string; relationship?: "example" | "dependency" }[];
+  section?: { slug: string; variant: string };
+  reference?: {
+    url: string;
+    rightsStatus: string;
+    documentLicense?: string;
+    provenance: readonly { url: string; kind: string }[];
+    reviewedAt: string;
+  };
   /** Sub-grouping within a kind. */
   category: string;
   slug: string;
@@ -83,6 +97,14 @@ export type CatalogItem = {
   /** Absolute URL to the live sample. */
   pageUrl: string;
   fetch: CatalogFetch;
+  /** Semantic role; historical category paths remain compatible. */
+  assetRole?: AssetRole;
+  /** All install identities belonging to a display family. */
+  installTargets?: readonly string[];
+  /** Mandatory files in the recursive installation graph, including shared imports. */
+  installationFiles?: readonly string[];
+  sourceVersion?: string;
+  exportName?: string;
   /** Registry source hint used by consumer audits; present on component items. */
   sourceFile?: string;
   /** Complete registry-owned source family for a component. This deliberately
@@ -102,6 +124,8 @@ export type CatalogItem = {
   /** Application Kit metadata, present only when kind is `recipe`. */
   profiles?: readonly ApplicationProfile[];
   recommendedSystem?: string;
+  shellComponent?: string;
+  pages?: readonly string[];
   entryComponent?: string;
   components?: readonly string[];
   optionalComponents?: readonly string[];
@@ -115,39 +139,48 @@ export type CatalogItem = {
 };
 
 async function buildComponentItems(): Promise<CatalogItem[]> {
-  const index = await buildIndex();
-  // buildIndex() shapes the public registry endpoint and carries only its
-  // English fields, so the Chinese names and keywords are read back off the
-  // registry itself. Without this every component reached agents with its
-  // English name in nameZh and no aliases at all — searching the catalog for
-  // 「网点」 or any Chinese name found nothing, while atoms, styles and
-  // palettes matched fine.
-  const entries = new Map(
-    allComponents().map((entry) => [`${entry.category.slug}/${entry.slug}`, entry]),
-  );
-
-  return index.components.map((component): CatalogItem => {
-    const entry = entries.get(`${component.category}/${component.slug}`);
-
+  const entries = new Map(allComponents().map((entry) => [entry.slug, entry]));
+  const targets = allShadcnTargets();
+  return Promise.all(targets.map(async (target): Promise<CatalogItem> => {
+    const entry = entries.get(target.pageSlug);
+    if (!entry) throw new Error(`Missing display family for ${target.slug}`);
+    const page = PAGES.find((item) => item.componentSlug === target.slug);
+    const site = SITES.find((item) => item.componentSlug === target.slug);
+    const composition = page ?? site;
+    const example = entry.examples?.find((item) => item.installSlug === target.slug);
+    const item = await buildInstallationContract(target.categorySlug, target.slug);
+    if (!item) throw new Error(`Missing installation target ${target.slug}`);
     return {
       kind: "component",
-      category: component.category,
-      slug: component.slug,
-      name: component.name,
-      nameZh: entry?.nameZh ?? component.name,
-      aliases: entry?.keywords ?? [],
-      description: component.description,
-      descriptionZh: entry?.descriptionZh ?? component.description,
-      pageUrl: component.page_url,
+      category: target.categorySlug,
+      assetRole: target.assetRole,
+      profiles: composition?.profiles,
+      components: composition?.components,
+      pages: site?.pages,
+      shellComponent: site?.shellComponent,
+      recommendedSystem: site?.recommendedSystem,
+      related: composition?.components.map((slug) => ({ kind: "component" as const, slug })),
+      slug: target.slug,
+      name: target.slug === entry.slug ? entry.name : target.name,
+      nameZh: target.slug === entry.slug ? entry.nameZh ?? entry.name : example?.nameZh ?? entry.nameZh ?? target.name,
+      aliases: entry.keywords ?? [],
+      description: target.slug === entry.slug ? entry.description : target.description,
+      descriptionZh: target.slug === entry.slug ? entry.descriptionZh ?? entry.description : example?.descriptionZh ?? entry.descriptionZh ?? target.description,
+      pageUrl: composition ? `${SITE_URL}${composition.pagePath}` : `${SITE_URL}/components/${target.categorySlug}/${target.pageSlug}`,
       fetch: {
         method: "shadcn",
-        command: `npx shadcn@latest add ${SITE_URL}/r/${component.slug}.json`,
-        endpoint: component.detail_url,
+        command: `npx shadcn@latest add ${SITE_URL}/r/${target.slug}.json`,
+        endpoint: `${SITE_URL}/r/${target.slug}`,
       },
-      sourceFile: entry?.file,
-      sourceFiles: entry ? [entry.file, ...(entry.extraFiles ?? [])] : undefined,
+      sourceFile: target.file,
+      sourceFiles: [target.file, ...(target.extraFiles ?? [])],
+      installationFiles: item.installationFiles,
+      sourceVersion: item.sourceVersion,
+      exportName: entry.exportName,
+      section: entry.section,
+      installTargets: targets.filter((item) => item.pageSlug === target.pageSlug).map((item) => item.slug),
     };
-  });
+  }));
 }
 
 type AtomSetSpec = {
@@ -217,13 +250,21 @@ function buildAtomSetItems(): CatalogItem[] {
     },
   ];
 
+  const entries: Record<string, readonly { slug: string; name: string; nameZh: string; aliases: readonly string[] }[]> = {
+    motion: [...MOTION_CURVES, ...MOTION_SPRINGS, ...MOTION_DURATIONS],
+    shape: [...RADII, ...SHADOWS, ...LAYERS],
+    typography: [...FONT_PAIRS, ...TYPE_SCALE],
+    spacing: [...SPACING_SCALE, ...DENSITIES, ...BREAKPOINTS],
+    lines: LINES,
+    backgrounds: [...BACKGROUNDS, ...BACKGROUND_FADES],
+  };
   return sets.map((set): CatalogItem => ({
     kind: "atom-set",
     category: "atoms",
     slug: set.slug,
     name: set.name,
     nameZh: set.nameZh,
-    aliases: [],
+    aliases: [...new Set((entries[set.slug] ?? []).flatMap((entry) => [entry.slug, entry.name, entry.nameZh, ...entry.aliases]))],
     description: set.description,
     descriptionZh: set.descriptionZh,
     pageUrl: `${SITE_URL}/atoms?cat=${set.slug}`,
@@ -393,7 +434,7 @@ function buildDesignSystemItems(): CatalogItem[] {
       descriptionZh: entry.descriptionZh,
       prompt: entry.promptEn,
       promptZh: entry.promptZh,
-      pageUrl: `${SITE_URL}/layouts?ds=${entry.slug}`,
+      pageUrl: themePreview ? `${SITE_URL}/themes/${entry.slug}` : `${SITE_URL}/layouts?ds=${entry.slug}`,
       fetch,
       themePreview,
     };
@@ -403,6 +444,7 @@ function buildDesignSystemItems(): CatalogItem[] {
 function buildRecipeItems(): CatalogItem[] {
   return RECIPES.map((recipe): CatalogItem => ({
     kind: "recipe",
+    related: recipe.examples?.map((slug) => ({ kind: "component" as const, slug, relationship: "example" as const })),
     category: recipe.category,
     slug: recipe.slug,
     name: recipe.name,
@@ -430,11 +472,7 @@ function buildRecipeItems(): CatalogItem[] {
   }));
 }
 
-/**
- * Aggregates every vocabulary kind into one flat catalog. Each
- * aggregator is isolated: if one module throws (bad data, missing export),
- * we log and skip it rather than failing the whole catalog.
- */
+/** Build an authoritative catalog; any required domain failure aborts publication. */
 export async function buildCatalog(): Promise<CatalogItem[]> {
   const items: CatalogItem[] = [];
 
@@ -447,15 +485,29 @@ export async function buildCatalog(): Promise<CatalogItem[]> {
     { label: "palette", run: buildPaletteItems },
     { label: "design-system", run: buildDesignSystemItems },
     { label: "recipe", run: buildRecipeItems },
+    { label: "vocabulary", run: buildVocabularyItems },
+    { label: "reference", run: buildReferenceItems },
   ];
 
   for (const builder of builders) {
-    try {
-      items.push(...(await builder.run()));
-    } catch (error) {
-      console.warn(`[catalog] failed to build "${builder.label}" items:`, error);
-    }
+    items.push(...(await builder.run()));
+  }
+  const identities = new Set<string>();
+  for (const item of items) {
+    const identity = `${item.kind}/${item.slug}`;
+    if (identities.has(identity)) throw new Error(`Duplicate Catalog identity ${identity}`);
+    identities.add(identity);
   }
 
+  for (const item of items) {
+    for (const section of item.sections ?? []) {
+      if (!items.some((candidate) => candidate.section?.slug === section.slug && candidate.section.variant === section.variant)) throw new Error(`Unresolved Recipe section ${item.slug} -> ${section.slug}/${section.variant}`);
+    }
+    for (const reference of item.related ?? []) {
+      if (!identities.has(`${reference.kind}/${reference.slug}`)) {
+        throw new Error(`Unresolved Catalog relation ${item.kind}/${item.slug} -> ${reference.kind}/${reference.slug}`);
+      }
+    }
+  }
   return items;
 }

@@ -1,0 +1,9 @@
+{
+  "version": "38.2.0",
+  "platform": "darwin-arm64",
+  "bytes": 112474345,
+  "sha256": "cff178e2cb9ae0d957d43009ef46d249d5594bc107d7704130bc0ce2e234bbd1",
+  "officialChecksums": "https://github.com/electron/electron/releases/download/v38.2.0/SHASUMS256.txt",
+  "download": "GitHub official release ranges; six remaining ranges resumed from cdn.npmmirror.com; assembled archive matches official SHA-256 exactly",
+  "verified": true
+}

@@ -1,3 +1,6 @@
+import { assetSpacePath } from "@/lib/asset-paths";
+import { findComponent } from "@/lib/registry";
+
 // Top-level catalog doors. Header, mobile nav, and the homepage cards
 // all render NAV_SPACES. Dictionary sections stay inside that door.
 
@@ -23,20 +26,20 @@ export type NavSpace = {
 };
 
 export const NAV_SPACES: readonly NavSpace[] = [
-  { key: "dictionary", href: "/dictionary", match: ["/dictionary"] },
+  { key: "dictionary", href: "/dictionary", match: ["/dictionary", "/scroll"] },
   {
     key: "components",
-    href: "/components/motion",
+    href: "/components",
     match: ["/components"],
-    exclude: ["/components/blocks"],
+    exclude: ["/components/blocks", "/components/sections", "/components/pages", "/components/sites"],
   },
   {
     key: "blocks",
     href: "/blocks",
-    match: ["/blocks", "/components/blocks", "/sections"],
+    match: ["/blocks", "/components/blocks", "/components/sections", "/sections"],
   },
-  { key: "pages", href: "/pages", match: ["/pages", "/patterns"] },
-  { key: "sites", href: "/sites", match: ["/sites", "/layouts"] },
+  { key: "pages", href: "/pages", match: ["/pages", "/components/pages", "/patterns"] },
+  { key: "sites", href: "/sites", match: ["/sites", "/components/sites", "/layouts"] },
   {
     key: "themes",
     href: "/themes",
@@ -61,6 +64,11 @@ export const DICTIONARY_SECTIONS: readonly NavSpace[] = [
 export const DOCS_HREF = "/docs";
 
 export function isSpaceActive(space: NavSpace, pathname: string): boolean {
+  const legacyDetail = pathname.match(/^\/components\/([^/]+)\/([^/]+)$/);
+  if (legacyDetail) {
+    const entry = findComponent(legacyDetail[1], legacyDetail[2]);
+    if (entry) return space.href === assetSpacePath(entry.assetRole);
+  }
   if (
     space.exclude?.some(
       (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),

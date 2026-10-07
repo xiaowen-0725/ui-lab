@@ -1,0 +1,44 @@
+{
+  "base": "http://localhost:3000",
+  "registry": "shadcn 4.21.1",
+  "browser": "154.0.8037.93",
+  "logs": [
+    {
+      "command": [
+        "bun",
+        "install"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "node",
+        "/Users/zhoujw/develop/github/ui-lab/benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js",
+        "add",
+        "http://localhost:3000/r/drawer.json",
+        "http://localhost:3000/r/bottom-sheet.json",
+        "--yes",
+        "--cwd",
+        "/var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-installed-modals-K7cMHm"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "bun",
+        "x",
+        "--no-install",
+        "tsc",
+        "--noEmit"
+      ],
+      "exit": 0
+    }
+  ],
+  "checks": [
+    "reduce=false: initial focus, native modality, inert/background, Tab/Shift+Tab, nested Escape, restoration",
+    "reduce=false: touch drag dismiss and launcher restoration",
+    "reduce=true: initial focus, native modality, inert/background, Tab/Shift+Tab, nested Escape, restoration",
+    "reduce=true: touch drag dismiss and launcher restoration"
+  ],
+  "errors": []
+}

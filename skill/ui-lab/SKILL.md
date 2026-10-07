@@ -73,7 +73,9 @@ bun cli/src/index.ts add button-base --pm pnpm
 线上 registry（示例）：
 
 ```bash
-npx shadcn@latest add https://ui-lab-ten.vercel.app/r/<slug>
+npx shadcn@latest add https://ui-lab-ten.vercel.app/r/<slug>.json
 ```
+
+已有页面/多页组合仍作为 `kind: component` 的可安装源码条目，按 `assetRole` 区分；只复用已发布实现，不生成业务或创建流程。词典/外部参考只返回 prompt/token/来源，不进入安装路线。
 
 具体 URL / namespace 以 `ui-lab show <slug>` 或站点安装说明为准。

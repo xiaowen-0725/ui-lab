@@ -59,6 +59,13 @@ const ROLL_BLUR = "blur(6px)";
 // stagger so the tail of the old label lingers briefly.
 const CASCADE_STAGGER = 0.025;
 
+// Keep the SSR/client letter tree identical; only the motion changes.
+const REDUCED_LETTER_VARIANTS: Variants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.15 } },
+  exit: { opacity: 0, transition: { duration: 0.1 } },
+};
+
 const CASCADE_LETTER_VARIANTS: Variants = {
   initial: { opacity: 0, y: "105%", filter: ROLL_BLUR },
   animate: (delay: number = 0) => ({
@@ -172,9 +179,10 @@ export function ActionSwapText({
   });
 
   // Cascade needs a plain string to split into letters; non-string content
-  // and reduced motion fall back to the closest single-element animation.
+  // falls back to the closest single-element animation. Reduced motion keeps
+  // the same letter tree and removes displacement and stagger.
   const label = typeof children === "string" ? children : null;
-  const cascade = animation === "cascade" && label !== null && !reduce;
+  const cascade = animation === "cascade" && label !== null;
   const coreAnimation: CoreAnimation =
     animation === "cascade" ? "roll" : animation;
 
@@ -210,8 +218,8 @@ export function ActionSwapText({
                 <motion.span
                   // biome-ignore lint/suspicious/noArrayIndexKey: position is the slot identity — the letter at a position is exactly what rolls.
                   key={i}
-                  custom={i * CASCADE_STAGGER}
-                  variants={CASCADE_LETTER_VARIANTS}
+                  custom={reduce ? 0 : i * CASCADE_STAGGER}
+                  variants={reduce ? REDUCED_LETTER_VARIANTS : CASCADE_LETTER_VARIANTS}
                   className="inline-block whitespace-pre will-change-[opacity,filter,transform]"
                 >
                   {char}

@@ -2,6 +2,7 @@
 
 import type { LucideIcon } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
+import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { cn } from "@/lib/utils";
 
 export type AnimatedIconVariant =
@@ -43,28 +44,10 @@ export function AnimatedIcon({
   paths = DEFAULT_PATHS,
 }: AnimatedIconProps) {
   const reduce = useReducedMotion();
+  const canHover = useHoverCapable();
+  const animateHover = !reduce && canHover;
 
   if (variant === "draw") {
-    if (reduce) {
-      return (
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 24 24"
-          width={size}
-          height={size}
-          className={cn("text-current", className)}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          {paths.map((d) => (
-            <path key={d} d={d} pathLength={1} />
-          ))}
-        </svg>
-      );
-    }
 
     return (
       <motion.svg
@@ -79,7 +62,7 @@ export function AnimatedIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
         initial="rest"
-        whileHover="hover"
+        whileHover={!animateHover ? undefined : "hover"}
       >
         {paths.map((d) => (
           <motion.path
@@ -98,16 +81,13 @@ export function AnimatedIcon({
 
   if (!Icon) return null;
 
-  if (reduce) {
-    return <Icon size={size} className={cn("text-current", className)} />;
-  }
 
   switch (variant) {
     case "wiggle":
       return (
         <motion.div
           style={{ display: "inline-flex" }}
-          whileHover={{ rotate: [0, -14, 10, -6, 0] }}
+          whileHover={!animateHover ? undefined : { rotate: [0, -14, 10, -6, 0] }}
           transition={{ duration: 0.6 }}
         >
           <Icon size={size} className={cn("text-current", className)} />
@@ -117,7 +97,7 @@ export function AnimatedIcon({
       return (
         <motion.div
           style={{ display: "inline-flex" }}
-          whileHover={{ rotate: 360 }}
+          whileHover={!animateHover ? undefined : { rotate: 360 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
           <Icon size={size} className={cn("text-current", className)} />
@@ -127,7 +107,7 @@ export function AnimatedIcon({
       return (
         <motion.div
           style={{ display: "inline-flex" }}
-          whileHover={{ y: [0, 4, 0] }}
+          whileHover={!animateHover ? undefined : { y: [0, 4, 0] }}
           transition={{ type: "spring", stiffness: 400, damping: 12 }}
         >
           <Icon size={size} className={cn("text-current", className)} />
@@ -137,7 +117,7 @@ export function AnimatedIcon({
       return (
         <motion.div
           style={{ display: "inline-flex" }}
-          whileHover={{ scale: [1, 1.25, 1] }}
+          whileHover={!animateHover ? undefined : { scale: [1, 1.25, 1] }}
           transition={{ type: "spring", stiffness: 400, damping: 12 }}
         >
           <Icon size={size} className={cn("text-current", className)} />
@@ -147,7 +127,7 @@ export function AnimatedIcon({
       return (
         <motion.div
           style={{ display: "inline-flex" }}
-          whileHover={{ scale: [1, 1.15, 1] }}
+          whileHover={!animateHover ? undefined : { scale: [1, 1.15, 1] }}
           transition={{ duration: 0.8, repeat: Number.POSITIVE_INFINITY }}
         >
           <Icon size={size} className={cn("text-current", className)} />
@@ -157,7 +137,7 @@ export function AnimatedIcon({
       return (
         <motion.div
           style={{ display: "inline-flex" }}
-          whileHover={{ x: [0, 4, 0] }}
+          whileHover={!animateHover ? undefined : { x: [0, 4, 0] }}
           transition={{ type: "spring", stiffness: 400, damping: 14 }}
         >
           <Icon size={size} className={cn("text-current", className)} />

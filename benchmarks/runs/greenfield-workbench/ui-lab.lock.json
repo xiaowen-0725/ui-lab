@@ -5,7 +5,7 @@
     {
       "kind": "component",
       "slug": "agent-composer",
-      "contractHash": "b9cfc0f55dbf4725607dd5b885ff2d0096d09bc6255f61fcad6be52039d35b4b",
+      "contractHash": "a7d891423d652339927dc21b16e19507fdb69a2f4f0cb3aa5a0bf1731f65552c",
       "sourceFiles": [
         "components/motion/agent-composer/index.tsx",
         "components/motion/agent-composer/effort-slider.tsx",
@@ -15,7 +15,7 @@
     {
       "kind": "component",
       "slug": "agent-thread",
-      "contractHash": "c24806cc2a06073136aa243f7a04cbe00f791195837264e1e160d8dacd60b115",
+      "contractHash": "36eb5a09a9f8cb6e2e94dba71db56de37211b53a378a8e5f1686e83a860f4916",
       "sourceFiles": [
         "components/motion/agent-thread/index.tsx",
         "components/motion/agent-thread/cards.tsx",
@@ -25,7 +25,7 @@
     {
       "kind": "component",
       "slug": "agent-workbench",
-      "contractHash": "ffc6b6f5cad22249204f99782de3aa0682edf68556105ab2b9fdd5d2d32fb605",
+      "contractHash": "17391eb0ad9dc69b1f5c033f5cad4cb2fc6cc5e4f677ba271337da2ff7ff46fe",
       "sourceFiles": [
         "components/motion/agent-workbench/index.tsx",
         "components/motion/agent-workbench/resize-handle.tsx",
@@ -35,7 +35,7 @@
     {
       "kind": "component",
       "slug": "artifact-panel",
-      "contractHash": "edb869e460cba2cc3b1155d030db2a786d6462369d4e702bd94d62dcd8b93200",
+      "contractHash": "ef03635580fe4282970d50800a5b19308afad19f9f8864d716d042fea09453ef",
       "sourceFiles": [
         "components/motion/artifact-panel/index.tsx"
       ]
@@ -43,7 +43,7 @@
     {
       "kind": "component",
       "slug": "thread-list",
-      "contractHash": "741d5d64bb59e02ef43e688a31468de305dcf99f35aa7593b1c9ef916a0d2173",
+      "contractHash": "997b7073cc663d4a0027ba4d4e66b45a8a555d2c5ec99ffbe95544fb35196faf",
       "sourceFiles": [
         "components/motion/thread-list/index.tsx"
       ]

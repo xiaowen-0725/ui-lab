@@ -53,11 +53,14 @@ export type Recipe = {
   required: readonly string[];
   forbidden: readonly string[];
   pagePath: string;
+  /** Concrete source assets illustrating this contract; not semantic equivalence. */
+  examples?: readonly string[];
 };
 
 export const RECIPES: readonly Recipe[] = [
   {
     slug: "agent-workbench",
+    examples: ["agent-workbench-site"],
     category: "application",
     name: "Agent Workbench",
     nameZh: "智能体工作台",
@@ -169,6 +172,7 @@ export const RECIPES: readonly Recipe[] = [
   },
   {
     slug: "saas-landing",
+    examples: ["saas-landing-page"],
     category: "landing",
     name: "SaaS Landing",
     nameZh: "SaaS 落地页",

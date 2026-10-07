@@ -7,8 +7,8 @@ import {
   useDragControls,
   useReducedMotion,
 } from "motion/react";
-import { type ReactNode, useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { type ReactNode, useEffect, useId, useRef, useState } from "react";
+import { Modal } from "@/components/ui/modal";
 import { EASE_DRAWER } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 
@@ -43,49 +43,16 @@ export function BottomSheet({
   dismissThreshold = 120,
 }: BottomSheetProps) {
   const [snap, setSnap] = useState(defaultSnap);
-  const [mounted, setMounted] = useState(false);
   const dragControls = useDragControls();
   const sheetRef = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const heightRef = useRef(0);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const titleId = useId();
+  const descriptionId = useId();
 
   useEffect(() => {
     if (open) setSnap(defaultSnap);
   }, [open, defaultSnap]);
-
-  // Lock background scroll while open. overflow:hidden alone is ignored by
-  // iOS Safari — boundary scrolls inside the sheet chain to the page, which
-  // scrolls underneath and ends up somewhere else on close. position:fixed
-  // is the lock that actually holds; restore the scroll position after.
-  useEffect(() => {
-    if (!open) return;
-    const body = document.body;
-    const scrollY = window.scrollY;
-    const prev = {
-      position: body.style.position,
-      top: body.style.top,
-      left: body.style.left,
-      right: body.style.right,
-      overflow: body.style.overflow,
-    };
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
-    body.style.left = "0";
-    body.style.right = "0";
-    body.style.overflow = "hidden";
-    return () => {
-      body.style.position = prev.position;
-      body.style.top = prev.top;
-      body.style.left = prev.left;
-      body.style.right = prev.right;
-      body.style.overflow = prev.overflow;
-      window.scrollTo(0, scrollY);
-    };
-  }, [open]);
 
   const onDragEnd = (_: unknown, info: PanInfo) => {
     const velocity = info.velocity.y;
@@ -119,15 +86,16 @@ export function BottomSheet({
       ? { maxHeight: "92vh" }
       : { height: `${snapValue * 100}vh` };
 
-  // Portal to <body>: an ancestor with backdrop-filter or transform becomes
-  // the containing block for fixed descendants, which would position the
-  // sheet against that ancestor instead of the viewport.
-  if (!mounted) return null;
-
-  return createPortal(
+  return (
     <AnimatePresence>
       {open ? (
-        <div className="pointer-events-none fixed inset-0 z-50">
+        <Modal
+          contentRef={sheetRef}
+          onDismiss={() => onOpenChange(false)}
+          labelledBy={title ? titleId : undefined}
+          describedBy={description ? descriptionId : undefined}
+          className="pointer-events-none"
+        >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -141,6 +109,7 @@ export function BottomSheet({
           />
           <motion.div
             ref={sheetRef}
+            tabIndex={-1}
             drag="y"
             dragControls={dragControls}
             dragListener={false}
@@ -162,9 +131,6 @@ export function BottomSheet({
               "border border-border bg-background shadow-xl",
               className,
             )}
-            role="dialog"
-            aria-modal="true"
-            aria-label={title}
           >
             <div
               onPointerDown={(e) => dragControls.start(e)}
@@ -174,12 +140,12 @@ export function BottomSheet({
               {title || description ? (
                 <div className="mt-3 w-full">
                   {title ? (
-                    <h2 className="text-base font-semibold text-foreground">
+                    <h2 id={titleId} className="text-base font-semibold text-foreground">
                       {title}
                     </h2>
                   ) : null}
                   {description ? (
-                    <p className="mt-0.5 text-sm text-muted-foreground">
+                    <p id={descriptionId} className="mt-0.5 text-sm text-muted-foreground">
                       {description}
                     </p>
                   ) : null}
@@ -189,9 +155,8 @@ export function BottomSheet({
             {/* overscroll-contain stops boundary scrolls from chaining to the page. */}
             <div className="flex-1 overflow-y-auto overscroll-contain px-4 pb-6">{children}</div>
           </motion.div>
-        </div>
+        </Modal>
       ) : null}
-    </AnimatePresence>,
-    document.body,
+    </AnimatePresence>
   );
 }

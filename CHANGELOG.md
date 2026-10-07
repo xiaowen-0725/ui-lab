@@ -17,6 +17,12 @@
 
 ### 变更
 
+- 按语义职责整理七入口，保留历史URL/源码路径；Catalog新增词典、页面骨架、滚动和外部参考投影，父安装入口及独立变体身份统一。
+- 分离source family、安装闭包和源码修订；增量CLI保留已有Lock基准及来源，显式来源失败/坏引用不写入；Audit用消费方TypeScript解析实际import图。
+- Audit加载TypeScript时校验编译器API，避免仅提供版本信息的模块导致崩溃；不可用时尝试开发环境编译器，否则明确报告错误。
+- 修复reduced-motion下ActionSwap/StatefulButton的服务端与客户端文字结构不一致，以及Atoms异步挂载后的历史锚点定位；补真实三Profile、生产路由及触屏模态消费验收和迁移台账。
+
+
 - 顶栏改为词典、组件、区块、页面、整站、主题、灵感。词典内分概念与动效，文档放在顶栏右侧。中英两套文案。原有风格、配色、区块、页面骨架和动效样本从新的门进入，原来的地址仍可打开。
 - 概念词典先走通「按钮」一条：同一屏里左边是中英名、别名、一句人话和对 AI 的说法，右边用现有按钮预览。安装指向 `button-base`。
 - 概念词典按日常界面概念收了第一批：操作、填写、选择、导航、黑话、浮层、反馈、内容。有对应组件的指向现有安装，其余只保留名字和活样本。
@@ -35,6 +41,9 @@
 - 灵感库 21 个来源卡片新增带来源和采集日期的真实网站首屏预览，图片整块可直接访问原站，并纳入统一截图质量审计。
 
 ### 新增
+- 新增19个可分发区段变体、4个完整页面与Agent多页工作台；旧演示复用唯一实现，复制用法不依赖站点provider；新增主题套件详情。
+- 新增计划005迁移对账、失败回归、真实shadcn系统token安装及独立消费验收脚本；证据状态单独记录，不代表视觉批准或线上已发布。
+
 - 灵感库「来源」补上 28 条已复核条目，包括 `21st-dev`、`3dicons`、`404s-design`、`appshot-gallery`、`bencho`、`circle-loaders`、`colorion-text-effects`、`component-gallery`、`designmd-ai`、`evilcharts`、`footer-design`、`getlayers`、`gradient-buttons`、`kage`、`kinetics`、`kitbitz`、`liquid-glass`、`magic-ui`、`mapcn`、`microkit`、`minimal-gallery`、`motion-primitives`、`neuform`、`open-design`、`rewamp-ui`、`shadcn-ui`、`uiable`、`vibeprompts`。`cta-gallery`、`inspora`、`navbar-gallery` 换上较新的首屏截图。
 - 动效词典再补主流界面里还缺的动作：对比滑杆、裁切显现、打勾、滑块、下拉刷新、来回进度、轮换、横向滚动、滚动缩放、滚动提示、转圈、轮播、环绕、浮动、彩纸、光束、追光、边缘模糊、侧滑、翻转、插入补位。已有组件的指向 `checkbox`、`switch`、`scroll-hint`、`loader`、`drawer`。
 - 动效词典补上日常界面还缺的词：退出、交叉淡化、从触发点长出、共享元素、方向过渡、页面过渡、视图过渡、划走、拖拽排序、橡皮筋、错误抖动、骨架闪动、打字机、按住确认。已有组件的指向 `dropdown-menu`、`expanding-card`、`animated-toast-stack`、`input`、`skeleton`。

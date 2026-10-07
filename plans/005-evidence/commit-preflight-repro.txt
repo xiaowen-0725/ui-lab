@@ -1,0 +1,23 @@
+bun test v1.3.14 (0d9b296a)
+
+tests/application-kit.test.ts:
+720 |       resolve(directory, "src/components/text-reveal.tsx"),
+721 |       "export function TextReveal() { return <span />; }\n",
+722 |     );
+723 | 
+724 |     const audited = runCli("audit", "--dir", directory, "--json");
+725 |     expect(audited.exitCode).toBe(0);
+                                   ^
+error: expect(received).toBe(expected)
+
+Expected: 0
+Received: 1
+
+      at <anonymous> (/Users/zhoujw/develop/github/ui-lab/tests/application-kit.test.ts:725:30)
+(fail) ui-lab application kit CLI > audit uses the catalog source hint when slug and filename differ [78.11ms]
+
+ 0 pass
+ 27 filtered out
+ 1 fail
+ 3 expect() calls
+Ran 1 test across 1 file. [192.00ms]

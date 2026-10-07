@@ -31,6 +31,13 @@ export interface StatefulButtonProps extends Omit<ButtonProps, "children"> {
 const CASCADE_STAGGER = 0.025;
 const ROLL_BLUR = "blur(6px)";
 
+// Keep the SSR/client letter tree identical; only the motion changes.
+const REDUCED_LETTER_VARIANTS: Variants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.15 } },
+  exit: { opacity: 0, transition: { duration: 0.1 } },
+};
+
 const CASCADE_LETTER_VARIANTS: Variants = {
   initial: { opacity: 0, y: "105%", filter: ROLL_BLUR },
   animate: (delay: number = 0) => ({
@@ -95,7 +102,7 @@ function TextSlot({
   const measureRef = useRef<HTMLSpanElement>(null);
   const [width, setWidth] = useState<number>();
   const label = typeof children === "string" ? children : null;
-  const cascade = label !== null && !reduce;
+  const cascade = label !== null;
 
   // Width is set instantly from the measurer; the parent's single `layout`
   // animation smooths the resize (text + icons together) so nothing competes.
@@ -136,8 +143,8 @@ function TextSlot({
                 <motion.span
                   // biome-ignore lint/suspicious/noArrayIndexKey: position is the slot identity.
                   key={index}
-                  custom={index * CASCADE_STAGGER}
-                  variants={CASCADE_LETTER_VARIANTS}
+                  custom={reduce ? 0 : index * CASCADE_STAGGER}
+                  variants={reduce ? REDUCED_LETTER_VARIANTS : CASCADE_LETTER_VARIANTS}
                   className="inline-block whitespace-pre will-change-[opacity,filter,transform]"
                 >
                   {char}

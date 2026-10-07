@@ -1,0 +1,30 @@
+{
+  "name": "uilab-catalog-vite-app",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "vite build",
+    "start": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.51.0",
+    "motion": "^14.0.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-use-measure": "^2.1.7",
+    "tailwind-merge": "^3.7.0",
+    "tailwindcss": "4.1.18"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@types/node": "22.18.6",
+    "vite": "6.1.0",
+    "@vitejs/plugin-react": "4.3.4",
+    "@tailwindcss/vite": "4.1.18"
+  }
+}

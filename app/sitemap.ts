@@ -1,10 +1,12 @@
 import type { MetadataRoute } from "next";
+import { assetPagePath } from "@/lib/asset-paths";
 import { CONCEPTS } from "@/lib/concepts";
 import { INSPIRATION_BRANDS } from "@/lib/inspiration-brands";
 import { INSPIRATION_SITES } from "@/lib/inspiration-sites";
 import { MOTIONS } from "@/lib/motions";
 import { allComponents, registry } from "@/lib/registry";
 import { SITE_URL as SITE } from "@/lib/site";
+import { THEME_KITS } from "@/lib/theme-kits";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -25,6 +27,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.7,
     })),
+    { url: `${SITE}/components`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    ...THEME_KITS.map((kit) => ({ url: `${SITE}/themes/${kit.slug}`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.7 })),
     { url: `${SITE}/blocks`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/pages`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/sites`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
@@ -55,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Component detail pages are the primary content. Machine endpoints
   // (/r/* JSON and raw text) are intentionally excluded from search.
   const componentPages: MetadataRoute.Sitemap = allComponents().map((c) => ({
-    url: `${SITE}/components/${c.category.slug}/${c.slug}`,
+    url: `${SITE}${assetPagePath(c.category.slug, c.slug)}`,
     lastModified: now,
     changeFrequency: "weekly",
     priority: 0.7,

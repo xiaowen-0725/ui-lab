@@ -1,3 +1,5 @@
+import { createRequire } from "node:module";
+import type * as TypeScript from "typescript";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import {
   basename,
@@ -59,6 +61,8 @@ const AGENT_WORKBENCH_FAMILY = [
 type ComponentsJsonContract = {
   componentsAlias: string;
   utilsAlias: string;
+  libAlias?: string;
+  hooksAlias?: string;
 };
 
 function walkProjectFiles(directory: string): string[] {
@@ -320,6 +324,8 @@ function readComponentsJsonContract(
     return {
       componentsAlias: componentsAlias.trim(),
       utilsAlias: utilsAlias.trim(),
+      libAlias: typeof (aliases as Record<string, unknown>).lib === "string" ? String((aliases as Record<string, unknown>).lib) : undefined,
+      hooksAlias: typeof (aliases as Record<string, unknown>).hooks === "string" ? String((aliases as Record<string, unknown>).hooks) : undefined,
     };
   } catch (error) {
     pushFinding(
@@ -350,6 +356,72 @@ function resolveComponentDirectories(directory: string, alias: string): string[]
   return [...new Set(candidates)];
 }
 
+/** Use the consumer's compiler for syntax and module resolution. The CLI has
+ * no runtime TypeScript dependency of its own; local development may use its
+ * dev compiler. This honors paths/extends/references and .js -> .ts mapping. */
+function missingSourceImports(entries: string[], directory: string): string[] {
+  let compiler: typeof TypeScript | undefined;
+  for (const origin of [resolve(directory, "package.json"), import.meta.url]) {
+    try {
+      const candidate = createRequire(origin)("typescript") as typeof TypeScript;
+      // A resolvable package can expose only version metadata, rather than the
+      // compiler API. Treat that as unavailable before trying the dev fallback.
+      const functions = ["readConfigFile", "parseJsonConfigFileContent", "flattenDiagnosticMessageText", "createSourceFile", "isImportDeclaration", "isExportDeclaration", "isStringLiteralLike", "isCallExpression", "forEachChild", "resolveModuleName"] as const;
+      if (functions.every((name) => typeof candidate[name] === "function") && typeof candidate.sys?.readFile === "function" && candidate.ModuleResolutionKind?.Bundler !== undefined && candidate.ModuleKind?.ESNext !== undefined && candidate.JsxEmit?.ReactJSX !== undefined && candidate.ScriptTarget?.Latest !== undefined && candidate.SyntaxKind?.ImportKeyword !== undefined) {
+        compiler = candidate;
+        break;
+      }
+    } catch { /* Try the next compiler source. */ }
+  }
+  if (!compiler) return ["TypeScript compiler API is unavailable. Install a compatible consumer TypeScript dependency before auditing its import graph."];
+  const ts = compiler;
+  const configs: TypeScript.ParsedCommandLine[] = [];
+  const seenConfigs = new Set<string>();
+  function readConfig(path: string) {
+    if (seenConfigs.has(path) || !existsSync(path)) return;
+    seenConfigs.add(path);
+    const raw = ts.readConfigFile(path, ts.sys.readFile);
+    if (raw.error) throw new Error(ts.flattenDiagnosticMessageText(raw.error.messageText, "\n"));
+    const parsed = ts.parseJsonConfigFileContent(raw.config, ts.sys, dirname(path), undefined, path);
+    configs.push(parsed);
+    for (const reference of parsed.projectReferences ?? []) {
+      readConfig(reference.path.endsWith(".json") ? reference.path : resolve(reference.path, "tsconfig.json"));
+    }
+  }
+  try { readConfig(resolve(directory, "tsconfig.json")); }
+  catch (error) { return [`Cannot resolve consumer tsconfig: ${error instanceof Error ? error.message : String(error)}`]; }
+  const fallback: TypeScript.CompilerOptions = { moduleResolution: ts.ModuleResolutionKind.Bundler, module: ts.ModuleKind.ESNext, jsx: ts.JsxEmit.ReactJSX };
+  const queued = [...entries];
+  const seen = new Set<string>();
+  const missing: string[] = [];
+  while (queued.length) {
+    const file = queued.pop();
+    if (!file || seen.has(file)) continue;
+    seen.add(file);
+    const options = configs.find((config) => config.fileNames.includes(file))?.options ?? configs[0]?.options ?? fallback;
+    const source = ts.createSourceFile(file, readFileSync(file, "utf8"), ts.ScriptTarget.Latest, true);
+    const imports: string[] = [];
+    function visit(node: TypeScript.Node) {
+      if ((ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) && node.moduleSpecifier && ts.isStringLiteralLike(node.moduleSpecifier)) imports.push(node.moduleSpecifier.text);
+      if (ts.isCallExpression(node) && node.expression.kind === ts.SyntaxKind.ImportKeyword && node.arguments[0] && ts.isStringLiteralLike(node.arguments[0])) imports.push(node.arguments[0].text);
+      ts.forEachChild(node, visit);
+    }
+    visit(source);
+    for (const spec of imports) {
+      const result = ts.resolveModuleName(spec, file, options, ts.sys).resolvedModule;
+      if (result) {
+        if (!result.isExternalLibraryImport && SOURCE_EXTENSIONS.has(extname(result.resolvedFileName))) queued.push(result.resolvedFileName);
+        continue;
+      }
+      // Existing asset/CSS imports are valid without a TS module declaration.
+      if (spec.startsWith(".") && extname(spec) && !SOURCE_EXTENSIONS.has(extname(spec)) && existsSync(resolve(dirname(file), spec))) continue;
+      const isAlias = Object.keys(options.paths ?? {}).some((key) => key.includes("*") ? spec.startsWith(key.split("*")[0]) && spec.endsWith(key.split("*")[1]) : spec === key);
+      if (spec.startsWith(".") || spec.startsWith("@/") || spec.startsWith("~/") || isAlias) missing.push(`${relative(directory, file)} -> ${spec}`);
+    }
+  }
+  return [...new Set(missing)];
+}
+
 export function auditProject(
   items: CatalogItem[],
   directory: string,
@@ -378,18 +450,6 @@ export function auditProject(
         config,
         options.catalogSource ?? lock.catalogSource,
       );
-      if (
-        options.catalogSource !== undefined &&
-        lock.catalogSource !== options.catalogSource
-      ) {
-        pushFinding(
-          findings,
-          "warning",
-          "lock-catalog-source-stale",
-          `Lock catalogSource "${lock.catalogSource}" does not match the active catalog source "${options.catalogSource}".`,
-          lockPath,
-        );
-      }
 
       const actualByIdentity = new Map(
         lock.items.map((item) => [`${item.kind}:${item.slug}`, item]),
@@ -412,6 +472,16 @@ export function auditProject(
       for (const [identity, expectedItem] of expectedByIdentity) {
         const actualItem = actualByIdentity.get(identity);
         if (!actualItem) continue;
+        const itemSource = actualItem.catalogSource ?? lock.catalogSource;
+        if (options.catalogSource !== undefined && itemSource !== options.catalogSource) {
+          pushFinding(
+            findings,
+            "warning",
+            "lock-catalog-source-stale",
+            `Lock catalog source "${itemSource}" for "${identity}" does not match the active catalog source "${options.catalogSource}".`,
+            lockPath,
+          );
+        }
         if (actualItem.contractHash !== expectedItem.contractHash) {
           pushFinding(
             findings,
@@ -544,6 +614,12 @@ export function auditProject(
       );
       continue;
     }
+
+    // Every component's actual imports are mandatory, including shared files
+    // and internal helpers; independent add has the same checks as compose.
+    const missingImports = missingSourceImports(sourceFiles, directory);
+    if (missingImports.length) pushFinding(findings, "error", "component-installation-incomplete",
+      `Configured component "${component}" has unresolved mandatory source imports: ${missingImports.join(", ")}. Review installationFiles and restore/adapt these dependencies.`);
 
     // A config can include a deliberately narrowed auxiliary component family
     // (for example Button without MagneticButton). Only Recipe-required

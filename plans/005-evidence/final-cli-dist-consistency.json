@@ -1,0 +1,29 @@
+{
+  "method": "Memory-only transpileModule with .mts to respect cli/package.json type=module",
+  "results": [
+    {
+      "name": "audit.ts",
+      "equal": true
+    },
+    {
+      "name": "catalog-source.ts",
+      "equal": true
+    },
+    {
+      "name": "index.ts",
+      "equal": true
+    },
+    {
+      "name": "picker.ts",
+      "equal": true
+    },
+    {
+      "name": "project-config.ts",
+      "equal": true
+    },
+    {
+      "name": "project-lock.ts",
+      "equal": true
+    }
+  ]
+}

@@ -17,10 +17,14 @@ import {
 import {
   buildProjectLock,
   PROJECT_LOCK_NAME,
+  readProjectLock,
+  updateProjectLock,
   writeProjectLock,
 } from "./project-lock.js";
 
 const KIND_ORDER = [
+  "vocabulary",
+  "reference",
   "component",
   "atom-set",
   "icon-style",
@@ -57,7 +61,7 @@ const BOOLEAN_FLAGS = new Set([
 ]);
 const GLOBAL_FLAGS = ["help", "version", "registry"] as const;
 const COMMAND_FLAGS: Record<string, readonly string[]> = {
-  list: [...GLOBAL_FLAGS, "kind", "json"],
+  list: [...GLOBAL_FLAGS, "kind", "category", "role", "json"],
   search: [...GLOBAL_FLAGS, "json"],
   show: [...GLOBAL_FLAGS, "kind", "json"],
   add: [...GLOBAL_FLAGS, "kind", "pm", "dir"],
@@ -165,15 +169,18 @@ function validateFlags(command: string | undefined, flags: Flags): void {
   }
 }
 
-function syncProjectLock(
+function prepareProjectLock(
   items: CatalogItem[],
   config: ProjectConfig,
   catalogSource: string,
   directory: string,
+  rebuild = false,
 ): { lockPath: string; lock: ReturnType<typeof buildProjectLock> } {
   const lockPath = resolve(directory, PROJECT_LOCK_NAME);
-  const lock = buildProjectLock(items, config, catalogSource);
-  writeProjectLock(lockPath, lock);
+  const previous = !rebuild && existsSync(lockPath) ? readProjectLock(directory).lock : undefined;
+  const lock = rebuild
+    ? buildProjectLock(items, config, catalogSource)
+    : updateProjectLock(items, config, catalogSource, previous);
   return { lockPath, lock };
 }
 
@@ -238,7 +245,11 @@ function modesLabel(item: CatalogItem): string {
 
 function cmdList(items: CatalogItem[], flags: Flags): void {
   const kind = stringFlag(flags.kind);
-  const filtered = kind ? items.filter((item) => item.kind === kind) : items;
+  const role = stringFlag(flags.role);
+  const category = stringFlag(flags.category);
+  if (kind && !(KIND_ORDER as readonly string[]).includes(kind)) throw new Error(`Unsupported kind "${kind}". Run ui-lab --help.`);
+  if (role && !["component", "block", "page", "shell", "site"].includes(role)) throw new Error(`Unsupported role "${role}".`);
+  const filtered = items.filter((item) => (!kind || item.kind === kind) && (!role || item.assetRole === role) && (!category || item.category === category));
 
   if (flags.json) {
     console.log(JSON.stringify(filtered, null, 2));
@@ -338,6 +349,8 @@ function cmdShow(items: CatalogItem[], slug: string | undefined, flags: Flags): 
     return;
   }
 
+  if (item.related?.length) console.log(`Related: ${item.related.map((ref) => `${ref.kind}/${ref.slug}${ref.relationship ? ` (${ref.relationship})` : ""}`).join(", ")}`);
+  if (item.exportName) console.log(`Export: ${item.exportName}`);
   if (item.kind === "recipe") {
     console.log(`${item.name} (${item.nameZh})`);
     console.log(item.kind);
@@ -468,11 +481,12 @@ function cmdAdd(
       ...config,
       components: [...new Set([...config.components, item.slug])],
     };
+    const { lockPath, lock } = prepareProjectLock(items, updatedConfig, catalogSource, directory);
     if (updatedConfig.components.length !== config.components.length) {
       writeProjectConfig(configPath, updatedConfig);
       console.error(`Registered "${item.slug}" in ${configPath}.`);
     }
-    syncProjectLock(items, updatedConfig, catalogSource, directory);
+    writeProjectLock(lockPath, lock);
   }
 
   const pm = stringFlag(flags.pm);
@@ -623,8 +637,9 @@ function cmdInit(
     components: [],
     mode: mode as ApplicationMode,
   };
+  const { lockPath, lock } = prepareProjectLock(items, config, catalogSource, directory);
   writeProjectConfig(configPath, config);
-  syncProjectLock(items, config, catalogSource, directory);
+  writeProjectLock(lockPath, lock);
 
   const result = {
     ok: true,
@@ -725,8 +740,9 @@ function cmdCompose(
     recipe: recipeSlug,
     components: [...new Set([...config.components, ...componentSlugs])],
   };
+  const { lockPath, lock } = prepareProjectLock(items, updatedConfig, catalogSource, directory);
   writeProjectConfig(configPath, updatedConfig);
-  syncProjectLock(items, updatedConfig, catalogSource, directory);
+  writeProjectLock(lockPath, lock);
 
   const result = {
     ok: true,
@@ -811,12 +827,14 @@ function cmdLock(
     process.exit(1);
   }
 
-  const { lockPath, lock } = syncProjectLock(
+  const { lockPath, lock } = prepareProjectLock(
     items,
     config,
     catalogSource,
     directory,
+    true,
   );
+  writeProjectLock(lockPath, lock);
   const result = { ok: true, lockPath, lock };
   if (flags.json) {
     console.log(JSON.stringify(result, null, 2));
@@ -833,10 +851,11 @@ Usage:
   ui-lab <command> [args] [flags]
 
 Commands:
-  list [--kind <kind>] [--json]         List catalog items, grouped by kind
+  list [--kind <kind>] [--role <role>] [--category <category>] [--json]         List catalog items, grouped by kind
   search <query> [--json]               Rank items matching a query
   show <slug> [--kind <kind>] [--json]  Show one item's detail + how to fetch it
   add <slug> [--pm <pm>] [--dir <path>] Print the command and register it when config exists
+                                         Preserve existing Lock baselines; pin new selections
   theme <slug> [--pm <pm>] [--json]     Show one theme kit: modes, shadcn install command,
                                          and CSS endpoint (any item with a ThemeKit payload)
   themes [--picker] [--out <file>]      List every theme kit, or with --picker generate a
@@ -846,6 +865,7 @@ Commands:
   init --profile <profile> --system <slug>
                                          Bind a project to a profile and Theme Kit
   compose <recipe> [--dir <path>]        Bind a recipe and print its install plan
+                                         Preserve existing Lock baselines; pin new selections
   lock [--dir <path>] [--json]           Rebuild ui-lab.lock.json from the existing config
                                          and active Catalog; never changes config or installs
   audit [--dir <path>] [--json] [--strict]
@@ -857,8 +877,10 @@ Global flags:
                      Fetch <base-url>/catalog.json instead of the bundled snapshot
                      (also settable via UILAB_REGISTRY; do not include /catalog.json)
   --json              Emit machine-readable JSON on stdout
+  --role <role>       Filter installable responsibilities: component, block, page, shell, site
+  --category <name>   Filter historical/domain category in list
   --kind <kind>       Filter/disambiguate by kind: component, atom-set, icon-style,
-                      icon-motion, style, palette, design-system, recipe
+                      icon-motion, style, palette, design-system, recipe, vocabulary, reference
   --pm <pm>           Package manager used to rewrite \`add\`/\`theme\`'s printed install command
   --strict            For audit: require ui-lab.lock.json and fail on warnings
   -h, --help          Show this help
@@ -880,9 +902,10 @@ Examples:
 Data sources:
   By default ui-lab reads from a snapshot bundled at build time (cli/catalog.snapshot.json)
   for fast, offline use. Pass --registry <url> or set UILAB_REGISTRY to fetch a live
-  deployment's /catalog.json instead; if that fetch fails for any reason, ui-lab falls
-  back to the bundled snapshot. Source-selection messages always print to stderr, so
-  stdout stays clean for --json output.
+  deployment's /catalog.json instead. Read-only discovery may fall back to the bundled
+  snapshot with a warning. init/compose/add/lock fail without writing project files
+  when an explicit source cannot be loaded or validated. Only lock refreshes existing
+  contract baselines. Source-selection messages print to stderr, keeping JSON clean.
 `;
 
 function printHelp(): void {
@@ -916,7 +939,11 @@ async function main(): Promise<void> {
   }
 
   const registry = stringFlag(flags.registry);
-  const { items, source } = await loadCatalog({ registry });
+  if (flags.registry !== undefined && (!registry || !registry.trim())) {
+    throw new Error("--registry requires a non-empty base URL.");
+  }
+  const writesProject = ["init", "compose", "add", "lock"].includes(command);
+  const { items, source } = await loadCatalog({ registry, allowFallback: !writesProject });
 
   switch (command) {
     case "list":
@@ -955,4 +982,7 @@ async function main(): Promise<void> {
   }
 }
 
-main();
+main().catch((error) => {
+  console.error(error instanceof Error ? error.message : String(error));
+  process.exitCode = 1;
+});

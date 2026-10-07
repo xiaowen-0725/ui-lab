@@ -4,6 +4,8 @@ import { REGISTRY_NAME, SITE_URL } from "@/lib/site";
 export const dynamic = "force-static";
 
 const GROUP_LABELS: Record<CatalogKind, string> = {
+  vocabulary: "Dictionary and layout vocabulary",
+  reference: "Inspiration references",
   component: "Components",
   "atom-set": "Atom Tokens",
   "icon-style": "Icon Styles",
@@ -15,6 +17,8 @@ const GROUP_LABELS: Record<CatalogKind, string> = {
 };
 
 const GROUP_ORDER: CatalogKind[] = [
+  "vocabulary",
+  "reference",
   "component",
   "atom-set",
   "icon-style",

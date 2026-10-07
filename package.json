@@ -26,7 +26,12 @@
     "inspiration:audit": "bun scripts/capture-inspiration-screenshots.ts --audit-only",
     "cli:snapshot": "bun scripts/gen-catalog-snapshot.ts",
     "test": "bun test ./tests",
-    "check": "bun run typecheck && bun run lint && bun run check:registry && bun run check:skills"
+    "check": "bun run typecheck && bun run lint && bun run check:registry && bun run check:catalog && bun run check:skills",
+    "check:system-tokens": "bun scripts/verify-system-tokens.ts",
+    "check:catalog": "bun test tests/catalog-coverage.test.ts tests/catalog-contract.test.ts tests/nav-contract.test.ts",
+    "check:catalog-site": "bun scripts/verify-catalog-site.ts && bun scripts/verify-catalog-deep-links.ts",
+    "benchmark:catalog-assets": "bun scripts/verify-application-consumers.ts",
+    "check:modal-consumer": "bun scripts/verify-modal-consumer.ts"
   },
   "dependencies": {
     "@paper-design/shaders-react": "^0.0.76",
