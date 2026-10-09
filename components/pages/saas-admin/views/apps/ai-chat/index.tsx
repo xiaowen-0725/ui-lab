@@ -72,19 +72,12 @@ export function AiChatApp() {
 	const timer = useRef<number | null>(null);
 	const threadEnd = useRef<HTMLDivElement | null>(null);
 	const threadTitle = useRef<HTMLHeadingElement | null>(null);
-	const pendingThreadFocus = useRef(false);
 
 	useEffect(() => {
 		return () => {
 			if (timer.current) window.clearTimeout(timer.current);
 		};
 	}, []);
-
-	useEffect(() => {
-		if (!pendingThreadFocus.current) return;
-		pendingThreadFocus.current = false;
-		threadTitle.current?.focus();
-	}, [selectedId, pane]);
 
 	const visible = useMemo(
 		() =>
@@ -108,7 +101,7 @@ export function AiChatApp() {
 		setPane("thread");
 		const chat = chats.find((item) => item.id === id);
 		if (chat) setModel(chat.model);
-		pendingThreadFocus.current = true;
+		window.setTimeout(() => threadTitle.current?.focus(), 0);
 	}
 
 	function startNew() {
@@ -117,7 +110,7 @@ export function AiChatApp() {
 		setDraft("");
 		setAttachments([]);
 		setPane("thread");
-		pendingThreadFocus.current = true;
+		window.setTimeout(() => threadTitle.current?.focus(), 0);
 	}
 
 	function attachSample() {

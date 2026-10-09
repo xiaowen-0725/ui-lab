@@ -2,7 +2,7 @@
 
 import { ArrowLeft, Star } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -46,7 +46,6 @@ export function MailApp() {
 	const listSection = useRef<HTMLElement | null>(null);
 	const readingTitle = useRef<HTMLHeadingElement | null>(null);
 	const composeTo = useRef<HTMLInputElement | null>(null);
-	const pendingFocus = useRef<"list" | "thread" | "compose" | null>(null);
 
 	const visible = useMemo(
 		() =>
@@ -57,13 +56,9 @@ export function MailApp() {
 	);
 	const selected = threads.find((thread) => thread.id === selectedId) ?? null;
 
-	useEffect(() => {
-		const next = pendingFocus.current;
-		pendingFocus.current = null;
-		if (next === "thread") readingTitle.current?.focus();
-		if (next === "list") listSection.current?.focus();
-		if (next === "compose") composeTo.current?.focus();
-	}, [selectedId, composing]);
+	function focusSoon(node: { current: HTMLElement | null }) {
+		window.setTimeout(() => node.current?.focus(), 0);
+	}
 
 	function openThread(id: string) {
 		setComposing(false);
@@ -73,13 +68,13 @@ export function MailApp() {
 				thread.id === id ? { ...thread, unread: false } : thread,
 			),
 		);
-		pendingFocus.current = "thread";
+		focusSoon(readingTitle);
 	}
 
 	function backToList() {
 		setComposing(false);
 		setSelectedId(null);
-		pendingFocus.current = "list";
+		focusSoon(listSection);
 	}
 
 	function toggleStar(id: string) {
@@ -151,7 +146,7 @@ export function MailApp() {
 						onClick={() => {
 							setComposing(true);
 							setError("");
-							pendingFocus.current = "compose";
+							focusSoon(composeTo);
 						}}
 					>
 						<SaasAdminText>New message</SaasAdminText>

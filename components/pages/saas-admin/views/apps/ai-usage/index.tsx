@@ -47,24 +47,23 @@ export function AiUsageApp() {
 						Sample token spend for the October window. Figures stay in this visit.
 					</SaasAdminText>
 				</p>
-				<div
-					role="group"
-					aria-label={t("Filter usage")}
-					className="flex flex-wrap gap-1.5"
-				>
-					{FILTERS.map((item) => (
-						<Button
-							key={item.id}
-							type="button"
-							size="sm"
-							variant={filter === item.id ? "default" : "outline"}
-							aria-pressed={filter === item.id}
-							onClick={() => setFilter(item.id)}
-						>
-							<SaasAdminText>{item.label}</SaasAdminText>
-						</Button>
-					))}
-				</div>
+				<fieldset className="m-0 border-0 p-0">
+					<legend className="sr-only">{t("Filter usage")}</legend>
+					<div className="flex flex-wrap gap-1.5">
+						{FILTERS.map((item) => (
+							<Button
+								key={item.id}
+								type="button"
+								size="sm"
+								variant={filter === item.id ? "default" : "outline"}
+								aria-pressed={filter === item.id}
+								onClick={() => setFilter(item.id)}
+							>
+								<SaasAdminText>{item.label}</SaasAdminText>
+							</Button>
+						))}
+					</div>
+				</fieldset>
 			</div>
 			<div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
 				<Metric
