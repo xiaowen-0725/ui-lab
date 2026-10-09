@@ -1,40 +1,43 @@
 "use client";
 
-import type { ReactNode } from "react";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import type { JSX, ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import {
-	SaasAdminProvider,
-	useSaasAdminOptional,
-	SaasAdminText,
 	type SaasAdminEnvironmentProps,
+	SaasAdminProvider,
+	SaasAdminText,
+	useSaasAdminOptional,
 } from "./environment";
 import { SaasAdminTheme } from "./theme";
+
+interface SaasAdminPageFrameProps extends SaasAdminEnvironmentProps {
+	children: ReactNode;
+	pageTitle?: string;
+}
 
 export function SaasAdminPageFrame({
 	children,
 	className,
 	pageTitle,
 	...environment
-}: SaasAdminEnvironmentProps & { children: ReactNode; pageTitle?: string }) {
+}: SaasAdminPageFrameProps): JSX.Element {
 	const inherited = useSaasAdminOptional();
-	const title = pageTitle;
-	const heading = title ? (
+	const heading = pageTitle ? (
 		<h1 className="sr-only">
-			<SaasAdminText>{title}</SaasAdminText>
+			<SaasAdminText>{pageTitle}</SaasAdminText>
 		</h1>
 	) : null;
-	if (inherited)
-		return (
-			<SaasAdminProvider {...environment}>
-				<div className={className}>
-					{heading}
-					{children}
-				</div>
-			</SaasAdminProvider>
+	let content: ReactNode;
+	if (inherited) {
+		content = (
+			<div className={className}>
+				{heading}
+				{children}
+			</div>
 		);
-	return (
-		<SaasAdminProvider {...environment}>
+	} else {
+		content = (
 			<SaasAdminTheme className={className}>
 				<TooltipProvider>
 					{heading}
@@ -42,6 +45,9 @@ export function SaasAdminPageFrame({
 					<Toaster theme={environment.mode ?? "system"} />
 				</TooltipProvider>
 			</SaasAdminTheme>
-		</SaasAdminProvider>
+		);
+	}
+	return (
+		<SaasAdminProvider {...environment}>{content}</SaasAdminProvider>
 	);
 }

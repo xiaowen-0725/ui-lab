@@ -8,14 +8,28 @@ import { KeyboardShortcuts } from "./keyboard-shortcuts";
 import { SiteShell } from "./site-shell";
 import { ThemeProvider } from "./theme-provider";
 
+interface CatalogFrameProps {
+	children: ReactNode;
+	githubStarCount: number | null;
+	analytics?: ReactNode;
+}
+
 /** Fullscreen template documents own their theme, shortcuts and preferences. */
-export function CatalogFrame({ children, githubStarCount, analytics }: { children: ReactNode; githubStarCount: number | null; analytics?: ReactNode }) {
-  const pathname = usePathname();
-  if (pathname.startsWith("/sites/saas-admin-site/preview")) return children;
-  return <ThemeProvider><PreferencesProvider>
-    <KeyboardShortcuts />
-    <SiteShell githubStarCount={githubStarCount}>{children}</SiteShell>
-    <PreferencesPanel />
-    {analytics}
-  </PreferencesProvider></ThemeProvider>;
+export function CatalogFrame({
+	children,
+	githubStarCount,
+	analytics,
+}: CatalogFrameProps): ReactNode {
+	const pathname = usePathname();
+	if (pathname.startsWith("/sites/saas-admin-site/preview")) return children;
+	return (
+		<ThemeProvider>
+			<PreferencesProvider>
+				<KeyboardShortcuts />
+				<SiteShell githubStarCount={githubStarCount}>{children}</SiteShell>
+				<PreferencesPanel />
+				{analytics}
+			</PreferencesProvider>
+		</ThemeProvider>
+	);
 }

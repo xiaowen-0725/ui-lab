@@ -1,6 +1,16 @@
 "use client";
-import { lazy, Suspense } from "react";
+
+import { type JSX, lazy, Suspense } from "react";
+import {
+	type SaasAdminEnvironmentProps,
+	SaasAdminProvider,
+	useSaasAdmin,
+} from "@/components/pages/saas-admin/environment";
+import { SaasAdminTheme } from "@/components/pages/saas-admin/theme";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { SaasAdminShell } from "./saas-admin-shell";
 
 const SaasAdminOrdersPage = lazy(() =>
 	import("@/components/pages/saas-admin-orders-page").then((module) => ({
@@ -47,15 +57,6 @@ const SaasAdminForgotPasswordPage = lazy(() =>
 		(module) => ({ default: module.SaasAdminForgotPasswordPage }),
 	),
 );
-import {
-	SaasAdminProvider,
-	useSaasAdmin,
-	type SaasAdminEnvironmentProps,
-} from "@/components/pages/saas-admin/environment";
-import { SaasAdminTheme } from "@/components/pages/saas-admin/theme";
-import { SaasAdminShell } from "./saas-admin-shell";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { Toaster } from "@/components/ui/sonner";
 export {
 	SAAS_ADMIN_ROUTES,
 	isSaasAdminRoute,
@@ -69,7 +70,7 @@ export type {
 	SaasAdminMode,
 } from "@/components/pages/saas-admin/environment";
 
-function PageContent() {
+function PageContent(): JSX.Element {
 	const { pathname, search, t } = useSaasAdmin();
 	switch (pathname) {
 		case "/":
@@ -107,7 +108,7 @@ function PageContent() {
 	}
 }
 
-function CurrentPage() {
+function CurrentPage(): JSX.Element {
 	const { t } = useSaasAdmin();
 	return (
 		<Suspense
@@ -123,12 +124,16 @@ function CurrentPage() {
 	);
 }
 
+interface SaasAdminSiteProps extends SaasAdminEnvironmentProps {
+	shell?: boolean;
+}
+
 /** Nine actual page entries share one environment, data store and shell. */
 export function SaasAdminSite({
 	className,
 	shell = true,
 	...props
-}: SaasAdminEnvironmentProps & { shell?: boolean }) {
+}: SaasAdminSiteProps): JSX.Element {
 	const auth = props.pathname?.startsWith("/pages/auth/");
 	return (
 		<SaasAdminProvider {...props}>

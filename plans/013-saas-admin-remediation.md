@@ -31,7 +31,7 @@
 - [7组生产交互检查](013-evidence/browser-flows.json)通过：用户query/刷新、删除初始取消焦点及取消/确认、详情标签历史、设置草稿/标签/离开/后退/放弃/保存、时区搜索/键盘/重复格式化、动态reduce及暂停/恢复、认证输入属性。独立[历史保护回归](013-evidence/history-guard.log)包含多步遍历、前进和框架history state保留。时区菜单打开不增加格式化器；未将这一结论换算成跨设备延迟预算。
 - [来源审计](013-evidence/source-audit.json)：33个官方原语hash全部一致，53张本地图片、两份字体字节以及8个远程链接保持。台账使用当前hash，旧hash另存，未覆盖基线历史证据。
 
-当前安装冻结 sourceVersion：`1e55debcf9d40f68d43d67ac2ee1d26751a0f835aee56691b1770575f13b5ba0`。
+指南整改阶段的安装冻结 sourceVersion：`1e55debcf9d40f68d43d67ac2ee1d26751a0f835aee56691b1770575f13b5ba0`。
 
 ## 包体结果
 
@@ -57,3 +57,9 @@ Vite另外生成九个页面块；Orders JS为361.08 kB / gzip108.33 kB。仍有
 ## 本地提交检查
 
 2026-10-09 用户要求提交当前代码。提交前再次运行 `bun run check` 和 `bun run test`：全部门禁通过，266项测试通过、0失败；CLI快照与571个当前条目一致。lint有33条warning和10条info，无阻断错误。提交包含本轮模板、主题、分发、预览、相关来源与验证记录，以及此前同一任务保留的共享组件兼容增强；任务外 `skills-lock.json`、`.grok/` 与浏览器临时目录 `.playwright-cli/` 保留在工作区。
+
+## 提交后的代码简化
+
+2026-10-09 用户调用 simplify，范围限定于刚提交的适配与组合层。文案覆盖、继承及默认语言的优先级改为顺序判断；单页框架统一外层 Provider，保留独立/嵌入时各自的主题与 Tooltip/Toaster 结构。补充 Props/返回类型、整理入口 import 和 Catalog 包装排版，删除源码解析中的重复候选。官方基础控件、两个来源区块、公开安装身份、URL与业务状态逻辑均未改。
+
+来源台账同步三份适配源码hash，CLI快照同步571条记录；简化后的整站 sourceVersion为 `c2a98ae48a57e5a283fd390d979178d941b9f650149cafaa480c06bfc0b8c7c0`。再次运行根 `check`、266项测试和11个独立用法验证均通过，包含严格类型、流式SSR、打包及22项浏览器水合检查。记录位于 `/tmp/uilab-simplify-{check,test,usage}.log`，独立用法证据为 `/var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-standalone-usage-KIIFbp/`。本轮未重复完整生产站点、真实shadcn安装或288组axe扫描；既有证据对应先前冻结源码，不冒充新修订验证。用户随后要求提交，本轮简化改动纳入本地 Git 提交；未推送或发布。

@@ -32,13 +32,13 @@ components/pages/saas-admin/configs/mailConfig.ts,Free AdminCN,src/configs/mailC
 components/pages/saas-admin/configs/navConfig.tsx,Free AdminCN,src/configs/navConfig.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,81498d863c6d0088d46fd7d4f2c22dea1aaea03918aea508cb074db419f8b5b6
 components/pages/saas-admin/configs/themeConfig.ts,Free AdminCN,src/configs/themeConfig.ts,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,9ba4671f10c082f556c72b5efbde83438112dc6355791bb1b37a2ae39cca7d07
 components/pages/saas-admin/content.ts,UI Lab adaptation,,,UI Lab MIT,43512d9700b00c7e359a4efbebca45919c32311fe16139d4adb516eca4567eba
-components/pages/saas-admin/environment.tsx,UI Lab adaptation,,,UI Lab MIT,69637c8a2801cec41d854a04519eba8fcbc1da937e5374477390d2b91830a5d6
+components/pages/saas-admin/environment.tsx,UI Lab adaptation,,,UI Lab MIT,b0773d4b9f11451fea24fa3c48bc54e2d223d7fd217cbb6cf09118450bf65f8b
 components/pages/saas-admin/fake-db/apps/users.ts,Free AdminCN,src/fake-db/apps/users.ts,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,5ec2c3a9380fe97e2ae5fa02fc982e21b8d2b48962b683235e5568fd19cecd26
 components/pages/saas-admin/fake-db/pages/user-profile.ts,Free AdminCN,src/fake-db/pages/user-profile.ts,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,5b615d06cdaa72d41ee258ce619008103765a955946c0a29485384586bd9156e
 components/pages/saas-admin/fake-db/transaction-samples.ts,Free AdminCN extracted data,src/app/(pages)/dashboard/orders/page.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,61680bdec86cd888173d7a9d486d092ba184e1f3521d39fcf155c8f444340654
 components/pages/saas-admin/hooks/use-pagination.ts,Free AdminCN,src/hooks/use-pagination.ts,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,eb5f686bce82d7cc61ad6785c2c2567c8910a85cb923ffecf0c68b353963296f
 components/pages/saas-admin/hooks/use-user-app.ts,Free AdminCN,src/hooks/use-user-app.ts,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,19bc932a187550a35bdc33b0c5d160a1d1639d24269f9d0391aff1a4c1b38477
-components/pages/saas-admin/page-frame.tsx,UI Lab adaptation,,,UI Lab MIT,7dd58ff9c666e824df1547f80412a994fa56904fb8c4663b3398fb836d1f1e83
+components/pages/saas-admin/page-frame.tsx,UI Lab adaptation,,,UI Lab MIT,46881f9f90df6a6e035e8bc6ff86622741a239080de54a03d243fee19ef910bd
 components/pages/saas-admin/routes.ts,UI Lab adaptation,,,UI Lab MIT,6d65ebe1029b4d1743133c833ac7583c9d2d3e8c20e6d8a8501646bc82b545cb
 components/pages/saas-admin/styles.css,UI Lab adaptation,,,UI Lab MIT,938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069
 components/pages/saas-admin/theme.tsx,UI Lab adaptation,,,UI Lab MIT,5341eb8bc3b2f45efbfddff4a2047a1adf93339a1224911744ee335a7473f5f4
@@ -116,7 +116,7 @@ components/pages/saas-admin/views/pages/user-settings/workspace/workspace-detail
 components/pages/saas-admin/views/pages/user-settings/workspace/workspace-name.tsx,Free AdminCN,src/views/pages/user-settings/workspace/workspace-name.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,27ff9cd81e386bb486889bb460c33bf2aca46dfcc252bb4af4b88b7bd38ec67e
 components/pages/saas-admin/views/pages/user-settings/workspace/workspace-organizations.tsx,Free AdminCN,src/views/pages/user-settings/workspace/workspace-organizations.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,04fb2eff6786d7e192776f92fee8e7bf33be6e23db4f7ba4c142902821075b16
 components/site-shells/saas-admin-shell.tsx,UI Lab adaptation,,,UI Lab MIT,ce2b171cce67d00c3c74fea44f50f596fdc0bcc69136f56de3afac4549819d62
-components/site-shells/saas-admin-site.tsx,UI Lab adaptation,,,UI Lab MIT,9e9b36aa5101b2714c994585d189d78445d063c0eff370b5e30fd1137e302678
+components/site-shells/saas-admin-site.tsx,UI Lab adaptation,,,UI Lab MIT,c690cc73e632f8f9f0dd8695962d971d44c9e045c2eda0c6253c3c661215605d
 components/ui/alert-dialog.tsx,Official shadcn Base UI,base-vega generator / alert-dialog.tsx,97ddbf4274ed09d02aa7fd34375f2cf1e48cbbf0,MIT,17d9d5d9570f6bba3163a7ccb7eb167286842e5b23f603116d1a38dbc902c35d
 components/ui/alert.tsx,Official shadcn Base UI,base-vega generator / alert.tsx,97ddbf4274ed09d02aa7fd34375f2cf1e48cbbf0,MIT,61b5963b9b418e345307be628ddbfe45351e1672430440dc7751ffac858726ab
 components/ui/avatar.tsx,Official shadcn Base UI,base-vega generator / avatar.tsx,97ddbf4274ed09d02aa7fd34375f2cf1e48cbbf0,MIT,d5739ffbbb4b05aa03d4f14a76992da0700f8a922da8326c094af37e17f4a322

@@ -1,23 +1,24 @@
 "use client";
 
 import {
+	type AnchorHTMLAttributes,
+	type Dispatch,
+	type JSX,
+	type ReactNode,
+	type SetStateAction,
 	createContext,
 	useCallback,
 	useContext,
 	useMemo,
 	useState,
-	type AnchorHTMLAttributes,
-	type ReactNode,
-	type Dispatch,
-	type SetStateAction,
 } from "react";
-import type { AppUser } from "./types/apps/user-types";
+import { ADMIN_ZH } from "./content";
 import { users as sampleUsers } from "./fake-db/apps/users";
 import { db as sampleProfile } from "./fake-db/pages/user-profile";
-import type { UserProfilePageData } from "./types/pages/user-profile-types";
 import { transactionData as sampleTransactions } from "./fake-db/transaction-samples";
+import type { AppUser } from "./types/apps/user-types";
+import type { UserProfilePageData } from "./types/pages/user-profile-types";
 import type { Item } from "./types/transaction-types";
-import { ADMIN_ZH } from "./content";
 
 export type SaasAdminLocale = "zh" | "en";
 export type SaasAdminBrand = "default" | "blue-ink";
@@ -90,7 +91,20 @@ interface AdminEnvironment
 	settingsDraftChanged?: (actionType: string) => void;
 }
 
-function translateAdminText(text: string) {
+type AdminNavigation = Pick<
+	AdminEnvironment,
+	"pathname" | "search" | "navigate" | "hrefFor"
+>;
+
+interface SaasAdminProviderProps extends SaasAdminEnvironmentProps {
+	children: ReactNode;
+}
+
+interface SaasAdminTextProps {
+	children: ReactNode;
+}
+
+function translateAdminText(text: string): string {
 	const key = text.trim();
 	const translated = ADMIN_ZH[key];
 	if (translated) return translated;
@@ -107,18 +121,19 @@ function translateAdminText(text: string) {
 	return text;
 }
 const EMPTY_SETTINGS: SaasAdminSettingsValues = {};
-const identityHref = (path: string) => path;
+
+function identityHref(path: string): string {
+	return path;
+}
+
 const TextContext = createContext<(text: string) => string>((text) => text);
-const NavigationContext = createContext<Pick<
-	AdminEnvironment,
-	"pathname" | "search" | "navigate" | "hrefFor"
-> | null>(null);
+const NavigationContext = createContext<AdminNavigation | null>(null);
 const AdminContext = createContext<AdminEnvironment | null>(null);
 
 export function SaasAdminProvider({
 	children,
 	...props
-}: SaasAdminEnvironmentProps & { children: ReactNode }) {
+}: SaasAdminProviderProps): JSX.Element {
 	const inherited = useContext(AdminContext);
 	const [localLocale, setLocalLocale] = useState<SaasAdminLocale>("zh");
 	const [localBrand, setLocalBrand] = useState<SaasAdminBrand>("default");
@@ -151,13 +166,13 @@ export function SaasAdminProvider({
 	const inheritedT = inherited?.t;
 	const inheritLocale = props.locale === undefined;
 	const t = useCallback(
-		(text: string) =>
-			content?.[text] ??
-			(inheritLocale && inheritedT
-				? inheritedT(text)
-				: locale === "zh"
-					? translateAdminText(text)
-					: text),
+		function translate(text: string): string {
+			const override = content?.[text];
+			if (override != null) return override;
+			if (inheritLocale && inheritedT) return inheritedT(text);
+			if (locale === "zh") return translateAdminText(text);
+			return text;
+		},
 		[content, inheritLocale, inheritedT, locale],
 	);
 	const hrefFor = props.hrefFor ?? inherited?.hrefFor ?? identityHref;
@@ -241,11 +256,11 @@ export function SaasAdminProvider({
 	);
 }
 
-export function useSaasAdminOptional() {
+export function useSaasAdminOptional(): AdminEnvironment | null {
 	return useContext(AdminContext);
 }
 
-export function useSaasAdmin() {
+export function useSaasAdmin(): AdminEnvironment {
 	const environment = useContext(AdminContext);
 	if (!environment)
 		throw new Error("Wrap this template view in SaasAdminProvider.");
@@ -253,7 +268,7 @@ export function useSaasAdmin() {
 }
 
 /** Text adaptation only: returns text without introducing a DOM wrapper. */
-export function SaasAdminText({ children }: { children: ReactNode }) {
+export function SaasAdminText({ children }: SaasAdminTextProps): ReactNode {
 	const t = useContext(TextContext);
 	return typeof children === "string" && children.trim()
 		? t(children)
@@ -264,7 +279,7 @@ export function SaasAdminLink({
 	href = "#",
 	onClick,
 	...props
-}: AnchorHTMLAttributes<HTMLAnchorElement>) {
+}: AnchorHTMLAttributes<HTMLAnchorElement>): JSX.Element {
 	const { hrefFor, navigate } = useAdminNavigation();
 	return (
 		<a
@@ -291,10 +306,10 @@ export function SaasAdminLink({
 	);
 }
 
-export function useAdminPathname() {
+export function useAdminPathname(): string {
 	return useAdminNavigation().pathname;
 }
-export function useAdminSearchParams() {
+export function useAdminSearchParams(): URLSearchParams {
 	const { search } = useAdminNavigation();
 	return useMemo(() => new URLSearchParams(search), [search]);
 }
@@ -303,7 +318,7 @@ export function useAdminQuery(
 	key: string,
 	fallback: string,
 	allowed: readonly string[] = [],
-) {
+): readonly [string, (next: string) => void] {
 	const { pathname, search, navigate } = useAdminNavigation();
 	const params = useMemo(() => new URLSearchParams(search), [search]);
 	const queryValue = params.get(key) ?? fallback;
@@ -326,7 +341,7 @@ export function useAdminQuery(
 	return [value, setValue] as const;
 }
 
-export function useAdminNavigation() {
+export function useAdminNavigation(): AdminNavigation {
 	const value = useContext(NavigationContext);
 	if (!value) throw new Error("Wrap this template in SaasAdminProvider.");
 	return value;
@@ -335,7 +350,7 @@ export function useAdminNavigation() {
 /** Atomic query updates preserve unrelated consumer parameters and local-only usage. */
 export function useAdminQueryValues(
 	defaults: Readonly<Record<string, string>>,
-) {
+): readonly [Record<string, string>, (patch: Record<string, string>) => void] {
 	const { pathname, search, navigate } = useAdminNavigation();
 	const parsed = useMemo(() => {
 		const params = new URLSearchParams(search);
