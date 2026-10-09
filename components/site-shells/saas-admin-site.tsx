@@ -68,6 +68,7 @@ export type {
 	SaasAdminBrand,
 	SaasAdminLocale,
 	SaasAdminMode,
+	SaasAdminAppearance,
 } from "@/components/pages/saas-admin/environment";
 
 function PageContent(): JSX.Element {

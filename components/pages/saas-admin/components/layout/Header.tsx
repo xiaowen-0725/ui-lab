@@ -31,16 +31,17 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { AppearanceCustomizer } from "./AppearanceCustomizer";
 
 const Header = () => {
 	const pathname = usePathname();
-	const { t } = useSaasAdmin();
+	const { t, showCustomizer } = useSaasAdmin();
 
 	const segments = pathname.split("/").filter(Boolean);
 
 	return (
 		<header className="bg-card sticky top-0 z-50 border-b">
-			<div className="mx-auto flex min-h-[59px] max-w-360 items-center justify-between gap-6 px-4 py-2 sm:px-6">
+			<div className="saas-admin-container mx-auto flex min-h-[59px] max-w-360 items-center justify-between gap-6 px-4 py-2 sm:px-6">
 				<div className="flex items-center gap-4">
 					<SidebarTrigger
 						aria-label={t("Toggle Sidebar")}
@@ -81,6 +82,7 @@ const Header = () => {
 				</div>
 				<div className="flex items-center gap-1.5">
 					<ModeToggle />
+					{showCustomizer && <AppearanceCustomizer />}
 					<LanguageDropdown
 						trigger={
 							<Button variant="ghost" size="icon-lg" aria-label={t("Language")}>

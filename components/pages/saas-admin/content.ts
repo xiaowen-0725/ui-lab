@@ -1,5 +1,28 @@
 /** Consumer-overridable Chinese copy. Stable values/IDs stay in the source language. */
 export const ADMIN_ZH: Record<string, string> = {
+	"Theme Customizer": "主题定制",
+	"Customize your theme to your liking.": "调整主题和布局，满足你的使用偏好。",
+	"Appearance help": "外观设置说明",
+	"Appearance changes keep your current page and unsaved edits.": "调整外观会保留当前页面和未保存的内容。",
+	"Reset appearance": "重置外观",
+	"Theme Preset": "主题预设",
+	"Font": "字体",
+	"System sans-serif": "系统无衬线",
+	"Color Mode": "明暗模式",
+	"Radius": "圆角",
+	"None": "无",
+	"Content Layout": "内容宽度",
+	"Compact": "紧凑",
+	"Full": "完整",
+	"Scale": "界面尺寸",
+	"Sidebar": "侧栏",
+	"Inset": "内嵌",
+	"Floating": "悬浮",
+	"Layout": "导航布局",
+	"Full layout": "隐藏侧栏",
+	"Sidebar Mode": "侧栏模式",
+	"Icon": "图标",
+
 	"Main navigation": "主导航",
 	"Skip to content": "跳到正文",
 	"User Details": "用户详情",
@@ -242,7 +265,6 @@ Object.assign(ADMIN_ZH, {
 	Refresh: "刷新",
 	"Loading...": "加载中…",
 	"Are you sure?": "确定继续？",
-	"No results.": "没有结果。",
 	"Password does not match.": "两次输入的密码不一致。",
 	Avatar: "头像",
 	"Switch language": "切换语言",
@@ -581,10 +603,6 @@ Object.assign(ADMIN_ZH, {
 	"Your consumer callback completed successfully.":
 		"消费者提供的回调已成功完成。",
 	"Page not found": "未找到页面",
-	"User Profile": "个人资料",
-	"User Settings": "设置",
-	"Form Layouts": "表单布局",
-	"Form Validation": "表单校验",
 	Vertical: "纵向",
 	Horizontal: "横向",
 	Datatable: "数据表格",
@@ -630,7 +648,6 @@ Object.assign(ADMIN_ZH, {
 	"Email Notifications": "邮件通知",
 	"Browser Notifications": "浏览器通知",
 	"App Notifications": "应用通知",
-	"Loading...": "加载中…",
 });
 
 Object.assign(ADMIN_ZH, {

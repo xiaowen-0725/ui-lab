@@ -1,0 +1,94 @@
+{
+  "runId": "2026-10-09T05-33-28-612Z-verify",
+  "sourceVersion": "092dc45f9871b853eabac0c88cee06f6d2bc3e579000c116e250849308492db7",
+  "registryPayloadSha256": "6de08f54bb11d0055cff7b18f8954891a17d749edb99e50635925c5161aff4df",
+  "currentSourceVersion": "092dc45f9871b853eabac0c88cee06f6d2bc3e579000c116e250849308492db7",
+  "rootDrifted": false,
+  "requests": [],
+  "commands": [
+    {
+      "profile": "next-app",
+      "args": [
+        "bun",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "log": "/tmp/uilab-saas-full-consumers/evidence/2026-10-09T05-33-28-612Z-verify/next-app-0.log"
+    },
+    {
+      "profile": "next-app",
+      "args": [
+        "bun",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "log": "/tmp/uilab-saas-full-consumers/evidence/2026-10-09T05-33-28-612Z-verify/next-app-1.log"
+    },
+    {
+      "profile": "vite-app",
+      "args": [
+        "bun",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "log": "/tmp/uilab-saas-full-consumers/evidence/2026-10-09T05-33-28-612Z-verify/vite-app-2.log"
+    },
+    {
+      "profile": "vite-app",
+      "args": [
+        "bun",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "log": "/tmp/uilab-saas-full-consumers/evidence/2026-10-09T05-33-28-612Z-verify/vite-app-3.log"
+    }
+  ],
+  "outcomes": [
+    {
+      "profile": "next-app",
+      "phase": "source-integrity",
+      "ok": true,
+      "wrongImports": 0,
+      "bodyChanges": [],
+      "cssChanges": [],
+      "directiveChanges": [],
+      "licenseGaps": []
+    },
+    {
+      "profile": "next-app",
+      "phase": "typecheck",
+      "ok": true
+    },
+    {
+      "profile": "next-app",
+      "phase": "runtime",
+      "ok": true,
+      "sourceVersion": "092dc45f9871b853eabac0c88cee06f6d2bc3e579000c116e250849308492db7"
+    },
+    {
+      "profile": "vite-app",
+      "phase": "source-integrity",
+      "ok": true,
+      "wrongImports": 0,
+      "bodyChanges": [],
+      "cssChanges": [],
+      "directiveChanges": [],
+      "licenseGaps": []
+    },
+    {
+      "profile": "vite-app",
+      "phase": "typecheck",
+      "ok": true
+    },
+    {
+      "profile": "vite-app",
+      "phase": "runtime",
+      "ok": true,
+      "sourceVersion": "092dc45f9871b853eabac0c88cee06f6d2bc3e579000c116e250849308492db7"
+    }
+  ]
+}

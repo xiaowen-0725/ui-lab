@@ -1,0 +1,144 @@
+{
+  "sourceVersion": "092dc45f9871b853eabac0c88cee06f6d2bc3e579000c116e250849308492db7",
+  "inventoryFiles": 166,
+  "inventoryHashGaps": [],
+  "existingOfficialControls": [
+    {
+      "file": "components/ui/alert-dialog.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/alert.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/avatar.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/badge.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/breadcrumb.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/card.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/chart.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/collapsible.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/command.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/dialog.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/dropdown-menu.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/field.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/input-group.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/input.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/label.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/pagination.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/popover.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/progress.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/scroll-area.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/select.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/separator.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/sheet.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/sidebar.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/skeleton.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/sonner.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/table.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/tabs.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/textarea.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "components/ui/tooltip.tsx",
+      "unchanged": true
+    }
+  ],
+  "newOfficialControls": [
+    "components/ui/toggle.tsx",
+    "components/ui/toggle-group.tsx"
+  ],
+  "existingControlChanges": 0
+}

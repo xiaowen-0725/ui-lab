@@ -19,6 +19,8 @@ import { transactionData as sampleTransactions } from "./fake-db/transaction-sam
 import type { AppUser } from "./types/apps/user-types";
 import type { UserProfilePageData } from "./types/pages/user-profile-types";
 import type { Item } from "./types/transaction-types";
+import { DEFAULT_SAAS_ADMIN_APPEARANCE, normalizeSaasAdminAppearance, type SaasAdminAppearance } from "./appearance";
+export type { SaasAdminAppearance } from "./appearance";
 
 export type SaasAdminLocale = "zh" | "en";
 export type SaasAdminBrand = "default" | "blue-ink";
@@ -59,6 +61,9 @@ export interface SaasAdminEnvironmentProps {
 	/** Consumer applies the same brand/mode to its document, including portals. */
 	documentTheme?: boolean;
 	className?: string;
+	appearance?: Partial<SaasAdminAppearance>;
+	onAppearanceChange?: (appearance: SaasAdminAppearance) => void;
+	showCustomizer?: boolean;
 }
 
 interface AdminEnvironment
@@ -89,6 +94,9 @@ interface AdminEnvironment
 	setUsers: (users: AppUser[] | ((previous: AppUser[]) => AppUser[])) => void;
 	submit: (action: SaasAdminAction) => Promise<void>;
 	settingsDraftChanged?: (actionType: string) => void;
+	appearance: SaasAdminAppearance;
+	setAppearance: (appearance: SaasAdminAppearance) => void;
+	showCustomizer: boolean;
 }
 
 type AdminNavigation = Pick<
@@ -142,6 +150,11 @@ export function SaasAdminProvider({
 	const [localTransactions, setLocalTransactions] =
 		useState(sampleTransactions);
 	const [localProfile, setLocalProfile] = useState(sampleProfile);
+	const [localAppearance, setLocalAppearance] = useState<SaasAdminAppearance>(DEFAULT_SAAS_ADMIN_APPEARANCE);
+	const suppliedAppearance = props.appearance ?? inherited?.appearance ?? localAppearance;
+	const appearance = useMemo(() => normalizeSaasAdminAppearance(suppliedAppearance), [suppliedAppearance]);
+	const setAppearance = props.onAppearanceChange ?? inherited?.setAppearance ?? setLocalAppearance;
+	const showCustomizer = props.showCustomizer ?? inherited?.showCustomizer ?? true;
 	const locale = props.locale ?? inherited?.locale ?? localLocale;
 	const pathname = props.pathname ?? inherited?.pathname ?? "/dashboard/orders";
 	const search = props.search ?? inherited?.search ?? "";
@@ -215,6 +228,9 @@ export function SaasAdminProvider({
 			setMode,
 			submit,
 			settingsDraftChanged,
+			appearance,
+			setAppearance,
+			showCustomizer,
 		}),
 		[
 			locale,
@@ -239,6 +255,9 @@ export function SaasAdminProvider({
 			setMode,
 			submit,
 			settingsDraftChanged,
+			appearance,
+			setAppearance,
+			showCustomizer,
 		],
 	);
 	const navigation = useMemo(

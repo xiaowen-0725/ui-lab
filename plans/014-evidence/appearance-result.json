@@ -1,0 +1,30 @@
+{
+  "origin": "http://localhost:3109",
+  "browser": "154.0.8037.98",
+  "passed": true,
+  "checks": [
+    "sidebar Inset",
+    "sidebar Floating",
+    "sidebar Sidebar",
+    "navigation Compact",
+    "navigation Full layout",
+    "expanded navigation",
+    "content width is independent of navigation layout",
+    "radius updates the document and portals",
+    "size tokens change without zoom or root font-size changes",
+    "font, brand and mode share existing state",
+    "full navigation can return to a collapsible layout",
+    "reset preserves URL and unsaved settings",
+    "refresh restores persisted appearance",
+    "SSR renders saved sidebar configuration",
+    "Escape returns focus to palette trigger",
+    "Select nested Escape and ToggleGroup keyboard navigation",
+    "390px Light: all sidebar styles, bounds, axe",
+    "390px Dark: all sidebar styles, bounds, axe",
+    "mobile Sheet navigation remains available",
+    "1440px Light: all sidebar styles, bounds, axe",
+    "1440px Dark: all sidebar styles, bounds, axe",
+    "Chinese mobile visual cards work without localStorage"
+  ],
+  "errors": []
+}

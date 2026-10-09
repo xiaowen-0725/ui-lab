@@ -8,6 +8,8 @@
 
 ### Added
 
+- SaaS Admin 新增顶栏主题定制面板：品牌、字体、模式、圆角、内容宽度、尺寸与侧栏配置；复用shadcn-admin的MIT示意图提供Sidebar/Layout可视卡片，接入官方Sidebar既有props与开合状态。支持外观重置、消费者受控接口及预览偏好恢复，保留页面和草稿；官方既有控件源码/API保持。
+
 - 按已确认基线移植 SaaS Admin 前端模板：登记9个独立页面、响应式外壳及12路由整站，使用官方 shadcn/ui Base UI 控件及 Free AdminCN 页面组合；确认并接入原 Timeline/BackgroundRipple 私有区块与1280移动阈值。支持默认/Blue Ink、中英、light/dark/system、iframe文档主题、消费者数据/提交回调与本地失败重试。来源与验收见计划011；8张商品图暂保留上游CDN依赖，素材替换待确认，用户视觉批准与发布另行记录。
 
 - 新增独立 Blue Ink 双模式 Theme Kit，保持主题显式安装及消费者覆盖规则。

@@ -591,7 +591,7 @@ const SidebarGroupedMenuItems = ({
 };
 
 const SidebarLayout = () => {
-	const { t } = useSaasAdmin();
+	const { t, appearance } = useSaasAdmin();
 	const pathname = usePathname();
 	const searchParams = useSearchParams();
 	const { state, isMobile } = useSidebar();
@@ -621,10 +621,10 @@ const SidebarLayout = () => {
 
 	// Only the icon rail is too narrow for the inline sub-menu. Mobile renders the full-width
 	// sheet, so it keeps the normal tree.
-	const isIconMode = state === "collapsed" && !isMobile;
+	const isIconMode = state === "collapsed" && !isMobile && appearance.sidebarMode === "icon";
 
 	return (
-		<Sidebar collapsible="icon" variant="sidebar">
+		<Sidebar collapsible={isMobile ? "offcanvas" : appearance.sidebarMode} variant={appearance.sidebarVariant} className={appearance.sidebarMode === "none" ? "max-[1280px]:hidden" : undefined}>
 			<nav
 				aria-label={t("Main navigation")}
 				className="flex h-full min-h-0 flex-col"

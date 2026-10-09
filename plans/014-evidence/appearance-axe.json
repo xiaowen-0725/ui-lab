@@ -1,0 +1,398 @@
+[
+  {
+    "scenario": "axe-1440-dark",
+    "axe": {
+      "name": "axe-core",
+      "version": "4.11.0"
+    },
+    "url": "http://localhost:3109/en/sites/saas-admin-site/preview/pages/user-settings",
+    "violations": [],
+    "passes": 49,
+    "incomplete": [
+      {
+        "id": "aria-hidden-focus",
+        "targets": [
+          [
+            "span[data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(2)"
+          ],
+          [
+            "span[data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(4)"
+          ],
+          [
+            "span[data-type=\"outside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(5)"
+          ],
+          [
+            "span[data-type=\"outside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(7)"
+          ],
+          [
+            "span[data-type=\"inside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(1)"
+          ],
+          [
+            "span[data-type=\"inside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(3)"
+          ]
+        ]
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "targets": [
+          [
+            "#base-ui-_R_6l3ql5ubsnqivb_"
+          ]
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            ".items-start.flex-col.gap-2:nth-child(2) > .leading-none[data-slot=\"label\"]"
+          ],
+          [
+            "#multi-step-personal-info-last-name"
+          ],
+          [
+            "label[for=\"country\"]"
+          ],
+          [
+            ".text-left[data-slot=\"select-value\"][data-placeholder=\"\"] > span"
+          ],
+          [
+            "label[for=\"role\"]"
+          ],
+          [
+            "#role > .text-left[data-slot=\"select-value\"][data-placeholder=\"\"]"
+          ],
+          [
+            "#email"
+          ],
+          [
+            "#base-ui-_r_5n_"
+          ],
+          [
+            "#base-ui-_r_5q_"
+          ],
+          [
+            "label[for=\"_r_5r_\"]"
+          ],
+          [
+            "#_r_5r_ > .text-left.flex-1[data-slot=\"select-value\"]"
+          ],
+          [
+            "label[for=\"_r_5v_\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "axe-1440-light",
+    "axe": {
+      "name": "axe-core",
+      "version": "4.11.0"
+    },
+    "url": "http://localhost:3109/en/sites/saas-admin-site/preview/pages/user-settings",
+    "violations": [],
+    "passes": 49,
+    "incomplete": [
+      {
+        "id": "aria-hidden-focus",
+        "targets": [
+          [
+            "span[data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(2)"
+          ],
+          [
+            "span[data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(4)"
+          ],
+          [
+            "span[data-type=\"outside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(5)"
+          ],
+          [
+            "span[data-type=\"outside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(7)"
+          ],
+          [
+            "span[data-type=\"inside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(1)"
+          ],
+          [
+            "span[data-type=\"inside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(3)"
+          ]
+        ]
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "targets": [
+          [
+            "#base-ui-_R_6l3ql5ubsnqivb_"
+          ]
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            ".items-start.flex-col.gap-2:nth-child(2) > .leading-none[data-slot=\"label\"]"
+          ],
+          [
+            "#multi-step-personal-info-last-name"
+          ],
+          [
+            "label[for=\"country\"]"
+          ],
+          [
+            ".text-left[data-slot=\"select-value\"][data-placeholder=\"\"] > span"
+          ],
+          [
+            "label[for=\"role\"]"
+          ],
+          [
+            "#role > .text-left[data-slot=\"select-value\"][data-placeholder=\"\"]"
+          ],
+          [
+            "#email"
+          ],
+          [
+            "#base-ui-_r_5n_"
+          ],
+          [
+            "#base-ui-_r_5q_"
+          ],
+          [
+            "label[for=\"_r_5r_\"]"
+          ],
+          [
+            "#_r_5r_ > .text-left.flex-1[data-slot=\"select-value\"]"
+          ],
+          [
+            "label[for=\"_r_5v_\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "axe-390-dark",
+    "axe": {
+      "name": "axe-core",
+      "version": "4.11.0"
+    },
+    "url": "http://localhost:3109/en/sites/saas-admin-site/preview/pages/user-settings",
+    "violations": [],
+    "passes": 48,
+    "incomplete": [
+      {
+        "id": "aria-hidden-focus",
+        "targets": [
+          [
+            "span[data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(2)"
+          ],
+          [
+            "span[data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(4)"
+          ],
+          [
+            "span[data-type=\"outside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(5)"
+          ],
+          [
+            "span[data-type=\"outside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(7)"
+          ],
+          [
+            "span[data-type=\"inside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(1)"
+          ],
+          [
+            "span[data-type=\"inside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(3)"
+          ]
+        ]
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "targets": [
+          [
+            "#base-ui-_R_6l3ql5ubsnqivb_"
+          ]
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "h1"
+          ],
+          [
+            ".md\\:mb-6 > p"
+          ],
+          [
+            "#base-ui-_r_0_"
+          ],
+          [
+            "#base-ui-_r_1_"
+          ],
+          [
+            "div[data-admin-action=\"settings.personal-info\"] > .space-y-1.flex-col.flex > .font-semibold"
+          ],
+          [
+            "div[data-admin-action=\"settings.personal-info\"] > .space-y-1.flex-col.flex > p"
+          ],
+          [
+            ".mb-6 > .leading-none[data-slot=\"label\"]"
+          ],
+          [
+            ".mb-6 > .gap-4.items-center.flex > .gap-2.items-center.flex > .border-border.dark\\:border-input.bg-background"
+          ],
+          [
+            ".mb-6 > p"
+          ],
+          [
+            ".items-start.flex-col.gap-2:nth-child(1) > .leading-none[data-slot=\"label\"]"
+          ],
+          [
+            "#multi-step-personal-info-first-name"
+          ],
+          [
+            ".items-start.flex-col.gap-2:nth-child(2) > .leading-none[data-slot=\"label\"]"
+          ],
+          [
+            "#multi-step-personal-info-last-name"
+          ],
+          [
+            ".items-start.flex-col.gap-2:nth-child(3) > .leading-none[data-slot=\"label\"]"
+          ],
+          [
+            "#multi-step-personal-info-mobile"
+          ],
+          [
+            "label[for=\"country\"]"
+          ],
+          [
+            ".text-left[data-slot=\"select-value\"][data-placeholder=\"\"] > span"
+          ],
+          [
+            "#base-ui-_r_2o_"
+          ],
+          [
+            "#base-ui-_r_2r_"
+          ],
+          [
+            "label[for=\"_r_2s_\"]"
+          ],
+          [
+            "#_r_2s_ > .text-left.flex-1[data-slot=\"select-value\"]"
+          ],
+          [
+            "label[for=\"_r_30_\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "axe-390-light",
+    "axe": {
+      "name": "axe-core",
+      "version": "4.11.0"
+    },
+    "url": "http://localhost:3109/en/sites/saas-admin-site/preview/pages/user-settings",
+    "violations": [],
+    "passes": 48,
+    "incomplete": [
+      {
+        "id": "aria-hidden-focus",
+        "targets": [
+          [
+            "span[data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(2)"
+          ],
+          [
+            "span[data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(4)"
+          ],
+          [
+            "span[data-type=\"outside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(5)"
+          ],
+          [
+            "span[data-type=\"outside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(7)"
+          ],
+          [
+            "span[data-type=\"inside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(1)"
+          ],
+          [
+            "span[data-type=\"inside\"][data-base-ui-focus-guard=\"\"][aria-hidden=\"true\"]:nth-child(3)"
+          ]
+        ]
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "targets": [
+          [
+            "#base-ui-_R_6l3ql5ubsnqivb_"
+          ]
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "h1"
+          ],
+          [
+            ".md\\:mb-6 > p"
+          ],
+          [
+            "#base-ui-_r_0_"
+          ],
+          [
+            "#base-ui-_r_1_"
+          ],
+          [
+            "div[data-admin-action=\"settings.personal-info\"] > .space-y-1.flex-col.flex > .font-semibold"
+          ],
+          [
+            "div[data-admin-action=\"settings.personal-info\"] > .space-y-1.flex-col.flex > p"
+          ],
+          [
+            ".mb-6 > .leading-none[data-slot=\"label\"]"
+          ],
+          [
+            ".mb-6 > .gap-4.items-center.flex > .gap-2.items-center.flex > .border-border.dark\\:border-input.bg-background"
+          ],
+          [
+            ".mb-6 > p"
+          ],
+          [
+            ".items-start.flex-col.gap-2:nth-child(1) > .leading-none[data-slot=\"label\"]"
+          ],
+          [
+            "#multi-step-personal-info-first-name"
+          ],
+          [
+            ".items-start.flex-col.gap-2:nth-child(2) > .leading-none[data-slot=\"label\"]"
+          ],
+          [
+            "#multi-step-personal-info-last-name"
+          ],
+          [
+            ".items-start.flex-col.gap-2:nth-child(3) > .leading-none[data-slot=\"label\"]"
+          ],
+          [
+            "#multi-step-personal-info-mobile"
+          ],
+          [
+            "label[for=\"country\"]"
+          ],
+          [
+            ".text-left[data-slot=\"select-value\"][data-placeholder=\"\"] > span"
+          ],
+          [
+            "#base-ui-_r_2o_"
+          ],
+          [
+            "#base-ui-_r_2r_"
+          ],
+          [
+            "label[for=\"_r_2s_\"]"
+          ],
+          [
+            "#_r_2s_ > .text-left.flex-1[data-slot=\"select-value\"]"
+          ],
+          [
+            "label[for=\"_r_30_\"]"
+          ]
+        ]
+      }
+    ]
+  }
+]

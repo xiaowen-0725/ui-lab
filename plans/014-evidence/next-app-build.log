@@ -1,0 +1,30 @@
+$ bun run build
+CWD /tmp/uilab-saas-full-consumers/next-app
+EXIT 0
+   ▲ Next.js 15.5.18
+   - Experiments (use with caution):
+     · cpus: 2
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 8.9s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/3) ...
+ ✓ Generating static pages (3/3)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /_not-found                            997 B         104 kB
+└ ƒ /[[...route]]                         259 kB         362 kB
++ First Load JS shared by all             103 kB
+  ├ chunks/255-e881f48ae1d2333a.js         46 kB
+  ├ chunks/4bd1b696-409494caf8c83275.js  54.2 kB
+  └ other shared chunks (total)          2.79 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+$ next build

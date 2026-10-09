@@ -23,6 +23,8 @@ import {
 	AlertDialogAction,
 } from "@/components/ui/alert-dialog";
 import { installSaasAdminHistoryGuard } from "./saas-admin-history-guard";
+import { DEFAULT_SAAS_ADMIN_APPEARANCE, normalizeSaasAdminAppearance, type SaasAdminAppearance } from "@/components/pages/saas-admin/appearance";
+import { SAAS_ADMIN_APPEARANCE_COOKIE } from "./saas-admin-preferences";
 const STORAGE_KEY = "uilab.saas-admin.preferences.v1";
 const MODE_KEY = "uilab.saas-admin.mode.v1";
 
@@ -55,9 +57,11 @@ async function submitDemo(action: SaasAdminAction) {
 export function SaasAdminPreview({
 	locale,
 	initialPath = "/dashboard/orders",
+	initialAppearance = DEFAULT_SAAS_ADMIN_APPEARANCE,
 }: {
 	locale: SaasAdminLocale;
 	initialPath?: string;
+	initialAppearance?: SaasAdminAppearance;
 }) {
 	const router = useRouter();
 	const fullPath = usePathname();
@@ -69,6 +73,7 @@ export function SaasAdminPreview({
 		: initialPath;
 	const [brand, setBrand] = useState<SaasAdminBrand>("default");
 	const [mode, setMode] = useState<SaasAdminMode>("system");
+	const [appearance, setAppearance] = useState(initialAppearance);
 	const [ready, setReady] = useState(false);
 	const dirty = useRef(new Map<string, number>());
 	const revision = useRef(0);
@@ -170,6 +175,7 @@ export function SaasAdminPreview({
 				setBrand(saved.brand);
 			if (["light", "dark", "system"].includes(saved?.mode))
 				setMode(saved.mode);
+			if (saved?.appearance) setAppearance(normalizeSaasAdminAppearance(saved.appearance));
 		} catch {
 			/* Default/system remains usable without storage. */
 		}
@@ -178,11 +184,13 @@ export function SaasAdminPreview({
 	useEffect(() => {
 		if (!ready) return;
 		try {
-			localStorage.setItem(STORAGE_KEY, JSON.stringify({ brand, mode }));
+			localStorage.setItem(STORAGE_KEY, JSON.stringify({ brand, mode, appearance }));
 		} catch {
 			/* Optional persistence. */
 		}
-	}, [brand, mode, ready]);
+		// Layout preferences are also available to this consumer's SSR wrapper.
+		document.cookie = `${SAAS_ADMIN_APPEARANCE_COOKIE}=${encodeURIComponent(JSON.stringify(appearance))}; path=/; max-age=31536000; SameSite=Lax`;
+	}, [brand, mode, appearance, ready]);
 	useEffect(() => {
 		if (!ready) return;
 		document.documentElement.dataset.saasAdminBrand = brand;
@@ -255,6 +263,8 @@ export function SaasAdminPreview({
 				brand={brand}
 				mode={mode}
 				settings={settings}
+				appearance={appearance}
+				onAppearanceChange={setAppearance}
 				onSubmit={submit}
 				onSettingsDraftChange={markDraft}
 				onLocaleChange={(next) =>

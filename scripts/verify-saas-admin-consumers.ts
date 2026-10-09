@@ -143,6 +143,7 @@ const consumer = `"use client";
 import { useEffect, useState, useRef } from "react";
 import { ThemeProvider, useTheme } from "next-themes";
 import { SaasAdminSite, type SaasAdminAction, type SaasAdminBrand, type SaasAdminMode, type SaasAdminLocale } from "@/components/site-shells/saas-admin-site";
+import { DEFAULT_SAAS_ADMIN_APPEARANCE, normalizeSaasAdminAppearance, type SaasAdminAppearance } from "@/components/pages/saas-admin/appearance";
 const KEY = "uilab.saas-full.consumer.preferences.v1";
 const MODE = "uilab.saas-full.consumer.mode.v1";
 function SyncMode({ mode, ready }: { mode: SaasAdminMode; ready: boolean }) {
@@ -155,6 +156,7 @@ export function Consumer({ initialPath = "/dashboard/orders", initialSearch = ""
   const [brand, setBrand] = useState<SaasAdminBrand>("default");
   const [mode, setMode] = useState<SaasAdminMode>("system");
   const [locale, setLocale] = useState<SaasAdminLocale>("en");
+  const [appearance, setAppearance] = useState<SaasAdminAppearance>(DEFAULT_SAAS_ADMIN_APPEARANCE);
   const [ready, setReady] = useState(false);
   const [action, setAction] = useState({ type: "", status: "idle", attempt: 0 });
   const deletionFailed = useRef(false);
@@ -165,6 +167,7 @@ export function Consumer({ initialPath = "/dashboard/orders", initialSearch = ""
       const saved = JSON.parse(localStorage.getItem(KEY) ?? "null");
       if (["default", "blue-ink"].includes(saved?.brand)) setBrand(saved.brand);
       if (["light", "dark", "system"].includes(saved?.mode)) setMode(saved.mode);
+      if (saved?.appearance) setAppearance(normalizeSaasAdminAppearance(saved.appearance));
     } catch { /* Optional storage; retain defaults. */ }
     setReady(true);
     return () => window.removeEventListener("popstate", sync);
@@ -172,8 +175,8 @@ export function Consumer({ initialPath = "/dashboard/orders", initialSearch = ""
   useEffect(() => {
     if (!ready) return;
     document.documentElement.dataset.saasAdminBrand = brand;
-    try { localStorage.setItem(KEY, JSON.stringify({ brand, mode })); } catch { /* Optional storage. */ }
-  }, [brand, mode, ready]);
+    try { localStorage.setItem(KEY, JSON.stringify({ brand, mode, appearance })); } catch { /* Optional storage. */ }
+  }, [brand, mode, appearance, ready]);
   const navigate = (path: string) => {
     const url = new URL(path, window.location.origin);
     window.history.pushState(null, "", url.pathname + url.search);
@@ -193,7 +196,7 @@ export function Consumer({ initialPath = "/dashboard/orders", initialSearch = ""
     <output hidden data-testid="consumer-state">{JSON.stringify({ ...location, brand, mode, locale, ready, action })}</output>
     <SaasAdminSite pathname={location.pathname} search={location.search} locale={locale} brand={brand} mode={mode}
       hrefFor={path => path} onNavigate={navigate} onLocaleChange={setLocale} onBrandChange={setBrand} onModeChange={setMode}
-      onSubmit={submit} documentTheme />
+      onSubmit={submit} appearance={appearance} onAppearanceChange={setAppearance} documentTheme />
   </ThemeProvider>;
 }
 `;
@@ -294,6 +297,7 @@ try {
         }
         await writeFile(join(cwd, "consumer.tsx"), consumer);
         await writeFile(join(cwd, profile === "next-app" ? "app/globals.css" : "src/globals.css"), hostCss);
+        await writeFile(join(cwd, "consumer.tsx"), consumer);
         await run(profile, cwd, ["bun", "install"]);
         await run(profile, cwd, ["node", cli, "add", "http://127.0.0.1:3113/r/saas-admin-site.json", "--yes", "--overwrite", "--cwd", cwd]);
         const installedFiles = [];
@@ -486,6 +490,34 @@ async function browserChecks(profile: typeof profiles[number], origin: string) {
       await page.emulateMedia({ colorScheme: "light" });
       await page.waitForFunction(() => !document.documentElement.classList.contains("dark"));
       if ((await state()).pathname !== "/apps/users/list") throw new Error("System theme changed route");
+    });
+    await route("/pages/user-settings");
+    const panel = page.getByRole("dialog", { name: "Theme Customizer", exact: true });
+    async function configure(group: string, value: string) {
+      await panel.getByRole("group", { name: group, exact: true }).getByRole("button", { name: value, exact: true }).click();
+    }
+    await check("installed customizer preserves settings draft", async () => {
+      await page.getByPlaceholder("John", { exact: true }).fill("Consumer appearance draft");
+      await page.getByRole("button", { name: "Theme Customizer", exact: true }).click();
+      await configure("Sidebar", "Floating");
+      await configure("Layout", "Compact");
+      await configure("Content Layout", "Full");
+      await configure("Scale", "LG");
+      if (await page.locator('[data-slot="sidebar"]').getAttribute("data-variant") !== "floating" || await page.locator('[data-slot="sidebar"]').getAttribute("data-collapsible") !== "icon") throw new Error("Installed sidebar configuration not applied");
+      if (await page.locator("#saas-admin-content").evaluate(element => getComputedStyle(element).maxWidth) !== "none") throw new Error("Content width not applied");
+      if (await page.getByPlaceholder("John", { exact: true }).inputValue() !== "Consumer appearance draft") throw new Error("Appearance changed settings draft");
+      await page.getByRole("button", { name: "Reset appearance", exact: true }).click();
+      if (await page.getByPlaceholder("John", { exact: true }).inputValue() !== "Consumer appearance draft") throw new Error("Reset lost settings draft");
+    });
+    await check("installed appearance persists across refresh", async () => {
+      await configure("Sidebar", "Inset");
+      await configure("Layout", "Full layout");
+      await page.reload();
+      await page.waitForFunction(() => document.querySelector('[data-slot="sidebar"]')?.getAttribute("data-variant") === "inset" && document.querySelector('[data-slot="sidebar"]')?.getAttribute("data-collapsible") === "offcanvas");
+      await page.getByRole("button", { name: "Theme Customizer", exact: true }).click();
+      await page.getByRole("button", { name: "Reset appearance", exact: true }).click();
+      await page.keyboard.press("Escape");
+      await panel.waitFor({ state: "hidden" });
     });
     await route("/dashboard/orders");
     await check("order deletion failure stays in dialog and retries", async () => {

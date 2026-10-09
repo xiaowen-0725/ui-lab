@@ -58,3 +58,11 @@ Filters 表格的8张商品图为原 CDN 链接，Free固定仓库无图片文�
 - 资料背景由共享 hydration-safe 偏好 helper 在 JS 层挂载/卸载；修复 Motion 11 已挂载偏好不更新的问题，并提供暂停/恢复按钮。仅调用层移除 filter/长期 will-change，不改上游区块状态算法。共享 helper 带入现有 Motion 11.18.2 固定依赖。调用方限定 Button 过渡属性；侧栏分组保留上游高度展开，过渡只指定 height，其布局动画成本仍存在。
 
 当前整改和验证范围见[计划013](../../plans/013-saas-admin-remediation.md)。本地实现、用户视觉批准、提交及发布分别记录。
+
+## 主题定制面板（2026-10-09）
+
+用户确认新增完整配置面板，并要求参考shadcn-admin的Sidebar/Layout两组可视选择。官方shadcn 4.21.4、base-vega额外生成Toggle与ToggleGroup，只有cn路径适配与来源/许可补充，既有33份控件未改。私有AppearanceCustomizer组合Popover、Select、ToggleGroup、Field、Button和Tooltip，使用既有Sidebar props/开合状态；新增appearance接口及字体、圆角、尺寸、内容宽度配置，不修改官方原语。
+
+消费接口：`appearance?: Partial<SaasAdminAppearance>`、`onAppearanceChange?: (appearance: SaasAdminAppearance) => void`，以及 `showCustomizer?: boolean`（默认显示）。不传配置时由模板维护本地状态；受控消费同时传入配置和变更回调。类型从整站入口导出，页面与外壳复用同一环境。`sidebarOpen` / `onSidebarOpenChange` 的既有受控开合接口继续生效。偏好持久化由调用方提供。
+
+六份布局示意图来自[satnaing/shadcn-admin](https://github.com/satnaing/shadcn-admin/tree/e16c87f213a5ba5e45964e9b67c792105ec74d26/src/assets/custom)，MIT，copyright2024 Sat Naing，完整许可见[shadcn-admin-LICENSE.md](shadcn-admin-LICENSE.md)。除装饰性aria-hidden/focusable默认属性外保留上游绘制数据，调用方配置fill/stroke与尺寸；不移植其Radix配置Drawer或存储provider。首版品牌沿用两套真实主题，字体沿用本地Geist及系统无衬线，无新增字体或商品素材来源。实现范围与验证见[计划014](../../plans/014-saas-admin-theme-customizer.md)。

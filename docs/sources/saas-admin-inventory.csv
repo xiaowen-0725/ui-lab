@@ -22,17 +22,17 @@ components/pages/saas-admin/blocks/activity-timeline-primitives.tsx,Free AdminCN
 components/pages/saas-admin/blocks/delete-confirmation.tsx,UI Lab composition (official AlertDialog),,,UI Lab MIT,bb92846d32b741e86418ea4c61ae85e865c212cfb13a2bda6afe171a8eab9114
 components/pages/saas-admin/blocks/profile-background.tsx,Free AdminCN private block,src/components/ui/background-ripple.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,6d6ab0d8258d66c4a395781545fb1d775f3cfbffef885cfecca900988059c87a
 components/pages/saas-admin/components/layout/Footer.tsx,Free AdminCN,src/components/layout/Footer.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,e8bb6e64806ee4444982a9ce76a072040e8e3f466f3372a20eae657d8eea0b15
-components/pages/saas-admin/components/layout/Header.tsx,Free AdminCN,src/components/layout/Header.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,a8d68994e78ab76ccfd7ace19384aa6013ff4b4cdf6116b322657a19d6bc89a1
+components/pages/saas-admin/components/layout/Header.tsx,Free AdminCN,src/components/layout/Header.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,3aef677f84be8a97e95f615318936e73ad7fb7d7452b7c89b9a7ac21a48bcb68
 components/pages/saas-admin/components/layout/ModeToggle.tsx,UI Lab adaptation,,,UI Lab MIT,5a772bd2d68e1fd954323209ccb7e6efc5236824cd931c48183e3fd8a44f24df
-components/pages/saas-admin/components/layout/Sidebar.tsx,Free AdminCN,src/components/layout/Sidebar.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,980f32933ad4fd1546ad0dfb0941ed56f5eebf36510b082953b7d2b2b0e50306
+components/pages/saas-admin/components/layout/Sidebar.tsx,Free AdminCN,src/components/layout/Sidebar.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,b652d3786f3e738831c862f69fe8ea22620fafde4731c456d30208878c3f595e
 components/pages/saas-admin/components/shared/LanguageDropdown.tsx,UI Lab adaptation,,,UI Lab MIT,6069dc5667fd52b8882b13543dbf5cf158c9b3d4e18f805f3713e382ebaa1d69
 components/pages/saas-admin/components/shared/Logo.tsx,Free AdminCN,src/components/shared/Logo.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,5e8ec8156dafe841771d6f5fae1e27b7464e4b063899642b746aa27cd3a32c48
 components/pages/saas-admin/components/shared/ProfileDropdown.tsx,Free AdminCN,src/components/shared/ProfileDropdown.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,3d994488fef067b5e4149807a49453def03e40154d89a21544ad48afb62d86e2
 components/pages/saas-admin/configs/mailConfig.ts,Free AdminCN,src/configs/mailConfig.ts,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,599ba67f3a4f6e44a662cf05742f6d3c64aee85d6e84755b3d6a4a5ed15445da
 components/pages/saas-admin/configs/navConfig.tsx,Free AdminCN,src/configs/navConfig.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,81498d863c6d0088d46fd7d4f2c22dea1aaea03918aea508cb074db419f8b5b6
 components/pages/saas-admin/configs/themeConfig.ts,Free AdminCN,src/configs/themeConfig.ts,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,9ba4671f10c082f556c72b5efbde83438112dc6355791bb1b37a2ae39cca7d07
-components/pages/saas-admin/content.ts,UI Lab adaptation,,,UI Lab MIT,43512d9700b00c7e359a4efbebca45919c32311fe16139d4adb516eca4567eba
-components/pages/saas-admin/environment.tsx,UI Lab adaptation,,,UI Lab MIT,b0773d4b9f11451fea24fa3c48bc54e2d223d7fd217cbb6cf09118450bf65f8b
+components/pages/saas-admin/content.ts,UI Lab adaptation,,,UI Lab MIT,b776726b9af40f687ab26cadda4789e7e9fee4c2ca5ae4a7321a789a6215376d
+components/pages/saas-admin/environment.tsx,UI Lab adaptation,,,UI Lab MIT,d02d9b31c2ebebb0045ed65b2ecc88d77b04b5db72dfcf945061d1e4db421747
 components/pages/saas-admin/fake-db/apps/users.ts,Free AdminCN,src/fake-db/apps/users.ts,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,5ec2c3a9380fe97e2ae5fa02fc982e21b8d2b48962b683235e5568fd19cecd26
 components/pages/saas-admin/fake-db/pages/user-profile.ts,Free AdminCN,src/fake-db/pages/user-profile.ts,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,5b615d06cdaa72d41ee258ce619008103765a955946c0a29485384586bd9156e
 components/pages/saas-admin/fake-db/transaction-samples.ts,Free AdminCN extracted data,src/app/(pages)/dashboard/orders/page.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,61680bdec86cd888173d7a9d486d092ba184e1f3521d39fcf155c8f444340654
@@ -41,7 +41,7 @@ components/pages/saas-admin/hooks/use-user-app.ts,Free AdminCN,src/hooks/use-use
 components/pages/saas-admin/page-frame.tsx,UI Lab adaptation,,,UI Lab MIT,46881f9f90df6a6e035e8bc6ff86622741a239080de54a03d243fee19ef910bd
 components/pages/saas-admin/routes.ts,UI Lab adaptation,,,UI Lab MIT,6d65ebe1029b4d1743133c833ac7583c9d2d3e8c20e6d8a8501646bc82b545cb
 components/pages/saas-admin/styles.css,UI Lab adaptation,,,UI Lab MIT,938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069
-components/pages/saas-admin/theme.tsx,UI Lab adaptation,,,UI Lab MIT,5341eb8bc3b2f45efbfddff4a2047a1adf93339a1224911744ee335a7473f5f4
+components/pages/saas-admin/theme.tsx,UI Lab adaptation,,,UI Lab MIT,eac78481a2c5c64345caf2ec0530ef4d5add3541d716ecb59d7ae77db6823d0a
 components/pages/saas-admin/types/apps/mail-types.ts,Free AdminCN,src/types/apps/mail-types.ts,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,aa69d3ff473d8e5df54651283000d9d64d7ae89d77cbfcc3b9bb652af50d62ad
 components/pages/saas-admin/types/apps/user-types.ts,Free AdminCN,src/types/apps/user-types.ts,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5
 components/pages/saas-admin/types/pages/user-profile-types.ts,Free AdminCN,src/types/pages/user-profile-types.ts,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f
@@ -115,8 +115,8 @@ components/pages/saas-admin/views/pages/user-settings/workspace/workspace-data.t
 components/pages/saas-admin/views/pages/user-settings/workspace/workspace-detail.tsx,Free AdminCN,src/views/pages/user-settings/workspace/workspace-detail.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,5e21eda12b7c3848edf059403a83de9b4cc26b24e31b54c13eb09263f3a577f7
 components/pages/saas-admin/views/pages/user-settings/workspace/workspace-name.tsx,Free AdminCN,src/views/pages/user-settings/workspace/workspace-name.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,27ff9cd81e386bb486889bb460c33bf2aca46dfcc252bb4af4b88b7bd38ec67e
 components/pages/saas-admin/views/pages/user-settings/workspace/workspace-organizations.tsx,Free AdminCN,src/views/pages/user-settings/workspace/workspace-organizations.tsx,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,04fb2eff6786d7e192776f92fee8e7bf33be6e23db4f7ba4c142902821075b16
-components/site-shells/saas-admin-shell.tsx,UI Lab adaptation,,,UI Lab MIT,ce2b171cce67d00c3c74fea44f50f596fdc0bcc69136f56de3afac4549819d62
-components/site-shells/saas-admin-site.tsx,UI Lab adaptation,,,UI Lab MIT,c690cc73e632f8f9f0dd8695962d971d44c9e045c2eda0c6253c3c661215605d
+components/site-shells/saas-admin-shell.tsx,UI Lab adaptation,,,UI Lab MIT,725ef504e7f767073e72a535228fdb5aa1b0dab2f6cae0bf205f67cb407802ac
+components/site-shells/saas-admin-site.tsx,UI Lab adaptation,,,UI Lab MIT,2049973e90bc7d21be7c8c415feccd64f0678bc78eaa84d464f38c2f723bd592
 components/ui/alert-dialog.tsx,Official shadcn Base UI,base-vega generator / alert-dialog.tsx,97ddbf4274ed09d02aa7fd34375f2cf1e48cbbf0,MIT,17d9d5d9570f6bba3163a7ccb7eb167286842e5b23f603116d1a38dbc902c35d
 components/ui/alert.tsx,Official shadcn Base UI,base-vega generator / alert.tsx,97ddbf4274ed09d02aa7fd34375f2cf1e48cbbf0,MIT,61b5963b9b418e345307be628ddbfe45351e1672430440dc7751ffac858726ab
 components/ui/avatar.tsx,Official shadcn Base UI,base-vega generator / avatar.tsx,97ddbf4274ed09d02aa7fd34375f2cf1e48cbbf0,MIT,d5739ffbbb4b05aa03d4f14a76992da0700f8a922da8326c094af37e17f4a322
@@ -155,3 +155,13 @@ lib/hooks/use-mobile.ts,Official shadcn Base UI,base-vega generator / use-mobile
 lib/theme-kits/blue-ink-colors.ts,UI Lab shared theme,,,UI Lab MIT,20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4
 lib/theme-kits/saas-admin-default-colors.ts,Free AdminCN tokens,src/app/globals.css,dd1afd2f3a794ea9e746197de314f81d43670ea1,MIT,75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568
 lib/utils.ts,UI Lab shared utility,,,UI Lab MIT,7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d
+components/pages/saas-admin/appearance.ts,UI Lab composition,,,UI Lab MIT,9eda90f97c53730030a9914176ce6266a79a39a2a81a10e4ba9c07451e176bf2
+components/pages/saas-admin/components/layout/AppearanceCustomizer.tsx,UI Lab composition,,,UI Lab MIT,9d418387ccf07e73ff24d6d9636d0274e7f34c3875decf0cc27fc6abdfa28343
+components/ui/toggle.tsx,Official shadcn Base UI,base-vega generator / toggle.tsx,97ddbf4274ed09d02aa7fd34375f2cf1e48cbbf0,MIT,63e25ab9126a6b764818119f1c660725ba7424e69c511d5dceecd08c298c8fa7
+components/ui/toggle-group.tsx,Official shadcn Base UI,base-vega generator / toggle-group.tsx,97ddbf4274ed09d02aa7fd34375f2cf1e48cbbf0,MIT,f03b6d793b7bec48c83271d68966fd93e621a3369c1402626cb71a02f7ee169b
+components/pages/saas-admin/assets/svg/icon-sidebar-inset.tsx,shadcn-admin illustration,src/assets/custom/icon-sidebar-inset.tsx,e16c87f213a5ba5e45964e9b67c792105ec74d26,MIT,bab55e93586a75b5b94c2afb631935e53ff1a7f3b52e5d77261e7750b13245ff
+components/pages/saas-admin/assets/svg/icon-sidebar-sidebar.tsx,shadcn-admin illustration,src/assets/custom/icon-sidebar-sidebar.tsx,e16c87f213a5ba5e45964e9b67c792105ec74d26,MIT,44cb84c6f81cae64e6cd3b6666d40828d6bcf2a94fabea620fa9ad709b26ea12
+components/pages/saas-admin/assets/svg/icon-layout-default.tsx,shadcn-admin illustration,src/assets/custom/icon-layout-default.tsx,e16c87f213a5ba5e45964e9b67c792105ec74d26,MIT,f600b487007c6b42e9f44d34d46827dec8cae55b3d19bf48aaa28db58cbeb8cc
+components/pages/saas-admin/assets/svg/icon-layout-full.tsx,shadcn-admin illustration,src/assets/custom/icon-layout-full.tsx,e16c87f213a5ba5e45964e9b67c792105ec74d26,MIT,e917725dd7c223dd8c8f8ba20f981a6ee63c3d0f78ff883c9094f9e36011e95f
+components/pages/saas-admin/assets/svg/icon-sidebar-floating.tsx,shadcn-admin illustration,src/assets/custom/icon-sidebar-floating.tsx,e16c87f213a5ba5e45964e9b67c792105ec74d26,MIT,42207238afd35175ae79e8081e4c660b75ffe2ebd1866789b76125dea88a518b
+components/pages/saas-admin/assets/svg/icon-layout-compact.tsx,shadcn-admin illustration,src/assets/custom/icon-layout-compact.tsx,e16c87f213a5ba5e45964e9b67c792105ec74d26,MIT,7962f801234f4681660b69b80f54af0378fff5d246e6cedd45a71a0a63e84ae7

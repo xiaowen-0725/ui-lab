@@ -1,0 +1,465 @@
+$ bun run typecheck && bun run lint && bun run check:registry && bun run check:catalog && bun run check:architecture && bun run check:snapshot && bun run check:skills
+$ tsc --noEmit
+$ biome lint .
+components/pages/saas-admin/components/layout/Header.tsx:61:22 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+
+    59 │ 									.replace(/-/g, " ")
+    60 │ 									.replace(/\b\w/g, (c) => c.toUpperCase());
+  > 61 │ 								const href = "/" + segments.slice(0, index + 1).join("/");
+       │ 								             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    62 │
+    63 │ 								return (
+
+  i Unsafe fix: Use a template literal.
+
+     59  59 │                     .replace(/-/g, " ")
+     60  60 │                     .replace(/\b\w/g, (c) => c.toUpperCase());
+     61     │ - → → → → → → → → const·href·=·"/"·+·segments.slice(0,·index·+·1).join("/");
+         61 │ + → → → → → → → → const·href·=·`/${segments.slice(0,·index·+·1).join("/")}`;
+     62  62 │
+     63  63 │                   return (
+
+
+scripts/verify-system-tokens.ts:52:53 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+
+    50 │   const after = await install("system-workbench");
+    51 │   assert(after === themed, "System defaults changed explicit theme");
+  > 52 │   await writeFile(join(fixture, "app/globals.css"), after + "\n.consumer-overrides { --primary: hotpink; }\n");
+       │                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    53 │   const blue = await install("theme-blue-ink");
+    54 │   assert(blue.includes(".consumer-overrides") && blue.includes("hotpink"), "Explicit Blue Ink removed consumer-owned override");
+
+  i Unsafe fix: Use a template literal.
+
+    50 50 │     const after = await install("system-workbench");
+    51 51 │     assert(after === themed, "System defaults changed explicit theme");
+    52    │ - ··await·writeFile(join(fixture,·"app/globals.css"),·after·+·"\n.consumer-overrides·{·--primary:·hotpink;·}\n");
+       52 │ + ··await·writeFile(join(fixture,·"app/globals.css"),·`${after}\n.consumer-overrides·{·--primary:·hotpink;·}\n`);
+    53 53 │     const blue = await install("theme-blue-ink");
+    54 54 │     assert(blue.includes(".consumer-overrides") && blue.includes("hotpink"), "Explicit Blue Ink removed consumer-owned override");
+
+
+.agents/skills/setup-ts-deep-modules/dependency-cruiser.config.cjs:70:50 lint/suspicious/noTemplateCurlyInString ━━━━━━━━━━
+
+  ! Unexpected template string placeholder.
+
+    68 │     {
+    69 │       name: "no-circular",
+  > 70 │       comment: "No dependency cycles. Scope to `^${R}/` if you want to allow cycles outside packages.",
+       │                                                  ^^^^
+    71 │       severity: "error",
+    72 │       from: {},
+
+  i Turn the string into a template string.
+
+
+.claude/skills/setup-ts-deep-modules/dependency-cruiser.config.cjs:70:50 lint/suspicious/noTemplateCurlyInString ━━━━━━━━━━
+
+  ! Unexpected template string placeholder.
+
+    68 │     {
+    69 │       name: "no-circular",
+  > 70 │       comment: "No dependency cycles. Scope to `^${R}/` if you want to allow cycles outside packages.",
+       │                                                  ^^^^
+    71 │       severity: "error",
+    72 │       from: {},
+
+  i Turn the string into a template string.
+
+
+.grok/skills/setup-ts-deep-modules/dependency-cruiser.config.cjs:70:50 lint/suspicious/noTemplateCurlyInString ━━━━━━━━━━
+
+  ! Unexpected template string placeholder.
+
+    68 │     {
+    69 │       name: "no-circular",
+  > 70 │       comment: "No dependency cycles. Scope to `^${R}/` if you want to allow cycles outside packages.",
+       │                                                  ^^^^
+    71 │       severity: "error",
+    72 │       from: {},
+
+  i Turn the string into a template string.
+
+
+components/app/sites/saas-admin-history-guard.ts:16:37 lint/complexity/useArrowFunction  FIXABLE  ━━━━━━━━━━
+
+  ! This function expression can be turned into an arrow function.
+
+    14 │ 	let currentUrl = new URL(location.href);
+    15 │ 	let restoring: (() => void) | null = null;
+  > 16 │ 	const push: History["pushState"] = function (state, title, url) {
+       │ 	                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  > 17 │ 		const next = cursor + 1;
+  > 18 │ 		originalPush.call(history, { ...state, [key]: next }, title, url);
+  > 19 │ 		cursor = next;
+  > 20 │ 		currentUrl = new URL(location.href);
+  > 21 │ 	};
+       │ 	^
+    22 │ 	const replace: History["replaceState"] = function (state, title, url) {
+    23 │ 		originalReplace.call(history, { ...state, [key]: cursor }, title, url);
+
+  i Function expressions that don't use this can be turned into arrow functions.
+
+  i Safe fix: Use an arrow function instead.
+
+    14 14 │     let currentUrl = new URL(location.href);
+    15 15 │     let restoring: (() => void) | null = null;
+    16    │ - → const·push:·History["pushState"]·=·function·(state,·title,·url)·{
+       16 │ + → const·push:·History["pushState"]·=·(state,·title,·url)·=>·{
+    17 17 │       const next = cursor + 1;
+    18 18 │       originalPush.call(history, { ...state, [key]: next }, title, url);
+
+
+components/app/sites/saas-admin-history-guard.ts:22:43 lint/complexity/useArrowFunction  FIXABLE  ━━━━━━━━━━
+
+  ! This function expression can be turned into an arrow function.
+
+    20 │ 		currentUrl = new URL(location.href);
+    21 │ 	};
+  > 22 │ 	const replace: History["replaceState"] = function (state, title, url) {
+       │ 	                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  > 23 │ 		originalReplace.call(history, { ...state, [key]: cursor }, title, url);
+  > 24 │ 		currentUrl = new URL(location.href);
+  > 25 │ 	};
+       │ 	^
+    26 │ 	originalReplace.call(history, { ...history.state, [key]: cursor }, "");
+    27 │ 	history.pushState = push;
+
+  i Function expressions that don't use this can be turned into arrow functions.
+
+  i Safe fix: Use an arrow function instead.
+
+    20 20 │       currentUrl = new URL(location.href);
+    21 21 │     };
+    22    │ - → const·replace:·History["replaceState"]·=·function·(state,·title,·url)·{
+       22 │ + → const·replace:·History["replaceState"]·=·(state,·title,·url)·=>·{
+    23 23 │       originalReplace.call(history, { ...state, [key]: cursor }, title, url);
+    24 24 │       currentUrl = new URL(location.href);
+
+
+components/app/sites/saas-admin-preview.tsx:192:3 lint/suspicious/noDocumentCookie ━━━━━━━━━━━━━━━━━
+
+  ! Direct assigning to document.cookie is not recommended.
+
+    190 │ 		}
+    191 │ 		// Layout preferences are also available to this consumer's SSR wrapper.
+  > 192 │ 		document.cookie = `${SAAS_ADMIN_APPEARANCE_COOKIE}=${encodeURIComponent(JSON.stringify(appearance))}; path=/; max-age=31536000; SameSite=Lax`;
+        │ 		^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    193 │ 	}, [brand, mode, appearance, ready]);
+    194 │ 	useEffect(() => {
+
+  i Consider using the Cookie Store API.
+
+
+components/pages/saas-admin/assets/svg/icon-layout-compact.tsx:3:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  ! All these imports are only used as types.
+
+    1 │ // Source: satnaing/shadcn-admin, MIT, copyright 2024 Sat Naing.
+    2 │ // Revision: e16c87f213a5ba5e45964e9b67c792105ec74d26; decorative aria-hidden/focusable defaults added; src/assets/custom/icon-layout-compact.tsx
+  > 3 │ import { type SVGProps } from 'react'
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    4 │
+    5 │ export function IconLayoutCompact(props: SVGProps<SVGSVGElement>) {
+
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+
+  i Safe fix: Use import type.
+
+      1   1 │   // Source: satnaing/shadcn-admin, MIT, copyright 2024 Sat Naing.
+      2   2 │   // Revision: e16c87f213a5ba5e45964e9b67c792105ec74d26; decorative aria-hidden/focusable defaults added; src/assets/custom/icon-layout-compact.tsx
+      3     │ - import·{·type·SVGProps·}·from·'react'
+          3 │ + import·type·{·SVGProps·}·from·'react'
+      4   4 │
+      5   5 │   export function IconLayoutCompact(props: SVGProps<SVGSVGElement>) {
+
+
+components/pages/saas-admin/assets/svg/icon-layout-default.tsx:3:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  ! All these imports are only used as types.
+
+    1 │ // Source: satnaing/shadcn-admin, MIT, copyright 2024 Sat Naing.
+    2 │ // Revision: e16c87f213a5ba5e45964e9b67c792105ec74d26; decorative aria-hidden/focusable defaults added; src/assets/custom/icon-layout-default.tsx
+  > 3 │ import { type SVGProps } from 'react'
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    4 │
+    5 │ export function IconLayoutDefault(props: SVGProps<SVGSVGElement>) {
+
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+
+  i Safe fix: Use import type.
+
+      1   1 │   // Source: satnaing/shadcn-admin, MIT, copyright 2024 Sat Naing.
+      2   2 │   // Revision: e16c87f213a5ba5e45964e9b67c792105ec74d26; decorative aria-hidden/focusable defaults added; src/assets/custom/icon-layout-default.tsx
+      3     │ - import·{·type·SVGProps·}·from·'react'
+          3 │ + import·type·{·SVGProps·}·from·'react'
+      4   4 │
+      5   5 │   export function IconLayoutDefault(props: SVGProps<SVGSVGElement>) {
+
+
+components/pages/saas-admin/assets/svg/icon-layout-full.tsx:3:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  ! All these imports are only used as types.
+
+    1 │ // Source: satnaing/shadcn-admin, MIT, copyright 2024 Sat Naing.
+    2 │ // Revision: e16c87f213a5ba5e45964e9b67c792105ec74d26; decorative aria-hidden/focusable defaults added; src/assets/custom/icon-layout-full.tsx
+  > 3 │ import { type SVGProps } from 'react'
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    4 │
+    5 │ export function IconLayoutFull(props: SVGProps<SVGSVGElement>) {
+
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+
+  i Safe fix: Use import type.
+
+      1   1 │   // Source: satnaing/shadcn-admin, MIT, copyright 2024 Sat Naing.
+      2   2 │   // Revision: e16c87f213a5ba5e45964e9b67c792105ec74d26; decorative aria-hidden/focusable defaults added; src/assets/custom/icon-layout-full.tsx
+      3     │ - import·{·type·SVGProps·}·from·'react'
+          3 │ + import·type·{·SVGProps·}·from·'react'
+      4   4 │
+      5   5 │   export function IconLayoutFull(props: SVGProps<SVGSVGElement>) {
+
+
+components/pages/saas-admin/assets/svg/icon-sidebar-floating.tsx:3:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  ! All these imports are only used as types.
+
+    1 │ // Source: satnaing/shadcn-admin, MIT, copyright 2024 Sat Naing.
+    2 │ // Revision: e16c87f213a5ba5e45964e9b67c792105ec74d26; decorative aria-hidden/focusable defaults added; src/assets/custom/icon-sidebar-floating.tsx
+  > 3 │ import { type SVGProps } from 'react'
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    4 │
+    5 │ export function IconSidebarFloating(props: SVGProps<SVGSVGElement>) {
+
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+
+  i Safe fix: Use import type.
+
+      1   1 │   // Source: satnaing/shadcn-admin, MIT, copyright 2024 Sat Naing.
+      2   2 │   // Revision: e16c87f213a5ba5e45964e9b67c792105ec74d26; decorative aria-hidden/focusable defaults added; src/assets/custom/icon-sidebar-floating.tsx
+      3     │ - import·{·type·SVGProps·}·from·'react'
+          3 │ + import·type·{·SVGProps·}·from·'react'
+      4   4 │
+      5   5 │   export function IconSidebarFloating(props: SVGProps<SVGSVGElement>) {
+
+
+components/pages/saas-admin/assets/svg/icon-sidebar-inset.tsx:3:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  ! All these imports are only used as types.
+
+    1 │ // Source: satnaing/shadcn-admin, MIT, copyright 2024 Sat Naing.
+    2 │ // Revision: e16c87f213a5ba5e45964e9b67c792105ec74d26; decorative aria-hidden/focusable defaults added; src/assets/custom/icon-sidebar-inset.tsx
+  > 3 │ import { type SVGProps } from 'react'
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    4 │
+    5 │ export function IconSidebarInset(props: SVGProps<SVGSVGElement>) {
+
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+
+  i Safe fix: Use import type.
+
+     1  1 │   // Source: satnaing/shadcn-admin, MIT, copyright 2024 Sat Naing.
+     2  2 │   // Revision: e16c87f213a5ba5e45964e9b67c792105ec74d26; decorative aria-hidden/focusable defaults added; src/assets/custom/icon-sidebar-inset.tsx
+     3    │ - import·{·type·SVGProps·}·from·'react'
+        3 │ + import·type·{·SVGProps·}·from·'react'
+     4  4 │
+     5  5 │   export function IconSidebarInset(props: SVGProps<SVGSVGElement>) {
+
+
+components/pages/saas-admin/assets/svg/icon-sidebar-sidebar.tsx:3:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  ! All these imports are only used as types.
+
+    1 │ // Source: satnaing/shadcn-admin, MIT, copyright 2024 Sat Naing.
+    2 │ // Revision: e16c87f213a5ba5e45964e9b67c792105ec74d26; decorative aria-hidden/focusable defaults added; src/assets/custom/icon-sidebar-sidebar.tsx
+  > 3 │ import { type SVGProps } from 'react'
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    4 │
+    5 │ export function IconSidebarSidebar(props: SVGProps<SVGSVGElement>) {
+
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+
+  i Safe fix: Use import type.
+
+     1  1 │   // Source: satnaing/shadcn-admin, MIT, copyright 2024 Sat Naing.
+     2  2 │   // Revision: e16c87f213a5ba5e45964e9b67c792105ec74d26; decorative aria-hidden/focusable defaults added; src/assets/custom/icon-sidebar-sidebar.tsx
+     3    │ - import·{·type·SVGProps·}·from·'react'
+        3 │ + import·type·{·SVGProps·}·from·'react'
+     4  4 │
+     5  5 │   export function IconSidebarSidebar(props: SVGProps<SVGSVGElement>) {
+
+
+components/pages/saas-admin/views/apps/users/view/activity-timeline.tsx:170:9 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━
+
+  ! Change to an optional chain.
+
+    168 │ 							item.attachment ||
+    169 │ 							item.person ||
+  > 170 │ 							(item.teamMembers && item.teamMembers.length) ? (
+        │ 							 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    171 │ 								<TimelineContent className="flex flex-col gap-2 pb-3 pl-4">
+    172 │ 									{item.detail ? (
+
+  i Unsafe fix: Change to an optional chain.
+
+    168 168 │                 item.attachment ||
+    169 169 │                 item.person ||
+    170     │ - → → → → → → → (item.teamMembers·&&·item.teamMembers.length)·?·(
+        170 │ + → → → → → → → (item.teamMembers?.length)·?·(
+    171 171 │                   <TimelineContent className="flex flex-col gap-2 pb-3 pl-4">
+    172 172 │                     {item.detail ? (
+
+
+components/pages/saas-admin/views/apps/users/view/projects-datatable.tsx:106:30 lint/correctness/noUnusedFunctionParameters  FIXABLE  ━━━━━━━━━━
+
+  ! This parameter index is unused.
+
+    104 │ 	return (
+    105 │ 		<AvatarGroup>
+  > 106 │ 			{visibleTeam.map((member, index) => (
+        │ 			                          ^^^^^
+    107 │ 				<Avatar
+    108 │ 					key={`${project.id}-team-${member.initials}`}
+
+  i Unused parameters might be the result of an incomplete refactoring.
+
+  i Unsafe fix: If this is intentional, prepend index with an underscore.
+
+    104 104 │     return (
+    105 105 │       <AvatarGroup>
+    106     │ - → → → {visibleTeam.map((member,·index)·=>·(
+        106 │ + → → → {visibleTeam.map((member,·_index)·=>·(
+    107 107 │           <Avatar
+    108 108 │             key={`${project.id}-team-${member.initials}`}
+
+
+components/pages/saas-admin/views/dashboards/widgets/widget-product-insights.tsx:68:5 lint/performance/noImgElement ━━━━━━━━━━
+
+  ! Don't use <img> element.
+
+    66 │ 					</span>
+    67 │ 				</div>
+  > 68 │ 				<img
+       │ 				^^^^
+  > 69 │ 					src={imageImagesWidgetsImage7Webp}
+        ...
+  > 73 │ 					className="w-20.5 h-auto rounded-md"
+  > 74 │ 				/>
+       │ 				^^
+    75 │ 			</CardHeader>
+    76 │ 			<CardContent className="block">
+
+  i Using the <img> can lead to slower LCP and higher bandwidth. Consider using <Image /> from next/image to automatically optimize images.
+
+
+components/pages/saas-admin/views/dashboards/widgets/widget-total-earning.tsx:135:11 lint/performance/noImgElement ━━━━━━━━━━
+
+  ! Don't use <img> element.
+
+    133 │ 								<Avatar className="size-11 rounded-sm after:rounded-[inherit] after:border-0">
+    134 │ 									<AvatarFallback className="bg-primary/10 shrink-0 rounded-sm">
+  > 135 │ 										<img
+        │ 										^^^^
+  > 136 │ 											width={24}
+         ...
+  > 140 │ 											className="size-6"
+  > 141 │ 										/>
+        │ 										^^
+    142 │ 									</AvatarFallback>
+    143 │ 								</Avatar>
+
+  i Using the <img> can lead to slower LCP and higher bandwidth. Consider using <Image /> from next/image to automatically optimize images.
+
+
+components/pages/saas-admin/views/dashboards/widgets/widget-total-earning.tsx:127:33 lint/correctness/noUnusedFunctionParameters  FIXABLE  ━━━━━━━━━━
+
+  ! This parameter index is unused.
+
+    125 │ 			<CardContent className="flex flex-1 flex-col gap-4">
+    126 │ 				<div className="flex flex-1 flex-col justify-evenly gap-4">
+  > 127 │ 					{earningData.map((earning, index) => (
+        │ 					                           ^^^^^
+    128 │ 						<div
+    129 │ 							key={earning.platform}
+
+  i Unused parameters might be the result of an incomplete refactoring.
+
+  i Unsafe fix: If this is intentional, prepend index with an underscore.
+
+    125 125 │         <CardContent className="flex flex-1 flex-col gap-4">
+    126 126 │           <div className="flex flex-1 flex-col justify-evenly gap-4">
+    127     │ - → → → → → {earningData.map((earning,·index)·=>·(
+        127 │ + → → → → → {earningData.map((earning,·_index)·=>·(
+    128 128 │               <div
+    129 129 │                 key={earning.platform}
+
+
+tests/saas-admin-query-state.test.tsx:56:23 lint/style/noNonNullAssertion ━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! Forbidden non-null assertion.
+
+    54 │ 		target: { value: "Jane" },
+    55 │ 	});
+  > 56 │ 	const next = new URL(navigations.at(-1)!, "https://example.test");
+       │ 	                     ^^^^^^^^^^^^^^^^^^^
+    57 │ 	expect(next.searchParams.get("q")).toBe("Jane");
+    58 │ 	expect(next.searchParams.get("campaign")).toBe("example");
+
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 31.
+Checked 1157 files in 292ms. No fixes applied.
+Found 41 warnings.
+Found 10 infos.
+$ bun scripts/check-registry.ts
+Validated 139 registry components.
+Verified 43 light and 43 dark --wb-* tokens on system-workbench, referenced by 9 components.
+Validated 16 registry:theme items.
+$ bun test tests/catalog-coverage.test.ts tests/catalog-contract.test.ts tests/nav-contract.test.ts tests/standalone-usage.test.ts
+bun test v1.3.14 (0d9b296a)
+
+tests/nav-contract.test.ts:
+(pass) semantic navigation follows historical detail paths without double activation [0.40ms]
+
+tests/catalog-coverage.test.ts:
+(pass) every baseline record and expanded variant has a real source and machine identity [122.95ms]
+(pass) all knowledge and references project from their domain truths without fake installs [99.56ms]
+(pass) every emitted installation command and standalone usage resolves to real distribution [283.17ms]
+
+tests/standalone-usage.test.ts:
+(pass) every family and displayed variant declares a real standalone usage [2.66ms]
+(pass) machine detail delivers copyable usage while installation remains implementation-only [444.66ms]
+(pass) base variants retain their own source entry and narrow copyable usage [1.92ms]
+
+tests/catalog-contract.test.ts:
+(pass) Catalog installation contract > display families and every variant are installable without duplicate identities [96.31ms]
+(pass) Catalog installation contract > owned family and mandatory installation closure are separate [106.66ms]
+
+ 9 pass
+ 0 fail
+ 6182 expect() calls
+Ran 9 tests across 4 files. [1263.00ms]
+$ bun scripts/check-architecture.ts
+Architecture: 169 targets, 374 source files; portable imports, named exports, bilingual metadata and localized navigation passed.
+$ bun scripts/gen-catalog-snapshot.ts --check
+Catalog snapshot matches 571 current items (generatedAt excluded).
+$ bun scripts/check-skills.ts && bun test tests/ui-lab-skill.test.ts
+Validated 3 skills, 7 Markdown files, 4 relative links, and 3 OpenAI agent prompt(s).
+bun test v1.3.14 (0d9b296a)
+
+tests/ui-lab-skill.test.ts:
+(pass) UI Lab skill routing contract > keeps a two-route component discover/install router [0.54ms]
+(pass) UI Lab skill routing contract > keeps required references present and linked [0.27ms]
+(pass) UI Lab skill routing contract > discover stays read-only and points at catalog commands [0.12ms]
+(pass) UI Lab skill routing contract > install uses shadcn registry commands and does not auto-run by default [0.10ms]
+(pass) UI Lab skill routing contract > explicitly excludes design-system lifecycle and admin template work [0.15ms]
+(pass) UI Lab skill metadata > gives the model-invoked skill an explicit default prompt [0.08ms]
+
+ 6 pass
+ 0 fail
+ 22 expect() calls
+Ran 6 tests across 1 file. [75.00ms]

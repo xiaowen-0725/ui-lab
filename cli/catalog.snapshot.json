@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T05:00:29.576Z",
+  "generatedAt": "2026-10-09T05:32:55.101Z",
   "count": 571,
   "items": [
     {
@@ -977,6 +977,7 @@
         "components/pages/saas-admin/environment.tsx",
         "components/pages/saas-admin/page-frame.tsx",
         "components/pages/saas-admin/views/orders.tsx",
+        "components/pages/saas-admin/appearance.ts",
         "components/pages/saas-admin/content.ts",
         "components/pages/saas-admin/fake-db/apps/users.ts",
         "components/pages/saas-admin/fake-db/pages/user-profile.ts",
@@ -1015,7 +1016,7 @@
         "components/ui/alert.tsx",
         "components/ui/alert-dialog.tsx"
       ],
-      "sourceVersion": "3d887ed540c1c6fe8511b0583fc6be0818e2f9c7c4ff9a8c5ebba22e3b9a52cf",
+      "sourceVersion": "36580fad039fcde3844af46a069d0fbcdf929a5ed0e0ef24dfcab39c7d30417f",
       "installTargets": [
         "saas-admin-orders-page"
       ]
@@ -1055,6 +1056,7 @@
         "components/pages/saas-admin/page-frame.tsx",
         "components/pages/saas-admin/views/apps/users/list/index.tsx",
         "components/pages/saas-admin/views/apps/users/view/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
         "components/pages/saas-admin/content.ts",
         "components/pages/saas-admin/fake-db/apps/users.ts",
         "components/pages/saas-admin/fake-db/pages/user-profile.ts",
@@ -1120,7 +1122,7 @@
         "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
         "components/ui/checkbox.tsx"
       ],
-      "sourceVersion": "e317983bdec5d32fa7643c621cdea7a902328e31ba59de63ce61010d2f115b9f",
+      "sourceVersion": "84daf08a5e9e7553f7a104e18fc85f58519ed3a70a5255ccada606539959d6d4",
       "installTargets": [
         "saas-admin-users-page"
       ]
@@ -1159,6 +1161,7 @@
         "components/pages/saas-admin/environment.tsx",
         "components/pages/saas-admin/page-frame.tsx",
         "components/pages/saas-admin/views/pages/user-profile/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
         "components/pages/saas-admin/content.ts",
         "components/pages/saas-admin/fake-db/apps/users.ts",
         "components/pages/saas-admin/fake-db/pages/user-profile.ts",
@@ -1204,7 +1207,7 @@
         "components/ui/progress.tsx",
         "components/ui/table.tsx"
       ],
-      "sourceVersion": "d7143f34921a7deb1f8b5f5c76406db0f2ebb14644bdc0b9bd2ebd296b2481f2",
+      "sourceVersion": "cff67f96d94fc9e150c669ae6980edf0a19f67bef0379e8f705167b3c44fc3f2",
       "installTargets": [
         "saas-admin-profile-page"
       ]
@@ -1243,6 +1246,7 @@
         "components/pages/saas-admin/environment.tsx",
         "components/pages/saas-admin/page-frame.tsx",
         "components/pages/saas-admin/views/pages/user-settings/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
         "components/pages/saas-admin/content.ts",
         "components/pages/saas-admin/fake-db/apps/users.ts",
         "components/pages/saas-admin/fake-db/pages/user-profile.ts",
@@ -1290,7 +1294,7 @@
         "components/ui/popover.tsx",
         "components/ui/alert.tsx"
       ],
-      "sourceVersion": "69f32c47c0dd73830d076930cea89312a2fb72438aab4cb2406fec17ff3ea1e5",
+      "sourceVersion": "1f847bf640ad823498da8ffd2050ed32543adb9c8577c11087fc4ed23d0c05d2",
       "installTargets": [
         "saas-admin-settings-page"
       ]
@@ -1329,6 +1333,7 @@
         "components/pages/saas-admin/environment.tsx",
         "components/pages/saas-admin/page-frame.tsx",
         "components/pages/saas-admin/views/datatables/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
         "components/pages/saas-admin/content.ts",
         "components/pages/saas-admin/fake-db/apps/users.ts",
         "components/pages/saas-admin/fake-db/pages/user-profile.ts",
@@ -1363,7 +1368,7 @@
         "components/ui/button.tsx",
         "components/ui/dropdown-menu.tsx"
       ],
-      "sourceVersion": "deefca3a55188a592bac16fd7d11c4fda1c53d3c0813ab9effdf6df292c7805b",
+      "sourceVersion": "f09fcbde41e8384e7be4bb13586cd1ae7e6363244c5bd2de19f9a3036dfe739a",
       "installTargets": [
         "saas-admin-data-table-page"
       ]
@@ -1404,6 +1409,7 @@
         "components/pages/saas-admin/views/forms/form-layouts/horizontal/index.tsx",
         "components/pages/saas-admin/views/forms/form-layouts/vertical/index.tsx",
         "components/pages/saas-admin/views/forms/form-validation/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
         "components/pages/saas-admin/content.ts",
         "components/pages/saas-admin/fake-db/apps/users.ts",
         "components/pages/saas-admin/fake-db/pages/user-profile.ts",
@@ -1440,7 +1446,7 @@
         "components/ui/label.tsx",
         "components/ui/separator.tsx"
       ],
-      "sourceVersion": "9ea828d25d72bc63987391a2f1daf3a55944fb8d2f85a1252d290b7c723bfd07",
+      "sourceVersion": "af326fe7a614d45a1c747a617bea614db556b759aee03ad3a15b3a17b7f0417d",
       "installTargets": [
         "saas-admin-forms-page"
       ]
@@ -1479,6 +1485,7 @@
         "components/pages/saas-admin/environment.tsx",
         "components/pages/saas-admin/page-frame.tsx",
         "components/pages/saas-admin/views/pages/auth/login/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
         "components/pages/saas-admin/content.ts",
         "components/pages/saas-admin/fake-db/apps/users.ts",
         "components/pages/saas-admin/fake-db/pages/user-profile.ts",
@@ -1513,7 +1520,7 @@
         "components/ui/label.tsx",
         "components/ui/textarea.tsx"
       ],
-      "sourceVersion": "26651a8dc70f9c070120e509c5f93bebe9403d83d2ecc2c80200b77474ff38ce",
+      "sourceVersion": "bb202089b97b62455b05e64bbf3aa3daf709af5c27a691c9b58cef2b447401fb",
       "installTargets": [
         "saas-admin-login-page"
       ]
@@ -1552,6 +1559,7 @@
         "components/pages/saas-admin/environment.tsx",
         "components/pages/saas-admin/page-frame.tsx",
         "components/pages/saas-admin/views/pages/auth/register/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
         "components/pages/saas-admin/content.ts",
         "components/pages/saas-admin/fake-db/apps/users.ts",
         "components/pages/saas-admin/fake-db/pages/user-profile.ts",
@@ -1586,7 +1594,7 @@
         "components/ui/label.tsx",
         "components/ui/textarea.tsx"
       ],
-      "sourceVersion": "96d0113034dc6ea797490318c6f0b342e9af93becc523b7dd424b273b546a81d",
+      "sourceVersion": "cd15183ea1a1744ec2a4d82581dd299e73a47849907da4cf9eb8c4fce5cb5801",
       "installTargets": [
         "saas-admin-register-page"
       ]
@@ -1625,6 +1633,7 @@
         "components/pages/saas-admin/environment.tsx",
         "components/pages/saas-admin/page-frame.tsx",
         "components/pages/saas-admin/views/pages/auth/forgot-password/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
         "components/pages/saas-admin/content.ts",
         "components/pages/saas-admin/fake-db/apps/users.ts",
         "components/pages/saas-admin/fake-db/pages/user-profile.ts",
@@ -1656,7 +1665,7 @@
         "components/ui/label.tsx",
         "components/ui/separator.tsx"
       ],
-      "sourceVersion": "6b233471ad1f115aa7356bf3b4406f79c8966eb53b8eb93f15c9b3748824c68b",
+      "sourceVersion": "13c46cdb32691c522bf8296a466f88af7278528c5bb9c3cd0c937d59a3e5e1d9",
       "installTargets": [
         "saas-admin-forgot-password-page"
       ]
@@ -1890,6 +1899,7 @@
         "components/pages/saas-admin/views/pages/user-settings/index.tsx",
         "components/pages/saas-admin/views/apps/users/list/index.tsx",
         "components/pages/saas-admin/views/apps/users/view/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
         "components/pages/saas-admin/content.ts",
         "components/pages/saas-admin/fake-db/apps/users.ts",
         "components/pages/saas-admin/fake-db/pages/user-profile.ts",
@@ -1902,6 +1912,7 @@
         "lib/theme-kits/blue-ink-colors.ts",
         "lib/theme-kits/saas-admin-default-colors.ts",
         "lib/utils.ts",
+        "components/pages/saas-admin/components/layout/AppearanceCustomizer.tsx",
         "components/pages/saas-admin/components/layout/ModeToggle.tsx",
         "components/pages/saas-admin/components/shared/LanguageDropdown.tsx",
         "components/pages/saas-admin/components/shared/ProfileDropdown.tsx",
@@ -1952,14 +1963,22 @@
         "components/pages/saas-admin/views/apps/users/view/user-view-left-panel.tsx",
         "components/pages/saas-admin/views/apps/users/view/user-view-tabs.tsx",
         "components/pages/saas-admin/assets/fonts.css",
+        "components/pages/saas-admin/assets/svg/icon-layout-compact.tsx",
+        "components/pages/saas-admin/assets/svg/icon-layout-default.tsx",
+        "components/pages/saas-admin/assets/svg/icon-layout-full.tsx",
+        "components/pages/saas-admin/assets/svg/icon-sidebar-floating.tsx",
+        "components/pages/saas-admin/assets/svg/icon-sidebar-inset.tsx",
+        "components/pages/saas-admin/assets/svg/icon-sidebar-sidebar.tsx",
+        "components/ui/field.tsx",
+        "components/ui/popover.tsx",
+        "components/ui/select.tsx",
+        "components/ui/toggle-group.tsx",
         "components/pages/saas-admin/views/datatables/basic/basic-datatable.tsx",
         "components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx",
         "components/pages/saas-admin/views/datatables/pinnable-columns/pinnable-columns-datatable.tsx",
-        "components/ui/field.tsx",
         "components/ui/input-group.tsx",
         "components/ui/textarea.tsx",
         "components/ui/radio-group.tsx",
-        "components/ui/select.tsx",
         "components/ui/alert.tsx",
         "components/ui/checkbox.tsx",
         "components/ui/chart.tsx",
@@ -1982,6 +2001,7 @@
         "components/pages/saas-admin/views/apps/users/view/tabs/connections-tab.tsx",
         "components/pages/saas-admin/views/apps/users/view/tabs/notifications-tab.tsx",
         "components/pages/saas-admin/views/apps/users/view/tabs/security-tab.tsx",
+        "components/ui/toggle.tsx",
         "components/ui/alert-dialog.tsx",
         "components/pages/saas-admin/views/pages/user-profile/profile/about-section.tsx",
         "components/pages/saas-admin/views/pages/user-profile/profile/activity-timeline.tsx",
@@ -2008,10 +2028,9 @@
         "components/ui/switch.tsx",
         "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
         "components/ui/dialog.tsx",
-        "components/ui/command.tsx",
-        "components/ui/popover.tsx"
+        "components/ui/command.tsx"
       ],
-      "sourceVersion": "c2a98ae48a57e5a283fd390d979178d941b9f650149cafaa480c06bfc0b8c7c0",
+      "sourceVersion": "092dc45f9871b853eabac0c88cee06f6d2bc3e579000c116e250849308492db7",
       "installTargets": [
         "saas-admin-site"
       ]
@@ -7217,6 +7236,7 @@
         "components/ui/sidebar.tsx",
         "components/ui/sonner.tsx",
         "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/components/layout/AppearanceCustomizer.tsx",
         "components/pages/saas-admin/components/layout/ModeToggle.tsx",
         "components/pages/saas-admin/components/shared/LanguageDropdown.tsx",
         "components/pages/saas-admin/components/shared/ProfileDropdown.tsx",
@@ -7229,6 +7249,7 @@
         "components/ui/collapsible.tsx",
         "components/ui/dropdown-menu.tsx",
         "lib/utils.ts",
+        "components/pages/saas-admin/appearance.ts",
         "components/pages/saas-admin/content.ts",
         "components/pages/saas-admin/fake-db/apps/users.ts",
         "components/pages/saas-admin/fake-db/pages/user-profile.ts",
@@ -7244,11 +7265,23 @@
         "components/ui/sheet.tsx",
         "components/ui/skeleton.tsx",
         "lib/hooks/use-mobile.ts",
+        "components/pages/saas-admin/assets/svg/icon-layout-compact.tsx",
+        "components/pages/saas-admin/assets/svg/icon-layout-default.tsx",
+        "components/pages/saas-admin/assets/svg/icon-layout-full.tsx",
+        "components/pages/saas-admin/assets/svg/icon-sidebar-floating.tsx",
+        "components/pages/saas-admin/assets/svg/icon-sidebar-inset.tsx",
+        "components/pages/saas-admin/assets/svg/icon-sidebar-sidebar.tsx",
+        "components/ui/field.tsx",
+        "components/ui/popover.tsx",
+        "components/ui/select.tsx",
+        "components/ui/toggle-group.tsx",
         "components/pages/saas-admin/assets/images.ts",
         "components/ui/avatar.tsx",
-        "components/pages/saas-admin/assets/fonts.css"
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/ui/label.tsx",
+        "components/ui/toggle.tsx"
       ],
-      "sourceVersion": "c35d6fce8a63063d70413e226f0bcecf934a76ed136fbf4983e1523670e2a234",
+      "sourceVersion": "11faa2e47ef58e0c7425dcefe443243a9b5424d69d3b4a7ffeae741ab5f9f351",
       "installTargets": [
         "saas-admin-shell"
       ]

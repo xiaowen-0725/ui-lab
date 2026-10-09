@@ -12,6 +12,7 @@
 | 011 | [SaaS Admin：首步移植与验证记录](011-saas-admin-implementation.md) | 完整模板本地工程验证；视觉/素材边界单独记录 |
 | 012 | [SaaS Admin：界面规范与 React 最佳实践审查](012-saas-admin-guidelines-review.md) | 已审查，整改见013 |
 | 013 | [SaaS Admin：指南整改与回归验证](013-saas-admin-remediation.md) | 本地整改及验证，非发布批准 |
+| 014 | [SaaS Admin：主题定制面板](014-saas-admin-theme-customizer.md) | 用户确认面板及Sidebar/Layout卡片，本地实现与验证记录 |
 
 ## 当前执行入口
 

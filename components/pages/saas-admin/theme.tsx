@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 import "./styles.css";
 import "./assets/font-license";
 import { SAAS_ADMIN_COLORS as NEUTRAL } from "@/lib/theme-kits/saas-admin-default-colors";
+import { saasAdminAppearanceCss } from "./appearance";
 function vars(values: Record<string, string>) {
 	return Object.entries(values)
 		.map(([key, value]) => `--${key}:${value};`)
@@ -44,8 +45,9 @@ export const SAAS_ADMIN_THEME_CSS =
 html[data-saas-admin-brand]{--font-geist-sans:"SaaS Admin Geist";--font-geist-mono:"SaaS Admin Geist Mono";font-family:var(--font-geist-sans),ui-sans-serif,system-ui,sans-serif;}
 @layer base{.saas-admin-theme *,html[data-saas-admin-brand] [data-base-ui-portal] *{border-color:var(--border);outline-color:color-mix(in oklab,var(--ring) 50%,transparent)}}
 .saas-admin-theme{--font-geist-sans:"SaaS Admin Geist";--font-geist-mono:"SaaS Admin Geist Mono";font-family:var(--font-geist-sans),ui-sans-serif,system-ui,sans-serif;color:var(--foreground);background:var(--background);--radius:0.625rem;}
+.saas-admin-theme .saas-admin-container{max-width:var(--saas-admin-content-width,90rem)}
 .saas-admin-theme .rounded-sm{border-radius:calc(var(--radius)*.6)}.saas-admin-theme .rounded-md{border-radius:calc(var(--radius)*.8)}.saas-admin-theme .rounded-lg{border-radius:var(--radius)}.saas-admin-theme .rounded-xl{border-radius:calc(var(--radius)*1.4)}.saas-admin-theme .rounded-2xl{border-radius:calc(var(--radius)*1.8)}
-.saas-admin-theme .input-default{height:2.25rem}.saas-admin-theme .input-lg{height:2.5rem}.saas-admin-theme .input-sm{height:2rem}.saas-admin-theme .input-size-lg{width:2.5rem;height:2.5rem}
+.saas-admin-theme .input-default{height:calc(2.25rem*var(--saas-admin-scale,1))}.saas-admin-theme .input-lg{height:calc(2.5rem*var(--saas-admin-scale,1))}.saas-admin-theme .input-sm{height:calc(2rem*var(--saas-admin-scale,1))}.saas-admin-theme .input-size-lg{width:calc(2.5rem*var(--saas-admin-scale,1));height:calc(2.5rem*var(--saas-admin-scale,1))}
 .saas-admin-theme [data-slot=button].h-10:not(.px-6){padding-inline:1rem}.saas-admin-theme [data-slot=button].h-9:not(.px-6){padding-inline:.75rem}
 .saas-admin-theme [data-slot=button],html[data-saas-admin-brand] [data-base-ui-portal] [data-slot=button]{transition-property:transform,opacity,color,background-color,border-color,box-shadow;}
 .saas-admin-theme input,.saas-admin-theme textarea{touch-action:manipulation;}
@@ -61,7 +63,7 @@ export function SaasAdminTheme({
 	children: ReactNode;
 	className?: string;
 }) {
-	const { brand, mode, documentTheme } = useSaasAdmin();
+	const { brand, mode, documentTheme, appearance } = useSaasAdmin();
 	return (
 		<div
 			data-saas-admin=""
@@ -69,7 +71,7 @@ export function SaasAdminTheme({
 			data-mode={documentTheme ? undefined : mode}
 			className={`saas-admin-theme ${!documentTheme && mode === "dark" ? "dark" : ""} ${className}`}
 		>
-			<style>{SAAS_ADMIN_THEME_CSS}</style>
+			<style>{SAAS_ADMIN_THEME_CSS + saasAdminAppearanceCss(appearance, documentTheme)}</style>
 			{children}
 		</div>
 	);
