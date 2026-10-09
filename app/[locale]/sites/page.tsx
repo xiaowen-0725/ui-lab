@@ -22,11 +22,24 @@ export default async function SitesPage() {
       intro={t("sites.intro")}
       alsoCalled={t("alsoCalled")}
       groups={[
-        { title: t("groups.completeSites"), items: SITES.map((entry) => describedLink(locale, entry.pagePath, entry)) },
+				...(["workspace", "marketing", "personal"] as const)
+					.filter((useCase) => SITES.some((entry) => entry.useCase === useCase))
+					.map((useCase) => ({ title: {
+							workspace: locale === "zh" ? "工作区模板" : "Workspace templates",
+							marketing: locale === "zh" ? "落地页模板" : "Marketing templates",
+							personal: locale === "zh" ? "个人网站模板" : "Personal templates",
+						}[useCase], items: SITES.filter((entry) => entry.useCase === useCase).map((entry) => describedLink(locale, entry.pagePath, entry)),
+					})),
+				{
+					title: t("groups.completeSites"),
+					items: SITES.filter((entry) => !entry.useCase).map((entry) =>
+						describedLink(locale, entry.pagePath, entry),
+					),
+				},
         {
           title: t("groups.shells"),
           items: [
-            toCatalogLink(locale, {
+						toCatalogLink(locale, {
               id: "agent-workbench",
               href: "/layouts",
               name: "Agent workbench",

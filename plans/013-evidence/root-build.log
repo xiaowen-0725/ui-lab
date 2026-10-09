@@ -1,0 +1,186 @@
+$ next build
+   ▲ Next.js 15.5.18
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 12.0s
+   Linting and checking validity of types ...
+   Collecting page data ...
+ ⚠ Using edge runtime on a page currently disables static generation for that page
+   Generating static pages (0/1402) ...
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+   Generating static pages (350/1402) 
+   Generating static pages (700/1402) 
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+   Generating static pages (1051/1402) 
+   Generating static pages (1305/1402) 
+ ✓ Generating static pages (1402/1402)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                                 Size  First Load JS
+┌ ○ /_not-found                                            190 B         110 kB
+├ ● /[locale]                                            13.1 kB         284 kB
+├   ├ /zh
+├   └ /en
+├ ● /[locale]/atoms                                      19.7 kB         208 kB
+├   ├ /zh/atoms
+├   └ /en/atoms
+├ ● /[locale]/blocks                                     2.08 kB         128 kB
+├   ├ /zh/blocks
+├   └ /en/blocks
+├ ● /[locale]/components                                 2.08 kB         128 kB
+├   ├ /zh/components
+├   └ /en/components
+├ ● /[locale]/components/[category]                      2.08 kB         128 kB
+├   ├ /zh/components/sections
+├   ├ /zh/components/pages
+├   ├ /zh/components/sites
+├   └ [+9 more paths]
+├ ● /[locale]/components/[category]/[slug]                 216 B         608 kB
+├   ├ /zh/components/sections/navbar-simple
+├   ├ /zh/components/sections/navbar-centered
+├   ├ /zh/components/sections/hero-centered
+├   └ [+275 more paths]
+├ ● /[locale]/dictionary                                 2.08 kB         128 kB
+├   ├ /zh/dictionary
+├   └ /en/dictionary
+├ ● /[locale]/dictionary/concepts                        3.98 kB         197 kB
+├   ├ /zh/dictionary/concepts
+├   └ /en/dictionary/concepts
+├ ● /[locale]/dictionary/concepts/[slug]                  200 kB         612 kB
+├   ├ /zh/dictionary/concepts/button
+├   ├ /zh/dictionary/concepts/icon-button
+├   ├ /zh/dictionary/concepts/link
+├   └ [+75 more paths]
+├ ● /[locale]/dictionary/motion                          5.77 kB         204 kB
+├   ├ /zh/dictionary/motion
+├   └ /en/dictionary/motion
+├ ● /[locale]/dictionary/motion/[slug]                    194 kB         618 kB
+├   ├ /zh/dictionary/motion/fade
+├   ├ /zh/dictionary/motion/exit
+├   ├ /zh/dictionary/motion/slide
+├   └ [+145 more paths]
+├ ● /[locale]/docs                                       2.08 kB         128 kB
+├   ├ /zh/docs
+├   └ /en/docs
+├ ● /[locale]/docs/ai-agents                               151 B         186 kB
+├   ├ /zh/docs/ai-agents
+├   └ /en/docs/ai-agents
+├ ● /[locale]/docs/motion-patterns                       7.66 kB         182 kB
+├   ├ /zh/docs/motion-patterns
+├   └ /en/docs/motion-patterns
+├ ● /[locale]/docs/theme                                   151 B         186 kB
+├   ├ /zh/docs/theme
+├   └ /en/docs/theme
+├ ● /[locale]/inspiration                                2.42 kB         202 kB
+├   ├ /zh/inspiration
+├   └ /en/inspiration
+├ ● /[locale]/inspiration/brands                          2.3 kB         202 kB
+├   ├ /zh/inspiration/brands
+├   └ /en/inspiration/brands
+├ ● /[locale]/inspiration/brands/[slug]                  4.15 kB         190 kB
+├   ├ /zh/inspiration/brands/airbnb
+├   ├ /zh/inspiration/brands/airtable
+├   ├ /zh/inspiration/brands/apple
+├   └ [+145 more paths]
+├ ● /[locale]/inspiration/sites                           2.5 kB         202 kB
+├   ├ /zh/inspiration/sites
+├   └ /en/inspiration/sites
+├ ● /[locale]/inspiration/sites/[slug]                   2.44 kB         133 kB
+├   ├ /zh/inspiration/sites/anthropic
+├   ├ /zh/inspiration/sites/mistral-ai
+├   ├ /zh/inspiration/sites/vercel
+├   └ [+53 more paths]
+├ ● /[locale]/layouts                                    25.2 kB         234 kB
+├   ├ /zh/layouts
+├   └ /en/layouts
+├ ● /[locale]/pages                                      2.08 kB         128 kB
+├   ├ /zh/pages
+├   └ /en/pages
+├ ● /[locale]/pages/[slug]                                 216 B         608 kB
+├   ├ /zh/pages/saas-landing-page
+├   ├ /zh/pages/workbench-conversation-page
+├   ├ /zh/pages/workbench-artifact-page
+├   └ [+23 more paths]
+├ ● /[locale]/palettes                                   13.5 kB         263 kB
+├   ├ /zh/palettes
+├   └ /en/palettes
+├ ● /[locale]/patterns                                   13.5 kB         194 kB
+├   ├ /zh/patterns
+├   └ /en/patterns
+├ ● /[locale]/playground                                 16.1 kB         234 kB
+├   ├ /zh/playground
+├   └ /en/playground
+├ ● /[locale]/playground/visual-work-prototype           7.67 kB         185 kB
+├   ├ /zh/playground/visual-work-prototype
+├   └ /en/playground/visual-work-prototype
+├ ● /[locale]/scroll                                     16.2 kB         200 kB
+├   ├ /zh/scroll
+├   └ /en/scroll
+├ ● /[locale]/sections                                   11.8 kB         214 kB
+├   ├ /zh/sections
+├   └ /en/sections
+├ ● /[locale]/sites                                      2.08 kB         128 kB
+├   ├ /zh/sites
+├   └ /en/sites
+├ ● /[locale]/sites/[slug]                                 216 B         608 kB
+├   ├ /zh/sites/agent-workbench-site
+├   ├ /zh/sites/saas-admin-site
+├   ├ /en/sites/agent-workbench-site
+├   └ /en/sites/saas-admin-site
+├ ƒ /[locale]/sites/saas-admin-site/preview/[[...path]]    190 B         110 kB
+├ ● /[locale]/styles                                      5.4 kB         223 kB
+├   ├ /zh/styles
+├   └ /en/styles
+├ ● /[locale]/themes                                     2.08 kB         128 kB
+├   ├ /zh/themes
+├   └ /en/themes
+├ ● /[locale]/themes/[slug]                              6.48 kB         237 kB
+├   ├ /zh/themes/graphite
+├   ├ /zh/themes/blue-ink
+├   ├ /zh/themes/saas-admin-default
+├   └ [+29 more paths]
+├ ƒ /api/og                                                190 B         110 kB
+├ ○ /catalog.json                                          190 B         110 kB
+├ ○ /llms-full.txt                                         190 B         110 kB
+├ ○ /llms.txt                                              190 B         110 kB
+├ ○ /manifest.webmanifest                                  190 B         110 kB
+├ ƒ /opengraph-image                                       190 B         110 kB
+├ ○ /r                                                     190 B         110 kB
+├ ● /r/[slug]                                              190 B         110 kB
+├   ├ /r/navbar-simple
+├   ├ /r/navbar-centered
+├   ├ /r/hero-centered
+├   └ [+369 more paths]
+├ ● /r/[slug]/raw                                          190 B         110 kB
+├   ├ /r/navbar-simple/raw
+├   ├ /r/navbar-centered/raw
+├   ├ /r/hero-centered/raw
+├   └ [+166 more paths]
+├ ○ /r/registry.json                                       190 B         110 kB
+├ ○ /registry.json                                         190 B         110 kB
+├ ○ /robots.txt                                            190 B         110 kB
+├ ○ /sitemap.xml                                           190 B         110 kB
+├ ○ /theme.css                                             190 B         110 kB
+└ ● /themes/[slug]                                         190 B         110 kB
+    ├ /themes/graphite.css
+    ├ /themes/blue-ink.css
+    ├ /themes/saas-admin-default.css
+    └ [+13 more paths]
++ First Load JS shared by all                             110 kB
+  ├ chunks/31255-c7473391749ab718.js                       46 kB
+  ├ chunks/4bd1b696-bad92808725a934a.js                  54.2 kB
+  └ other shared chunks (total)                            10 kB
+
+
+ƒ Middleware                                             46.4 kB
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

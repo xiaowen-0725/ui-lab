@@ -1,0 +1,44 @@
+{
+  "rootCheck": {
+    "command": "bun run check",
+    "exitCode": 0,
+    "scope": "type/lint/registry/catalog/architecture/snapshot/skills",
+    "warningScope": "pre-existing lint warnings"
+  },
+  "rootTest": {
+    "command": "bun run test",
+    "pass": 263,
+    "fail": 0,
+    "files": 34,
+    "expectCalls": 13275
+  },
+  "rootBuild": {
+    "command": "bun run build",
+    "exitCode": 0,
+    "next": "15.5.18",
+    "staticPages": 1402,
+    "warnings": [
+      "metadataBase existing localhost fallback"
+    ]
+  },
+  "matrix": {
+    "cases": 288,
+    "passed": 288,
+    "baselineSourceVersion": "55245fbbc7c08101c8c973c5c48963be828b3cf44ca62eb09af33662b2544f78",
+    "finalSourceVersion": "1dc842c5355c93a0a9c77dfaa3e2b9b4ebf93fdc372a512655663a7f21b7268e",
+    "finalDataTableCases": 16
+  },
+  "supplemental": {
+    "groups": 21,
+    "browser": "154.0.8037.98"
+  },
+  "stages": {
+    "implementation": "local",
+    "gitCommit": false,
+    "push": false,
+    "npmPublish": false,
+    "productionDeployment": false,
+    "userVisualApproval": "pending",
+    "externalProductImages": "8 CDN URLs retained; user choice pending"
+  }
+}

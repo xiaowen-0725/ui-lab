@@ -29,6 +29,7 @@ export interface TableHeaderProps<T> {
   reduce: boolean;
   thRefs: HeaderCellRefs;
   selectable: boolean;
+  selectAllLabel?: string;
   allSelected: boolean;
   someSelected: boolean;
   onToggleAll: () => void;
@@ -144,6 +145,7 @@ export function TableHeader<T>({
   reduce,
   thRefs,
   selectable,
+  selectAllLabel = "Select all rows",
   allSelected,
   someSelected,
   onToggleAll,
@@ -190,7 +192,7 @@ export function TableHeader<T>({
                 checked={allSelected}
                 indeterminate={!allSelected && someSelected}
                 onCheckedChange={onToggleAll}
-                aria-label="Select all rows"
+                aria-label={selectAllLabel}
               />
             </div>
           </th>

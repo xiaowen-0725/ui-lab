@@ -1,0 +1,93 @@
+{
+  "browserVersion": "154.0.8037.98",
+  "executablePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "checks": [
+    {
+      "name": "full-site mounted",
+      "ok": true
+    },
+    {
+      "name": "installed font and CSS loaded",
+      "ok": true
+    },
+    {
+      "name": "route /dashboard/orders",
+      "ok": true
+    },
+    {
+      "name": "route /apps/users/list",
+      "ok": true
+    },
+    {
+      "name": "route /apps/users/view",
+      "ok": true
+    },
+    {
+      "name": "route /pages/user-profile",
+      "ok": true
+    },
+    {
+      "name": "route /pages/user-settings",
+      "ok": true
+    },
+    {
+      "name": "route /datatable",
+      "ok": true
+    },
+    {
+      "name": "route /forms/form-layouts/vertical",
+      "ok": true
+    },
+    {
+      "name": "route /forms/form-layouts/horizontal",
+      "ok": true
+    },
+    {
+      "name": "route /forms/form-validation",
+      "ok": true
+    },
+    {
+      "name": "route /pages/auth/login",
+      "ok": true
+    },
+    {
+      "name": "route /pages/auth/register",
+      "ok": true
+    },
+    {
+      "name": "route /pages/auth/forgot-password",
+      "ok": true
+    },
+    {
+      "name": "profile and settings query/history",
+      "ok": true
+    },
+    {
+      "name": "theme retains Users search",
+      "ok": true
+    },
+    {
+      "name": "user mutation survives brand and mode changes",
+      "ok": true
+    },
+    {
+      "name": "URL history and document preferences refresh",
+      "ok": true
+    },
+    {
+      "name": "system follows browser preference without route reset",
+      "ok": true
+    },
+    {
+      "name": "order deletion failure stays in dialog and retries",
+      "ok": true
+    },
+    {
+      "name": "async submit failure retains inputs and retries",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "networkFailures": []
+}

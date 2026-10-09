@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-09T04:01:16.043Z",
+  "browser": "154.0.8037.98",
+  "checks": [
+    "user URL state, refresh, unrelated parameters",
+    "delete confirmation, safe initial focus, cancel and confirm",
+    "detail tab URL, refresh and back",
+    "settings drafts, tab history, cancel leave, back and discard",
+    "timezone formatter reuse, search and keyboard draft signal",
+    "reduced motion gates profile grid; normal mode can pause",
+    "authentication autocomplete and email spelling"
+  ],
+  "errors": []
+}

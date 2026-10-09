@@ -1,7 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
 import { JsonLd } from "@/components/app/analytics/json-ld";
 import { CodeBlock } from "@/components/app/docs/code-block";
 import { ComponentCard } from "@/components/app/docs/component-card";
@@ -37,6 +37,8 @@ import {
   SITE_NAME,
 } from "@/lib/seo";
 import { pageUrlFor, withSignature } from "@/lib/signature";
+import { SITES } from "@/lib/sites";
+import { PAGES } from "@/lib/pages";
 import { readSourceFile } from "@/lib/source-files";
 
 
@@ -131,7 +133,8 @@ export async function AssetDetail({
 }: {
   params: Promise<{ locale: string; category: string; slug: string }>;
 }) {
-  const { category, slug } = await params;
+  const { category, slug, locale: routeLocale } = await params;
+  setRequestLocale(routeLocale);
   const locale = (await getLocale()) as Locale;
   const t = await getTranslations("detail");
   const cat = findCategory(category);
@@ -224,7 +227,48 @@ export async function AssetDetail({
           </p>
         </div>
 
-        {comp.examples?.length ? (
+				{category === "sites" &&
+					(() => {
+						const site = SITES.find((entry) => entry.slug === slug);
+						const shellCategory = site && registry.find((category) =>
+							category.components.some((component) => component.slug === site.shellComponent),
+						);
+						return site && shellCategory ? (
+							<section className="mt-6 rounded-xl border border-border p-5">
+								<h2 className="mb-3 font-semibold">
+									{locale === "zh"
+										? "独立页面与共享外壳"
+										: "Independent pages and shared shell"}
+								</h2>
+								<div className="flex flex-wrap gap-3 text-sm">
+									<Link
+										href={assetPagePath(shellCategory.slug, site.shellComponent)}
+										className="underline"
+									>
+										{locale === "zh" ? "共享外壳" : "Shared shell"}
+									</Link>
+									{site.pages.map((page) => {
+										const entry = PAGES.find((item) => item.slug === page);
+										return entry ? (
+											<Link
+												key={page}
+												href={entry.pagePath}
+												className="underline"
+											>
+												{locale === "zh" ? entry.nameZh : entry.name}
+											</Link>
+										) : null;
+									})}
+								</div>
+								<p className="mt-3 text-xs text-muted-foreground">
+									{locale === "zh"
+										? "页面可单独安装；主题通过主题入口显式安装。"
+										: "Install pages independently; install themes explicitly from Themes."}
+								</p>
+							</section>
+						) : null;
+					})()}
+				{comp.examples?.length ? (
           <div className="mt-10 flex flex-col gap-12">
             {comp.examples.map((ex) => (
               <ExampleBlock

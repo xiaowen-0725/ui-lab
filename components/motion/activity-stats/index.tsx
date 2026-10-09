@@ -7,17 +7,22 @@ import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 
 export interface StatsBarProps {
-  className?: string;
+	appearance?: "original" | "semantic";
+	className?: string;
   children?: ReactNode;
 }
 
 /** Connected row of `StatsItem`s, hairline-divided between siblings. */
-export function StatsBar({ className, children }: StatsBarProps) {
+export function StatsBar({ className, children,
+	appearance = "original",
+}: StatsBarProps) {
   return (
     <div
       className={cn(
-        "flex overflow-hidden rounded-[20px] border border-black/10 dark:border-white/[0.06]",
-        "divide-x-[1px] divide-black/5 dark:divide-white/[0.06]",
+				"flex overflow-hidden rounded-[20px] border divide-x-[1px]",
+				appearance === "semantic"
+					? "border-border divide-border bg-card"
+					: "border-black/10 dark:border-white/[0.06] divide-black/5 dark:divide-white/[0.06]",
         className,
       )}
     >
@@ -61,11 +66,11 @@ function heatLevel(value: number, max: number): 0 | 1 | 2 | 3 | 4 {
 }
 
 export interface ActivityHeatmapProps {
-  /**
-   * Column-major cell values: index `week * 7 + day`, top to bottom then
-   * left to right. Shorter arrays are zero-padded up to `weeks * 7`.
-   */
-  data: number[];
+	/**
+	 * Column-major cell values: index `week * 7 + day`, top to bottom then
+	 * left to right. Shorter arrays are zero-padded up to `weeks * 7`.
+	 */
+	data: number[];
   weeks?: number;
   /** Ceiling for the color scale; defaults to the highest value in `data`. */
   max?: number;
@@ -181,7 +186,7 @@ export function StatsPeriodTabs({ options, value, onChange, className }: StatsPe
           aria-pressed={option.value === value}
           onClick={() => onChange(option.value)}
           className={cn(
-            "transition-colors",
+						"transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-ring",
             option.value === value
               ? "text-foreground"
               : "text-muted-foreground hover:text-foreground",

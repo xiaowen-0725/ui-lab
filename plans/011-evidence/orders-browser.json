@@ -1,0 +1,95 @@
+{
+  "browser": "154.0.8037.98",
+  "checks": [
+    {
+      "name": "en-default-light-1440",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "en-default-light-390",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "en-default-dark-1440",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "en-default-dark-390",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "en-blue-ink-light-1440",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "en-blue-ink-light-390",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "en-blue-ink-dark-1440",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "en-blue-ink-dark-390",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "zh-default-light-1440",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "zh-default-light-390",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "zh-default-dark-1440",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "zh-default-dark-390",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "zh-blue-ink-light-1440",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "zh-blue-ink-light-390",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "zh-blue-ink-dark-1440",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "zh-blue-ink-dark-390",
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "pagination-theme-refresh-keyboard-system",
+      "errors": []
+    },
+    {
+      "name": "supplemental-360-reduce"
+    },
+    {
+      "name": "supplemental-768-reduce"
+    }
+  ]
+}

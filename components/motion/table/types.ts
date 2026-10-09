@@ -35,11 +35,14 @@ export interface TableProps<T> {
   getRowId?: (row: T, index: number) => string;
   /** Render a leading checkbox column with select-all in the header. */
   selectable?: boolean;
+  selectionLabels?: { all?: string; row?: (row: T, index: number) => string };
   selectedRowIds?: string[];
   defaultSelectedRowIds?: string[];
   onSelectionChange?: (ids: string[]) => void;
   sort?: SortState | null;
   defaultSort?: SortState | null;
+	/** Keep consumer query order; header actions still report sort changes. */
+	manualSorting?: boolean;
   onSortChange?: (sort: SortState | null) => void;
   /** Allow dragging the right edge of a header to resize that column. */
   resizable?: boolean;

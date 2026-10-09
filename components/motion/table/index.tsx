@@ -28,12 +28,14 @@ export function Table<T>({
   columns,
   getRowId,
   selectable = false,
+  selectionLabels,
   selectedRowIds,
   defaultSelectedRowIds,
   onSelectionChange,
   sort: sortProp,
   defaultSort = null,
   onSortChange,
+	manualSorting = false,
   resizable = false,
   minColumnWidth = 64,
   onColumnResize,
@@ -84,6 +86,7 @@ export function Table<T>({
     sort: sortProp,
     defaultSort,
     onSortChange,
+		manualSorting,
   });
 
   const { widths, startResize, moveResize, endResize } = useColumnResize({
@@ -153,9 +156,9 @@ export function Table<T>({
   }, []);
 
   const rowRefs = useRef<Record<string, HTMLTableRowElement | null>>({});
-  const [activeRow, setActiveRow] = useState<{ id: string; index: number } | null>(
-    null,
-  );
+  const [activeRow, setActiveRow] = useState<{ id: string; index: number;
+	} | null>(
+    null);
   const rowTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const activateRow = useCallback((id: string, index: number) => {
     if (rowTimer.current) clearTimeout(rowTimer.current);
@@ -209,6 +212,7 @@ export function Table<T>({
             allSelected={allSelected}
             someSelected={someSelected}
             onToggleAll={toggleAll}
+            selectAllLabel={selectionLabels?.all}
             sort={sort}
             onToggleSort={toggleSort}
             resizable={resizable}
@@ -284,7 +288,7 @@ export function Table<T>({
                             <Checkbox
                               checked={isSelected}
                               onCheckedChange={() => toggleRow(entry.id)}
-                              aria-label={`Select row ${vItem.index + 1}`}
+                              aria-label={selectionLabels?.row?.(entry.row, vItem.index) ?? `Select row ${vItem.index + 1}`}
                             />
                           </div>
                         </td>

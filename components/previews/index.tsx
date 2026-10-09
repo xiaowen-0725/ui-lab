@@ -4,7 +4,18 @@ import type { ComponentType } from "react";
 // Every preview is a client component dragging the library + motion with it.
 // Lazy chunks keep a page's JS limited to the previews it actually renders.
 export const previews: Record<string, ComponentType> = {
-  "pages/saas-landing-page": dynamic(() => import("./pages/saas-landing-page.preview").then((m) => m.SaasLandingPagePreview)),
+ "pages/saas-admin-orders-page": dynamic(() => import("./pages/saas-admin-orders-page.preview").then(m => m.SaasAdminOrdersPagePreview)),
+ "pages/saas-admin-users-page": dynamic(() => import("./pages/saas-admin-users-page.preview").then(m => m.SaasAdminUsersPagePreview)),
+ "pages/saas-admin-profile-page": dynamic(() => import("./pages/saas-admin-profile-page.preview").then(m => m.SaasAdminProfilePagePreview)),
+ "pages/saas-admin-settings-page": dynamic(() => import("./pages/saas-admin-settings-page.preview").then(m => m.SaasAdminSettingsPagePreview)),
+ "pages/saas-admin-data-table-page": dynamic(() => import("./pages/saas-admin-data-table-page.preview").then(m => m.SaasAdminDataTablePagePreview)),
+ "pages/saas-admin-forms-page": dynamic(() => import("./pages/saas-admin-forms-page.preview").then(m => m.SaasAdminFormsPagePreview)),
+ "pages/saas-admin-login-page": dynamic(() => import("./pages/saas-admin-login-page.preview").then(m => m.SaasAdminLoginPagePreview)),
+ "pages/saas-admin-register-page": dynamic(() => import("./pages/saas-admin-register-page.preview").then(m => m.SaasAdminRegisterPagePreview)),
+ "pages/saas-admin-forgot-password-page": dynamic(() => import("./pages/saas-admin-forgot-password-page.preview").then(m => m.SaasAdminForgotPasswordPagePreview)),
+ "sites/saas-admin-site": dynamic(() => import("./sites/saas-admin-site.preview").then(m => m.SaasAdminSitePreview)),
+ "layout/saas-admin-shell": dynamic(() => import("./layout/saas-admin-shell.preview").then(m => m.SaasAdminShellPreview)),
+	"pages/saas-landing-page": dynamic(() => import("./pages/saas-landing-page.preview").then((m) => m.SaasLandingPagePreview)),
   "pages/workbench-conversation-page": dynamic(() => import("./pages/workbench-conversation-page.preview").then((m) => m.WorkbenchConversationPagePreview)),
   "pages/workbench-artifact-page": dynamic(() => import("./pages/workbench-artifact-page.preview").then((m) => m.WorkbenchArtifactPagePreview)),
   "pages/workbench-settings-page": dynamic(() => import("./pages/workbench-settings-page.preview").then((m) => m.WorkbenchSettingsPagePreview)),
@@ -221,8 +232,7 @@ export const previews: Record<string, ComponentType> = {
   ),
   "motion/preview-rail": dynamic(() =>
     import("./motion/preview-rail.preview").then(
-      (m) => m.PreviewRailPreview,
-    ),
+      (m) => m.PreviewRailPreview),
   ),
   "motion/dock": dynamic(() =>
     import("./motion/dock.preview").then((m) => m.DockPreview),

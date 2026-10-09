@@ -1,9 +1,13 @@
 import { DESIGN_SYSTEMS } from "@/lib/layouts/design-systems";
+import { blueInkKit } from "./blue-ink";
+import { saasAdminDefaultKit } from "./saas-admin-default";
 import { baselineKit, kitFromDesignSystem } from "./compose";
 import type { ThemeKit } from "./types";
 
 export const THEME_KITS: ThemeKit[] = [
   baselineKit(),
+	blueInkKit(),
+  saasAdminDefaultKit(),
   ...DESIGN_SYSTEMS.map(kitFromDesignSystem).filter((kit): kit is ThemeKit => kit !== null),
 ];
 

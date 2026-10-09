@@ -8,11 +8,7 @@ import { setRequestLocale } from "next-intl/server";
 import "../globals.css";
 import { GoogleAnalytics } from "@/components/app/analytics/google-analytics";
 import { JsonLd } from "@/components/app/analytics/json-ld";
-import { KeyboardShortcuts } from "@/components/app/chrome/keyboard-shortcuts";
-import { SiteShell } from "@/components/app/chrome/site-shell";
-import { ThemeProvider } from "@/components/app/chrome/theme-provider";
-import { PreferencesPanel } from "@/components/app/preferences/preferences-panel";
-import { PreferencesProvider } from "@/components/app/preferences/preferences-provider";
+import { CatalogFrame } from "@/components/app/chrome/catalog-frame";
 import { routing } from "@/i18n/routing";
 import { getGithubStarCount } from "@/lib/github";
 import { AUTHOR, SITE_DESCRIPTION, SITE_NAME, siteJsonLd } from "@/lib/seo";
@@ -114,16 +110,11 @@ export default async function LocaleLayout({
       <body className="min-h-screen antialiased">
         <JsonLd data={siteJsonLd()} />
         <NextIntlClientProvider>
-          <ThemeProvider>
-            <PreferencesProvider>
-              <KeyboardShortcuts />
-              <SiteShell githubStarCount={githubStarCount}>{children}</SiteShell>
-              <PreferencesPanel />
-              {process.env.NODE_ENV === "production" && <Analytics />}
-              {process.env.NODE_ENV === "production" && <SpeedInsights />}
-              <GoogleAnalytics measurementId={googleAnalyticsId} />
-            </PreferencesProvider>
-          </ThemeProvider>
+          <CatalogFrame githubStarCount={githubStarCount} analytics={<>
+            {process.env.NODE_ENV === "production" && <Analytics />}
+            {process.env.NODE_ENV === "production" && <SpeedInsights />}
+            <GoogleAnalytics measurementId={googleAnalyticsId} />
+          </>}>{children}</CatalogFrame>
         </NextIntlClientProvider>
       </body>
     </html>

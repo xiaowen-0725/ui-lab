@@ -22,13 +22,35 @@ UI Lab 是一个中文优先、中英双语的 **可视前端词汇表与 AI-fir
 
 - **Catalog**：统一聚合 `component`、`atom-set`、`icon-style`、`icon-motion`、`style`、`palette`、`design-system`、`recipe`、只读 `vocabulary` 与外部 `reference`；
 - **Registry**：分发可 vendoring 的组件、区块、完整页面与多页组合源码，展示父项和独立安装变体都有真实安装身份；
-- **页面与整站资产**：19 个可复用区段变体、4 个完整页面和一个引用独立页面的 Agent 多页工作台；`lib/pages.ts` / `lib/sites.ts` 登记实际源码及依赖，不复制页面实现；
+- **页面与整站资产**：19 个可复用区段变体、4 个完整页面和 Agent 多页工作台；`lib/pages.ts` / `lib/sites.ts` 登记实际源码及依赖，不复制页面实现；
 - **Theme Kit**：提供可运行的主题与 token，不代表完整应用系统；
 - **Recipe**：描述页面或应用外壳的组合约束，不承载业务逻辑；
 - **CLI**：提供查询、查看、Theme Kit、组件登记、Recipe compose、CatalogLock 与 Audit 等当前仓库 `ui-lab --help` 可见命令（新增源码尚未代表 npm 已发布）；
 - **Skill**：`$ui-lab` 只路由已有组件/区块的 discover 与 install；其他产品工作流不属于它的当前能力。
 
 `ui-lab.config.json` 只表达 Profile、System、Recipe、组件与 adopt/replace 装配意图。`ui-lab.lock.json` 只保存当前 Catalog contract/provenance 的 **CatalogLock**。Audit 只验证已实现的确定性规则，不能替代视觉判断、业务验证或用户批准。
+
+## SaaS 后台前端模板（需求重新对齐）
+
+2026-10-08 用户指出首版偏离预期，并确认 SaaS 后台模板统一使用 shadcn/ui 的 Base UI 版本，以免费 AdminCN（dd1afd2f3a794ea9e746197de314f81d43670ea1）为源码与视觉基线，接受免费 Orders 总览与原 Sales 演示的内容差异；允许官方配套库及其间接依赖，不要求依赖树完全没有 Radix，不自行换用 Radix 版控件。正常 props、className、主题变量配置及页面组合可以进行；修改组件源码、API、默认交互或新增自定义组件须提前说明并确认。视觉先贴近上游的侧栏、顶栏、卡片、排版、信息密度和交互，再做约定调整；工程测试与逐页用户视觉确认分别记录。shadcn-compatible 分发不等于使用 shadcn/ui 源码。取舍见 [ADR 0004](docs/adr/0004-saas-admin-upstream-components.md)；已确认方向见[对齐记录](plans/009-saas-admin-realignment.md)，[完整规格与具体适配包](plans/010-saas-admin-spec.md)已由用户确认，进入移植实施。当前9页面、外壳与12路由整站已接入及登记，提供中英、默认/Blue Ink、light/dark/system与消费者数据/动作接口；已取得全页面默认视觉对照样本，已完成真实shadcn Next/Vite安装、288组页面矩阵及关键交互工程验证，实际范围见实施记录。两个来源区块和1280阈值已由用户确认；8张商品图仍有外部许可/分发缺口，用户视觉批准待完成。来源差异与阶段证据见[实施记录](plans/011-saas-admin-implementation.md)，不将草稿或阶段检查写成完整模板能力。
+
+首批范围已确认：订单总览、用户管理、个人资料、设置、数据表格、表单、登录、注册、找回密码；Mail、Calendar 及其他认证变体后续扩展。页面内容优先沿用免费 AdminCN 的真实实现；原自写模板的项目管理、详情与账单不自动带入。
+
+用户于 2026-10-07 澄清：聚焦前端组件及前端相关资产，参考后台界面及组件、区块、页面、模板的组织方式。短期完成 SaaS 后台前端模板，支持主题，并为营销网站、个人网站等后续整站保留组合能力。
+
+组件、区块、页面、外壳与整站继续遵循独立分发和上层引用下层的规则。整站模板复用真实页面与外壳，提供本地数据和动作的交互示例；路由、请求、鉴权等由消费者适配。示例工程用于验证前端安装、启动及使用，不成为全栈 SaaS 脚手架产品。
+
+此前代理将“一键创建项目”扩展为鉴权、数据库和订阅服务组合及工程生成器，是过度解读，已从本轮范围移出。用户已确认便捷使用围绕真实前端资产：沿用整站入口，先全屏体验，再安装整站或拆用独立页面，由消费者接入业务。详细边界见[发现与安装决定](https://github.com/xiaowen-0725/ui-lab/issues/32#issuecomment-6035818987)；不引入全栈服务选型。
+
+主题安装、预览切换和消费者运行时切换分别定义。已确认的消费方向是品牌与明暗/跟随系统偏好独立，模板内可切换并记住本机偏好，保留页面、查询与编辑状态；仅开放主题实际支持的模式。语义 token、图表、字体、用户覆盖和首帧职责见[主题契约决定](https://github.com/xiaowen-0725/ui-lab/issues/39#issuecomment-6034742450)。新模板采用上游默认主题 + Blue Ink，两套均支持明暗、跟随系统与偏好记忆；默认保持上游视觉。Graphite 与 Blue Ink 继续作为独立双模式 Theme Kit 存在。存储、业务数据和路由由消费者拥有。
+
+沿用独立页面/外壳/整站消费、无业务密钥运行示例、Next/Vite 支持与中英双语的交付方向；新实现须重新验证，不以旧模板的验收结果宣称通过。工程验证、用户正式视觉批准、提交与发布分别记录。
+
+## 已删除的项目工作区模板
+
+2026-10-08 用户明确要求“删除旧版本”，覆盖此前保留旧模板源码和安装身份的建议。ProjectWorkspaceSite、8 个专属页面、DashboardShell、PagePagination、MetricTrendChart 及专属 helper、预览、独立用法、全屏路由和验证夹具已删除；对应 Catalog/registry/CLI 快照不再提供这 12 个安装身份，不保留重定向或兼容占位。
+
+现有 Agent Workbench、WorkbenchSettingsPage、Table、Sidebar、Drawer/Modal 等共享资产及独立 Blue Ink 主题保留。旧 A/B 原型和[计划008](plans/008-project-workspace-implementation.md)只保留历史说明与工程证据，不是可运行资产、目标模板批准或新模板验收。不得把旧模板重新作为当前整站入口或安装能力。
 
 ## 已移除的工坊实验
 

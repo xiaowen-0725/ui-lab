@@ -47,7 +47,9 @@ import { allShadcnTargets, buildInstallationContract } from "@/lib/registry-serv
 import { SITE_URL } from "@/lib/site";
 import { SITES } from "@/lib/sites";
 import { STYLES } from "@/lib/styles";
-import { findThemeKit, type ThemeKit, type ThemeMode } from "@/lib/theme-kits";
+import {
+	THEME_KITS,
+	findThemeKit, type ThemeKit, type ThemeMode } from "@/lib/theme-kits";
 
 export type CatalogKind =
   | "component"
@@ -73,7 +75,8 @@ export type CatalogFetch = {
 
 export type CatalogItem = {
   kind: CatalogKind;
-  related?: readonly { kind: CatalogKind; slug: string; relationship?: "example" | "dependency" }[];
+  related?: readonly { kind: CatalogKind; slug: string; relationship?: "example" | "dependency";
+	}[];
   section?: { slug: string; variant: string };
   reference?: {
     url: string;
@@ -107,16 +110,16 @@ export type CatalogItem = {
   exportName?: string;
   /** Registry source hint used by consumer audits; present on component items. */
   sourceFile?: string;
-  /** Complete registry-owned source family for a component. This deliberately
-   * includes only the entry file and explicit `extraFiles`, never recursively
-   * collected shared lib dependencies. Consumer audits use it to catch an
-   * incomplete vendoring copy without requiring source identity. */
-  sourceFiles?: readonly string[];
-  /** Present only for items backed by a lib/theme-kits ThemeKit (design
-   * systems and the graphite baseline): a
-   * small per-mode token subset an AI agent or UI can render as a swatch
-   * without fetching the full theme CSS. */
-  themePreview?: {
+	/** Complete registry-owned source family for a component. This deliberately
+	 * includes only the entry file and explicit `extraFiles`, never recursively
+	 * collected shared lib dependencies. Consumer audits use it to catch an
+	 * incomplete vendoring copy without requiring source identity. */
+	sourceFiles?: readonly string[];
+	/** Present only for items backed by a lib/theme-kits ThemeKit (design
+	 * systems and the graphite baseline): a
+	 * small per-mode token subset an AI agent or UI can render as a swatch
+	 * without fetching the full theme CSS. */
+	themePreview?: {
     modes: readonly ThemeMode[];
     light?: Record<string, string>;
     dark?: Record<string, string>;
@@ -124,6 +127,7 @@ export type CatalogItem = {
   /** Application Kit metadata, present only when kind is `recipe`. */
   profiles?: readonly ApplicationProfile[];
   recommendedSystem?: string;
+	useCase?: "workspace" | "marketing" | "personal";
   shellComponent?: string;
   pages?: readonly string[];
   entryComponent?: string;
@@ -158,14 +162,17 @@ async function buildComponentItems(): Promise<CatalogItem[]> {
       components: composition?.components,
       pages: site?.pages,
       shellComponent: site?.shellComponent,
-      recommendedSystem: site?.recommendedSystem,
+				useCase: site?.useCase,
+				recommendedSystem: site?.recommendedSystem,
       related: composition?.components.map((slug) => ({ kind: "component" as const, slug })),
       slug: target.slug,
       name: target.slug === entry.slug ? entry.name : target.name,
-      nameZh: target.slug === entry.slug ? entry.nameZh ?? entry.name : example?.nameZh ?? entry.nameZh ?? target.name,
+      nameZh: target.slug === entry.slug ? (entry.nameZh ?? entry.name)
+						: (example?.nameZh ?? entry.nameZh ?? target.name),
       aliases: entry.keywords ?? [],
       description: target.slug === entry.slug ? entry.description : target.description,
-      descriptionZh: target.slug === entry.slug ? entry.descriptionZh ?? entry.description : example?.descriptionZh ?? entry.descriptionZh ?? target.description,
+      descriptionZh: target.slug === entry.slug ? (entry.descriptionZh ?? entry.description)
+						: (example?.descriptionZh ?? entry.descriptionZh ?? target.description),
       pageUrl: composition ? `${SITE_URL}${composition.pagePath}` : `${SITE_URL}/components/${target.categorySlug}/${target.pageSlug}`,
       fetch: {
         method: "shadcn",
@@ -250,7 +257,8 @@ function buildAtomSetItems(): CatalogItem[] {
     },
   ];
 
-  const entries: Record<string, readonly { slug: string; name: string; nameZh: string; aliases: readonly string[] }[]> = {
+  const entries: Record<string, readonly { slug: string; name: string; nameZh: string; aliases: readonly string[];
+		}[]> = {
     motion: [...MOTION_CURVES, ...MOTION_SPRINGS, ...MOTION_DURATIONS],
     shape: [...RADII, ...SHADOWS, ...LAYERS],
     typography: [...FONT_PAIRS, ...TYPE_SCALE],
@@ -418,7 +426,8 @@ function withThemeKitFetch(
 }
 
 function buildDesignSystemItems(): CatalogItem[] {
-  return DESIGN_SYSTEMS.map((entry): CatalogItem => {
+  return [
+		...DESIGN_SYSTEMS.map((entry): CatalogItem => {
     const { fetch, themePreview } = withThemeKitFetch(entry.slug, {
       method: "copy-tokens",
       value: entry.designMd,
@@ -438,7 +447,25 @@ function buildDesignSystemItems(): CatalogItem[] {
       fetch,
       themePreview,
     };
-  });
+  }),
+		...THEME_KITS.filter((kit) => kit.source === "brand-theme").map(
+			(kit): CatalogItem => ({
+				kind: "design-system",
+				category: "workbench",
+				slug: kit.slug,
+				aliases: ["brand theme", "品牌主题"],
+				name: kit.name,
+				nameZh: kit.nameZh,
+				description: kit.description,
+				descriptionZh: kit.descriptionZh,
+				pageUrl: `${SITE_URL}/themes/${kit.slug}`,
+				...withThemeKitFetch(kit.slug, {
+					method: "copy-tokens",
+					value: kit.slug,
+				}),
+			}),
+		),
+	];
 }
 
 function buildRecipeItems(): CatalogItem[] {
@@ -476,7 +503,8 @@ function buildRecipeItems(): CatalogItem[] {
 export async function buildCatalog(): Promise<CatalogItem[]> {
   const items: CatalogItem[] = [];
 
-  const builders: Array<{ label: string; run: () => CatalogItem[] | Promise<CatalogItem[]> }> = [
+  const builders: Array<{ label: string; run: () => CatalogItem[] | Promise<CatalogItem[]>;
+	}> = [
     { label: "component", run: buildComponentItems },
     { label: "atom-set", run: buildAtomSetItems },
     { label: "icon-style", run: buildIconStyleItems },

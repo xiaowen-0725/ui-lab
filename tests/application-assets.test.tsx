@@ -425,15 +425,15 @@ describe("multi-page site using the shared shell", () => {
 
 describe("application asset distribution contracts", () => {
   test("the frozen data refers to real page slugs and source entry files", async () => {
-    expect(PAGES).toHaveLength(4);
-    expect(SITES).toHaveLength(1);
+    expect(PAGES).toHaveLength(13);
+    expect(SITES).toHaveLength(2);
     for (const page of PAGES) {
       expect(page.pagePath).toBe(`/pages/${page.slug}`);
       expect(await readSourceFile(`components/pages/${page.componentSlug}.tsx`)).toContain(
         "export function",
       );
     }
-    for (const page of SITES[0].pages)
+    for (const page of SITES.flatMap(site => site.pages))
       expect(PAGES.some((entry) => entry.slug === page)).toBe(true);
     expect(SITES[0].shellComponent).toBe("agent-workbench");
   });
@@ -441,7 +441,7 @@ describe("application asset distribution contracts", () => {
   test("source closures resolve without Next, next-intl, previews or site metadata", async () => {
     const pending = [
       "components/pages/saas-landing-page.tsx",
-      "components/site-shells/agent-workbench-site.tsx",
+      ...SITES.map(site => `components/site-shells/${site.componentSlug}.tsx`),
       "components/sections/index.ts",
     ];
     const seen = new Set<string>();

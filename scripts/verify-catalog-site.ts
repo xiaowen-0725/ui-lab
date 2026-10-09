@@ -7,6 +7,8 @@ import { buildCatalog } from "../lib/catalog";
 import { NAV_SPACES } from "../lib/nav";
 import { allShadcnTargets } from "../lib/registry-server";
 import { THEME_KITS } from "../lib/theme-kits";
+import { PAGES } from "../lib/pages";
+import { SITES } from "../lib/sites";
 
 const base = process.env.UILAB_SITE_BASE ?? "http://localhost:3000";
 const evidence = await mkdtemp(join(tmpdir(), "uilab-catalog-site-"));
@@ -53,20 +55,21 @@ try {
   for (const path of ["/registry.json", "/llms.txt", "/llms-full.txt", "/sitemap.xml", "/robots.txt", "/theme.css"]) await get(path, "machine");
   const sitemap = await get("/sitemap.xml", "xml");
   assert(!sitemap.includes("/r/") && !sitemap.includes("/catalog.json"), "Machine registry indexed as pages");
-  for (const slug of ["saas-landing-page", "workbench-conversation-page", "workbench-artifact-page", "workbench-settings-page"]) assert(sitemap.includes(`/pages/${slug}`), `Missing sitemap page ${slug}`);
-  assert(sitemap.includes("/sites/agent-workbench-site"), "Missing sitemap site");
+  for (const page of PAGES) assert(sitemap.includes(page.pagePath), `Missing sitemap page ${page.slug}`);
+  for (const site of SITES) assert(sitemap.includes(site.pagePath), `Missing sitemap site ${site.slug}`);
   // Exercise every retained baseline and new visual route, including deep-link syntax.
   const csv = await readFile(new URL("../plans/005-asset-migration-inventory.csv", import.meta.url), "utf8");
   const rows = csv.trim().split(/\r?\n/).map((line) => [...line.matchAll(/"((?:""|[^"])*)"(?:,|$)/g)].map((m) => m[1].replaceAll('""', '"')));
   const header = rows.shift();
   assert(header, "Missing inventory header");
-  const routes = new Set<string>(NAV_SPACES.map((space) => space.href));
+  const routes = new Set<string>([...NAV_SPACES.map((space) => space.href), ...PAGES.map(page => page.pagePath), ...SITES.map(site => site.pagePath), "/themes/blue-ink"]);
   for (const row of rows) for (const field of ["oldRoute", "newRoute"]) {
     const route = row[header.indexOf(field)];
     if (route?.startsWith("/") && !route.startsWith("/r/") && !/\.[a-z]+(?:[?#]|$)/.test(route)) routes.add(route.split("#")[0]);
   }
   await batch([...routes], async (route) => { await get(`${route}?acceptance=005#sample`); await get(`/en${route}?acceptance=005#sample`); });
   const browser = await chromium.launch({ channel: process.env.UILAB_BROWSER_CHANNEL ?? "chrome", headless: true });
+  const browserPaths = [...NAV_SPACES.map((space) => space.href), "/pages/saas-landing-page", "/sites/agent-workbench-site", "/themes/graphite", "/themes/blue-ink"];
   const errors: string[] = [];
   const screens: string[] = [];
   try {
@@ -75,7 +78,7 @@ try {
       await context.addInitScript((value) => localStorage.setItem("theme", value), theme);
       const page = await context.newPage();
       page.on("pageerror", (error) => errors.push(`${locale}/${theme}/${width}/${page.url()}: ${error.message}`));
-      for (const path of [...NAV_SPACES.map((space) => space.href), "/pages/saas-landing-page", "/sites/agent-workbench-site", "/themes/graphite"]) {
+      for (const path of browserPaths) {
         await page.goto(`${base}${locale === "en" ? "/en" : ""}${path}`, { waitUntil: "domcontentloaded" });
         await page.locator("h1").first().waitFor({ state: "visible" });
         assert(await page.locator("h1").count(), `Missing heading ${path}`);
@@ -99,9 +102,9 @@ try {
       await context.close();
     }
     assert(errors.length === 0, `Browser exceptions: ${errors.join("; ")}`);
-    await writeFile(join(evidence, "result.json"), JSON.stringify({ base, catalog: live.count, installationTargets: targets.length, retainedVisualRoutes: routes.size, browser: browser.version(), browserScenarios: 120, localeThemeViewportCombinations: 12, screenshots: screens, errors, requests: results }, null, 2));
+    await writeFile(join(evidence, "result.json"), JSON.stringify({ base, catalog: live.count, installationTargets: targets.length, retainedVisualRoutes: routes.size, browser: browser.version(), browserScenarios: browserPaths.length * 12, localeThemeViewportCombinations: 12, screenshots: screens, errors, requests: results }, null, 2));
   } finally { await browser.close(); }
-  console.log(`PASS Catalog/source/snapshot, ${targets.length} JSON+raw targets, ${routes.size} zh/en routes, 120 browser scenarios. Evidence: ${evidence}`);
+  console.log(`PASS Catalog/source/snapshot, ${targets.length} JSON+raw targets, ${routes.size} zh/en routes, ${browserPaths.length * 12} browser scenarios. Evidence: ${evidence}`);
 } catch (error) {
   await writeFile(join(evidence, "failure.json"), JSON.stringify({ error: String(error), requests: results }, null, 2));
   throw error;

@@ -1,0 +1,2579 @@
+{
+  "generatedAt": "2026-10-08T10:40:50.765Z",
+  "verdict": "passed",
+  "globalErrors": [],
+  "root": "/Users/zhoujw/develop/github/ui-lab",
+  "evidence": "/var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-standalone-usage-e1Itdo",
+  "typescript": "5.9.3",
+  "browserVersion": "154.0.8037.98",
+  "dependencyVersions": {
+    "react": "19.2.6",
+    "motion": "11.18.2"
+  },
+  "usages": 11,
+  "browserEnabled": true,
+  "expectedBrowserChecks": 22,
+  "results": [
+    {
+      "key": "saas-admin-orders-page",
+      "installSlug": "saas-admin-orders-page",
+      "usageFile": "components/examples/pages/saas-admin-orders-page.example.tsx",
+      "files": [
+        {
+          "path": "components/pages/saas-admin-orders-page.tsx",
+          "sha256": "3d972da87aaacb04b68f0450b0d8359be78918e94b0bb576b3e32cd0e88571e9"
+        },
+        {
+          "path": "components/pages/saas-admin/environment.tsx",
+          "sha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684"
+        },
+        {
+          "path": "components/pages/saas-admin/page-frame.tsx",
+          "sha256": "58bc34a65cd0d00dbfe384aa6b03ed3273455feff382f10627bfe101b7460ecc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/orders.tsx",
+          "sha256": "a0199762329e4909d291a6281cf7c97d964e1dcd195968d676e7db0565cd6ed5"
+        },
+        {
+          "path": "components/pages/saas-admin/content.ts",
+          "sha256": "40cfaaad4a8548138657f9103f2b5fe3e36e0a46e8b9a917a6f639fd18ad9eca"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+          "sha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+          "sha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+          "sha256": "7a0f7e472881784ff4a35a3a7df79aa5e36142e5796d45d541024489bd35a60d"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/user-types.ts",
+          "sha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5"
+        },
+        {
+          "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+          "sha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f"
+        },
+        {
+          "path": "components/pages/saas-admin/types/transaction-types.ts",
+          "sha256": "8d14e864c25f70a61789d7d72b63e2096eb2892e2dae56164fac20de2fdca3f6"
+        },
+        {
+          "path": "components/pages/saas-admin/theme.tsx",
+          "sha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb"
+        },
+        {
+          "path": "components/ui/sonner.tsx",
+          "sha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f"
+        },
+        {
+          "path": "components/ui/tooltip.tsx",
+          "sha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/images.ts",
+          "sha256": "e445d36cee41ba73dca125e7ce996f514229b77af4da92b17266c9f442a4bf9b"
+        },
+        {
+          "path": "components/pages/saas-admin/views/dashboards/charts/chart-sales-metrics.tsx",
+          "sha256": "ab8406f41ed101b27625314dc832f8c5f0655fc231e421b84376de612db68aea"
+        },
+        {
+          "path": "components/pages/saas-admin/views/dashboards/statistics/statistics-card-01.tsx",
+          "sha256": "2e89789063ceb3145b32c043a93f1f1131d18d97cbd514a598c2ea19144a8bee"
+        },
+        {
+          "path": "components/pages/saas-admin/views/dashboards/widgets/widget-product-insights.tsx",
+          "sha256": "264cf01a407f8a18b69feab5d4cf6dcc18503b1fde211d8e4a3ed913ba00102c"
+        },
+        {
+          "path": "components/pages/saas-admin/views/dashboards/widgets/widget-total-earning.tsx",
+          "sha256": "6ecea86e9672a3dbf45b7b7a08974a0a951553331c43e5fe344bf6654038e953"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/datatable-transaction.tsx",
+          "sha256": "0339e196610c2f1b997528f5a361bbdaf37af78a17b05aa38a4be5b105f0e2d2"
+        },
+        {
+          "path": "components/ui/card.tsx",
+          "sha256": "6d9ddb5941eee72b3a3a24cb42aadc259b50e318a54ccf2a8a8bd2dfe0c5d572"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/font-license.ts",
+          "sha256": "15e30f2f78e7b79152b4687d2b0276075048ebd34317f3204cb6c478590677a0"
+        },
+        {
+          "path": "components/pages/saas-admin/styles.css",
+          "sha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069"
+        },
+        {
+          "path": "lib/theme-kits/blue-ink-colors.ts",
+          "sha256": "20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4"
+        },
+        {
+          "path": "lib/theme-kits/saas-admin-default-colors.ts",
+          "sha256": "75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "components/ui/avatar.tsx",
+          "sha256": "d5739ffbbb4b05aa03d4f14a76992da0700f8a922da8326c094af37e17f4a322"
+        },
+        {
+          "path": "components/ui/chart.tsx",
+          "sha256": "e7f737ac7b6ed456505ab415ecf8011d0ee472629f443a1ed4de6a4e3dc28368"
+        },
+        {
+          "path": "components/ui/separator.tsx",
+          "sha256": "2025fff3dfcdd95b1765b9e4c9d34138d4aa5f9f10edccb6f92f89b9d6744dfe"
+        },
+        {
+          "path": "components/pages/saas-admin/use-submit.tsx",
+          "sha256": "da0c3cafd2dd4619ca43004479fe2e1dc22379772af90fc1cc13d0561d404fa1"
+        },
+        {
+          "path": "components/ui/button.tsx",
+          "sha256": "c1a969b950e63fb5ad1cd7dc529404cdffaa0e935fd26e90a8837ebaad920f34"
+        },
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "sha256": "8ff01506d57c96a72c4149e6b9808a7687f277cf5b12530af356a655d3159ffa"
+        },
+        {
+          "path": "components/ui/progress.tsx",
+          "sha256": "1ca17e16aad78e8907fb09d356e80f14885ca2415728dfb7ddd6121aafb5dde2"
+        },
+        {
+          "path": "components/pages/saas-admin/hooks/use-pagination.ts",
+          "sha256": "eb5f686bce82d7cc61ad6785c2c2567c8910a85cb923ffecf0c68b353963296f"
+        },
+        {
+          "path": "components/ui/badge.tsx",
+          "sha256": "ab12ab225e8c2e4919b0076569bbb6bcf3be63aa4ef805d337b9afc031976274"
+        },
+        {
+          "path": "components/ui/pagination.tsx",
+          "sha256": "32c9cd77f61c4c10dc1a5151df34129268e9d435cb1b124a65632d7066ba248b"
+        },
+        {
+          "path": "components/ui/table.tsx",
+          "sha256": "71c6931582cb4f1978346c9a79f54d4770fd83d2930965796693fc36a2979fa1"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/fonts.css",
+          "sha256": "76c2f97934c18de33c18d423bedf353fb50c72bca50ca4b769c6f99d75fb696d"
+        },
+        {
+          "path": "components/ui/alert.tsx",
+          "sha256": "61b5963b9b418e345307be628ddbfe45351e1672430440dc7751ffac858726ab"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "saas-admin-users-page",
+      "installSlug": "saas-admin-users-page",
+      "usageFile": "components/examples/pages/saas-admin-users-page.example.tsx",
+      "files": [
+        {
+          "path": "components/pages/saas-admin-users-page.tsx",
+          "sha256": "e4186730a4f059845b09b1e8babde98121647095d3fcd3c2699a95ba7e68d5c1"
+        },
+        {
+          "path": "components/pages/saas-admin/environment.tsx",
+          "sha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684"
+        },
+        {
+          "path": "components/pages/saas-admin/page-frame.tsx",
+          "sha256": "58bc34a65cd0d00dbfe384aa6b03ed3273455feff382f10627bfe101b7460ecc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/list/index.tsx",
+          "sha256": "f094dd442294c0ebe346a8dd324de918cc18e6f39623d7820b76a15c4288b1cf"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/index.tsx",
+          "sha256": "29e3f51a453835b22a886ee14d44b96f962029fe3543b3fc04263c4fe1bfb6c0"
+        },
+        {
+          "path": "components/pages/saas-admin/content.ts",
+          "sha256": "40cfaaad4a8548138657f9103f2b5fe3e36e0a46e8b9a917a6f639fd18ad9eca"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+          "sha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+          "sha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+          "sha256": "7a0f7e472881784ff4a35a3a7df79aa5e36142e5796d45d541024489bd35a60d"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/user-types.ts",
+          "sha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5"
+        },
+        {
+          "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+          "sha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f"
+        },
+        {
+          "path": "components/pages/saas-admin/types/transaction-types.ts",
+          "sha256": "8d14e864c25f70a61789d7d72b63e2096eb2892e2dae56164fac20de2fdca3f6"
+        },
+        {
+          "path": "components/pages/saas-admin/theme.tsx",
+          "sha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb"
+        },
+        {
+          "path": "components/ui/sonner.tsx",
+          "sha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f"
+        },
+        {
+          "path": "components/ui/tooltip.tsx",
+          "sha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/dialogs/add-edit-user-sheet.tsx",
+          "sha256": "04e93c585c817ff571d59a9392d38cd99653e54edac5c2bc0e036505da426a86"
+        },
+        {
+          "path": "components/pages/saas-admin/hooks/use-user-app.ts",
+          "sha256": "c55d106f10b8d70a38a5bb0046c1a79521788179e39c374ca0e91c4cd09c8d2c"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/list/user-pagination.tsx",
+          "sha256": "52c66515df31c5cf50918c019188e9c043af979db695879674afc43f53cfded5"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/list/user-table.tsx",
+          "sha256": "580dcf9f1487ca1704020ce2c4b22226bcb0c6cb086caa220e7a98c6f7a3ef77"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/list/user-table-filters.tsx",
+          "sha256": "ab2798f79a7bd492219daf9b44a39af5a3759d09cccbfe9e38f12dc26b0c96dc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/list/user-table-toolbar.tsx",
+          "sha256": "b5e3889b547b001ce7636a1424f7d7bca3c255ce3995b98f0492fcbf2f771ec2"
+        },
+        {
+          "path": "components/ui/card.tsx",
+          "sha256": "6d9ddb5941eee72b3a3a24cb42aadc259b50e318a54ccf2a8a8bd2dfe0c5d572"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/user-view-left-panel.tsx",
+          "sha256": "ea4cd370401f51ba4d1594d4e3533391491c5f7be331c82695c0bc8b6284e394"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/user-view-tabs.tsx",
+          "sha256": "53b07ac70f16463c559c254672d00168b6e4166e83dbf49eb000d81d7791e58e"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/images.ts",
+          "sha256": "e445d36cee41ba73dca125e7ce996f514229b77af4da92b17266c9f442a4bf9b"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/font-license.ts",
+          "sha256": "15e30f2f78e7b79152b4687d2b0276075048ebd34317f3204cb6c478590677a0"
+        },
+        {
+          "path": "components/pages/saas-admin/styles.css",
+          "sha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069"
+        },
+        {
+          "path": "lib/theme-kits/blue-ink-colors.ts",
+          "sha256": "20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4"
+        },
+        {
+          "path": "lib/theme-kits/saas-admin-default-colors.ts",
+          "sha256": "75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "components/ui/button.tsx",
+          "sha256": "c1a969b950e63fb5ad1cd7dc529404cdffaa0e935fd26e90a8837ebaad920f34"
+        },
+        {
+          "path": "components/ui/field.tsx",
+          "sha256": "5a41b1cdc45ac7d7dbda23da0b550f2ea64eceb7887b02a0faa33fcac7c125f3"
+        },
+        {
+          "path": "components/ui/input.tsx",
+          "sha256": "64d320ab4a7fd2b470ee389eb4918da786176464820fc0ca9e7b282a5d62f015"
+        },
+        {
+          "path": "components/ui/select.tsx",
+          "sha256": "0816560b64855e5db3c1d19041f063330db590502424bc0a744868f03a54e925"
+        },
+        {
+          "path": "components/ui/sheet.tsx",
+          "sha256": "efa87ddcac40ba735f89b8d9faa65eec303777bf435dd4dff79763caa736b4a9"
+        },
+        {
+          "path": "components/pages/saas-admin/hooks/use-pagination.ts",
+          "sha256": "eb5f686bce82d7cc61ad6785c2c2567c8910a85cb923ffecf0c68b353963296f"
+        },
+        {
+          "path": "components/ui/pagination.tsx",
+          "sha256": "32c9cd77f61c4c10dc1a5151df34129268e9d435cb1b124a65632d7066ba248b"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/list/user-table-columns.tsx",
+          "sha256": "909a7cf80526f52199d0c3cf8b454fd380cadf77acbcaae23a5df0a11eeb3330"
+        },
+        {
+          "path": "components/ui/table.tsx",
+          "sha256": "71c6931582cb4f1978346c9a79f54d4770fd83d2930965796693fc36a2979fa1"
+        },
+        {
+          "path": "components/ui/label.tsx",
+          "sha256": "1658aa0eb5e19da8c6c284b7892405a034bfeeac4b6ab5e6851626a195812e3e"
+        },
+        {
+          "path": "components/pages/saas-admin/use-submit.tsx",
+          "sha256": "da0c3cafd2dd4619ca43004479fe2e1dc22379772af90fc1cc13d0561d404fa1"
+        },
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "sha256": "8ff01506d57c96a72c4149e6b9808a7687f277cf5b12530af356a655d3159ffa"
+        },
+        {
+          "path": "components/ui/input-group.tsx",
+          "sha256": "2ebfc39e724886d75e0a80810d1a1b9f0bc9ed226ac746093facc47c2e3b9785"
+        },
+        {
+          "path": "components/pages/saas-admin/configs/mailConfig.ts",
+          "sha256": "599ba67f3a4f6e44a662cf05742f6d3c64aee85d6e84755b3d6a4a5ed15445da"
+        },
+        {
+          "path": "components/ui/avatar.tsx",
+          "sha256": "d5739ffbbb4b05aa03d4f14a76992da0700f8a922da8326c094af37e17f4a322"
+        },
+        {
+          "path": "components/ui/badge.tsx",
+          "sha256": "ab12ab225e8c2e4919b0076569bbb6bcf3be63aa4ef805d337b9afc031976274"
+        },
+        {
+          "path": "components/ui/separator.tsx",
+          "sha256": "2025fff3dfcdd95b1765b9e4c9d34138d4aa5f9f10edccb6f92f89b9d6744dfe"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/tabs/account-tab.tsx",
+          "sha256": "339f46561472660ff336cce22aca2acac5b6299908829637f9b0804a7f02ec43"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/tabs/billing-tab.tsx",
+          "sha256": "04f81e46915152d6ffd8fd9558cd1a7ba1d9a3b3f4d2ee5fb9ce7b9b130f8ca7"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/tabs/connections-tab.tsx",
+          "sha256": "3300ef172d9a9176af9c59c32e991c61cd0ecea5a47a9d58686464f4aff0b4d1"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/tabs/notifications-tab.tsx",
+          "sha256": "6ca85b029de94a5ea4209b8503bc16a3f8061735c90326a64a9ff59a734c2a0d"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/tabs/security-tab.tsx",
+          "sha256": "a368d3f7866fe6608ab48ef20ffeb91eb531eddf59cdaf934e46ed75617471b8"
+        },
+        {
+          "path": "components/ui/tabs.tsx",
+          "sha256": "aa0a1c257b6d1a06be15c685f4ff01de8feeedded1c1de450700ffb96d61f9a6"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/fonts.css",
+          "sha256": "76c2f97934c18de33c18d423bedf353fb50c72bca50ca4b769c6f99d75fb696d"
+        },
+        {
+          "path": "components/ui/alert.tsx",
+          "sha256": "61b5963b9b418e345307be628ddbfe45351e1672430440dc7751ffac858726ab"
+        },
+        {
+          "path": "components/ui/textarea.tsx",
+          "sha256": "64ef8bfbb62f990bfc2256c670cf21428e13db0909ba5dc2e0222bdac52a2a82"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/mail-types.ts",
+          "sha256": "aa69d3ff473d8e5df54651283000d9d64d7ae89d77cbfcc3b9bb652af50d62ad"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/activity-timeline.tsx",
+          "sha256": "a783f1c9c33f7fc3c6c79529ba60bc4fb21da34a85d8cd800c80fd163804b172"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/projects-datatable.tsx",
+          "sha256": "2c0aa6e914d64274088619dc9b9293bd000d17adda926524bc195e76d0c7ec8b"
+        },
+        {
+          "path": "components/ui/progress.tsx",
+          "sha256": "1ca17e16aad78e8907fb09d356e80f14885ca2415728dfb7ddd6121aafb5dde2"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/facebook-icon.tsx",
+          "sha256": "717bc4bbaa144f63d9589aed1305966de3d8a462f533862e6322805dfcb70130"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/github-icon.tsx",
+          "sha256": "d18ae1357f353e49c704b8970c81a3bd48f47d758ec0eb491f273344b18f605a"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/linkedin-icon.tsx",
+          "sha256": "7a6ac393921cd667b250e11208f534b97572b66675b3add2304c602d813c8425"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/twitter-icon.tsx",
+          "sha256": "513c13846b6dc23a037deb5e2996945f5a26c68dd105a38a18b1563d71929859"
+        },
+        {
+          "path": "components/ui/switch.tsx",
+          "sha256": "d21c6fae3689f73abe3ad9e208195126ed9c5b5f2448e2039d37f3fcddc889e1"
+        },
+        {
+          "path": "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
+          "sha256": "ed0fef1c2749d33cd9304da6364e5451de160d7b512310a25cc7879f0c676df5"
+        },
+        {
+          "path": "components/ui/checkbox.tsx",
+          "sha256": "f523159fa8b55c8f084e79bfe523aa7c5a7b98399557d64960730ef3b82a6c76"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "saas-admin-profile-page",
+      "installSlug": "saas-admin-profile-page",
+      "usageFile": "components/examples/pages/saas-admin-profile-page.example.tsx",
+      "files": [
+        {
+          "path": "components/pages/saas-admin-profile-page.tsx",
+          "sha256": "6d98bba229866b4e6ea46da3c25503ab498049dcc44da676972614202910d3b9"
+        },
+        {
+          "path": "components/pages/saas-admin/environment.tsx",
+          "sha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684"
+        },
+        {
+          "path": "components/pages/saas-admin/page-frame.tsx",
+          "sha256": "58bc34a65cd0d00dbfe384aa6b03ed3273455feff382f10627bfe101b7460ecc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/index.tsx",
+          "sha256": "b10ba3d31658081d52a819c0922b36d7284644397f3af8c48efb055c135a957c"
+        },
+        {
+          "path": "components/pages/saas-admin/content.ts",
+          "sha256": "40cfaaad4a8548138657f9103f2b5fe3e36e0a46e8b9a917a6f639fd18ad9eca"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+          "sha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+          "sha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+          "sha256": "7a0f7e472881784ff4a35a3a7df79aa5e36142e5796d45d541024489bd35a60d"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/user-types.ts",
+          "sha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5"
+        },
+        {
+          "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+          "sha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f"
+        },
+        {
+          "path": "components/pages/saas-admin/types/transaction-types.ts",
+          "sha256": "8d14e864c25f70a61789d7d72b63e2096eb2892e2dae56164fac20de2fdca3f6"
+        },
+        {
+          "path": "components/pages/saas-admin/theme.tsx",
+          "sha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb"
+        },
+        {
+          "path": "components/ui/sonner.tsx",
+          "sha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f"
+        },
+        {
+          "path": "components/ui/tooltip.tsx",
+          "sha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/images.ts",
+          "sha256": "e445d36cee41ba73dca125e7ce996f514229b77af4da92b17266c9f442a4bf9b"
+        },
+        {
+          "path": "components/pages/saas-admin/blocks/profile-background.tsx",
+          "sha256": "6d6ab0d8258d66c4a395781545fb1d775f3cfbffef885cfecca900988059c87a"
+        },
+        {
+          "path": "components/pages/saas-admin/use-submit.tsx",
+          "sha256": "da0c3cafd2dd4619ca43004479fe2e1dc22379772af90fc1cc13d0561d404fa1"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/user-profile-tabs.tsx",
+          "sha256": "2464eb00ac7fcffb24b6ac00b3dd93ff1b0b4579b50fa986c6b37e6048a3c4d3"
+        },
+        {
+          "path": "components/ui/avatar.tsx",
+          "sha256": "d5739ffbbb4b05aa03d4f14a76992da0700f8a922da8326c094af37e17f4a322"
+        },
+        {
+          "path": "components/ui/button.tsx",
+          "sha256": "c1a969b950e63fb5ad1cd7dc529404cdffaa0e935fd26e90a8837ebaad920f34"
+        },
+        {
+          "path": "components/ui/card.tsx",
+          "sha256": "6d9ddb5941eee72b3a3a24cb42aadc259b50e318a54ccf2a8a8bd2dfe0c5d572"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/font-license.ts",
+          "sha256": "15e30f2f78e7b79152b4687d2b0276075048ebd34317f3204cb6c478590677a0"
+        },
+        {
+          "path": "components/pages/saas-admin/styles.css",
+          "sha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069"
+        },
+        {
+          "path": "lib/theme-kits/blue-ink-colors.ts",
+          "sha256": "20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4"
+        },
+        {
+          "path": "lib/theme-kits/saas-admin-default-colors.ts",
+          "sha256": "75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "components/ui/alert.tsx",
+          "sha256": "61b5963b9b418e345307be628ddbfe45351e1672430440dc7751ffac858726ab"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/connections/index.tsx",
+          "sha256": "c370ca10f7d74fa37e90774494960cffb73e144a6665173f662048fa87c324fa"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/profile/index.tsx",
+          "sha256": "9182f2e7a16f98f61180722d0f6d24bc481f58221b60143d743ebfb0bd0d31cb"
+        },
+        {
+          "path": "components/ui/tabs.tsx",
+          "sha256": "aa0a1c257b6d1a06be15c685f4ff01de8feeedded1c1de450700ffb96d61f9a6"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/fonts.css",
+          "sha256": "76c2f97934c18de33c18d423bedf353fb50c72bca50ca4b769c6f99d75fb696d"
+        },
+        {
+          "path": "components/ui/badge.tsx",
+          "sha256": "ab12ab225e8c2e4919b0076569bbb6bcf3be63aa4ef805d337b9afc031976274"
+        },
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "sha256": "8ff01506d57c96a72c4149e6b9808a7687f277cf5b12530af356a655d3159ffa"
+        },
+        {
+          "path": "components/ui/separator.tsx",
+          "sha256": "2025fff3dfcdd95b1765b9e4c9d34138d4aa5f9f10edccb6f92f89b9d6744dfe"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/profile/about-section.tsx",
+          "sha256": "2be87ce3148eba26cb5f1c57066b125aade0856cbf42b751e24dfd166207a50c"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/profile/activity-timeline.tsx",
+          "sha256": "14db6c29ef46170d8e3b5d6e85c38b9359eb00ccb2734f8b63b9161c5c8b3bcd"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/profile/connections.tsx",
+          "sha256": "c33c172ec3852e688d47e2fbd818921ffde1e2aa76b209e3f887b6e05ac7250d"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/profile/profile-project-datatable.tsx",
+          "sha256": "8172042410f388017fd604afe04070ecb9c2dc8f265158843913e3d6b0608af6"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/profile/teams.tsx",
+          "sha256": "08c6a60c70dd29b0a6e0d919915f69d2bf2b1a3a4d805794569809fb5ce725e4"
+        },
+        {
+          "path": "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
+          "sha256": "ed0fef1c2749d33cd9304da6364e5451de160d7b512310a25cc7879f0c676df5"
+        },
+        {
+          "path": "components/pages/saas-admin/hooks/use-pagination.ts",
+          "sha256": "eb5f686bce82d7cc61ad6785c2c2567c8910a85cb923ffecf0c68b353963296f"
+        },
+        {
+          "path": "components/ui/checkbox.tsx",
+          "sha256": "f523159fa8b55c8f084e79bfe523aa7c5a7b98399557d64960730ef3b82a6c76"
+        },
+        {
+          "path": "components/ui/input.tsx",
+          "sha256": "64d320ab4a7fd2b470ee389eb4918da786176464820fc0ca9e7b282a5d62f015"
+        },
+        {
+          "path": "components/ui/label.tsx",
+          "sha256": "1658aa0eb5e19da8c6c284b7892405a034bfeeac4b6ab5e6851626a195812e3e"
+        },
+        {
+          "path": "components/ui/pagination.tsx",
+          "sha256": "32c9cd77f61c4c10dc1a5151df34129268e9d435cb1b124a65632d7066ba248b"
+        },
+        {
+          "path": "components/ui/progress.tsx",
+          "sha256": "1ca17e16aad78e8907fb09d356e80f14885ca2415728dfb7ddd6121aafb5dde2"
+        },
+        {
+          "path": "components/ui/table.tsx",
+          "sha256": "71c6931582cb4f1978346c9a79f54d4770fd83d2930965796693fc36a2979fa1"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "saas-admin-settings-page",
+      "installSlug": "saas-admin-settings-page",
+      "usageFile": "components/examples/pages/saas-admin-settings-page.example.tsx",
+      "files": [
+        {
+          "path": "components/pages/saas-admin-settings-page.tsx",
+          "sha256": "5a4a11e2f61487b85a732821982d547d104429cd8c463c809c09490c70f02ab9"
+        },
+        {
+          "path": "components/pages/saas-admin/environment.tsx",
+          "sha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684"
+        },
+        {
+          "path": "components/pages/saas-admin/page-frame.tsx",
+          "sha256": "58bc34a65cd0d00dbfe384aa6b03ed3273455feff382f10627bfe101b7460ecc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/index.tsx",
+          "sha256": "d1cf262b7e0921b894913746b6a525cc21349dc952723f2fd5159d6ce4f41957"
+        },
+        {
+          "path": "components/pages/saas-admin/content.ts",
+          "sha256": "40cfaaad4a8548138657f9103f2b5fe3e36e0a46e8b9a917a6f639fd18ad9eca"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+          "sha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+          "sha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+          "sha256": "7a0f7e472881784ff4a35a3a7df79aa5e36142e5796d45d541024489bd35a60d"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/user-types.ts",
+          "sha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5"
+        },
+        {
+          "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+          "sha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f"
+        },
+        {
+          "path": "components/pages/saas-admin/types/transaction-types.ts",
+          "sha256": "8d14e864c25f70a61789d7d72b63e2096eb2892e2dae56164fac20de2fdca3f6"
+        },
+        {
+          "path": "components/pages/saas-admin/theme.tsx",
+          "sha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb"
+        },
+        {
+          "path": "components/ui/sonner.tsx",
+          "sha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f"
+        },
+        {
+          "path": "components/ui/tooltip.tsx",
+          "sha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/user-settings-tabs.tsx",
+          "sha256": "de4112db2197cd7619de923bbc26d2324aced0b34853381cda546af60db096be"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/images.ts",
+          "sha256": "e445d36cee41ba73dca125e7ce996f514229b77af4da92b17266c9f442a4bf9b"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/font-license.ts",
+          "sha256": "15e30f2f78e7b79152b4687d2b0276075048ebd34317f3204cb6c478590677a0"
+        },
+        {
+          "path": "components/pages/saas-admin/styles.css",
+          "sha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069"
+        },
+        {
+          "path": "lib/theme-kits/blue-ink-colors.ts",
+          "sha256": "20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4"
+        },
+        {
+          "path": "lib/theme-kits/saas-admin-default-colors.ts",
+          "sha256": "75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/general/index.tsx",
+          "sha256": "300a60867c589ba93eb9e1d5161a1317feb31940ca562ae735c0e0848c52c5de"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/workspace/index.tsx",
+          "sha256": "553737bc95ecee151de88484e33acc80c63e851bfa73849450458e098f235e78"
+        },
+        {
+          "path": "components/ui/tabs.tsx",
+          "sha256": "aa0a1c257b6d1a06be15c685f4ff01de8feeedded1c1de450700ffb96d61f9a6"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/fonts.css",
+          "sha256": "76c2f97934c18de33c18d423bedf353fb50c72bca50ca4b769c6f99d75fb696d"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/general/connect-account.tsx",
+          "sha256": "b3ca8591985f37ca67ce885f0c7bfa6ab15fd1d3df566f134543d549ce8159e6"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/general/danger-zone.tsx",
+          "sha256": "c6279b7d29f3cf3b1b1a64e793de7dc4a455e4f1348fb84948a0293e45bbc97f"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/general/email-password.tsx",
+          "sha256": "444e7bbf6a035014892cabfaedb707be8d0b01a2d8bcb9ded7681d7a3a63d0dc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/general/personal-info.tsx",
+          "sha256": "357434374cdeeea0cd53968949904e054ce0d1d56f0d2f26fddb24435fffa765"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/general/social-url.tsx",
+          "sha256": "943a87f453b79b1dccefa1d150db380e06b8cf26a745fccdb07df8da7f276a79"
+        },
+        {
+          "path": "components/ui/separator.tsx",
+          "sha256": "2025fff3dfcdd95b1765b9e4c9d34138d4aa5f9f10edccb6f92f89b9d6744dfe"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/workspace/danger-zone.tsx",
+          "sha256": "29d36b3dc6eabe3ea2399d26d06e725a82e2fb067d4ca587665c67b00e3aa134"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-data.tsx",
+          "sha256": "8b7c0d874f002a7aa0f0e0de0a83abe7813db69e8705c226bd6fdee3fd47fed3"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-detail.tsx",
+          "sha256": "e35620836c2ed014abf0ebc51ef8711b0982cf4fb35bb899ef3d43da2779e122"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-name.tsx",
+          "sha256": "be4c3226c0bc1bf5faf4fdbd0c1eb525156f562523a56fd840b5a9987fe38531"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-organizations.tsx",
+          "sha256": "6f213f6a0f693af9583a0163c823b64ac52fe7cc71fa2b3e68a8435e96d027e5"
+        },
+        {
+          "path": "components/ui/button.tsx",
+          "sha256": "c1a969b950e63fb5ad1cd7dc529404cdffaa0e935fd26e90a8837ebaad920f34"
+        },
+        {
+          "path": "components/ui/dialog.tsx",
+          "sha256": "0a0715d6887a991650e9bf51a872cea696b90f520a865878127b0895cbf9ea85"
+        },
+        {
+          "path": "components/ui/input.tsx",
+          "sha256": "64d320ab4a7fd2b470ee389eb4918da786176464820fc0ca9e7b282a5d62f015"
+        },
+        {
+          "path": "components/ui/label.tsx",
+          "sha256": "1658aa0eb5e19da8c6c284b7892405a034bfeeac4b6ab5e6851626a195812e3e"
+        },
+        {
+          "path": "components/pages/saas-admin/use-submit.tsx",
+          "sha256": "da0c3cafd2dd4619ca43004479fe2e1dc22379772af90fc1cc13d0561d404fa1"
+        },
+        {
+          "path": "components/ui/card.tsx",
+          "sha256": "6d9ddb5941eee72b3a3a24cb42aadc259b50e318a54ccf2a8a8bd2dfe0c5d572"
+        },
+        {
+          "path": "components/ui/input-group.tsx",
+          "sha256": "2ebfc39e724886d75e0a80810d1a1b9f0bc9ed226ac746093facc47c2e3b9785"
+        },
+        {
+          "path": "components/ui/select.tsx",
+          "sha256": "0816560b64855e5db3c1d19041f063330db590502424bc0a744868f03a54e925"
+        },
+        {
+          "path": "components/ui/progress.tsx",
+          "sha256": "1ca17e16aad78e8907fb09d356e80f14885ca2415728dfb7ddd6121aafb5dde2"
+        },
+        {
+          "path": "components/ui/table.tsx",
+          "sha256": "71c6931582cb4f1978346c9a79f54d4770fd83d2930965796693fc36a2979fa1"
+        },
+        {
+          "path": "components/ui/textarea.tsx",
+          "sha256": "64ef8bfbb62f990bfc2256c670cf21428e13db0909ba5dc2e0222bdac52a2a82"
+        },
+        {
+          "path": "components/ui/command.tsx",
+          "sha256": "21d10f578b436b459e5769f117d9ee18885970a16a2900e4f7c43376f971f8cb"
+        },
+        {
+          "path": "components/ui/popover.tsx",
+          "sha256": "b1672291fc9ab6d286bc0988381e1f869054388359519f9d39fa4d28cc0f0cc8"
+        },
+        {
+          "path": "components/ui/alert.tsx",
+          "sha256": "61b5963b9b418e345307be628ddbfe45351e1672430440dc7751ffac858726ab"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "saas-admin-data-table-page",
+      "installSlug": "saas-admin-data-table-page",
+      "usageFile": "components/examples/pages/saas-admin-data-table-page.example.tsx",
+      "files": [
+        {
+          "path": "components/pages/saas-admin-data-table-page.tsx",
+          "sha256": "442032558b04ff137548a32512a051a85091acfcc1ffcc60e79ee0726ca50b14"
+        },
+        {
+          "path": "components/pages/saas-admin/environment.tsx",
+          "sha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684"
+        },
+        {
+          "path": "components/pages/saas-admin/page-frame.tsx",
+          "sha256": "58bc34a65cd0d00dbfe384aa6b03ed3273455feff382f10627bfe101b7460ecc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/index.tsx",
+          "sha256": "0c3006a9762d11c8fd52c9a8455f5a9a43ff80b158f393407c6f729d288fa22c"
+        },
+        {
+          "path": "components/pages/saas-admin/content.ts",
+          "sha256": "40cfaaad4a8548138657f9103f2b5fe3e36e0a46e8b9a917a6f639fd18ad9eca"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+          "sha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+          "sha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+          "sha256": "7a0f7e472881784ff4a35a3a7df79aa5e36142e5796d45d541024489bd35a60d"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/user-types.ts",
+          "sha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5"
+        },
+        {
+          "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+          "sha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f"
+        },
+        {
+          "path": "components/pages/saas-admin/types/transaction-types.ts",
+          "sha256": "8d14e864c25f70a61789d7d72b63e2096eb2892e2dae56164fac20de2fdca3f6"
+        },
+        {
+          "path": "components/pages/saas-admin/theme.tsx",
+          "sha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb"
+        },
+        {
+          "path": "components/ui/sonner.tsx",
+          "sha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f"
+        },
+        {
+          "path": "components/ui/tooltip.tsx",
+          "sha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/basic/index.tsx",
+          "sha256": "45d50ee8df2e05a2fcf3a6a51abb1ff6bc07502719912e00ce92b9a1f7503203"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/filters/index.tsx",
+          "sha256": "d3a41efced2cc66d54c8423b54f39f152e822bd9a4f17c75097a4fbc5a56b681"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/pinnable-columns/index.tsx",
+          "sha256": "4919ef4dcad76603d0b2fe8cae8041e0550a2f9a3d23440efc32dd8916a8600f"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/images.ts",
+          "sha256": "e445d36cee41ba73dca125e7ce996f514229b77af4da92b17266c9f442a4bf9b"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/font-license.ts",
+          "sha256": "15e30f2f78e7b79152b4687d2b0276075048ebd34317f3204cb6c478590677a0"
+        },
+        {
+          "path": "components/pages/saas-admin/styles.css",
+          "sha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069"
+        },
+        {
+          "path": "lib/theme-kits/blue-ink-colors.ts",
+          "sha256": "20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4"
+        },
+        {
+          "path": "lib/theme-kits/saas-admin-default-colors.ts",
+          "sha256": "75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/basic/basic-datatable.tsx",
+          "sha256": "2c9c5fda13375cc8b4def2ab2a6913ac90667f23606f0b7ea32502fcb1bb834a"
+        },
+        {
+          "path": "components/ui/card.tsx",
+          "sha256": "6d9ddb5941eee72b3a3a24cb42aadc259b50e318a54ccf2a8a8bd2dfe0c5d572"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx",
+          "sha256": "dd4c1784983245515b5aa378d638701a00f9887b4278f8cde88c828956de6cde"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/pinnable-columns/pinnable-columns-datatable.tsx",
+          "sha256": "7788ceb041b37dbb594ce31cb540996ff0b69f94576675cd3981c68f8b4252a6"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/fonts.css",
+          "sha256": "76c2f97934c18de33c18d423bedf353fb50c72bca50ca4b769c6f99d75fb696d"
+        },
+        {
+          "path": "components/ui/checkbox.tsx",
+          "sha256": "f523159fa8b55c8f084e79bfe523aa7c5a7b98399557d64960730ef3b82a6c76"
+        },
+        {
+          "path": "components/ui/table.tsx",
+          "sha256": "71c6931582cb4f1978346c9a79f54d4770fd83d2930965796693fc36a2979fa1"
+        },
+        {
+          "path": "components/ui/avatar.tsx",
+          "sha256": "d5739ffbbb4b05aa03d4f14a76992da0700f8a922da8326c094af37e17f4a322"
+        },
+        {
+          "path": "components/ui/badge.tsx",
+          "sha256": "ab12ab225e8c2e4919b0076569bbb6bcf3be63aa4ef805d337b9afc031976274"
+        },
+        {
+          "path": "components/ui/input.tsx",
+          "sha256": "64d320ab4a7fd2b470ee389eb4918da786176464820fc0ca9e7b282a5d62f015"
+        },
+        {
+          "path": "components/ui/label.tsx",
+          "sha256": "1658aa0eb5e19da8c6c284b7892405a034bfeeac4b6ab5e6851626a195812e3e"
+        },
+        {
+          "path": "components/ui/select.tsx",
+          "sha256": "0816560b64855e5db3c1d19041f063330db590502424bc0a744868f03a54e925"
+        },
+        {
+          "path": "components/ui/button.tsx",
+          "sha256": "c1a969b950e63fb5ad1cd7dc529404cdffaa0e935fd26e90a8837ebaad920f34"
+        },
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "sha256": "8ff01506d57c96a72c4149e6b9808a7687f277cf5b12530af356a655d3159ffa"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "saas-admin-forms-page",
+      "installSlug": "saas-admin-forms-page",
+      "usageFile": "components/examples/pages/saas-admin-forms-page.example.tsx",
+      "files": [
+        {
+          "path": "components/pages/saas-admin-forms-page.tsx",
+          "sha256": "f1472631bc1784c3f22d175a86731b6b5191fe52cd603fed943d195a45a08d8b"
+        },
+        {
+          "path": "components/pages/saas-admin/environment.tsx",
+          "sha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684"
+        },
+        {
+          "path": "components/pages/saas-admin/page-frame.tsx",
+          "sha256": "58bc34a65cd0d00dbfe384aa6b03ed3273455feff382f10627bfe101b7460ecc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-layouts/horizontal/index.tsx",
+          "sha256": "21c563fdb3f7ed5e3fca1fd3f202b1bbdbd2a230df9eec72edf9db2841510008"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-layouts/vertical/index.tsx",
+          "sha256": "94bd0bc801ab93194723d21250afd8b336bf39f6e8732d8ad4faa0ceeb6708ad"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-validation/index.tsx",
+          "sha256": "205de18ed584d5cb006315f175cd26d42f138ee905811ff1e3a9f9f24fc898db"
+        },
+        {
+          "path": "components/pages/saas-admin/content.ts",
+          "sha256": "40cfaaad4a8548138657f9103f2b5fe3e36e0a46e8b9a917a6f639fd18ad9eca"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+          "sha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+          "sha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+          "sha256": "7a0f7e472881784ff4a35a3a7df79aa5e36142e5796d45d541024489bd35a60d"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/user-types.ts",
+          "sha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5"
+        },
+        {
+          "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+          "sha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f"
+        },
+        {
+          "path": "components/pages/saas-admin/types/transaction-types.ts",
+          "sha256": "8d14e864c25f70a61789d7d72b63e2096eb2892e2dae56164fac20de2fdca3f6"
+        },
+        {
+          "path": "components/pages/saas-admin/theme.tsx",
+          "sha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb"
+        },
+        {
+          "path": "components/ui/sonner.tsx",
+          "sha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f"
+        },
+        {
+          "path": "components/ui/tooltip.tsx",
+          "sha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form.tsx",
+          "sha256": "6e4a690d0e0caf65ad961143baec42d6c298b7994e112c82c9e225607f986821"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form-with-icon.tsx",
+          "sha256": "9906b12de4ef511078034c58942d662680aad9acd6b7d04d5275834b6ee5fe8f"
+        },
+        {
+          "path": "components/ui/card.tsx",
+          "sha256": "6d9ddb5941eee72b3a3a24cb42aadc259b50e318a54ccf2a8a8bd2dfe0c5d572"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form.tsx",
+          "sha256": "87508872e86c63df6cc865d151f2b390335619ea83475158538e9eaeaec0d5b9"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form-with-icon.tsx",
+          "sha256": "bedf1e161b4aeee2e12a36e2129c25f8d235d12d1d28048092d3bbf9840a35ea"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-validation/registration-demo-form.tsx",
+          "sha256": "1d4f88910195925a175723c0a7654792be81cb0223dd3c93d020869fc84c0212"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-validation/validation-demos.tsx",
+          "sha256": "d4b919f967a0776b02ae6464167a331ab51f0d49e8cc6da8bb7636ac1dcd740c"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/images.ts",
+          "sha256": "e445d36cee41ba73dca125e7ce996f514229b77af4da92b17266c9f442a4bf9b"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/font-license.ts",
+          "sha256": "15e30f2f78e7b79152b4687d2b0276075048ebd34317f3204cb6c478590677a0"
+        },
+        {
+          "path": "components/pages/saas-admin/styles.css",
+          "sha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069"
+        },
+        {
+          "path": "lib/theme-kits/blue-ink-colors.ts",
+          "sha256": "20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4"
+        },
+        {
+          "path": "lib/theme-kits/saas-admin-default-colors.ts",
+          "sha256": "75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "components/pages/saas-admin/use-submit.tsx",
+          "sha256": "da0c3cafd2dd4619ca43004479fe2e1dc22379772af90fc1cc13d0561d404fa1"
+        },
+        {
+          "path": "components/ui/button.tsx",
+          "sha256": "c1a969b950e63fb5ad1cd7dc529404cdffaa0e935fd26e90a8837ebaad920f34"
+        },
+        {
+          "path": "components/ui/field.tsx",
+          "sha256": "5a41b1cdc45ac7d7dbda23da0b550f2ea64eceb7887b02a0faa33fcac7c125f3"
+        },
+        {
+          "path": "components/ui/input.tsx",
+          "sha256": "64d320ab4a7fd2b470ee389eb4918da786176464820fc0ca9e7b282a5d62f015"
+        },
+        {
+          "path": "components/ui/input-group.tsx",
+          "sha256": "2ebfc39e724886d75e0a80810d1a1b9f0bc9ed226ac746093facc47c2e3b9785"
+        },
+        {
+          "path": "components/ui/textarea.tsx",
+          "sha256": "64ef8bfbb62f990bfc2256c670cf21428e13db0909ba5dc2e0222bdac52a2a82"
+        },
+        {
+          "path": "components/ui/radio-group.tsx",
+          "sha256": "e23498b19cb1ca94349d7b7b7a236bedaa8b46168afeb732bc268926e410ea3a"
+        },
+        {
+          "path": "components/ui/select.tsx",
+          "sha256": "0816560b64855e5db3c1d19041f063330db590502424bc0a744868f03a54e925"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/fonts.css",
+          "sha256": "76c2f97934c18de33c18d423bedf353fb50c72bca50ca4b769c6f99d75fb696d"
+        },
+        {
+          "path": "components/ui/alert.tsx",
+          "sha256": "61b5963b9b418e345307be628ddbfe45351e1672430440dc7751ffac858726ab"
+        },
+        {
+          "path": "components/ui/label.tsx",
+          "sha256": "1658aa0eb5e19da8c6c284b7892405a034bfeeac4b6ab5e6851626a195812e3e"
+        },
+        {
+          "path": "components/ui/separator.tsx",
+          "sha256": "2025fff3dfcdd95b1765b9e4c9d34138d4aa5f9f10edccb6f92f89b9d6744dfe"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "saas-admin-login-page",
+      "installSlug": "saas-admin-login-page",
+      "usageFile": "components/examples/pages/saas-admin-login-page.example.tsx",
+      "files": [
+        {
+          "path": "components/pages/saas-admin-login-page.tsx",
+          "sha256": "00f5d2acb39edc14839ecebaa9438f94ce77a4afd2f6d6f795903a05423a3adb"
+        },
+        {
+          "path": "components/pages/saas-admin/environment.tsx",
+          "sha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684"
+        },
+        {
+          "path": "components/pages/saas-admin/page-frame.tsx",
+          "sha256": "58bc34a65cd0d00dbfe384aa6b03ed3273455feff382f10627bfe101b7460ecc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/auth/login/index.tsx",
+          "sha256": "dab656f6ec7a8624972b01c24b5d3b83632b7f4f058c43d57009d237ff6cdabf"
+        },
+        {
+          "path": "components/pages/saas-admin/content.ts",
+          "sha256": "40cfaaad4a8548138657f9103f2b5fe3e36e0a46e8b9a917a6f639fd18ad9eca"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+          "sha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+          "sha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+          "sha256": "7a0f7e472881784ff4a35a3a7df79aa5e36142e5796d45d541024489bd35a60d"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/user-types.ts",
+          "sha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5"
+        },
+        {
+          "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+          "sha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f"
+        },
+        {
+          "path": "components/pages/saas-admin/types/transaction-types.ts",
+          "sha256": "8d14e864c25f70a61789d7d72b63e2096eb2892e2dae56164fac20de2fdca3f6"
+        },
+        {
+          "path": "components/pages/saas-admin/theme.tsx",
+          "sha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb"
+        },
+        {
+          "path": "components/ui/sonner.tsx",
+          "sha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f"
+        },
+        {
+          "path": "components/ui/tooltip.tsx",
+          "sha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/auth-background-shape.tsx",
+          "sha256": "517d43c3e4673fed7b5990715cbf449f915d6fc350bc1edc2a6a3ff87260a35e"
+        },
+        {
+          "path": "components/pages/saas-admin/components/shared/Logo.tsx",
+          "sha256": "5e8ec8156dafe841771d6f5fae1e27b7464e4b063899642b746aa27cd3a32c48"
+        },
+        {
+          "path": "components/pages/saas-admin/use-submit.tsx",
+          "sha256": "da0c3cafd2dd4619ca43004479fe2e1dc22379772af90fc1cc13d0561d404fa1"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/auth/login/login-form.tsx",
+          "sha256": "a523e6559a7286310c51ae687eace105c336abc8c08de2e3ca5af6a445d80fa8"
+        },
+        {
+          "path": "components/ui/button.tsx",
+          "sha256": "c1a969b950e63fb5ad1cd7dc529404cdffaa0e935fd26e90a8837ebaad920f34"
+        },
+        {
+          "path": "components/ui/card.tsx",
+          "sha256": "6d9ddb5941eee72b3a3a24cb42aadc259b50e318a54ccf2a8a8bd2dfe0c5d572"
+        },
+        {
+          "path": "components/ui/separator.tsx",
+          "sha256": "2025fff3dfcdd95b1765b9e4c9d34138d4aa5f9f10edccb6f92f89b9d6744dfe"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/images.ts",
+          "sha256": "e445d36cee41ba73dca125e7ce996f514229b77af4da92b17266c9f442a4bf9b"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/font-license.ts",
+          "sha256": "15e30f2f78e7b79152b4687d2b0276075048ebd34317f3204cb6c478590677a0"
+        },
+        {
+          "path": "components/pages/saas-admin/styles.css",
+          "sha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069"
+        },
+        {
+          "path": "lib/theme-kits/blue-ink-colors.ts",
+          "sha256": "20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4"
+        },
+        {
+          "path": "lib/theme-kits/saas-admin-default-colors.ts",
+          "sha256": "75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/logo.tsx",
+          "sha256": "389096bc790f109edba7a692881f569378bef5ee4ae5532d038df530b40968a4"
+        },
+        {
+          "path": "components/pages/saas-admin/configs/themeConfig.ts",
+          "sha256": "9ba4671f10c082f556c72b5efbde83438112dc6355791bb1b37a2ae39cca7d07"
+        },
+        {
+          "path": "components/ui/alert.tsx",
+          "sha256": "61b5963b9b418e345307be628ddbfe45351e1672430440dc7751ffac858726ab"
+        },
+        {
+          "path": "components/ui/checkbox.tsx",
+          "sha256": "f523159fa8b55c8f084e79bfe523aa7c5a7b98399557d64960730ef3b82a6c76"
+        },
+        {
+          "path": "components/ui/field.tsx",
+          "sha256": "5a41b1cdc45ac7d7dbda23da0b550f2ea64eceb7887b02a0faa33fcac7c125f3"
+        },
+        {
+          "path": "components/ui/input.tsx",
+          "sha256": "64d320ab4a7fd2b470ee389eb4918da786176464820fc0ca9e7b282a5d62f015"
+        },
+        {
+          "path": "components/ui/input-group.tsx",
+          "sha256": "2ebfc39e724886d75e0a80810d1a1b9f0bc9ed226ac746093facc47c2e3b9785"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/fonts.css",
+          "sha256": "76c2f97934c18de33c18d423bedf353fb50c72bca50ca4b769c6f99d75fb696d"
+        },
+        {
+          "path": "components/ui/label.tsx",
+          "sha256": "1658aa0eb5e19da8c6c284b7892405a034bfeeac4b6ab5e6851626a195812e3e"
+        },
+        {
+          "path": "components/ui/textarea.tsx",
+          "sha256": "64ef8bfbb62f990bfc2256c670cf21428e13db0909ba5dc2e0222bdac52a2a82"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "saas-admin-register-page",
+      "installSlug": "saas-admin-register-page",
+      "usageFile": "components/examples/pages/saas-admin-register-page.example.tsx",
+      "files": [
+        {
+          "path": "components/pages/saas-admin-register-page.tsx",
+          "sha256": "1ac4b78e6732d0125bf6a0cd7faecaecb44541d8b7240b62462ef5a38ce6f727"
+        },
+        {
+          "path": "components/pages/saas-admin/environment.tsx",
+          "sha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684"
+        },
+        {
+          "path": "components/pages/saas-admin/page-frame.tsx",
+          "sha256": "58bc34a65cd0d00dbfe384aa6b03ed3273455feff382f10627bfe101b7460ecc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/auth/register/index.tsx",
+          "sha256": "d85304c4d6595c177b4f34c6002c02cf515c7d59902b508ce925af3498cd11f0"
+        },
+        {
+          "path": "components/pages/saas-admin/content.ts",
+          "sha256": "40cfaaad4a8548138657f9103f2b5fe3e36e0a46e8b9a917a6f639fd18ad9eca"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+          "sha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+          "sha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+          "sha256": "7a0f7e472881784ff4a35a3a7df79aa5e36142e5796d45d541024489bd35a60d"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/user-types.ts",
+          "sha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5"
+        },
+        {
+          "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+          "sha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f"
+        },
+        {
+          "path": "components/pages/saas-admin/types/transaction-types.ts",
+          "sha256": "8d14e864c25f70a61789d7d72b63e2096eb2892e2dae56164fac20de2fdca3f6"
+        },
+        {
+          "path": "components/pages/saas-admin/theme.tsx",
+          "sha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb"
+        },
+        {
+          "path": "components/ui/sonner.tsx",
+          "sha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f"
+        },
+        {
+          "path": "components/ui/tooltip.tsx",
+          "sha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/auth-background-shape.tsx",
+          "sha256": "517d43c3e4673fed7b5990715cbf449f915d6fc350bc1edc2a6a3ff87260a35e"
+        },
+        {
+          "path": "components/pages/saas-admin/components/shared/Logo.tsx",
+          "sha256": "5e8ec8156dafe841771d6f5fae1e27b7464e4b063899642b746aa27cd3a32c48"
+        },
+        {
+          "path": "components/pages/saas-admin/use-submit.tsx",
+          "sha256": "da0c3cafd2dd4619ca43004479fe2e1dc22379772af90fc1cc13d0561d404fa1"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/auth/register/register-form.tsx",
+          "sha256": "3932787ccb977475d1248808c0746a2b385348d1f9e7e43d900f84978d8d4440"
+        },
+        {
+          "path": "components/ui/button.tsx",
+          "sha256": "c1a969b950e63fb5ad1cd7dc529404cdffaa0e935fd26e90a8837ebaad920f34"
+        },
+        {
+          "path": "components/ui/card.tsx",
+          "sha256": "6d9ddb5941eee72b3a3a24cb42aadc259b50e318a54ccf2a8a8bd2dfe0c5d572"
+        },
+        {
+          "path": "components/ui/separator.tsx",
+          "sha256": "2025fff3dfcdd95b1765b9e4c9d34138d4aa5f9f10edccb6f92f89b9d6744dfe"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/images.ts",
+          "sha256": "e445d36cee41ba73dca125e7ce996f514229b77af4da92b17266c9f442a4bf9b"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/font-license.ts",
+          "sha256": "15e30f2f78e7b79152b4687d2b0276075048ebd34317f3204cb6c478590677a0"
+        },
+        {
+          "path": "components/pages/saas-admin/styles.css",
+          "sha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069"
+        },
+        {
+          "path": "lib/theme-kits/blue-ink-colors.ts",
+          "sha256": "20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4"
+        },
+        {
+          "path": "lib/theme-kits/saas-admin-default-colors.ts",
+          "sha256": "75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/logo.tsx",
+          "sha256": "389096bc790f109edba7a692881f569378bef5ee4ae5532d038df530b40968a4"
+        },
+        {
+          "path": "components/pages/saas-admin/configs/themeConfig.ts",
+          "sha256": "9ba4671f10c082f556c72b5efbde83438112dc6355791bb1b37a2ae39cca7d07"
+        },
+        {
+          "path": "components/ui/alert.tsx",
+          "sha256": "61b5963b9b418e345307be628ddbfe45351e1672430440dc7751ffac858726ab"
+        },
+        {
+          "path": "components/ui/checkbox.tsx",
+          "sha256": "f523159fa8b55c8f084e79bfe523aa7c5a7b98399557d64960730ef3b82a6c76"
+        },
+        {
+          "path": "components/ui/field.tsx",
+          "sha256": "5a41b1cdc45ac7d7dbda23da0b550f2ea64eceb7887b02a0faa33fcac7c125f3"
+        },
+        {
+          "path": "components/ui/input.tsx",
+          "sha256": "64d320ab4a7fd2b470ee389eb4918da786176464820fc0ca9e7b282a5d62f015"
+        },
+        {
+          "path": "components/ui/input-group.tsx",
+          "sha256": "2ebfc39e724886d75e0a80810d1a1b9f0bc9ed226ac746093facc47c2e3b9785"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/fonts.css",
+          "sha256": "76c2f97934c18de33c18d423bedf353fb50c72bca50ca4b769c6f99d75fb696d"
+        },
+        {
+          "path": "components/ui/label.tsx",
+          "sha256": "1658aa0eb5e19da8c6c284b7892405a034bfeeac4b6ab5e6851626a195812e3e"
+        },
+        {
+          "path": "components/ui/textarea.tsx",
+          "sha256": "64ef8bfbb62f990bfc2256c670cf21428e13db0909ba5dc2e0222bdac52a2a82"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "saas-admin-forgot-password-page",
+      "installSlug": "saas-admin-forgot-password-page",
+      "usageFile": "components/examples/pages/saas-admin-forgot-password-page.example.tsx",
+      "files": [
+        {
+          "path": "components/pages/saas-admin-forgot-password-page.tsx",
+          "sha256": "d0a74ad86c365492a0a8cea8ee2f0af8a8b1fb2f8b4b399294168888a94157e5"
+        },
+        {
+          "path": "components/pages/saas-admin/environment.tsx",
+          "sha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684"
+        },
+        {
+          "path": "components/pages/saas-admin/page-frame.tsx",
+          "sha256": "58bc34a65cd0d00dbfe384aa6b03ed3273455feff382f10627bfe101b7460ecc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/auth/forgot-password/index.tsx",
+          "sha256": "e7851f841c3146a28fad7e75030e194274f2ac6c97d2cfc46a60dfd811adbaed"
+        },
+        {
+          "path": "components/pages/saas-admin/content.ts",
+          "sha256": "40cfaaad4a8548138657f9103f2b5fe3e36e0a46e8b9a917a6f639fd18ad9eca"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+          "sha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+          "sha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+          "sha256": "7a0f7e472881784ff4a35a3a7df79aa5e36142e5796d45d541024489bd35a60d"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/user-types.ts",
+          "sha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5"
+        },
+        {
+          "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+          "sha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f"
+        },
+        {
+          "path": "components/pages/saas-admin/types/transaction-types.ts",
+          "sha256": "8d14e864c25f70a61789d7d72b63e2096eb2892e2dae56164fac20de2fdca3f6"
+        },
+        {
+          "path": "components/pages/saas-admin/theme.tsx",
+          "sha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb"
+        },
+        {
+          "path": "components/ui/sonner.tsx",
+          "sha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f"
+        },
+        {
+          "path": "components/ui/tooltip.tsx",
+          "sha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/auth-background-shape.tsx",
+          "sha256": "517d43c3e4673fed7b5990715cbf449f915d6fc350bc1edc2a6a3ff87260a35e"
+        },
+        {
+          "path": "components/pages/saas-admin/components/shared/Logo.tsx",
+          "sha256": "5e8ec8156dafe841771d6f5fae1e27b7464e4b063899642b746aa27cd3a32c48"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/auth/forgot-password/forgot-password-form.tsx",
+          "sha256": "1db72726ce8cf2521bb0cbe53a1f19bb81e005ac28beedebf74d28c6d141d4f3"
+        },
+        {
+          "path": "components/ui/button.tsx",
+          "sha256": "c1a969b950e63fb5ad1cd7dc529404cdffaa0e935fd26e90a8837ebaad920f34"
+        },
+        {
+          "path": "components/ui/card.tsx",
+          "sha256": "6d9ddb5941eee72b3a3a24cb42aadc259b50e318a54ccf2a8a8bd2dfe0c5d572"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/images.ts",
+          "sha256": "e445d36cee41ba73dca125e7ce996f514229b77af4da92b17266c9f442a4bf9b"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/font-license.ts",
+          "sha256": "15e30f2f78e7b79152b4687d2b0276075048ebd34317f3204cb6c478590677a0"
+        },
+        {
+          "path": "components/pages/saas-admin/styles.css",
+          "sha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069"
+        },
+        {
+          "path": "lib/theme-kits/blue-ink-colors.ts",
+          "sha256": "20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4"
+        },
+        {
+          "path": "lib/theme-kits/saas-admin-default-colors.ts",
+          "sha256": "75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/logo.tsx",
+          "sha256": "389096bc790f109edba7a692881f569378bef5ee4ae5532d038df530b40968a4"
+        },
+        {
+          "path": "components/pages/saas-admin/configs/themeConfig.ts",
+          "sha256": "9ba4671f10c082f556c72b5efbde83438112dc6355791bb1b37a2ae39cca7d07"
+        },
+        {
+          "path": "components/pages/saas-admin/use-submit.tsx",
+          "sha256": "da0c3cafd2dd4619ca43004479fe2e1dc22379772af90fc1cc13d0561d404fa1"
+        },
+        {
+          "path": "components/ui/field.tsx",
+          "sha256": "5a41b1cdc45ac7d7dbda23da0b550f2ea64eceb7887b02a0faa33fcac7c125f3"
+        },
+        {
+          "path": "components/ui/input.tsx",
+          "sha256": "64d320ab4a7fd2b470ee389eb4918da786176464820fc0ca9e7b282a5d62f015"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/fonts.css",
+          "sha256": "76c2f97934c18de33c18d423bedf353fb50c72bca50ca4b769c6f99d75fb696d"
+        },
+        {
+          "path": "components/ui/alert.tsx",
+          "sha256": "61b5963b9b418e345307be628ddbfe45351e1672430440dc7751ffac858726ab"
+        },
+        {
+          "path": "components/ui/label.tsx",
+          "sha256": "1658aa0eb5e19da8c6c284b7892405a034bfeeac4b6ab5e6851626a195812e3e"
+        },
+        {
+          "path": "components/ui/separator.tsx",
+          "sha256": "2025fff3dfcdd95b1765b9e4c9d34138d4aa5f9f10edccb6f92f89b9d6744dfe"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "saas-admin-site",
+      "installSlug": "saas-admin-site",
+      "usageFile": "components/examples/sites/saas-admin-site.example.tsx",
+      "files": [
+        {
+          "path": "components/site-shells/saas-admin-site.tsx",
+          "sha256": "596256334b67b02492b211b5aa6dc145ae1f0bf17b32e905cd35385e0ec7afc0"
+        },
+        {
+          "path": "components/site-shells/saas-admin-shell.tsx",
+          "sha256": "97288688947780832cada40395101234344100c60e083f9246b2e45860faaeba"
+        },
+        {
+          "path": "components/pages/saas-admin-data-table-page.tsx",
+          "sha256": "cf75c5bf29ed242f2690d77590dcba1bc58ed9aff2c9d10fc7902cc0902f22b0"
+        },
+        {
+          "path": "components/pages/saas-admin-forgot-password-page.tsx",
+          "sha256": "57f56e152d98331c3e7a2c93c951e587ad84cff3f06ad9edc4e2d6ba5620cea8"
+        },
+        {
+          "path": "components/pages/saas-admin-forms-page.tsx",
+          "sha256": "e37f3e1a0ca24d1ba24717013a0ab569b64c841705654d0bad3e88ddd73a1726"
+        },
+        {
+          "path": "components/pages/saas-admin-login-page.tsx",
+          "sha256": "f1ac689e4fef2b12736926a1cd82bab5944d7751a8b63f3db399af75cd2dfba1"
+        },
+        {
+          "path": "components/pages/saas-admin-orders-page.tsx",
+          "sha256": "73c4d75bf9fce50b9fb32cddd982adec624d04c7dca2b795640cf6c76402f152"
+        },
+        {
+          "path": "components/pages/saas-admin-profile-page.tsx",
+          "sha256": "4519c89550c75e294d3af570174230ac3d8d172bd44ca0b40fa0711127733ae2"
+        },
+        {
+          "path": "components/pages/saas-admin-register-page.tsx",
+          "sha256": "11a5872d497b4af1bc0e6234eafd96b2750ade7ec6f901a392a8bfdf5d313b12"
+        },
+        {
+          "path": "components/pages/saas-admin-settings-page.tsx",
+          "sha256": "79d9f33e068b619701a4a8dbd8862d60286ef2556258bc8cc4444e228b4da7b2"
+        },
+        {
+          "path": "components/pages/saas-admin-users-page.tsx",
+          "sha256": "cb66ead41855df2914058669e8e751b4ee5367abbb0a6897171dd42d01abda66"
+        },
+        {
+          "path": "components/pages/saas-admin/environment.tsx",
+          "sha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684"
+        },
+        {
+          "path": "components/pages/saas-admin/routes.ts",
+          "sha256": "6d65ebe1029b4d1743133c833ac7583c9d2d3e8c20e6d8a8501646bc82b545cb"
+        },
+        {
+          "path": "components/pages/saas-admin/theme.tsx",
+          "sha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb"
+        },
+        {
+          "path": "components/ui/sonner.tsx",
+          "sha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f"
+        },
+        {
+          "path": "components/ui/tooltip.tsx",
+          "sha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135"
+        },
+        {
+          "path": "components/pages/saas-admin/components/layout/Footer.tsx",
+          "sha256": "f0be3e4e3654e7fb73e5c111ded7cf31c66b76ceffa62274b91e32a9f1441e87"
+        },
+        {
+          "path": "components/pages/saas-admin/components/layout/Header.tsx",
+          "sha256": "a8d68994e78ab76ccfd7ace19384aa6013ff4b4cdf6116b322657a19d6bc89a1"
+        },
+        {
+          "path": "components/pages/saas-admin/components/layout/Sidebar.tsx",
+          "sha256": "9f2a520fd0c9d2cea175e096ef28c10a2684744420f5893be1e98abe974dfc7c"
+        },
+        {
+          "path": "components/ui/sidebar.tsx",
+          "sha256": "67db809dc640d1c72f3ef5a43348da4804a14606b661252da1a0471a8d43adb9"
+        },
+        {
+          "path": "components/pages/saas-admin/page-frame.tsx",
+          "sha256": "58bc34a65cd0d00dbfe384aa6b03ed3273455feff382f10627bfe101b7460ecc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/index.tsx",
+          "sha256": "0c3006a9762d11c8fd52c9a8455f5a9a43ff80b158f393407c6f729d288fa22c"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/auth/forgot-password/index.tsx",
+          "sha256": "e7851f841c3146a28fad7e75030e194274f2ac6c97d2cfc46a60dfd811adbaed"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-layouts/horizontal/index.tsx",
+          "sha256": "21c563fdb3f7ed5e3fca1fd3f202b1bbdbd2a230df9eec72edf9db2841510008"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-layouts/vertical/index.tsx",
+          "sha256": "94bd0bc801ab93194723d21250afd8b336bf39f6e8732d8ad4faa0ceeb6708ad"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-validation/index.tsx",
+          "sha256": "205de18ed584d5cb006315f175cd26d42f138ee905811ff1e3a9f9f24fc898db"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/auth/login/index.tsx",
+          "sha256": "dab656f6ec7a8624972b01c24b5d3b83632b7f4f058c43d57009d237ff6cdabf"
+        },
+        {
+          "path": "components/pages/saas-admin/views/orders.tsx",
+          "sha256": "a0199762329e4909d291a6281cf7c97d964e1dcd195968d676e7db0565cd6ed5"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/index.tsx",
+          "sha256": "b10ba3d31658081d52a819c0922b36d7284644397f3af8c48efb055c135a957c"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/auth/register/index.tsx",
+          "sha256": "d85304c4d6595c177b4f34c6002c02cf515c7d59902b508ce925af3498cd11f0"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/index.tsx",
+          "sha256": "d1cf262b7e0921b894913746b6a525cc21349dc952723f2fd5159d6ce4f41957"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/list/index.tsx",
+          "sha256": "f094dd442294c0ebe346a8dd324de918cc18e6f39623d7820b76a15c4288b1cf"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/index.tsx",
+          "sha256": "29e3f51a453835b22a886ee14d44b96f962029fe3543b3fc04263c4fe1bfb6c0"
+        },
+        {
+          "path": "components/pages/saas-admin/content.ts",
+          "sha256": "40cfaaad4a8548138657f9103f2b5fe3e36e0a46e8b9a917a6f639fd18ad9eca"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+          "sha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+          "sha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+          "sha256": "7a0f7e472881784ff4a35a3a7df79aa5e36142e5796d45d541024489bd35a60d"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/user-types.ts",
+          "sha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5"
+        },
+        {
+          "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+          "sha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f"
+        },
+        {
+          "path": "components/pages/saas-admin/types/transaction-types.ts",
+          "sha256": "8d14e864c25f70a61789d7d72b63e2096eb2892e2dae56164fac20de2fdca3f6"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/font-license.ts",
+          "sha256": "15e30f2f78e7b79152b4687d2b0276075048ebd34317f3204cb6c478590677a0"
+        },
+        {
+          "path": "components/pages/saas-admin/styles.css",
+          "sha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069"
+        },
+        {
+          "path": "lib/theme-kits/blue-ink-colors.ts",
+          "sha256": "20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4"
+        },
+        {
+          "path": "lib/theme-kits/saas-admin-default-colors.ts",
+          "sha256": "75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "components/pages/saas-admin/components/layout/ModeToggle.tsx",
+          "sha256": "5a772bd2d68e1fd954323209ccb7e6efc5236824cd931c48183e3fd8a44f24df"
+        },
+        {
+          "path": "components/pages/saas-admin/components/shared/LanguageDropdown.tsx",
+          "sha256": "6069dc5667fd52b8882b13543dbf5cf158c9b3d4e18f805f3713e382ebaa1d69"
+        },
+        {
+          "path": "components/pages/saas-admin/components/shared/ProfileDropdown.tsx",
+          "sha256": "35432989cc71d99eb635772c312b72d9d64e5d24158a90ea4abdff631c6bd782"
+        },
+        {
+          "path": "components/ui/breadcrumb.tsx",
+          "sha256": "8db4654954ee12e89da317a839572f214295e42833d5b4866f6d1a8c7540f6ac"
+        },
+        {
+          "path": "components/ui/button.tsx",
+          "sha256": "c1a969b950e63fb5ad1cd7dc529404cdffaa0e935fd26e90a8837ebaad920f34"
+        },
+        {
+          "path": "components/ui/separator.tsx",
+          "sha256": "2025fff3dfcdd95b1765b9e4c9d34138d4aa5f9f10edccb6f92f89b9d6744dfe"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/logo.tsx",
+          "sha256": "389096bc790f109edba7a692881f569378bef5ee4ae5532d038df530b40968a4"
+        },
+        {
+          "path": "components/pages/saas-admin/configs/navConfig.tsx",
+          "sha256": "fa51e54be73e8094a42e2f4cb352b4331a1840bf1b4e7d994e001a29851218c5"
+        },
+        {
+          "path": "components/pages/saas-admin/configs/themeConfig.ts",
+          "sha256": "9ba4671f10c082f556c72b5efbde83438112dc6355791bb1b37a2ae39cca7d07"
+        },
+        {
+          "path": "components/ui/collapsible.tsx",
+          "sha256": "99671ac42b53237c4881ca26989a83d12a56737b35e4d70a71b5aa646ee92fe4"
+        },
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "sha256": "8ff01506d57c96a72c4149e6b9808a7687f277cf5b12530af356a655d3159ffa"
+        },
+        {
+          "path": "components/ui/input.tsx",
+          "sha256": "64d320ab4a7fd2b470ee389eb4918da786176464820fc0ca9e7b282a5d62f015"
+        },
+        {
+          "path": "components/ui/sheet.tsx",
+          "sha256": "efa87ddcac40ba735f89b8d9faa65eec303777bf435dd4dff79763caa736b4a9"
+        },
+        {
+          "path": "components/ui/skeleton.tsx",
+          "sha256": "fb3cccce43216acbea067c45d8b20a333b17490e9f65a51e4c6749a1220b9801"
+        },
+        {
+          "path": "lib/hooks/use-mobile.ts",
+          "sha256": "00307359caee36a448b945f9b590ea9deb4ec0be9d09ab7711008b2218cb81a8"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/basic/index.tsx",
+          "sha256": "45d50ee8df2e05a2fcf3a6a51abb1ff6bc07502719912e00ce92b9a1f7503203"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/filters/index.tsx",
+          "sha256": "d3a41efced2cc66d54c8423b54f39f152e822bd9a4f17c75097a4fbc5a56b681"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/pinnable-columns/index.tsx",
+          "sha256": "4919ef4dcad76603d0b2fe8cae8041e0550a2f9a3d23440efc32dd8916a8600f"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/auth-background-shape.tsx",
+          "sha256": "517d43c3e4673fed7b5990715cbf449f915d6fc350bc1edc2a6a3ff87260a35e"
+        },
+        {
+          "path": "components/pages/saas-admin/components/shared/Logo.tsx",
+          "sha256": "5e8ec8156dafe841771d6f5fae1e27b7464e4b063899642b746aa27cd3a32c48"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/auth/forgot-password/forgot-password-form.tsx",
+          "sha256": "1db72726ce8cf2521bb0cbe53a1f19bb81e005ac28beedebf74d28c6d141d4f3"
+        },
+        {
+          "path": "components/ui/card.tsx",
+          "sha256": "6d9ddb5941eee72b3a3a24cb42aadc259b50e318a54ccf2a8a8bd2dfe0c5d572"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form.tsx",
+          "sha256": "6e4a690d0e0caf65ad961143baec42d6c298b7994e112c82c9e225607f986821"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form-with-icon.tsx",
+          "sha256": "9906b12de4ef511078034c58942d662680aad9acd6b7d04d5275834b6ee5fe8f"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form.tsx",
+          "sha256": "87508872e86c63df6cc865d151f2b390335619ea83475158538e9eaeaec0d5b9"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form-with-icon.tsx",
+          "sha256": "bedf1e161b4aeee2e12a36e2129c25f8d235d12d1d28048092d3bbf9840a35ea"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-validation/registration-demo-form.tsx",
+          "sha256": "1d4f88910195925a175723c0a7654792be81cb0223dd3c93d020869fc84c0212"
+        },
+        {
+          "path": "components/pages/saas-admin/views/forms/form-validation/validation-demos.tsx",
+          "sha256": "d4b919f967a0776b02ae6464167a331ab51f0d49e8cc6da8bb7636ac1dcd740c"
+        },
+        {
+          "path": "components/pages/saas-admin/use-submit.tsx",
+          "sha256": "da0c3cafd2dd4619ca43004479fe2e1dc22379772af90fc1cc13d0561d404fa1"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/auth/login/login-form.tsx",
+          "sha256": "a523e6559a7286310c51ae687eace105c336abc8c08de2e3ca5af6a445d80fa8"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/images.ts",
+          "sha256": "e445d36cee41ba73dca125e7ce996f514229b77af4da92b17266c9f442a4bf9b"
+        },
+        {
+          "path": "components/pages/saas-admin/views/dashboards/charts/chart-sales-metrics.tsx",
+          "sha256": "ab8406f41ed101b27625314dc832f8c5f0655fc231e421b84376de612db68aea"
+        },
+        {
+          "path": "components/pages/saas-admin/views/dashboards/statistics/statistics-card-01.tsx",
+          "sha256": "2e89789063ceb3145b32c043a93f1f1131d18d97cbd514a598c2ea19144a8bee"
+        },
+        {
+          "path": "components/pages/saas-admin/views/dashboards/widgets/widget-product-insights.tsx",
+          "sha256": "264cf01a407f8a18b69feab5d4cf6dcc18503b1fde211d8e4a3ed913ba00102c"
+        },
+        {
+          "path": "components/pages/saas-admin/views/dashboards/widgets/widget-total-earning.tsx",
+          "sha256": "6ecea86e9672a3dbf45b7b7a08974a0a951553331c43e5fe344bf6654038e953"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/datatable-transaction.tsx",
+          "sha256": "0339e196610c2f1b997528f5a361bbdaf37af78a17b05aa38a4be5b105f0e2d2"
+        },
+        {
+          "path": "components/pages/saas-admin/blocks/profile-background.tsx",
+          "sha256": "6d6ab0d8258d66c4a395781545fb1d775f3cfbffef885cfecca900988059c87a"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/user-profile-tabs.tsx",
+          "sha256": "2464eb00ac7fcffb24b6ac00b3dd93ff1b0b4579b50fa986c6b37e6048a3c4d3"
+        },
+        {
+          "path": "components/ui/avatar.tsx",
+          "sha256": "d5739ffbbb4b05aa03d4f14a76992da0700f8a922da8326c094af37e17f4a322"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/auth/register/register-form.tsx",
+          "sha256": "3932787ccb977475d1248808c0746a2b385348d1f9e7e43d900f84978d8d4440"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/user-settings-tabs.tsx",
+          "sha256": "de4112db2197cd7619de923bbc26d2324aced0b34853381cda546af60db096be"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/dialogs/add-edit-user-sheet.tsx",
+          "sha256": "04e93c585c817ff571d59a9392d38cd99653e54edac5c2bc0e036505da426a86"
+        },
+        {
+          "path": "components/pages/saas-admin/hooks/use-user-app.ts",
+          "sha256": "c55d106f10b8d70a38a5bb0046c1a79521788179e39c374ca0e91c4cd09c8d2c"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/list/user-pagination.tsx",
+          "sha256": "52c66515df31c5cf50918c019188e9c043af979db695879674afc43f53cfded5"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/list/user-table.tsx",
+          "sha256": "580dcf9f1487ca1704020ce2c4b22226bcb0c6cb086caa220e7a98c6f7a3ef77"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/list/user-table-filters.tsx",
+          "sha256": "ab2798f79a7bd492219daf9b44a39af5a3759d09cccbfe9e38f12dc26b0c96dc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/list/user-table-toolbar.tsx",
+          "sha256": "b5e3889b547b001ce7636a1424f7d7bca3c255ce3995b98f0492fcbf2f771ec2"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/user-view-left-panel.tsx",
+          "sha256": "ea4cd370401f51ba4d1594d4e3533391491c5f7be331c82695c0bc8b6284e394"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/user-view-tabs.tsx",
+          "sha256": "53b07ac70f16463c559c254672d00168b6e4166e83dbf49eb000d81d7791e58e"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/fonts.css",
+          "sha256": "76c2f97934c18de33c18d423bedf353fb50c72bca50ca4b769c6f99d75fb696d"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/basic/basic-datatable.tsx",
+          "sha256": "2c9c5fda13375cc8b4def2ab2a6913ac90667f23606f0b7ea32502fcb1bb834a"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx",
+          "sha256": "dd4c1784983245515b5aa378d638701a00f9887b4278f8cde88c828956de6cde"
+        },
+        {
+          "path": "components/pages/saas-admin/views/datatables/pinnable-columns/pinnable-columns-datatable.tsx",
+          "sha256": "7788ceb041b37dbb594ce31cb540996ff0b69f94576675cd3981c68f8b4252a6"
+        },
+        {
+          "path": "components/ui/field.tsx",
+          "sha256": "5a41b1cdc45ac7d7dbda23da0b550f2ea64eceb7887b02a0faa33fcac7c125f3"
+        },
+        {
+          "path": "components/ui/input-group.tsx",
+          "sha256": "2ebfc39e724886d75e0a80810d1a1b9f0bc9ed226ac746093facc47c2e3b9785"
+        },
+        {
+          "path": "components/ui/textarea.tsx",
+          "sha256": "64ef8bfbb62f990bfc2256c670cf21428e13db0909ba5dc2e0222bdac52a2a82"
+        },
+        {
+          "path": "components/ui/radio-group.tsx",
+          "sha256": "e23498b19cb1ca94349d7b7b7a236bedaa8b46168afeb732bc268926e410ea3a"
+        },
+        {
+          "path": "components/ui/select.tsx",
+          "sha256": "0816560b64855e5db3c1d19041f063330db590502424bc0a744868f03a54e925"
+        },
+        {
+          "path": "components/ui/alert.tsx",
+          "sha256": "61b5963b9b418e345307be628ddbfe45351e1672430440dc7751ffac858726ab"
+        },
+        {
+          "path": "components/ui/checkbox.tsx",
+          "sha256": "f523159fa8b55c8f084e79bfe523aa7c5a7b98399557d64960730ef3b82a6c76"
+        },
+        {
+          "path": "components/ui/chart.tsx",
+          "sha256": "e7f737ac7b6ed456505ab415ecf8011d0ee472629f443a1ed4de6a4e3dc28368"
+        },
+        {
+          "path": "components/ui/progress.tsx",
+          "sha256": "1ca17e16aad78e8907fb09d356e80f14885ca2415728dfb7ddd6121aafb5dde2"
+        },
+        {
+          "path": "components/pages/saas-admin/hooks/use-pagination.ts",
+          "sha256": "eb5f686bce82d7cc61ad6785c2c2567c8910a85cb923ffecf0c68b353963296f"
+        },
+        {
+          "path": "components/ui/badge.tsx",
+          "sha256": "ab12ab225e8c2e4919b0076569bbb6bcf3be63aa4ef805d337b9afc031976274"
+        },
+        {
+          "path": "components/ui/pagination.tsx",
+          "sha256": "32c9cd77f61c4c10dc1a5151df34129268e9d435cb1b124a65632d7066ba248b"
+        },
+        {
+          "path": "components/ui/table.tsx",
+          "sha256": "71c6931582cb4f1978346c9a79f54d4770fd83d2930965796693fc36a2979fa1"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/connections/index.tsx",
+          "sha256": "c370ca10f7d74fa37e90774494960cffb73e144a6665173f662048fa87c324fa"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/profile/index.tsx",
+          "sha256": "9182f2e7a16f98f61180722d0f6d24bc481f58221b60143d743ebfb0bd0d31cb"
+        },
+        {
+          "path": "components/ui/tabs.tsx",
+          "sha256": "aa0a1c257b6d1a06be15c685f4ff01de8feeedded1c1de450700ffb96d61f9a6"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/general/index.tsx",
+          "sha256": "300a60867c589ba93eb9e1d5161a1317feb31940ca562ae735c0e0848c52c5de"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/workspace/index.tsx",
+          "sha256": "553737bc95ecee151de88484e33acc80c63e851bfa73849450458e098f235e78"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/list/user-table-columns.tsx",
+          "sha256": "909a7cf80526f52199d0c3cf8b454fd380cadf77acbcaae23a5df0a11eeb3330"
+        },
+        {
+          "path": "components/ui/label.tsx",
+          "sha256": "1658aa0eb5e19da8c6c284b7892405a034bfeeac4b6ab5e6851626a195812e3e"
+        },
+        {
+          "path": "components/pages/saas-admin/configs/mailConfig.ts",
+          "sha256": "599ba67f3a4f6e44a662cf05742f6d3c64aee85d6e84755b3d6a4a5ed15445da"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/tabs/account-tab.tsx",
+          "sha256": "339f46561472660ff336cce22aca2acac5b6299908829637f9b0804a7f02ec43"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/tabs/billing-tab.tsx",
+          "sha256": "04f81e46915152d6ffd8fd9558cd1a7ba1d9a3b3f4d2ee5fb9ce7b9b130f8ca7"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/tabs/connections-tab.tsx",
+          "sha256": "3300ef172d9a9176af9c59c32e991c61cd0ecea5a47a9d58686464f4aff0b4d1"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/tabs/notifications-tab.tsx",
+          "sha256": "6ca85b029de94a5ea4209b8503bc16a3f8061735c90326a64a9ff59a734c2a0d"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/tabs/security-tab.tsx",
+          "sha256": "a368d3f7866fe6608ab48ef20ffeb91eb531eddf59cdaf934e46ed75617471b8"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/profile/about-section.tsx",
+          "sha256": "2be87ce3148eba26cb5f1c57066b125aade0856cbf42b751e24dfd166207a50c"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/profile/activity-timeline.tsx",
+          "sha256": "14db6c29ef46170d8e3b5d6e85c38b9359eb00ccb2734f8b63b9161c5c8b3bcd"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/profile/connections.tsx",
+          "sha256": "c33c172ec3852e688d47e2fbd818921ffde1e2aa76b209e3f887b6e05ac7250d"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/profile/profile-project-datatable.tsx",
+          "sha256": "8172042410f388017fd604afe04070ecb9c2dc8f265158843913e3d6b0608af6"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-profile/profile/teams.tsx",
+          "sha256": "08c6a60c70dd29b0a6e0d919915f69d2bf2b1a3a4d805794569809fb5ce725e4"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/general/connect-account.tsx",
+          "sha256": "b3ca8591985f37ca67ce885f0c7bfa6ab15fd1d3df566f134543d549ce8159e6"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/general/danger-zone.tsx",
+          "sha256": "c6279b7d29f3cf3b1b1a64e793de7dc4a455e4f1348fb84948a0293e45bbc97f"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/general/email-password.tsx",
+          "sha256": "444e7bbf6a035014892cabfaedb707be8d0b01a2d8bcb9ded7681d7a3a63d0dc"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/general/personal-info.tsx",
+          "sha256": "357434374cdeeea0cd53968949904e054ce0d1d56f0d2f26fddb24435fffa765"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/general/social-url.tsx",
+          "sha256": "943a87f453b79b1dccefa1d150db380e06b8cf26a745fccdb07df8da7f276a79"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/workspace/danger-zone.tsx",
+          "sha256": "29d36b3dc6eabe3ea2399d26d06e725a82e2fb067d4ca587665c67b00e3aa134"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-data.tsx",
+          "sha256": "8b7c0d874f002a7aa0f0e0de0a83abe7813db69e8705c226bd6fdee3fd47fed3"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-detail.tsx",
+          "sha256": "e35620836c2ed014abf0ebc51ef8711b0982cf4fb35bb899ef3d43da2779e122"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-name.tsx",
+          "sha256": "be4c3226c0bc1bf5faf4fdbd0c1eb525156f562523a56fd840b5a9987fe38531"
+        },
+        {
+          "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-organizations.tsx",
+          "sha256": "6f213f6a0f693af9583a0163c823b64ac52fe7cc71fa2b3e68a8435e96d027e5"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/mail-types.ts",
+          "sha256": "aa69d3ff473d8e5df54651283000d9d64d7ae89d77cbfcc3b9bb652af50d62ad"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/activity-timeline.tsx",
+          "sha256": "a783f1c9c33f7fc3c6c79529ba60bc4fb21da34a85d8cd800c80fd163804b172"
+        },
+        {
+          "path": "components/pages/saas-admin/views/apps/users/view/projects-datatable.tsx",
+          "sha256": "2c0aa6e914d64274088619dc9b9293bd000d17adda926524bc195e76d0c7ec8b"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/facebook-icon.tsx",
+          "sha256": "717bc4bbaa144f63d9589aed1305966de3d8a462f533862e6322805dfcb70130"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/github-icon.tsx",
+          "sha256": "d18ae1357f353e49c704b8970c81a3bd48f47d758ec0eb491f273344b18f605a"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/linkedin-icon.tsx",
+          "sha256": "7a6ac393921cd667b250e11208f534b97572b66675b3add2304c602d813c8425"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/twitter-icon.tsx",
+          "sha256": "513c13846b6dc23a037deb5e2996945f5a26c68dd105a38a18b1563d71929859"
+        },
+        {
+          "path": "components/ui/switch.tsx",
+          "sha256": "d21c6fae3689f73abe3ad9e208195126ed9c5b5f2448e2039d37f3fcddc889e1"
+        },
+        {
+          "path": "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
+          "sha256": "ed0fef1c2749d33cd9304da6364e5451de160d7b512310a25cc7879f0c676df5"
+        },
+        {
+          "path": "components/ui/dialog.tsx",
+          "sha256": "0a0715d6887a991650e9bf51a872cea696b90f520a865878127b0895cbf9ea85"
+        },
+        {
+          "path": "components/ui/command.tsx",
+          "sha256": "21d10f578b436b459e5769f117d9ee18885970a16a2900e4f7c43376f971f8cb"
+        },
+        {
+          "path": "components/ui/popover.tsx",
+          "sha256": "b1672291fc9ab6d286bc0988381e1f869054388359519f9d39fa4d28cc0f0cc8"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    },
+    {
+      "key": "saas-admin-shell",
+      "installSlug": "saas-admin-shell",
+      "usageFile": "components/examples/layout/saas-admin-shell.example.tsx",
+      "files": [
+        {
+          "path": "components/site-shells/saas-admin-shell.tsx",
+          "sha256": "3f8d3aebd1724ce6889ed0b0e78162059e2841597b2831befbc16476e9c898d3"
+        },
+        {
+          "path": "components/pages/saas-admin/components/layout/Footer.tsx",
+          "sha256": "f0be3e4e3654e7fb73e5c111ded7cf31c66b76ceffa62274b91e32a9f1441e87"
+        },
+        {
+          "path": "components/pages/saas-admin/components/layout/Header.tsx",
+          "sha256": "a8d68994e78ab76ccfd7ace19384aa6013ff4b4cdf6116b322657a19d6bc89a1"
+        },
+        {
+          "path": "components/pages/saas-admin/components/layout/Sidebar.tsx",
+          "sha256": "9f2a520fd0c9d2cea175e096ef28c10a2684744420f5893be1e98abe974dfc7c"
+        },
+        {
+          "path": "components/pages/saas-admin/environment.tsx",
+          "sha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684"
+        },
+        {
+          "path": "components/pages/saas-admin/theme.tsx",
+          "sha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb"
+        },
+        {
+          "path": "components/ui/sidebar.tsx",
+          "sha256": "67db809dc640d1c72f3ef5a43348da4804a14606b661252da1a0471a8d43adb9"
+        },
+        {
+          "path": "components/ui/sonner.tsx",
+          "sha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f"
+        },
+        {
+          "path": "components/ui/tooltip.tsx",
+          "sha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135"
+        },
+        {
+          "path": "components/pages/saas-admin/components/layout/ModeToggle.tsx",
+          "sha256": "5a772bd2d68e1fd954323209ccb7e6efc5236824cd931c48183e3fd8a44f24df"
+        },
+        {
+          "path": "components/pages/saas-admin/components/shared/LanguageDropdown.tsx",
+          "sha256": "6069dc5667fd52b8882b13543dbf5cf158c9b3d4e18f805f3713e382ebaa1d69"
+        },
+        {
+          "path": "components/pages/saas-admin/components/shared/ProfileDropdown.tsx",
+          "sha256": "35432989cc71d99eb635772c312b72d9d64e5d24158a90ea4abdff631c6bd782"
+        },
+        {
+          "path": "components/ui/breadcrumb.tsx",
+          "sha256": "8db4654954ee12e89da317a839572f214295e42833d5b4866f6d1a8c7540f6ac"
+        },
+        {
+          "path": "components/ui/button.tsx",
+          "sha256": "c1a969b950e63fb5ad1cd7dc529404cdffaa0e935fd26e90a8837ebaad920f34"
+        },
+        {
+          "path": "components/ui/separator.tsx",
+          "sha256": "2025fff3dfcdd95b1765b9e4c9d34138d4aa5f9f10edccb6f92f89b9d6744dfe"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/svg/logo.tsx",
+          "sha256": "389096bc790f109edba7a692881f569378bef5ee4ae5532d038df530b40968a4"
+        },
+        {
+          "path": "components/pages/saas-admin/configs/navConfig.tsx",
+          "sha256": "fa51e54be73e8094a42e2f4cb352b4331a1840bf1b4e7d994e001a29851218c5"
+        },
+        {
+          "path": "components/pages/saas-admin/configs/themeConfig.ts",
+          "sha256": "9ba4671f10c082f556c72b5efbde83438112dc6355791bb1b37a2ae39cca7d07"
+        },
+        {
+          "path": "components/ui/collapsible.tsx",
+          "sha256": "99671ac42b53237c4881ca26989a83d12a56737b35e4d70a71b5aa646ee92fe4"
+        },
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "sha256": "8ff01506d57c96a72c4149e6b9808a7687f277cf5b12530af356a655d3159ffa"
+        },
+        {
+          "path": "lib/utils.ts",
+          "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+        },
+        {
+          "path": "components/pages/saas-admin/content.ts",
+          "sha256": "40cfaaad4a8548138657f9103f2b5fe3e36e0a46e8b9a917a6f639fd18ad9eca"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+          "sha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+          "sha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361"
+        },
+        {
+          "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+          "sha256": "7a0f7e472881784ff4a35a3a7df79aa5e36142e5796d45d541024489bd35a60d"
+        },
+        {
+          "path": "components/pages/saas-admin/types/apps/user-types.ts",
+          "sha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5"
+        },
+        {
+          "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+          "sha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f"
+        },
+        {
+          "path": "components/pages/saas-admin/types/transaction-types.ts",
+          "sha256": "8d14e864c25f70a61789d7d72b63e2096eb2892e2dae56164fac20de2fdca3f6"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/font-license.ts",
+          "sha256": "15e30f2f78e7b79152b4687d2b0276075048ebd34317f3204cb6c478590677a0"
+        },
+        {
+          "path": "components/pages/saas-admin/styles.css",
+          "sha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069"
+        },
+        {
+          "path": "lib/theme-kits/blue-ink-colors.ts",
+          "sha256": "20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4"
+        },
+        {
+          "path": "lib/theme-kits/saas-admin-default-colors.ts",
+          "sha256": "75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568"
+        },
+        {
+          "path": "components/ui/input.tsx",
+          "sha256": "64d320ab4a7fd2b470ee389eb4918da786176464820fc0ca9e7b282a5d62f015"
+        },
+        {
+          "path": "components/ui/sheet.tsx",
+          "sha256": "efa87ddcac40ba735f89b8d9faa65eec303777bf435dd4dff79763caa736b4a9"
+        },
+        {
+          "path": "components/ui/skeleton.tsx",
+          "sha256": "fb3cccce43216acbea067c45d8b20a333b17490e9f65a51e4c6749a1220b9801"
+        },
+        {
+          "path": "lib/hooks/use-mobile.ts",
+          "sha256": "00307359caee36a448b945f9b590ea9deb4ec0be9d09ab7711008b2218cb81a8"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/images.ts",
+          "sha256": "e445d36cee41ba73dca125e7ce996f514229b77af4da92b17266c9f442a4bf9b"
+        },
+        {
+          "path": "components/ui/avatar.tsx",
+          "sha256": "d5739ffbbb4b05aa03d4f14a76992da0700f8a922da8326c094af37e17f4a322"
+        },
+        {
+          "path": "components/pages/saas-admin/assets/fonts.css",
+          "sha256": "76c2f97934c18de33c18d423bedf353fb50c72bca50ca4b769c6f99d75fb696d"
+        }
+      ],
+      "typecheck": true,
+      "ssr": true,
+      "bundle": true
+    }
+  ],
+  "browserChecks": [
+    {
+      "key": "saas-admin-orders-page",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-users-page",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-profile-page",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-settings-page",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-data-table-page",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-forms-page",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-login-page",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-register-page",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-forgot-password-page",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-site",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-shell",
+      "mode": "no-preference",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-orders-page",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-users-page",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-profile-page",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-settings-page",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-data-table-page",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-forms-page",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-login-page",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-register-page",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-forgot-password-page",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-site",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    },
+    {
+      "key": "saas-admin-shell",
+      "mode": "reduce",
+      "errors": [],
+      "mounted": true
+    }
+  ],
+  "interactionChecks": []
+}

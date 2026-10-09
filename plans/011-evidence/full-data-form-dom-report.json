@@ -1,0 +1,67 @@
+{
+  "method": "Agent-reported Bun + Happy DOM temporary fixture assertions; scope distinct from real-browser matrix",
+  "sourceConfiguration": "getRowId row.id in Basic/Filters, existing field, no new primitive",
+  "verified": {
+    "users": [
+      "5 role/3 plan/4 status filters and AND",
+      "case-insensitive trimmed name/email search",
+      "six columns asc/desc full-data sorting before pagination",
+      "10/25/50/100 page capacity",
+      "reset/clamp/empty result"
+    ],
+    "basic": [
+      "10 default rows",
+      "page selection and deselection",
+      "consumer data reverse preserves selected Alpha (final fix)"
+    ],
+    "filters": [
+      "product/price/rating/availability and combined filters",
+      "empty result and selection",
+      "consumer data reverse preserves selected Alpha (final fix)"
+    ],
+    "pinnable": [
+      "left/right/unpin header-cell alignment"
+    ],
+    "profileProjects": [
+      "5-row pagination after full-data search",
+      "selection keeps project ID across query/page",
+      "clamp/empty result"
+    ],
+    "userProjects": [
+      "5-row pagination after search",
+      "selection resets on query/page as upstream",
+      "empty result"
+    ],
+    "orders": [
+      "5-row pagination",
+      "prev/next/last-page disabled",
+      "empty 0 to 0"
+    ],
+    "validationModes": [
+      "onChange/onBlur/onSubmit/onTouched timing",
+      "5-20 character boundaries",
+      "invalid input blocks callback",
+      "action/payload/pending/duplicate block/error retains input/retry/reset"
+    ],
+    "register": [
+      "native required/email/privacy",
+      "userEmail payload/pending/error input preservation"
+    ],
+    "reportIssue": [
+      "all ten fields and form.validation.report-issue payload",
+      "invalid blocks callback",
+      "pending/duplicate block/error preserves input/retry payload/success feedback"
+    ]
+  },
+  "upstreamLimits": [
+    "Basic has no filter/sort/pagination UI",
+    "Users row selection disabled",
+    "Filters initial price sorting ignored because enableSorting:false; input order preserved"
+  ],
+  "notCoveredByThisEvidence": [
+    "browser layout/focus",
+    "SSR hydration",
+    "production lifecycle",
+    "independent installation"
+  ]
+}

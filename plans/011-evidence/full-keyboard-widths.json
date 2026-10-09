@@ -1,0 +1,46 @@
+{
+  "browser": "154.0.8037.98",
+  "checks": [
+    {
+      "name": "360 reduce /dashboard/orders",
+      "pass": true
+    },
+    {
+      "name": "360 reduce /datatable",
+      "pass": true
+    },
+    {
+      "name": "360 reduce /forms/form-validation",
+      "pass": true
+    },
+    {
+      "name": "360 reduce /pages/auth/login",
+      "pass": true
+    },
+    {
+      "name": "768 reduce /dashboard/orders",
+      "pass": true
+    },
+    {
+      "name": "768 reduce /datatable",
+      "pass": true
+    },
+    {
+      "name": "768 reduce /forms/form-validation",
+      "pass": true
+    },
+    {
+      "name": "768 reduce /pages/auth/login",
+      "pass": true
+    },
+    {
+      "name": "keyboard-only login input checkbox submit",
+      "pass": true
+    },
+    {
+      "name": "keyboard-only menu brand and focus restoration",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

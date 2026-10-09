@@ -22,12 +22,12 @@ const initial = "@import 'tailwindcss';\n:root { --wb-surface: hotpink; }\n.dark
 await writeFile(join(fixture, "app/globals.css"), initial);
 const server = Bun.serve({ hostname: "127.0.0.1", port: 0, async fetch(request): Promise<Response> {
   const slug = new URL(request.url).pathname.match(/^\/r\/(.+)\.json$/)?.[1];
-  const item = slug === "system-workbench" ? buildWorkbenchSystemItem() : slug === "theme-graphite" ? buildThemeItem("graphite") : slug === "settings-panel" ? await buildShadcnItem("blocks", "settings-panel") : null;
+  const item = slug === "system-workbench" ? buildWorkbenchSystemItem() : slug === "theme-blue-ink" ? buildThemeItem("blue-ink") : slug === "theme-graphite" ? buildThemeItem("graphite") : slug === "settings-panel" ? await buildShadcnItem("blocks", "settings-panel") : null;
   if (!item) return new Response("Not found", { status: 404 });
   return new Response(JSON.stringify(item).replaceAll(SITE_URL, `http://127.0.0.1:${server.port}`), { headers: { "content-type": "application/json" } });
 } });
 async function install(slug: string) {
-  const child = Bun.spawn(["bunx", "shadcn@4.21.1", "add", `http://127.0.0.1:${server.port}/r/${slug}.json`, "--yes", "--cwd", fixture], { stdout: "pipe", stderr: "pipe" });
+  const child = Bun.spawn(["node", join(process.cwd(), "benchmarks/runs/catalog-assets/node_modules/shadcn/dist/index.js"), "add", `http://127.0.0.1:${server.port}/r/${slug}.json`, "--yes", "--cwd", fixture], { stdout: "pipe", stderr: "pipe" });
   const [exitCode, stdout, stderr] = await Promise.all([child.exited, new Response(child.stdout).text(), new Response(child.stderr).text()]);
   await writeFile(join(fixture, `${slug}-${Date.now()}.log`), `${stdout}\n${stderr}`);
   if (exitCode !== 0) throw new Error(`${slug} failed (${exitCode}) in ${fixture}: ${stdout}\n${stderr}`);
@@ -49,5 +49,10 @@ try {
   assert(!themed.includes("hotpink") && !themed.includes("rebeccapurple"), "Explicit theme did not replace custom variables");
   const after = await install("system-workbench");
   assert(after === themed, "System defaults changed explicit theme");
+  await writeFile(join(fixture, "app/globals.css"), after + "\n.consumer-overrides { --primary: hotpink; }\n");
+  const blue = await install("theme-blue-ink");
+  assert(blue.includes(".consumer-overrides") && blue.includes("hotpink"), "Explicit Blue Ink removed consumer-owned override");
+  assert(blue.includes("77%") && blue.includes("48%"), "Blue Ink dual-mode primary tokens missing");
+  assert(await install("system-workbench") === blue, "System defaults changed Blue Ink");
   console.log(`PASS shadcn 4.21.1: direct/indirect fill, custom preservation, explicit replacement, idempotence. Evidence: ${fixture}`);
 } finally { server.stop(); }

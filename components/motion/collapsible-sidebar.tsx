@@ -4,6 +4,9 @@ import { AnimatePresence, LayoutGroup, motion } from "motion/react";
 import { useHydratedReducedMotion as useReducedMotion } from "@/lib/hooks/use-hydrated-reduced-motion";
 import {
   type ReactNode,
+	type CSSProperties,
+	type AnchorHTMLAttributes,
+	type MouseEvent,
   useCallback,
   useId,
   useState,
@@ -22,6 +25,7 @@ import { cn } from "@/lib/utils";
 export type CollapsibleSidebarItem = {
   id: string;
   label: string;
+	href?: string;
   icon?: ReactNode;
   badge?: ReactNode;
   actionLabel?: string;
@@ -53,7 +57,14 @@ export interface CollapsibleSidebarProps {
   onCollapsedChange?: (collapsed: boolean) => void;
   activeId?: string;
   defaultActiveId?: string;
-  onActiveChange?: (id: string) => void;
+  onActiveChange?: (id: string, event?: MouseEvent<HTMLElement>) => void;
+	/** Consumer Router Link adapter; forward supplied href, handlers and accessible props. */
+	renderLink?: (props: AnchorHTMLAttributes<HTMLAnchorElement>) => ReactNode;
+	appearance?: "original" | "semantic";
+  showCollapseControl?: boolean;
+	expandedWidth?: number;
+	expandLabel?: string;
+	collapseLabel?: string;
   className?: string;
 }
 
@@ -91,7 +102,13 @@ export function CollapsibleSidebar({
   activeId: activeIdProp,
   defaultActiveId,
   onActiveChange,
-  className,
+	renderLink,
+	appearance = "original",
+  showCollapseControl = true,
+	expandedWidth = EXPANDED_WIDTH,
+	expandLabel = "Expand sidebar",
+	collapseLabel = "Collapse sidebar",
+	className,
 }: CollapsibleSidebarProps) {
   const reduce = useReducedMotion();
   const canHover = useHoverCapable();
@@ -109,7 +126,7 @@ export function CollapsibleSidebar({
 
   const collapsed = collapsedProp ?? internalCollapsed;
   const activeId = activeIdProp ?? internalActive;
-  const width = collapsed ? RAIL_WIDTH : EXPANDED_WIDTH;
+  const width = collapsed ? RAIL_WIDTH : expandedWidth;
 
   const setCollapsed = useCallback(
     (next: boolean) => {
@@ -120,9 +137,9 @@ export function CollapsibleSidebar({
   );
 
   const setActive = useCallback(
-    (id: string) => {
+    (id: string, event?: MouseEvent<HTMLElement>) => {
       if (activeIdProp === undefined) setInternalActive(id);
-      onActiveChange?.(id);
+      onActiveChange?.(id, event);
     },
     [activeIdProp, onActiveChange],
   );
@@ -138,13 +155,25 @@ export function CollapsibleSidebar({
   return (
     <LayoutGroup id={layoutId}>
       <div
-        className={cn(
-          "relative flex h-full min-h-0 shrink-0 overflow-hidden border-r border-border bg-[#F7F7F8] text-[#111113]",
+				style={
+					appearance === "semantic"
+						? ({
+								"--collapsible-sidebar-surface": "var(--card)",
+								"--collapsible-sidebar-text": "var(--foreground)",
+								"--collapsible-sidebar-muted": "var(--muted-foreground)",
+								"--collapsible-sidebar-soft": "color-mix(in oklab, var(--foreground) 7%, var(--card))",
+								"--collapsible-sidebar-line": "var(--border)",
+								"--collapsible-sidebar-inverse": "var(--primary-foreground)",
+							} as CSSProperties)
+						: undefined
+				}
+				className={cn(
+					"relative flex h-full min-h-0 shrink-0 overflow-hidden border-r border-border bg-[var(--collapsible-sidebar-surface,#F7F7F8)] text-[var(--collapsible-sidebar-text,#111113)]",
           className,
         )}
       >
         {rail ? (
-          <div className="flex w-[52px] shrink-0 flex-col border-r border-[#e8e8ea]">
+          <div className="flex w-[52px] shrink-0 flex-col border-r border-[var(--collapsible-sidebar-line,#e8e8ea)]">
             {rail}
           </div>
         ) : null}
@@ -169,7 +198,7 @@ export function CollapsibleSidebar({
             >
               <span className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-[10px]">
                 {workspaceIcon ?? (
-                  <span className="flex size-8 items-center justify-center rounded-[10px] bg-[#111113] text-xs font-semibold text-white">
+                  <span className="flex size-8 items-center justify-center rounded-[10px] bg-[var(--collapsible-sidebar-text,#111113)] text-xs font-semibold text-[var(--collapsible-sidebar-inverse,white)]">
                     {workspaceName.slice(0, 1)}
                   </span>
                 )}
@@ -180,20 +209,20 @@ export function CollapsibleSidebar({
                 className="flex min-w-0 items-center gap-0.5 truncate text-[13px] font-semibold tracking-tight"
               >
                 <span className="truncate">{workspaceName}</span>
-                <ChevronDownIcon className="size-3 shrink-0 text-[#8a8a93]" />
+                <ChevronDownIcon className="size-3 shrink-0 text-[var(--collapsible-sidebar-muted,#8a8a93)]" />
               </SidebarLabel>
             </div>
-            <motion.button
+            {showCollapseControl && <motion.button
               type="button"
-              aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+              aria-label={collapsed ? expandLabel : collapseLabel}
               aria-expanded={!collapsed}
               onClick={() => setCollapsed(!collapsed)}
               whileTap={reduce || !canHover ? undefined : { scale: 0.94 }}
               transition={SPRING_PRESS}
-              className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg text-[#8a8a93] outline-none hover:bg-[#efeff1] hover:text-[#111113] focus-visible:ring-2 focus-visible:ring-[#111113]/15"
-            >
+              className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg text-[var(--collapsible-sidebar-muted,#8a8a93)] outline-none hover:bg-[var(--collapsible-sidebar-soft,#efeff1)] hover:text-[var(--collapsible-sidebar-text,#111113)] focus-visible:ring-2 focus-visible:ring-[var(--collapsible-sidebar-text,#111113)]/15"
+						>
               <SidebarToggleIcon className="size-4" />
-            </motion.button>
+            </motion.button>}
           </div>
 
           <div className="px-2 pt-3">
@@ -204,19 +233,23 @@ export function CollapsibleSidebar({
                 onClick={onSearch}
                 whileTap={reduce || !canHover ? undefined : { scale: 0.94 }}
                 transition={SPRING_PRESS}
-                className="mx-auto flex size-8 items-center justify-center rounded-lg text-[#8a8a93] outline-none hover:bg-[#efeff1] hover:text-[#111113] focus-visible:ring-2 focus-visible:ring-[#111113]/15"
-              >
+                className="mx-auto flex size-8 items-center justify-center rounded-lg text-[var(--collapsible-sidebar-muted,#8a8a93)] outline-none hover:bg-[var(--collapsible-sidebar-soft,#efeff1)] hover:text-[var(--collapsible-sidebar-text,#111113)] focus-visible:ring-2 focus-visible:ring-[var(--collapsible-sidebar-text,#111113)]/15"
+							>
                 <span className="text-sm font-medium">⌘</span>
               </motion.button>
             ) : (
               <button
                 type="button"
                 onClick={onSearch}
-                className="flex h-9 w-full items-center gap-2 rounded-full bg-[#efeff1] px-3 text-left text-[13px] text-[#8a8a93] outline-none hover:bg-[#e8e8ea] focus-visible:ring-2 focus-visible:ring-[#111113]/15"
-              >
-                <span className="shrink-0 text-[13px] font-medium text-[#6f6f78]">⌘</span>
+                className="flex h-9 w-full items-center gap-2 rounded-full bg-[var(--collapsible-sidebar-soft,#efeff1)] px-3 text-left text-[13px] text-[var(--collapsible-sidebar-muted,#8a8a93)] outline-none hover:bg-[var(--collapsible-sidebar-line,#e8e8ea)] focus-visible:ring-2 focus-visible:ring-[var(--collapsible-sidebar-text,#111113)]/15"
+							>
+                <span className="shrink-0 text-[13px] font-medium text-[var(--collapsible-sidebar-muted,#6f6f78)]">
+									⌘
+								</span>
                 <span className="truncate">{searchPlaceholder}</span>
-                <span className="ml-auto text-[#b0b0b6]">/</span>
+                <span className="ml-auto text-[var(--collapsible-sidebar-muted,#b0b0b6)]">
+									/
+								</span>
               </button>
             )}
           </div>
@@ -235,7 +268,8 @@ export function CollapsibleSidebar({
                   openFolders={openFolders}
                   onSelect={setActive}
                   onToggleFolder={toggleFolder}
-                />
+									renderLink={renderLink}
+								/>
               ))}
             </ul>
 
@@ -244,14 +278,14 @@ export function CollapsibleSidebar({
               return (
                 <div key={group.id} className="mt-2">
                   {collapsed ? (
-                    <div className="mx-auto mb-1 h-px w-6 bg-[#e4e4e7]" />
+                    <div className="mx-auto mb-1 h-px w-6 bg-[var(--collapsible-sidebar-line,#e4e4e7)]" />
                   ) : (
-                    <div className="mb-1 flex w-full items-center gap-1 px-2 text-[10px] font-medium tracking-[0.14em] text-[#9a9aa3] uppercase">
+                    <div className="mb-1 flex w-full items-center gap-1 px-2 text-[10px] font-medium tracking-[0.14em] text-[var(--collapsible-sidebar-muted,#9a9aa3)] uppercase">
                       <button
                         type="button"
                         onClick={() => toggleGroup(group.id)}
-                        className="flex min-w-0 flex-1 items-center gap-1 text-left outline-none hover:text-[#111113]"
-                      >
+                        className="flex min-w-0 flex-1 items-center gap-1 text-left outline-none hover:text-[var(--collapsible-sidebar-text,#111113)]"
+											>
                         <span className="truncate">{group.label}</span>
                         <ChevronDownIcon
                           className={cn("size-3 transition-transform", !open && "-rotate-90")}
@@ -262,8 +296,8 @@ export function CollapsibleSidebar({
                           type="button"
                           aria-label={`${group.label} more`}
                           onClick={group.onMore}
-                          className="inline-flex size-5 items-center justify-center rounded-md text-[#9a9aa3] outline-none hover:bg-[#efeff1] hover:text-[#111113]"
-                        >
+                          className="inline-flex size-5 items-center justify-center rounded-md text-[var(--collapsible-sidebar-muted,#9a9aa3)] outline-none hover:bg-[var(--collapsible-sidebar-soft,#efeff1)] hover:text-[var(--collapsible-sidebar-text,#111113)]"
+												>
                           <MoreGlyph className="size-3" />
                         </button>
                       ) : null}
@@ -272,8 +306,8 @@ export function CollapsibleSidebar({
                           type="button"
                           aria-label={`Add to ${group.label}`}
                           onClick={group.onAdd}
-                          className="inline-flex size-5 items-center justify-center rounded-md text-[#9a9aa3] outline-none hover:bg-[#efeff1] hover:text-[#111113]"
-                        >
+                          className="inline-flex size-5 items-center justify-center rounded-md text-[var(--collapsible-sidebar-muted,#9a9aa3)] outline-none hover:bg-[var(--collapsible-sidebar-soft,#efeff1)] hover:text-[var(--collapsible-sidebar-text,#111113)]"
+												>
                           <PlusGlyph className="size-3" />
                         </button>
                       ) : null}
@@ -300,6 +334,7 @@ export function CollapsibleSidebar({
                             openFolders={openFolders}
                             onSelect={setActive}
                             onToggleFolder={toggleFolder}
+														renderLink={renderLink}
                           />
                         ))}
                       </motion.ul>
@@ -360,6 +395,7 @@ function SidebarRow({
   openFolders,
   onSelect,
   onToggleFolder,
+	renderLink,
 }: {
   item: CollapsibleSidebarItem;
   depth: number;
@@ -368,8 +404,9 @@ function SidebarRow({
   canHover: boolean;
   activeId: string;
   openFolders: Record<string, boolean>;
-  onSelect: (id: string) => void;
+  onSelect: (id: string, event?: MouseEvent<HTMLElement>) => void;
   onToggleFolder: (id: string) => void;
+	renderLink?: (props: AnchorHTMLAttributes<HTMLAnchorElement>) => ReactNode;
 }) {
   const hasChildren = Boolean(item.children?.length);
   const folderOpen = openFolders[item.id] ?? false;
@@ -386,21 +423,24 @@ function SidebarRow({
         {active ? (
           <motion.span
             layoutId={reduce ? undefined : "sidebar-active"}
-            className="absolute inset-0 rounded-[10px] bg-[#efeff1]"
-            transition={reduce ? { duration: 0 } : SPRING_LAYOUT}
+            className="absolute inset-0 rounded-[10px] bg-[var(--collapsible-sidebar-soft,#efeff1)]"
+						transition={reduce ? { duration: 0 } : SPRING_LAYOUT}
           />
         ) : null}
-        <motion.button
-          type="button"
-          onClick={() => onSelect(item.id)}
+        <SidebarAction
+					item={item}
+					collapsed={collapsed}
+					onSelect={onSelect}
+					renderLink={renderLink}
           whileHover={
             canHover && !reduce && !active ? { x: collapsed ? 0 : 2 } : undefined
           }
           transition={SPRING_PRESS}
           className={cn(
-            "relative z-10 flex min-h-7 min-w-0 flex-1 items-center gap-2 rounded-[10px] px-2 text-left text-[13px] outline-none focus-visible:ring-2 focus-visible:ring-[#111113]/15",
+						"relative z-10 flex min-h-7 min-w-0 flex-1 items-center gap-2 rounded-[10px] px-2 text-left text-[13px] outline-none focus-visible:ring-2 focus-visible:ring-[var(--collapsible-sidebar-text,#111113)]/15",
             collapsed && "size-8 flex-none justify-center px-0",
-            active ? "text-[#111113]" : "text-[#6f6f78] hover:text-[#111113]",
+            active ? "text-[var(--collapsible-sidebar-text,#111113)]"
+							: "text-[var(--collapsible-sidebar-muted,#6f6f78)] hover:text-[var(--collapsible-sidebar-text,#111113)]",
           )}
           style={collapsed ? undefined : { paddingLeft: 8 + depth * 12 }}
           aria-current={active ? "page" : undefined}
@@ -412,18 +452,18 @@ function SidebarRow({
             {item.label}
           </SidebarLabel>
           {!collapsed && item.badge ? (
-            <span className="ml-auto text-[11px] tabular-nums text-[#8a8a93]">
+            <span className="ml-auto text-[11px] tabular-nums text-[var(--collapsible-sidebar-muted,#8a8a93)]">
               {item.badge}
             </span>
           ) : null}
-        </motion.button>
+        </SidebarAction>
         {!collapsed && item.onAction ? (
           <button
             type="button"
             aria-label={item.actionLabel ?? `Add to ${item.label}`}
             onClick={item.onAction}
-            className="relative z-10 mr-1 hidden size-6 items-center justify-center rounded-md text-[#8a8a93] outline-none hover:bg-white hover:text-[#111113] focus-visible:flex focus-visible:ring-2 focus-visible:ring-[#111113]/15 group-hover:flex"
-          >
+            className="relative z-10 mr-1 hidden size-6 items-center justify-center rounded-md text-[var(--collapsible-sidebar-muted,#8a8a93)] outline-none hover:bg-[var(--collapsible-sidebar-surface,white)] hover:text-[var(--collapsible-sidebar-text,#111113)] focus-visible:flex focus-visible:ring-2 focus-visible:ring-[var(--collapsible-sidebar-text,#111113)]/15 group-hover:flex"
+					>
             <PlusGlyph className="size-3" />
           </button>
         ) : null}
@@ -433,8 +473,8 @@ function SidebarRow({
             aria-label={folderOpen ? `Collapse ${item.label}` : `Expand ${item.label}`}
             aria-expanded={folderOpen}
             onClick={() => onToggleFolder(item.id)}
-            className="relative z-10 mr-1 inline-flex size-6 items-center justify-center rounded-md text-[#8a8a93] outline-none hover:bg-white hover:text-[#111113] focus-visible:ring-2 focus-visible:ring-[#111113]/15"
-          >
+            className="relative z-10 mr-1 inline-flex size-6 items-center justify-center rounded-md text-[var(--collapsible-sidebar-muted,#8a8a93)] outline-none hover:bg-[var(--collapsible-sidebar-surface,white)] hover:text-[var(--collapsible-sidebar-text,#111113)] focus-visible:ring-2 focus-visible:ring-[var(--collapsible-sidebar-text,#111113)]/15"
+					>
             <ChevronRightIcon
               className={cn("size-3.5 transition-transform", folderOpen && "rotate-90")}
             />
@@ -462,11 +502,61 @@ function SidebarRow({
                 openFolders={openFolders}
                 onSelect={onSelect}
                 onToggleFolder={onToggleFolder}
-              />
+								renderLink={renderLink}
+							/>
             ))}
           </motion.ul>
         ) : null}
       </AnimatePresence>
     </li>
   );
+}
+
+function SidebarAction({
+	item,
+	collapsed,
+	onSelect,
+	renderLink,
+	children,
+	...props
+}: {
+	item: CollapsibleSidebarItem;
+	collapsed: boolean;
+	onSelect: (id: string, event?: MouseEvent<HTMLElement>) => void;
+	renderLink?: (props: AnchorHTMLAttributes<HTMLAnchorElement>) => ReactNode;
+	children: ReactNode;
+} & Omit<import("motion/react").HTMLMotionProps<"button">, "onSelect">) {
+	if (item.href) {
+		const linkProps: AnchorHTMLAttributes<HTMLAnchorElement> = {
+			href: item.href,
+			className: props.className,
+			style: props.style as CSSProperties,
+			"aria-current": props["aria-current"],
+			"aria-label": collapsed ? item.label : undefined,
+			title: collapsed ? item.label : undefined,
+			children,
+			onClick: (event) => {
+				if (
+					event.button === 0 &&
+					!event.metaKey &&
+					!event.ctrlKey &&
+					!event.shiftKey &&
+					!event.altKey
+				)
+					onSelect(item.id, event);
+			},
+		};
+		return renderLink ? renderLink(linkProps) : <a {...linkProps} />;
+	}
+	return (
+		<motion.button
+			type="button"
+			aria-label={collapsed ? item.label : undefined}
+			title={collapsed ? item.label : undefined}
+			onClick={() => onSelect(item.id)}
+			{...props}
+		>
+			{children}
+		</motion.button>
+	);
 }

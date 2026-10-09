@@ -1,0 +1,422 @@
+[
+  {
+    "route": "/dashboard/orders",
+    "geometry": [
+      {
+        "x": 280,
+        "y": 84,
+        "w": 362.65625,
+        "h": 156,
+        "text": "42\nShipped Orders\n\n+18.2%than last week"
+      },
+      {
+        "x": 666.65625,
+        "y": 84,
+        "w": 362.671875,
+        "h": 156,
+        "text": "8\nDamaged Returns\n\n-8.7%than last week"
+      },
+      {
+        "x": 1053.328125,
+        "y": 84,
+        "w": 362.65625,
+        "h": 156,
+        "text": "27\nMissed Delivery Slots\n\n+4.3%than last week"
+      },
+      {
+        "x": 280,
+        "y": 264,
+        "w": 362.65625,
+        "h": 293,
+        "text": "Product insight\nPublished on 12 MAY 2025 - 6:10 PM\nProduct reached\n21,153\nOrder "
+      },
+      {
+        "x": 280,
+        "y": 581,
+        "w": 362.65625,
+        "h": 312,
+        "text": "Total Earning\nMenu\n$24650\n10%\nCompare to last year ($84,325)\nZipcar\nVuejs & HTML"
+      },
+      {
+        "x": 666.65625,
+        "y": 264,
+        "w": 749.34375,
+        "h": 629,
+        "text": "Sales metrics\nSandy' Company\nsandy@company.com\nSales trend\n$11,548\nDiscount offe"
+      },
+      {
+        "x": 690.65625,
+        "y": 434,
+        "w": 197.59375,
+        "h": 66,
+        "text": "Sales trend\n$11,548"
+      },
+      {
+        "x": 904.25,
+        "y": 434,
+        "w": 197.609375,
+        "h": 66,
+        "text": "Discount offers\n$1,326"
+      },
+      {
+        "x": 690.65625,
+        "y": 516,
+        "w": 197.59375,
+        "h": 66,
+        "text": "Net profit\n$17,356"
+      },
+      {
+        "x": 904.25,
+        "y": 516,
+        "w": 197.609375,
+        "h": 66,
+        "text": "Total orders\n248"
+      },
+      {
+        "x": 1125.859375,
+        "y": 288,
+        "w": 266.125,
+        "h": 294,
+        "text": "Revenue goal\n256.24Total Profit\nPlan completed\n56%"
+      },
+      {
+        "x": 690.65625,
+        "y": 606,
+        "w": 701.34375,
+        "h": 263,
+        "text": "Sales plan\n54%\nPercentage profit from total sales\nCohort analysis indicators\nAna"
+      },
+      {
+        "x": 280,
+        "y": 917,
+        "w": 1136,
+        "h": 409.5,
+        "text": "Customer\tAmount\tStatus\tPaid by\tActions\n\nJack Alfredo\njack@shadcnstudio.com\n\t$316"
+      }
+    ]
+  },
+  {
+    "route": "/apps/users/list",
+    "geometry": [
+      {
+        "x": 280,
+        "y": 81,
+        "w": 1136,
+        "h": 886,
+        "text": "Select Role\nAll\nSelect Plan\nAll\nSelect Status\nAll\nSearch User\nShow\n10\nExport\nImp"
+      }
+    ]
+  },
+  {
+    "route": "/apps/users/view",
+    "geometry": [
+      {
+        "x": 280,
+        "y": 84,
+        "w": 350,
+        "h": 880,
+        "text": "Zsasza McCleverty\nMaintainer\n800\nTask Done\n200\nProject Done\nDetails\nUsername\nzsa"
+      },
+      {
+        "x": 654,
+        "y": 144,
+        "w": 762,
+        "h": 433,
+        "text": "Projects List\nSearch projects\n\tProject\tLeader\tTeam\tProgress\tAction\n\n\t\nBGC eComme"
+      },
+      {
+        "x": 654,
+        "y": 601,
+        "w": 762,
+        "h": 472,
+        "text": "User Activity Timeline\n\n12 Invoices have been paid\n12 min ago\n\nInvoices have bee"
+      }
+    ]
+  },
+  {
+    "route": "/pages/user-profile",
+    "geometry": [
+      {
+        "x": 280,
+        "y": 84,
+        "w": 1136,
+        "h": 288,
+        "text": "John Doe\nUX Designer\nIndia\nApril 2021\nConnected"
+      },
+      {
+        "x": 280,
+        "y": 464,
+        "w": 362.65625,
+        "h": 444,
+        "text": "ABOUT\n\nFull Name:\nJohn Doe\nStatus:\nActive\nRole:\nDeveloper\nCountry:\nUSA\nLanguages"
+      },
+      {
+        "x": 280,
+        "y": 932,
+        "w": 362.65625,
+        "h": 156,
+        "text": "OVERVIEW\n\nTask Compiled:\n13.5k\nConnections:\n897\nProjects Compiled:\n146"
+      },
+      {
+        "x": 666.65625,
+        "y": 464,
+        "w": 749.34375,
+        "h": 454,
+        "text": "Activity Timeline\n\n12 Invoices have been paid\n12 min ago\n\nInvoices have been pai"
+      },
+      {
+        "x": 666.65625,
+        "y": 942,
+        "w": 362.671875,
+        "h": 454,
+        "text": "Connections\nMenu\nCecilia Payne\n45 Connections\nCurtis Fletcher\n1.32k Connections\n"
+      },
+      {
+        "x": 1053.328125,
+        "y": 942,
+        "w": 362.671875,
+        "h": 454,
+        "text": "Teams\nMenu\nReact Developers\n72 Members\nDeveloper\nVue Developers\n58 Members\nDevel"
+      },
+      {
+        "x": 666.65625,
+        "y": 1420,
+        "w": 749.34375,
+        "h": 490,
+        "text": "Projects List\nSearch projects\n\tProject\tLeader\tTeam\tProgress\tAction\n\n\t\nAtlas CRM "
+      }
+    ]
+  },
+  {
+    "route": "/pages/user-profile?view=connections",
+    "geometry": [
+      {
+        "x": 280,
+        "y": 81,
+        "w": 1136,
+        "h": 288,
+        "text": "John Doe\nUX Designer\nIndia\nApril 2021\nConnected"
+      },
+      {
+        "x": 280,
+        "y": 461,
+        "w": 362.65625,
+        "h": 408,
+        "text": "Open Mark Gilbert actions\nMark Gilbert\n\nUI Designer\n\nFigma\nSketch\n\n18\n\nProjects\n"
+      },
+      {
+        "x": 666.65625,
+        "y": 461,
+        "w": 362.671875,
+        "h": 408,
+        "text": "Open Eugenia Parsons actions\nEugenia Parsons\n\nDeveloper\n\nAngular\nReact\n\n112\n\nPro"
+      },
+      {
+        "x": 1053.328125,
+        "y": 461,
+        "w": 362.65625,
+        "h": 408,
+        "text": "Open Francis Byrd actions\nFrancis Byrd\n\nDeveloper\n\nHTML\nReact\n\n32\n\nProjects\n\n1.2"
+      },
+      {
+        "x": 280,
+        "y": 893,
+        "w": 362.65625,
+        "h": 408,
+        "text": "Open Leon Lucas actions\nLeon Lucas\n\nUI/UX Designer\n\nFigma\nSketch\nPhotoshop\n\n86\n\n"
+      },
+      {
+        "x": 666.65625,
+        "y": 893,
+        "w": 362.671875,
+        "h": 408,
+        "text": "Open Jayden Rogers actions\nJayden Rogers\n\nFull Stack Developer\n\nReact\nHTML\nNode."
+      },
+      {
+        "x": 1053.328125,
+        "y": 893,
+        "w": 362.65625,
+        "h": 408,
+        "text": "Open Jeanette Powell actions\nJeanette Powell\n\nSEO\n\nAnalysis\nWriting\n\n32\n\nProject"
+      }
+    ]
+  },
+  {
+    "route": "/pages/user-settings",
+    "geometry": [
+      {
+        "x": 672,
+        "y": 1708,
+        "w": 744,
+        "h": 112,
+        "text": "Delete account\n\nDelete your account permanently. This action will remove all you"
+      }
+    ]
+  },
+  {
+    "route": "/pages/user-settings?setting=workspace",
+    "geometry": [
+      {
+        "x": 672,
+        "y": 1150,
+        "w": 744,
+        "h": 222,
+        "text": "Notion member and collaborator on product and docs projects\n\nLeave\n\nGithub repos"
+      },
+      {
+        "x": 672,
+        "y": 1741.5,
+        "w": 744,
+        "h": 92,
+        "text": "Leave workspace\n\nRevoke your access to this team. Other people you have added to"
+      },
+      {
+        "x": 672,
+        "y": 1857.5,
+        "w": 744,
+        "h": 165,
+        "text": "Delete workspace\n\nDelete your workspace permanently. This action will remove all"
+      }
+    ]
+  },
+  {
+    "route": "/datatable",
+    "geometry": [
+      {
+        "x": 280,
+        "y": 125,
+        "w": 1136,
+        "h": 417.5,
+        "text": "\tName\tStatus\tEmail\t\nAmount\n\n\n\t\nJack Alfredo\n\t\nPaid\n\t\njack@shadcnstudio.com\n\t\n$31"
+      },
+      {
+        "x": 280,
+        "y": 618.5,
+        "w": 1136,
+        "h": 261,
+        "text": "Product Name\n\t\nCategory\n\t\nStock Quantity\n\t\nPrice\n\t\nSupplier\n\t\nDiscontinued\n\n\nApp"
+      },
+      {
+        "x": 280,
+        "y": 955.5,
+        "w": 1136,
+        "h": 539.5,
+        "text": "Product\nPrice\nAvailability\nAll\nRating\n\tProduct\tPrice\tAvailability\tRating\n\n\t\nBlac"
+      }
+    ]
+  },
+  {
+    "route": "/forms/form-layouts/vertical",
+    "geometry": [
+      {
+        "x": 280,
+        "y": 121,
+        "w": 556,
+        "h": 528.25,
+        "text": "First Name\nLast Name\nMobile\nPincode\nAddress\nLandmark\nCity\nState\nSave Information"
+      },
+      {
+        "x": 860,
+        "y": 121,
+        "w": 556,
+        "h": 528.25,
+        "text": "First Name\nFirst Name\nLast Name\nLast Name\nMobile\nMobile\nPincode\nPincode\nAddress\n"
+      }
+    ]
+  },
+  {
+    "route": "/forms/form-layouts/horizontal",
+    "geometry": [
+      {
+        "x": 280,
+        "y": 121,
+        "w": 556,
+        "h": 412,
+        "text": "Name\nCompany\nEmail\n@example.com\nPhone No\nMessage\nSend"
+      },
+      {
+        "x": 860,
+        "y": 121,
+        "w": 556,
+        "h": 412,
+        "text": "Name\nName\nCompany\nCompany\nEmail\nEmail\n@example.com\nPhone No\nPhone\nMessage\nMessag"
+      }
+    ]
+  },
+  {
+    "route": "/forms/form-validation",
+    "geometry": [
+      {
+        "x": 280,
+        "y": 121,
+        "w": 1136,
+        "h": 834,
+        "text": "Report Issue\nDescribe the issue you're facing; our team will help you.\nName\nPhon"
+      },
+      {
+        "x": 280,
+        "y": 1059,
+        "w": 266,
+        "h": 313.25,
+        "text": "onChange Mode\nValidates on every keystroke\nDemo Input\n\nError appears instantly a"
+      },
+      {
+        "x": 570,
+        "y": 1059,
+        "w": 266,
+        "h": 313.25,
+        "text": "onBlur Mode\nValidates when you leave the field\nDemo Input\n\nError appears after y"
+      },
+      {
+        "x": 860,
+        "y": 1059,
+        "w": 266,
+        "h": 313.25,
+        "text": "onSubmit Mode (Default)\nValidates only when you click submit\nDemo Input\n\nError a"
+      },
+      {
+        "x": 1150,
+        "y": 1059,
+        "w": 266,
+        "h": 313.25,
+        "text": "onTouched Mode\nValidates on blur, then on every change\nDemo Input\n\nFirst validat"
+      }
+    ]
+  },
+  {
+    "route": "/pages/auth/login",
+    "geometry": [
+      {
+        "x": 464,
+        "y": 165,
+        "w": 512,
+        "h": 670,
+        "text": "AdminCN\nSign in to Shadcn Studio\nShip Faster and Focus on Growth.\n\nLogin with Ma"
+      }
+    ]
+  },
+  {
+    "route": "/pages/auth/register",
+    "geometry": [
+      {
+        "x": 464,
+        "y": 143.375,
+        "w": 512,
+        "h": 713.25,
+        "text": "AdminCN\nSign Up to Shadcn studio\nShip Faster and Focus on Growth.\nUsername*\nEmai"
+      }
+    ]
+  },
+  {
+    "route": "/pages/auth/forgot-password",
+    "geometry": [
+      {
+        "x": 496,
+        "y": 306,
+        "w": 448,
+        "h": 388,
+        "text": "AdminCN\nForgot Password?\nEnter your email and we'll send you instructions to res"
+      }
+    ]
+  }
+]
