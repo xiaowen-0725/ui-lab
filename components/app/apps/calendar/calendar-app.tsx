@@ -83,8 +83,9 @@ export function CalendarApp() {
           </Button>
         </div>
       </header>
-      <div className="grid min-h-0 flex-1 lg:grid-cols-[minmax(0,1fr)_20rem]">
-        <div className="min-h-0 overflow-auto p-3 md:p-6">
+      <div className="grid min-h-0 flex-1 overflow-y-auto lg:grid-cols-[minmax(0,1fr)_20rem] lg:overflow-hidden">
+        <div className="min-h-0 p-3 md:p-6 lg:overflow-auto">
+          <div className="grid h-full min-h-[28rem] grid-rows-[auto_minmax(0,1fr)]">
           <div className="grid grid-cols-7 gap-1 pb-1">
             {weekdays.map((label) => (
               <div key={label} className="px-1 text-center text-[11px] font-medium text-muted-foreground">
@@ -92,9 +93,9 @@ export function CalendarApp() {
               </div>
             ))}
           </div>
-          <fieldset className="m-0 min-w-0 border-0 p-0">
+          <fieldset className="m-0 min-h-0 min-w-0 border-0 p-0">
             <legend className="sr-only">{monthLabel}</legend>
-            <div className="grid grid-cols-7 gap-1">
+            <div className="grid h-full grid-cols-7 auto-rows-fr gap-1">
             {cells.map((cell, index) => {
               const items = eventsOn(cell.date);
               const isSelected = cell.date === selected;
@@ -158,6 +159,7 @@ export function CalendarApp() {
             })}
             </div>
           </fieldset>
+          </div>
         </div>
         <aside className="min-h-0 overflow-y-auto border-t border-border p-4 lg:border-l lg:border-t-0 md:p-6">
           <h2 className="text-sm font-medium">{t("agenda")}</h2>

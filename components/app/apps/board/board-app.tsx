@@ -142,7 +142,7 @@ export function BoardApp() {
                 }}
                 aria-label={t(`columns.${column}`)}
                 className={cn(
-                  "flex h-full w-[min(85vw,18rem)] flex-col rounded-2xl border border-transparent bg-foreground/[0.03] p-2 transition-colors motion-reduce:transition-none",
+                  "flex h-full w-[min(85vw,17rem)] flex-col rounded-2xl border border-transparent bg-foreground/[0.03] p-2 transition-colors motion-reduce:transition-none",
                   hot && "border-foreground/20 bg-foreground/[0.05]",
                 )}
               >
