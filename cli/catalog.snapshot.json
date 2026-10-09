@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T23:45:01.746Z",
+  "generatedAt": "2026-10-09T23:51:49.575Z",
   "count": 576,
   "items": [
     {
@@ -1945,7 +1945,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "47b868bc5e4f1d24f1539e97135a026e2506754d9f65e1a12652ab3868058d72",
+      "sourceVersion": "361f83e820989546412c05af3c9c6d5aaee6fb6f90568f7f24d85d29e5fb5ffb",
       "installTargets": [
         "saas-admin-ai-chat-page"
       ]
@@ -2446,7 +2446,7 @@
         "components/ui/dialog.tsx",
         "components/ui/command.tsx"
       ],
-      "sourceVersion": "5f0539be9d3def2b7c3f23337239fa658f1fb89481cb2ef0274973ab92591053",
+      "sourceVersion": "e3626191d42ff1c76aedcd05b66c9160c9e8dd8b8c45806ed32a8dc0dc6aaabd",
       "installTargets": [
         "saas-admin-site"
       ]

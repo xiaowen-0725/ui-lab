@@ -524,27 +524,30 @@ function CopyableCodeBlock({
 	}, []);
 
 	return (
-		<div className="relative">
-			<ThreadCodeBlock label={language}>{code}</ThreadCodeBlock>
-			<Button
-				type="button"
-				variant="ghost"
-				size="icon-sm"
-				className="absolute top-1.5 right-10"
-				aria-label={copied ? t("Copied") : t("Copy code")}
-				onClick={async () => {
-					await navigator.clipboard?.writeText(code);
-					setCopied(true);
-					if (timer.current) window.clearTimeout(timer.current);
-					timer.current = window.setTimeout(() => setCopied(false), 1600);
-				}}
-			>
-				{copied ? (
-					<Check aria-hidden="true" />
-				) : (
-					<Copy aria-hidden="true" />
-				)}
-			</Button>
+		<div className="overflow-hidden rounded-xl bg-[var(--wb-code-block)]">
+			<div className="flex items-center justify-between gap-2 px-3 pt-2">
+				<span className="text-xs text-muted-foreground">{language}</span>
+				<Button
+					type="button"
+					variant="ghost"
+					size="xs"
+					aria-label={copied ? t("Copied") : t("Copy code")}
+					onClick={async () => {
+						await navigator.clipboard?.writeText(code);
+						setCopied(true);
+						if (timer.current) window.clearTimeout(timer.current);
+						timer.current = window.setTimeout(() => setCopied(false), 1600);
+					}}
+				>
+					{copied ? (
+						<Check aria-hidden="true" />
+					) : (
+						<Copy aria-hidden="true" />
+					)}
+					{copied ? t("Copied") : t("Copy code")}
+				</Button>
+			</div>
+			<ThreadCodeBlock className="mb-0">{code}</ThreadCodeBlock>
 		</div>
 	);
 }
