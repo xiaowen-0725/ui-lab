@@ -1,7 +1,9 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import { ThreadUsage } from "@/components/motion/agent-thread";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress, ProgressLabel } from "@/components/ui/progress";
 import {
@@ -18,22 +20,52 @@ import {
 	formatTokens,
 	formatUsd,
 	MODEL_USAGE,
+	modelsForFilter,
+	queriesForFilter,
 	RECENT_QUERIES,
 	USAGE_SUMMARY,
+	type UsageModelFilter,
 } from "./data";
 
 const peak = Math.max(...DAILY_USAGE.map((day) => day.tokens));
+const FILTERS: { id: UsageModelFilter; label: string }[] = [
+	{ id: "all", label: "All models" },
+	...MODEL_USAGE.map((model) => ({ id: model.id, label: model.name })),
+];
 
 export function AiUsageApp() {
-	const { locale } = useSaasAdmin();
+	const { locale, t } = useSaasAdmin();
+	const [filter, setFilter] = useState<UsageModelFilter>("all");
+	const models = useMemo(() => modelsForFilter(MODEL_USAGE, filter), [filter]);
+	const queries = useMemo(() => queriesForFilter(RECENT_QUERIES, filter), [filter]);
 
 	return (
 		<div className="space-y-4">
-			<p className="text-sm text-muted-foreground">
-				<SaasAdminText>
-					Sample token spend for the October window. Figures stay in this visit.
-				</SaasAdminText>
-			</p>
+			<div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+				<p className="text-sm text-muted-foreground">
+					<SaasAdminText>
+						Sample token spend for the October window. Figures stay in this visit.
+					</SaasAdminText>
+				</p>
+				<div
+					role="group"
+					aria-label={t("Filter usage")}
+					className="flex flex-wrap gap-1.5"
+				>
+					{FILTERS.map((item) => (
+						<Button
+							key={item.id}
+							type="button"
+							size="sm"
+							variant={filter === item.id ? "default" : "outline"}
+							aria-pressed={filter === item.id}
+							onClick={() => setFilter(item.id)}
+						>
+							<SaasAdminText>{item.label}</SaasAdminText>
+						</Button>
+					))}
+				</div>
+			</div>
 			<div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
 				<Metric
 					label="Requests"
@@ -72,7 +104,7 @@ export function AiUsageApp() {
 								</TableRow>
 							</TableHeader>
 							<TableBody>
-								{MODEL_USAGE.map((model) => (
+								{models.map((model) => (
 									<TableRow key={model.id}>
 										<TableCell className="font-medium">{model.name}</TableCell>
 										<TableCell className="text-right tabular-nums">
@@ -126,7 +158,7 @@ export function AiUsageApp() {
 						</CardTitle>
 					</CardHeader>
 					<CardContent className="space-y-4">
-						{MODEL_USAGE.map((model) => (
+						{models.map((model) => (
 							<Progress
 								key={model.id}
 								value={Math.round((model.used / model.limit) * 100)}
@@ -148,7 +180,7 @@ export function AiUsageApp() {
 						</CardTitle>
 					</CardHeader>
 					<CardContent className="space-y-4">
-						{RECENT_QUERIES.map((query) => (
+						{queries.map((query) => (
 							<article key={query.id} className="space-y-1">
 								<div className="flex items-baseline justify-between gap-3">
 									<h3 className="text-sm font-medium">

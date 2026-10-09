@@ -1,11 +1,18 @@
 import { expect, test } from "bun:test";
+import { navItems } from "@/components/pages/saas-admin/configs/navConfig";
 import { SAAS_ADMIN_ROUTES } from "@/components/pages/saas-admin/routes";
 import {
 	CONVERSATIONS,
 	conversationMatches,
 	replyForPrompt,
 } from "@/components/pages/saas-admin/views/apps/ai-chat/data";
-import { MODEL_USAGE, USAGE_SUMMARY } from "@/components/pages/saas-admin/views/apps/ai-usage/data";
+import {
+	MODEL_USAGE,
+	modelsForFilter,
+	queriesForFilter,
+	RECENT_QUERIES,
+	USAGE_SUMMARY,
+} from "@/components/pages/saas-admin/views/apps/ai-usage/data";
 import {
 	buildMonthGrid,
 	DEMO_TODAY,
@@ -48,13 +55,18 @@ test("workspace apps register on the saas-admin site and not as a second shell",
 	expect(site?.pages).toEqual(expect.arrayContaining(slugs));
 	expect(SAAS_ADMIN_ROUTES).toEqual(
 		expect.arrayContaining([
+			"/apps/ai-chat",
+			"/apps/ai-usage",
 			"/apps/kanban",
 			"/apps/mail",
 			"/apps/calendar",
-			"/apps/ai-chat",
-			"/apps/ai-usage",
 		]),
 	);
+	expect(
+		navItems
+			.find((group) => group.groupLabel === "Apps")
+			?.items.map((item) => item.label),
+	).toEqual(["Users", "AI Chat", "AI Usage", "Kanban", "Mail", "Calendar"]);
 });
 
 test("moving a task appends it to the target column", () => {
@@ -114,4 +126,11 @@ test("ai chat samples stay local and match either language", () => {
 	);
 	expect(USAGE_SUMMARY.requests).toBeGreaterThan(0);
 	expect(MODEL_USAGE.map((model) => model.id)).toEqual(["pulse", "atlas", "draft"]);
+	expect(queriesForFilter(RECENT_QUERIES, "atlas").map((query) => query.id)).toEqual([
+		"q-csv",
+	]);
+	expect(modelsForFilter(MODEL_USAGE, "draft").map((model) => model.id)).toEqual([
+		"draft",
+	]);
+	expect(queriesForFilter(RECENT_QUERIES, "all")).toHaveLength(RECENT_QUERIES.length);
 });

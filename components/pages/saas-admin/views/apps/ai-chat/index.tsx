@@ -1,8 +1,7 @@
 "use client";
 
-import { ArrowLeft, Paperclip, Pin, Plus, X } from "lucide-react";
+import { ArrowLeft, Check, Copy, Paperclip, Pin, Plus, X } from "lucide-react";
 import { type CSSProperties, useEffect, useMemo, useRef, useState } from "react";
-import { CodeBlock } from "@/components/agents/code-block";
 import { PromptInput } from "@/components/agents/prompt-input";
 import {
 	Reasoning,
@@ -12,6 +11,7 @@ import {
 import { Suggestion, Suggestions } from "@/components/agents/suggestion";
 import {
 	Thread,
+	ThreadCodeBlock,
 	ThreadInlineCode,
 	ThreadItem,
 	ThreadMessage,
@@ -71,12 +71,20 @@ export function AiChatApp() {
 	const [nextId, setNextId] = useState(1);
 	const timer = useRef<number | null>(null);
 	const threadEnd = useRef<HTMLDivElement | null>(null);
+	const threadTitle = useRef<HTMLHeadingElement | null>(null);
+	const pendingThreadFocus = useRef(false);
 
 	useEffect(() => {
 		return () => {
 			if (timer.current) window.clearTimeout(timer.current);
 		};
 	}, []);
+
+	useEffect(() => {
+		if (!pendingThreadFocus.current) return;
+		pendingThreadFocus.current = false;
+		threadTitle.current?.focus();
+	}, [selectedId, pane]);
 
 	const visible = useMemo(
 		() =>
@@ -100,6 +108,7 @@ export function AiChatApp() {
 		setPane("thread");
 		const chat = chats.find((item) => item.id === id);
 		if (chat) setModel(chat.model);
+		pendingThreadFocus.current = true;
 	}
 
 	function startNew() {
@@ -108,6 +117,7 @@ export function AiChatApp() {
 		setDraft("");
 		setAttachments([]);
 		setPane("thread");
+		pendingThreadFocus.current = true;
 	}
 
 	function attachSample() {
@@ -296,7 +306,11 @@ export function AiChatApp() {
 						<ArrowLeft aria-hidden="true" />
 					</Button>
 					<div className="min-w-0 flex-1">
-						<h2 className="truncate text-sm font-medium">
+						<h2
+							ref={threadTitle}
+							tabIndex={-1}
+							className="truncate text-sm font-medium outline-none"
+						>
 							{selected
 								? textFor(locale, selected.title, selected.titleZh)
 								: t("New chat")}
@@ -306,6 +320,9 @@ export function AiChatApp() {
 						</p>
 					</div>
 				</header>
+				<div className="sr-only" aria-live="polite">
+					{streamingId ? streamed : ""}
+				</div>
 				<div className="min-h-0 flex-1 overflow-y-auto">
 					{!selected ? (
 						<div className="mx-auto flex h-full max-w-2xl flex-col justify-center gap-6 px-4 py-10">
@@ -485,21 +502,56 @@ function MessageBlocks({
 					);
 				}
 				return (
-					<CodeBlock
+					<CopyableCodeBlock
 						key={block.code}
+						language={block.language}
 						code={block.code}
-						language={
-							block.language === "typescript" ||
-							block.language === "tsx" ||
-							block.language === "json" ||
-							block.language === "bash"
-								? block.language
-								: "text"
-						}
-						filename={block.language}
 					/>
 				);
 			})}
+		</div>
+	);
+}
+
+function CopyableCodeBlock({
+	language,
+	code,
+}: {
+	language?: string;
+	code: string;
+}) {
+	const { t } = useSaasAdmin();
+	const [copied, setCopied] = useState(false);
+	const timer = useRef<number | null>(null);
+
+	useEffect(() => {
+		return () => {
+			if (timer.current) window.clearTimeout(timer.current);
+		};
+	}, []);
+
+	return (
+		<div className="relative">
+			<ThreadCodeBlock label={language}>{code}</ThreadCodeBlock>
+			<Button
+				type="button"
+				variant="ghost"
+				size="icon-sm"
+				className="absolute top-1.5 right-10"
+				aria-label={copied ? t("Copied") : t("Copy code")}
+				onClick={async () => {
+					await navigator.clipboard?.writeText(code);
+					setCopied(true);
+					if (timer.current) window.clearTimeout(timer.current);
+					timer.current = window.setTimeout(() => setCopied(false), 1600);
+				}}
+			>
+				{copied ? (
+					<Check aria-hidden="true" />
+				) : (
+					<Copy aria-hidden="true" />
+				)}
+			</Button>
 		</div>
 	);
 }

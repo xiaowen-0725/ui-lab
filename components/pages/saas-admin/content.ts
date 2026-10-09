@@ -112,6 +112,10 @@ export const ADMIN_ZH: Record<string, string> = {
 	"Attach a sample file": "附上示例文件",
 	"Ask a question…": "问一句…",
 	Prompt: "提问",
+	"Copy code": "复制代码",
+	Copied: "已复制",
+	"All models": "全部模型",
+	"Filter usage": "筛选用量",
 	"Sample token spend for the October window. Figures stay in this visit.":
 		"十月窗口的示例用量。数字只留在这次浏览里。",
 	Requests: "请求",

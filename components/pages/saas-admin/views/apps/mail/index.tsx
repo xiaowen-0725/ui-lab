@@ -2,7 +2,7 @@
 
 import { ArrowLeft, Star } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -43,6 +43,10 @@ export function MailApp() {
 	const [draft, setDraft] = useState({ to: "", subject: "", body: "" });
 	const [error, setError] = useState("");
 	const [draftCount, setDraftCount] = useState(1);
+	const listSection = useRef<HTMLElement | null>(null);
+	const readingTitle = useRef<HTMLHeadingElement | null>(null);
+	const composeTo = useRef<HTMLInputElement | null>(null);
+	const pendingFocus = useRef<"list" | "thread" | "compose" | null>(null);
 
 	const visible = useMemo(
 		() =>
@@ -53,6 +57,14 @@ export function MailApp() {
 	);
 	const selected = threads.find((thread) => thread.id === selectedId) ?? null;
 
+	useEffect(() => {
+		const next = pendingFocus.current;
+		pendingFocus.current = null;
+		if (next === "thread") readingTitle.current?.focus();
+		if (next === "list") listSection.current?.focus();
+		if (next === "compose") composeTo.current?.focus();
+	}, [selectedId, composing]);
+
 	function openThread(id: string) {
 		setComposing(false);
 		setSelectedId(id);
@@ -61,6 +73,13 @@ export function MailApp() {
 				thread.id === id ? { ...thread, unread: false } : thread,
 			),
 		);
+		pendingFocus.current = "thread";
+	}
+
+	function backToList() {
+		setComposing(false);
+		setSelectedId(null);
+		pendingFocus.current = "list";
 	}
 
 	function toggleStar(id: string) {
@@ -132,6 +151,7 @@ export function MailApp() {
 						onClick={() => {
 							setComposing(true);
 							setError("");
+							pendingFocus.current = "compose";
 						}}
 					>
 						<SaasAdminText>New message</SaasAdminText>
@@ -167,9 +187,11 @@ export function MailApp() {
 					})}
 				</nav>
 				<section
+					ref={listSection}
+					tabIndex={-1}
 					aria-label={t("Thread list")}
 					className={cn(
-						"min-h-0 flex-col border-r",
+						"min-h-0 flex-col border-r outline-none",
 						selected || composing ? "hidden md:flex" : "flex",
 					)}
 				>
@@ -273,7 +295,7 @@ export function MailApp() {
 										size="icon-sm"
 										className="md:hidden"
 										aria-label={t("Back to list")}
-										onClick={() => setComposing(false)}
+										onClick={backToList}
 									>
 										<ArrowLeft aria-hidden="true" />
 									</Button>
@@ -288,6 +310,7 @@ export function MailApp() {
 										</label>
 										<Input
 											id="saas-admin-mail-to"
+											ref={composeTo}
 											type="email"
 											value={draft.to}
 											onChange={(event) =>
@@ -362,12 +385,16 @@ export function MailApp() {
 										size="icon-sm"
 										className="md:hidden"
 										aria-label={t("Back to list")}
-										onClick={() => setSelectedId(null)}
+										onClick={backToList}
 									>
 										<ArrowLeft aria-hidden="true" />
 									</Button>
 									<div className="min-w-0 flex-1">
-										<h2 className="text-base leading-snug font-semibold">
+										<h2
+											ref={readingTitle}
+											tabIndex={-1}
+											className="text-base leading-snug font-semibold outline-none"
+										>
 											{textFor(locale, selected.subject, selected.subjectZh)}
 										</h2>
 										<p className="mt-1 text-xs text-muted-foreground">

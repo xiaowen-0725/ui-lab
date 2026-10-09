@@ -129,6 +129,25 @@ export const RECENT_QUERIES: readonly UsageQuery[] = [
 	},
 ];
 
+export type UsageModelFilter = "all" | ModelUsage["id"];
+
+export function modelsForFilter(
+	models: readonly ModelUsage[],
+	filter: UsageModelFilter,
+) {
+	if (filter === "all") return [...models];
+	return models.filter((model) => model.id === filter);
+}
+
+export function queriesForFilter(
+	queries: readonly UsageQuery[],
+	filter: UsageModelFilter,
+) {
+	if (filter === "all") return [...queries];
+	const name = MODEL_USAGE.find((model) => model.id === filter)?.name;
+	return queries.filter((query) => query.model === name);
+}
+
 export function formatTokens(count: number) {
 	if (count >= 1_000_000) return `${(count / 1_000_000).toFixed(1)}M`;
 	if (count >= 1000) return `${(count / 1000).toFixed(1)}K`;

@@ -8,7 +8,7 @@
 
 ### Added
 
-- SaaS Admin Apps 组新增任务板、收件箱、日程，以及对话与用量两页；全部落在既有 saas-admin 外壳、路由合同和主题定制里。对话页复用仓库已有 Thread / PromptInput / Suggestion / Reasoning / CodeBlock / ThreadUsage，用量页复用 ThreadUsage。客户册整支删除，不新建、不并入用户页。参考 AdminCN / Promptly 的信息架构，不复制其源码、素材或专有文案。
+- SaaS Admin Apps 组新增对话、用量、任务板、收件箱与日程；全部落在既有 saas-admin 外壳、路由合同和主题定制里。对话页复用 Thread / PromptInput / Suggestion / Reasoning / ThreadCodeBlock / ThreadUsage，用量页复用 ThreadUsage。客户册整支删除，不新建、不并入用户页。参考 AdminCN / Promptly 的信息架构，不复制其源码、素材或专有文案。
 
 - SaaS Admin 新增顶栏主题定制面板：品牌、字体、模式、圆角、内容宽度、尺寸与侧栏配置；复用shadcn-admin的MIT示意图提供Sidebar/Layout可视卡片，接入官方Sidebar既有props与开合状态。支持外观重置、消费者受控接口及预览偏好恢复，保留页面和草稿；官方既有控件源码/API保持。
 

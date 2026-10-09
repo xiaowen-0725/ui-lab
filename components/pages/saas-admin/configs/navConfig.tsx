@@ -97,11 +97,11 @@ export const navItems: NavItem[] = [
 					{ label: "View", href: "/apps/users/view" },
 				],
 			},
+			{ icon: "Sparkles", label: "AI Chat", href: "/apps/ai-chat" },
+			{ icon: "ChartNoAxesCombined", label: "AI Usage", href: "/apps/ai-usage" },
 			{ icon: "SquareKanban", label: "Kanban", href: "/apps/kanban" },
 			{ icon: "Mail", label: "Mail", href: "/apps/mail" },
 			{ icon: "CalendarDays", label: "Calendar", href: "/apps/calendar" },
-			{ icon: "Sparkles", label: "AI Chat", href: "/apps/ai-chat" },
-			{ icon: "ChartNoAxesCombined", label: "AI Usage", href: "/apps/ai-usage" },
 		],
 	},
 	{
