@@ -5,7 +5,13 @@ import { usePathname } from "@/i18n/navigation";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { EASE_OUT } from "@/lib/ease";
 
-export function PageTransition({ children }: { children: ReactNode }) {
+export function PageTransition({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   const pathname = usePathname();
   const reduce = useReducedMotion();
   // Component pages contain viewport-fixed navigation. Translating an ancestor
@@ -21,6 +27,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
     <motion.div
       ref={ref}
       key={pathname}
+      className={className}
       initial={
         mounted
           ? shouldTranslate

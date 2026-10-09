@@ -16,14 +16,20 @@ export function SiteShell({
 }) {
   const pathname = usePathname();
   const immersive = pathname.startsWith("/palettes");
+  const workspace = pathname.startsWith("/apps");
 
   return (
     <>
       {!immersive && <SiteHeader githubStarCount={githubStarCount} />}
-      <main className={cn(!immersive && "pt-14 pb-32")}>
+      <main
+        className={cn(
+          workspace && "flex h-dvh flex-col overflow-hidden pt-14",
+          !workspace && !immersive && "pt-14 pb-32",
+        )}
+      >
         <SiteFrame>{children}</SiteFrame>
       </main>
-      {!immersive && <SiteDock />}
+      {!immersive && !workspace && <SiteDock />}
     </>
   );
 }

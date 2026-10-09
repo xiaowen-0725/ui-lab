@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { APPS, APPS_HOME } from "@/lib/apps";
 import { assetPagePath } from "@/lib/asset-paths";
 import { CONCEPTS } from "@/lib/concepts";
 import { INSPIRATION_BRANDS } from "@/lib/inspiration-brands";
@@ -41,6 +42,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/scroll`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/atoms`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/inspiration`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${SITE}${APPS_HOME}`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    ...APPS.map((app) => ({
+      url: `${SITE}${app.href}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    })),
     { url: `${SITE}/inspiration/sites`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/inspiration/brands`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/docs/ai-agents`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

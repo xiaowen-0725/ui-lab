@@ -8,6 +8,7 @@
 
 ### Added
 
+- 新增站点「应用」空间（`/apps`）：看板、收件箱、日程、客户册。只作为站点交互样本，不登记为可安装资产。界面按常见后台应用的布局重做，使用虚构的 Northline 数据。
 - Add an OKLCH palette generator with brand seed, basic/full scope, five harmony models, enforced WCAG AA/AAA semantic pairs, Hex/RGB/HSL/OKLCH output, shareable URL state, and live preview/contrast/export integration. Full output now forms a production-oriented dual-mode color contract with eight 11-step ramps, layered surfaces, interaction states, semantic alpha overlays, success/warning/danger/info roles, and six chart colors.
 - Add bilingual WCAG contrast health reports and a regression baseline for Catalog palettes.
 

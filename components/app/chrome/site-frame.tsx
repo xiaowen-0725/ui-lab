@@ -12,9 +12,14 @@ export function SiteFrame({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const showSidebar = SIDEBAR_PATHS.some((p) => pathname.startsWith(p));
   const isComponentsRoute = pathname.startsWith("/components");
+  const workspace = pathname.startsWith("/apps");
 
   if (!showSidebar) {
-    return <PageTransition>{children}</PageTransition>;
+    return (
+      <PageTransition className={workspace ? "flex min-h-0 flex-1 flex-col" : undefined}>
+        {children}
+      </PageTransition>
+    );
   }
 
   return (

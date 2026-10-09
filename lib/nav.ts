@@ -13,7 +13,8 @@ export type NavKey =
   | "pages"
   | "sites"
   | "themes"
-  | "inspiration";
+  | "inspiration"
+  | "apps";
 
 export type NavSpace = {
   /** Label key under the "nav" messages namespace. */
@@ -46,6 +47,7 @@ export const NAV_SPACES: readonly NavSpace[] = [
     match: ["/themes", "/styles", "/palettes", "/atoms"],
   },
   { key: "inspiration", href: "/inspiration", match: ["/inspiration"] },
+  { key: "apps", href: "/apps", match: ["/apps"] },
 ];
 
 export const DICTIONARY_SECTIONS: readonly NavSpace[] = [

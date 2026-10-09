@@ -2,15 +2,20 @@
 
 import {
   Atom,
+  CalendarDays,
   CircleDashed,
   Droplets,
   FileText,
+  Kanban,
+  LayoutDashboard,
   LayoutTemplate,
   Lightbulb,
+  Mail,
   MoveVertical,
   Palette,
   PanelsTopLeft,
   Search,
+  Users,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
@@ -21,6 +26,7 @@ import {
 } from "@/components/motion/command-palette";
 import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { APPS, APPS_HOME } from "@/lib/apps";
 import { assetPagePath } from "@/lib/asset-paths";
 import { ATOM_SEARCH_ITEMS, ICON_MOTIONS } from "@/lib/atoms";
 import { CONCEPTS } from "@/lib/concepts";
@@ -54,6 +60,13 @@ const PAGES = [
     namespace: "sidebar" as const,
   },
 ] as const;
+
+const APP_ICONS = {
+  board: Kanban,
+  inbox: Mail,
+  calendar: CalendarDays,
+  customers: Users,
+} as const;
 
 const ICON_MOTION_SLUGS = new Set(ICON_MOTIONS.map((entry) => entry.slug));
 const MOTION_SLUGS = new Set(MOTIONS.map((entry) => entry.slug));
@@ -300,6 +313,22 @@ export function SiteSearch({ className }: { className?: string }) {
         icon: FileText,
         onSelect: () => router.push("/layouts"),
       },
+      {
+        id: "apps-home",
+        label: tNav("apps"),
+        group: tNav("apps"),
+        keywords: ["apps", "应用", "northline", "workspace", "工作台"],
+        icon: LayoutDashboard,
+        onSelect: () => router.push(APPS_HOME),
+      },
+      ...APPS.map((app) => ({
+        id: `app-${app.slug}`,
+        label: localizedName(app, locale),
+        group: tNav("apps"),
+        keywords: [app.slug, app.name, app.nameZh, app.description, app.descriptionZh, "northline"],
+        icon: APP_ICONS[app.slug],
+        onSelect: () => router.push(app.href),
+      })),
       ...PAGES.map((page) => ({
         id: page.slug,
         label:
