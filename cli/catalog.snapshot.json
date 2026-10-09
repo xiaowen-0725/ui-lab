@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-07T04:34:40.777Z",
-  "count": 558,
+  "generatedAt": "2026-10-09T16:45:26.159Z",
+  "count": 563,
   "items": [
     {
       "kind": "component",
@@ -944,6 +944,214 @@
     },
     {
       "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app",
+        "electron-renderer"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "task-board-page",
+      "name": "Task Board Page",
+      "nameZh": "任务板页",
+      "aliases": [
+        "kanban page",
+        "任务看板",
+        "board"
+      ],
+      "description": "A reusable task board that moves cards across queued, active, review, and done columns.",
+      "descriptionZh": "可独立复用的任务板，在排队、进行中、待确认和完成列之间移动卡片。",
+      "pageUrl": "http://localhost:3000/pages/task-board-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/task-board-page.json",
+        "endpoint": "http://localhost:3000/r/task-board-page"
+      },
+      "sourceFile": "components/pages/task-board-page.tsx",
+      "sourceFiles": [
+        "components/pages/task-board-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/task-board-page.tsx",
+        "components/pages/task-board-data.ts",
+        "components/pages/workspace-app-ui.tsx",
+        "components/pages/workspace-copy.ts",
+        "lib/utils.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
+      ],
+      "sourceVersion": "62a5d3001cf81782f533d9b325b581128d83eb771fc51a884273c5375e0eafe3",
+      "installTargets": [
+        "task-board-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app",
+        "electron-renderer"
+      ],
+      "components": [
+        "button"
+      ],
+      "related": [
+        {
+          "kind": "component",
+          "slug": "button"
+        }
+      ],
+      "slug": "inbox-page",
+      "name": "Inbox Page",
+      "nameZh": "收件箱页",
+      "aliases": [
+        "mail page",
+        "邮件",
+        "inbox"
+      ],
+      "description": "A reusable mailbox with folders, a thread list, a reader, and a local-only compose form.",
+      "descriptionZh": "可独立复用的收件箱，包含文件夹、邮件列表、阅读区和只留在本地的写信表单。",
+      "pageUrl": "http://localhost:3000/pages/inbox-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/inbox-page.json",
+        "endpoint": "http://localhost:3000/r/inbox-page"
+      },
+      "sourceFile": "components/pages/inbox-page.tsx",
+      "sourceFiles": [
+        "components/pages/inbox-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/inbox-page.tsx",
+        "components/pages/inbox-data.ts",
+        "components/pages/workspace-app-ui.tsx",
+        "components/pages/workspace-copy.ts",
+        "components/motion/button/index.tsx",
+        "lib/utils.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/motion/button/base.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "lib/hooks/use-hover-capable.ts",
+        "components/motion/magnetic.tsx"
+      ],
+      "sourceVersion": "b9c9cabcdc951a275e35a6e59476b8ba4b2c97589566617a7fabfba238acb56e",
+      "installTargets": [
+        "inbox-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app",
+        "electron-renderer"
+      ],
+      "components": [
+        "button"
+      ],
+      "related": [
+        {
+          "kind": "component",
+          "slug": "button"
+        }
+      ],
+      "slug": "calendar-page",
+      "name": "Calendar Page",
+      "nameZh": "日程页",
+      "aliases": [
+        "month calendar",
+        "日历",
+        "日程"
+      ],
+      "description": "A reusable month calendar with keyboard day movement and a same-day agenda.",
+      "descriptionZh": "可独立复用的月历，支持键盘移动日期，并列出当天安排。",
+      "pageUrl": "http://localhost:3000/pages/calendar-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/calendar-page.json",
+        "endpoint": "http://localhost:3000/r/calendar-page"
+      },
+      "sourceFile": "components/pages/calendar-page.tsx",
+      "sourceFiles": [
+        "components/pages/calendar-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/calendar-page.tsx",
+        "components/pages/calendar-data.ts",
+        "components/pages/workspace-app-ui.tsx",
+        "components/pages/workspace-copy.ts",
+        "components/motion/button/index.tsx",
+        "lib/utils.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/motion/button/base.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "lib/hooks/use-hover-capable.ts",
+        "components/motion/magnetic.tsx"
+      ],
+      "sourceVersion": "7c3ecdbe38bfbe4af99b9cebd0782551671f050702bbf50dcc593b5e9814e940",
+      "installTargets": [
+        "calendar-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app",
+        "electron-renderer"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "customer-book-page",
+      "name": "Customer Book Page",
+      "nameZh": "客户册页",
+      "aliases": [
+        "customers page",
+        "客户列表",
+        "users table"
+      ],
+      "description": "A reusable customer list with status filters, a table, and a short profile.",
+      "descriptionZh": "可独立复用的客户册，包含状态筛选、表格和一份简短档案。",
+      "pageUrl": "http://localhost:3000/pages/customer-book-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/customer-book-page.json",
+        "endpoint": "http://localhost:3000/r/customer-book-page"
+      },
+      "sourceFile": "components/pages/customer-book-page.tsx",
+      "sourceFiles": [
+        "components/pages/customer-book-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/customer-book-page.tsx",
+        "components/pages/customer-book-data.ts",
+        "components/pages/workspace-app-ui.tsx",
+        "components/pages/workspace-copy.ts",
+        "lib/utils.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts"
+      ],
+      "sourceVersion": "7ec09ed7120ef78e1165bd5be344463e7d534d577baab01d34af9bb3aa8e5dec",
+      "installTargets": [
+        "customer-book-page"
+      ]
+    },
+    {
+      "kind": "component",
       "category": "sites",
       "assetRole": "site",
       "profiles": [
@@ -1036,6 +1244,96 @@
       "sourceVersion": "0ed4a63d677cf2f9768a17a948cb8c3a7eb03ecd617c3c67e225d01ce957fb84",
       "installTargets": [
         "agent-workbench-site"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "sites",
+      "assetRole": "site",
+      "profiles": [
+        "next-app",
+        "vite-app",
+        "electron-renderer"
+      ],
+      "components": [
+        "task-board-page",
+        "inbox-page",
+        "calendar-page",
+        "customer-book-page"
+      ],
+      "pages": [
+        "task-board-page",
+        "inbox-page",
+        "calendar-page",
+        "customer-book-page"
+      ],
+      "recommendedSystem": "graphite",
+      "related": [
+        {
+          "kind": "component",
+          "slug": "task-board-page"
+        },
+        {
+          "kind": "component",
+          "slug": "inbox-page"
+        },
+        {
+          "kind": "component",
+          "slug": "calendar-page"
+        },
+        {
+          "kind": "component",
+          "slug": "customer-book-page"
+        }
+      ],
+      "slug": "admin-workspace-site",
+      "name": "Admin Workspace Site",
+      "nameZh": "管理工作区",
+      "aliases": [
+        "admin template",
+        "管理模板",
+        "dashboard apps",
+        "后台应用"
+      ],
+      "description": "An admin shell whose sidebar keeps a dashboard overview and an apps group for the task board, inbox, calendar, and customer book.",
+      "descriptionZh": "管理外壳。侧栏保留仪表盘总览，并用一个应用分组放进任务板、收件箱、日程和客户册。",
+      "pageUrl": "http://localhost:3000/sites/admin-workspace-site",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/admin-workspace-site.json",
+        "endpoint": "http://localhost:3000/r/admin-workspace-site"
+      },
+      "sourceFile": "components/site-shells/admin-workspace-site.tsx",
+      "sourceFiles": [
+        "components/site-shells/admin-workspace-site.tsx"
+      ],
+      "installationFiles": [
+        "components/site-shells/admin-workspace-site.tsx",
+        "components/site-shells/admin-workspace-screens.ts",
+        "components/pages/calendar-page.tsx",
+        "components/pages/customer-book-page.tsx",
+        "components/pages/inbox-page.tsx",
+        "components/pages/task-board-page.tsx",
+        "components/pages/workspace-app-ui.tsx",
+        "components/pages/workspace-copy.ts",
+        "lib/utils.ts",
+        "components/pages/calendar-data.ts",
+        "components/motion/button/index.tsx",
+        "components/pages/customer-book-data.ts",
+        "components/pages/inbox-data.ts",
+        "components/pages/task-board-data.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/motion/button/base.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "lib/hooks/use-hover-capable.ts",
+        "components/motion/magnetic.tsx"
+      ],
+      "sourceVersion": "a7402c1b91b3d92277ea7c4511d221afe5cef9f6b28af156ee4efc9a764f26b0",
+      "installTargets": [
+        "admin-workspace-site"
       ]
     },
     {

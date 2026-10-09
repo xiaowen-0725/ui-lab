@@ -16,20 +16,20 @@ export function SiteShell({
 }) {
   const pathname = usePathname();
   const immersive = pathname.startsWith("/palettes");
-  const workspace = pathname.startsWith("/apps");
+  const adminDemo = pathname.startsWith("/sites/admin-workspace-site/demo");
 
   return (
     <>
-      {!immersive && <SiteHeader githubStarCount={githubStarCount} />}
+      {!immersive && !adminDemo && <SiteHeader githubStarCount={githubStarCount} />}
       <main
         className={cn(
-          workspace && "flex h-dvh flex-col overflow-hidden pt-14",
-          !workspace && !immersive && "pt-14 pb-32",
+          adminDemo && "h-dvh overflow-hidden",
+          !adminDemo && !immersive && "pt-14 pb-32",
         )}
       >
         <SiteFrame>{children}</SiteFrame>
       </main>
-      {!immersive && !workspace && <SiteDock />}
+      {!immersive && !adminDemo && <SiteDock />}
     </>
   );
 }

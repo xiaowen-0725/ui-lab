@@ -1,11 +1,10 @@
 "use client";
 
+import { fill, workspaceCopy, type WorkspacePageProps } from "./workspace-copy";
 import { ChevronLeft, ChevronRight, GripVertical } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
 import { type PointerEvent, useRef, useState } from "react";
-import type { Locale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
-import { focusRing, IconButton, SearchField, textFor, useQuietMotion } from "../ui";
+import { focusRing, IconButton, PageIntro, SearchField, textFor, useQuietMotion } from "./workspace-app-ui";
 import {
   COLUMN_IDS,
   type ColumnId,
@@ -15,7 +14,7 @@ import {
   TASKS,
   taskMatches,
   tasksInColumn,
-} from "./model";
+} from "./task-board-data";
 
 const LABEL_CLASS: Record<Task["label"], string> = {
   product: "bg-foreground/[0.06] text-foreground",
@@ -33,9 +32,12 @@ interface DragState {
   over: ColumnId | null;
 }
 
-export function BoardApp() {
-  const t = useTranslations("apps");
-  const locale = useLocale() as Locale;
+export function TaskBoardPage({
+  locale = "zh",
+  showHeading = true,
+  className,
+}: WorkspacePageProps) {
+  const copy = workspaceCopy(locale);
   const quiet = useQuietMotion();
   const [tasks, setTasks] = useState<Task[]>(() => TASKS.map((task) => ({ ...task })));
   const [query, setQuery] = useState("");
@@ -51,9 +53,9 @@ export function BoardApp() {
 
   function announce(task: Task, column: ColumnId) {
     setLive(
-      t("moved", {
+      fill(copy.moved, {
         title: textFor(locale, task.title, task.titleZh),
-        column: t(`columns.${column}`),
+        column: copy.columns[column],
       }),
     );
   }
@@ -113,15 +115,12 @@ export function BoardApp() {
   const dragging = tasks.find((task) => task.id === drag?.id) ?? null;
 
   return (
-    <div className="flex h-full min-h-0 flex-col">
+    <div className={cn("flex h-full min-h-0 flex-col", className)}>
       <header className="flex shrink-0 flex-col gap-3 border-b border-border px-4 py-4 md:flex-row md:items-end md:justify-between md:px-6">
-        <div>
-          <h1 className="text-xl font-semibold tracking-tight">{t("boardTitle")}</h1>
-          <p className="mt-1 max-w-xl text-sm text-muted-foreground">{t("boardDescription")}</p>
-        </div>
+        <PageIntro show={showHeading} title={copy.boardTitle} description={copy.boardDescription} />
         <SearchField
-          label={t("searchTasks")}
-          placeholder={t("searchTasks")}
+          label={copy.searchTasks}
+          placeholder={copy.searchTasks}
           value={query}
           onChange={setQuery}
         />
@@ -140,20 +139,20 @@ export function BoardApp() {
                 ref={(node) => {
                   columns.current[column] = node;
                 }}
-                aria-label={t(`columns.${column}`)}
+                aria-label={copy.columns[column]}
                 className={cn(
                   "flex h-full w-[min(85vw,17rem)] flex-col rounded-2xl border border-transparent bg-foreground/[0.03] p-2 transition-colors motion-reduce:transition-none",
                   hot && "border-foreground/20 bg-foreground/[0.05]",
                 )}
               >
                 <header className="flex items-center justify-between px-2 py-2">
-                  <h2 className="text-sm font-medium">{t(`columns.${column}`)}</h2>
+                  <h2 className="text-sm font-medium">{copy.columns[column]}</h2>
                   <span className="tabular-nums text-xs text-muted-foreground">{cards.length}</span>
                 </header>
                 <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto px-1 pb-2">
                   {cards.length === 0 ? (
                     <p className="px-2 py-6 text-center text-xs text-muted-foreground">
-                      {query ? t("emptySearch") : t("emptyColumn")}
+                      {query ? copy.emptySearch : copy.emptyColumn}
                     </p>
                   ) : (
                     cards.map((task) => {
@@ -172,7 +171,7 @@ export function BoardApp() {
                           <div className="flex items-start gap-2">
                             <button
                               type="button"
-                              aria-label={t("dragHandle", { title })}
+                              aria-label={fill(copy.dragHandle, { title })}
                               className={cn(
                                 "mt-0.5 cursor-grab touch-none rounded-md text-muted-foreground hover:text-foreground active:cursor-grabbing",
                                 focusRing,
@@ -202,7 +201,7 @@ export function BoardApp() {
                                 LABEL_CLASS[task.label],
                               )}
                             >
-                              {t(`labels.${task.label}`)}
+                              {copy.labels[task.label]}
                             </span>
                             <span className="truncate text-[11px] text-muted-foreground">
                               {textFor(locale, task.owner, task.ownerZh)} · {textFor(locale, task.due, task.dueZh)}
@@ -210,14 +209,14 @@ export function BoardApp() {
                           </div>
                           <div className="mt-2 flex justify-end gap-1">
                             <IconButton
-                              label={t("moveEarlier", { title })}
+                              label={fill(copy.moveEarlier, { title })}
                               disabled={!earlier}
                               onClick={() => earlier && move(task.id, earlier)}
                             >
                               <ChevronLeft aria-hidden="true" className="size-4" />
                             </IconButton>
                             <IconButton
-                              label={t("moveLater", { title })}
+                              label={fill(copy.moveLater, { title })}
                               disabled={!later}
                               onClick={() => later && move(task.id, later)}
                             >

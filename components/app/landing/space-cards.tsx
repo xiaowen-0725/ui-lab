@@ -6,7 +6,6 @@ import {
   ArrowUpRight,
   BookOpen,
   Component,
-  LayoutDashboard,
   LayoutGrid,
   Lightbulb,
   PanelsTopLeft,
@@ -26,7 +25,6 @@ const SPACE_META: Record<NavKey, { icon: LucideIcon; descKey: string } | null> =
   sites: { icon: AppWindow, descKey: "spaceSitesDesc" },
   themes: { icon: SwatchBook, descKey: "spaceThemesDesc" },
   inspiration: { icon: Lightbulb, descKey: "spaceInspirationDesc" },
-  apps: { icon: LayoutDashboard, descKey: "spaceAppsDesc" },
 };
 
 /** Landing entry cards for the top-level doors. */

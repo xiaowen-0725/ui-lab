@@ -89,6 +89,24 @@ export function SearchField({
   );
 }
 
+export function PageIntro({
+  show,
+  title,
+  description,
+}: {
+  show: boolean;
+  title: string;
+  description: string;
+}) {
+  if (!show) return null;
+  return (
+    <div>
+      <h1 className="text-xl font-semibold tracking-tight">{title}</h1>
+      <p className="mt-1 max-w-xl text-sm text-muted-foreground">{description}</p>
+    </div>
+  );
+}
+
 export function IconButton({
   label,
   children,

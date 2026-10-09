@@ -37,8 +37,7 @@ export function SiteHeader({
   const pathname = usePathname();
   const wideHeader =
     pathname.startsWith("/components") ||
-    pathname.startsWith("/dictionary") ||
-    pathname.startsWith("/apps");
+    pathname.startsWith("/dictionary");
   const formattedStarCount =
     typeof githubStarCount === "number"
       ? formatStarCount(githubStarCount)

@@ -1,21 +1,21 @@
 "use client";
 
+import { fill, workspaceCopy, type WorkspacePageProps } from "./workspace-copy";
 import { ArrowLeft, Star } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { Button } from "@/components/motion/button";
-import type { Locale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import {
   Avatar,
   enterTransition,
   focusRing,
   IconButton,
+  PageIntro,
   SearchField,
   textFor,
   useQuietMotion,
-} from "../ui";
+} from "./workspace-app-ui";
 import {
   FOLDER_IDS,
   type FolderId,
@@ -23,11 +23,14 @@ import {
   THREADS,
   threadMatches,
   threadsForFolder,
-} from "./model";
+} from "./inbox-data";
 
-export function InboxApp() {
-  const t = useTranslations("apps");
-  const locale = useLocale() as Locale;
+export function InboxPage({
+  locale = "zh",
+  showHeading = true,
+  className,
+}: WorkspacePageProps) {
+  const copy = workspaceCopy(locale);
   const quiet = useQuietMotion();
   const [threads, setThreads] = useState<Thread[]>(() =>
     THREADS.map((thread) => ({ ...thread, messages: thread.messages.map((message) => ({ ...message })) })),
@@ -67,7 +70,7 @@ export function InboxApp() {
     const subject = draft.subject.trim();
     const body = draft.body.trim();
     if (!to.includes("@") || !subject || !body) {
-      setError(t("composeNeed"));
+      setError(copy.composeNeed);
       return;
     }
     const id = `local-${draftCount}`;
@@ -102,16 +105,13 @@ export function InboxApp() {
   }
 
   return (
-    <div className="flex h-full min-h-0 flex-col">
+    <div className={cn("flex h-full min-h-0 flex-col", className)}>
       <header className="flex shrink-0 flex-col gap-3 border-b border-border px-4 py-4 md:flex-row md:items-end md:justify-between md:px-6">
-        <div>
-          <h1 className="text-xl font-semibold tracking-tight">{t("inboxTitle")}</h1>
-          <p className="mt-1 max-w-xl text-sm text-muted-foreground">{t("inboxDescription")}</p>
-        </div>
+        <PageIntro show={showHeading} title={copy.inboxTitle} description={copy.inboxDescription} />
         <div className="flex items-center gap-2">
           <SearchField
-            label={t("searchMail")}
-            placeholder={t("searchMail")}
+            label={copy.searchMail}
+            placeholder={copy.searchMail}
             value={query}
             onChange={setQuery}
           />
@@ -123,13 +123,13 @@ export function InboxApp() {
               setError("");
             }}
           >
-            {t("newMessage")}
+            {copy.newMessage}
           </Button>
         </div>
       </header>
       <div className="grid min-h-0 flex-1 md:grid-cols-[minmax(16rem,22rem)_1fr] xl:grid-cols-[12rem_minmax(16rem,22rem)_1fr]">
         <nav
-          aria-label={t("folders")}
+          aria-label={copy.folders}
           className="hidden flex-col gap-1 border-r border-border p-3 xl:flex"
         >
           {FOLDER_IDS.map((id) => {
@@ -149,14 +149,14 @@ export function InboxApp() {
                     : "text-muted-foreground hover:bg-foreground/[0.04] hover:text-foreground",
                 )}
               >
-                <span>{t(`foldersMap.${id}`)}</span>
+                <span>{copy.foldersMap[id]}</span>
                 <span className="tabular-nums text-xs">{count}</span>
               </button>
             );
           })}
         </nav>
         <section
-          aria-label={t("threadList")}
+          aria-label={copy.threadList}
           className={cn(
             "min-h-0 flex-col border-r border-border",
             selected || composing ? "hidden md:flex" : "flex",
@@ -177,13 +177,13 @@ export function InboxApp() {
                     : "bg-foreground/[0.04] text-muted-foreground",
                 )}
               >
-                {t(`foldersMap.${id}`)}
+                {copy.foldersMap[id]}
               </button>
             ))}
           </div>
           <div className="min-h-0 flex-1 overflow-y-auto">
             {visible.length === 0 ? (
-              <p className="px-4 py-16 text-center text-sm text-muted-foreground">{t("emptySearch")}</p>
+              <p className="px-4 py-16 text-center text-sm text-muted-foreground">{copy.emptySearch}</p>
             ) : (
               <ul>
                 {visible.map((thread) => {
@@ -233,7 +233,7 @@ export function InboxApp() {
             )}
           </div>
         </section>
-        <section aria-label={t("reading")} className={cn("min-h-0 flex-col", selected || composing ? "flex" : "hidden md:flex")}>
+        <section aria-label={copy.reading} className={cn("min-h-0 flex-col", selected || composing ? "flex" : "hidden md:flex")}>
           <AnimatePresence mode="wait" initial={false}>
             {composing ? (
               <motion.form
@@ -246,16 +246,16 @@ export function InboxApp() {
                 }}
               >
                 <div className="flex items-center gap-2 border-b border-border px-4 py-3">
-                  <IconButton label={t("backToList")} className="md:hidden" onClick={() => setComposing(false)}>
+                  <IconButton label={copy.backToList} className="md:hidden" onClick={() => setComposing(false)}>
                     <ArrowLeft aria-hidden="true" className="size-4" />
                   </IconButton>
-                  <h2 className="text-sm font-medium">{t("newMessage")}</h2>
+                  <h2 className="text-sm font-medium">{copy.newMessage}</h2>
                 </div>
                 <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto p-4 md:p-6">
-                  <Field label={t("to")} value={draft.to} onChange={(to) => setDraft({ ...draft, to })} type="email" />
-                  <Field label={t("subject")} value={draft.subject} onChange={(subject) => setDraft({ ...draft, subject })} />
+                  <Field label={copy.to} value={draft.to} onChange={(to) => setDraft({ ...draft, to })} type="email" />
+                  <Field label={copy.subject} value={draft.subject} onChange={(subject) => setDraft({ ...draft, subject })} />
                   <label className="grid min-h-40 flex-1 gap-1 text-xs text-muted-foreground">
-                    {t("message")}
+                    {copy.message}
                     <textarea
                       value={draft.body}
                       onChange={(event) => setDraft({ ...draft, body: event.target.value })}
@@ -270,11 +270,11 @@ export function InboxApp() {
                       {error}
                     </p>
                   ) : (
-                    <p className="text-xs text-muted-foreground">{t("sentLocal")}</p>
+                    <p className="text-xs text-muted-foreground">{copy.sentLocal}</p>
                   )}
                   <div className="flex gap-2">
                     <Button size="sm" className="rounded-lg" type="submit">
-                      {t("send")}
+                      {copy.send}
                     </Button>
                     <Button
                       size="sm"
@@ -286,7 +286,7 @@ export function InboxApp() {
                         setError("");
                       }}
                     >
-                      {t("discard")}
+                      {copy.discard}
                     </Button>
                   </div>
                 </div>
@@ -299,7 +299,7 @@ export function InboxApp() {
               >
                 <header className="flex items-start gap-2 border-b border-border px-4 py-3 md:px-6">
                   <IconButton
-                    label={t("backToList")}
+                    label={copy.backToList}
                     className="md:hidden"
                     onClick={() => setSelectedId(null)}
                   >
@@ -310,11 +310,11 @@ export function InboxApp() {
                       {textFor(locale, selected.subject, selected.subjectZh)}
                     </h2>
                     <p className="mt-1 text-xs text-muted-foreground">
-                      {t("messageCount", { count: selected.messages.length })}
+                      {fill(copy.messageCount, { count: selected.messages.length })}
                     </p>
                   </div>
                   <IconButton
-                    label={selected.starred ? t("unstar") : t("star")}
+                    label={selected.starred ? copy.unstar : copy.star}
                     onClick={() => toggleStar(selected.id)}
                     className={selected.starred ? "text-foreground" : undefined}
                   >
@@ -351,7 +351,7 @@ export function InboxApp() {
                 {...enterTransition(quiet)}
                 className="grid h-full place-items-center p-8 text-center"
               >
-                <p className="max-w-xs text-sm text-muted-foreground">{t("noThread")}</p>
+                <p className="max-w-xs text-sm text-muted-foreground">{copy.noThread}</p>
               </motion.div>
             )}
           </AnimatePresence>

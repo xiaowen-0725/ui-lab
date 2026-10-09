@@ -7,13 +7,13 @@ export interface SiteDefinition {
   description: string;
   descriptionZh: string;
   aliases: string[];
-  componentSlug: "agent-workbench-site";
+  componentSlug: string;
   components: string[];
   profiles: ApplicationProfile[];
-  shellComponent: "agent-workbench";
+  shellComponent?: string;
   pages: string[];
   recommendedSystem: "graphite";
-  pagePath: "/sites/agent-workbench-site";
+  pagePath: `/sites/${string}`;
 }
 
 export const SITES: readonly SiteDefinition[] = [
@@ -38,5 +38,20 @@ export const SITES: readonly SiteDefinition[] = [
     profiles: ["next-app", "vite-app", "electron-renderer"],
     recommendedSystem: "graphite",
     pagePath: "/sites/agent-workbench-site",
+  },
+  {
+    slug: "admin-workspace-site",
+    name: "Admin Workspace Site",
+    nameZh: "管理工作区",
+    description:
+      "An admin shell whose sidebar keeps a dashboard overview and an apps group for the task board, inbox, calendar, and customer book.",
+    descriptionZh: "管理外壳。侧栏保留仪表盘总览，并用一个应用分组放进任务板、收件箱、日程和客户册。",
+    aliases: ["admin template", "管理模板", "dashboard apps", "后台应用"],
+    componentSlug: "admin-workspace-site",
+    components: ["task-board-page", "inbox-page", "calendar-page", "customer-book-page"],
+    pages: ["task-board-page", "inbox-page", "calendar-page", "customer-book-page"],
+    profiles: ["next-app", "vite-app", "electron-renderer"],
+    recommendedSystem: "graphite",
+    pagePath: "/sites/admin-workspace-site",
   },
 ];

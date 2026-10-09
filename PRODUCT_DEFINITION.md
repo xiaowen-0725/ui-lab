@@ -22,7 +22,7 @@ UI Lab 是一个中文优先、中英双语的 **可视前端词汇表与 AI-fir
 
 - **Catalog**：统一聚合 `component`、`atom-set`、`icon-style`、`icon-motion`、`style`、`palette`、`design-system`、`recipe`、只读 `vocabulary` 与外部 `reference`；
 - **Registry**：分发可 vendoring 的组件、区块、完整页面与多页组合源码，展示父项和独立安装变体都有真实安装身份；
-- **页面与整站资产**：19 个可复用区段变体、4 个完整页面和一个引用独立页面的 Agent 多页工作台；`lib/pages.ts` / `lib/sites.ts` 登记实际源码及依赖，不复制页面实现；
+- **页面与整站资产**：19 个可复用区段变体、8 个完整页面，以及两个引用独立页面的多页组合（Agent 工作台、管理工作区）；`lib/pages.ts` / `lib/sites.ts` 登记实际源码及依赖，不复制页面实现；
 - **Theme Kit**：提供可运行的主题与 token，不代表完整应用系统；
 - **Recipe**：描述页面或应用外壳的组合约束，不承载业务逻辑；
 - **CLI**：提供查询、查看、Theme Kit、组件登记、Recipe compose、CatalogLock 与 Audit 等当前仓库 `ui-lab --help` 可见命令（新增源码尚未代表 npm 已发布）；

@@ -1,5 +1,9 @@
 import { expect, test } from "bun:test";
-import { APPS } from "@/lib/apps";
+import { PAGES } from "@/lib/pages";
+import { SITES } from "@/lib/sites";
+import {
+  ADMIN_WORKSPACE_SCREENS,
+} from "@/components/site-shells/admin-workspace-screens";
 import {
   COLUMN_IDS,
   moveTask,
@@ -7,14 +11,19 @@ import {
   TASKS,
   taskMatches,
   tasksInColumn,
-} from "@/components/app/apps/board/model";
-import { buildMonthGrid, DEMO_TODAY, eventsOn, isoDate, shiftMonth } from "@/components/app/apps/calendar/model";
-import { CUSTOMERS, filterCustomers } from "@/components/app/apps/customers/model";
-import { THREADS, threadMatches, threadsForFolder } from "@/components/app/apps/inbox/model";
+} from "@/components/pages/task-board-data";
+import { buildMonthGrid, DEMO_TODAY, eventsOn, isoDate, shiftMonth } from "@/components/pages/calendar-data";
+import { CUSTOMERS, filterCustomers } from "@/components/pages/customer-book-data";
+import { THREADS, threadMatches, threadsForFolder } from "@/components/pages/inbox-data";
 
-test("app samples stay on site routes and do not repeat a slug", () => {
-  expect(APPS.map((app) => app.slug)).toEqual(["board", "inbox", "calendar", "customers"]);
-  expect(new Set(APPS.map((app) => app.href)).size).toBe(APPS.length);
+test("admin workspace pages are registered and presented as one site", () => {
+  const slugs = ["task-board-page", "inbox-page", "calendar-page", "customer-book-page"];
+  for (const slug of slugs) {
+    expect(PAGES.some((page) => page.slug === slug && page.pagePath === `/pages/${slug}`)).toBe(true);
+  }
+  const site = SITES.find((entry) => entry.slug === "admin-workspace-site");
+  expect(site?.pages).toEqual(slugs);
+  expect(ADMIN_WORKSPACE_SCREENS).toEqual(["overview", "board", "inbox", "calendar", "customers"]);
 });
 
 test("moving a task appends it to the target column", () => {

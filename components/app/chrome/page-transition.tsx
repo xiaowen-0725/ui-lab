@@ -16,7 +16,10 @@ export function PageTransition({
   const reduce = useReducedMotion();
   // Component pages contain viewport-fixed navigation. Translating an ancestor
   // makes fixed descendants anchor to that moving element during the transition.
-  const shouldTranslate = !reduce && !pathname.startsWith("/components/");
+  const shouldTranslate =
+    !reduce &&
+    !pathname.startsWith("/components/") &&
+    !pathname.startsWith("/sites/admin-workspace-site/demo");
   const ref = useRef<HTMLDivElement>(null);
   // Skip enter animation on first load so LCP element is visible immediately.
   // After mount, navigations animate normally.

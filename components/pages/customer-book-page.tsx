@@ -1,20 +1,20 @@
 "use client";
 
+import { fill, workspaceCopy, type WorkspaceLocale, type WorkspacePageProps } from "./workspace-copy";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useLocale, useTranslations } from "next-intl";
 import { type ReactNode, useEffect, useMemo, useState } from "react";
-import type { Locale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import {
   Avatar,
   enterTransition,
   focusRing,
   IconButton,
+  PageIntro,
   SearchField,
   textFor,
   useQuietMotion,
-} from "../ui";
+} from "./workspace-app-ui";
 import {
   CUSTOMERS,
   CUSTOMER_STATUSES,
@@ -22,7 +22,7 @@ import {
   type CustomerStatus,
   filterCustomers,
   type StatusFilter,
-} from "./model";
+} from "./customer-book-data";
 
 const STATUS_CLASS: Record<CustomerStatus, string> = {
   active: "bg-success/15 text-foreground",
@@ -30,9 +30,12 @@ const STATUS_CLASS: Record<CustomerStatus, string> = {
   pastDue: "bg-destructive/10 text-destructive",
 };
 
-export function CustomersApp() {
-  const t = useTranslations("apps");
-  const locale = useLocale() as Locale;
+export function CustomerBookPage({
+  locale = "zh",
+  showHeading = true,
+  className,
+}: WorkspacePageProps) {
+  const copy = workspaceCopy(locale);
   const quiet = useQuietMotion();
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<StatusFilter>("all");
@@ -59,22 +62,19 @@ export function CustomersApp() {
   }, [selectedId]);
 
   return (
-    <div className="relative flex h-full min-h-0 flex-col">
+    <div className={cn("relative flex h-full min-h-0 flex-col", className)}>
       <header className="flex shrink-0 flex-col gap-3 border-b border-border px-4 py-4 md:px-6">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h1 className="text-xl font-semibold tracking-tight">{t("customersTitle")}</h1>
-            <p className="mt-1 max-w-xl text-sm text-muted-foreground">{t("customersDescription")}</p>
-          </div>
+        <PageIntro show={showHeading} title={copy.customersTitle} description={copy.customersDescription} />
           <SearchField
-            label={t("searchCustomers")}
-            placeholder={t("searchCustomers")}
+            label={copy.searchCustomers}
+            placeholder={copy.searchCustomers}
             value={query}
             onChange={setQuery}
           />
         </div>
         <fieldset className="m-0 flex min-w-0 flex-wrap items-center gap-2 border-0 p-0">
-          <legend className="sr-only">{t("status")}</legend>
+          <legend className="sr-only">{copy.status}</legend>
           {(["all", ...CUSTOMER_STATUSES] as const).map((item) => (
             <button
               key={item}
@@ -89,17 +89,17 @@ export function CustomersApp() {
                   : "bg-foreground/[0.04] text-muted-foreground hover:text-foreground",
               )}
             >
-              {item === "all" ? t("all") : t(`statuses.${item}`)}
+              {item === "all" ? copy.all : copy.statuses[item]}
             </button>
           ))}
           <p className="ml-auto text-xs tabular-nums text-muted-foreground">
-            {t("results", { count: visible.length })}
+            {fill(copy.results, { count: visible.length })}
           </p>
         </fieldset>
       </header>
       <div className="min-h-0 flex-1 overflow-auto">
         {visible.length === 0 ? (
-          <p className="px-6 py-16 text-center text-sm text-muted-foreground">{t("emptySearch")}</p>
+          <p className="px-6 py-16 text-center text-sm text-muted-foreground">{copy.emptySearch}</p>
         ) : (
           <>
             <ul className="divide-y divide-border md:hidden">
@@ -110,20 +110,21 @@ export function CustomersApp() {
                     locale={locale}
                     selected={customer.id === selectedId}
                     onSelect={setSelectedId}
-                    meta={`${t(`plans.${customer.plan}`)} · ${money.format(customer.monthly)}`}
+                    meta={`${copy.plans[customer.plan]} · ${money.format(customer.monthly)}`}
+                    statusLabel={copy.statuses[customer.status]}
                   />
                 </li>
               ))}
             </ul>
             <table className="hidden w-full min-w-[40rem] border-collapse text-left text-sm md:table">
-              <caption className="sr-only">{t("customersTitle")}</caption>
+              <caption className="sr-only">{copy.customersTitle}</caption>
               <thead className="sticky top-0 bg-background">
                 <tr className="border-b border-border text-xs text-muted-foreground">
-                  <th scope="col" className="px-6 py-3 font-medium">{t("customer")}</th>
-                  <th scope="col" className="px-3 py-3 font-medium">{t("plan")}</th>
-                  <th scope="col" className="px-3 py-3 font-medium">{t("status")}</th>
-                  <th scope="col" className="px-3 py-3 font-medium">{t("monthly")}</th>
-                  <th scope="col" className="px-3 py-3 font-medium">{t("since")}</th>
+                  <th scope="col" className="px-6 py-3 font-medium">{copy.customer}</th>
+                  <th scope="col" className="px-3 py-3 font-medium">{copy.plan}</th>
+                  <th scope="col" className="px-3 py-3 font-medium">{copy.status}</th>
+                  <th scope="col" className="px-3 py-3 font-medium">{copy.monthly}</th>
+                  <th scope="col" className="px-3 py-3 font-medium">{copy.since}</th>
                 </tr>
               </thead>
               <tbody>
@@ -150,9 +151,9 @@ export function CustomersApp() {
                           </span>
                         </button>
                       </th>
-                      <td className="px-3 py-3">{t(`plans.${customer.plan}`)}</td>
+                      <td className="px-3 py-3">{copy.plans[customer.plan]}</td>
                       <td className="px-3 py-3">
-                        <StatusPill status={customer.status} label={t(`statuses.${customer.status}`)} />
+                        <StatusPill status={customer.status} label={copy.statuses[customer.status]} />
                       </td>
                       <td className="px-3 py-3 tabular-nums">{money.format(customer.monthly)}</td>
                       <td className="px-3 py-3 tabular-nums text-muted-foreground">{customer.since}</td>
@@ -169,7 +170,7 @@ export function CustomersApp() {
           <motion.aside
             key={selected.id}
             {...enterTransition(quiet)}
-            aria-label={t("profile")}
+            aria-label={copy.profile}
             className="absolute inset-y-0 right-0 z-10 flex w-full max-w-md flex-col border-l border-border bg-background shadow-xl md:shadow-none"
           >
             <header className="flex items-start gap-3 border-b border-border px-4 py-4">
@@ -183,20 +184,20 @@ export function CustomersApp() {
                 </h2>
                 <p className="truncate text-sm text-muted-foreground">{selected.company}</p>
               </div>
-              <IconButton label={t("closeProfile")} onClick={() => setSelectedId(null)}>
+              <IconButton label={copy.closeProfile} onClick={() => setSelectedId(null)}>
                 <X aria-hidden="true" className="size-4" />
               </IconButton>
             </header>
             <dl className="grid gap-4 overflow-y-auto p-4 text-sm">
-              <Fact term={t("status")}>
-                <StatusPill status={selected.status} label={t(`statuses.${selected.status}`)} />
+              <Fact term={copy.status}>
+                <StatusPill status={selected.status} label={copy.statuses[selected.status]} />
               </Fact>
-              <Fact term={t("plan")}>{t(`plans.${selected.plan}`)}</Fact>
-              <Fact term={t("monthly")}>{money.format(selected.monthly)}</Fact>
-              <Fact term={t("city")}>{textFor(locale, selected.city, selected.cityZh)}</Fact>
-              <Fact term={t("since")}>{selected.since}</Fact>
-              <Fact term={t("email")}>{selected.email}</Fact>
-              <Fact term={t("note")}>{textFor(locale, selected.note, selected.noteZh)}</Fact>
+              <Fact term={copy.plan}>{copy.plans[selected.plan]}</Fact>
+              <Fact term={copy.monthly}>{money.format(selected.monthly)}</Fact>
+              <Fact term={copy.city}>{textFor(locale, selected.city, selected.cityZh)}</Fact>
+              <Fact term={copy.since}>{selected.since}</Fact>
+              <Fact term={copy.email}>{selected.email}</Fact>
+              <Fact term={copy.note}>{textFor(locale, selected.note, selected.noteZh)}</Fact>
             </dl>
           </motion.aside>
         ) : null}
@@ -211,14 +212,15 @@ function CustomerButton({
   selected,
   onSelect,
   meta,
+  statusLabel,
 }: {
   customer: Customer;
-  locale: Locale;
+  locale: WorkspaceLocale;
   selected: boolean;
   onSelect: (id: string) => void;
   meta: string;
+  statusLabel: string;
 }) {
-  const t = useTranslations("apps");
   return (
     <button
       type="button"
@@ -239,7 +241,7 @@ function CustomerButton({
           {customer.company} · {meta}
         </span>
       </span>
-      <StatusPill status={customer.status} label={t(`statuses.${customer.status}`)} />
+      <StatusPill status={customer.status} label={statusLabel} />
     </button>
   );
 }

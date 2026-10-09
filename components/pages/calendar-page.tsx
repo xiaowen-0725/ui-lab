@@ -1,13 +1,12 @@
 "use client";
 
+import { workspaceCopy, type WorkspacePageProps } from "./workspace-copy";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useLocale, useTranslations } from "next-intl";
 import { useRef, useState } from "react";
 import { Button } from "@/components/motion/button";
-import type { Locale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
-import { enterTransition, focusRing, IconButton, textFor, useQuietMotion } from "../ui";
+import { enterTransition, focusRing, IconButton, PageIntro, textFor, useQuietMotion } from "./workspace-app-ui";
 import {
   buildMonthGrid,
   DEMO_TODAY,
@@ -15,7 +14,7 @@ import {
   eventsOn,
   isoDate,
   shiftMonth,
-} from "./model";
+} from "./calendar-data";
 
 const KIND_CLASS: Record<EventKind, string> = {
   focus: "bg-foreground/[0.06] text-foreground",
@@ -23,9 +22,12 @@ const KIND_CLASS: Record<EventKind, string> = {
   ship: "bg-success/15 text-foreground",
 };
 
-export function CalendarApp() {
-  const t = useTranslations("apps");
-  const locale = useLocale() as Locale;
+export function CalendarPage({
+  locale = "zh",
+  showHeading = true,
+  className,
+}: WorkspacePageProps) {
+  const copy = workspaceCopy(locale);
   const quiet = useQuietMotion();
   const [cursor, setCursor] = useState<{ year: number; month: number }>({
     year: DEMO_TODAY.year,
@@ -56,18 +58,15 @@ export function CalendarApp() {
   }
 
   return (
-    <div className="flex h-full min-h-0 flex-col">
+    <div className={cn("flex h-full min-h-0 flex-col", className)}>
       <header className="flex shrink-0 flex-col gap-3 border-b border-border px-4 py-4 md:flex-row md:items-end md:justify-between md:px-6">
-        <div>
-          <h1 className="text-xl font-semibold tracking-tight">{t("calendarTitle")}</h1>
-          <p className="mt-1 max-w-xl text-sm text-muted-foreground">{t("calendarDescription")}</p>
-        </div>
+        <PageIntro show={showHeading} title={copy.calendarTitle} description={copy.calendarDescription} />
         <div className="flex items-center gap-2">
-          <IconButton label={t("previousMonth")} onClick={() => setCursor(shiftMonth(cursor.year, cursor.month, -1))}>
+          <IconButton label={copy.previousMonth} onClick={() => setCursor(shiftMonth(cursor.year, cursor.month, -1))}>
             <ChevronLeft aria-hidden="true" className="size-4" />
           </IconButton>
           <p className="min-w-32 text-center text-sm font-medium">{monthLabel}</p>
-          <IconButton label={t("nextMonth")} onClick={() => setCursor(shiftMonth(cursor.year, cursor.month, 1))}>
+          <IconButton label={copy.nextMonth} onClick={() => setCursor(shiftMonth(cursor.year, cursor.month, 1))}>
             <ChevronRight aria-hidden="true" className="size-4" />
           </IconButton>
           <Button
@@ -79,7 +78,7 @@ export function CalendarApp() {
               setSelected(today);
             }}
           >
-            {t("sampleDay")}
+            {copy.sampleDay}
           </Button>
         </div>
       </header>
@@ -162,18 +161,18 @@ export function CalendarApp() {
           </div>
         </div>
         <aside className="min-h-0 overflow-y-auto border-t border-border p-4 lg:border-l lg:border-t-0 md:p-6">
-          <h2 className="text-sm font-medium">{t("agenda")}</h2>
+          <h2 className="text-sm font-medium">{copy.agenda}</h2>
           <p className="mt-1 text-xs text-muted-foreground">{selected}</p>
           <AnimatePresence mode="wait" initial={false}>
             <motion.div key={selected} {...enterTransition(quiet)} className="mt-4 space-y-3">
               {agenda.length === 0 ? (
-                <p className="text-sm text-muted-foreground">{t("noEvents")}</p>
+                <p className="text-sm text-muted-foreground">{copy.noEvents}</p>
               ) : (
                 agenda.map((event) => (
                   <article key={event.id} className="rounded-2xl border border-border bg-card/40 p-3">
                     <div className="flex items-center justify-between gap-2">
                       <span className={cn("rounded-full px-2 py-0.5 text-[11px] font-medium", KIND_CLASS[event.kind])}>
-                        {t(`kinds.${event.kind}`)}
+                        {copy.kinds[event.kind]}
                       </span>
                       <time className="tabular-nums text-xs text-muted-foreground">{event.time}</time>
                     </div>

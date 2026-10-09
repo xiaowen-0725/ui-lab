@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { APPS, APPS_HOME } from "@/lib/apps";
 import { assetPagePath } from "@/lib/asset-paths";
 import { CONCEPTS } from "@/lib/concepts";
 import { INSPIRATION_BRANDS } from "@/lib/inspiration-brands";
@@ -42,9 +41,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/scroll`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/atoms`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/inspiration`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${SITE}${APPS_HOME}`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    ...APPS.map((app) => ({
-      url: `${SITE}${app.href}`,
+    { url: `${SITE}/sites/admin-workspace-site/demo`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    ...["board", "inbox", "calendar", "customers"].map((screen) => ({
+      url: `${SITE}/sites/admin-workspace-site/demo/${screen}`,
       lastModified: now,
       changeFrequency: "weekly" as const,
       priority: 0.6,
