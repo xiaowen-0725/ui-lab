@@ -1,0 +1,391 @@
+$ bun run typecheck && bun run lint && bun run check:registry && bun run check:catalog && bun run check:architecture && bun run check:snapshot && bun run check:skills
+$ tsc --noEmit
+$ biome lint .
+components/pages/saas-admin/components/layout/Header.tsx:60:22 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    58 │ 									.replace(/-/g, " ")
+    59 │ 									.replace(/\b\w/g, (c) => c.toUpperCase());
+  > 60 │ 								const href = "/" + segments.slice(0, index + 1).join("/");
+       │ 								             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    61 │ 
+    62 │ 								return (
+  
+  i Unsafe fix: Use a template literal.
+  
+     58  58 │                     .replace(/-/g, " ")
+     59  59 │                     .replace(/\b\w/g, (c) => c.toUpperCase());
+     60     │ - → → → → → → → → const·href·=·"/"·+·segments.slice(0,·index·+·1).join("/");
+         60 │ + → → → → → → → → const·href·=·`/${segments.slice(0,·index·+·1).join("/")}`;
+     61  61 │   
+     62  62 │                   return (
+  
+
+scripts/verify-system-tokens.ts:52:53 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    50 │   const after = await install("system-workbench");
+    51 │   assert(after === themed, "System defaults changed explicit theme");
+  > 52 │   await writeFile(join(fixture, "app/globals.css"), after + "\n.consumer-overrides { --primary: hotpink; }\n");
+       │                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    53 │   const blue = await install("theme-blue-ink");
+    54 │   assert(blue.includes(".consumer-overrides") && blue.includes("hotpink"), "Explicit Blue Ink removed consumer-owned override");
+  
+  i Unsafe fix: Use a template literal.
+  
+    50 50 │     const after = await install("system-workbench");
+    51 51 │     assert(after === themed, "System defaults changed explicit theme");
+    52    │ - ··await·writeFile(join(fixture,·"app/globals.css"),·after·+·"\n.consumer-overrides·{·--primary:·hotpink;·}\n");
+       52 │ + ··await·writeFile(join(fixture,·"app/globals.css"),·`${after}\n.consumer-overrides·{·--primary:·hotpink;·}\n`);
+    53 53 │     const blue = await install("theme-blue-ink");
+    54 54 │     assert(blue.includes(".consumer-overrides") && blue.includes("hotpink"), "Explicit Blue Ink removed consumer-owned override");
+  
+
+.agents/skills/setup-ts-deep-modules/dependency-cruiser.config.cjs:70:50 lint/suspicious/noTemplateCurlyInString ━━━━━━━━━━
+
+  ! Unexpected template string placeholder.
+  
+    68 │     {
+    69 │       name: "no-circular",
+  > 70 │       comment: "No dependency cycles. Scope to `^${R}/` if you want to allow cycles outside packages.",
+       │                                                  ^^^^
+    71 │       severity: "error",
+    72 │       from: {},
+  
+  i Turn the string into a template string.
+  
+
+.claude/skills/setup-ts-deep-modules/dependency-cruiser.config.cjs:70:50 lint/suspicious/noTemplateCurlyInString ━━━━━━━━━━
+
+  ! Unexpected template string placeholder.
+  
+    68 │     {
+    69 │       name: "no-circular",
+  > 70 │       comment: "No dependency cycles. Scope to `^${R}/` if you want to allow cycles outside packages.",
+       │                                                  ^^^^
+    71 │       severity: "error",
+    72 │       from: {},
+  
+  i Turn the string into a template string.
+  
+
+.grok/skills/setup-ts-deep-modules/dependency-cruiser.config.cjs:70:50 lint/suspicious/noTemplateCurlyInString ━━━━━━━━━━
+
+  ! Unexpected template string placeholder.
+  
+    68 │     {
+    69 │       name: "no-circular",
+  > 70 │       comment: "No dependency cycles. Scope to `^${R}/` if you want to allow cycles outside packages.",
+       │                                                  ^^^^
+    71 │       severity: "error",
+    72 │       from: {},
+  
+  i Turn the string into a template string.
+  
+
+components/pages/saas-admin/components/layout/Sidebar.tsx:200:27 lint/performance/noDynamicNamespaceImportAccess ━━━━━━━━━━
+
+  ! Avoid accessing namespace imports dynamically, it can prevent efficient tree shaking and increase bundle size.
+  
+    198 │ 	searchParams: Pick<URLSearchParams, "get">;
+    199 │ }) => {
+  > 200 │ 	const Tag = item.icon ? (Icon[item.icon] as ComponentType) : null;
+        │ 	                         ^^^^^^^^^^^^^^^
+    201 │ 
+    202 │ 	return (
+  
+  i Prefer static property access or use named imports instead.
+  
+
+components/pages/saas-admin/components/layout/Sidebar.tsx:327:32 lint/performance/noDynamicNamespaceImportAccess ━━━━━━━━━━
+
+  ! Avoid accessing namespace imports dynamically, it can prevent efficient tree shaking and increase bundle size.
+  
+    325 │ 				<SidebarMenu>
+    326 │ 					{data.map((item) => {
+  > 327 │ 						const Tag = item.icon ? (Icon[item.icon] as ComponentType) : null;
+        │ 						                         ^^^^^^^^^^^^^^^
+    328 │ 
+    329 │ 						const isChildActive =
+  
+  i Prefer static property access or use named imports instead.
+  
+
+components/pages/saas-admin/views/apps/users/view/activity-timeline.tsx:170:9 lint/complexity/useOptionalChain  FIXABLE  ━━━━━━━━━━
+
+  ! Change to an optional chain.
+  
+    168 │ 							item.attachment ||
+    169 │ 							item.person ||
+  > 170 │ 							(item.teamMembers && item.teamMembers.length) ? (
+        │ 							 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    171 │ 								<TimelineContent className="flex flex-col gap-2 pb-3 pl-4">
+    172 │ 									{item.detail ? (
+  
+  i Unsafe fix: Change to an optional chain.
+  
+    168 168 │                 item.attachment ||
+    169 169 │                 item.person ||
+    170     │ - → → → → → → → (item.teamMembers·&&·item.teamMembers.length)·?·(
+        170 │ + → → → → → → → (item.teamMembers?.length)·?·(
+    171 171 │                   <TimelineContent className="flex flex-col gap-2 pb-3 pl-4">
+    172 172 │                     {item.detail ? (
+  
+
+components/pages/saas-admin/views/apps/users/view/projects-datatable.tsx:106:30 lint/correctness/noUnusedFunctionParameters  FIXABLE  ━━━━━━━━━━
+
+  ! This parameter index is unused.
+  
+    104 │ 	return (
+    105 │ 		<AvatarGroup>
+  > 106 │ 			{visibleTeam.map((member, index) => (
+        │ 			                          ^^^^^
+    107 │ 				<Avatar
+    108 │ 					key={`${project.id}-team-${member.initials}`}
+  
+  i Unused parameters might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: If this is intentional, prepend index with an underscore.
+  
+    104 104 │     return (
+    105 105 │       <AvatarGroup>
+    106     │ - → → → {visibleTeam.map((member,·index)·=>·(
+        106 │ + → → → {visibleTeam.map((member,·_index)·=>·(
+    107 107 │           <Avatar
+    108 108 │             key={`${project.id}-team-${member.initials}`}
+  
+
+components/pages/saas-admin/views/dashboards/charts/chart-sales-metrics.tsx:118:8 lint/performance/noImgElement ━━━━━━━━━━
+
+  ! Don't use <img> element.
+  
+    116 │ 						</span>
+    117 │ 						<div className="flex items-center gap-3">
+  > 118 │ 							<img
+        │ 							^^^^
+  > 119 │ 								src={adminAsset("/images/brands/logo-square.webp")}
+  > 120 │ 								className="size-10.5 rounded-lg"
+  > 121 │ 								alt={t("logo")}
+  > 122 │ 							/>
+        │ 							^^
+    123 │ 							<div className="flex flex-col gap-0.5">
+    124 │ 								<span className="text-xl font-medium">
+  
+  i Using the <img> can lead to slower LCP and higher bandwidth. Consider using <Image /> from next/image to automatically optimize images.
+  
+
+components/pages/saas-admin/views/dashboards/widgets/widget-product-insights.tsx:68:5 lint/performance/noImgElement ━━━━━━━━━━
+
+  ! Don't use <img> element.
+  
+    66 │ 					</span>
+    67 │ 				</div>
+  > 68 │ 				<img
+       │ 				^^^^
+  > 69 │ 					src={adminAsset("/images/widgets/image-7.webp")}
+  > 70 │ 					alt={t("Product")}
+  > 71 │ 					className="w-20.5 rounded-md"
+  > 72 │ 				/>
+       │ 				^^
+    73 │ 			</CardHeader>
+    74 │ 			<CardContent className="block">
+  
+  i Using the <img> can lead to slower LCP and higher bandwidth. Consider using <Image /> from next/image to automatically optimize images.
+  
+
+components/pages/saas-admin/views/dashboards/widgets/widget-total-earning.tsx:135:11 lint/performance/noImgElement ━━━━━━━━━━
+
+  ! Don't use <img> element.
+  
+    133 │ 								<Avatar className="size-11 rounded-sm after:rounded-[inherit] after:border-0">
+    134 │ 									<AvatarFallback className="bg-primary/10 shrink-0 rounded-sm">
+  > 135 │ 										<img
+        │ 										^^^^
+  > 136 │ 											src={earning.img}
+  > 137 │ 											alt={earning.platform}
+  > 138 │ 											className="size-6"
+  > 139 │ 										/>
+        │ 										^^
+    140 │ 									</AvatarFallback>
+    141 │ 								</Avatar>
+  
+  i Using the <img> can lead to slower LCP and higher bandwidth. Consider using <Image /> from next/image to automatically optimize images.
+  
+
+components/pages/saas-admin/views/dashboards/widgets/widget-total-earning.tsx:127:33 lint/correctness/noUnusedFunctionParameters  FIXABLE  ━━━━━━━━━━
+
+  ! This parameter index is unused.
+  
+    125 │ 			<CardContent className="flex flex-1 flex-col gap-4">
+    126 │ 				<div className="flex flex-1 flex-col justify-evenly gap-4">
+  > 127 │ 					{earningData.map((earning, index) => (
+        │ 					                           ^^^^^
+    128 │ 						<div
+    129 │ 							key={earning.platform}
+  
+  i Unused parameters might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: If this is intentional, prepend index with an underscore.
+  
+    125 125 │         <CardContent className="flex flex-1 flex-col gap-4">
+    126 126 │           <div className="flex flex-1 flex-col justify-evenly gap-4">
+    127     │ - → → → → → {earningData.map((earning,·index)·=>·(
+        127 │ + → → → → → {earningData.map((earning,·_index)·=>·(
+    128 128 │               <div
+    129 129 │                 key={earning.platform}
+  
+
+components/pages/saas-admin/views/datatables/datatable-transaction.tsx:122:4 lint/performance/noImgElement ━━━━━━━━━━
+
+  ! Don't use <img> element.
+  
+    120 │ 		),
+    121 │ 		cell: ({ row }) => (
+  > 122 │ 			<img
+        │ 			^^^^
+  > 123 │ 				src={
+         ...
+  > 129 │ 				className="w-10.5"
+  > 130 │ 			/>
+        │ 			^^
+    131 │ 		),
+    132 │ 	},
+  
+  i Using the <img> can lead to slower LCP and higher bandwidth. Consider using <Image /> from next/image to automatically optimize images.
+  
+
+components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx:198:22 lint/style/noNonNullAssertion ━━━━━━━━━━
+
+  ! Forbidden non-null assertion.
+  
+    196 │ 			<div className="flex flex-wrap gap-3 px-4 py-6">
+    197 │ 				<div className="w-full sm:w-44">
+  > 198 │ 					<Filter column={table.getColumn("product")!} />
+        │ 					                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    199 │ 				</div>
+    200 │ 				<div className="w-full sm:w-36">
+  
+
+components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx:201:22 lint/style/noNonNullAssertion ━━━━━━━━━━
+
+  ! Forbidden non-null assertion.
+  
+    199 │ 				</div>
+    200 │ 				<div className="w-full sm:w-36">
+  > 201 │ 					<Filter column={table.getColumn("price")!} />
+        │ 					                ^^^^^^^^^^^^^^^^^^^^^^^^^
+    202 │ 				</div>
+    203 │ 				<div className="w-full sm:w-44">
+  
+
+components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx:204:22 lint/style/noNonNullAssertion ━━━━━━━━━━
+
+  ! Forbidden non-null assertion.
+  
+    202 │ 				</div>
+    203 │ 				<div className="w-full sm:w-44">
+  > 204 │ 					<Filter column={table.getColumn("availability")!} />
+        │ 					                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    205 │ 				</div>
+    206 │ 				<div className="w-full sm:w-36">
+  
+
+components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx:207:22 lint/style/noNonNullAssertion ━━━━━━━━━━
+
+  ! Forbidden non-null assertion.
+  
+    205 │ 				</div>
+    206 │ 				<div className="w-full sm:w-36">
+  > 207 │ 					<Filter column={table.getColumn("rating")!} />
+        │ 					                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    208 │ 				</div>
+    209 │ 			</div>
+  
+
+components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx:288:13 lint/performance/noAccumulatingSpread ━━━━━━━━━━
+
+  ! Avoid the use of spread (`...`) syntax on accumulators.
+  
+    286 │ 		const flattenedValues = values.reduce((acc: string[], curr) => {
+    287 │ 			if (Array.isArray(curr)) {
+  > 288 │ 				return [...acc, ...curr];
+        │ 				        ^^^^^^
+    289 │ 			}
+    290 │ 
+  
+  i Spread syntax should be avoided on accumulators (like those in `.reduce`) because it causes a time complexity of `O(n^2)`.
+  
+  i Consider methods such as .splice or .push instead.
+  
+
+components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx:291:12 lint/performance/noAccumulatingSpread ━━━━━━━━━━
+
+  ! Avoid the use of spread (`...`) syntax on accumulators.
+  
+    289 │ 			}
+    290 │ 
+  > 291 │ 			return [...acc, curr];
+        │ 			        ^^^^^^
+    292 │ 		}, []);
+    293 │ 
+  
+  i Spread syntax should be avoided on accumulators (like those in `.reduce`) because it causes a time complexity of `O(n^2)`.
+  
+  i Consider methods such as .splice or .push instead.
+  
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 22.
+Checked 1109 files in 236ms. No fixes applied.
+Found 31 warnings.
+Found 11 infos.
+$ bun scripts/check-registry.ts
+Validated 139 registry components.
+Verified 43 light and 43 dark --wb-* tokens on system-workbench, referenced by 9 components.
+Validated 16 registry:theme items.
+$ bun test tests/catalog-coverage.test.ts tests/catalog-contract.test.ts tests/nav-contract.test.ts tests/standalone-usage.test.ts
+bun test v1.3.14 (0d9b296a)
+
+tests/nav-contract.test.ts:
+(pass) semantic navigation follows historical detail paths without double activation [0.39ms]
+
+tests/catalog-coverage.test.ts:
+(pass) every baseline record and expanded variant has a real source and machine identity [107.42ms]
+(pass) all knowledge and references project from their domain truths without fake installs [96.55ms]
+(pass) every emitted installation command and standalone usage resolves to real distribution [302.99ms]
+
+tests/standalone-usage.test.ts:
+(pass) every family and displayed variant declares a real standalone usage [2.37ms]
+(pass) machine detail delivers copyable usage while installation remains implementation-only [643.64ms]
+(pass) base variants retain their own source entry and narrow copyable usage [2.83ms]
+
+tests/catalog-contract.test.ts:
+(pass) Catalog installation contract > display families and every variant are installable without duplicate identities [112.05ms]
+(pass) Catalog installation contract > owned family and mandatory installation closure are separate [91.73ms]
+
+ 9 pass
+ 0 fail
+ 6182 expect() calls
+Ran 9 tests across 4 files. [1446.00ms]
+$ bun scripts/check-architecture.ts
+Architecture: 169 targets, 361 source files; portable imports, named exports, bilingual metadata and localized navigation passed.
+$ bun scripts/gen-catalog-snapshot.ts --check
+Catalog snapshot matches 571 current items (generatedAt excluded).
+$ bun scripts/check-skills.ts && bun test tests/ui-lab-skill.test.ts
+Validated 3 skills, 7 Markdown files, 4 relative links, and 3 OpenAI agent prompt(s).
+bun test v1.3.14 (0d9b296a)
+
+tests/ui-lab-skill.test.ts:
+(pass) UI Lab skill routing contract > keeps a two-route component discover/install router [0.54ms]
+(pass) UI Lab skill routing contract > keeps required references present and linked [0.30ms]
+(pass) UI Lab skill routing contract > discover stays read-only and points at catalog commands [0.12ms]
+(pass) UI Lab skill routing contract > install uses shadcn registry commands and does not auto-run by default [0.11ms]
+(pass) UI Lab skill routing contract > explicitly excludes design-system lifecycle and admin template work [0.14ms]
+(pass) UI Lab skill metadata > gives the model-invoked skill an explicit default prompt [0.09ms]
+
+ 6 pass
+ 0 fail
+ 22 expect() calls
+Ran 6 tests across 1 file. [67.00ms]

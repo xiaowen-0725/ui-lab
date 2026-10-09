@@ -11,7 +11,7 @@ import { selectConsumerUsages } from "./application-consumer-usage";
 const root = resolve(import.meta.dir, "..");
 const templates = join(root, "benchmarks/runs/catalog-assets");
 const evidence = await mkdtemp("/tmp/uilab-catalog-assets-");
-const profiles = ["next-app", "vite-app", "electron-renderer"] as const;
+const profiles: readonly ("next-app" | "vite-app" | "electron-renderer")[] = ["next-app", "vite-app", "electron-renderer"] as const;
 const selected = process.argv.slice(2);
 for (const profile of selected) {
   if (!profiles.includes(profile as (typeof profiles)[number])) throw new Error(`Unknown Profile ${profile}`);
@@ -31,7 +31,7 @@ for (const target of targets) {
   const item = await buildShadcnItem(target.categorySlug, target.slug);
   if (!item) throw new Error(`Missing registry target ${target.slug}`);
   requiredGraphs.set(target.slug, (item.files ?? []).map((file) => file.path));
-  // Recipe dependencies may change while other Agents implement them. Freeze this run.
+  // Freeze the actual registry graph for this independent consumer run.
   if (assets.includes(target.slug) || catalog.some((item) => item.kind === "recipe" && item.components?.includes(target.slug))) {
     served.set(target.slug, item);
   }

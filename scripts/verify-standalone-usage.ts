@@ -119,7 +119,7 @@ try {
       const diagnostics = ts.getPreEmitDiagnostics(program);
       if (diagnostics.length) throw new Error(ts.formatDiagnosticsWithColorAndContext(diagnostics, { getCurrentDirectory: () => directory, getCanonicalFileName: (file) => file, getNewLine: () => "\n" }));
       record.typecheck = true;
-      await writeFile(join(directory, "ssr.tsx"), `import { renderToString } from "react-dom/server"; import { Consumer } from "./consumer"; const html = renderToString(<Consumer />); console.log(JSON.stringify({ html }));`);
+      await writeFile(join(directory, "ssr.tsx"), `import { renderToReadableStream } from "react-dom/server"; import { Consumer } from "./consumer"; const stream = await renderToReadableStream(<Consumer />); await stream.allReady; const html = await new Response(stream).text(); console.log(JSON.stringify({ html }));`);
       const child = Bun.spawn(["bun", "ssr.tsx"], { cwd: directory, stdout: "pipe", stderr: "pipe" });
       const [exit, stdout, stderr] = await Promise.all([child.exited, new Response(child.stdout).text(), new Response(child.stderr).text()]);
       await writeFile(join(directory, "ssr.log"), `${stdout}\n${stderr}`);

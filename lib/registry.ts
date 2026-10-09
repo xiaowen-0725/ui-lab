@@ -41,9 +41,9 @@ export type ComponentEntry = {
   descriptionZh?: string;
   file: string;
   badge?: "new";
-  /** ISO date the component shipped. Drives newest-first order in the landing
-   * "Recently launched" section. Set it when adding a "new" component. */
-  launchedAt?: string;
+	/** ISO date the component shipped. Drives newest-first order in the landing
+	 * "Recently launched" section. Set it when adding a "new" component. */
+	launchedAt?: string;
   /** Optional hand-tuned SEO keywords, merged on top of generated ones. */
   keywords?: string[];
   /** Extra source files bundled under this slug (e.g. multi-file components). */
@@ -77,7 +77,8 @@ export const registry: CategoryEntry[] = [
   {
     slug: "sites", name: "Multi-page sites", nameZh: "多页组合",
     description: "Independent pages composed inside a shared shell.", descriptionZh: "独立页面在共享外壳中组合。",
-    components: SITES.map((entry) => ({ ...entry, file: `components/site-shells/${entry.componentSlug}.tsx`, usageFile: `components/examples/sites/${entry.slug}.example.tsx`, keywords: entry.aliases, assetRole: "site" as const })),
+    components: SITES.map((entry) => ({ ...entry, file: `components/site-shells/${entry.componentSlug}.tsx`, usageFile: `components/examples/sites/${entry.slug}.example.tsx`,
+			keywords: entry.aliases, assetRole: "site" as const })),
   },
 
   {
@@ -87,7 +88,7 @@ export const registry: CategoryEntry[] = [
     description: "One name, one install, one interface job. Size does not decide the category.",
     descriptionZh: "一个名字、一次安装、一件界面上的事。体积不改变分类。",
     components: [
-      {
+			{
         usageFile: "components/examples/motion/tilt-card.example.tsx",
         assetRole: "component",
         slug: "tilt-card",
@@ -2637,10 +2638,14 @@ export const registry: CategoryEntry[] = [
     name: "Layout",
     nameZh: "布局",
     description:
-      "Static building blocks — layouts, cards, forms and other non-motion pieces. Empty for now; drop components here as you collect them.",
+      "Reusable shells and layout building blocks.",
     descriptionZh:
-      "静态构建块 —— 布局、卡片、表单等非动效组件。暂时为空,以后收到合适的就往这里加。",
-    components: [],
+      "可复用的外壳与布局构建块。",
+    components: [{
+ assetRole: "shell", slug: "saas-admin-shell", name: "SaaS Admin Shell", nameZh: "SaaS 后台外壳",
+ description: "Responsive sidebar, header, document theme and consumer-owned page content.", descriptionZh: "响应式侧栏、顶栏与文档主题，页面内容由消费者提供。",
+ file: "components/site-shells/saas-admin-shell.tsx", usageFile: "components/examples/layout/saas-admin-shell.example.tsx",
+ }],
   },
 ];
 

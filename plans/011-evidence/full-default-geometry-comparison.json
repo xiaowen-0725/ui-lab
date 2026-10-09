@@ -1,0 +1,410 @@
+{
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "locale": "en",
+  "brand": "neutral/default",
+  "mode": "light",
+  "allowedHeaderDifference": "60px deterministic local header vs 57px in some upstream GitHub-widget samples",
+  "comparisons": [
+    {
+      "route": "/dashboard/orders",
+      "upstreamCards": 13,
+      "localCards": 13,
+      "delta": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0.0
+        }
+      ]
+    },
+    {
+      "route": "/apps/users/list",
+      "upstreamCards": 1,
+      "localCards": 1,
+      "delta": [
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0
+        }
+      ]
+    },
+    {
+      "route": "/apps/users/view",
+      "upstreamCards": 3,
+      "localCards": 3,
+      "delta": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      ]
+    },
+    {
+      "route": "/pages/user-profile",
+      "upstreamCards": 7,
+      "localCards": 7,
+      "delta": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 0,
+          "w": 0.0,
+          "h": 0
+        }
+      ]
+    },
+    {
+      "route": "/pages/user-profile?view=connections",
+      "upstreamCards": 7,
+      "localCards": 7,
+      "delta": [
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 3,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 3,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 3,
+          "w": 0.0,
+          "h": 0
+        },
+        {
+          "x": 0.0,
+          "y": 3,
+          "w": 0.0,
+          "h": 0
+        }
+      ]
+    },
+    {
+      "route": "/pages/user-settings",
+      "upstreamCards": 1,
+      "localCards": 1,
+      "delta": [
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0
+        }
+      ]
+    },
+    {
+      "route": "/pages/user-settings?setting=workspace",
+      "upstreamCards": 3,
+      "localCards": 3,
+      "delta": [
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 3.0,
+          "w": 0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 3.0,
+          "w": 0,
+          "h": 0
+        }
+      ]
+    },
+    {
+      "route": "/datatable",
+      "upstreamCards": 3,
+      "localCards": 3,
+      "delta": [
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0.0
+        },
+        {
+          "x": 0,
+          "y": 3.0,
+          "w": 0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 3.0,
+          "w": 0,
+          "h": 0.0
+        }
+      ]
+    },
+    {
+      "route": "/forms/form-layouts/vertical",
+      "upstreamCards": 2,
+      "localCards": 2,
+      "delta": [
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0.0
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0.0
+        }
+      ]
+    },
+    {
+      "route": "/forms/form-layouts/horizontal",
+      "upstreamCards": 2,
+      "localCards": 2,
+      "delta": [
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0
+        }
+      ]
+    },
+    {
+      "route": "/forms/form-validation",
+      "upstreamCards": 5,
+      "localCards": 5,
+      "delta": [
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0.0
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0.0
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0.0
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "w": 0,
+          "h": 0.0
+        }
+      ]
+    },
+    {
+      "route": "/pages/auth/login",
+      "upstreamCards": 1,
+      "localCards": 1,
+      "delta": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      ]
+    },
+    {
+      "route": "/pages/auth/register",
+      "upstreamCards": 1,
+      "localCards": 1,
+      "delta": [
+        {
+          "x": 0,
+          "y": 0.0,
+          "w": 0,
+          "h": 0.0
+        }
+      ]
+    },
+    {
+      "route": "/pages/auth/forgot-password",
+      "upstreamCards": 1,
+      "localCards": 1,
+      "delta": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      ]
+    }
+  ]
+}

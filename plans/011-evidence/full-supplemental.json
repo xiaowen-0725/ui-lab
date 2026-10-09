@@ -1,0 +1,34 @@
+{
+  "browser": "154.0.8037.98",
+  "checks": [
+    {
+      "name": "auth async error retains inputs; retry succeeds",
+      "pass": true
+    },
+    {
+      "name": "personal save and workspace tab retain saved values",
+      "pass": true
+    },
+    {
+      "name": "add user cancel leaves rows; add targets new user; theme preserves search",
+      "pass": true
+    },
+    {
+      "name": "360 reduce sidebar focus and no document overflow",
+      "pass": true
+    },
+    {
+      "name": "768 reduce sidebar focus and no document overflow",
+      "pass": true
+    },
+    {
+      "name": "blocked storage remains usable",
+      "pass": true
+    },
+    {
+      "name": "invalid preference fallback follows system",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

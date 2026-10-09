@@ -17,7 +17,9 @@ export interface DrawerProps {
   /** Class for the backdrop. */
   backdropClassName?: string;
   ariaLabel?: string;
-  /** Close when the backdrop is clicked. Default true. */
+	/** Accessible name for the backdrop close control. */
+	closeLabel?: string;
+	/** Close when the backdrop is clicked. Default true. */
   dismissable?: boolean;
 }
 
@@ -29,6 +31,7 @@ export function Drawer({
   className,
   backdropClassName,
   ariaLabel,
+	closeLabel = "Close",
   dismissable = true,
 }: DrawerProps) {
   const reduce = useReducedMotion();
@@ -42,8 +45,8 @@ export function Drawer({
         <Modal contentRef={panelRef} ariaLabel={ariaLabel} onDismiss={() => onOpenChange(false)}>
           <motion.button
             type="button"
-            aria-label="Close"
-            tabIndex={-1}
+            aria-label={closeLabel}
+						tabIndex={-1}
             onClick={() => dismissable && onOpenChange(false)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

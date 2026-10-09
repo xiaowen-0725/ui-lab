@@ -45,6 +45,9 @@ next-env.d.ts
 !/docs/adr/*.md
 !/docs/engineering/
 !/docs/engineering/*.md
+!/docs/sources/
+!/docs/sources/*.md
+!/docs/sources/*.csv
 /.brand-preview/
 /app/globals.css.bak
 

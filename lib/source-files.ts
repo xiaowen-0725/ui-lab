@@ -53,11 +53,11 @@ export async function resolveSourceImport(spec: string, fromFile?: string): Prom
 
 function candidatePaths(rel: string) {
   const parsed = path.parse(rel);
-  if (parsed.ext) return [rel];
+  if (SOURCE_EXTENSIONS.some((ext) => ext === parsed.ext)) return [rel];
 
   return [
+    rel,
     ...SOURCE_EXTENSIONS.map((ext) => `${rel}${ext}`),
     ...SOURCE_EXTENSIONS.map((ext) => `${rel}/index${ext}`),
-    rel,
   ];
 }

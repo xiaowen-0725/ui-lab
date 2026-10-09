@@ -11,8 +11,6 @@ test("semantic navigation follows historical detail paths without double activat
     ["/components/pages", "pages"],
     ["/components/sites", "sites"],
     ["/sites/agent-workbench-site", "sites"],
-    ["/sites/admin-workspace-site/demo/board", "sites"],
-    ["/pages/task-board-page", "pages"],
     ["/scroll", "dictionary"],
   ] as const) {
     expect(NAV_SPACES.filter((item) => isSpaceActive(item, pathname)).map((item) => item.key), pathname).toEqual([space]);

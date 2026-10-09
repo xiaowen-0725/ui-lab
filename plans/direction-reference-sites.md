@@ -57,3 +57,15 @@
 用户给出 Fluid Functionalism 的源码，要求看它的分类和定义：https://github.com/mickadesign/fluid-functionalism
 
 当时用户的感觉是：区块也是组件，差别在大小。这一句只保留为当天原话。
+
+## 2026-10-07 整站模板
+
+用户要求先从宏观层面讨论整站模板的目录组成与架构，再实施首个面向 SaaS 后台的模板；长期考虑落地页、个人网站等类型。本轮调用 wayfinder，先对齐规划终点与决策地图。
+
+| 用途 | 用户给出的地址 |
+| --- | --- |
+| AdminCN 后台布局与视觉参考，附深色后台截图 | https://shadcn-nextjs-admincn-admin-template.vercel.app/dashboard/sales |
+| 开源组件、区块与分发实现参考 | https://github.com/shadcnstudio/shadcn-studio |
+| 后台模板集合 | https://shadcnstudio.com/templates/admin-dashboard |
+
+初步事实与待讨论建议见 [整站模板探索记录](research/2026-10-07-site-templates.md)。该记录不代表已确认架构或视觉批准。

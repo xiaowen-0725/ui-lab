@@ -1,10 +1,31 @@
 "use client";
 
 import { useIsPresent } from "motion/react";
-import { type ReactNode, type RefObject, useEffect, useRef, useState } from "react";
+import { type ReactNode, type RefObject,
+	createContext,
+	useContext, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useModalDialog } from "@/lib/hooks/use-modal-dialog";
 import { cn } from "@/lib/utils";
+
+const PortalRootContext = createContext<RefObject<HTMLElement | null> | null>(
+	null,
+);
+
+/** Keeps native top-layer dialogs inside the consumer’s scoped theme. */
+export function ModalPortalProvider({
+	containerRef,
+	children,
+}: {
+	containerRef: RefObject<HTMLElement | null>;
+	children: ReactNode;
+}) {
+	return (
+		<PortalRootContext.Provider value={containerRef}>
+			{children}
+		</PortalRootContext.Provider>
+	);
+}
 
 interface ModalProps {
   children: ReactNode;
@@ -19,13 +40,15 @@ interface ModalProps {
 /** Native top-layer modality; motion descendants own the entrance and exit. */
 export function Modal(props: ModalProps) {
   const [mounted, setMounted] = useState(false);
-  const returnFocusRef = useRef<HTMLElement | null>(null);
+  const portalRoot = useContext(PortalRootContext);
+	const returnFocusRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
     // Capture before React mounts a child with autoFocus in the portal.
     returnFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     setMounted(true);
   }, []);
-  return mounted ? createPortal(<ModalDialog {...props} returnFocusRef={returnFocusRef} />, document.body) : null;
+  return mounted ? createPortal(<ModalDialog {...props} returnFocusRef={returnFocusRef} />,
+				portalRoot?.current ?? document.body) : null;
 }
 
 function ModalDialog({

@@ -169,6 +169,8 @@ export function SettingsColorField({
 }
 
 export interface SettingsTextFieldProps {
+  "aria-invalid"?: boolean;
+  "aria-describedby"?: string;
   value: string;
   onChange?: (next: string) => void;
   placeholder?: string;
@@ -178,6 +180,8 @@ export interface SettingsTextFieldProps {
 
 /** Right-aligned lightweight text input, e.g. for a custom UI-font stack. */
 export function SettingsTextField({
+  "aria-invalid": ariaInvalid,
+  "aria-describedby": ariaDescribedBy,
   value,
   onChange,
   placeholder,
@@ -187,6 +191,8 @@ export function SettingsTextField({
   return (
     <input
       data-slot="settings-text-field"
+      aria-invalid={ariaInvalid}
+      aria-describedby={ariaDescribedBy}
       value={value}
       onChange={(event) => onChange?.(event.target.value)}
       placeholder={placeholder}

@@ -8,15 +8,33 @@
 
 ### Added
 
-- 新增可安装页面「任务板」「收件箱」「日程」「客户册」，并由「管理工作区」整站放进同一套管理外壳。侧栏分为仪表盘与应用两组；完整演示在 `/sites/admin-workspace-site/demo`。数据仍是虚构的 Northline 样本。目录不再单列「应用」空间。
+- SaaS Admin Apps 组新增任务板、收件箱、日程，以及对话与用量两页；全部落在既有 saas-admin 外壳、路由合同和主题定制里。对话页复用仓库已有 Thread / PromptInput / Suggestion / Reasoning / CodeBlock / ThreadUsage，用量页复用 ThreadUsage。客户册整支删除，不新建、不并入用户页。参考 AdminCN / Promptly 的信息架构，不复制其源码、素材或专有文案。
+
+- SaaS Admin 新增顶栏主题定制面板：品牌、字体、模式、圆角、内容宽度、尺寸与侧栏配置；复用shadcn-admin的MIT示意图提供Sidebar/Layout可视卡片，接入官方Sidebar既有props与开合状态。支持外观重置、消费者受控接口及预览偏好恢复，保留页面和草稿；官方既有控件源码/API保持。
+
+- 按已确认基线移植 SaaS Admin 前端模板：登记9个独立页面、响应式外壳及12路由整站，使用官方 shadcn/ui Base UI 控件及 Free AdminCN 页面组合；确认并接入原 Timeline/BackgroundRipple 私有区块与1280移动阈值。支持默认/Blue Ink、中英、light/dark/system、iframe文档主题、消费者数据/提交回调与本地失败重试。来源与验收见计划011；8张商品图暂保留上游CDN依赖，素材替换待确认，用户视觉批准与发布另行记录。
+
+- 新增独立 Blue Ink 双模式 Theme Kit，保持主题显式安装及消费者覆盖规则。
+
 - Add an OKLCH palette generator with brand seed, basic/full scope, five harmony models, enforced WCAG AA/AAA semantic pairs, Hex/RGB/HSL/OKLCH output, shareable URL state, and live preview/contrast/export integration. Full output now forms a production-oriented dual-mode color contract with eight 11-step ramps, layered surfaces, interaction states, semantic alpha overlays, success/warning/danger/info roles, and six chart colors.
 - Add bilingual WCAG contrast health reports and a regression baseline for Catalog palettes.
 
 ### 移除
 
+- 删除未发布的管理工作区外壳、独立 `/apps` 门与客户册页面、数据、登记和测试；任务板、收件箱与日程改由 SaaS Admin Apps 呈现。
+
+- 按用户要求删除未发布的自写项目工作区模板：移除整站、8 个专属页面、外壳/分页/趋势组件及其 12 个安装入口、专属源码/用法/预览/全屏路由、验证夹具和截图，清理 Catalog 与 CLI 快照。共享资产和独立主题保留；计划008仅保留历史证据，新的 SaaS 后台按 shadcn/ui Base UI 与免费 AdminCN 基线重新定义。
 - 移除「工坊 / Studio」完整模块：删除 `/studio`、组装预览与订单 API、Token Studio、System Preset / Order Manifest / candidate evidence 实验，以及对应 Catalog、CLI、导航、搜索、文案、脚本、测试和静态截图。通用 Agent Workbench 组件、Recipe、设计系统展馆与 Theme Kit 基础能力保留；Greenfield benchmark 解耦旧 System Preset，改为无用户批准语义的 Graphite 工程回归夹具。新的创建/选择工作流待重新定义后再实现。
 
 ### 变更
+
+- 简化 SaaS Admin 环境文案继承判断和单页框架的 Provider 组合，整理整站与 Catalog 包装的类型/import，移除源码解析的重复候选；保持现有控件、路由、状态和异步分包行为，同步来源台账与安装快照。
+
+- 按界面指南和 React 最佳实践整改 SaaS Admin：页面异步分包、显式图标/图片导出、字体按用途加载，稳定环境订阅；补齐可访问语义与正文对比度、URL 筛选和标签状态、删除确认和失败重试、设置草稿与历史导航保护、时区缓存及动态减少动效门控。复用官方 shadcn/Base UI 原语，源码/API保持；共享偏好 helper 补上运行时监听。来源差异和工程验证见计划013。
+
+- Table 新增保留旧默认的受控外部排序与选择文案；Sidebar 支持链接、主题语义色与窄屏导航；Stats/Billing/设置页兼容补齐主题及提交状态。Modal 可选作用域 portal，Drawer 关闭文案可本地化。
+- 修复带 `.example` 的无扩展名源码导入解析，保持手动源码、独立用法和 registry 安装闭包一致。
+- 详情页先设置路由语言，顶部链接的减少动效首帧使用共享 hydration hook；保留真实 Catalog 路由、独立页面/整站和历史锚点检查。
 
 - 明确基础控件优先复用已有资产或 shadcn-compatible 原语，Motion 动效组件继续维护与扩展；语义职责独立于技术选择，并澄清 `components/motion/` 的目录说明。
 - 补齐104个历史条目及其展示变体的独立源码用法，新增144份可复制示例；详情页与机器详情提供对应用法，清空历史例外。新增安装图隔离的 strict/SSR/browser 验证，覆盖窄安装入口及父条目展示变体；保留源码复制分发方式。

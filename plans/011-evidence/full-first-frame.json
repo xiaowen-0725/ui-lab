@@ -1,0 +1,50 @@
+{
+  "browser": "154.0.8037.98",
+  "scope": "first requestAnimationFrame after source wrapper exists; no physical paint claim",
+  "checks": [
+    {
+      "brand": "default",
+      "mode": "light",
+      "observed": {
+        "brand": "default",
+        "dark": false,
+        "bg": "oklch(1 0 0)",
+        "wrapperBrand": null
+      },
+      "pass": true
+    },
+    {
+      "brand": "default",
+      "mode": "dark",
+      "observed": {
+        "brand": "default",
+        "dark": true,
+        "bg": "oklch(0.145 0 0)",
+        "wrapperBrand": null
+      },
+      "pass": true
+    },
+    {
+      "brand": "blue-ink",
+      "mode": "light",
+      "observed": {
+        "brand": "blue-ink",
+        "dark": false,
+        "bg": "oklch(0.98 0.006 260)",
+        "wrapperBrand": null
+      },
+      "pass": true
+    },
+    {
+      "brand": "blue-ink",
+      "mode": "dark",
+      "observed": {
+        "brand": "blue-ink",
+        "dark": true,
+        "bg": "oklch(0.18 0.014 260)",
+        "wrapperBrand": null
+      },
+      "pass": true
+    }
+  ]
+}

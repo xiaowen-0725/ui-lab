@@ -1,0 +1,503 @@
+{
+  "date": "2026-10-09T04:20:03.956Z",
+  "browser": "154.0.8037.98",
+  "cases": [
+    {
+      "locale": "en",
+      "brand": "default",
+      "mode": "light",
+      "width": 390,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "default",
+      "mode": "light",
+      "width": 1440,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "default",
+      "mode": "light",
+      "width": 390,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "default",
+      "mode": "light",
+      "width": 390,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "en",
+      "brand": "default",
+      "mode": "light",
+      "width": 1440,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "default",
+      "mode": "light",
+      "width": 1440,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "en",
+      "brand": "default",
+      "mode": "dark",
+      "width": 390,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "default",
+      "mode": "dark",
+      "width": 1440,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "default",
+      "mode": "dark",
+      "width": 1440,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "default",
+      "mode": "dark",
+      "width": 1440,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "en",
+      "brand": "default",
+      "mode": "dark",
+      "width": 390,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "default",
+      "mode": "dark",
+      "width": 390,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "en",
+      "brand": "blue-ink",
+      "mode": "light",
+      "width": 1440,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "blue-ink",
+      "mode": "light",
+      "width": 390,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "blue-ink",
+      "mode": "light",
+      "width": 390,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "blue-ink",
+      "mode": "light",
+      "width": 390,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "en",
+      "brand": "blue-ink",
+      "mode": "light",
+      "width": 1440,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "blue-ink",
+      "mode": "light",
+      "width": 1440,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "en",
+      "brand": "blue-ink",
+      "mode": "dark",
+      "width": 1440,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "blue-ink",
+      "mode": "dark",
+      "width": 390,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "blue-ink",
+      "mode": "dark",
+      "width": 1440,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "blue-ink",
+      "mode": "dark",
+      "width": 1440,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "en",
+      "brand": "blue-ink",
+      "mode": "dark",
+      "width": 390,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "en",
+      "brand": "blue-ink",
+      "mode": "dark",
+      "width": 390,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "zh",
+      "brand": "default",
+      "mode": "light",
+      "width": 390,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "default",
+      "mode": "light",
+      "width": 1440,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "default",
+      "mode": "light",
+      "width": 1440,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "default",
+      "mode": "light",
+      "width": 1440,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "zh",
+      "brand": "default",
+      "mode": "light",
+      "width": 390,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "default",
+      "mode": "light",
+      "width": 390,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "zh",
+      "brand": "default",
+      "mode": "dark",
+      "width": 390,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "default",
+      "mode": "dark",
+      "width": 1440,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "default",
+      "mode": "dark",
+      "width": 390,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "default",
+      "mode": "dark",
+      "width": 390,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "zh",
+      "brand": "default",
+      "mode": "dark",
+      "width": 1440,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "default",
+      "mode": "dark",
+      "width": 1440,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "zh",
+      "brand": "blue-ink",
+      "mode": "light",
+      "width": 390,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "blue-ink",
+      "mode": "light",
+      "width": 1440,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "blue-ink",
+      "mode": "light",
+      "width": 1440,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "blue-ink",
+      "mode": "light",
+      "width": 1440,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "zh",
+      "brand": "blue-ink",
+      "mode": "light",
+      "width": 390,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "blue-ink",
+      "mode": "light",
+      "width": 390,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "zh",
+      "brand": "blue-ink",
+      "mode": "dark",
+      "width": 390,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "blue-ink",
+      "mode": "dark",
+      "width": 1440,
+      "path": "/dashboard/orders",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "blue-ink",
+      "mode": "dark",
+      "width": 390,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "blue-ink",
+      "mode": "dark",
+      "width": 390,
+      "runtimeErrors": []
+    },
+    {
+      "locale": "zh",
+      "brand": "blue-ink",
+      "mode": "dark",
+      "width": 1440,
+      "path": "/pages/user-settings?setting=workspace",
+      "version": "4.11.0",
+      "violations": [],
+      "mains": 1,
+      "h1": 1,
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "brand": "blue-ink",
+      "mode": "dark",
+      "width": 1440,
+      "runtimeErrors": []
+    }
+  ],
+  "sourceVersion": "1e55debcf9d40f68d43d67ac2ee1d26751a0f835aee56691b1770575f13b5ba0"
+}

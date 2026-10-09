@@ -10,6 +10,13 @@ const graphs = new Map<string, Set<string>>();
 const dependencies = new Map<string, Set<string>>();
 const owners = new Map<string, Set<string>>();
 const targets = allShadcnTargets();
+
+// Registry dependencies may freeze a version, including @scope/name@version.
+// Imports still identify the bare package root when checking usage allowances.
+function dependencyPackageName(dependency: string) {
+  const versionAt = dependency.indexOf("@", dependency.startsWith("@") ? 1 : 0);
+  return versionAt < 0 ? dependency : dependency.slice(0, versionAt);
+}
 // Historical migrations are complete; the retained file cannot exempt new work.
 if (legacyExceptions.usageOptional.length !== 0) throw new Error("Legacy standalone usage exceptions are retired; usageOptional must remain empty");
 
@@ -18,7 +25,7 @@ for (const target of targets) {
   const item = await buildShadcnItem(target.categorySlug, target.slug);
   if (!item?.files?.length) throw new Error(`${target.slug}: missing distribution`);
   graphs.set(target.slug, new Set(item.files.map((file) => file.path)));
-  dependencies.set(target.slug, new Set(["react", "react-dom", ...item.dependencies]));
+  dependencies.set(target.slug, new Set(["react", "react-dom", ...item.dependencies.map(dependencyPackageName)]));
   for (const file of item.files) {
     if (file.content === undefined) throw new Error(`${target.slug}: missing content for ${file.path}`);
     distributed.set(file.path, file.content);

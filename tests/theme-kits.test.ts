@@ -3,6 +3,7 @@ import { contrastRatio, parseHexColor } from "@/lib/color";
 import { WB_TOKEN_COUNT } from "@/lib/registry-wb-tokens";
 import { THEME_KITS, themeKitToCss } from "@/lib/theme-kits";
 import { hexToOklch, oklchToHex } from "@/lib/theme-kits/oklch";
+import { SAAS_ADMIN_COLORS } from "@/lib/theme-kits/saas-admin-default-colors";
 import { BASE_DARK, BASE_LIGHT } from "@/lib/themes";
 
 const REQUIRED_SHADCN_KEYS = [
@@ -17,10 +18,10 @@ const REQUIRED_SHADCN_KEYS = [
 ];
 
 describe("theme kits", () => {
-  test("produces exactly 14 kits with unique slugs", () => {
-    expect(THEME_KITS.length).toBe(14);
+  test("produces exactly 16 kits with unique slugs", () => {
+    expect(THEME_KITS.length).toBe(16);
     const slugs = THEME_KITS.map((kit) => kit.slug);
-    expect(new Set(slugs).size).toBe(14);
+    expect(new Set(slugs).size).toBe(16);
   });
 
   test("every kit has a complete token set for each of its modes", () => {
@@ -40,6 +41,20 @@ describe("theme kits", () => {
     }
   });
 
+  test("the admin default preserves upstream semantic and chart values", () => {
+    const kit = THEME_KITS.find((entry) => entry.slug === "saas-admin-default");
+    if (!kit) throw new Error("Missing admin default kit");
+    for (const mode of ["light", "dark"] as const) {
+      const set = kit[mode];
+      if (!set) throw new Error(`Missing ${mode}`);
+      for (const [key, value] of Object.entries(SAAS_ADMIN_COLORS[mode])) {
+        if (key === "radius") continue;
+        expect((key.startsWith("chart-") ? set.charts : set.shadcn)[key]).toBe(value);
+      }
+      expect(set.charts["chart-6"]).toBe(set.charts["chart-1"]);
+    }
+  });
+
   test("single-mode kits render the same --wb-accent value in :root and .dark", () => {
     const singleModeKits = THEME_KITS.filter((kit) => kit.modes.length === 1);
     expect(singleModeKits.length).toBeGreaterThan(0);
@@ -54,8 +69,10 @@ describe("theme kits", () => {
     }
   });
 
-  test("chart colors sit in the documented lightness band and stay in gamut", () => {
+  test("derived chart colors sit in the documented lightness band and stay in gamut", () => {
     for (const kit of THEME_KITS) {
+      // The upstream neutral kit preserves its five source values, tested separately.
+      if (kit.slug === "saas-admin-default") continue;
       for (const mode of kit.modes) {
         const tokenSet = mode === "light" ? kit.light : kit.dark;
         if (!tokenSet) continue;
@@ -72,9 +89,11 @@ describe("theme kits", () => {
     }
   });
 
-  test("chart colors contrast at least 2:1 against the kit's background, where resolvable", () => {
+  test("derived chart colors contrast at least 2:1 against the kit's background, where resolvable", () => {
     let checked = 0;
     for (const kit of THEME_KITS) {
+      // Source palette has a yellow chart at 1.72:1 on white; do not silently recolor it.
+      if (kit.slug === "saas-admin-default") continue;
       for (const mode of kit.modes) {
         const tokenSet = mode === "light" ? kit.light : kit.dark;
         if (!tokenSet) continue;

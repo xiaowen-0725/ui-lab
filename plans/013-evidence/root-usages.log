@@ -1,0 +1,14 @@
+$ bun scripts/verify-standalone-usage.ts --browser saas-admin-orders-page saas-admin-users-page saas-admin-profile-page saas-admin-settings-page saas-admin-data-table-page saas-admin-forms-page saas-admin-login-page saas-admin-register-page saas-admin-forgot-password-page saas-admin-shell saas-admin-site
+Standalone usage evidence: /var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-standalone-usage-EXkPu3; 11 usages
+PASS saas-admin-orders-page: isolated strict typecheck, SSR, browser bundle
+PASS saas-admin-users-page: isolated strict typecheck, SSR, browser bundle
+PASS saas-admin-profile-page: isolated strict typecheck, SSR, browser bundle
+PASS saas-admin-settings-page: isolated strict typecheck, SSR, browser bundle
+PASS saas-admin-data-table-page: isolated strict typecheck, SSR, browser bundle
+PASS saas-admin-forms-page: isolated strict typecheck, SSR, browser bundle
+PASS saas-admin-login-page: isolated strict typecheck, SSR, browser bundle
+PASS saas-admin-register-page: isolated strict typecheck, SSR, browser bundle
+PASS saas-admin-forgot-password-page: isolated strict typecheck, SSR, browser bundle
+PASS saas-admin-site: isolated strict typecheck, SSR, browser bundle
+PASS saas-admin-shell: isolated strict typecheck, SSR, browser bundle
+PASS 11 isolated usages; 22 browser hydration checks. Evidence: /var/folders/zb/n9v29jps6p90w6qjh7lswx080000gn/T/uilab-standalone-usage-EXkPu3

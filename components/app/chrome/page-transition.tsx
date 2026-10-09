@@ -5,21 +5,12 @@ import { usePathname } from "@/i18n/navigation";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { EASE_OUT } from "@/lib/ease";
 
-export function PageTransition({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const reduce = useReducedMotion();
   // Component pages contain viewport-fixed navigation. Translating an ancestor
   // makes fixed descendants anchor to that moving element during the transition.
-  const shouldTranslate =
-    !reduce &&
-    !pathname.startsWith("/components/") &&
-    !pathname.startsWith("/sites/admin-workspace-site/demo");
+  const shouldTranslate = !reduce && !pathname.startsWith("/components/");
   const ref = useRef<HTMLDivElement>(null);
   // Skip enter animation on first load so LCP element is visible immediately.
   // After mount, navigations animate normally.
@@ -30,7 +21,6 @@ export function PageTransition({
     <motion.div
       ref={ref}
       key={pathname}
-      className={className}
       initial={
         mounted
           ? shouldTranslate

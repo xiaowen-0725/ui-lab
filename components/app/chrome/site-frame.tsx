@@ -12,14 +12,9 @@ export function SiteFrame({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const showSidebar = SIDEBAR_PATHS.some((p) => pathname.startsWith(p));
   const isComponentsRoute = pathname.startsWith("/components");
-  const adminDemo = pathname.startsWith("/sites/admin-workspace-site/demo");
 
   if (!showSidebar) {
-    return (
-      <PageTransition className={adminDemo ? "flex h-dvh min-h-0 flex-col" : undefined}>
-        {children}
-      </PageTransition>
-    );
+    return <PageTransition>{children}</PageTransition>;
   }
 
   return (

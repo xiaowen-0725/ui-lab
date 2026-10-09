@@ -1,0 +1,57 @@
+$ bun run build
+CWD /tmp/uilab-saas-full-consumers/vite-app
+EXIT 0
+vite v6.1.0 building for production...
+transforming...
+✓ 3648 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                            0.40 kB │ gzip:   0.28 kB
+dist/assets/saas-admin-orders-page-VvwffmMg.css           95.31 kB │ gzip:  71.82 kB
+dist/assets/index-B6alvh16.css                           365.94 kB │ gzip: 169.28 kB
+dist/assets/isElementDisabled-CwHw_lZC.js                  0.11 kB │ gzip:   0.11 kB
+dist/assets/chevron-left-CRgIRNK3.js                       0.30 kB │ gzip:   0.25 kB
+dist/assets/search-CsIsRDIc.js                             0.34 kB │ gzip:   0.27 kB
+dist/assets/eye-DywMC8_8.js                                0.42 kB │ gzip:   0.30 kB
+dist/assets/chevron-up-C2W4JKMU.js                         0.55 kB │ gzip:   0.28 kB
+dist/assets/FieldItemContext-DuDav7SG.js                   0.57 kB │ gzip:   0.38 kB
+dist/assets/eye-off-C6nhoxJJ.js                            0.60 kB │ gzip:   0.38 kB
+dist/assets/textarea-DoY6pIzL.js                           0.68 kB │ gzip:   0.39 kB
+dist/assets/phone-DwKyu8sR.js                              0.88 kB │ gzip:   0.46 kB
+dist/assets/trash-2-E2fcpDMw.js                            1.13 kB │ gzip:   0.44 kB
+dist/assets/table-BrnNo2Vj.js                              1.14 kB │ gzip:   0.46 kB
+dist/assets/use-pagination-Cesij9_c.js                     1.68 kB │ gzip:   0.83 kB
+dist/assets/badge-wN9vjqDf.js                              1.71 kB │ gzip:   0.81 kB
+dist/assets/page-frame-D39Y6KKU.js                         1.74 kB │ gzip:   0.70 kB
+dist/assets/use-submit-Cu4XJq8R.js                         2.16 kB │ gzip:   1.03 kB
+dist/assets/saas-admin-forgot-password-page-CdkuOXAq.js    2.20 kB │ gzip:   1.02 kB
+dist/assets/input-group-BHVkaZBX.js                        2.53 kB │ gzip:   0.98 kB
+dist/assets/progress-HHcClYSG.js                           2.70 kB │ gzip:   1.24 kB
+dist/assets/field-tfXJaYjR.js                              3.37 kB │ gzip:   1.18 kB
+dist/assets/delete-confirmation-IJfixO0u.js                3.37 kB │ gzip:   1.18 kB
+dist/assets/CompositeRoot-C5HIs3RN.js                      4.03 kB │ gzip:   1.94 kB
+dist/assets/saas-admin-login-page-D3Bkank9.js              4.98 kB │ gzip:   1.70 kB
+dist/assets/label-ChCDC3o1.js                              4.99 kB │ gzip:   2.19 kB
+dist/assets/saas-admin-register-page-DC8DpotL.js           5.03 kB │ gzip:   1.62 kB
+dist/assets/activity-timeline-primitives-CnzA_bsw.js       5.69 kB │ gzip:   1.59 kB
+dist/assets/checkbox-CrxeCnMs.js                           6.45 kB │ gzip:   2.89 kB
+dist/assets/tabs-B_C15t1v.js                              10.77 kB │ gzip:   4.11 kB
+dist/assets/auth-background-shape-BCrytrBJ.js             11.14 kB │ gzip:   5.36 kB
+dist/assets/saas-admin-data-table-page-V-pOgO5E.js        19.38 kB │ gzip:   5.46 kB
+dist/assets/saas-admin-profile-page-B4iALPzI.js           29.71 kB │ gzip:   8.05 kB
+dist/assets/select-9QryIptc.js                            31.43 kB │ gzip:  11.54 kB
+dist/assets/saas-admin-forms-page-BU6i4lkF.js             39.28 kB │ gzip:   8.04 kB
+dist/assets/index-DWEvJkZe.js                             55.32 kB │ gzip:  14.76 kB
+dist/assets/saas-admin-users-page-Bq0o_Sr6.js             89.94 kB │ gzip:  23.43 kB
+dist/assets/types-BTwAouP5.js                             90.38 kB │ gzip:  25.07 kB
+dist/assets/saas-admin-settings-page-C-XHGW1V.js         105.59 kB │ gzip:  31.99 kB
+dist/assets/saas-admin-orders-page-C7w_8WeL.js           361.08 kB │ gzip: 108.33 kB
+dist/assets/index-DJiyTvSW.js                            735.44 kB │ gzip: 287.52 kB
+✓ built in 2.97s
+
+$ vite build
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

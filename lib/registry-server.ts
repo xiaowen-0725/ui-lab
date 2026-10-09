@@ -83,6 +83,45 @@ const STATIC_IMPORT_RE = /\b(?:import|export)\s+(?:type\s+)?(?:[^'";]*?\s+from\s
 const DYNAMIC_IMPORT_RE = /\bimport\s*\(\s*["']([^"']+)["']\s*\)/g;
 const SHADCN_DEP_SKIP = new Set(["next", "react", "react-dom"]);
 
+// Free AdminCN dd1afd2f3a794ea9e746197de314f81d43670ea1 plus the
+// approved official Base UI generation (shadcn 4.21.4). Freeze the versions
+// actually resolved by UI Lab's bun.lock; Lucide is 1.16.0 here, whereas
+// Free's manifest uses 1.24.0. This does not pin consumers' React/Tailwind
+// profile or transitive dependencies, and does not change other families.
+const SAAS_ADMIN_DEPENDENCIES: Readonly<Record<string, string>> = {
+  // Existing hydration-safe motion preference hook, used only by the profile page.
+  motion: "11.18.2",
+  "@base-ui/react": "1.6.0",
+  "@hookform/resolvers": "5.4.0",
+  "@tanstack/react-table": "8.21.3",
+  "class-variance-authority": "0.7.1",
+  clsx: "2.1.1",
+  cmdk: "1.1.1",
+  "date-fns": "4.4.0",
+  "lucide-react": "1.16.0",
+  "next-themes": "0.4.6",
+  "react-hook-form": "7.81.0",
+  recharts: "3.8.0",
+  shadcn: "4.21.4",
+  sonner: "2.0.7",
+  "tailwind-merge": "3.6.0",
+  "tw-animate-css": "1.4.0",
+  zod: "3.25.76",
+};
+
+function installationDependencies(target: RegistryTarget, external: string[]) {
+  const dependencies = external.filter((dep) => !SHADCN_DEP_SKIP.has(dep));
+  const isSaasAdmin = target.slug.startsWith("saas-admin-")
+    && /^components\/(?:pages|site-shells)\/saas-admin-[^/]+\.tsx$/.test(target.file);
+  if (!isSaasAdmin) return dependencies;
+  if (external.includes("next")) throw new Error(`${target.slug}: Next is not a portable SaaS dependency`);
+  return dependencies.map((dependency) => {
+    const version = SAAS_ADMIN_DEPENDENCIES[dependency];
+    if (!version) throw new Error(`${target.slug}: missing frozen SaaS dependency ${dependency}`);
+    return `${dependency}@${version}`;
+  });
+}
+
 function parseDeps(source: string) {
   const external = new Set<string>();
   const internal = new Set<string>();
@@ -313,7 +352,7 @@ export async function buildShadcnItem(
   if (!comp || comp.categorySlug !== categorySlug) return null;
 
   const graph = await collectSourceGraph([comp.file, ...(comp.extraFiles ?? [])]);
-  const dependencies = graph.external.filter((dep) => !SHADCN_DEP_SKIP.has(dep));
+  const dependencies = installationDependencies(comp, graph.external);
   const componentFileSet = new Set([comp.file, ...(comp.extraFiles ?? [])]);
   const pageUrl = pageUrlFor(comp.categorySlug, comp.pageSlug);
 
@@ -325,7 +364,8 @@ export async function buildShadcnItem(
     description: comp.description,
     author: "UI Lab",
     dependencies,
-    registryDependencies: (WB_COMPONENT_SLUGS.has(comp.slug) || graph.files.some((file) => file.content.includes("--wb-")))
+    registryDependencies:
+			WB_COMPONENT_SLUGS.has(comp.slug) || graph.files.some((file) => file.content.includes("--wb-"))
       ? [`${SITE_URL}/r/${WORKBENCH_SYSTEM_SLUG}.json`]
       : [],
     files: uniqueByPath(

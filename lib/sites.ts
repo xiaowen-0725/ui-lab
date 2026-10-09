@@ -1,57 +1,104 @@
 import type { ApplicationProfile } from "./pages";
 
 export interface SiteDefinition {
-  slug: string;
-  name: string;
-  nameZh: string;
-  description: string;
-  descriptionZh: string;
-  aliases: string[];
-  componentSlug: string;
-  components: string[];
-  profiles: ApplicationProfile[];
-  shellComponent?: string;
-  pages: string[];
-  recommendedSystem: "graphite";
-  pagePath: `/sites/${string}`;
+	slug: string;
+	name: string;
+	nameZh: string;
+	description: string;
+	descriptionZh: string;
+	aliases: string[];
+	componentSlug: string;
+	components: string[];
+	profiles: ApplicationProfile[];
+	shellComponent: string;
+	pages: string[];
+	recommendedSystem: string;
+	pagePath: `/sites/${string}`;
+	useCase?: "workspace" | "marketing" | "personal";
 }
 
 export const SITES: readonly SiteDefinition[] = [
-  {
-    slug: "agent-workbench-site",
-    name: "Agent Workbench Site",
-    nameZh: "Agent 多页工作台",
-    description:
-      "Conversation, artifact and settings pages sharing the existing responsive Workbench shell and theme.",
-    descriptionZh: "会话、制品与设置三个独立页面，共享现有响应式 Workbench 外壳与主题。",
-    aliases: ["multi-page workbench", "多页工作台", "Agent workspace", "工作台模板", "整站模板"],
-    componentSlug: "agent-workbench-site",
-    shellComponent: "agent-workbench",
-    components: [
-      "agent-workbench",
-      "thread-list",
-      "workbench-conversation-page",
-      "workbench-artifact-page",
-      "workbench-settings-page",
-    ],
-    pages: ["workbench-conversation-page", "workbench-artifact-page", "workbench-settings-page"],
-    profiles: ["next-app", "vite-app", "electron-renderer"],
-    recommendedSystem: "graphite",
-    pagePath: "/sites/agent-workbench-site",
-  },
-  {
-    slug: "admin-workspace-site",
-    name: "Admin Workspace Site",
-    nameZh: "管理工作区",
-    description:
-      "An admin shell whose sidebar keeps a dashboard overview and an apps group for the task board, inbox, calendar, and customer book.",
-    descriptionZh: "管理外壳。侧栏保留仪表盘总览，并用一个应用分组放进任务板、收件箱、日程和客户册。",
-    aliases: ["admin template", "管理模板", "dashboard apps", "后台应用"],
-    componentSlug: "admin-workspace-site",
-    components: ["task-board-page", "inbox-page", "calendar-page", "customer-book-page"],
-    pages: ["task-board-page", "inbox-page", "calendar-page", "customer-book-page"],
-    profiles: ["next-app", "vite-app", "electron-renderer"],
-    recommendedSystem: "graphite",
-    pagePath: "/sites/admin-workspace-site",
-  },
+	{
+		useCase: "workspace",
+		slug: "agent-workbench-site",
+		name: "Agent Workbench Site",
+		nameZh: "Agent 多页工作台",
+		description:
+			"Conversation, artifact and settings pages sharing the existing responsive Workbench shell and theme.",
+		descriptionZh:
+			"会话、制品与设置三个独立页面，共享现有响应式 Workbench 外壳与主题。",
+		aliases: [
+			"multi-page workbench",
+			"多页工作台",
+			"Agent workspace",
+			"工作台模板",
+			"整站模板",
+		],
+		componentSlug: "agent-workbench-site",
+		shellComponent: "agent-workbench",
+		components: [
+			"agent-workbench",
+			"thread-list",
+			"workbench-conversation-page",
+			"workbench-artifact-page",
+			"workbench-settings-page",
+		],
+		pages: [
+			"workbench-conversation-page",
+			"workbench-artifact-page",
+			"workbench-settings-page",
+		],
+		profiles: ["next-app", "vite-app", "electron-renderer"],
+		recommendedSystem: "graphite",
+		pagePath: "/sites/agent-workbench-site",
+	},
+	{
+		useCase: "workspace",
+		slug: "saas-admin-site",
+		name: "SaaS Admin Site",
+		nameZh: "SaaS 后台整站",
+		description:
+			"Fourteen frontend page responsibilities and seventeen routes sharing an official Base UI shell, neutral and Blue Ink themes.",
+		descriptionZh:
+			"十四类前端页面、十七个路由，共用官方 Base UI 控件外壳，支持默认与 Blue Ink 主题。",
+		aliases: ["SaaS admin", "后台模板", "整站模板"],
+		componentSlug: "saas-admin-site",
+		shellComponent: "saas-admin-shell",
+		components: [
+			"saas-admin-shell",
+			"saas-admin-orders-page",
+			"saas-admin-users-page",
+			"saas-admin-profile-page",
+			"saas-admin-settings-page",
+			"saas-admin-data-table-page",
+			"saas-admin-forms-page",
+			"saas-admin-login-page",
+			"saas-admin-register-page",
+			"saas-admin-forgot-password-page",
+			"saas-admin-kanban-page",
+			"saas-admin-mail-page",
+			"saas-admin-calendar-page",
+			"saas-admin-ai-chat-page",
+			"saas-admin-ai-usage-page",
+		],
+		pages: [
+			"saas-admin-orders-page",
+			"saas-admin-users-page",
+			"saas-admin-profile-page",
+			"saas-admin-settings-page",
+			"saas-admin-data-table-page",
+			"saas-admin-forms-page",
+			"saas-admin-login-page",
+			"saas-admin-register-page",
+			"saas-admin-forgot-password-page",
+			"saas-admin-kanban-page",
+			"saas-admin-mail-page",
+			"saas-admin-calendar-page",
+			"saas-admin-ai-chat-page",
+			"saas-admin-ai-usage-page",
+		],
+		profiles: ["next-app", "vite-app"],
+		recommendedSystem: "saas-admin-default",
+		pagePath: "/sites/saas-admin-site",
+	},
 ];

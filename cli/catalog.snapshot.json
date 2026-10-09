@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-09T16:45:26.159Z",
-  "count": 563,
+  "generatedAt": "2026-10-09T23:37:43.902Z",
+  "count": 576,
   "items": [
     {
       "kind": "component",
@@ -828,7 +828,7 @@
         "components/motion/agent-thread/cards.tsx",
         "components/motion/agent-thread/status.tsx"
       ],
-      "sourceVersion": "f74205528ddd15192d71ea6f26af6f745a8631abbf7cd347c2b918fee88b7fdf",
+      "sourceVersion": "d81c39c6347b2103875729c3f033b4c8962cb8d10843d9755c50c787a8f7c8d4",
       "installTargets": [
         "workbench-conversation-page"
       ]
@@ -879,7 +879,7 @@
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "0e659df44a66cfc4bf351a259e704af0ccaa980aed4bb2024c95e71dfcfbac0c",
+      "sourceVersion": "1dc8731e746825d18cf9490edc5518b5eb8c0242f7b44a157b50729b5db6e17a",
       "installTargets": [
         "workbench-artifact-page"
       ]
@@ -937,7 +937,7 @@
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "3f55bdc06ba721f5299e63057e40b3ab36ab2c96cb2656132c46bcfc3b57f886",
+      "sourceVersion": "c40ee7fbbcd7b2b100cbd2d41bf9c25122a7747b713ee31ecae1f21c2819262c",
       "installTargets": [
         "workbench-settings-page"
       ]
@@ -948,43 +948,77 @@
       "assetRole": "page",
       "profiles": [
         "next-app",
-        "vite-app",
-        "electron-renderer"
+        "vite-app"
       ],
       "components": [],
       "related": [],
-      "slug": "task-board-page",
-      "name": "Task Board Page",
-      "nameZh": "任务板页",
+      "slug": "saas-admin-orders-page",
+      "name": "SaaS Admin Orders Page",
+      "nameZh": "SaaS 后台订单总览页",
       "aliases": [
-        "kanban page",
-        "任务看板",
-        "board"
+        "SaaS admin",
+        "订单总览"
       ],
-      "description": "A reusable task board that moves cards across queued, active, review, and done columns.",
-      "descriptionZh": "可独立复用的任务板，在排队、进行中、待确认和完成列之间移动卡片。",
-      "pageUrl": "http://localhost:3000/pages/task-board-page",
+      "description": "Orders metrics, charts and transaction table.",
+      "descriptionZh": "订单指标、图表与交易表格。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-orders-page",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/task-board-page.json",
-        "endpoint": "http://localhost:3000/r/task-board-page"
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-orders-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-orders-page"
       },
-      "sourceFile": "components/pages/task-board-page.tsx",
+      "sourceFile": "components/pages/saas-admin-orders-page.tsx",
       "sourceFiles": [
-        "components/pages/task-board-page.tsx"
+        "components/pages/saas-admin-orders-page.tsx"
       ],
       "installationFiles": [
-        "components/pages/task-board-page.tsx",
-        "components/pages/task-board-data.ts",
-        "components/pages/workspace-app-ui.tsx",
-        "components/pages/workspace-copy.ts",
+        "components/pages/saas-admin-orders-page.tsx",
+        "components/pages/saas-admin/assets/fonts-mono.css",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/orders.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/views/dashboards/charts/chart-sales-metrics.tsx",
+        "components/pages/saas-admin/views/dashboards/statistics/statistics-card-01.tsx",
+        "components/pages/saas-admin/views/dashboards/widgets/widget-product-insights.tsx",
+        "components/pages/saas-admin/views/dashboards/widgets/widget-total-earning.tsx",
+        "components/pages/saas-admin/views/datatables/datatable-transaction.tsx",
+        "components/ui/card.tsx",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
         "lib/utils.ts",
-        "lib/ease.ts",
-        "lib/hooks/use-hydrated-reduced-motion.ts"
+        "components/ui/avatar.tsx",
+        "components/ui/chart.tsx",
+        "components/ui/separator.tsx",
+        "components/pages/saas-admin/use-submit.tsx",
+        "components/ui/button.tsx",
+        "components/ui/dropdown-menu.tsx",
+        "components/ui/progress.tsx",
+        "components/pages/saas-admin/blocks/delete-confirmation.tsx",
+        "components/pages/saas-admin/hooks/use-pagination.ts",
+        "components/ui/badge.tsx",
+        "components/ui/pagination.tsx",
+        "components/ui/table.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/ui/alert.tsx",
+        "components/ui/alert-dialog.tsx"
       ],
-      "sourceVersion": "62a5d3001cf81782f533d9b325b581128d83eb771fc51a884273c5375e0eafe3",
+      "sourceVersion": "1a0bbe88973872828b174c6c7b2e2c2494bfa158282717a972bd71e95ed40578",
       "installTargets": [
-        "task-board-page"
+        "saas-admin-orders-page"
       ]
     },
     {
@@ -993,57 +1027,929 @@
       "assetRole": "page",
       "profiles": [
         "next-app",
-        "vite-app",
-        "electron-renderer"
+        "vite-app"
       ],
-      "components": [
-        "button"
-      ],
-      "related": [
-        {
-          "kind": "component",
-          "slug": "button"
-        }
-      ],
-      "slug": "inbox-page",
-      "name": "Inbox Page",
-      "nameZh": "收件箱页",
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-users-page",
+      "name": "SaaS Admin Users Page",
+      "nameZh": "SaaS 后台用户管理页",
       "aliases": [
-        "mail page",
-        "邮件",
-        "inbox"
+        "SaaS admin",
+        "用户管理"
       ],
-      "description": "A reusable mailbox with folders, a thread list, a reader, and a local-only compose form.",
-      "descriptionZh": "可独立复用的收件箱，包含文件夹、邮件列表、阅读区和只留在本地的写信表单。",
-      "pageUrl": "http://localhost:3000/pages/inbox-page",
+      "description": "User list and five-tab detail with a shared data boundary.",
+      "descriptionZh": "用户列表及五标签详情，共用数据与动作接口。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-users-page",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/inbox-page.json",
-        "endpoint": "http://localhost:3000/r/inbox-page"
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-users-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-users-page"
       },
-      "sourceFile": "components/pages/inbox-page.tsx",
+      "sourceFile": "components/pages/saas-admin-users-page.tsx",
       "sourceFiles": [
-        "components/pages/inbox-page.tsx"
+        "components/pages/saas-admin-users-page.tsx"
       ],
       "installationFiles": [
-        "components/pages/inbox-page.tsx",
-        "components/pages/inbox-data.ts",
-        "components/pages/workspace-app-ui.tsx",
-        "components/pages/workspace-copy.ts",
-        "components/motion/button/index.tsx",
+        "components/pages/saas-admin-users-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/users/list/index.tsx",
+        "components/pages/saas-admin/views/apps/users/view/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/users/dialogs/add-edit-user-sheet.tsx",
+        "components/pages/saas-admin/hooks/use-user-app.ts",
+        "components/pages/saas-admin/views/apps/users/list/user-pagination.tsx",
+        "components/pages/saas-admin/views/apps/users/list/user-table.tsx",
+        "components/pages/saas-admin/views/apps/users/list/user-table-filters.tsx",
+        "components/pages/saas-admin/views/apps/users/list/user-table-toolbar.tsx",
+        "components/ui/card.tsx",
+        "components/pages/saas-admin/views/apps/users/view/user-view-left-panel.tsx",
+        "components/pages/saas-admin/views/apps/users/view/user-view-tabs.tsx",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
         "lib/utils.ts",
+        "components/ui/button.tsx",
+        "components/ui/field.tsx",
+        "components/ui/input.tsx",
+        "components/ui/select.tsx",
+        "components/ui/sheet.tsx",
+        "components/pages/saas-admin/hooks/use-pagination.ts",
+        "components/ui/pagination.tsx",
+        "components/pages/saas-admin/views/apps/users/list/user-table-columns.tsx",
+        "components/ui/table.tsx",
+        "components/ui/label.tsx",
+        "components/pages/saas-admin/use-submit.tsx",
+        "components/ui/dropdown-menu.tsx",
+        "components/ui/input-group.tsx",
+        "components/pages/saas-admin/configs/mailConfig.ts",
+        "components/ui/avatar.tsx",
+        "components/ui/badge.tsx",
+        "components/ui/separator.tsx",
+        "components/pages/saas-admin/views/apps/users/view/tabs/account-tab.tsx",
+        "components/pages/saas-admin/views/apps/users/view/tabs/billing-tab.tsx",
+        "components/pages/saas-admin/views/apps/users/view/tabs/connections-tab.tsx",
+        "components/pages/saas-admin/views/apps/users/view/tabs/notifications-tab.tsx",
+        "components/pages/saas-admin/views/apps/users/view/tabs/security-tab.tsx",
+        "components/ui/tabs.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/pages/saas-admin/blocks/delete-confirmation.tsx",
+        "components/ui/alert.tsx",
+        "components/ui/textarea.tsx",
+        "components/pages/saas-admin/types/apps/mail-types.ts",
+        "components/pages/saas-admin/views/apps/users/view/activity-timeline.tsx",
+        "components/pages/saas-admin/views/apps/users/view/projects-datatable.tsx",
+        "components/ui/progress.tsx",
+        "components/pages/saas-admin/assets/svg/facebook-icon.tsx",
+        "components/pages/saas-admin/assets/svg/github-icon.tsx",
+        "components/pages/saas-admin/assets/svg/linkedin-icon.tsx",
+        "components/pages/saas-admin/assets/svg/twitter-icon.tsx",
+        "components/ui/switch.tsx",
+        "components/ui/alert-dialog.tsx",
+        "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
+        "components/ui/checkbox.tsx"
+      ],
+      "sourceVersion": "ceb4a6f1ec4d7096de1a053e44995ec251e4f73af2404e9a7572f800b7dd81f8",
+      "installTargets": [
+        "saas-admin-users-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-profile-page",
+      "name": "SaaS Admin Profile Page",
+      "nameZh": "SaaS 后台个人资料页",
+      "aliases": [
+        "SaaS admin",
+        "个人资料"
+      ],
+      "description": "Profile and connections with URL-compatible tabs.",
+      "descriptionZh": "个人资料与连接，标签可由 URL 控制。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-profile-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-profile-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-profile-page"
+      },
+      "sourceFile": "components/pages/saas-admin-profile-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-profile-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-profile-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/blocks/profile-background.tsx",
+        "components/pages/saas-admin/use-submit.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/user-profile-tabs.tsx",
+        "components/ui/avatar.tsx",
+        "components/ui/button.tsx",
+        "components/ui/card.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "lib/utils.ts",
+        "components/ui/alert.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/connections/index.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/profile/index.tsx",
+        "components/ui/tabs.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/ui/badge.tsx",
+        "components/ui/dropdown-menu.tsx",
+        "components/ui/separator.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/profile/about-section.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/profile/activity-timeline.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/profile/connections.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/profile/profile-project-datatable.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/profile/teams.tsx",
+        "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
+        "components/pages/saas-admin/hooks/use-pagination.ts",
+        "components/ui/checkbox.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/pagination.tsx",
+        "components/ui/progress.tsx",
+        "components/ui/table.tsx"
+      ],
+      "sourceVersion": "80c18108c9b14cafc511ea925484d8e82cca2dc64e88ca0e9beeb0a3073b0594",
+      "installTargets": [
+        "saas-admin-profile-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-settings-page",
+      "name": "SaaS Admin Settings Page",
+      "nameZh": "SaaS 后台设置页",
+      "aliases": [
+        "SaaS admin",
+        "设置"
+      ],
+      "description": "General and workspace preferences with consumer save callbacks.",
+      "descriptionZh": "常规与工作区设置，通过回调接入保存。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-settings-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-settings-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-settings-page"
+      },
+      "sourceFile": "components/pages/saas-admin-settings-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-settings-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-settings-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/user-settings-tabs.tsx",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "lib/utils.ts",
+        "components/pages/saas-admin/views/pages/user-settings/general/index.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/workspace/index.tsx",
+        "components/ui/tabs.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/pages/saas-admin/views/pages/user-settings/general/connect-account.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/general/danger-zone.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/general/email-password.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/general/personal-info.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/general/social-url.tsx",
+        "components/ui/separator.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/workspace/danger-zone.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-data.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-detail.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-name.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-organizations.tsx",
+        "components/ui/button.tsx",
+        "components/ui/dialog.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/pages/saas-admin/use-submit.tsx",
+        "components/ui/card.tsx",
+        "components/ui/input-group.tsx",
+        "components/ui/select.tsx",
+        "components/ui/progress.tsx",
+        "components/ui/table.tsx",
+        "components/ui/textarea.tsx",
+        "components/ui/command.tsx",
+        "components/ui/popover.tsx",
+        "components/ui/alert.tsx"
+      ],
+      "sourceVersion": "f0462469655cf99e5b9d77729ec89a5259dc6b4bed05a7286cd21141a6aa15f5",
+      "installTargets": [
+        "saas-admin-settings-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-data-table-page",
+      "name": "SaaS Admin Data Table Page",
+      "nameZh": "SaaS 后台数据表格页",
+      "aliases": [
+        "SaaS admin",
+        "数据表格"
+      ],
+      "description": "Basic, pinnable and filterable table examples.",
+      "descriptionZh": "基础、列固定和筛选三个表格示例。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-data-table-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-data-table-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-data-table-page"
+      },
+      "sourceFile": "components/pages/saas-admin-data-table-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-data-table-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-data-table-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/datatables/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/datatables/basic/index.tsx",
+        "components/pages/saas-admin/views/datatables/filters/index.tsx",
+        "components/pages/saas-admin/views/datatables/pinnable-columns/index.tsx",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "lib/utils.ts",
+        "components/pages/saas-admin/views/datatables/basic/basic-datatable.tsx",
+        "components/ui/card.tsx",
+        "components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx",
+        "components/pages/saas-admin/views/datatables/pinnable-columns/pinnable-columns-datatable.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/ui/checkbox.tsx",
+        "components/ui/table.tsx",
+        "components/ui/avatar.tsx",
+        "components/ui/badge.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/select.tsx",
+        "components/ui/button.tsx",
+        "components/ui/dropdown-menu.tsx"
+      ],
+      "sourceVersion": "a50bfa548364e330c7d4b800306b0b740509954ce4ec2a915ef7b203ac736e20",
+      "installTargets": [
+        "saas-admin-data-table-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-forms-page",
+      "name": "SaaS Admin Forms Page",
+      "nameZh": "SaaS 后台表单页",
+      "aliases": [
+        "SaaS admin",
+        "表单"
+      ],
+      "description": "Vertical, horizontal and four validation modes.",
+      "descriptionZh": "纵向、横向与四种校验模式表单。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-forms-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-forms-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-forms-page"
+      },
+      "sourceFile": "components/pages/saas-admin-forms-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-forms-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-forms-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/forms/form-layouts/horizontal/index.tsx",
+        "components/pages/saas-admin/views/forms/form-layouts/vertical/index.tsx",
+        "components/pages/saas-admin/views/forms/form-validation/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form.tsx",
+        "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form-with-icon.tsx",
+        "components/ui/card.tsx",
+        "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form.tsx",
+        "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form-with-icon.tsx",
+        "components/pages/saas-admin/views/forms/form-validation/registration-demo-form.tsx",
+        "components/pages/saas-admin/views/forms/form-validation/validation-demos.tsx",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "lib/utils.ts",
+        "components/pages/saas-admin/use-submit.tsx",
+        "components/ui/button.tsx",
+        "components/ui/field.tsx",
+        "components/ui/input.tsx",
+        "components/ui/input-group.tsx",
+        "components/ui/textarea.tsx",
+        "components/ui/radio-group.tsx",
+        "components/ui/select.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/ui/alert.tsx",
+        "components/ui/label.tsx",
+        "components/ui/separator.tsx"
+      ],
+      "sourceVersion": "51625158fbad6484fb839b7dac50938c9723a39e0b2ee526af1669cec90f1987",
+      "installTargets": [
+        "saas-admin-forms-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-login-page",
+      "name": "SaaS Admin Login Page",
+      "nameZh": "SaaS 后台登录页",
+      "aliases": [
+        "SaaS admin",
+        "登录"
+      ],
+      "description": "Login form with a consumer submit boundary.",
+      "descriptionZh": "通过消费者回调提交的登录表单。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-login-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-login-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-login-page"
+      },
+      "sourceFile": "components/pages/saas-admin-login-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-login-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-login-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/pages/auth/login/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/assets/svg/auth-background-shape.tsx",
+        "components/pages/saas-admin/components/shared/Logo.tsx",
+        "components/pages/saas-admin/use-submit.tsx",
+        "components/pages/saas-admin/views/pages/auth/login/login-form.tsx",
+        "components/ui/button.tsx",
+        "components/ui/card.tsx",
+        "components/ui/separator.tsx",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "lib/utils.ts",
+        "components/pages/saas-admin/assets/svg/logo.tsx",
+        "components/pages/saas-admin/configs/themeConfig.ts",
+        "components/ui/alert.tsx",
+        "components/ui/checkbox.tsx",
+        "components/ui/field.tsx",
+        "components/ui/input.tsx",
+        "components/ui/input-group.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/ui/label.tsx",
+        "components/ui/textarea.tsx"
+      ],
+      "sourceVersion": "a9bfc0cc554599738d68f655ea25900ef6e280b2f14818293a90df1fc0a2395c",
+      "installTargets": [
+        "saas-admin-login-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-register-page",
+      "name": "SaaS Admin Register Page",
+      "nameZh": "SaaS 后台注册页",
+      "aliases": [
+        "SaaS admin",
+        "注册"
+      ],
+      "description": "Registration form with a consumer submit boundary.",
+      "descriptionZh": "通过消费者回调提交的注册表单。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-register-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-register-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-register-page"
+      },
+      "sourceFile": "components/pages/saas-admin-register-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-register-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-register-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/pages/auth/register/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/assets/svg/auth-background-shape.tsx",
+        "components/pages/saas-admin/components/shared/Logo.tsx",
+        "components/pages/saas-admin/use-submit.tsx",
+        "components/pages/saas-admin/views/pages/auth/register/register-form.tsx",
+        "components/ui/button.tsx",
+        "components/ui/card.tsx",
+        "components/ui/separator.tsx",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "lib/utils.ts",
+        "components/pages/saas-admin/assets/svg/logo.tsx",
+        "components/pages/saas-admin/configs/themeConfig.ts",
+        "components/ui/alert.tsx",
+        "components/ui/checkbox.tsx",
+        "components/ui/field.tsx",
+        "components/ui/input.tsx",
+        "components/ui/input-group.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/ui/label.tsx",
+        "components/ui/textarea.tsx"
+      ],
+      "sourceVersion": "b105f5ee3a6e76a9921c2e8e05cb6ced1ef43bc3a6e0a1c5ae69a431052db305",
+      "installTargets": [
+        "saas-admin-register-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-forgot-password-page",
+      "name": "SaaS Admin Forgot Password Page",
+      "nameZh": "SaaS 后台找回密码页",
+      "aliases": [
+        "SaaS admin",
+        "找回密码"
+      ],
+      "description": "Password recovery form with a consumer submit boundary.",
+      "descriptionZh": "通过消费者回调提交的找回密码表单。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-forgot-password-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-forgot-password-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-forgot-password-page"
+      },
+      "sourceFile": "components/pages/saas-admin-forgot-password-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-forgot-password-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-forgot-password-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/pages/auth/forgot-password/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/assets/svg/auth-background-shape.tsx",
+        "components/pages/saas-admin/components/shared/Logo.tsx",
+        "components/pages/saas-admin/views/pages/auth/forgot-password/forgot-password-form.tsx",
+        "components/ui/button.tsx",
+        "components/ui/card.tsx",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "lib/utils.ts",
+        "components/pages/saas-admin/assets/svg/logo.tsx",
+        "components/pages/saas-admin/configs/themeConfig.ts",
+        "components/pages/saas-admin/use-submit.tsx",
+        "components/ui/field.tsx",
+        "components/ui/input.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/ui/alert.tsx",
+        "components/ui/label.tsx",
+        "components/ui/separator.tsx"
+      ],
+      "sourceVersion": "8a13bbdb14f16a2267f3851bf8c491fc27bfb01b0298bc6dbdf52a62fc4e5ab5",
+      "installTargets": [
+        "saas-admin-forgot-password-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-kanban-page",
+      "name": "SaaS Admin Kanban Page",
+      "nameZh": "SaaS 后台任务板页",
+      "aliases": [
+        "SaaS admin",
+        "任务板",
+        "看板"
+      ],
+      "description": "A four-column task board with pointer drag, keyboard moves, and local search.",
+      "descriptionZh": "四列任务板，支持拖动手把、键盘移动和本地搜索。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-kanban-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-kanban-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-kanban-page"
+      },
+      "sourceFile": "components/pages/saas-admin-kanban-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-kanban-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-kanban-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/kanban/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/surface.ts",
+        "components/pages/saas-admin/views/apps/kanban/data.ts",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "lib/utils.ts",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/pages/saas-admin/assets/fonts.css"
+      ],
+      "sourceVersion": "d7378a14a47f7bbe9b331bbd3b85cd8e0a662540ccbb15737f0c8bece8a4edb5",
+      "installTargets": [
+        "saas-admin-kanban-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-mail-page",
+      "name": "SaaS Admin Mail Page",
+      "nameZh": "SaaS 后台收件箱页",
+      "aliases": [
+        "SaaS admin",
+        "收件箱",
+        "邮件"
+      ],
+      "description": "Foldered mail with a local compose path that only files a sent thread in this visit.",
+      "descriptionZh": "按文件夹阅读往来，写一封信只留在这次浏览。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-mail-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-mail-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-mail-page"
+      },
+      "sourceFile": "components/pages/saas-admin-mail-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-mail-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-mail-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/mail/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/surface.ts",
+        "components/pages/saas-admin/views/apps/mail/data.ts",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/textarea.tsx",
+        "lib/utils.ts",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/pages/saas-admin/assets/fonts.css"
+      ],
+      "sourceVersion": "44492e6c39799cdf9f2d1117792c2174ca84556dad0b0d245d389f7b6ad95db5",
+      "installTargets": [
+        "saas-admin-mail-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-calendar-page",
+      "name": "SaaS Admin Calendar Page",
+      "nameZh": "SaaS 后台日程页",
+      "aliases": [
+        "SaaS admin",
+        "日程",
+        "日历"
+      ],
+      "description": "A Monday-start month grid anchored to 9 October 2026 with a same-day agenda.",
+      "descriptionZh": "周一起始的月历，锚在 2026 年 10 月 9 日，并带当天安排。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-calendar-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-calendar-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-calendar-page"
+      },
+      "sourceFile": "components/pages/saas-admin-calendar-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-calendar-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-calendar-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/calendar/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/surface.ts",
+        "components/pages/saas-admin/views/apps/calendar/data.ts",
+        "components/ui/button.tsx",
+        "lib/utils.ts",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/pages/saas-admin/assets/fonts.css"
+      ],
+      "sourceVersion": "65afaa76806496a95413252be7fe419d9eede3d8f3d6176e24331effe4195e11",
+      "installTargets": [
+        "saas-admin-calendar-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-ai-chat-page",
+      "name": "SaaS Admin AI Chat Page",
+      "nameZh": "SaaS 后台对话页",
+      "aliases": [
+        "SaaS admin",
+        "对话",
+        "AI 聊天"
+      ],
+      "description": "A local AI conversation workspace with thread history, model picker, attachments, and streaming-style replies.",
+      "descriptionZh": "本地对话工作区：会话列表、模型选择、附件和流式回复演示。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-ai-chat-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-ai-chat-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-ai-chat-page"
+      },
+      "sourceFile": "components/pages/saas-admin-ai-chat-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-ai-chat-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-ai-chat-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/ai-chat/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/surface.ts",
+        "components/pages/saas-admin/views/apps/ai-chat/data.ts",
+        "components/agents/code-block.tsx",
+        "components/agents/prompt-input.tsx",
+        "components/agents/reasoning.tsx",
+        "components/agents/suggestion.tsx",
+        "components/motion/agent-thread/index.tsx",
+        "components/ui/badge.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "lib/utils.ts",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/agents/agent-code.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/select.tsx",
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/agent-thread/cards.tsx",
+        "components/motion/agent-thread/status.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
         "components/motion/button/base.tsx",
         "components/motion/button/magnetic.tsx",
         "components/motion/button/metallic.tsx",
         "components/motion/button/stateful.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/motion/text-shimmer.tsx",
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "b9c9cabcdc951a275e35a6e59476b8ba4b2c97589566617a7fabfba238acb56e",
+      "sourceVersion": "c0b08c985ac4b1a2baaf7d50c5b6da6500500314a8f2197824a2ea5e5ca779a9",
       "installTargets": [
-        "inbox-page"
+        "saas-admin-ai-chat-page"
       ]
     },
     {
@@ -1052,102 +1958,67 @@
       "assetRole": "page",
       "profiles": [
         "next-app",
-        "vite-app",
-        "electron-renderer"
-      ],
-      "components": [
-        "button"
-      ],
-      "related": [
-        {
-          "kind": "component",
-          "slug": "button"
-        }
-      ],
-      "slug": "calendar-page",
-      "name": "Calendar Page",
-      "nameZh": "日程页",
-      "aliases": [
-        "month calendar",
-        "日历",
-        "日程"
-      ],
-      "description": "A reusable month calendar with keyboard day movement and a same-day agenda.",
-      "descriptionZh": "可独立复用的月历，支持键盘移动日期，并列出当天安排。",
-      "pageUrl": "http://localhost:3000/pages/calendar-page",
-      "fetch": {
-        "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/calendar-page.json",
-        "endpoint": "http://localhost:3000/r/calendar-page"
-      },
-      "sourceFile": "components/pages/calendar-page.tsx",
-      "sourceFiles": [
-        "components/pages/calendar-page.tsx"
-      ],
-      "installationFiles": [
-        "components/pages/calendar-page.tsx",
-        "components/pages/calendar-data.ts",
-        "components/pages/workspace-app-ui.tsx",
-        "components/pages/workspace-copy.ts",
-        "components/motion/button/index.tsx",
-        "lib/utils.ts",
-        "lib/ease.ts",
-        "lib/hooks/use-hydrated-reduced-motion.ts",
-        "components/motion/button/base.tsx",
-        "components/motion/button/magnetic.tsx",
-        "components/motion/button/metallic.tsx",
-        "components/motion/button/stateful.tsx",
-        "lib/hooks/use-hover-capable.ts",
-        "components/motion/magnetic.tsx"
-      ],
-      "sourceVersion": "7c3ecdbe38bfbe4af99b9cebd0782551671f050702bbf50dcc593b5e9814e940",
-      "installTargets": [
-        "calendar-page"
-      ]
-    },
-    {
-      "kind": "component",
-      "category": "pages",
-      "assetRole": "page",
-      "profiles": [
-        "next-app",
-        "vite-app",
-        "electron-renderer"
+        "vite-app"
       ],
       "components": [],
       "related": [],
-      "slug": "customer-book-page",
-      "name": "Customer Book Page",
-      "nameZh": "客户册页",
+      "slug": "saas-admin-ai-usage-page",
+      "name": "SaaS Admin AI Usage Page",
+      "nameZh": "SaaS 后台用量页",
       "aliases": [
-        "customers page",
-        "客户列表",
-        "users table"
+        "SaaS admin",
+        "用量",
+        "Token"
       ],
-      "description": "A reusable customer list with status filters, a table, and a short profile.",
-      "descriptionZh": "可独立复用的客户册，包含状态筛选、表格和一份简短档案。",
-      "pageUrl": "http://localhost:3000/pages/customer-book-page",
+      "description": "Token, cost and rate-limit samples for the same local conversation workspace.",
+      "descriptionZh": "同一本地对话工作区的 Token、费用和速率上限示例。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-ai-usage-page",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/customer-book-page.json",
-        "endpoint": "http://localhost:3000/r/customer-book-page"
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-ai-usage-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-ai-usage-page"
       },
-      "sourceFile": "components/pages/customer-book-page.tsx",
+      "sourceFile": "components/pages/saas-admin-ai-usage-page.tsx",
       "sourceFiles": [
-        "components/pages/customer-book-page.tsx"
+        "components/pages/saas-admin-ai-usage-page.tsx"
       ],
       "installationFiles": [
-        "components/pages/customer-book-page.tsx",
-        "components/pages/customer-book-data.ts",
-        "components/pages/workspace-app-ui.tsx",
-        "components/pages/workspace-copy.ts",
+        "components/pages/saas-admin-ai-usage-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/ai-usage/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/surface.ts",
+        "components/pages/saas-admin/views/apps/ai-usage/data.ts",
+        "components/motion/agent-thread/index.tsx",
+        "components/ui/card.tsx",
+        "components/ui/progress.tsx",
+        "components/ui/table.tsx",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
         "lib/utils.ts",
         "lib/ease.ts",
-        "lib/hooks/use-hydrated-reduced-motion.ts"
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/motion/agent-thread/cards.tsx",
+        "components/motion/agent-thread/status.tsx",
+        "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "7ec09ed7120ef78e1165bd5be344463e7d534d577baab01d34af9bb3aa8e5dec",
+      "sourceVersion": "6451fad9d2f131c544cb4cdf72101910d2a53fb18384839cbb7241e6648ac522",
       "installTargets": [
-        "customer-book-page"
+        "saas-admin-ai-usage-page"
       ]
     },
     {
@@ -1172,6 +2043,7 @@
         "workbench-settings-page"
       ],
       "shellComponent": "agent-workbench",
+      "useCase": "workspace",
       "recommendedSystem": "graphite",
       "related": [
         {
@@ -1241,7 +2113,7 @@
         "components/motion/agent-thread/status.tsx",
         "lib/color.ts"
       ],
-      "sourceVersion": "0ed4a63d677cf2f9768a17a948cb8c3a7eb03ecd617c3c67e225d01ce957fb84",
+      "sourceVersion": "1ef816df5a9ed34acc25d2ee55efc1ae511f480bf54f980a7bbdc7470d848de5",
       "installTargets": [
         "agent-workbench-site"
       ]
@@ -1252,88 +2124,334 @@
       "assetRole": "site",
       "profiles": [
         "next-app",
-        "vite-app",
-        "electron-renderer"
+        "vite-app"
       ],
       "components": [
-        "task-board-page",
-        "inbox-page",
-        "calendar-page",
-        "customer-book-page"
+        "saas-admin-shell",
+        "saas-admin-orders-page",
+        "saas-admin-users-page",
+        "saas-admin-profile-page",
+        "saas-admin-settings-page",
+        "saas-admin-data-table-page",
+        "saas-admin-forms-page",
+        "saas-admin-login-page",
+        "saas-admin-register-page",
+        "saas-admin-forgot-password-page",
+        "saas-admin-kanban-page",
+        "saas-admin-mail-page",
+        "saas-admin-calendar-page",
+        "saas-admin-ai-chat-page",
+        "saas-admin-ai-usage-page"
       ],
       "pages": [
-        "task-board-page",
-        "inbox-page",
-        "calendar-page",
-        "customer-book-page"
+        "saas-admin-orders-page",
+        "saas-admin-users-page",
+        "saas-admin-profile-page",
+        "saas-admin-settings-page",
+        "saas-admin-data-table-page",
+        "saas-admin-forms-page",
+        "saas-admin-login-page",
+        "saas-admin-register-page",
+        "saas-admin-forgot-password-page",
+        "saas-admin-kanban-page",
+        "saas-admin-mail-page",
+        "saas-admin-calendar-page",
+        "saas-admin-ai-chat-page",
+        "saas-admin-ai-usage-page"
       ],
-      "recommendedSystem": "graphite",
+      "shellComponent": "saas-admin-shell",
+      "useCase": "workspace",
+      "recommendedSystem": "saas-admin-default",
       "related": [
         {
           "kind": "component",
-          "slug": "task-board-page"
+          "slug": "saas-admin-shell"
         },
         {
           "kind": "component",
-          "slug": "inbox-page"
+          "slug": "saas-admin-orders-page"
         },
         {
           "kind": "component",
-          "slug": "calendar-page"
+          "slug": "saas-admin-users-page"
         },
         {
           "kind": "component",
-          "slug": "customer-book-page"
+          "slug": "saas-admin-profile-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-settings-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-data-table-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-forms-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-login-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-register-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-forgot-password-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-kanban-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-mail-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-calendar-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-ai-chat-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-ai-usage-page"
         }
       ],
-      "slug": "admin-workspace-site",
-      "name": "Admin Workspace Site",
-      "nameZh": "管理工作区",
+      "slug": "saas-admin-site",
+      "name": "SaaS Admin Site",
+      "nameZh": "SaaS 后台整站",
       "aliases": [
-        "admin template",
-        "管理模板",
-        "dashboard apps",
-        "后台应用"
+        "SaaS admin",
+        "后台模板",
+        "整站模板"
       ],
-      "description": "An admin shell whose sidebar keeps a dashboard overview and an apps group for the task board, inbox, calendar, and customer book.",
-      "descriptionZh": "管理外壳。侧栏保留仪表盘总览，并用一个应用分组放进任务板、收件箱、日程和客户册。",
-      "pageUrl": "http://localhost:3000/sites/admin-workspace-site",
+      "description": "Fourteen frontend page responsibilities and seventeen routes sharing an official Base UI shell, neutral and Blue Ink themes.",
+      "descriptionZh": "十四类前端页面、十七个路由，共用官方 Base UI 控件外壳，支持默认与 Blue Ink 主题。",
+      "pageUrl": "http://localhost:3000/sites/saas-admin-site",
       "fetch": {
         "method": "shadcn",
-        "command": "npx shadcn@latest add http://localhost:3000/r/admin-workspace-site.json",
-        "endpoint": "http://localhost:3000/r/admin-workspace-site"
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-site.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-site"
       },
-      "sourceFile": "components/site-shells/admin-workspace-site.tsx",
+      "sourceFile": "components/site-shells/saas-admin-site.tsx",
       "sourceFiles": [
-        "components/site-shells/admin-workspace-site.tsx"
+        "components/site-shells/saas-admin-site.tsx"
       ],
       "installationFiles": [
-        "components/site-shells/admin-workspace-site.tsx",
-        "components/site-shells/admin-workspace-screens.ts",
-        "components/pages/calendar-page.tsx",
-        "components/pages/customer-book-page.tsx",
-        "components/pages/inbox-page.tsx",
-        "components/pages/task-board-page.tsx",
-        "components/pages/workspace-app-ui.tsx",
-        "components/pages/workspace-copy.ts",
+        "components/site-shells/saas-admin-site.tsx",
+        "components/site-shells/saas-admin-shell.tsx",
+        "components/pages/saas-admin-ai-chat-page.tsx",
+        "components/pages/saas-admin-ai-usage-page.tsx",
+        "components/pages/saas-admin-calendar-page.tsx",
+        "components/pages/saas-admin-data-table-page.tsx",
+        "components/pages/saas-admin-forgot-password-page.tsx",
+        "components/pages/saas-admin-forms-page.tsx",
+        "components/pages/saas-admin-kanban-page.tsx",
+        "components/pages/saas-admin-login-page.tsx",
+        "components/pages/saas-admin-mail-page.tsx",
+        "components/pages/saas-admin-orders-page.tsx",
+        "components/pages/saas-admin-profile-page.tsx",
+        "components/pages/saas-admin-register-page.tsx",
+        "components/pages/saas-admin-settings-page.tsx",
+        "components/pages/saas-admin-users-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/routes.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/skeleton.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/components/layout/Footer.tsx",
+        "components/pages/saas-admin/components/layout/Header.tsx",
+        "components/pages/saas-admin/components/layout/Sidebar.tsx",
+        "components/ui/sidebar.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/ai-chat/index.tsx",
+        "components/pages/saas-admin/views/apps/ai-usage/index.tsx",
+        "components/pages/saas-admin/views/apps/calendar/index.tsx",
+        "components/pages/saas-admin/views/datatables/index.tsx",
+        "components/pages/saas-admin/views/pages/auth/forgot-password/index.tsx",
+        "components/pages/saas-admin/views/forms/form-layouts/horizontal/index.tsx",
+        "components/pages/saas-admin/views/forms/form-layouts/vertical/index.tsx",
+        "components/pages/saas-admin/views/forms/form-validation/index.tsx",
+        "components/pages/saas-admin/views/apps/kanban/index.tsx",
+        "components/pages/saas-admin/views/pages/auth/login/index.tsx",
+        "components/pages/saas-admin/views/apps/mail/index.tsx",
+        "components/pages/saas-admin/assets/fonts-mono.css",
+        "components/pages/saas-admin/views/orders.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/index.tsx",
+        "components/pages/saas-admin/views/pages/auth/register/index.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/index.tsx",
+        "components/pages/saas-admin/views/apps/users/list/index.tsx",
+        "components/pages/saas-admin/views/apps/users/view/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
         "lib/utils.ts",
-        "components/pages/calendar-data.ts",
-        "components/motion/button/index.tsx",
-        "components/pages/customer-book-data.ts",
-        "components/pages/inbox-data.ts",
-        "components/pages/task-board-data.ts",
-        "lib/ease.ts",
+        "components/pages/saas-admin/components/layout/AppearanceCustomizer.tsx",
+        "components/pages/saas-admin/components/layout/ModeToggle.tsx",
+        "components/pages/saas-admin/components/shared/LanguageDropdown.tsx",
+        "components/pages/saas-admin/components/shared/ProfileDropdown.tsx",
+        "components/ui/breadcrumb.tsx",
+        "components/ui/button.tsx",
+        "components/ui/separator.tsx",
+        "components/pages/saas-admin/assets/svg/logo.tsx",
+        "components/pages/saas-admin/configs/navConfig.tsx",
+        "components/pages/saas-admin/configs/themeConfig.ts",
+        "components/ui/collapsible.tsx",
+        "components/ui/dropdown-menu.tsx",
+        "components/ui/input.tsx",
+        "components/ui/sheet.tsx",
+        "lib/hooks/use-mobile.ts",
+        "components/pages/saas-admin/views/apps/surface.ts",
+        "components/pages/saas-admin/views/apps/ai-chat/data.ts",
+        "components/agents/code-block.tsx",
+        "components/agents/prompt-input.tsx",
+        "components/agents/reasoning.tsx",
+        "components/agents/suggestion.tsx",
+        "components/motion/agent-thread/index.tsx",
+        "components/ui/badge.tsx",
+        "components/pages/saas-admin/views/apps/ai-usage/data.ts",
+        "components/ui/card.tsx",
+        "components/ui/progress.tsx",
+        "components/ui/table.tsx",
+        "components/pages/saas-admin/views/apps/calendar/data.ts",
+        "components/pages/saas-admin/views/datatables/basic/index.tsx",
+        "components/pages/saas-admin/views/datatables/filters/index.tsx",
+        "components/pages/saas-admin/views/datatables/pinnable-columns/index.tsx",
+        "components/pages/saas-admin/assets/svg/auth-background-shape.tsx",
+        "components/pages/saas-admin/components/shared/Logo.tsx",
+        "components/pages/saas-admin/views/pages/auth/forgot-password/forgot-password-form.tsx",
+        "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form.tsx",
+        "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form-with-icon.tsx",
+        "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form.tsx",
+        "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form-with-icon.tsx",
+        "components/pages/saas-admin/views/forms/form-validation/registration-demo-form.tsx",
+        "components/pages/saas-admin/views/forms/form-validation/validation-demos.tsx",
+        "components/pages/saas-admin/views/apps/kanban/data.ts",
+        "components/pages/saas-admin/use-submit.tsx",
+        "components/pages/saas-admin/views/pages/auth/login/login-form.tsx",
+        "components/pages/saas-admin/views/apps/mail/data.ts",
+        "components/ui/textarea.tsx",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/views/dashboards/charts/chart-sales-metrics.tsx",
+        "components/pages/saas-admin/views/dashboards/statistics/statistics-card-01.tsx",
+        "components/pages/saas-admin/views/dashboards/widgets/widget-product-insights.tsx",
+        "components/pages/saas-admin/views/dashboards/widgets/widget-total-earning.tsx",
+        "components/pages/saas-admin/views/datatables/datatable-transaction.tsx",
+        "components/pages/saas-admin/blocks/profile-background.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/user-profile-tabs.tsx",
+        "components/ui/avatar.tsx",
         "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/pages/saas-admin/views/pages/auth/register/register-form.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/user-settings-tabs.tsx",
+        "components/pages/saas-admin/views/apps/users/dialogs/add-edit-user-sheet.tsx",
+        "components/pages/saas-admin/hooks/use-user-app.ts",
+        "components/pages/saas-admin/views/apps/users/list/user-pagination.tsx",
+        "components/pages/saas-admin/views/apps/users/list/user-table.tsx",
+        "components/pages/saas-admin/views/apps/users/list/user-table-filters.tsx",
+        "components/pages/saas-admin/views/apps/users/list/user-table-toolbar.tsx",
+        "components/pages/saas-admin/views/apps/users/view/user-view-left-panel.tsx",
+        "components/pages/saas-admin/views/apps/users/view/user-view-tabs.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/pages/saas-admin/assets/svg/icon-layout-compact.tsx",
+        "components/pages/saas-admin/assets/svg/icon-layout-default.tsx",
+        "components/pages/saas-admin/assets/svg/icon-layout-full.tsx",
+        "components/pages/saas-admin/assets/svg/icon-sidebar-floating.tsx",
+        "components/pages/saas-admin/assets/svg/icon-sidebar-inset.tsx",
+        "components/pages/saas-admin/assets/svg/icon-sidebar-sidebar.tsx",
+        "components/ui/field.tsx",
+        "components/ui/popover.tsx",
+        "components/ui/select.tsx",
+        "components/ui/toggle-group.tsx",
+        "lib/ease.ts",
+        "components/agents/agent-code.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/select.tsx",
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/agent-thread/cards.tsx",
+        "components/motion/agent-thread/status.tsx",
+        "components/pages/saas-admin/views/datatables/basic/basic-datatable.tsx",
+        "components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx",
+        "components/pages/saas-admin/views/datatables/pinnable-columns/pinnable-columns-datatable.tsx",
+        "components/ui/input-group.tsx",
+        "components/ui/radio-group.tsx",
+        "components/ui/alert.tsx",
+        "components/ui/checkbox.tsx",
+        "components/ui/chart.tsx",
+        "components/pages/saas-admin/blocks/delete-confirmation.tsx",
+        "components/pages/saas-admin/hooks/use-pagination.ts",
+        "components/ui/pagination.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/connections/index.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/profile/index.tsx",
+        "components/ui/tabs.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/general/index.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/workspace/index.tsx",
+        "components/pages/saas-admin/views/apps/users/list/user-table-columns.tsx",
+        "components/ui/label.tsx",
+        "components/pages/saas-admin/configs/mailConfig.ts",
+        "components/pages/saas-admin/views/apps/users/view/tabs/account-tab.tsx",
+        "components/pages/saas-admin/views/apps/users/view/tabs/billing-tab.tsx",
+        "components/pages/saas-admin/views/apps/users/view/tabs/connections-tab.tsx",
+        "components/pages/saas-admin/views/apps/users/view/tabs/notifications-tab.tsx",
+        "components/pages/saas-admin/views/apps/users/view/tabs/security-tab.tsx",
+        "components/ui/toggle.tsx",
         "components/motion/button/base.tsx",
         "components/motion/button/magnetic.tsx",
         "components/motion/button/metallic.tsx",
         "components/motion/button/stateful.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/motion/text-shimmer.tsx",
+        "components/ui/alert-dialog.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/profile/about-section.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/profile/activity-timeline.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/profile/connections.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/profile/profile-project-datatable.tsx",
+        "components/pages/saas-admin/views/pages/user-profile/profile/teams.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/general/connect-account.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/general/danger-zone.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/general/email-password.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/general/personal-info.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/general/social-url.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/workspace/danger-zone.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-data.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-detail.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-name.tsx",
+        "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-organizations.tsx",
+        "components/pages/saas-admin/types/apps/mail-types.ts",
+        "components/pages/saas-admin/views/apps/users/view/activity-timeline.tsx",
+        "components/pages/saas-admin/views/apps/users/view/projects-datatable.tsx",
+        "components/pages/saas-admin/assets/svg/facebook-icon.tsx",
+        "components/pages/saas-admin/assets/svg/github-icon.tsx",
+        "components/pages/saas-admin/assets/svg/linkedin-icon.tsx",
+        "components/pages/saas-admin/assets/svg/twitter-icon.tsx",
+        "components/ui/switch.tsx",
         "lib/hooks/use-hover-capable.ts",
-        "components/motion/magnetic.tsx"
+        "components/motion/magnetic.tsx",
+        "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
+        "components/ui/dialog.tsx",
+        "components/ui/command.tsx"
       ],
-      "sourceVersion": "a7402c1b91b3d92277ea7c4511d221afe5cef9f6b28af156ee4efc9a764f26b0",
+      "sourceVersion": "b7713dcec92cdb9e58d8d689bc558d14cee5b906cb3af6ae529da4957ad15743",
       "installTargets": [
-        "admin-workspace-site"
+        "saas-admin-site"
       ]
     },
     {
@@ -1363,7 +2481,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "63866aae16ba9b6dcae97c52a646f17144f4e12a422f781f30a68517735fff8e",
+      "sourceVersion": "3805ca4afcd588d555c2edf95fc949b1909a70a4ecfe20d718d879e0e60695a9",
       "installTargets": [
         "tilt-card"
       ]
@@ -1404,7 +2522,7 @@
         "lib/utils.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "e03272198f3f8330076f790086b3b106c487785c295d2f7f9c87513adb322777",
+      "sourceVersion": "44458160dcd20a1803d8b0fa7b54c199994ebbed787ab3e3ef5724b0aaa9891f",
       "installTargets": [
         "button",
         "button-base",
@@ -1440,7 +2558,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "f19251969232b94a873fe2520754d4ec45e5b127bbcbb14fd33bed9b0e531fca",
+      "sourceVersion": "ecb3f0982a8ef633b7346ba72a93ac620f67e5a7bd0775a394e72177921bb6b9",
       "installTargets": [
         "button",
         "button-base",
@@ -1477,7 +2595,7 @@
         "lib/hooks/use-hover-capable.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "1333db22f6aab41ba16f02ac1b0a59303a6a7c3e5951d9e6466683fd5602c396",
+      "sourceVersion": "c62a95013c47fac5310281d2be2f23178f7f2f9f96a0dc8fd5db14292961f5b4",
       "installTargets": [
         "button",
         "button-base",
@@ -1515,7 +2633,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "f527925d631644a7a5ef7b274410a666fe54d9aa6a4016f3ec151f2d3a313b36",
+      "sourceVersion": "922a6f001fe4974c91db93dd2376ee76a5b5eb6b97a77f13931d41ceb74efc76",
       "installTargets": [
         "button",
         "button-base",
@@ -1552,7 +2670,7 @@
         "lib/utils.ts",
         "lib/hooks/use-hover-capable.ts"
       ],
-      "sourceVersion": "e3f25cb210ee18ad9dbb89157029c397fba12ddea5804f7b861d7f51d1ebf9a8",
+      "sourceVersion": "780e3ea7d1c3e6086510540f760ea672d446e698e32e7790ddb7611393e0fbfd",
       "installTargets": [
         "button",
         "button-base",
@@ -1616,7 +2734,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "3f8d55eec8bbe76a683ba91d5f61802f58798f072ee81fc383bb9ff96bb38c30",
+      "sourceVersion": "3a58247f6488ed2621ff4c7a88661cd484bd4efa89214cdeba0dd4e06a5ba2ef",
       "installTargets": [
         "tabs"
       ]
@@ -1646,7 +2764,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "eb6db66bf0788d0641cf89c3cf9a67f0d3c16b8990e07c20cc62c0286fde868e",
+      "sourceVersion": "e7db68b73a5c0646997ce25572f724885efb01744c2f2cedec739258b81a7bb4",
       "installTargets": [
         "switch"
       ]
@@ -1682,7 +2800,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "fbe5ff6cf12a020b0b1b2a6b3a1c748805f47e39a3d18fc21b319a90cf2125e2",
+      "sourceVersion": "5a422b5b9f1c44b0494d9f9f419ed8144d3602cc727d579a3d92bf00044a263a",
       "installTargets": [
         "input"
       ]
@@ -1713,7 +2831,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "2210dcb4d1c4c9ad88b614e87e6c42c346ebf5f33850eb908efdfa2f07611261",
+      "sourceVersion": "ced0c9d920f5374a36b0b9c01bf8e240e92f6c047f3094854dab5e1a844c7e91",
       "installTargets": [
         "select",
         "select-morph"
@@ -1744,7 +2862,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "e87a170831f48250e61a5c85a1ec3ece2259058f5dca6f61b6628cda3d87da18",
+      "sourceVersion": "1a85d4404c2f642880de0f1dbb930dce5b43550de3134a14265f6b25cabe221a",
       "installTargets": [
         "select",
         "select-morph"
@@ -1776,7 +2894,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "09a02004a2caced170c948037e9b30e81b5ae160acfa7caa68efb2d04ac9c1e7",
+      "sourceVersion": "df63be8871bfb28cdbc7287767e427643d3ff05e18e364456d9e1d1aa94734da",
       "installTargets": [
         "checkbox"
       ]
@@ -1807,7 +2925,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "86a6b270d188c2689e2c51d547dcb0b0d62af154ca77812bbf9be0381bc37fd4",
+      "sourceVersion": "4427a9fc9d82c91ab61c6f1e68f9048f8774436a4715da4e9648b9972e5f9765",
       "installTargets": [
         "radio"
       ]
@@ -1841,7 +2959,7 @@
         "lib/hooks/use-modal-dialog.ts",
         "lib/hooks/use-modal-scroll-lock.ts"
       ],
-      "sourceVersion": "fa3d79010419f4e4077209793cfa962d1522a637b7da15fa53b3e0b6d74ef807",
+      "sourceVersion": "ba6b15cd5f08901e9a0cc7f334b31782b79d8233c01b1632162c91de78a681c6",
       "installTargets": [
         "bottom-sheet"
       ]
@@ -1872,7 +2990,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "87cea3f5a67bd9f1611ced792389d2e9257c69e7164511e07beedd96322b0f88",
+      "sourceVersion": "cb42634e3a71ddb0f783bda2d66e07d7b032a39aa401bdfb194787aa9a27ead1",
       "installTargets": [
         "shared-layout-bg"
       ]
@@ -1915,7 +3033,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "235a83f400b8f078900f46322fd61085ba118f43ade96c202703779a406fda01",
+      "sourceVersion": "bc85a77269be345be13bbacd670f3729c4579e8a500790ce8c9dd00255f2fc21",
       "installTargets": [
         "preview-rail"
       ]
@@ -1946,7 +3064,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "4216117971e3966dc02a2c6353c18f3b599c7074f8ee5ed75e0d2ee02082a230",
+      "sourceVersion": "aa2aac8838ccd12064ac53c8f704346a70221263235b1f191154df341f0ef146",
       "installTargets": [
         "dock"
       ]
@@ -1983,7 +3101,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "fb8eed31c068953ed4e22b584a896345f84a8fe0b2e25cd069922d79b0ddccf3",
+      "sourceVersion": "458e49d63bc3c423d85e7ce884bca10a12445f52f67c340c04ff1e82d2cdd64e",
       "installTargets": [
         "tooltip",
         "tooltip-morph"
@@ -2021,7 +3139,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "e5367b1284846206b226a4ceaffd9fff4b09e23e914b28db615072fb8b437ed8",
+      "sourceVersion": "1273fd2f44f777d3ca997942df4608ad6c43a20cd7621bf7d820c369d6066010",
       "installTargets": [
         "tooltip",
         "tooltip-morph"
@@ -2061,7 +3179,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "42d5ad7f05157aacd78ba805cbc74877b09d4f58da646020121b14479bc6bf6d",
+      "sourceVersion": "3619fe581b792ccfec83a6029f77b63956c2e1063ab684c39e394572eb55cb61",
       "installTargets": [
         "popover",
         "popover-morph"
@@ -2102,7 +3220,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "8d7b6299c5834348f6151c75adfc93ae7bb364f7c6d409810ddab29fe6a34f83",
+      "sourceVersion": "a8b9319cbe21fe3a3665cb4f17c530881a80bc4ed893aa61d52b52a85c2f45f3",
       "installTargets": [
         "popover",
         "popover-morph"
@@ -2134,7 +3252,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "57e5d9672c3458f9dde530aea6d5cb0c0fa46e7fb5a4d963ef9295ed19b5c033",
+      "sourceVersion": "19ee7ff282ad4fe83ebeb49788bd574ea5da9533eee0855e77257bfceab4d1e3",
       "installTargets": [
         "morphing-modal"
       ]
@@ -2170,7 +3288,7 @@
         "lib/utils.ts",
         "components/motion/action-swap.tsx"
       ],
-      "sourceVersion": "29021bba21b99231df7b43f8beeeb4c5d6d552126e6d32119b20121e14277520",
+      "sourceVersion": "e7282fbe2c5ff3d3073b050b1743f9d02015818f8b2d4d76220665a08cac1fdf",
       "installTargets": [
         "text-animation",
         "text-reveal",
@@ -2204,7 +3322,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "b1f752005d86fc121d89ae526feb9c9dc69fbaf265c1c16c1485c321daa01b06",
+      "sourceVersion": "d35c421ed88780334bda8a2e1d1fe35fb4849e91d2f985e8fc7e8f5de4faeafb",
       "installTargets": [
         "text-animation",
         "text-reveal",
@@ -2271,7 +3389,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "c00e950b9ef435955360f01421d68683bd81928cb1db546ecad73ae9cce8167e",
+      "sourceVersion": "b4bd2643026bd3e5443e6e6519655f75339b9a1edc00f9df1c7b50e8e3c8b9d8",
       "installTargets": [
         "text-animation",
         "text-reveal",
@@ -2307,7 +3425,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "2376ae650bf60de8caee87f98412885fc8f291f5bb963e0bbfdf231abda24ab5",
+      "sourceVersion": "83adda55d2e0b9a158b0b4d4270597908e5a69b247a5dc9b55be72caa0d630dd",
       "installTargets": [
         "number",
         "number-ticker",
@@ -2340,7 +3458,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "4ca96ad8eae322c4046fcca0452b0c40794026a994b213b2d0445c7b7a0c9a8c",
+      "sourceVersion": "d613c224c9f40ba9bff6186dfc93ed60162d8599516fd51461bf8a4adec64bec",
       "installTargets": [
         "number",
         "number-ticker",
@@ -2373,7 +3491,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "0056421de50a01a301d5b33d93fab8dc4fa0564d96737e197348b25ced4b980d",
+      "sourceVersion": "348dc3d1308827aaed9b6f4b290e0bdb30121e0231029c177f0eca34ea726b66",
       "installTargets": [
         "number",
         "number-ticker",
@@ -2406,7 +3524,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "f1bef1c0d05e0d84fe78dbf25c475de4bba39d3bf3230e26929898afa2e650ef",
+      "sourceVersion": "b45eaa6378ddbac30936292e685947bdeadb14c2221ddc321d9bff72d0b4c480",
       "installTargets": [
         "animated-badge"
       ]
@@ -2443,7 +3561,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "7378d9997f417fc06ac7593e84aeab4147553336c499518d090186854459f3f1",
+      "sourceVersion": "7ebe542ccb53d9f7372c75093ec317d7e8b8a3bc4fb9a78a0f0aaefacc1ea522",
       "installTargets": [
         "action-swap",
         "action-swap-cascade",
@@ -2478,7 +3596,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "6d08ac00363647d74b1e245a03755ea7f119637e53fda3ff108989fc9df2500c",
+      "sourceVersion": "e0b55f16a00473a81cec1c99b27615524c07cfe0c3fbaf682357c3e728bb9cd2",
       "installTargets": [
         "action-swap",
         "action-swap-cascade",
@@ -2513,7 +3631,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "9a3c3c4fa6ee96cca0c5e853ca61e9b221c223534214dd729255b2c1e33d5461",
+      "sourceVersion": "df3520f8e9496f74bed1d08d2d091253da09ebe83d344892a72b318ada561ca3",
       "installTargets": [
         "action-swap",
         "action-swap-cascade",
@@ -2548,7 +3666,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "e87a61e180829b3e06a885a7e52e8471b98571e113452bda7118c0fa0e900452",
+      "sourceVersion": "c11dfd9f032784238a1c4f6543cf73d3a6897b055f56782b26d6d799f3e34084",
       "installTargets": [
         "action-swap",
         "action-swap-cascade",
@@ -2582,7 +3700,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "6c4f3100179cb13311e3d2508edcaffc80234240cfd332479b1b8e8496841dc8",
+      "sourceVersion": "aa43e86933eadbd6e35be8cfb6314bb16191bad4a75d1a82b40233cfb3afb444",
       "installTargets": [
         "animated-toast-stack"
       ]
@@ -2614,7 +3732,7 @@
         "lib/utils.ts",
         "lib/ease.ts"
       ],
-      "sourceVersion": "2aaa6c962c8b24a95e9b1e532758edf62b8b6e8b106959282f04eebde90f4219",
+      "sourceVersion": "0b571808e2eddf7e54d37644ee489f25d3be530d56cad24d67e81901e9162933",
       "installTargets": [
         "theme-toggle"
       ]
@@ -2645,7 +3763,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "31fb5b657f696ed9a18fd94712ec5ea20b3ede65b0e374f3c443dd5a78c22dd7",
+      "sourceVersion": "5c770976bd5b42a40bbc80bc0001fe6cacf549d92fec09a35329b69a58a51a8f",
       "installTargets": [
         "bouncy-accordion"
       ]
@@ -2679,7 +3797,7 @@
         "lib/hooks/use-modal-dialog.ts",
         "lib/hooks/use-modal-scroll-lock.ts"
       ],
-      "sourceVersion": "d0f3aca29416b34659282054a980ef9ed99638fac511c81831fd4be678553240",
+      "sourceVersion": "0b57aa8471f3a527f6d761ae1a1ba22bb2779ad43a5ec9f715853d1b95a33b5c",
       "installTargets": [
         "drawer"
       ]
@@ -2725,7 +3843,7 @@
         "lib/utils.ts",
         "lib/ease.ts"
       ],
-      "sourceVersion": "ac3adaeed84d2d2ff585bc6c5c9ac17716d07d0c7908b334bcdf7d8f61259a64",
+      "sourceVersion": "b475153ec9355b4421a6b8cfc1616caf0d52055d631da2cade54bb7933a13209",
       "installTargets": [
         "scroll-animation",
         "smooth-scroll",
@@ -2766,7 +3884,7 @@
         "components/motion/smooth-scroll.tsx",
         "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "c6f03835c5f60915db832b3097b7242b7914a5f3a7924fde5d7ecb3d2b34cc0b",
+      "sourceVersion": "b7296d96d7bb061b693a5e1107b160fe0dd0a460d5b9d692ed2b8f80d06c7914",
       "installTargets": [
         "scroll-animation",
         "smooth-scroll",
@@ -2809,7 +3927,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "527a23409f53e3fe68fd476db2357f78738a815727e6e59617289bfcc0a7f72b",
+      "sourceVersion": "dd3e16741d1d79e264de7f79d4a4801c961828bd1f53e8ab8a6ace6159188544",
       "installTargets": [
         "scroll-animation",
         "smooth-scroll",
@@ -2851,7 +3969,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "2c0d6dce34d01e86f2ebec2ad53c70399e7f91b73ad2765ebcda01b3953983e3",
+      "sourceVersion": "29686ebfe084159cc1fafada1188be816df73931af26079f5aae0b1082b2a864",
       "installTargets": [
         "scroll-animation",
         "smooth-scroll",
@@ -2894,7 +4012,7 @@
         "lib/utils.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "46562163493925bcee5786f755d0113b9581c54935e93c0a22f5fdd3d36d7517",
+      "sourceVersion": "0fb9ff90e052142169212969fc657e9db285099d71efd6d9cab90c85e359f863",
       "installTargets": [
         "scroll-animation",
         "smooth-scroll",
@@ -2937,7 +4055,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "033c9277d4fbc7f323db685981459fcaa633427f1d8d0e875ee5057d41d42bc6",
+      "sourceVersion": "88d7c558e63251543de92afce491f61496e3a4a29acf003782d23d715bacebf6",
       "installTargets": [
         "scroll-animation",
         "smooth-scroll",
@@ -2978,7 +4096,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "71e8117cc19ef548d129cc64867a53dea3c5b3d36d8b05617a0b637c8bc6f763",
+      "sourceVersion": "4b35e05befb238c8f9a37b62e0441a6397e3913798c20cbe576e2c8699e93d79",
       "installTargets": [
         "range-slider"
       ]
@@ -3017,7 +4135,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "e6338d680dad9283e68b03889b56f4893ad85544e3432bdf2df960964743282d",
+      "sourceVersion": "87e20e7e3ef4ae51350903cb74c60d35fd09add677ff111dcfb00aa7dc302326",
       "installTargets": [
         "wheel-picker"
       ]
@@ -3067,7 +4185,7 @@
         "components/motion/table/table-menu.tsx",
         "lib/ease.ts"
       ],
-      "sourceVersion": "0227a1f3ce5a0b6aea405b2dfa9ed2038ab7a0d4eac71bd536de01d34b6d0a60",
+      "sourceVersion": "726d1652243bccea1d4170524a6819e2ce1c90349ba610f593bdd03b550f3073",
       "installTargets": [
         "table",
         "table-editable",
@@ -3119,7 +4237,7 @@
         "components/motion/table/table-menu.tsx",
         "lib/ease.ts"
       ],
-      "sourceVersion": "0227a1f3ce5a0b6aea405b2dfa9ed2038ab7a0d4eac71bd536de01d34b6d0a60",
+      "sourceVersion": "726d1652243bccea1d4170524a6819e2ce1c90349ba610f593bdd03b550f3073",
       "installTargets": [
         "table",
         "table-editable",
@@ -3171,7 +4289,7 @@
         "components/motion/table/table-menu.tsx",
         "lib/ease.ts"
       ],
-      "sourceVersion": "0227a1f3ce5a0b6aea405b2dfa9ed2038ab7a0d4eac71bd536de01d34b6d0a60",
+      "sourceVersion": "726d1652243bccea1d4170524a6819e2ce1c90349ba610f593bdd03b550f3073",
       "installTargets": [
         "table",
         "table-editable",
@@ -3210,7 +4328,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "0995570d8ee6a4fc9be06ea07b6dc2a7682469fe3711bc872a2cddf34d356933",
+      "sourceVersion": "181b22f93f8b30e1412a820dd1a67fc904518c3482e9bd6c115ee957bae4ce51",
       "installTargets": [
         "shader-background"
       ]
@@ -3246,7 +4364,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "84bbe93badf01024274c4aedfe86721534229b667286218687263ecc036eea8d",
+      "sourceVersion": "abe05e6ae77c432c76f11ef0788edcac2be416520d137d4f50ac4332d1dfa863",
       "installTargets": [
         "cylinder-carousel"
       ]
@@ -3283,7 +4401,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "e99a64a0e5af9468796c2c52c39ddd838cbc5a6ae48cb8b46487c083887a8f3f",
+      "sourceVersion": "b77cea115bb2179fe9d972f35358ee93bd52d43482de21248f472fde9d7db5e1",
       "installTargets": [
         "loader"
       ]
@@ -3320,7 +4438,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "f022a15f8ecd7b3774a34ce03c924571ce30fbea35e2008d09eabf3bd91bd071",
+      "sourceVersion": "8bd8346b5557c08807570699f4280865190f332ec97d7883a40ada4f13a01de5",
       "installTargets": [
         "text-scramble"
       ]
@@ -3356,7 +4474,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "36fbed8b32fe493afa4187330b982f397417681f21252f48d1d4591d7261b853",
+      "sourceVersion": "48f1b3e0a98b81b75ae1ce4871c91498b693ab803ab92a247447ac452b503cf1",
       "installTargets": [
         "webgl-background"
       ]
@@ -3463,7 +4581,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "fecedb8082d309ef239a3c8ee14dde4fca97c629c0cb39afe6ec89303ca7d9a0",
+      "sourceVersion": "694356775a01874cbcdd2d1a7125c7ad823d5ade2ead312731c4e15b1da07d37",
       "installTargets": [
         "bounce-cards"
       ]
@@ -3500,7 +4618,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "ad9416e6464c64fbe222db7ff046ebf5e4fab25479e86d12deea8c1834f168d5",
+      "sourceVersion": "5332025c06a073ebd965095dc82d4cdfd8d71193b7a3c4afb161b02b82add0b4",
       "installTargets": [
         "glare-hover"
       ]
@@ -3605,7 +4723,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "85bc7d82761802414edccd08a8659f013b5a617418ace2ba909b05629956c3a7",
+      "sourceVersion": "19a3335610af259c0e8d90bbfc7c0af5f3c55e9d31a9601c5f57db02a673cff2",
       "installTargets": [
         "animated-icon"
       ]
@@ -3643,7 +4761,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "74da5b128d308748e52f82191aae152562fb7000fd1c385550cd259f9553e5b9",
+      "sourceVersion": "63744a6b6ff5603ba947284247ebb0f8b0bb28f451ba1cc1379023b766e096d5",
       "installTargets": [
         "dropdown-menu"
       ]
@@ -3680,7 +4798,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "9bd298207c6f4ecde58253bc8d2e7723b8f338d78d8fa9e7f642942af5994218",
+      "sourceVersion": "a3a9af4c9f682aadf163c8e28f20c0e3a9b149f1d157071cbfc64d192d58c4e6",
       "installTargets": [
         "expanding-card"
       ]
@@ -3716,7 +4834,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "6cd088ac03a61e2ff988369b2a97d39c3f37013a07c5ec3763a5307c71dda21e",
+      "sourceVersion": "258d2a51619092e3019766907981c38bf998cb20986cc08f4bedcc5051449d42",
       "installTargets": [
         "expandable-control"
       ]
@@ -3755,7 +4873,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "222fc06e2e20acb56302aa8e222bed052328ed34362ca97c749c74a706c6b71b",
+      "sourceVersion": "27fb48003e4d8703e8f6a8a44745940b0ace22daecba6f48460e637096ba62e1",
       "installTargets": [
         "file-tree"
       ]
@@ -3792,7 +4910,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "51d933d7de23ace2e96f61f21a97571d8959c94aabf7c0cb78b40df261136771",
+      "sourceVersion": "e249b56f88244ff426e608d7ac4152d0e4fb5664b8e29e1f057048a8cda6d74c",
       "installTargets": [
         "recording-card"
       ]
@@ -3830,7 +4948,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "03af456f37a370799f7cf482a5dfc2ce89a0bba50a6843488351978f26211cdc",
+      "sourceVersion": "6fcc9d498264a366011093750d86251ea58bec61b41cca643b6357182819cdc9",
       "installTargets": [
         "login-card"
       ]
@@ -3867,7 +4985,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "2669e5f9cceaf440385853b2b6456f4c3a8062d8286ea549b6c02022a4626d57",
+      "sourceVersion": "235940f380812294978d14b0ad178166c1d60cf5b470d3b26da41a62a3d60166",
       "installTargets": [
         "thread-list"
       ]
@@ -3904,7 +5022,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "8af8f5a4375b57db6137b6e57654074fdca0aaee0407047828e0320cc705f78f",
+      "sourceVersion": "513249db4325c79606955c1aa0fc56f132b95c6506a1b177ba3b504bd8412fab",
       "installTargets": [
         "artifact-panel"
       ]
@@ -3942,7 +5060,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "e607c58a9140e850bdb8c3a0b8031ab801fa6681096dfde776518f229c7eda9c",
+      "sourceVersion": "0c7ae5f5aef23006a5f8fdd49397629d2184b92eee508a453ea1ef0c2f9dc008",
       "installTargets": [
         "agent-inbox"
       ]
@@ -3980,7 +5098,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "52ec4207f3514dba622f9ed548f4afe2ea7afee775bcb1ec67c364785e15fe33",
+      "sourceVersion": "f7efba42f72ee44031a2d06589e0a17e0790a6325b767939db393619b1745db4",
       "installTargets": [
         "agent-trace"
       ]
@@ -4017,7 +5135,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "2221ce3642ffbf2ee4133265ade37a9336d323d9cad919ad4ad1b016fdd8b34c",
+      "sourceVersion": "94818e02ca40f432f1b827c7e7a83752d36a47029253a8a4c917fec030d9b336",
       "installTargets": [
         "streaming-json"
       ]
@@ -4054,7 +5172,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "6cbfdfa2b3c5450323baf930a16c0cd5c4dc57cb9ab632f5bb338dd9673a341d",
+      "sourceVersion": "d23b6f8bad76fa61c8a62e7354baf4851a8fd9d3ed7047919c45fbb38be699b8",
       "installTargets": [
         "citations"
       ]
@@ -4091,7 +5209,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "ce670b0481af8340ced76a9e972ec4e0d34bb466b5f878d7230166b31650be53",
+      "sourceVersion": "420f581c878967bd65c45bfbcc6b0ed38fa995cca6645d4828363e9c6658a52d",
       "installTargets": [
         "voice-orb"
       ]
@@ -4129,7 +5247,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "ed98287663fe050b7d095dab4277a53d08772f8857285a0ec90a567404cee9fd",
+      "sourceVersion": "1bc6e4b891886a956b960ea7be655be03a276182e6001c0521e7a1251542d20f",
       "installTargets": [
         "activity-stats"
       ]
@@ -4167,7 +5285,7 @@
         "lib/ease.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "e533805e8787f26e18357b76ca063ee21c051e308335c2efafb1c7deaad4ee05",
+      "sourceVersion": "bad8cf2dab6d37d16edeb36fb2426bb7c134794885e42f45ac0315b827eb777a",
       "installTargets": [
         "settings-panel"
       ]
@@ -4213,7 +5331,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "3987d5493a3ba0b59fbc02671220d689531e7dcc203da9e8850bfc2fd0b273e1",
+      "sourceVersion": "dc3d4ff0f214b7cd1e5c5cdbc643b5d4a1536d3f4efb2ecc4420d476cbe1d4cd",
       "installTargets": [
         "agent-thread"
       ]
@@ -4258,7 +5376,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "fa1b47fb23f6e3187ab6070142a67b3c56393ac81dad1dec4f655d827a012b1e",
+      "sourceVersion": "2712de0af29fc986cba11f895d668ce1e4c089827ccaeb1a1f76720ffacd2fb3",
       "installTargets": [
         "agent-composer"
       ]
@@ -4301,7 +5419,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "d2bd1182f956256aec6648e95d13671538555bb9ba2f799857245586d027ba8c",
+      "sourceVersion": "e62d9ac6059456019caf52e1e9e153ef5cbf06dc4943a764ec6919de54ecc7ab",
       "installTargets": [
         "agent-workbench"
       ]
@@ -4350,7 +5468,7 @@
         "components/motion/select.tsx",
         "lib/hooks/use-hover-capable.ts"
       ],
-      "sourceVersion": "f0e7c63342d40c7f67c4268f699f3f19423b09dbd284864f847b6e1ef48e4cb3",
+      "sourceVersion": "fcccd3599e3b702028b7194990bc6853ca96613909d25b3e6fe0aed94796caed",
       "installTargets": [
         "availability-scheduler"
       ]
@@ -4390,7 +5508,7 @@
         "lib/ease.ts",
         "components/motion/swap/token-badges.tsx"
       ],
-      "sourceVersion": "41150472db5c7317b5974d4edc98f3eb3efa0857f87467f9de5484c969646fa6",
+      "sourceVersion": "42f8a5c13ee8d13bd9078b6f52de79a66556a613ace0139c0cedec24b7152a26",
       "installTargets": [
         "swap"
       ]
@@ -4421,7 +5539,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "61ae2cb6013d76d97640ee18569ba54744261c2e4359ff2cd5646aaadffb8845",
+      "sourceVersion": "c16887a42a2e50a43fe182aed9d03798f1e31c4fdeba50af9211d185eb08d00b",
       "installTargets": [
         "dynamic-island"
       ]
@@ -4452,7 +5570,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "491bb51bfe9152fd6174251bb42592df37912cf2546ab32987f3d0464b6ba7b4",
+      "sourceVersion": "335512d8a8383c29817a84e7b255dc112de354ce97e49e8b1d34a9e5ac38a557",
       "installTargets": [
         "command-palette"
       ]
@@ -4491,7 +5609,7 @@
         "lib/hooks/use-row-cursor.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "62b01d7d68595c31e38e3782768751f78ee4400debb8fc04a35ed508f513aad8",
+      "sourceVersion": "627e9a26d3dcb0ef583f671300970d3d4ac813aaf9d38d1c1f037378b2f80454",
       "installTargets": [
         "morphing-search"
       ]
@@ -4521,7 +5639,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "fd9bfaeb01a84a6ae333af11e03534b6dc6a97d3f756238f2326486874588184",
+      "sourceVersion": "29ca39c171e7caa00ce9c71648ad08426e4808871cf0b0e7dd6d5e8c15fc84f8",
       "installTargets": [
         "expandable-action-bar"
       ]
@@ -4553,7 +5671,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "b9df75a3f77756678869a323cf46b78c0285d8e8ead70829bc917ff3ba7cacf7",
+      "sourceVersion": "ae604cdd02e5d3ab5dd2b9a07180800a398af053924542bd145df25adea02102",
       "installTargets": [
         "overflow-actions"
       ]
@@ -4584,7 +5702,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "4579df45535b80d0e7c6330d038cc88678eebd5b63d573253ba416b4a70e7787",
+      "sourceVersion": "b4f4856cd8323a677405be28d81c4308c03d9e1267e784a4a7d0ce257f65a769",
       "installTargets": [
         "expandable-tabs"
       ]
@@ -4614,7 +5732,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "6fe4b014e4a32a2f04958cdf0ddda25cb9f7d218ffcb562416ca839755d62792",
+      "sourceVersion": "ad1b2018b59e43d484ca819699476273bcca3dfd8e88111887d109334d8f978d",
       "installTargets": [
         "swipeable-list"
       ]
@@ -4645,7 +5763,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "03511a265771c9f0148450358d31f37d612f1f7586402fa4ec81d714e18957ea",
+      "sourceVersion": "0d61f2a2bbf6d85cdc6daf6494d7d310dfbcff0b281d04c72509f77acc37ca85",
       "installTargets": [
         "file-upload"
       ]
@@ -4681,7 +5799,7 @@
         "components/motion/button/base.tsx",
         "lib/hooks/use-hover-capable.ts"
       ],
-      "sourceVersion": "41b0788db36c8950e42e8673f1c8c2158443a5bd32f9a1a1fbac59c2cf3d9d50",
+      "sourceVersion": "7e1b2aa850ba428e7cde4e3037449a1fb933c558a269c27b5193dfb32d4134a9",
       "installTargets": [
         "prediction-market"
       ]
@@ -4736,7 +5854,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "5d88daa52ef204a06289222a412952fc577ba084130969d3314738f2a8d445cd",
+      "sourceVersion": "f4eff15ad22e765519a2d03020b3d9c4f0f327430180a8b73f4baf33207454e8",
       "installTargets": [
         "wallet-card"
       ]
@@ -4767,7 +5885,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "b619c124fadb23089f3e1c08f4fd9a3fd32fca3aa96a9cfb47ee19aa3b146e99",
+      "sourceVersion": "9b63d26babf71da7d0410290027418d34b9ca1ceb22b2ee5c4d3b77fc217413b",
       "installTargets": [
         "otp-input"
       ]
@@ -4798,7 +5916,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "ef02de0901b5c501f80e38bf4eedb650b6b80da5c399f35221b5ef463d7d023b",
+      "sourceVersion": "082319af3bc2cdcdc6a882eb26f21107c58aca47ad1723ba5ce703348cd935ed",
       "installTargets": [
         "bloom-menu"
       ]
@@ -4842,7 +5960,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "a6b2a37236b35564401e70cf356dfdd539040b76768dba4d6c76749c0d352c6d",
+      "sourceVersion": "de6175936117788aa0c0b4604bc39972fe7e6fbfdaf1a9f7b77678e0a5425a78",
       "installTargets": [
         "feedback-widget"
       ]
@@ -4888,7 +6006,7 @@
         "components/motion/magnetic.tsx",
         "components/motion/text-reveal.tsx"
       ],
-      "sourceVersion": "839b7825b68df7a62873701de7fe70f70777976527b35d07343018a1ce4eb593",
+      "sourceVersion": "dce7d81cab92cb27f6204ea66968aaa5d3c5200f7c4bcb7fc0f93264c1865109",
       "installTargets": [
         "not-found",
         "not-found-glitch",
@@ -4926,7 +6044,7 @@
         "lib/hooks/use-hover-capable.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "cf751d8dfba70e6a02c8d590d0ebfbda5278b6b681c63cd5a14207bfe49b12f5",
+      "sourceVersion": "056e087b1aa6f49e032c411142c1809746ce81d67f1415aba50ac790462fafec",
       "installTargets": [
         "not-found",
         "not-found-glitch",
@@ -4965,7 +6083,7 @@
         "lib/hooks/use-hover-capable.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "bc22168f4ded2b862a282f87bbde622316cec124152bf3cbbc9ed0567c96435f",
+      "sourceVersion": "fa033c7d75b205cfc28790ab396e55fbbd135cc3f0d97523e491ccc573f48818",
       "installTargets": [
         "not-found",
         "not-found-glitch",
@@ -5003,7 +6121,7 @@
         "lib/utils.ts",
         "lib/ease.ts"
       ],
-      "sourceVersion": "0be6ed64c39b6a293b9c341bb72ae26648005c2ac236465f885be5996fdf09e5",
+      "sourceVersion": "19cdc3527c8ef7c02dbe25affe976a3c3117d8a13b19eb641408ebd800cb2800",
       "installTargets": [
         "not-found",
         "not-found-glitch",
@@ -5041,7 +6159,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "c626dc58e5bfa214827fca614836dbc24223999368a050c3f1e8915694bd72cc",
+      "sourceVersion": "021e7c1cb4b2a311f186d0c8c2a82bac1f7489f0c701eaab17ce840ddffc52f0",
       "installTargets": [
         "not-found",
         "not-found-glitch",
@@ -5080,7 +6198,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "7f2db1f41079beb4eba524c48a748214e9e3cc7f804b2d63203ba236af785bc7",
+      "sourceVersion": "cfab3f7b3542b9abae4f4deadbd2a48b43b5abbbb887bcf53effa7d47934df5e",
       "installTargets": [
         "not-found",
         "not-found-glitch",
@@ -5131,7 +6249,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "46ca2c34f52ae381f9ac328e445b94493c7055928126ddc63e87fd89a134697e",
+      "sourceVersion": "d18662ad9171b033f546c93d41a4862bf65f8a86b25c1b6c57bebc518ea81860",
       "installTargets": [
         "step-form"
       ]
@@ -5183,7 +6301,7 @@
         "components/motion/button/stateful.tsx",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "cba6ecd2695e42d47c421b58e1b6e83472a09a435ffec1a689ceb7478b354b75",
+      "sourceVersion": "8271bc68aadd4ccb41afc721d615f8f16f52a297023fb2f95df881fead597112",
       "installTargets": [
         "empty-state",
         "empty-state-inbox",
@@ -5231,7 +6349,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "05948b3aae5aa6686b266efe91e8855d21e76d52a8846bad68b025bcc420b487",
+      "sourceVersion": "b3ed1c4490362cec7e4a877e2d7f28cf6d0450520f19f78e741599bf3401106e",
       "installTargets": [
         "empty-state",
         "empty-state-inbox",
@@ -5279,7 +6397,7 @@
         "components/motion/button/stateful.tsx",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "e35c6bcd1a5e4c8e21ee960cf7ebe8db75c6a747abfaee5df387b1cc0320d22d",
+      "sourceVersion": "c8be6d3c4319c79e9c3b96efd76ba70d9057e9fd05282047b39772a6bd419437",
       "installTargets": [
         "empty-state",
         "empty-state-inbox",
@@ -5327,7 +6445,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "f30bceb7903c23017244b466bcd65c8421c28fe642c78b73b38eaae68d253099",
+      "sourceVersion": "84be3b84047f90a3101a3019d728a105b80b3ab8db0d3e688aae12fd3806b1c0",
       "installTargets": [
         "empty-state",
         "empty-state-inbox",
@@ -5368,7 +6486,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "50c3629d2a99915c9bdc875b2f2788fd0abf429ee15e418b60efb80a0728d1ef",
+      "sourceVersion": "965967be4b1cd6c3bd2ef7b35f15be0d72bc7c73db4b1f5aa674b8a46a0c6617",
       "installTargets": [
         "prompt-bar"
       ]
@@ -5415,7 +6533,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "9b4fa4a23366aa7e33e9f932205a6e2a7186e21d46bb8b28caea78a6f8e209b5",
+      "sourceVersion": "a8cc7f2ffd2aca217f82f84d6b350f8001531f384e1011d22b50ce6e198ae73f",
       "installTargets": [
         "prompt-input"
       ]
@@ -5456,7 +6574,7 @@
         "lib/utils.ts",
         "components/motion/action-swap.tsx"
       ],
-      "sourceVersion": "d64ab8aec632337808c5aaaa6c389d00d601ca67d0c63d1962b48144e996219f",
+      "sourceVersion": "5186bb65837adb3a78346c88fd021fe95142b4e4b91df23489357f7a53a54623",
       "installTargets": [
         "todo-list"
       ]
@@ -5495,7 +6613,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "1ebe81b4c295610e3a7fd27b282f0e1672cdd8dc54a95888d57ddff95211a81b",
+      "sourceVersion": "745b45960853eed7cf98b0ee7c9a13c3fe435aa2c11b2a3c71a3f614a09ec058",
       "installTargets": [
         "code-block"
       ]
@@ -5548,7 +6666,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "549f3b4c785bcbb6c47af577523b9cff5a15de0428afdc1c89f72a88f8075365",
+      "sourceVersion": "6664134d276d9e1091c5eeded1657c258d84c8c4c0f912f9f5f0fa11db45dc68",
       "installTargets": [
         "approval-card"
       ]
@@ -5587,7 +6705,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "6294b24283ca226a31ad82295be45254ec45ee158e035acbeb91ab8171a5dbce",
+      "sourceVersion": "95ad5ca1e816da0515fcf17651c7c5a49db6a40746afa5af518566e3cbdf15ff",
       "installTargets": [
         "file-diff"
       ]
@@ -5628,7 +6746,7 @@
         "lib/utils.ts",
         "components/motion/action-swap.tsx"
       ],
-      "sourceVersion": "83ed003d64e51be778ba225881fccdf2df2625a6cfdfa9aa9305f7062b85ef6c",
+      "sourceVersion": "b51b966676135924b890e313269955c94d8b2582ff71e450dd8e87c397d24958",
       "installTargets": [
         "tool-result"
       ]
@@ -5669,7 +6787,7 @@
         "lib/utils.ts",
         "lib/favicon.ts"
       ],
-      "sourceVersion": "4cecd2c443382183c770098b597c6af144b771232ec13364efcb9aecafe99f30",
+      "sourceVersion": "f137dfac7e2e8df2677a36cd5dd7e1fdea94ef088c84d86fa56e728d3af4ca39",
       "installTargets": [
         "streaming-response"
       ]
@@ -5708,7 +6826,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "9304e2b07da243db8689888606c7f53ba3c1285b4ebc75337e2ac300f5d87036",
+      "sourceVersion": "0f9a5757acbf4f941f3cc3c7171e03ff805ea8aa17409f912d74bbcaf9a5ff87",
       "installTargets": [
         "image-generation"
       ]
@@ -5747,7 +6865,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "1aab2e007861e70c5a47b0497772a36baa20f89dfe66ff1d91044e8f67631b22",
+      "sourceVersion": "3ae15d0c0519abf33bce242cdc6f465face4e0f83f0d5b9ef56030ecb2ebec37",
       "installTargets": [
         "tool-approval"
       ]
@@ -5793,7 +6911,7 @@
         "lib/utils.ts",
         "components/motion/text-shimmer.tsx"
       ],
-      "sourceVersion": "62d65af79267835fa00b973846868faed42f570c7db2085a770de0b5a26552a9",
+      "sourceVersion": "fa26091f3684df97e17d2cc822225f992aded382454a39676b46a65b2eaa5c29",
       "installTargets": [
         "agent-activity"
       ]
@@ -5836,7 +6954,7 @@
         "lib/utils.ts",
         "lib/hooks/use-hover-capable.ts"
       ],
-      "sourceVersion": "2e1fb7b45817363eba88905711eadcf47894312136f7780c91c280e52a634eb3",
+      "sourceVersion": "a03361b4554776023458625e7c530d1df923932e16c644a562a61de10ea8006c",
       "installTargets": [
         "reasoning-text"
       ]
@@ -5874,7 +6992,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "be6f447224b46b49a6691e9c895e57e642d915651a4996a5ea4cb32f05799a0c",
+      "sourceVersion": "6a44b2936e9d89c7db30e2585446786a0135e8b4053ea7bc110c8063399e9670",
       "installTargets": [
         "agent-progress"
       ]
@@ -5925,7 +7043,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/motion/popover-morph.tsx"
       ],
-      "sourceVersion": "3d13e4d4dd81f89ddcd6fe3b588f6ea115516055fb54fbc94512c16620ea8a8e",
+      "sourceVersion": "67125b57c81a34452cbb7446258ea9f9bb486ba871e8db61ae72f05ab78bdad8",
       "installTargets": [
         "ai-sidebar"
       ]
@@ -5968,7 +7086,7 @@
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "0d1b4537d0fd92dcdb0a3e34e36cc42b3c5f048977d67637e39a315cf2de5a4b",
+      "sourceVersion": "72f7987bab864c00b299c753d1ff0f1a1ab6997a80ba0f7392ed497c8c16c291",
       "installTargets": [
         "reasoning"
       ]
@@ -6009,7 +7127,7 @@
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "f855f6919db562d723c9b6a0e1660ccd123d29b4f0ee21b438057737b369adec",
+      "sourceVersion": "fa3793e1fbb140e54bce0b373c92296e529aae381c4b8a33220e348d8f1c6652",
       "installTargets": [
         "chain-of-thought"
       ]
@@ -6050,7 +7168,7 @@
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "4fd73a063c33c21cc429101f4a55f5d6a37d19624b062a330dfba8a17a288799",
+      "sourceVersion": "6677025bfc3c1198050a53fc9a5edcd3d863651d6097038514d99226b93b955c",
       "installTargets": [
         "sources"
       ]
@@ -6129,7 +7247,7 @@
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "5b84b944f9a9c856cb5a1e499c2ca3a66a566bc007ae1fce0f8aa7d7626c2e17",
+      "sourceVersion": "09c2048e963d7e90adf0918a42872ef0887d0a61356b771de72cb4632f0216f7",
       "installTargets": [
         "plan"
       ]
@@ -6169,7 +7287,7 @@
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts"
       ],
-      "sourceVersion": "c919f9c2912fd81389ae30d9466450e384ec2d0f234e40d283df4eb2ff245242",
+      "sourceVersion": "0d9919630705e2252cae0af6cc3823618c63c784681118257b5791f0d2aea09d",
       "installTargets": [
         "task"
       ]
@@ -6216,7 +7334,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "f50f3f3235ed3ff73c154460044de24a06d8d54ebb2b3319fc3578ab6c3136dc",
+      "sourceVersion": "e10db00e600834a23000e41bbaaa6eb736a8677ed8762a74b3f27f40decdf762",
       "installTargets": [
         "queue"
       ]
@@ -6260,7 +7378,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "512c067f3f8ac4fef5955c6e01096fd097c6faad1ab4a7d2abb4681c8fa06ff7",
+      "sourceVersion": "532d6350e8972993439a6d78c641263672ca830a48335e2a4d8502d73d1fca80",
       "installTargets": [
         "confirmation"
       ]
@@ -6304,7 +7422,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "71048ed511234aedb4f6e1ffef1b0db6bc43429b89aeab3c1318c391336d8046",
+      "sourceVersion": "2af7272e8d536a479d8dbaca828bfe66b2a584278cc74594e9263bff043874e5",
       "installTargets": [
         "suggestion"
       ]
@@ -6380,7 +7498,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "ac28e9d4cdaa5d492c88b62ab0507ae079d7a0ce7bc9eaf95a7a6b2c8660aea6",
+      "sourceVersion": "e8a95a77287cf5037770a2f889f95ddd699150cfd652018bd151cbe55700ffc4",
       "installTargets": [
         "collapsible-sidebar"
       ]
@@ -6420,7 +7538,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "98666d62d5d04eb99720fef23a46c4d45397f4ce98212f8d4b648471a0022520",
+      "sourceVersion": "17145b02decfabd74692b5d52298786947308a297b02c191f1b2fe22dddb376b",
       "installTargets": [
         "upgrade-paywall"
       ]
@@ -6460,7 +7578,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "32269404ccd0d9eb6826603aa21cf316a43c14d755ceea395b05627c74ecb998",
+      "sourceVersion": "1b78b68edfd57e45fa8690aa729ce1de81e4b5f7572163475453eed2492e6553",
       "installTargets": [
         "view-layout-switch"
       ]
@@ -6502,9 +7620,89 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "lib/utils.ts"
       ],
-      "sourceVersion": "a091b8bc91b388a39ff4b2809548244701d84c22e445af75b2254d77f08d1a0d",
+      "sourceVersion": "b9c9fae38fff3ab76a7c4075ce40647d8b279860849af0d4c707554277664c6b",
       "installTargets": [
         "billing-plan-grid"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "layout",
+      "assetRole": "shell",
+      "slug": "saas-admin-shell",
+      "name": "SaaS Admin Shell",
+      "nameZh": "SaaS 后台外壳",
+      "aliases": [],
+      "description": "Responsive sidebar, header, document theme and consumer-owned page content.",
+      "descriptionZh": "响应式侧栏、顶栏与文档主题，页面内容由消费者提供。",
+      "pageUrl": "http://localhost:3000/components/layout/saas-admin-shell",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-shell.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-shell"
+      },
+      "sourceFile": "components/site-shells/saas-admin-shell.tsx",
+      "sourceFiles": [
+        "components/site-shells/saas-admin-shell.tsx"
+      ],
+      "installationFiles": [
+        "components/site-shells/saas-admin-shell.tsx",
+        "components/pages/saas-admin/components/layout/Footer.tsx",
+        "components/pages/saas-admin/components/layout/Header.tsx",
+        "components/pages/saas-admin/components/layout/Sidebar.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sidebar.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/components/layout/AppearanceCustomizer.tsx",
+        "components/pages/saas-admin/components/layout/ModeToggle.tsx",
+        "components/pages/saas-admin/components/shared/LanguageDropdown.tsx",
+        "components/pages/saas-admin/components/shared/ProfileDropdown.tsx",
+        "components/ui/breadcrumb.tsx",
+        "components/ui/button.tsx",
+        "components/ui/separator.tsx",
+        "components/pages/saas-admin/assets/svg/logo.tsx",
+        "components/pages/saas-admin/configs/navConfig.tsx",
+        "components/pages/saas-admin/configs/themeConfig.ts",
+        "components/ui/collapsible.tsx",
+        "components/ui/dropdown-menu.tsx",
+        "lib/utils.ts",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "components/ui/input.tsx",
+        "components/ui/sheet.tsx",
+        "components/ui/skeleton.tsx",
+        "lib/hooks/use-mobile.ts",
+        "components/pages/saas-admin/assets/svg/icon-layout-compact.tsx",
+        "components/pages/saas-admin/assets/svg/icon-layout-default.tsx",
+        "components/pages/saas-admin/assets/svg/icon-layout-full.tsx",
+        "components/pages/saas-admin/assets/svg/icon-sidebar-floating.tsx",
+        "components/pages/saas-admin/assets/svg/icon-sidebar-inset.tsx",
+        "components/pages/saas-admin/assets/svg/icon-sidebar-sidebar.tsx",
+        "components/ui/field.tsx",
+        "components/ui/popover.tsx",
+        "components/ui/select.tsx",
+        "components/ui/toggle-group.tsx",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/ui/avatar.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/ui/label.tsx",
+        "components/ui/toggle.tsx"
+      ],
+      "sourceVersion": "5e1f7494a219a6076dc2d1a106c7565fc09055afeec93e22f3138ce67b730bb3",
+      "installTargets": [
+        "saas-admin-shell"
       ]
     },
     {
@@ -9167,6 +10365,146 @@
           "chart-5": "oklch(0.55 0.11 120)",
           "chart-6": "oklch(0.62 0.11 165)",
           "font-sans": "Inter, 'Helvetica Neue', system-ui, sans-serif"
+        }
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "blue-ink",
+      "aliases": [
+        "brand theme",
+        "品牌主题"
+      ],
+      "name": "Blue Ink",
+      "nameZh": "蓝墨",
+      "description": "A blue-accented workspace theme with independently tuned light and dark schemes.",
+      "descriptionZh": "以蓝色为强调色，分别调校浅色与深色的工作区主题。",
+      "pageUrl": "http://localhost:3000/themes/blue-ink",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "blue-ink",
+        "command": "npx shadcn@latest add http://localhost:3000/r/theme-blue-ink.json",
+        "endpoint": "http://localhost:3000/themes/blue-ink.css"
+      },
+      "themePreview": {
+        "modes": [
+          "light",
+          "dark"
+        ],
+        "light": {
+          "background": "oklch(98% 0.006 260)",
+          "foreground": "oklch(15% 0 0)",
+          "card": "#ffffff",
+          "muted-foreground": "oklch(50% 0 0)",
+          "border": "oklch(15% 0 0 / 0.09)",
+          "primary": "oklch(48% 0.18 260)",
+          "primary-foreground": "#ffffff",
+          "success": "oklch(59.6% 0.145 163.225)",
+          "danger": "oklch(63.7% 0.237 25.331)",
+          "warning": "#e25507",
+          "wb-surface": "oklch(98% 0.006 260)",
+          "wb-accent": "oklch(48% 0.18 260)",
+          "wb-hairline": "rgb(0 0 0 / 0.12)",
+          "chart-1": "oklch(0.55 0.17 260)",
+          "chart-2": "oklch(0.68 0.17 320)",
+          "chart-3": "oklch(0.52 0.17 50)",
+          "chart-4": "oklch(0.70 0.17 110)",
+          "chart-5": "oklch(0.58 0.17 185)",
+          "chart-6": "oklch(0.65 0.17 230)",
+          "font-sans": "Geist, Inter, system-ui, sans-serif"
+        },
+        "dark": {
+          "background": "oklch(18% 0.014 260)",
+          "foreground": "oklch(96% 0 0)",
+          "card": "oklch(22% 0.017 260)",
+          "muted-foreground": "oklch(62% 0 0)",
+          "border": "rgb(255 255 255 / 0.05)",
+          "primary": "oklch(77% 0.11 260)",
+          "primary-foreground": "oklch(18% 0.03 260)",
+          "success": "#40c977",
+          "danger": "#fa423e",
+          "warning": "#ff8549",
+          "wb-surface": "oklch(18% 0.014 260)",
+          "wb-accent": "oklch(77% 0.11 260)",
+          "wb-hairline": "rgb(255 255 255 / 0.157)",
+          "chart-1": "oklch(0.52 0.11 260)",
+          "chart-2": "oklch(0.64 0.11 320)",
+          "chart-3": "oklch(0.50 0.11 50)",
+          "chart-4": "oklch(0.66 0.11 110)",
+          "chart-5": "oklch(0.55 0.11 185)",
+          "chart-6": "oklch(0.62 0.11 230)",
+          "font-sans": "Geist, Inter, system-ui, sans-serif"
+        }
+      }
+    },
+    {
+      "kind": "design-system",
+      "category": "workbench",
+      "slug": "saas-admin-default",
+      "aliases": [
+        "brand theme",
+        "品牌主题"
+      ],
+      "name": "SaaS Admin Default",
+      "nameZh": "后台默认",
+      "description": "Neutral light and dark tokens from the upstream frontend template.",
+      "descriptionZh": "保留上游前端模板的 neutral 明暗主题及侧栏颜色。",
+      "pageUrl": "http://localhost:3000/themes/saas-admin-default",
+      "fetch": {
+        "method": "copy-tokens",
+        "value": "saas-admin-default",
+        "command": "npx shadcn@latest add http://localhost:3000/r/theme-saas-admin-default.json",
+        "endpoint": "http://localhost:3000/themes/saas-admin-default.css"
+      },
+      "themePreview": {
+        "modes": [
+          "light",
+          "dark"
+        ],
+        "light": {
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.145 0 0)",
+          "card": "oklch(1 0 0)",
+          "muted-foreground": "oklch(0.556 0 0)",
+          "border": "oklch(0.922 0 0)",
+          "primary": "oklch(0.205 0 0)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "success": "oklch(59.6% 0.145 163.225)",
+          "danger": "oklch(63.7% 0.237 25.331)",
+          "warning": "#e25507",
+          "wb-surface": "oklch(1 0 0)",
+          "wb-accent": "oklch(0.205 0 0)",
+          "wb-hairline": "rgb(0 0 0 / 0.12)",
+          "chart-1": "oklch(0.646 0.222 41.116)",
+          "chart-2": "oklch(0.6 0.118 184.704)",
+          "chart-3": "oklch(0.398 0.07 227.392)",
+          "chart-4": "oklch(0.828 0.189 84.429)",
+          "chart-5": "oklch(0.769 0.188 70.08)",
+          "chart-6": "oklch(0.646 0.222 41.116)",
+          "font-sans": "var(--font-geist-sans, ui-sans-serif), ui-sans-serif, system-ui, sans-serif"
+        },
+        "dark": {
+          "background": "oklch(0.145 0 0)",
+          "foreground": "oklch(0.985 0 0)",
+          "card": "oklch(0.205 0 0)",
+          "muted-foreground": "oklch(0.708 0 0)",
+          "border": "oklch(1 0 0 / 10%)",
+          "primary": "oklch(0.922 0 0)",
+          "primary-foreground": "oklch(0.205 0 0)",
+          "success": "#40c977",
+          "danger": "#fa423e",
+          "warning": "#ff8549",
+          "wb-surface": "oklch(0.145 0 0)",
+          "wb-accent": "oklch(0.922 0 0)",
+          "wb-hairline": "rgb(255 255 255 / 0.157)",
+          "chart-1": "oklch(0.488 0.243 264.376)",
+          "chart-2": "oklch(0.696 0.17 162.48)",
+          "chart-3": "oklch(0.769 0.188 70.08)",
+          "chart-4": "oklch(0.627 0.265 303.9)",
+          "chart-5": "oklch(0.645 0.246 16.439)",
+          "chart-6": "oklch(0.488 0.243 264.376)",
+          "font-sans": "var(--font-geist-sans, ui-sans-serif), ui-sans-serif, system-ui, sans-serif"
         }
       }
     },

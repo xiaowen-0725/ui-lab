@@ -1,0 +1,51 @@
+{
+  "baselineSourceVersion": "1dc842c5355c93a0a9c77dfaa3e2b9b4ebf93fdc372a512655663a7f21b7268e",
+  "currentSourceVersion": "1e55debcf9d40f68d43d67ac2ee1d26751a0f835aee56691b1770575f13b5ba0",
+  "officialPrimitives": {
+    "components/ui/alert-dialog.tsx": true,
+    "components/ui/alert.tsx": true,
+    "components/ui/avatar.tsx": true,
+    "components/ui/badge.tsx": true,
+    "components/ui/breadcrumb.tsx": true,
+    "components/ui/button.tsx": true,
+    "components/ui/card.tsx": true,
+    "components/ui/chart.tsx": true,
+    "components/ui/checkbox.tsx": true,
+    "components/ui/collapsible.tsx": true,
+    "components/ui/command.tsx": true,
+    "components/ui/dialog.tsx": true,
+    "components/ui/dropdown-menu.tsx": true,
+    "components/ui/field.tsx": true,
+    "components/ui/input-group.tsx": true,
+    "components/ui/input.tsx": true,
+    "components/ui/label.tsx": true,
+    "components/ui/pagination.tsx": true,
+    "components/ui/popover.tsx": true,
+    "components/ui/progress.tsx": true,
+    "components/ui/radio-group.tsx": true,
+    "components/ui/scroll-area.tsx": true,
+    "components/ui/select.tsx": true,
+    "components/ui/separator.tsx": true,
+    "components/ui/sheet.tsx": true,
+    "components/ui/sidebar.tsx": true,
+    "components/ui/skeleton.tsx": true,
+    "components/ui/sonner.tsx": true,
+    "components/ui/switch.tsx": true,
+    "components/ui/table.tsx": true,
+    "components/ui/tabs.tsx": true,
+    "components/ui/textarea.tsx": true,
+    "components/ui/tooltip.tsx": true
+  },
+  "localImages": {
+    "count": 53,
+    "bytesUnchanged": true
+  },
+  "fonts": {
+    "count": 2,
+    "bytesUnchanged": true
+  },
+  "remoteImages": {
+    "count": 8,
+    "unchanged": true
+  }
+}

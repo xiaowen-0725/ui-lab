@@ -41,13 +41,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/scroll`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/atoms`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/inspiration`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${SITE}/sites/admin-workspace-site/demo`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    ...["board", "inbox", "calendar", "customers"].map((screen) => ({
-      url: `${SITE}/sites/admin-workspace-site/demo/${screen}`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
-      priority: 0.6,
-    })),
     { url: `${SITE}/inspiration/sites`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/inspiration/brands`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/docs/ai-agents`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

@@ -1,0 +1,53 @@
+$ bun run build
+CWD /tmp/uilab-saas-full-consumers/vite-app
+EXIT 0
+vite v6.1.0 building for production...
+transforming...
+✓ 3665 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                            0.40 kB │ gzip:   0.28 kB
+dist/assets/saas-admin-orders-page-VvwffmMg.css           95.31 kB │ gzip:  71.82 kB
+dist/assets/index-C14vONET.css                           370.43 kB │ gzip: 169.77 kB
+dist/assets/chevron-left-CCl6dYFU.js                       0.30 kB │ gzip:   0.25 kB
+dist/assets/search--bvx94LB.js                             0.34 kB │ gzip:   0.27 kB
+dist/assets/mail-B5ZwM51v.js                               0.39 kB │ gzip:   0.30 kB
+dist/assets/eye-S3bu7eyj.js                                0.42 kB │ gzip:   0.30 kB
+dist/assets/FieldItemContext-MIDO-zau.js                   0.58 kB │ gzip:   0.39 kB
+dist/assets/eye-off-C8EVL7Jc.js                            0.60 kB │ gzip:   0.38 kB
+dist/assets/textarea-C1fkUPsl.js                           0.68 kB │ gzip:   0.39 kB
+dist/assets/phone-BImbl0wm.js                              0.88 kB │ gzip:   0.45 kB
+dist/assets/trash-2-CIFRw16K.js                            1.13 kB │ gzip:   0.44 kB
+dist/assets/table-xbpKMfK0.js                              1.14 kB │ gzip:   0.46 kB
+dist/assets/use-pagination-aMHj-Xxl.js                     1.68 kB │ gzip:   0.83 kB
+dist/assets/badge-Bc3puiZk.js                              1.71 kB │ gzip:   0.81 kB
+dist/assets/page-frame-BofYrRyW.js                         1.72 kB │ gzip:   0.71 kB
+dist/assets/use-submit-yCKL_a3p.js                         2.16 kB │ gzip:   1.03 kB
+dist/assets/saas-admin-forgot-password-page-DBS2MtX1.js    2.17 kB │ gzip:   1.01 kB
+dist/assets/input-DFrx-JaS.js                              2.29 kB │ gzip:   1.19 kB
+dist/assets/input-group-DRiuGt2I.js                        2.53 kB │ gzip:   0.98 kB
+dist/assets/progress-BfF8W6YK.js                           2.70 kB │ gzip:   1.24 kB
+dist/assets/delete-confirmation-DTQKLhPI.js                3.37 kB │ gzip:   1.18 kB
+dist/assets/saas-admin-login-page-DKm68l6V.js              4.96 kB │ gzip:   1.69 kB
+dist/assets/saas-admin-register-page-VDob_EBf.js           5.00 kB │ gzip:   1.60 kB
+dist/assets/activity-timeline-primitives-CYX7qgg-.js       5.69 kB │ gzip:   1.59 kB
+dist/assets/checkbox-BcKVlamf.js                           6.43 kB │ gzip:   2.89 kB
+dist/assets/tabs-CuGVaSP2.js                              10.74 kB │ gzip:   4.09 kB
+dist/assets/auth-background-shape-EJ8LL-bG.js             11.14 kB │ gzip:   5.35 kB
+dist/assets/saas-admin-data-table-page-DL8dNLty.js        19.27 kB │ gzip:   5.41 kB
+dist/assets/saas-admin-profile-page-_OFAsgkC.js           29.66 kB │ gzip:   8.03 kB
+dist/assets/saas-admin-forms-page-Cvqx86ZA.js             39.15 kB │ gzip:   8.00 kB
+dist/assets/index-Ya-PefKl.js                             55.32 kB │ gzip:  14.76 kB
+dist/assets/saas-admin-users-page-DffTXhf7.js             89.18 kB │ gzip:  23.22 kB
+dist/assets/types-BHdDFt40.js                             90.38 kB │ gzip:  25.07 kB
+dist/assets/saas-admin-settings-page-BGhO-5K6.js          94.63 kB │ gzip:  28.14 kB
+dist/assets/saas-admin-orders-page-CnIP2Jsz.js           361.05 kB │ gzip: 108.33 kB
+dist/assets/index-BQaiPz2d.js                            808.96 kB │ gzip: 308.63 kB
+✓ built in 3.56s
+
+$ vite build
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

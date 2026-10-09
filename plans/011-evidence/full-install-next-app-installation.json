@@ -1,0 +1,1464 @@
+{
+  "sourceVersion": "1dc842c5355c93a0a9c77dfaa3e2b9b4ebf93fdc372a512655663a7f21b7268e",
+  "registryPayloadSha256": "47dcddc1e4cf7ec224d382820906913992259670839d8cbb8c21ae3b4874334e",
+  "lockSha256": "798f1b116c9cade952acbf91f327e6b37f190585a54ca28f471d52e97148a4db",
+  "dependencies": {
+    "@base-ui/react": "1.6.0",
+    "@hookform/resolvers": "5.4.0",
+    "@tanstack/react-table": "8.21.3",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "cmdk": "1.1.1",
+    "date-fns": "4.4.0",
+    "lucide-react": "1.16.0",
+    "next": "15.5.18",
+    "next-themes": "0.4.6",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-hook-form": "7.81.0",
+    "recharts": "3.8.0",
+    "shadcn": "4.21.4",
+    "sonner": "2.0.7",
+    "tailwind-merge": "3.6.0",
+    "tailwindcss": "4.1.18",
+    "tw-animate-css": "1.4.0",
+    "zod": "3.25.76"
+  },
+  "resolvedVersions": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "tailwindcss": "4.1.18",
+    "next": "15.5.18",
+    "@base-ui/react": "1.6.0",
+    "@hookform/resolvers": "5.4.0",
+    "@tanstack/react-table": "8.21.3",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "cmdk": "1.1.1",
+    "date-fns": "4.4.0",
+    "lucide-react": "1.16.0",
+    "next-themes": "0.4.6",
+    "react-hook-form": "7.81.0",
+    "recharts": "3.8.0",
+    "shadcn": "4.21.4",
+    "sonner": "2.0.7",
+    "tailwind-merge": "3.6.0",
+    "tw-animate-css": "1.4.0",
+    "zod": "3.25.76"
+  },
+  "modules": "/private/tmp/uilab-saas-full-consumers/next-app/node_modules",
+  "installedFiles": [
+    {
+      "path": "components/site-shells/saas-admin-site.tsx",
+      "originalSha256": "596256334b67b02492b211b5aa6dc145ae1f0bf17b32e905cd35385e0ec7afc0",
+      "installedSha256": "596256334b67b02492b211b5aa6dc145ae1f0bf17b32e905cd35385e0ec7afc0"
+    },
+    {
+      "path": "components/site-shells/saas-admin-shell.tsx",
+      "originalSha256": "97288688947780832cada40395101234344100c60e083f9246b2e45860faaeba",
+      "installedSha256": "97288688947780832cada40395101234344100c60e083f9246b2e45860faaeba"
+    },
+    {
+      "path": "components/pages/saas-admin-data-table-page.tsx",
+      "originalSha256": "cf75c5bf29ed242f2690d77590dcba1bc58ed9aff2c9d10fc7902cc0902f22b0",
+      "installedSha256": "cf75c5bf29ed242f2690d77590dcba1bc58ed9aff2c9d10fc7902cc0902f22b0"
+    },
+    {
+      "path": "components/pages/saas-admin-forgot-password-page.tsx",
+      "originalSha256": "57f56e152d98331c3e7a2c93c951e587ad84cff3f06ad9edc4e2d6ba5620cea8",
+      "installedSha256": "57f56e152d98331c3e7a2c93c951e587ad84cff3f06ad9edc4e2d6ba5620cea8"
+    },
+    {
+      "path": "components/pages/saas-admin-forms-page.tsx",
+      "originalSha256": "e37f3e1a0ca24d1ba24717013a0ab569b64c841705654d0bad3e88ddd73a1726",
+      "installedSha256": "e37f3e1a0ca24d1ba24717013a0ab569b64c841705654d0bad3e88ddd73a1726"
+    },
+    {
+      "path": "components/pages/saas-admin-login-page.tsx",
+      "originalSha256": "f1ac689e4fef2b12736926a1cd82bab5944d7751a8b63f3db399af75cd2dfba1",
+      "installedSha256": "f1ac689e4fef2b12736926a1cd82bab5944d7751a8b63f3db399af75cd2dfba1"
+    },
+    {
+      "path": "components/pages/saas-admin-orders-page.tsx",
+      "originalSha256": "73c4d75bf9fce50b9fb32cddd982adec624d04c7dca2b795640cf6c76402f152",
+      "installedSha256": "73c4d75bf9fce50b9fb32cddd982adec624d04c7dca2b795640cf6c76402f152"
+    },
+    {
+      "path": "components/pages/saas-admin-profile-page.tsx",
+      "originalSha256": "4519c89550c75e294d3af570174230ac3d8d172bd44ca0b40fa0711127733ae2",
+      "installedSha256": "4519c89550c75e294d3af570174230ac3d8d172bd44ca0b40fa0711127733ae2"
+    },
+    {
+      "path": "components/pages/saas-admin-register-page.tsx",
+      "originalSha256": "11a5872d497b4af1bc0e6234eafd96b2750ade7ec6f901a392a8bfdf5d313b12",
+      "installedSha256": "11a5872d497b4af1bc0e6234eafd96b2750ade7ec6f901a392a8bfdf5d313b12"
+    },
+    {
+      "path": "components/pages/saas-admin-settings-page.tsx",
+      "originalSha256": "79d9f33e068b619701a4a8dbd8862d60286ef2556258bc8cc4444e228b4da7b2",
+      "installedSha256": "79d9f33e068b619701a4a8dbd8862d60286ef2556258bc8cc4444e228b4da7b2"
+    },
+    {
+      "path": "components/pages/saas-admin-users-page.tsx",
+      "originalSha256": "cb66ead41855df2914058669e8e751b4ee5367abbb0a6897171dd42d01abda66",
+      "installedSha256": "cb66ead41855df2914058669e8e751b4ee5367abbb0a6897171dd42d01abda66"
+    },
+    {
+      "path": "components/pages/saas-admin/environment.tsx",
+      "originalSha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684",
+      "installedSha256": "559bc19ba3bc4bb75ade2e9e32751bc5378a65ca837cd2c0a678ba7029b80684"
+    },
+    {
+      "path": "components/pages/saas-admin/routes.ts",
+      "originalSha256": "6d65ebe1029b4d1743133c833ac7583c9d2d3e8c20e6d8a8501646bc82b545cb",
+      "installedSha256": "f67556f811f8e19318de6558f7836abd3eea9820d278ddab9fe40051c8cba542"
+    },
+    {
+      "path": "components/pages/saas-admin/theme.tsx",
+      "originalSha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb",
+      "installedSha256": "cadda40132055275e7e9093b420392f92c20ce7dda677491ec641c860530a6cb"
+    },
+    {
+      "path": "components/ui/sonner.tsx",
+      "originalSha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f",
+      "installedSha256": "b32e052950ca086c6534d4b6e31a4f4b79c6be275243593611295794d5ca020f"
+    },
+    {
+      "path": "components/ui/tooltip.tsx",
+      "originalSha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135",
+      "installedSha256": "f06b1d17c72e364faf52e1f683068b929a2be394db166b1d162df671efab2135"
+    },
+    {
+      "path": "components/pages/saas-admin/components/layout/Footer.tsx",
+      "originalSha256": "f0be3e4e3654e7fb73e5c111ded7cf31c66b76ceffa62274b91e32a9f1441e87",
+      "installedSha256": "f0be3e4e3654e7fb73e5c111ded7cf31c66b76ceffa62274b91e32a9f1441e87"
+    },
+    {
+      "path": "components/pages/saas-admin/components/layout/Header.tsx",
+      "originalSha256": "a8d68994e78ab76ccfd7ace19384aa6013ff4b4cdf6116b322657a19d6bc89a1",
+      "installedSha256": "a8d68994e78ab76ccfd7ace19384aa6013ff4b4cdf6116b322657a19d6bc89a1"
+    },
+    {
+      "path": "components/pages/saas-admin/components/layout/Sidebar.tsx",
+      "originalSha256": "9f2a520fd0c9d2cea175e096ef28c10a2684744420f5893be1e98abe974dfc7c",
+      "installedSha256": "9f2a520fd0c9d2cea175e096ef28c10a2684744420f5893be1e98abe974dfc7c"
+    },
+    {
+      "path": "components/ui/sidebar.tsx",
+      "originalSha256": "67db809dc640d1c72f3ef5a43348da4804a14606b661252da1a0471a8d43adb9",
+      "installedSha256": "ccffff0102933647db51097a1a1179c82cae6fc1f27b85f83085a8a4d4cf4384"
+    },
+    {
+      "path": "components/pages/saas-admin/page-frame.tsx",
+      "originalSha256": "58bc34a65cd0d00dbfe384aa6b03ed3273455feff382f10627bfe101b7460ecc",
+      "installedSha256": "58bc34a65cd0d00dbfe384aa6b03ed3273455feff382f10627bfe101b7460ecc"
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/index.tsx",
+      "originalSha256": "0c3006a9762d11c8fd52c9a8455f5a9a43ff80b158f393407c6f729d288fa22c",
+      "installedSha256": "0c3006a9762d11c8fd52c9a8455f5a9a43ff80b158f393407c6f729d288fa22c"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/auth/forgot-password/index.tsx",
+      "originalSha256": "e7851f841c3146a28fad7e75030e194274f2ac6c97d2cfc46a60dfd811adbaed",
+      "installedSha256": "e7851f841c3146a28fad7e75030e194274f2ac6c97d2cfc46a60dfd811adbaed"
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-layouts/horizontal/index.tsx",
+      "originalSha256": "21c563fdb3f7ed5e3fca1fd3f202b1bbdbd2a230df9eec72edf9db2841510008",
+      "installedSha256": "21c563fdb3f7ed5e3fca1fd3f202b1bbdbd2a230df9eec72edf9db2841510008"
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-layouts/vertical/index.tsx",
+      "originalSha256": "94bd0bc801ab93194723d21250afd8b336bf39f6e8732d8ad4faa0ceeb6708ad",
+      "installedSha256": "94bd0bc801ab93194723d21250afd8b336bf39f6e8732d8ad4faa0ceeb6708ad"
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-validation/index.tsx",
+      "originalSha256": "205de18ed584d5cb006315f175cd26d42f138ee905811ff1e3a9f9f24fc898db",
+      "installedSha256": "205de18ed584d5cb006315f175cd26d42f138ee905811ff1e3a9f9f24fc898db"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/auth/login/index.tsx",
+      "originalSha256": "dab656f6ec7a8624972b01c24b5d3b83632b7f4f058c43d57009d237ff6cdabf",
+      "installedSha256": "dab656f6ec7a8624972b01c24b5d3b83632b7f4f058c43d57009d237ff6cdabf"
+    },
+    {
+      "path": "components/pages/saas-admin/views/orders.tsx",
+      "originalSha256": "a0199762329e4909d291a6281cf7c97d964e1dcd195968d676e7db0565cd6ed5",
+      "installedSha256": "a0199762329e4909d291a6281cf7c97d964e1dcd195968d676e7db0565cd6ed5"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/index.tsx",
+      "originalSha256": "b10ba3d31658081d52a819c0922b36d7284644397f3af8c48efb055c135a957c",
+      "installedSha256": "b10ba3d31658081d52a819c0922b36d7284644397f3af8c48efb055c135a957c"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/auth/register/index.tsx",
+      "originalSha256": "d85304c4d6595c177b4f34c6002c02cf515c7d59902b508ce925af3498cd11f0",
+      "installedSha256": "d85304c4d6595c177b4f34c6002c02cf515c7d59902b508ce925af3498cd11f0"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/index.tsx",
+      "originalSha256": "d1cf262b7e0921b894913746b6a525cc21349dc952723f2fd5159d6ce4f41957",
+      "installedSha256": "d1cf262b7e0921b894913746b6a525cc21349dc952723f2fd5159d6ce4f41957"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/list/index.tsx",
+      "originalSha256": "f094dd442294c0ebe346a8dd324de918cc18e6f39623d7820b76a15c4288b1cf",
+      "installedSha256": "f094dd442294c0ebe346a8dd324de918cc18e6f39623d7820b76a15c4288b1cf"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/index.tsx",
+      "originalSha256": "29e3f51a453835b22a886ee14d44b96f962029fe3543b3fc04263c4fe1bfb6c0",
+      "installedSha256": "29e3f51a453835b22a886ee14d44b96f962029fe3543b3fc04263c4fe1bfb6c0"
+    },
+    {
+      "path": "components/pages/saas-admin/content.ts",
+      "originalSha256": "40cfaaad4a8548138657f9103f2b5fe3e36e0a46e8b9a917a6f639fd18ad9eca",
+      "installedSha256": "e2e0b6e5ba115c8f6b419a1b644fc7cbe594a1e720b9fea2ebfb0edf3ea72811"
+    },
+    {
+      "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+      "originalSha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3",
+      "installedSha256": "ab2357d7da36d943997cfb43118b932c017e167da1990d1121e5a4fbe3e95ef3"
+    },
+    {
+      "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+      "originalSha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361",
+      "installedSha256": "521a281e4559654a1ef7da0698ab8e1db3ede0885d00441fa7f628ad78731361"
+    },
+    {
+      "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+      "originalSha256": "7a0f7e472881784ff4a35a3a7df79aa5e36142e5796d45d541024489bd35a60d",
+      "installedSha256": "e873d862561032a558845bed3b5fe8af4c3d29cd8f12fa2e6ee9a4f8aaacc7d6"
+    },
+    {
+      "path": "components/pages/saas-admin/types/apps/user-types.ts",
+      "originalSha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5",
+      "installedSha256": "52e240457bc8ebcb3ccd47fa8205e9d4b1d28b2105bf755076f8839ea1d667f5"
+    },
+    {
+      "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+      "originalSha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f",
+      "installedSha256": "697abbc159a90435ce7c9f464bbd9a4668b2a86cc22f3f4db28a6d91bf014a5f"
+    },
+    {
+      "path": "components/pages/saas-admin/types/transaction-types.ts",
+      "originalSha256": "8d14e864c25f70a61789d7d72b63e2096eb2892e2dae56164fac20de2fdca3f6",
+      "installedSha256": "8b45358042ec4f6a9409e3c47b33454111cdaf08ecfd46ddf643a3ea1a205406"
+    },
+    {
+      "path": "components/pages/saas-admin/assets/font-license.ts",
+      "originalSha256": "15e30f2f78e7b79152b4687d2b0276075048ebd34317f3204cb6c478590677a0",
+      "installedSha256": "8edad7ec08173c62198cd7d1542a0cb830e1863513d33bcc3b4d63aea1845e53"
+    },
+    {
+      "path": "components/pages/saas-admin/styles.css",
+      "originalSha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069",
+      "installedSha256": "938eceeee0b91391d971829ab7d19054123555ee7dbcfb99cbd27a183f3e5069"
+    },
+    {
+      "path": "lib/theme-kits/blue-ink-colors.ts",
+      "originalSha256": "20ba5329efbdb239052682b12509d323d553a6f1edb32bccd37f10ca0ec3d8f4",
+      "installedSha256": "fc1eedd0de1cd69635b2a6e8c0aa27cbaeafea705220a91049f6a41b63ac7510"
+    },
+    {
+      "path": "lib/theme-kits/saas-admin-default-colors.ts",
+      "originalSha256": "75419294371cbc5c1de2b3ebbcdd3d3b73d9ccf3badc6bb08d47b5f426f8f568",
+      "installedSha256": "796cc006eccc1ff6ef1d08fef95c91a5ab4eea0c6fbecfb80edc4e7fcc0aded4"
+    },
+    {
+      "path": "lib/utils.ts",
+      "originalSha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d",
+      "installedSha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+    },
+    {
+      "path": "components/pages/saas-admin/components/layout/ModeToggle.tsx",
+      "originalSha256": "5a772bd2d68e1fd954323209ccb7e6efc5236824cd931c48183e3fd8a44f24df",
+      "installedSha256": "5a772bd2d68e1fd954323209ccb7e6efc5236824cd931c48183e3fd8a44f24df"
+    },
+    {
+      "path": "components/pages/saas-admin/components/shared/LanguageDropdown.tsx",
+      "originalSha256": "6069dc5667fd52b8882b13543dbf5cf158c9b3d4e18f805f3713e382ebaa1d69",
+      "installedSha256": "6069dc5667fd52b8882b13543dbf5cf158c9b3d4e18f805f3713e382ebaa1d69"
+    },
+    {
+      "path": "components/pages/saas-admin/components/shared/ProfileDropdown.tsx",
+      "originalSha256": "35432989cc71d99eb635772c312b72d9d64e5d24158a90ea4abdff631c6bd782",
+      "installedSha256": "35432989cc71d99eb635772c312b72d9d64e5d24158a90ea4abdff631c6bd782"
+    },
+    {
+      "path": "components/ui/breadcrumb.tsx",
+      "originalSha256": "8db4654954ee12e89da317a839572f214295e42833d5b4866f6d1a8c7540f6ac",
+      "installedSha256": "da726ff87dd157d42f3a265e267afc5df239a072822e806b7ba84d67fee27381"
+    },
+    {
+      "path": "components/ui/button.tsx",
+      "originalSha256": "c1a969b950e63fb5ad1cd7dc529404cdffaa0e935fd26e90a8837ebaad920f34",
+      "installedSha256": "348d066b863d3bd127e43f0c5350b4de9371076d5c59b050c6254d890b13a2fc"
+    },
+    {
+      "path": "components/ui/separator.tsx",
+      "originalSha256": "2025fff3dfcdd95b1765b9e4c9d34138d4aa5f9f10edccb6f92f89b9d6744dfe",
+      "installedSha256": "2025fff3dfcdd95b1765b9e4c9d34138d4aa5f9f10edccb6f92f89b9d6744dfe"
+    },
+    {
+      "path": "components/pages/saas-admin/assets/svg/logo.tsx",
+      "originalSha256": "389096bc790f109edba7a692881f569378bef5ee4ae5532d038df530b40968a4",
+      "installedSha256": "389096bc790f109edba7a692881f569378bef5ee4ae5532d038df530b40968a4"
+    },
+    {
+      "path": "components/pages/saas-admin/configs/navConfig.tsx",
+      "originalSha256": "fa51e54be73e8094a42e2f4cb352b4331a1840bf1b4e7d994e001a29851218c5",
+      "installedSha256": "fa51e54be73e8094a42e2f4cb352b4331a1840bf1b4e7d994e001a29851218c5"
+    },
+    {
+      "path": "components/pages/saas-admin/configs/themeConfig.ts",
+      "originalSha256": "9ba4671f10c082f556c72b5efbde83438112dc6355791bb1b37a2ae39cca7d07",
+      "installedSha256": "9ba4671f10c082f556c72b5efbde83438112dc6355791bb1b37a2ae39cca7d07"
+    },
+    {
+      "path": "components/ui/collapsible.tsx",
+      "originalSha256": "99671ac42b53237c4881ca26989a83d12a56737b35e4d70a71b5aa646ee92fe4",
+      "installedSha256": "99671ac42b53237c4881ca26989a83d12a56737b35e4d70a71b5aa646ee92fe4"
+    },
+    {
+      "path": "components/ui/dropdown-menu.tsx",
+      "originalSha256": "8ff01506d57c96a72c4149e6b9808a7687f277cf5b12530af356a655d3159ffa",
+      "installedSha256": "8ff01506d57c96a72c4149e6b9808a7687f277cf5b12530af356a655d3159ffa"
+    },
+    {
+      "path": "components/ui/input.tsx",
+      "originalSha256": "64d320ab4a7fd2b470ee389eb4918da786176464820fc0ca9e7b282a5d62f015",
+      "installedSha256": "0bf0e7fcea52ff9d87f94005459c772bd07c922dde2c6206294f2f102f153146"
+    },
+    {
+      "path": "components/ui/sheet.tsx",
+      "originalSha256": "efa87ddcac40ba735f89b8d9faa65eec303777bf435dd4dff79763caa736b4a9",
+      "installedSha256": "efa87ddcac40ba735f89b8d9faa65eec303777bf435dd4dff79763caa736b4a9"
+    },
+    {
+      "path": "components/ui/skeleton.tsx",
+      "originalSha256": "fb3cccce43216acbea067c45d8b20a333b17490e9f65a51e4c6749a1220b9801",
+      "installedSha256": "b1b57793e582fb5a4644feab87b1abb324e0a471d7b655ee52e3afdfd56e41f6"
+    },
+    {
+      "path": "lib/hooks/use-mobile.ts",
+      "originalSha256": "00307359caee36a448b945f9b590ea9deb4ec0be9d09ab7711008b2218cb81a8",
+      "installedSha256": "fb96708413ca753d7ebc3425ace7051ad407e5809a776f7d2ea5b94146cf1bdf"
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/basic/index.tsx",
+      "originalSha256": "45d50ee8df2e05a2fcf3a6a51abb1ff6bc07502719912e00ce92b9a1f7503203",
+      "installedSha256": "45d50ee8df2e05a2fcf3a6a51abb1ff6bc07502719912e00ce92b9a1f7503203"
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/filters/index.tsx",
+      "originalSha256": "d3a41efced2cc66d54c8423b54f39f152e822bd9a4f17c75097a4fbc5a56b681",
+      "installedSha256": "d3a41efced2cc66d54c8423b54f39f152e822bd9a4f17c75097a4fbc5a56b681"
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/pinnable-columns/index.tsx",
+      "originalSha256": "4919ef4dcad76603d0b2fe8cae8041e0550a2f9a3d23440efc32dd8916a8600f",
+      "installedSha256": "4919ef4dcad76603d0b2fe8cae8041e0550a2f9a3d23440efc32dd8916a8600f"
+    },
+    {
+      "path": "components/pages/saas-admin/assets/svg/auth-background-shape.tsx",
+      "originalSha256": "517d43c3e4673fed7b5990715cbf449f915d6fc350bc1edc2a6a3ff87260a35e",
+      "installedSha256": "517d43c3e4673fed7b5990715cbf449f915d6fc350bc1edc2a6a3ff87260a35e"
+    },
+    {
+      "path": "components/pages/saas-admin/components/shared/Logo.tsx",
+      "originalSha256": "5e8ec8156dafe841771d6f5fae1e27b7464e4b063899642b746aa27cd3a32c48",
+      "installedSha256": "5e8ec8156dafe841771d6f5fae1e27b7464e4b063899642b746aa27cd3a32c48"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/auth/forgot-password/forgot-password-form.tsx",
+      "originalSha256": "1db72726ce8cf2521bb0cbe53a1f19bb81e005ac28beedebf74d28c6d141d4f3",
+      "installedSha256": "1db72726ce8cf2521bb0cbe53a1f19bb81e005ac28beedebf74d28c6d141d4f3"
+    },
+    {
+      "path": "components/ui/card.tsx",
+      "originalSha256": "6d9ddb5941eee72b3a3a24cb42aadc259b50e318a54ccf2a8a8bd2dfe0c5d572",
+      "installedSha256": "40a970cb0938e887fcb4c31fecbe94c5733ea68e6967290681e8c9e4bf6a6885"
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form.tsx",
+      "originalSha256": "6e4a690d0e0caf65ad961143baec42d6c298b7994e112c82c9e225607f986821",
+      "installedSha256": "6e4a690d0e0caf65ad961143baec42d6c298b7994e112c82c9e225607f986821"
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form-with-icon.tsx",
+      "originalSha256": "9906b12de4ef511078034c58942d662680aad9acd6b7d04d5275834b6ee5fe8f",
+      "installedSha256": "9906b12de4ef511078034c58942d662680aad9acd6b7d04d5275834b6ee5fe8f"
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form.tsx",
+      "originalSha256": "87508872e86c63df6cc865d151f2b390335619ea83475158538e9eaeaec0d5b9",
+      "installedSha256": "87508872e86c63df6cc865d151f2b390335619ea83475158538e9eaeaec0d5b9"
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form-with-icon.tsx",
+      "originalSha256": "bedf1e161b4aeee2e12a36e2129c25f8d235d12d1d28048092d3bbf9840a35ea",
+      "installedSha256": "bedf1e161b4aeee2e12a36e2129c25f8d235d12d1d28048092d3bbf9840a35ea"
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-validation/registration-demo-form.tsx",
+      "originalSha256": "1d4f88910195925a175723c0a7654792be81cb0223dd3c93d020869fc84c0212",
+      "installedSha256": "1d4f88910195925a175723c0a7654792be81cb0223dd3c93d020869fc84c0212"
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-validation/validation-demos.tsx",
+      "originalSha256": "d4b919f967a0776b02ae6464167a331ab51f0d49e8cc6da8bb7636ac1dcd740c",
+      "installedSha256": "d4b919f967a0776b02ae6464167a331ab51f0d49e8cc6da8bb7636ac1dcd740c"
+    },
+    {
+      "path": "components/pages/saas-admin/use-submit.tsx",
+      "originalSha256": "da0c3cafd2dd4619ca43004479fe2e1dc22379772af90fc1cc13d0561d404fa1",
+      "installedSha256": "da0c3cafd2dd4619ca43004479fe2e1dc22379772af90fc1cc13d0561d404fa1"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/auth/login/login-form.tsx",
+      "originalSha256": "a523e6559a7286310c51ae687eace105c336abc8c08de2e3ca5af6a445d80fa8",
+      "installedSha256": "a523e6559a7286310c51ae687eace105c336abc8c08de2e3ca5af6a445d80fa8"
+    },
+    {
+      "path": "components/pages/saas-admin/assets/images.ts",
+      "originalSha256": "e445d36cee41ba73dca125e7ce996f514229b77af4da92b17266c9f442a4bf9b",
+      "installedSha256": "df428274ba1a853065c2be4d58db4d1a1a248d42a92bbbc14adfb9a22feb4a0c"
+    },
+    {
+      "path": "components/pages/saas-admin/views/dashboards/charts/chart-sales-metrics.tsx",
+      "originalSha256": "ab8406f41ed101b27625314dc832f8c5f0655fc231e421b84376de612db68aea",
+      "installedSha256": "ab8406f41ed101b27625314dc832f8c5f0655fc231e421b84376de612db68aea"
+    },
+    {
+      "path": "components/pages/saas-admin/views/dashboards/statistics/statistics-card-01.tsx",
+      "originalSha256": "2e89789063ceb3145b32c043a93f1f1131d18d97cbd514a598c2ea19144a8bee",
+      "installedSha256": "2e89789063ceb3145b32c043a93f1f1131d18d97cbd514a598c2ea19144a8bee"
+    },
+    {
+      "path": "components/pages/saas-admin/views/dashboards/widgets/widget-product-insights.tsx",
+      "originalSha256": "264cf01a407f8a18b69feab5d4cf6dcc18503b1fde211d8e4a3ed913ba00102c",
+      "installedSha256": "264cf01a407f8a18b69feab5d4cf6dcc18503b1fde211d8e4a3ed913ba00102c"
+    },
+    {
+      "path": "components/pages/saas-admin/views/dashboards/widgets/widget-total-earning.tsx",
+      "originalSha256": "6ecea86e9672a3dbf45b7b7a08974a0a951553331c43e5fe344bf6654038e953",
+      "installedSha256": "6ecea86e9672a3dbf45b7b7a08974a0a951553331c43e5fe344bf6654038e953"
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/datatable-transaction.tsx",
+      "originalSha256": "0339e196610c2f1b997528f5a361bbdaf37af78a17b05aa38a4be5b105f0e2d2",
+      "installedSha256": "0339e196610c2f1b997528f5a361bbdaf37af78a17b05aa38a4be5b105f0e2d2"
+    },
+    {
+      "path": "components/pages/saas-admin/blocks/profile-background.tsx",
+      "originalSha256": "6d6ab0d8258d66c4a395781545fb1d775f3cfbffef885cfecca900988059c87a",
+      "installedSha256": "6d6ab0d8258d66c4a395781545fb1d775f3cfbffef885cfecca900988059c87a"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/user-profile-tabs.tsx",
+      "originalSha256": "2464eb00ac7fcffb24b6ac00b3dd93ff1b0b4579b50fa986c6b37e6048a3c4d3",
+      "installedSha256": "2464eb00ac7fcffb24b6ac00b3dd93ff1b0b4579b50fa986c6b37e6048a3c4d3"
+    },
+    {
+      "path": "components/ui/avatar.tsx",
+      "originalSha256": "d5739ffbbb4b05aa03d4f14a76992da0700f8a922da8326c094af37e17f4a322",
+      "installedSha256": "d5739ffbbb4b05aa03d4f14a76992da0700f8a922da8326c094af37e17f4a322"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/auth/register/register-form.tsx",
+      "originalSha256": "3932787ccb977475d1248808c0746a2b385348d1f9e7e43d900f84978d8d4440",
+      "installedSha256": "3932787ccb977475d1248808c0746a2b385348d1f9e7e43d900f84978d8d4440"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/user-settings-tabs.tsx",
+      "originalSha256": "de4112db2197cd7619de923bbc26d2324aced0b34853381cda546af60db096be",
+      "installedSha256": "de4112db2197cd7619de923bbc26d2324aced0b34853381cda546af60db096be"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/dialogs/add-edit-user-sheet.tsx",
+      "originalSha256": "04e93c585c817ff571d59a9392d38cd99653e54edac5c2bc0e036505da426a86",
+      "installedSha256": "04e93c585c817ff571d59a9392d38cd99653e54edac5c2bc0e036505da426a86"
+    },
+    {
+      "path": "components/pages/saas-admin/hooks/use-user-app.ts",
+      "originalSha256": "c55d106f10b8d70a38a5bb0046c1a79521788179e39c374ca0e91c4cd09c8d2c",
+      "installedSha256": "c55d106f10b8d70a38a5bb0046c1a79521788179e39c374ca0e91c4cd09c8d2c"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/list/user-pagination.tsx",
+      "originalSha256": "52c66515df31c5cf50918c019188e9c043af979db695879674afc43f53cfded5",
+      "installedSha256": "52c66515df31c5cf50918c019188e9c043af979db695879674afc43f53cfded5"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/list/user-table.tsx",
+      "originalSha256": "580dcf9f1487ca1704020ce2c4b22226bcb0c6cb086caa220e7a98c6f7a3ef77",
+      "installedSha256": "580dcf9f1487ca1704020ce2c4b22226bcb0c6cb086caa220e7a98c6f7a3ef77"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/list/user-table-filters.tsx",
+      "originalSha256": "ab2798f79a7bd492219daf9b44a39af5a3759d09cccbfe9e38f12dc26b0c96dc",
+      "installedSha256": "ab2798f79a7bd492219daf9b44a39af5a3759d09cccbfe9e38f12dc26b0c96dc"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/list/user-table-toolbar.tsx",
+      "originalSha256": "b5e3889b547b001ce7636a1424f7d7bca3c255ce3995b98f0492fcbf2f771ec2",
+      "installedSha256": "b5e3889b547b001ce7636a1424f7d7bca3c255ce3995b98f0492fcbf2f771ec2"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/user-view-left-panel.tsx",
+      "originalSha256": "ea4cd370401f51ba4d1594d4e3533391491c5f7be331c82695c0bc8b6284e394",
+      "installedSha256": "ea4cd370401f51ba4d1594d4e3533391491c5f7be331c82695c0bc8b6284e394"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/user-view-tabs.tsx",
+      "originalSha256": "53b07ac70f16463c559c254672d00168b6e4166e83dbf49eb000d81d7791e58e",
+      "installedSha256": "53b07ac70f16463c559c254672d00168b6e4166e83dbf49eb000d81d7791e58e"
+    },
+    {
+      "path": "components/pages/saas-admin/assets/fonts.css",
+      "originalSha256": "76c2f97934c18de33c18d423bedf353fb50c72bca50ca4b769c6f99d75fb696d",
+      "installedSha256": "c18ff24c6fc008485f07e1586d0430444eccd8e32617a7f949b66e015fb9cc06"
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/basic/basic-datatable.tsx",
+      "originalSha256": "fdd6ed8ea7d1100113ed94d0bda8b9b5ae8c6b1bf3c52cd018d176c7986a3815",
+      "installedSha256": "fdd6ed8ea7d1100113ed94d0bda8b9b5ae8c6b1bf3c52cd018d176c7986a3815"
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx",
+      "originalSha256": "6913ebe3adcfc7c1e09d8029999d6fad563bc6849bc10e3a3214b8146a864ad6",
+      "installedSha256": "6913ebe3adcfc7c1e09d8029999d6fad563bc6849bc10e3a3214b8146a864ad6"
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/pinnable-columns/pinnable-columns-datatable.tsx",
+      "originalSha256": "7788ceb041b37dbb594ce31cb540996ff0b69f94576675cd3981c68f8b4252a6",
+      "installedSha256": "7788ceb041b37dbb594ce31cb540996ff0b69f94576675cd3981c68f8b4252a6"
+    },
+    {
+      "path": "components/ui/field.tsx",
+      "originalSha256": "5a41b1cdc45ac7d7dbda23da0b550f2ea64eceb7887b02a0faa33fcac7c125f3",
+      "installedSha256": "0fff283b29c5df89aa6ce03109f68b51f17e49043f33cb42a60ce48078b50e18"
+    },
+    {
+      "path": "components/ui/input-group.tsx",
+      "originalSha256": "2ebfc39e724886d75e0a80810d1a1b9f0bc9ed226ac746093facc47c2e3b9785",
+      "installedSha256": "113a589e802e08da36b0d0472ad2a01eef1b620e79323b51b68fa20cdebaea1a"
+    },
+    {
+      "path": "components/ui/textarea.tsx",
+      "originalSha256": "64ef8bfbb62f990bfc2256c670cf21428e13db0909ba5dc2e0222bdac52a2a82",
+      "installedSha256": "22dd06a461911158ff2152c2027a4cd934d2936eaad229ca281d411a85fec1cc"
+    },
+    {
+      "path": "components/ui/radio-group.tsx",
+      "originalSha256": "e23498b19cb1ca94349d7b7b7a236bedaa8b46168afeb732bc268926e410ea3a",
+      "installedSha256": "e23498b19cb1ca94349d7b7b7a236bedaa8b46168afeb732bc268926e410ea3a"
+    },
+    {
+      "path": "components/ui/select.tsx",
+      "originalSha256": "0816560b64855e5db3c1d19041f063330db590502424bc0a744868f03a54e925",
+      "installedSha256": "0816560b64855e5db3c1d19041f063330db590502424bc0a744868f03a54e925"
+    },
+    {
+      "path": "components/ui/alert.tsx",
+      "originalSha256": "61b5963b9b418e345307be628ddbfe45351e1672430440dc7751ffac858726ab",
+      "installedSha256": "b3f59094ee8bd5b117752b102620fed6b03f03c6f797c22d2435a13c4987098a"
+    },
+    {
+      "path": "components/ui/checkbox.tsx",
+      "originalSha256": "f523159fa8b55c8f084e79bfe523aa7c5a7b98399557d64960730ef3b82a6c76",
+      "installedSha256": "f523159fa8b55c8f084e79bfe523aa7c5a7b98399557d64960730ef3b82a6c76"
+    },
+    {
+      "path": "components/ui/chart.tsx",
+      "originalSha256": "e7f737ac7b6ed456505ab415ecf8011d0ee472629f443a1ed4de6a4e3dc28368",
+      "installedSha256": "7e451b8dbfed170c3b861d8632cebf4606725f2bec12aa9b6530a13ff5efe686"
+    },
+    {
+      "path": "components/ui/progress.tsx",
+      "originalSha256": "1ca17e16aad78e8907fb09d356e80f14885ca2415728dfb7ddd6121aafb5dde2",
+      "installedSha256": "1ca17e16aad78e8907fb09d356e80f14885ca2415728dfb7ddd6121aafb5dde2"
+    },
+    {
+      "path": "components/pages/saas-admin/hooks/use-pagination.ts",
+      "originalSha256": "eb5f686bce82d7cc61ad6785c2c2567c8910a85cb923ffecf0c68b353963296f",
+      "installedSha256": "eb5f686bce82d7cc61ad6785c2c2567c8910a85cb923ffecf0c68b353963296f"
+    },
+    {
+      "path": "components/ui/badge.tsx",
+      "originalSha256": "ab12ab225e8c2e4919b0076569bbb6bcf3be63aa4ef805d337b9afc031976274",
+      "installedSha256": "243693e184b8a694d03f81d53d082f6c2c1b7b5d8ed09272a66cdb4a6eff26e2"
+    },
+    {
+      "path": "components/ui/pagination.tsx",
+      "originalSha256": "32c9cd77f61c4c10dc1a5151df34129268e9d435cb1b124a65632d7066ba248b",
+      "installedSha256": "555c9eff2411f5fc1581a2c8ae1dd7f0f3ea41539fdbd2d41a6cb93cae6cda3f"
+    },
+    {
+      "path": "components/ui/table.tsx",
+      "originalSha256": "71c6931582cb4f1978346c9a79f54d4770fd83d2930965796693fc36a2979fa1",
+      "installedSha256": "71c6931582cb4f1978346c9a79f54d4770fd83d2930965796693fc36a2979fa1"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/connections/index.tsx",
+      "originalSha256": "c370ca10f7d74fa37e90774494960cffb73e144a6665173f662048fa87c324fa",
+      "installedSha256": "c370ca10f7d74fa37e90774494960cffb73e144a6665173f662048fa87c324fa"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/profile/index.tsx",
+      "originalSha256": "9182f2e7a16f98f61180722d0f6d24bc481f58221b60143d743ebfb0bd0d31cb",
+      "installedSha256": "9182f2e7a16f98f61180722d0f6d24bc481f58221b60143d743ebfb0bd0d31cb"
+    },
+    {
+      "path": "components/ui/tabs.tsx",
+      "originalSha256": "aa0a1c257b6d1a06be15c685f4ff01de8feeedded1c1de450700ffb96d61f9a6",
+      "installedSha256": "aa0a1c257b6d1a06be15c685f4ff01de8feeedded1c1de450700ffb96d61f9a6"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/general/index.tsx",
+      "originalSha256": "300a60867c589ba93eb9e1d5161a1317feb31940ca562ae735c0e0848c52c5de",
+      "installedSha256": "300a60867c589ba93eb9e1d5161a1317feb31940ca562ae735c0e0848c52c5de"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/workspace/index.tsx",
+      "originalSha256": "553737bc95ecee151de88484e33acc80c63e851bfa73849450458e098f235e78",
+      "installedSha256": "553737bc95ecee151de88484e33acc80c63e851bfa73849450458e098f235e78"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/list/user-table-columns.tsx",
+      "originalSha256": "909a7cf80526f52199d0c3cf8b454fd380cadf77acbcaae23a5df0a11eeb3330",
+      "installedSha256": "909a7cf80526f52199d0c3cf8b454fd380cadf77acbcaae23a5df0a11eeb3330"
+    },
+    {
+      "path": "components/ui/label.tsx",
+      "originalSha256": "1658aa0eb5e19da8c6c284b7892405a034bfeeac4b6ab5e6851626a195812e3e",
+      "installedSha256": "ecd569cf3e1b23f82e1979ea0e66d455a7f130b7359318a819344726c48e89e7"
+    },
+    {
+      "path": "components/pages/saas-admin/configs/mailConfig.ts",
+      "originalSha256": "599ba67f3a4f6e44a662cf05742f6d3c64aee85d6e84755b3d6a4a5ed15445da",
+      "installedSha256": "599ba67f3a4f6e44a662cf05742f6d3c64aee85d6e84755b3d6a4a5ed15445da"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/tabs/account-tab.tsx",
+      "originalSha256": "339f46561472660ff336cce22aca2acac5b6299908829637f9b0804a7f02ec43",
+      "installedSha256": "339f46561472660ff336cce22aca2acac5b6299908829637f9b0804a7f02ec43"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/tabs/billing-tab.tsx",
+      "originalSha256": "04f81e46915152d6ffd8fd9558cd1a7ba1d9a3b3f4d2ee5fb9ce7b9b130f8ca7",
+      "installedSha256": "04f81e46915152d6ffd8fd9558cd1a7ba1d9a3b3f4d2ee5fb9ce7b9b130f8ca7"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/tabs/connections-tab.tsx",
+      "originalSha256": "3300ef172d9a9176af9c59c32e991c61cd0ecea5a47a9d58686464f4aff0b4d1",
+      "installedSha256": "3300ef172d9a9176af9c59c32e991c61cd0ecea5a47a9d58686464f4aff0b4d1"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/tabs/notifications-tab.tsx",
+      "originalSha256": "6ca85b029de94a5ea4209b8503bc16a3f8061735c90326a64a9ff59a734c2a0d",
+      "installedSha256": "6ca85b029de94a5ea4209b8503bc16a3f8061735c90326a64a9ff59a734c2a0d"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/tabs/security-tab.tsx",
+      "originalSha256": "a368d3f7866fe6608ab48ef20ffeb91eb531eddf59cdaf934e46ed75617471b8",
+      "installedSha256": "a368d3f7866fe6608ab48ef20ffeb91eb531eddf59cdaf934e46ed75617471b8"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/profile/about-section.tsx",
+      "originalSha256": "2be87ce3148eba26cb5f1c57066b125aade0856cbf42b751e24dfd166207a50c",
+      "installedSha256": "2be87ce3148eba26cb5f1c57066b125aade0856cbf42b751e24dfd166207a50c"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/profile/activity-timeline.tsx",
+      "originalSha256": "14db6c29ef46170d8e3b5d6e85c38b9359eb00ccb2734f8b63b9161c5c8b3bcd",
+      "installedSha256": "97f85c647586a2754e51e08ad50d78be334eabe91587cf5941c918ed954e6357"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/profile/connections.tsx",
+      "originalSha256": "c33c172ec3852e688d47e2fbd818921ffde1e2aa76b209e3f887b6e05ac7250d",
+      "installedSha256": "c33c172ec3852e688d47e2fbd818921ffde1e2aa76b209e3f887b6e05ac7250d"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/profile/profile-project-datatable.tsx",
+      "originalSha256": "8172042410f388017fd604afe04070ecb9c2dc8f265158843913e3d6b0608af6",
+      "installedSha256": "8172042410f388017fd604afe04070ecb9c2dc8f265158843913e3d6b0608af6"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/profile/teams.tsx",
+      "originalSha256": "08c6a60c70dd29b0a6e0d919915f69d2bf2b1a3a4d805794569809fb5ce725e4",
+      "installedSha256": "08c6a60c70dd29b0a6e0d919915f69d2bf2b1a3a4d805794569809fb5ce725e4"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/general/connect-account.tsx",
+      "originalSha256": "b3ca8591985f37ca67ce885f0c7bfa6ab15fd1d3df566f134543d549ce8159e6",
+      "installedSha256": "b3ca8591985f37ca67ce885f0c7bfa6ab15fd1d3df566f134543d549ce8159e6"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/general/danger-zone.tsx",
+      "originalSha256": "c6279b7d29f3cf3b1b1a64e793de7dc4a455e4f1348fb84948a0293e45bbc97f",
+      "installedSha256": "c6279b7d29f3cf3b1b1a64e793de7dc4a455e4f1348fb84948a0293e45bbc97f"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/general/email-password.tsx",
+      "originalSha256": "444e7bbf6a035014892cabfaedb707be8d0b01a2d8bcb9ded7681d7a3a63d0dc",
+      "installedSha256": "fc26b8647ddd4ed0d7f8c1d1a64030125953644425252b68c853d6092a806d74"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/general/personal-info.tsx",
+      "originalSha256": "357434374cdeeea0cd53968949904e054ce0d1d56f0d2f26fddb24435fffa765",
+      "installedSha256": "357434374cdeeea0cd53968949904e054ce0d1d56f0d2f26fddb24435fffa765"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/general/social-url.tsx",
+      "originalSha256": "943a87f453b79b1dccefa1d150db380e06b8cf26a745fccdb07df8da7f276a79",
+      "installedSha256": "7886843458c6095f218456ba0472cb63588e01b54a553756ca6121c6affcd098"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/workspace/danger-zone.tsx",
+      "originalSha256": "29d36b3dc6eabe3ea2399d26d06e725a82e2fb067d4ca587665c67b00e3aa134",
+      "installedSha256": "29d36b3dc6eabe3ea2399d26d06e725a82e2fb067d4ca587665c67b00e3aa134"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-data.tsx",
+      "originalSha256": "8b7c0d874f002a7aa0f0e0de0a83abe7813db69e8705c226bd6fdee3fd47fed3",
+      "installedSha256": "8b7c0d874f002a7aa0f0e0de0a83abe7813db69e8705c226bd6fdee3fd47fed3"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-detail.tsx",
+      "originalSha256": "e35620836c2ed014abf0ebc51ef8711b0982cf4fb35bb899ef3d43da2779e122",
+      "installedSha256": "e35620836c2ed014abf0ebc51ef8711b0982cf4fb35bb899ef3d43da2779e122"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-name.tsx",
+      "originalSha256": "be4c3226c0bc1bf5faf4fdbd0c1eb525156f562523a56fd840b5a9987fe38531",
+      "installedSha256": "be4c3226c0bc1bf5faf4fdbd0c1eb525156f562523a56fd840b5a9987fe38531"
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-organizations.tsx",
+      "originalSha256": "6f213f6a0f693af9583a0163c823b64ac52fe7cc71fa2b3e68a8435e96d027e5",
+      "installedSha256": "6f213f6a0f693af9583a0163c823b64ac52fe7cc71fa2b3e68a8435e96d027e5"
+    },
+    {
+      "path": "components/pages/saas-admin/types/apps/mail-types.ts",
+      "originalSha256": "aa69d3ff473d8e5df54651283000d9d64d7ae89d77cbfcc3b9bb652af50d62ad",
+      "installedSha256": "aa69d3ff473d8e5df54651283000d9d64d7ae89d77cbfcc3b9bb652af50d62ad"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/activity-timeline.tsx",
+      "originalSha256": "a783f1c9c33f7fc3c6c79529ba60bc4fb21da34a85d8cd800c80fd163804b172",
+      "installedSha256": "03b22d02e2d95ec88bf6c9e1eff52047bd840bf756395d8d6e61eac1d603fa13"
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/projects-datatable.tsx",
+      "originalSha256": "2c0aa6e914d64274088619dc9b9293bd000d17adda926524bc195e76d0c7ec8b",
+      "installedSha256": "2c0aa6e914d64274088619dc9b9293bd000d17adda926524bc195e76d0c7ec8b"
+    },
+    {
+      "path": "components/pages/saas-admin/assets/svg/facebook-icon.tsx",
+      "originalSha256": "717bc4bbaa144f63d9589aed1305966de3d8a462f533862e6322805dfcb70130",
+      "installedSha256": "717bc4bbaa144f63d9589aed1305966de3d8a462f533862e6322805dfcb70130"
+    },
+    {
+      "path": "components/pages/saas-admin/assets/svg/github-icon.tsx",
+      "originalSha256": "d18ae1357f353e49c704b8970c81a3bd48f47d758ec0eb491f273344b18f605a",
+      "installedSha256": "d18ae1357f353e49c704b8970c81a3bd48f47d758ec0eb491f273344b18f605a"
+    },
+    {
+      "path": "components/pages/saas-admin/assets/svg/linkedin-icon.tsx",
+      "originalSha256": "7a6ac393921cd667b250e11208f534b97572b66675b3add2304c602d813c8425",
+      "installedSha256": "7a6ac393921cd667b250e11208f534b97572b66675b3add2304c602d813c8425"
+    },
+    {
+      "path": "components/pages/saas-admin/assets/svg/twitter-icon.tsx",
+      "originalSha256": "513c13846b6dc23a037deb5e2996945f5a26c68dd105a38a18b1563d71929859",
+      "installedSha256": "513c13846b6dc23a037deb5e2996945f5a26c68dd105a38a18b1563d71929859"
+    },
+    {
+      "path": "components/ui/switch.tsx",
+      "originalSha256": "d21c6fae3689f73abe3ad9e208195126ed9c5b5f2448e2039d37f3fcddc889e1",
+      "installedSha256": "d21c6fae3689f73abe3ad9e208195126ed9c5b5f2448e2039d37f3fcddc889e1"
+    },
+    {
+      "path": "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
+      "originalSha256": "ed0fef1c2749d33cd9304da6364e5451de160d7b512310a25cc7879f0c676df5",
+      "installedSha256": "e0fe389867c16526b29b42a2b42ab740b4dd390f05cd57746bf00b968d982f7e"
+    },
+    {
+      "path": "components/ui/dialog.tsx",
+      "originalSha256": "0a0715d6887a991650e9bf51a872cea696b90f520a865878127b0895cbf9ea85",
+      "installedSha256": "0a0715d6887a991650e9bf51a872cea696b90f520a865878127b0895cbf9ea85"
+    },
+    {
+      "path": "components/ui/command.tsx",
+      "originalSha256": "21d10f578b436b459e5769f117d9ee18885970a16a2900e4f7c43376f971f8cb",
+      "installedSha256": "21d10f578b436b459e5769f117d9ee18885970a16a2900e4f7c43376f971f8cb"
+    },
+    {
+      "path": "components/ui/popover.tsx",
+      "originalSha256": "b1672291fc9ab6d286bc0988381e1f869054388359519f9d39fa4d28cc0f0cc8",
+      "installedSha256": "b1672291fc9ab6d286bc0988381e1f869054388359519f9d39fa4d28cc0f0cc8"
+    }
+  ],
+  "licenses": [
+    {
+      "path": "components/ui/sonner.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/tooltip.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/components/layout/Footer.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/components/layout/Header.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/components/layout/Sidebar.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/sidebar.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/auth/forgot-password/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-layouts/horizontal/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-layouts/vertical/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-validation/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/auth/login/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/orders.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/auth/register/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/list/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/fake-db/apps/users.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/fake-db/transaction-samples.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/types/apps/user-types.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/types/pages/user-profile-types.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/types/transaction-types.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/assets/font-license.ts",
+      "notice": "SIL OPEN FONT LICENSE Version 1.1",
+      "preserved": true
+    },
+    {
+      "path": "lib/theme-kits/saas-admin-default-colors.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/components/layout/ModeToggle.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/components/shared/LanguageDropdown.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/components/shared/ProfileDropdown.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/breadcrumb.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/button.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/separator.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/assets/svg/logo.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/configs/navConfig.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/configs/themeConfig.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/collapsible.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/dropdown-menu.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/input.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/sheet.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/skeleton.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "lib/hooks/use-mobile.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/basic/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/filters/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/pinnable-columns/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/assets/svg/auth-background-shape.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/components/shared/Logo.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/auth/forgot-password/forgot-password-form.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/card.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form-with-icon.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form-with-icon.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-validation/registration-demo-form.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/forms/form-validation/validation-demos.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/auth/login/login-form.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/assets/images.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/dashboards/charts/chart-sales-metrics.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/dashboards/statistics/statistics-card-01.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/dashboards/widgets/widget-product-insights.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/dashboards/widgets/widget-total-earning.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/datatable-transaction.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/blocks/profile-background.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/user-profile-tabs.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/avatar.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/auth/register/register-form.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/user-settings-tabs.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/dialogs/add-edit-user-sheet.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/hooks/use-user-app.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/list/user-pagination.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/list/user-table.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/list/user-table-filters.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/list/user-table-toolbar.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/user-view-left-panel.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/user-view-tabs.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/assets/fonts.css",
+      "notice": "SIL OPEN FONT LICENSE Version 1.1",
+      "preserved": false
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/basic/basic-datatable.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/datatables/pinnable-columns/pinnable-columns-datatable.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/field.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/input-group.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/textarea.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/radio-group.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/select.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/alert.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/checkbox.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/chart.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/progress.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/hooks/use-pagination.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/badge.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/pagination.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/table.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/connections/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/profile/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/tabs.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/general/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/workspace/index.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/list/user-table-columns.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/label.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/configs/mailConfig.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/tabs/account-tab.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/tabs/billing-tab.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/tabs/connections-tab.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/tabs/notifications-tab.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/tabs/security-tab.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/profile/about-section.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/profile/activity-timeline.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/profile/connections.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/profile/profile-project-datatable.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-profile/profile/teams.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/general/connect-account.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/general/danger-zone.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/general/email-password.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/general/personal-info.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/general/social-url.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/workspace/danger-zone.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-data.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-detail.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-name.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/pages/user-settings/workspace/workspace-organizations.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/types/apps/mail-types.ts",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/activity-timeline.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/views/apps/users/view/projects-datatable.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/assets/svg/facebook-icon.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/assets/svg/github-icon.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/assets/svg/linkedin-icon.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/assets/svg/twitter-icon.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/switch.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/dialog.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/command.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    },
+    {
+      "path": "components/ui/popover.tsx",
+      "notice": "MIT License",
+      "preserved": true
+    }
+  ]
+}

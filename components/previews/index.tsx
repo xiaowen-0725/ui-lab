@@ -4,16 +4,27 @@ import type { ComponentType } from "react";
 // Every preview is a client component dragging the library + motion with it.
 // Lazy chunks keep a page's JS limited to the previews it actually renders.
 export const previews: Record<string, ComponentType> = {
-  "pages/saas-landing-page": dynamic(() => import("./pages/saas-landing-page.preview").then((m) => m.SaasLandingPagePreview)),
+ "pages/saas-admin-orders-page": dynamic(() => import("./pages/saas-admin-orders-page.preview").then(m => m.SaasAdminOrdersPagePreview)),
+ "pages/saas-admin-users-page": dynamic(() => import("./pages/saas-admin-users-page.preview").then(m => m.SaasAdminUsersPagePreview)),
+ "pages/saas-admin-profile-page": dynamic(() => import("./pages/saas-admin-profile-page.preview").then(m => m.SaasAdminProfilePagePreview)),
+ "pages/saas-admin-settings-page": dynamic(() => import("./pages/saas-admin-settings-page.preview").then(m => m.SaasAdminSettingsPagePreview)),
+ "pages/saas-admin-data-table-page": dynamic(() => import("./pages/saas-admin-data-table-page.preview").then(m => m.SaasAdminDataTablePagePreview)),
+ "pages/saas-admin-forms-page": dynamic(() => import("./pages/saas-admin-forms-page.preview").then(m => m.SaasAdminFormsPagePreview)),
+ "pages/saas-admin-login-page": dynamic(() => import("./pages/saas-admin-login-page.preview").then(m => m.SaasAdminLoginPagePreview)),
+ "pages/saas-admin-register-page": dynamic(() => import("./pages/saas-admin-register-page.preview").then(m => m.SaasAdminRegisterPagePreview)),
+ "pages/saas-admin-forgot-password-page": dynamic(() => import("./pages/saas-admin-forgot-password-page.preview").then(m => m.SaasAdminForgotPasswordPagePreview)),
+ "pages/saas-admin-kanban-page": dynamic(() => import("./pages/saas-admin-kanban-page.preview").then(m => m.SaasAdminKanbanPagePreview)),
+ "pages/saas-admin-mail-page": dynamic(() => import("./pages/saas-admin-mail-page.preview").then(m => m.SaasAdminMailPagePreview)),
+ "pages/saas-admin-calendar-page": dynamic(() => import("./pages/saas-admin-calendar-page.preview").then(m => m.SaasAdminCalendarPagePreview)),
+ "pages/saas-admin-ai-chat-page": dynamic(() => import("./pages/saas-admin-ai-chat-page.preview").then(m => m.SaasAdminAiChatPagePreview)),
+ "pages/saas-admin-ai-usage-page": dynamic(() => import("./pages/saas-admin-ai-usage-page.preview").then(m => m.SaasAdminAiUsagePagePreview)),
+ "sites/saas-admin-site": dynamic(() => import("./sites/saas-admin-site.preview").then(m => m.SaasAdminSitePreview)),
+ "layout/saas-admin-shell": dynamic(() => import("./layout/saas-admin-shell.preview").then(m => m.SaasAdminShellPreview)),
+	"pages/saas-landing-page": dynamic(() => import("./pages/saas-landing-page.preview").then((m) => m.SaasLandingPagePreview)),
   "pages/workbench-conversation-page": dynamic(() => import("./pages/workbench-conversation-page.preview").then((m) => m.WorkbenchConversationPagePreview)),
   "pages/workbench-artifact-page": dynamic(() => import("./pages/workbench-artifact-page.preview").then((m) => m.WorkbenchArtifactPagePreview)),
   "pages/workbench-settings-page": dynamic(() => import("./pages/workbench-settings-page.preview").then((m) => m.WorkbenchSettingsPagePreview)),
   "sites/agent-workbench-site": dynamic(() => import("./sites/agent-workbench-site.preview").then((m) => m.AgentWorkbenchSitePreview)),
-  "sites/admin-workspace-site": dynamic(() => import("./sites/admin-workspace-site.preview").then((m) => m.AdminWorkspaceSitePreview)),
-  "pages/task-board-page": dynamic(() => import("./pages/task-board-page.preview").then((m) => m.TaskBoardPagePreview)),
-  "pages/inbox-page": dynamic(() => import("./pages/inbox-page.preview").then((m) => m.InboxPagePreview)),
-  "pages/calendar-page": dynamic(() => import("./pages/calendar-page.preview").then((m) => m.CalendarPagePreview)),
-  "pages/customer-book-page": dynamic(() => import("./pages/customer-book-page.preview").then((m) => m.CustomerBookPagePreview)),
   "sections/navbar-simple": dynamic(() => import("./sections/navbar-simple.preview").then((m) => m.NavbarSimplePreview)),
   "sections/navbar-centered": dynamic(() => import("./sections/navbar-centered.preview").then((m) => m.NavbarCenteredPreview)),
   "sections/hero-centered": dynamic(() => import("./sections/hero-centered.preview").then((m) => m.HeroCenteredPreview)),
@@ -226,8 +237,7 @@ export const previews: Record<string, ComponentType> = {
   ),
   "motion/preview-rail": dynamic(() =>
     import("./motion/preview-rail.preview").then(
-      (m) => m.PreviewRailPreview,
-    ),
+      (m) => m.PreviewRailPreview),
   ),
   "motion/dock": dynamic(() =>
     import("./motion/dock.preview").then((m) => m.DockPreview),

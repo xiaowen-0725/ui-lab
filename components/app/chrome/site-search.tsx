@@ -55,14 +55,6 @@ const PAGES = [
   },
 ] as const;
 
-const ADMIN_DEMO = [
-  { slug: "overview", href: "/sites/admin-workspace-site/demo", zh: "管理工作区", en: "Admin workspace" },
-  { slug: "board", href: "/sites/admin-workspace-site/demo/board", zh: "任务板", en: "Task board" },
-  { slug: "inbox", href: "/sites/admin-workspace-site/demo/inbox", zh: "收件箱", en: "Inbox" },
-  { slug: "calendar", href: "/sites/admin-workspace-site/demo/calendar", zh: "日程", en: "Calendar" },
-  { slug: "customers", href: "/sites/admin-workspace-site/demo/customers", zh: "客户册", en: "Customer book" },
-] as const;
-
 const ICON_MOTION_SLUGS = new Set(ICON_MOTIONS.map((entry) => entry.slug));
 const MOTION_SLUGS = new Set(MOTIONS.map((entry) => entry.slug));
 const MOTION_ICON_SLUGS = new Set(
@@ -308,14 +300,6 @@ export function SiteSearch({ className }: { className?: string }) {
         icon: FileText,
         onSelect: () => router.push("/layouts"),
       },
-      ...ADMIN_DEMO.map((screen) => ({
-        id: `admin-demo-${screen.slug}`,
-        label: locale === "zh" ? screen.zh : screen.en,
-        group: tNav("sites"),
-        keywords: [screen.slug, screen.zh, screen.en, "admin", "管理", "应用", "northline"],
-        icon: LayoutTemplate,
-        onSelect: () => router.push(screen.href),
-      })),
       ...PAGES.map((page) => ({
         id: page.slug,
         label:
