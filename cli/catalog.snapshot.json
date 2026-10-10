@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T00:30:26.098Z",
+  "generatedAt": "2026-10-10T06:19:44.237Z",
   "count": 576,
   "items": [
     {
@@ -1016,7 +1016,7 @@
         "components/ui/alert.tsx",
         "components/ui/alert-dialog.tsx"
       ],
-      "sourceVersion": "5f9ee2b722f808bdcf57837983705a10162c78c88da9cdb95c7329d751abeb8f",
+      "sourceVersion": "3c3e555989f39345a3e3753604c95cdd4464a7a49d20755cc070ccef30693df9",
       "installTargets": [
         "saas-admin-orders-page"
       ]
@@ -1122,7 +1122,7 @@
         "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
         "components/ui/checkbox.tsx"
       ],
-      "sourceVersion": "e6fbd2241d029412f559bcd743c7db1583ee0d541a86355e1bce095711ec643d",
+      "sourceVersion": "6121213f4810a7af1c6305ac30876433eaae95c7571d27c197e9359a6cac045e",
       "installTargets": [
         "saas-admin-users-page"
       ]
@@ -1207,7 +1207,7 @@
         "components/ui/progress.tsx",
         "components/ui/table.tsx"
       ],
-      "sourceVersion": "9dbb5b35366439f6cccde3b8c5b82784d8d185308783a424b74e561a3fe179d6",
+      "sourceVersion": "0a2f8e9489f360c5c9af78510248db6f727d385972a88d1863929c73214f4e98",
       "installTargets": [
         "saas-admin-profile-page"
       ]
@@ -1294,7 +1294,7 @@
         "components/ui/popover.tsx",
         "components/ui/alert.tsx"
       ],
-      "sourceVersion": "b8714d83fa2c9abb36d2dcd59660749745cdc72a89d85db3d2ab14e98be71c5f",
+      "sourceVersion": "6a8bf3493d5fab9fb5c6e9a9dc1b5a1c56b4ee43198b323ef7b0a6538d97615e",
       "installTargets": [
         "saas-admin-settings-page"
       ]
@@ -1368,7 +1368,7 @@
         "components/ui/button.tsx",
         "components/ui/dropdown-menu.tsx"
       ],
-      "sourceVersion": "e52e1c5b1cb647810878865190b0fc7bee07da9156711658b3c570a2c23cf14c",
+      "sourceVersion": "b3df3674d2910943cec6690ad831443fbcd737d1b72604801d4f316d44d273fe",
       "installTargets": [
         "saas-admin-data-table-page"
       ]
@@ -1446,7 +1446,7 @@
         "components/ui/label.tsx",
         "components/ui/separator.tsx"
       ],
-      "sourceVersion": "610c9beace673f91ebcf860374cbdd16ad7b4c530f677a85eaa8f20f40ee3b80",
+      "sourceVersion": "0a61589f7221c5b9ac4c6499c5a3e062d65e9f2d9600319bf497032a8a291fb0",
       "installTargets": [
         "saas-admin-forms-page"
       ]
@@ -1520,7 +1520,7 @@
         "components/ui/label.tsx",
         "components/ui/textarea.tsx"
       ],
-      "sourceVersion": "0e7409e233cab7865c77ec2f9f5913c4e59a5f33ffe0019b97cdaee42034b239",
+      "sourceVersion": "f1a71f356109287b28b7f624156e9ff54519bb4f8fbf09a93ebad28324db766a",
       "installTargets": [
         "saas-admin-login-page"
       ]
@@ -1594,7 +1594,7 @@
         "components/ui/label.tsx",
         "components/ui/textarea.tsx"
       ],
-      "sourceVersion": "b62bf2c503afde8125a6dcdbe4b4aafbf0a89515e33e0c4401fb50cb2dffa5ae",
+      "sourceVersion": "643fba602e14b5364d7241bd805550e4e81bb0cea3fa6e63f7d1512a922d6f3a",
       "installTargets": [
         "saas-admin-register-page"
       ]
@@ -1665,7 +1665,7 @@
         "components/ui/label.tsx",
         "components/ui/separator.tsx"
       ],
-      "sourceVersion": "00d7b5745322a7a748dc94872fc95cc5d418b1ba56c2badab6cf145754dbf0ee",
+      "sourceVersion": "b015a418f35d1223dc39ea6f9e14789b51ec6ee7455d18583f537647e1d4e6e5",
       "installTargets": [
         "saas-admin-forgot-password-page"
       ]
@@ -1688,8 +1688,8 @@
         "任务板",
         "看板"
       ],
-      "description": "A four-column task board with pointer drag, keyboard moves, and local search.",
-      "descriptionZh": "四列任务板，支持拖动手把、键盘移动和本地搜索。",
+      "description": "A muted-well task board with priority cards, pointer drag, keyboard moves, and local search.",
+      "descriptionZh": "浅灰列井任务板，卡片含优先级，支持拖动手把、键盘移动和本地搜索。",
       "pageUrl": "http://localhost:3000/pages/saas-admin-kanban-page",
       "fetch": {
         "method": "shadcn",
@@ -1719,26 +1719,26 @@
         "components/pages/saas-admin/views/apps/chrome.tsx",
         "components/pages/saas-admin/views/apps/surface.ts",
         "components/pages/saas-admin/views/apps/kanban/data.ts",
+        "components/ui/avatar.tsx",
         "components/ui/badge.tsx",
         "components/ui/button.tsx",
         "components/ui/card.tsx",
+        "components/ui/dropdown-menu.tsx",
         "components/ui/input-group.tsx",
         "components/ui/scroll-area.tsx",
-        "components/ui/separator.tsx",
         "lib/utils.ts",
         "components/pages/saas-admin/assets/images.ts",
         "components/pages/saas-admin/assets/font-license.ts",
         "components/pages/saas-admin/styles.css",
         "lib/theme-kits/blue-ink-colors.ts",
         "lib/theme-kits/saas-admin-default-colors.ts",
-        "components/ui/avatar.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/ui/input.tsx",
         "components/ui/textarea.tsx",
         "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "213d5bb342536def939adb55973d1ef386a7da948f650e5540ef0c07e70f6c40",
+      "sourceVersion": "098a922484f7011a120beaea782b4c65701089928d83067db194d8c3a807d996",
       "installTargets": [
         "saas-admin-kanban-page"
       ]
@@ -1815,7 +1815,7 @@
         "components/ui/toggle.tsx",
         "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "6ecfa1f9a637fb9563edd07ddd042a21f979a894824034117b0ee41c0e3345e4",
+      "sourceVersion": "a6c7868909446fd233692f88e5110d4c07c0248ce09c34b7934009088498162e",
       "installTargets": [
         "saas-admin-mail-page"
       ]
@@ -1885,7 +1885,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "23e6f77d926a99bb6c35960da1ac8bd451a3413d6262e78295290773bef21049",
+      "sourceVersion": "5a65741552d0656a6b4ab4bd486dfd2e592f2bbb5fc76d7bdfb99a41f7f88e74",
       "installTargets": [
         "saas-admin-calendar-page"
       ]
@@ -1977,7 +1977,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "e5e497ed662146b57b5642721cccc25b45918040a3edc4ee193350f109f8e225",
+      "sourceVersion": "3099924e975b22e4c8a83882e90e9547841c31f8cfa27f0482509ebc50719a5d",
       "installTargets": [
         "saas-admin-ai-chat-page"
       ]
@@ -2051,7 +2051,7 @@
         "components/ui/toggle.tsx",
         "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "16c25294487e5ec7f68e67e68c9ae7afc2bf3edefbf5e14b4e758f33a22a3418",
+      "sourceVersion": "604b825edeb119f109b63ecc5e46701418a83ccd80e7efde00da5ea608c1c8cb",
       "installTargets": [
         "saas-admin-ai-usage-page"
       ]
@@ -2384,6 +2384,7 @@
         "components/pages/saas-admin/views/forms/form-validation/registration-demo-form.tsx",
         "components/pages/saas-admin/views/forms/form-validation/validation-demos.tsx",
         "components/pages/saas-admin/views/apps/kanban/data.ts",
+        "components/ui/avatar.tsx",
         "components/pages/saas-admin/use-submit.tsx",
         "components/pages/saas-admin/views/pages/auth/login/login-form.tsx",
         "components/pages/saas-admin/views/apps/mail/data.ts",
@@ -2397,7 +2398,6 @@
         "components/pages/saas-admin/views/datatables/datatable-transaction.tsx",
         "components/pages/saas-admin/blocks/profile-background.tsx",
         "components/pages/saas-admin/views/pages/user-profile/user-profile-tabs.tsx",
-        "components/ui/avatar.tsx",
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/pages/saas-admin/views/pages/auth/register/register-form.tsx",
         "components/pages/saas-admin/views/pages/user-settings/user-settings-tabs.tsx",
@@ -2484,7 +2484,7 @@
         "components/ui/dialog.tsx",
         "components/ui/command.tsx"
       ],
-      "sourceVersion": "eebb3117b8283d38582803b8714cfccae669498b2604c25d311e821093b06272",
+      "sourceVersion": "971dec98e492da0624701784899261bdf7837e9f5eff40bad81a538f03968db8",
       "installTargets": [
         "saas-admin-site"
       ]
@@ -7735,7 +7735,7 @@
         "components/ui/label.tsx",
         "components/ui/toggle.tsx"
       ],
-      "sourceVersion": "08f7916802ddffdba4215a9856e839dff2cf889e76516bba2d7ea84e58f2d38b",
+      "sourceVersion": "5faf49b4d284c0cb5e4a503c6f0d40c8d6df3183c2e271bd2e8ea9c428f9949f",
       "installTargets": [
         "saas-admin-shell"
       ]

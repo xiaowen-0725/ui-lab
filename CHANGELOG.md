@@ -28,7 +28,9 @@
 
 ### 变更
 
-- SaaS Admin Apps 页默认改用 `components/ui` 的 Avatar、ScrollArea、Tooltip、ToggleGroup、Badge、Separator、Button、Card 与 InputGroup；对话/任务板/收件箱/日程外壳、列井与卡片改走 Card，搜索走 InputGroup，写信表单改走 Field。对话模型选择继续走既有 PromptInput（其内部是 motion Select）。用户页无关 import 整理已撤回。
+- SaaS Admin 任务板改成浅灰列井 + 白底任务卡：优先级 Badge、可选封面、标题、头像与截止日期；列头有计数和溢出菜单，列脚与板右侧可在本次浏览里添加事项/列。去掉卡片左右箭头，拖动手把和方向键仍可移动。搜索留在页头，整板不再套外层 Card。
+
+- SaaS Admin Apps 页默认改用 `components/ui` 的 Avatar、ScrollArea、Tooltip、ToggleGroup、Badge、Separator、Button、Card 与 InputGroup；对话/收件箱/日程外壳改走 Card，任务板仅任务卡用 Card，搜索走 InputGroup，写信表单改走 Field。对话模型选择继续走既有 PromptInput（其内部是 motion Select）。用户页无关 import 整理已撤回。
 
 - SaaS Admin 对话流式回复按显示字逐步渲染同一套 Markdown（粗体、列表、代码块），不再闪出原始标记；代码块在容器内横向滚动，不裁切、不撑出页面。用量筛选同步四张摘要卡、模型表高亮、每日 Token 柱状图、速率上限和最近提问，数字轻量过渡并尊重减少动效。
 

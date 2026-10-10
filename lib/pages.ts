@@ -201,8 +201,8 @@ export const PAGES: readonly PageDefinition[] = [
 		name: "SaaS Admin Kanban Page",
 		nameZh: "SaaS 后台任务板页",
 		description:
-			"A four-column task board with pointer drag, keyboard moves, and local search.",
-		descriptionZh: "四列任务板，支持拖动手把、键盘移动和本地搜索。",
+			"A muted-well task board with priority cards, pointer drag, keyboard moves, and local search.",
+		descriptionZh: "浅灰列井任务板，卡片含优先级，支持拖动手把、键盘移动和本地搜索。",
 		aliases: ["SaaS admin", "任务板", "看板"],
 		componentSlug: "saas-admin-kanban-page",
 		components: [],

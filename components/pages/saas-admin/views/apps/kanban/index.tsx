@@ -1,49 +1,60 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, GripVertical, Search } from "lucide-react";
-import { type PointerEvent, useRef, useState } from "react";
+import { Calendar, GripVertical, MoreHorizontal, Plus, Search } from "lucide-react";
+import { type KeyboardEvent, type PointerEvent, useRef, useState } from "react";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
+import { AvatarGroup } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
 	InputGroup,
 	InputGroupAddon,
 	InputGroupInput,
 } from "@/components/ui/input-group";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { IconTip, PersonAvatar, TruncateTip } from "../chrome";
+import { IconTip, PersonAvatar } from "../chrome";
 import { fill, textFor, useQuietMotion } from "../surface";
 import {
-	COLUMN_IDS,
-	type ColumnId,
+	addColumn,
+	addTask,
+	type BoardColumn,
+	COLUMNS,
+	clearColumn,
 	moveTask,
 	neighborColumn,
+	removeColumn,
 	TASKS,
 	type Task,
+	type TaskPriority,
 	taskMatches,
 	tasksInColumn,
 } from "./data";
 
-const LABEL_CLASS: Record<Task["label"], string> = {
-	product: "bg-muted text-foreground",
-	billing: "bg-accent text-accent-foreground",
-	support: "bg-secondary text-secondary-foreground",
+const PRIORITY_KEY: Record<TaskPriority, string> = {
+	high: "High",
+	medium: "Medium",
+	low: "Low",
 };
 
-const COLUMN_KEY: Record<ColumnId, string> = {
-	queued: "Queued",
-	doing: "In progress",
-	review: "Review",
-	done: "Done",
-};
-
-const LABEL_KEY: Record<Task["label"], string> = {
-	product: "Product",
-	billing: "Billing",
-	support: "Support",
+const PRIORITY_BADGE: Record<
+	TaskPriority,
+	{ variant: "destructive" | "outline" | "secondary"; className?: string }
+> = {
+	high: { variant: "destructive" },
+	medium: {
+		variant: "outline",
+		className:
+			"border-transparent bg-amber-500/15 text-amber-800 dark:bg-amber-400/15 dark:text-amber-200",
+	},
+	low: { variant: "secondary" },
 };
 
 interface DragState {
@@ -53,46 +64,60 @@ interface DragState {
 	width: number;
 	offsetX: number;
 	offsetY: number;
-	over: ColumnId | null;
+	over: string | null;
 }
 
 export function KanbanApp() {
 	const { locale, t } = useSaasAdmin();
 	const quiet = useQuietMotion();
+	const [columns, setColumns] = useState<BoardColumn[]>(() =>
+		COLUMNS.map((column) => ({ ...column })),
+	);
 	const [tasks, setTasks] = useState<Task[]>(() =>
-		TASKS.map((task) => ({ ...task })),
+		TASKS.map((task) => ({ ...task, assignees: [...task.assignees] })),
 	);
 	const [query, setQuery] = useState("");
 	const [drag, setDrag] = useState<DragState | null>(null);
 	const dragRef = useRef<DragState | null>(null);
 	const [live, setLive] = useState("");
-	const columns = useRef<Partial<Record<ColumnId, HTMLElement | null>>>({});
+	const [serial, setSerial] = useState(1);
+	const wells = useRef<Partial<Record<string, HTMLElement | null>>>({});
+	const columnIds = columns.map((column) => column.id);
 
 	function setDragState(next: DragState | null) {
 		dragRef.current = next;
 		setDrag(next);
 	}
 
-	function announce(task: Task, column: ColumnId) {
+	function columnTitle(column: BoardColumn | string) {
+		if (typeof column === "string") {
+			const found = columns.find((item) => item.id === column);
+			if (!found) return column;
+			return textFor(locale, found.title, found.titleZh);
+		}
+		return textFor(locale, column.title, column.titleZh);
+	}
+
+	function announce(message: string) {
+		setLive(message);
+	}
+
+	function move(id: string, column: string) {
+		const task = tasks.find((item) => item.id === id);
+		if (!task || task.column === column) return;
+		setTasks((current) => moveTask(current, id, column));
 		const title = textFor(locale, task.title, task.titleZh);
-		const columnName = t(COLUMN_KEY[column]);
-		setLive(
+		const columnName = columnTitle(column);
+		announce(
 			locale === "zh"
 				? `已将${title}移到${columnName}`
 				: `Moved ${title} to ${columnName}`,
 		);
 	}
 
-	function move(id: string, column: ColumnId) {
-		const task = tasks.find((item) => item.id === id);
-		if (!task || task.column === column) return;
-		setTasks((current) => moveTask(current, id, column));
-		announce(task, column);
-	}
-
 	function columnAt(x: number, y: number) {
-		for (const id of COLUMN_IDS) {
-			const node = columns.current[id];
+		for (const id of columnIds) {
+			const node = wells.current[id];
 			if (!node) continue;
 			const rect = node.getBoundingClientRect();
 			if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom)
@@ -142,18 +167,61 @@ export function KanbanApp() {
 		setDragState(null);
 	}
 
+	function onCardKey(event: KeyboardEvent<HTMLElement>, task: Task) {
+		const earlier = neighborColumn(task.column, -1, columnIds);
+		const later = neighborColumn(task.column, 1, columnIds);
+		if (event.key === "ArrowLeft" && earlier) {
+			event.preventDefault();
+			move(task.id, earlier);
+		}
+		if (event.key === "ArrowRight" && later) {
+			event.preventDefault();
+			move(task.id, later);
+		}
+	}
+
+	function createItem(column: BoardColumn) {
+		const next = serial;
+		setSerial((value) => value + 1);
+		setTasks((current) => addTask(current, column.id, next));
+		announce(
+			fill(t("Added {title} to {column}"), {
+				title: t("Untitled item"),
+				column: columnTitle(column),
+			}),
+		);
+	}
+
+	function createColumn() {
+		const next = serial;
+		setSerial((value) => value + 1);
+		setColumns((current) => addColumn(current, next));
+		announce(t("Added a column"));
+	}
+
+	function emptyColumn(column: BoardColumn) {
+		setTasks((current) => clearColumn(current, column.id));
+		announce(fill(t("Cleared {column}"), { column: columnTitle(column) }));
+	}
+
+	function deleteColumn(column: BoardColumn) {
+		if (columns.length <= 1) return;
+		const result = removeColumn(columns, tasks, column.id);
+		setColumns(result.columns);
+		setTasks(result.tasks);
+		announce(fill(t("Removed {column}"), { column: columnTitle(column) }));
+	}
+
 	const dragging = tasks.find((task) => task.id === drag?.id) ?? null;
 
 	return (
-		<Card className="min-h-[36rem] gap-0 py-0">
-			<header className="flex shrink-0 flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between">
-				<div>
-					<p className="text-sm text-muted-foreground">
-						<SaasAdminText>
-							Move work between columns with the grip or the buttons.
-						</SaasAdminText>
-					</p>
-				</div>
+		<div className="flex min-h-[36rem] flex-col gap-4">
+			<header className="flex shrink-0 flex-col gap-3 md:flex-row md:items-center md:justify-between">
+				<p className="text-sm text-muted-foreground">
+					<SaasAdminText>
+						Move work with the grip or the arrow keys.
+					</SaasAdminText>
+				</p>
 				<InputGroup className="md:max-w-xs">
 					<InputGroupAddon>
 						<Search aria-hidden="true" />
@@ -167,173 +235,110 @@ export function KanbanApp() {
 					/>
 				</InputGroup>
 			</header>
-			<Separator />
 			<p className="sr-only" aria-live="polite">
 				{live}
 			</p>
 			<div className="min-h-0 flex-1 overflow-x-auto overflow-y-hidden">
-				<div className="flex h-full min-w-max gap-3 p-4">
-					{COLUMN_IDS.map((column) => {
-						const cards = tasksInColumn(tasks, column).filter((task) =>
+				<div className="flex h-full min-w-max items-start gap-4 pb-1">
+					{columns.map((column) => {
+						const cards = tasksInColumn(tasks, column.id).filter((task) =>
 							taskMatches(task, query),
 						);
-						const hot = drag?.over === column;
+						const hot = drag?.over === column.id;
+						const name = columnTitle(column);
 						return (
-							<Card
-								key={column}
-								size="sm"
+							<section
+								key={column.id}
 								ref={(node) => {
-									columns.current[column] = node;
+									wells.current[column.id] = node;
 								}}
-								role="region"
-								aria-label={t(COLUMN_KEY[column])}
+								aria-label={name}
 								className={cn(
-									"h-full w-[min(85vw,17rem)] gap-0 bg-muted/50 py-2 shadow-none transition-colors motion-reduce:transition-none",
+									"flex w-[min(85vw,18rem)] shrink-0 flex-col rounded-xl bg-muted/50 p-3 transition-colors motion-reduce:transition-none",
 									hot && "bg-muted",
 								)}
 							>
-								<header className="flex items-center justify-between px-2 py-2">
-									<h2 className="text-sm font-medium">
-										<SaasAdminText>{COLUMN_KEY[column]}</SaasAdminText>
+								<header className="mb-3 flex items-center gap-2">
+									<h2 className="min-w-0 flex-1 truncate text-sm font-medium">
+										{name}
 									</h2>
 									<Badge variant="secondary" className="tabular-nums">
 										{cards.length}
 									</Badge>
+									<DropdownMenu>
+										<DropdownMenuTrigger
+											render={
+												<Button
+													type="button"
+													variant="ghost"
+													size="icon-xs"
+													aria-label={fill(t("Actions for {column}"), {
+														column: name,
+													})}
+													className="text-muted-foreground"
+												/>
+											}
+										>
+											<MoreHorizontal aria-hidden="true" />
+										</DropdownMenuTrigger>
+										<DropdownMenuContent align="end" className="w-40">
+											<DropdownMenuItem onClick={() => emptyColumn(column)}>
+												<SaasAdminText>Clear column</SaasAdminText>
+											</DropdownMenuItem>
+											<DropdownMenuItem
+												variant="destructive"
+												disabled={columns.length <= 1}
+												onClick={() => deleteColumn(column)}
+											>
+												<SaasAdminText>Delete column</SaasAdminText>
+											</DropdownMenuItem>
+										</DropdownMenuContent>
+									</DropdownMenu>
 								</header>
-								<ScrollArea className="min-h-0 flex-1">
-								<div className="flex min-h-0 flex-1 flex-col gap-2 px-1 pb-2">
-									{cards.length === 0 ? (
-										<p className="px-2 py-6 text-center text-xs text-muted-foreground">
-											<SaasAdminText>
-												{query ? "No matching results" : "This column is empty"}
-											</SaasAdminText>
-										</p>
-									) : (
-										cards.map((task) => {
-											const earlier = neighborColumn(task.column, -1);
-											const later = neighborColumn(task.column, 1);
-											const title = textFor(locale, task.title, task.titleZh);
-											return (
-												<Card
+								<ScrollArea className="max-h-[calc(100vh-18rem)] min-h-0 flex-1">
+									<div className="flex flex-col gap-2.5 pr-1 pb-1">
+										{cards.length === 0 ? (
+											<p className="px-1 py-8 text-center text-xs text-muted-foreground">
+												<SaasAdminText>
+													{query ? "No matching results" : "This column is empty"}
+												</SaasAdminText>
+											</p>
+										) : (
+											cards.map((task) => (
+												<TaskCard
 													key={task.id}
-													size="sm"
-													data-task-id={task.id}
-													className={cn(
-														"gap-3 py-3",
-														drag?.id === task.id && "opacity-40",
-													)}
-												>
-													<CardContent className="gap-3 px-3">
-													<div className="flex items-start gap-2">
-														<IconTip
-															label={fill(t("Drag {title}"), { title })}
-															trigger={
-																<Button
-																	type="button"
-																	variant="ghost"
-																	size="icon-xs"
-																	aria-label={fill(t("Drag {title}"), { title })}
-																	className="mt-0.5 cursor-grab touch-none text-muted-foreground hover:text-foreground active:cursor-grabbing"
-																	onPointerDown={(event) => onGripDown(event, task)}
-																	onPointerMove={onGripMove}
-																	onPointerUp={onGripUp}
-																	onPointerCancel={onGripUp}
-																	onKeyDown={(event) => {
-																		if (event.key === "ArrowLeft" && earlier)
-																			move(task.id, earlier);
-																		if (event.key === "ArrowRight" && later)
-																			move(task.id, later);
-																	}}
-																/>
-															}
-														>
-															<GripVertical aria-hidden="true" />
-														</IconTip>
-														<div className="min-w-0 flex-1">
-															<h3 className="text-sm leading-snug font-medium">
-																{title}
-															</h3>
-															<p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-																{textFor(locale, task.detail, task.detailZh)}
-															</p>
-														</div>
-													</div>
-													<div className="mt-3 flex items-center justify-between gap-2">
-														<Badge
-															variant="secondary"
-															className={cn("border-0", LABEL_CLASS[task.label])}
-														>
-															<SaasAdminText>
-																{LABEL_KEY[task.label]}
-															</SaasAdminText>
-														</Badge>
-														<span className="flex min-w-0 items-center gap-1.5 text-[11px] text-muted-foreground">
-															<PersonAvatar
-																name={textFor(locale, task.owner, task.ownerZh)}
-																size="sm"
-															/>
-															<TruncateTip
-																text={`${textFor(locale, task.owner, task.ownerZh)} · ${textFor(locale, task.due, task.dueZh)}`}
-															>
-																{textFor(locale, task.owner, task.ownerZh)} ·{" "}
-																{textFor(locale, task.due, task.dueZh)}
-															</TruncateTip>
-														</span>
-													</div>
-													<div className="mt-2 flex justify-end gap-1">
-														<IconTip
-															label={fill(
-																t("Move {title} to the previous column"),
-																{ title },
-															)}
-															trigger={
-																<Button
-																	type="button"
-																	variant="ghost"
-																	size="icon-xs"
-																	disabled={!earlier}
-																	aria-label={fill(
-																		t("Move {title} to the previous column"),
-																		{ title },
-																	)}
-																	onClick={() => earlier && move(task.id, earlier)}
-																/>
-															}
-														>
-															<ChevronLeft aria-hidden="true" />
-														</IconTip>
-														<IconTip
-															label={fill(
-																t("Move {title} to the next column"),
-																{ title },
-															)}
-															trigger={
-																<Button
-																	type="button"
-																	variant="ghost"
-																	size="icon-xs"
-																	disabled={!later}
-																	aria-label={fill(
-																		t("Move {title} to the next column"),
-																		{ title },
-																	)}
-																	onClick={() => later && move(task.id, later)}
-																/>
-															}
-														>
-															<ChevronRight aria-hidden="true" />
-														</IconTip>
-													</div>
-													</CardContent>
-												</Card>
-											);
-										})
-									)}
-								</div>
+													task={task}
+													dragging={drag?.id === task.id}
+													onGripDown={onGripDown}
+													onGripMove={onGripMove}
+													onGripUp={onGripUp}
+													onKeyDown={onCardKey}
+												/>
+											))
+										)}
+									</div>
 								</ScrollArea>
-							</Card>
+								<Button
+									type="button"
+									variant="ghost"
+									className="mt-2 h-8 w-full justify-start text-xs text-muted-foreground"
+									onClick={() => createItem(column)}
+								>
+									<Plus className="size-3.5" aria-hidden="true" />
+									<SaasAdminText>Add New Item</SaasAdminText>
+								</Button>
+							</section>
 						);
 					})}
+					<Button
+						type="button"
+						variant="outline"
+						className="h-10 min-w-44 shrink-0 justify-start border-dashed"
+						onClick={createColumn}
+					>
+						<Plus className="size-4" aria-hidden="true" />
+						<SaasAdminText>Add New Column</SaasAdminText>
+					</Button>
 				</div>
 			</div>
 			{drag && dragging ? (
@@ -351,12 +356,109 @@ export function KanbanApp() {
 					}}
 				>
 					<CardContent className="px-3">
-						<p className="text-sm font-medium">
+						<PriorityBadge priority={dragging.priority} />
+						<p className="mt-2 text-sm font-medium">
 							{textFor(locale, dragging.title, dragging.titleZh)}
 						</p>
 					</CardContent>
 				</Card>
 			) : null}
+		</div>
+	);
+}
+
+function PriorityBadge({ priority }: { priority: TaskPriority }) {
+	const tone = PRIORITY_BADGE[priority];
+	return (
+		<Badge variant={tone.variant} className={tone.className}>
+			<SaasAdminText>{PRIORITY_KEY[priority]}</SaasAdminText>
+		</Badge>
+	);
+}
+
+function TaskCard({
+	task,
+	dragging,
+	onGripDown,
+	onGripMove,
+	onGripUp,
+	onKeyDown,
+}: {
+	task: Task;
+	dragging: boolean;
+	onGripDown: (event: PointerEvent<HTMLButtonElement>, task: Task) => void;
+	onGripMove: (event: PointerEvent<HTMLButtonElement>) => void;
+	onGripUp: () => void;
+	onKeyDown: (event: KeyboardEvent<HTMLElement>, task: Task) => void;
+}) {
+	const { locale, t } = useSaasAdmin();
+	const title = textFor(locale, task.title, task.titleZh);
+	const due = textFor(locale, task.due, task.dueZh);
+	const owners = task.assignees
+		.map((person) => textFor(locale, person.name, person.nameZh))
+		.join(", ");
+	return (
+		<Card
+			size="sm"
+			data-task-id={task.id}
+			tabIndex={0}
+			aria-label={fill(t("Move {title} with the arrow keys"), { title })}
+			onKeyDown={(event) => onKeyDown(event, task)}
+			className={cn(
+				"gap-0 border-border/60 bg-card py-0 shadow-xs hover:shadow-sm",
+				dragging && "opacity-40",
+			)}
+		>
+			<CardContent className="gap-2.5 px-3 py-3">
+				<div className="flex items-start justify-between gap-2">
+					<PriorityBadge priority={task.priority} />
+					<IconTip
+						label={fill(t("Drag {title}"), { title })}
+						trigger={
+							<Button
+								type="button"
+								variant="ghost"
+								size="icon-xs"
+								aria-label={fill(t("Drag {title}"), { title })}
+								className="-mr-1 -mt-0.5 cursor-grab touch-none text-muted-foreground hover:text-foreground active:cursor-grabbing"
+								onPointerDown={(event) => onGripDown(event, task)}
+								onPointerMove={onGripMove}
+								onPointerUp={onGripUp}
+								onPointerCancel={onGripUp}
+								onKeyDown={(event) => onKeyDown(event, task)}
+							/>
+						}
+					>
+						<GripVertical aria-hidden="true" />
+					</IconTip>
+				</div>
+				{task.cover ? (
+					<div
+						aria-hidden="true"
+						className="aspect-video overflow-hidden rounded-md bg-muted bg-cover bg-center"
+						style={{ backgroundImage: `url("${task.cover}")` }}
+					/>
+				) : null}
+				<h3 className="text-sm leading-snug font-medium">{title}</h3>
+				<div className="flex items-center justify-between gap-2">
+					<AvatarGroup className="*:data-[slot=avatar]:size-6">
+						{task.assignees.map((person) => (
+							<PersonAvatar
+								key={`${task.id}-${person.name}`}
+								name={textFor(locale, person.name, person.nameZh)}
+								size="sm"
+							/>
+						))}
+					</AvatarGroup>
+					<span
+						className="flex shrink-0 items-center gap-1 text-[11px] text-muted-foreground"
+						title={owners}
+					>
+						<Calendar className="size-3.5" aria-hidden="true" />
+						<time>{due}</time>
+					</span>
+				</div>
+			</CardContent>
 		</Card>
 	);
 }

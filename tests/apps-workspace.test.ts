@@ -27,9 +27,14 @@ import {
 	shiftMonth,
 } from "@/components/pages/saas-admin/views/apps/calendar/data";
 import {
+	addColumn,
+	addTask,
 	COLUMN_IDS,
+	COLUMNS,
+	clearColumn,
 	moveTask,
 	neighborColumn,
+	removeColumn,
 	TASKS,
 	taskMatches,
 	tasksInColumn,
@@ -90,13 +95,37 @@ test("column neighbors stop at the ends", () => {
 	expect(neighborColumn("queued", 1)).toBe("doing");
 	expect(neighborColumn("done", 1)).toBeNull();
 	expect(COLUMN_IDS).toHaveLength(4);
+	expect(COLUMNS.map((column) => column.id)).toEqual([...COLUMN_IDS]);
 });
 
 test("task search matches either language", () => {
 	const trial = TASKS.find((task) => task.id === "trial-email");
+	expect(trial?.priority).toBe("high");
+	expect(trial?.cover).toBeTruthy();
 	expect(trial && taskMatches(trial, "试用")).toBe(true);
 	expect(trial && taskMatches(trial, "studio")).toBe(true);
 	expect(trial && taskMatches(trial, "not-a-task")).toBe(false);
+});
+
+test("board helpers add, clear and remove visit-local columns", () => {
+	const withItem = addTask(TASKS, "queued", 1);
+	expect(withItem.at(-1)).toMatchObject({
+		id: "item-1",
+		column: "queued",
+		priority: "medium",
+	});
+	expect(clearColumn(withItem, "queued").every((task) => task.column !== "queued")).toBe(
+		true,
+	);
+	const extra = addColumn(COLUMNS, 2);
+	expect(extra.at(-1)).toEqual({
+		id: "column-2",
+		title: "New column",
+		titleZh: "新列",
+	});
+	const removed = removeColumn(extra, withItem, "column-2");
+	expect(removed.columns).toHaveLength(4);
+	expect(removeColumn(COLUMNS, TASKS, "queued").columns).toHaveLength(3);
 });
 
 test("starred mail excludes the archive", () => {
