@@ -56,7 +56,9 @@ const PRIORITY_BADGE: Record<TaskPriority, string> = {
 };
 
 const HOVER_CHROME =
-	"opacity-100 md:opacity-0 md:group-hover/kanban:opacity-100 md:group-focus-within/kanban:opacity-100";
+	"opacity-100 md:opacity-0 md:group-hover/item:opacity-100 md:group-focus-within/item:opacity-100";
+const COLUMN_HOVER_CHROME =
+	"opacity-100 md:opacity-0 md:group-hover/column:opacity-100 md:group-focus-within/column:opacity-100";
 
 interface DragState {
 	id: string;
@@ -264,7 +266,7 @@ export function KanbanApp() {
 								role="region"
 								aria-label={name}
 								className={cn(
-									"group/kanban mb-2.5 w-72 max-w-[85vw] shrink-0 gap-0 bg-muted py-4 shadow-xs transition-colors motion-reduce:transition-none",
+									"group/column mb-2.5 w-64 max-w-[85vw] shrink-0 gap-0 bg-muted py-4 shadow-xs transition-colors motion-reduce:transition-none",
 									hot && "bg-muted/80",
 								)}
 							>
@@ -285,7 +287,7 @@ export function KanbanApp() {
 													aria-label={t("Column actions")}
 													className={cn(
 														"text-muted-foreground",
-														HOVER_CHROME,
+														COLUMN_HOVER_CHROME,
 													)}
 												/>
 											}
@@ -426,7 +428,7 @@ function TaskCard({
 			onPointerUp={onGripUp}
 			onPointerCancel={onGripUp}
 			className={cn(
-				"group/kanban cursor-move gap-0 bg-card py-3 shadow-xs",
+				"group/item cursor-move gap-0 bg-card py-3 shadow-xs",
 				dragging && "opacity-40",
 			)}
 		>
