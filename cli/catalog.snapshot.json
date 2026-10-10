@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T06:21:10.558Z",
+  "generatedAt": "2026-10-10T06:21:33.997Z",
   "count": 576,
   "items": [
     {
@@ -1738,7 +1738,7 @@
         "components/ui/textarea.tsx",
         "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "6abe9ceabd9180a86c90660e28b6baa5ea9af319ffe1bcb15fd3e3b8b4433b24",
+      "sourceVersion": "bfcb9408b7937bf22bc509a3a9a064af294109192228b45c359e5ff49cecfdd9",
       "installTargets": [
         "saas-admin-kanban-page"
       ]
@@ -2484,7 +2484,7 @@
         "components/ui/dialog.tsx",
         "components/ui/command.tsx"
       ],
-      "sourceVersion": "4337b8331f9518f8723820ec9cc61a2124da63dab5bc6a03cdaa28fade4579f9",
+      "sourceVersion": "9ad5f14d9be020e8de12060987c468ae08a966b8098be07873f09a516b38b606",
       "installTargets": [
         "saas-admin-site"
       ]

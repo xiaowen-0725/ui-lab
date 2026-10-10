@@ -19,6 +19,11 @@ import {
 	InputGroupInput,
 } from "@/components/ui/input-group";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { IconTip, PersonAvatar } from "../chrome";
 import { fill, textFor, useQuietMotion } from "../surface";
@@ -461,13 +466,17 @@ function TaskCard({
 				<p className="line-clamp-2 text-sm leading-snug font-medium">{title}</p>
 				<div className="flex items-center justify-between gap-2">
 					<AvatarGroup className="*:data-[slot=avatar]:size-5">
-						{task.assignees.map((person) => (
-							<PersonAvatar
-								key={`${task.id}-${person.name}`}
-								name={textFor(locale, person.name, person.nameZh)}
-								size="sm"
-							/>
-						))}
+						{task.assignees.map((person) => {
+							const name = textFor(locale, person.name, person.nameZh);
+							return (
+								<Tooltip key={`${task.id}-${person.name}`}>
+									<TooltipTrigger render={<span className="inline-flex" />}>
+										<PersonAvatar name={name} size="sm" />
+									</TooltipTrigger>
+									<TooltipContent>{name}</TooltipContent>
+								</Tooltip>
+							);
+						})}
 					</AvatarGroup>
 					<span
 						className="flex shrink-0 items-center gap-1 text-[11px] text-muted-foreground"
