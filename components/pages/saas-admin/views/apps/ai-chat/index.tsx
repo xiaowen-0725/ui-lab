@@ -1,6 +1,15 @@
 "use client";
 
-import { ArrowLeft, Check, Copy, Paperclip, Pin, Plus, X } from "lucide-react";
+import {
+	ArrowLeft,
+	Check,
+	Copy,
+	Paperclip,
+	Pin,
+	Plus,
+	Search,
+	X,
+} from "lucide-react";
 import { type CSSProperties, useEffect, useMemo, useRef, useState } from "react";
 import { PromptInput } from "@/components/agents/prompt-input";
 import {
@@ -22,7 +31,11 @@ import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/envir
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import {
+	InputGroup,
+	InputGroupAddon,
+	InputGroupInput,
+} from "@/components/ui/input-group";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
@@ -225,14 +238,18 @@ export function AiChatApp() {
 				)}
 			>
 				<div className="flex items-center gap-2 p-3">
-					<Input
-						type="search"
-						value={query}
-						placeholder={t("Search conversations")}
-						aria-label={t("Search conversations")}
-						className="min-w-0 flex-1"
-						onChange={(event) => setQuery(event.target.value)}
-					/>
+					<InputGroup className="min-w-0 flex-1">
+						<InputGroupAddon>
+							<Search aria-hidden="true" />
+						</InputGroupAddon>
+						<InputGroupInput
+							type="search"
+							value={query}
+							placeholder={t("Search conversations")}
+							aria-label={t("Search conversations")}
+							onChange={(event) => setQuery(event.target.value)}
+						/>
+					</InputGroup>
 					<IconTip
 						label={t("New chat")}
 						trigger={

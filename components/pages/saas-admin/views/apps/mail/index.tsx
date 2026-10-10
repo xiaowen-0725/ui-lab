@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, Star } from "lucide-react";
+import { ArrowLeft, Search, Star } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useRef, useState } from "react";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
@@ -9,6 +9,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import {
+	InputGroup,
+	InputGroupAddon,
+	InputGroupInput,
+} from "@/components/ui/input-group";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
@@ -140,14 +145,18 @@ export function MailApp() {
 					</SaasAdminText>
 				</p>
 				<div className="flex items-center gap-2">
-					<Input
-						type="search"
-						value={query}
-						placeholder={t("Search mail")}
-						aria-label={t("Search mail")}
-						className="min-w-0 flex-1 md:max-w-xs"
-						onChange={(event) => setQuery(event.target.value)}
-					/>
+					<InputGroup className="min-w-0 flex-1 md:max-w-xs">
+						<InputGroupAddon>
+							<Search aria-hidden="true" />
+						</InputGroupAddon>
+						<InputGroupInput
+							type="search"
+							value={query}
+							placeholder={t("Search mail")}
+							aria-label={t("Search mail")}
+							onChange={(event) => setQuery(event.target.value)}
+						/>
+					</InputGroup>
 					<Button
 						size="sm"
 						onClick={() => {

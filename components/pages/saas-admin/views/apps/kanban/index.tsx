@@ -1,12 +1,16 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, GripVertical } from "lucide-react";
+import { ChevronLeft, ChevronRight, GripVertical, Search } from "lucide-react";
 import { type PointerEvent, useRef, useState } from "react";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import {
+	InputGroup,
+	InputGroupAddon,
+	InputGroupInput,
+} from "@/components/ui/input-group";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
@@ -150,14 +154,18 @@ export function KanbanApp() {
 						</SaasAdminText>
 					</p>
 				</div>
-				<Input
-					type="search"
-					value={query}
-					placeholder={t("Search tasks")}
-					aria-label={t("Search tasks")}
-					className="md:max-w-xs"
-					onChange={(event) => setQuery(event.target.value)}
-				/>
+				<InputGroup className="md:max-w-xs">
+					<InputGroupAddon>
+						<Search aria-hidden="true" />
+					</InputGroupAddon>
+					<InputGroupInput
+						type="search"
+						value={query}
+						placeholder={t("Search tasks")}
+						aria-label={t("Search tasks")}
+						onChange={(event) => setQuery(event.target.value)}
+					/>
+				</InputGroup>
 			</header>
 			<Separator />
 			<p className="sr-only" aria-live="polite">
@@ -171,15 +179,17 @@ export function KanbanApp() {
 						);
 						const hot = drag?.over === column;
 						return (
-							<section
+							<Card
 								key={column}
+								size="sm"
 								ref={(node) => {
 									columns.current[column] = node;
 								}}
+								role="region"
 								aria-label={t(COLUMN_KEY[column])}
 								className={cn(
-									"flex h-full w-[min(85vw,17rem)] flex-col rounded-xl bg-muted/50 p-2 ring-1 ring-transparent transition-colors motion-reduce:transition-none",
-									hot && "bg-muted ring-border",
+									"h-full w-[min(85vw,17rem)] gap-0 bg-muted/50 py-2 shadow-none transition-colors motion-reduce:transition-none",
+									hot && "bg-muted",
 								)}
 							>
 								<header className="flex items-center justify-between px-2 py-2">
@@ -321,7 +331,7 @@ export function KanbanApp() {
 									)}
 								</div>
 								</ScrollArea>
-							</section>
+							</Card>
 						);
 					})}
 				</div>
