@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T00:13:41.606Z",
+  "generatedAt": "2026-10-10T00:23:40.356Z",
   "count": 576,
   "items": [
     {
@@ -1721,6 +1721,7 @@
         "components/pages/saas-admin/views/apps/kanban/data.ts",
         "components/ui/badge.tsx",
         "components/ui/button.tsx",
+        "components/ui/card.tsx",
         "components/ui/input.tsx",
         "components/ui/scroll-area.tsx",
         "components/ui/separator.tsx",
@@ -1735,7 +1736,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "a527e1c2610e161941ecfc2ee1c780007ae90ba546a9f15ff2f5f580a3f07deb",
+      "sourceVersion": "de138c3d06cc8314c15540d7abe7e2e1acb8d6407b4bb035272e3adbe09158f8",
       "installTargets": [
         "saas-admin-kanban-page"
       ]
@@ -1791,6 +1792,8 @@
         "components/pages/saas-admin/views/apps/mail/data.ts",
         "components/ui/badge.tsx",
         "components/ui/button.tsx",
+        "components/ui/card.tsx",
+        "components/ui/field.tsx",
         "components/ui/input.tsx",
         "components/ui/scroll-area.tsx",
         "components/ui/separator.tsx",
@@ -1805,10 +1808,11 @@
         "components/ui/avatar.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/ui/label.tsx",
         "components/ui/toggle.tsx",
         "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "fff302318ac4f19ec57795c3aece3c6bb78d4f8a69a3eda458577556a7765409",
+      "sourceVersion": "c92a1168d6ca64cf3c69e89e5c4217aacbd344d763a2bf8f3e24f075832c2acc",
       "installTargets": [
         "saas-admin-mail-page"
       ]
@@ -1864,6 +1868,7 @@
         "components/pages/saas-admin/views/apps/calendar/data.ts",
         "components/ui/badge.tsx",
         "components/ui/button.tsx",
+        "components/ui/card.tsx",
         "components/ui/scroll-area.tsx",
         "components/ui/separator.tsx",
         "lib/utils.ts",
@@ -1877,7 +1882,7 @@
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "9e7c271426a96ecff50c9148e5026a810ef07fe41a9f602140469a7f7bd7105b",
+      "sourceVersion": "23e6f77d926a99bb6c35960da1ac8bd451a3413d6262e78295290773bef21049",
       "installTargets": [
         "saas-admin-calendar-page"
       ]
@@ -1937,6 +1942,7 @@
         "components/motion/agent-thread/index.tsx",
         "components/ui/badge.tsx",
         "components/ui/button.tsx",
+        "components/ui/card.tsx",
         "components/ui/input.tsx",
         "components/ui/scroll-area.tsx",
         "components/ui/separator.tsx",
@@ -1966,7 +1972,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "8fc45e13e74d9cf90fd16d41848b8314b683dd6ddad8c25cadf117f89bb3bc88",
+      "sourceVersion": "accec1318cf9bbbe0d4c48cd691fade53387c7852b7b10a9de96778fb7831c8d",
       "installTargets": [
         "saas-admin-ai-chat-page"
       ]
@@ -2350,9 +2356,9 @@
         "components/agents/suggestion.tsx",
         "components/motion/agent-thread/index.tsx",
         "components/ui/badge.tsx",
+        "components/ui/card.tsx",
         "components/ui/scroll-area.tsx",
         "components/pages/saas-admin/views/apps/ai-usage/data.ts",
-        "components/ui/card.tsx",
         "components/ui/chart.tsx",
         "components/ui/progress.tsx",
         "components/ui/table.tsx",
@@ -2375,6 +2381,7 @@
         "components/pages/saas-admin/use-submit.tsx",
         "components/pages/saas-admin/views/pages/auth/login/login-form.tsx",
         "components/pages/saas-admin/views/apps/mail/data.ts",
+        "components/ui/field.tsx",
         "components/ui/textarea.tsx",
         "components/pages/saas-admin/assets/images.ts",
         "components/pages/saas-admin/views/dashboards/charts/chart-sales-metrics.tsx",
@@ -2403,7 +2410,6 @@
         "components/pages/saas-admin/assets/svg/icon-sidebar-floating.tsx",
         "components/pages/saas-admin/assets/svg/icon-sidebar-inset.tsx",
         "components/pages/saas-admin/assets/svg/icon-sidebar-sidebar.tsx",
-        "components/ui/field.tsx",
         "components/ui/popover.tsx",
         "components/ui/select.tsx",
         "components/motion/button/index.tsx",
@@ -2421,6 +2427,7 @@
         "components/ui/radio-group.tsx",
         "components/ui/alert.tsx",
         "components/ui/checkbox.tsx",
+        "components/ui/label.tsx",
         "components/pages/saas-admin/blocks/delete-confirmation.tsx",
         "components/pages/saas-admin/hooks/use-pagination.ts",
         "components/ui/pagination.tsx",
@@ -2430,7 +2437,6 @@
         "components/pages/saas-admin/views/pages/user-settings/general/index.tsx",
         "components/pages/saas-admin/views/pages/user-settings/workspace/index.tsx",
         "components/pages/saas-admin/views/apps/users/list/user-table-columns.tsx",
-        "components/ui/label.tsx",
         "components/pages/saas-admin/configs/mailConfig.ts",
         "components/pages/saas-admin/views/apps/users/view/tabs/account-tab.tsx",
         "components/pages/saas-admin/views/apps/users/view/tabs/billing-tab.tsx",
@@ -2473,7 +2479,7 @@
         "components/ui/dialog.tsx",
         "components/ui/command.tsx"
       ],
-      "sourceVersion": "408b83912359fb846a6d731872836b88751f054077b2520a7b0bfb1c1767604c",
+      "sourceVersion": "ccc2cba771c7cff31f0951a083b23d239a3036c9684481fc70ff24f65fa9537e",
       "installTargets": [
         "saas-admin-site"
       ]
