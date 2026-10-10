@@ -7,14 +7,17 @@ import { SaasAdminText } from "@/components/pages/saas-admin/environment";
 
 // React Imports
 import { useMemo, useState } from "react";
-// Hook Imports
-import { usePagination } from "@/components/pages/saas-admin/hooks/use-pagination";
+
 // Type Imports
 import type { AppUser } from "@/components/pages/saas-admin/types/apps/user-types";
-import { ActivityTimeline } from "@/components/pages/saas-admin/views/apps/users/view/activity-timeline";
-import { ProjectsDatatable } from "@/components/pages/saas-admin/views/apps/users/view/projects-datatable";
+
 // Component Imports
 import { Card, CardContent } from "@/components/ui/card";
+import { ActivityTimeline } from "@/components/pages/saas-admin/views/apps/users/view/activity-timeline";
+import { ProjectsDatatable } from "@/components/pages/saas-admin/views/apps/users/view/projects-datatable";
+
+// Hook Imports
+import { usePagination } from "@/components/pages/saas-admin/hooks/use-pagination";
 
 const PAGE_SIZE = 5;
 

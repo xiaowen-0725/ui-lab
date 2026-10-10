@@ -9,13 +9,14 @@ import {
 // Adaptation: named exports and portable import/navigation boundaries.
 // Type Imports
 import type { AppUser } from "@/components/pages/saas-admin/types/apps/user-types";
+
+// Component Imports
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AccountTab } from "@/components/pages/saas-admin/views/apps/users/view/tabs/account-tab";
 import { BillingTab } from "@/components/pages/saas-admin/views/apps/users/view/tabs/billing-tab";
 import { ConnectionsTab } from "@/components/pages/saas-admin/views/apps/users/view/tabs/connections-tab";
 import { NotificationsTab } from "@/components/pages/saas-admin/views/apps/users/view/tabs/notifications-tab";
 import { SecurityTab } from "@/components/pages/saas-admin/views/apps/users/view/tabs/security-tab";
-// Component Imports
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export interface UserViewTabsProps {
 	user: AppUser;

@@ -1,5 +1,6 @@
 // biome-ignore-all lint/suspicious/noArrayIndexKey: Approved upstream structure and stable sample ordering are retained.
 "use client";
+import { SaasAdminText } from "@/components/pages/saas-admin/environment";
 // Source: shadcn/studio Free AdminCN, MIT, copyright 2026.
 // Revision: dd1afd2f3a794ea9e746197de314f81d43670ea1; path: src/views/apps/users/view/activity-timeline.tsx
 // Third-party Imports
@@ -9,20 +10,13 @@ import {
 	FileTextIcon,
 	ImageIcon,
 } from "lucide-react";
-import {
-	Timeline,
-	TimelineContent,
-	TimelineDot,
-	TimelineHeading,
-	TimelineItem,
-	TimelineLine,
-} from "@/components/pages/saas-admin/blocks/activity-timeline-primitives";
-import { SaasAdminText } from "@/components/pages/saas-admin/environment";
+
 // Type Imports
 import type {
 	ActivityFileType,
 	UserActivityItem,
 } from "@/components/pages/saas-admin/types/apps/user-types";
+
 // Component Imports
 import {
 	Avatar,
@@ -32,6 +26,14 @@ import {
 	AvatarImage,
 } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import {
+	Timeline,
+	TimelineContent,
+	TimelineDot,
+	TimelineHeading,
+	TimelineItem,
+	TimelineLine,
+} from "@/components/pages/saas-admin/blocks/activity-timeline-primitives";
 
 // Util Imports
 import { cn } from "@/lib/utils";

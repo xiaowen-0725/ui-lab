@@ -4,11 +4,16 @@ import { ArrowLeft, Star } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useRef, useState } from "react";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
-import { APP_FOCUS, enterTransition, textFor, useQuietMotion } from "../surface";
+import { IconTip, PersonAvatar } from "../chrome";
+import { enterTransition, textFor, useQuietMotion } from "../surface";
 import {
 	FOLDER_IDS,
 	type FolderId,
@@ -126,7 +131,7 @@ export function MailApp() {
 
 	return (
 		<div className="flex min-h-[36rem] flex-col overflow-hidden rounded-xl bg-card ring-1 ring-foreground/10">
-			<header className="flex shrink-0 flex-col gap-3 border-b px-4 py-4 md:flex-row md:items-center md:justify-between">
+			<header className="flex shrink-0 flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between">
 				<p className="text-sm text-muted-foreground">
 					<SaasAdminText>
 						Read threads by folder. A sent letter stays in this visit.
@@ -153,33 +158,35 @@ export function MailApp() {
 					</Button>
 				</div>
 			</header>
+			<Separator />
 			<div className="grid min-h-0 flex-1 md:grid-cols-[minmax(16rem,22rem)_1fr] xl:grid-cols-[11rem_minmax(16rem,22rem)_1fr]">
 				<nav
 					aria-label={t("Folders")}
 					className="hidden flex-col gap-1 border-r p-3 xl:flex"
 				>
-					{FOLDER_IDS.map((id) => {
-						const count = threadsForFolder(threads, id).length;
-						const current = folder === id;
-						return (
-							<button
+					<ToggleGroup
+						value={[folder]}
+						onValueChange={(values) => {
+							if (values[0]) setFolder(values[0] as FolderId);
+						}}
+						orientation="vertical"
+						spacing={1}
+						className="w-full flex-col items-stretch"
+					>
+						{FOLDER_IDS.map((id) => (
+							<ToggleGroupItem
 								key={id}
-								type="button"
-								aria-current={current ? "page" : undefined}
-								onClick={() => setFolder(id)}
-								className={cn(
-									"flex items-center justify-between rounded-lg px-2.5 py-2 text-left text-sm transition-colors motion-reduce:transition-none",
-									APP_FOCUS,
-									current
-										? "bg-muted font-medium text-foreground"
-										: "text-muted-foreground hover:bg-muted/70 hover:text-foreground",
-								)}
+								value={id}
+								aria-current={folder === id ? "page" : undefined}
+								className="h-auto w-full justify-between px-2.5 py-2"
 							>
 								<SaasAdminText>{FOLDER_KEY[id]}</SaasAdminText>
-								<span className="tabular-nums text-xs">{count}</span>
-							</button>
-						);
-					})}
+								<Badge variant="secondary" className="tabular-nums">
+									{threadsForFolder(threads, id).length}
+								</Badge>
+							</ToggleGroupItem>
+						))}
+					</ToggleGroup>
 				</nav>
 				<section
 					ref={listSection}
@@ -190,26 +197,29 @@ export function MailApp() {
 						selected || composing ? "hidden md:flex" : "flex",
 					)}
 				>
-					<div className="flex gap-1 overflow-x-auto border-b p-2 xl:hidden">
-						{FOLDER_IDS.map((id) => (
-							<button
-								key={id}
-								type="button"
-								aria-pressed={folder === id}
-								onClick={() => setFolder(id)}
-								className={cn(
-									"shrink-0 rounded-full px-3 py-1 text-xs transition-colors motion-reduce:transition-none",
-									APP_FOCUS,
-									folder === id
-										? "bg-foreground text-background"
-										: "bg-muted text-muted-foreground",
-								)}
-							>
-								<SaasAdminText>{FOLDER_KEY[id]}</SaasAdminText>
-							</button>
-						))}
+					<div className="p-2 xl:hidden">
+						<ToggleGroup
+							value={[folder]}
+							onValueChange={(values) => {
+								if (values[0]) setFolder(values[0] as FolderId);
+							}}
+							spacing={1}
+							className="w-full justify-start overflow-x-auto"
+						>
+							{FOLDER_IDS.map((id) => (
+								<ToggleGroupItem
+									key={id}
+									value={id}
+									size="sm"
+									className="shrink-0"
+								>
+									<SaasAdminText>{FOLDER_KEY[id]}</SaasAdminText>
+								</ToggleGroupItem>
+							))}
+						</ToggleGroup>
 					</div>
-					<div className="min-h-0 flex-1 overflow-y-auto">
+					<Separator className="xl:hidden" />
+					<ScrollArea className="min-h-0 flex-1">
 						{visible.length === 0 ? (
 							<p className="px-4 py-16 text-center text-sm text-muted-foreground">
 								<SaasAdminText>No matching results</SaasAdminText>
@@ -221,18 +231,18 @@ export function MailApp() {
 									const current = thread.id === selectedId && !composing;
 									if (!latest) return null;
 									return (
-										<li key={thread.id} className="border-b">
-											<button
+										<li key={thread.id}>
+											<Button
 												type="button"
+												variant="ghost"
 												onClick={() => openThread(thread.id)}
 												aria-current={current ? "true" : undefined}
 												className={cn(
-													"flex w-full gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/60 motion-reduce:transition-none",
-													APP_FOCUS,
+													"h-auto w-full items-start justify-start gap-3 whitespace-normal rounded-none border-b px-4 py-3 text-left",
 													current && "bg-muted",
 												)}
 											>
-												<Initials
+												<PersonAvatar
 													name={textFor(locale, latest.author, latest.authorZh)}
 												/>
 												<span className="min-w-0 flex-1">
@@ -246,24 +256,28 @@ export function MailApp() {
 															{textFor(locale, thread.subject, thread.subjectZh)}
 														</span>
 														{thread.unread ? (
-															<span className="size-2 shrink-0 rounded-full bg-foreground" />
+															<Badge
+																variant="default"
+																className="size-2 p-0"
+																aria-hidden="true"
+															/>
 														) : null}
 													</span>
-													<span className="mt-0.5 block truncate text-xs text-muted-foreground">
+													<span className="mt-0.5 block truncate text-xs font-normal text-muted-foreground">
 														{textFor(locale, latest.author, latest.authorZh)} ·{" "}
 														{textFor(locale, latest.at, latest.atZh)}
 													</span>
-													<span className="mt-1 block truncate text-xs text-muted-foreground">
+													<span className="mt-1 block truncate text-xs font-normal text-muted-foreground">
 														{textFor(locale, latest.body, latest.bodyZh)}
 													</span>
 												</span>
-											</button>
+											</Button>
 										</li>
 									);
 								})}
 							</ul>
 						)}
-					</div>
+					</ScrollArea>
 				</section>
 				<section
 					aria-label={t("Reading pane")}
@@ -283,22 +297,29 @@ export function MailApp() {
 									sendDraft();
 								}}
 							>
-								<div className="flex items-center gap-2 border-b px-4 py-3">
-									<Button
-										type="button"
-										variant="ghost"
-										size="icon-sm"
-										className="md:hidden"
-										aria-label={t("Back to list")}
-										onClick={backToList}
+								<div className="flex items-center gap-2 px-4 py-3">
+									<IconTip
+										label={t("Back to list")}
+										trigger={
+											<Button
+												type="button"
+												variant="ghost"
+												size="icon-sm"
+												className="md:hidden"
+												aria-label={t("Back to list")}
+												onClick={backToList}
+											/>
+										}
 									>
 										<ArrowLeft aria-hidden="true" />
-									</Button>
+									</IconTip>
 									<h2 className="text-sm font-medium">
 										<SaasAdminText>New message</SaasAdminText>
 									</h2>
 								</div>
-								<div className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto p-4 md:p-6">
+								<Separator />
+								<ScrollArea className="min-h-0 flex-1">
+								<div className="flex min-h-0 flex-1 flex-col gap-3 p-4 md:p-6">
 									<div className="grid gap-1 text-xs text-muted-foreground">
 										<label htmlFor="saas-admin-mail-to">
 											<SaasAdminText>To</SaasAdminText>
@@ -366,6 +387,7 @@ export function MailApp() {
 										</Button>
 									</div>
 								</div>
+								</ScrollArea>
 							</motion.form>
 						) : selected ? (
 							<motion.article
@@ -373,17 +395,22 @@ export function MailApp() {
 								{...enterTransition(quiet)}
 								className="flex h-full min-h-0 flex-col"
 							>
-								<header className="flex items-start gap-2 border-b px-4 py-3 md:px-6">
-									<Button
-										type="button"
-										variant="ghost"
-										size="icon-sm"
-										className="md:hidden"
-										aria-label={t("Back to list")}
-										onClick={backToList}
+								<header className="flex items-start gap-2 px-4 py-3 md:px-6">
+									<IconTip
+										label={t("Back to list")}
+										trigger={
+											<Button
+												type="button"
+												variant="ghost"
+												size="icon-sm"
+												className="md:hidden"
+												aria-label={t("Back to list")}
+												onClick={backToList}
+											/>
+										}
 									>
 										<ArrowLeft aria-hidden="true" />
-									</Button>
+									</IconTip>
 									<div className="min-w-0 flex-1">
 										<h2
 											ref={readingTitle}
@@ -398,28 +425,35 @@ export function MailApp() {
 												: `${selected.messages.length} messages`}
 										</p>
 									</div>
-									<Button
-										type="button"
-										variant="ghost"
-										size="icon-sm"
-										aria-label={selected.starred ? t("Unstar") : t("Star")}
-										onClick={() => toggleStar(selected.id)}
-										className={selected.starred ? "text-foreground" : undefined}
+									<IconTip
+										label={selected.starred ? t("Unstar") : t("Star")}
+										trigger={
+											<Button
+												type="button"
+												variant="ghost"
+												size="icon-sm"
+												aria-label={selected.starred ? t("Unstar") : t("Star")}
+												onClick={() => toggleStar(selected.id)}
+												className={selected.starred ? "text-foreground" : undefined}
+											/>
+										}
 									>
 										<Star
 											aria-hidden="true"
 											className={cn("size-4", selected.starred && "fill-current")}
 										/>
-									</Button>
+									</IconTip>
 								</header>
-								<div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-4 md:p-6">
+								<Separator />
+								<ScrollArea className="min-h-0 flex-1">
+								<div className="space-y-4 p-4 md:p-6">
 									{selected.messages.map((message) => (
 										<article
 											key={message.id}
 											className="rounded-xl bg-muted/40 p-4 ring-1 ring-foreground/10"
 										>
 											<header className="flex items-center gap-3">
-												<Initials
+												<PersonAvatar
 													name={textFor(locale, message.author, message.authorZh)}
 												/>
 												<div className="min-w-0">
@@ -438,6 +472,7 @@ export function MailApp() {
 										</article>
 									))}
 								</div>
+								</ScrollArea>
 							</motion.article>
 						) : (
 							<motion.div
@@ -454,22 +489,5 @@ export function MailApp() {
 				</section>
 			</div>
 		</div>
-	);
-}
-
-function Initials({ name }: { name: string }) {
-	const initials = name
-		.split(/\s+/)
-		.slice(0, 2)
-		.map((part) => part.slice(0, 1))
-		.join("")
-		.toUpperCase();
-	return (
-		<span
-			aria-hidden="true"
-			className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-[11px] font-medium"
-		>
-			{initials}
-		</span>
 	);
 }

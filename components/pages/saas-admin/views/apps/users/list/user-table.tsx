@@ -19,7 +19,7 @@ import type {
 	AppUser,
 	UserSorting,
 } from "@/components/pages/saas-admin/types/apps/user-types";
-import { userTableColumns } from "@/components/pages/saas-admin/views/apps/users/list/user-table-columns";
+
 // Component Imports
 import {
 	Table,
@@ -29,8 +29,10 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
+
 // Util Imports
 import { cn } from "@/lib/utils";
+import { userTableColumns } from "@/components/pages/saas-admin/views/apps/users/list/user-table-columns";
 
 export interface UserTableProps {
 	paginatedUsers: AppUser[];

@@ -3,10 +3,14 @@
 import { ChevronLeft, ChevronRight, GripVertical } from "lucide-react";
 import { type PointerEvent, useRef, useState } from "react";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { APP_FOCUS, fill, textFor, useQuietMotion } from "../surface";
+import { IconTip, PersonAvatar, TruncateTip } from "../chrome";
+import { fill, textFor, useQuietMotion } from "../surface";
 import {
 	COLUMN_IDS,
 	type ColumnId,
@@ -135,7 +139,7 @@ export function KanbanApp() {
 
 	return (
 		<div className="flex min-h-[36rem] flex-col overflow-hidden rounded-xl bg-card ring-1 ring-foreground/10">
-			<header className="flex shrink-0 flex-col gap-3 border-b px-4 py-4 md:flex-row md:items-center md:justify-between">
+			<header className="flex shrink-0 flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between">
 				<div>
 					<p className="text-sm text-muted-foreground">
 						<SaasAdminText>
@@ -152,6 +156,7 @@ export function KanbanApp() {
 					onChange={(event) => setQuery(event.target.value)}
 				/>
 			</header>
+			<Separator />
 			<p className="sr-only" aria-live="polite">
 				{live}
 			</p>
@@ -178,11 +183,12 @@ export function KanbanApp() {
 									<h2 className="text-sm font-medium">
 										<SaasAdminText>{COLUMN_KEY[column]}</SaasAdminText>
 									</h2>
-									<span className="tabular-nums text-xs text-muted-foreground">
+									<Badge variant="secondary" className="tabular-nums">
 										{cards.length}
-									</span>
+									</Badge>
 								</header>
-								<div className="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto px-1 pb-2">
+								<ScrollArea className="min-h-0 flex-1">
+								<div className="flex min-h-0 flex-1 flex-col gap-2 px-1 pb-2">
 									{cards.length === 0 ? (
 										<p className="px-2 py-6 text-center text-xs text-muted-foreground">
 											<SaasAdminText>
@@ -204,29 +210,30 @@ export function KanbanApp() {
 													)}
 												>
 													<div className="flex items-start gap-2">
-														<button
-															type="button"
-															aria-label={fill(t("Drag {title}"), { title })}
-															className={cn(
-																"mt-0.5 cursor-grab touch-none rounded-md text-muted-foreground hover:text-foreground active:cursor-grabbing",
-																APP_FOCUS,
-															)}
-															onPointerDown={(event) => onGripDown(event, task)}
-															onPointerMove={onGripMove}
-															onPointerUp={onGripUp}
-															onPointerCancel={onGripUp}
-															onKeyDown={(event) => {
-																if (event.key === "ArrowLeft" && earlier)
-																	move(task.id, earlier);
-																if (event.key === "ArrowRight" && later)
-																	move(task.id, later);
-															}}
+														<IconTip
+															label={fill(t("Drag {title}"), { title })}
+															trigger={
+																<Button
+																	type="button"
+																	variant="ghost"
+																	size="icon-xs"
+																	aria-label={fill(t("Drag {title}"), { title })}
+																	className="mt-0.5 cursor-grab touch-none text-muted-foreground hover:text-foreground active:cursor-grabbing"
+																	onPointerDown={(event) => onGripDown(event, task)}
+																	onPointerMove={onGripMove}
+																	onPointerUp={onGripUp}
+																	onPointerCancel={onGripUp}
+																	onKeyDown={(event) => {
+																		if (event.key === "ArrowLeft" && earlier)
+																			move(task.id, earlier);
+																		if (event.key === "ArrowRight" && later)
+																			move(task.id, later);
+																	}}
+																/>
+															}
 														>
-															<GripVertical
-																aria-hidden="true"
-																className="size-4"
-															/>
-														</button>
+															<GripVertical aria-hidden="true" />
+														</IconTip>
 														<div className="min-w-0 flex-1">
 															<h3 className="text-sm leading-snug font-medium">
 																{title}
@@ -237,54 +244,77 @@ export function KanbanApp() {
 														</div>
 													</div>
 													<div className="mt-3 flex items-center justify-between gap-2">
-														<span
-															className={cn(
-																"rounded-full px-2 py-0.5 text-[11px] font-medium",
-																LABEL_CLASS[task.label],
-															)}
+														<Badge
+															variant="secondary"
+															className={cn("border-0", LABEL_CLASS[task.label])}
 														>
 															<SaasAdminText>
 																{LABEL_KEY[task.label]}
 															</SaasAdminText>
-														</span>
-														<span className="truncate text-[11px] text-muted-foreground">
-															{textFor(locale, task.owner, task.ownerZh)} ·{" "}
-															{textFor(locale, task.due, task.dueZh)}
+														</Badge>
+														<span className="flex min-w-0 items-center gap-1.5 text-[11px] text-muted-foreground">
+															<PersonAvatar
+																name={textFor(locale, task.owner, task.ownerZh)}
+																size="sm"
+															/>
+															<TruncateTip
+																text={`${textFor(locale, task.owner, task.ownerZh)} · ${textFor(locale, task.due, task.dueZh)}`}
+															>
+																{textFor(locale, task.owner, task.ownerZh)} ·{" "}
+																{textFor(locale, task.due, task.dueZh)}
+															</TruncateTip>
 														</span>
 													</div>
 													<div className="mt-2 flex justify-end gap-1">
-														<Button
-															type="button"
-															variant="ghost"
-															size="icon-xs"
-															disabled={!earlier}
-															aria-label={fill(
+														<IconTip
+															label={fill(
 																t("Move {title} to the previous column"),
 																{ title },
 															)}
-															onClick={() => earlier && move(task.id, earlier)}
+															trigger={
+																<Button
+																	type="button"
+																	variant="ghost"
+																	size="icon-xs"
+																	disabled={!earlier}
+																	aria-label={fill(
+																		t("Move {title} to the previous column"),
+																		{ title },
+																	)}
+																	onClick={() => earlier && move(task.id, earlier)}
+																/>
+															}
 														>
 															<ChevronLeft aria-hidden="true" />
-														</Button>
-														<Button
-															type="button"
-															variant="ghost"
-															size="icon-xs"
-															disabled={!later}
-															aria-label={fill(
+														</IconTip>
+														<IconTip
+															label={fill(
 																t("Move {title} to the next column"),
 																{ title },
 															)}
-															onClick={() => later && move(task.id, later)}
+															trigger={
+																<Button
+																	type="button"
+																	variant="ghost"
+																	size="icon-xs"
+																	disabled={!later}
+																	aria-label={fill(
+																		t("Move {title} to the next column"),
+																		{ title },
+																	)}
+																	onClick={() => later && move(task.id, later)}
+																/>
+															}
 														>
 															<ChevronRight aria-hidden="true" />
-														</Button>
+														</IconTip>
 													</div>
 												</article>
 											);
 										})
 									)}
 								</div>
+								</ScrollArea>
 							</section>
 						);
 					})}

@@ -22,8 +22,11 @@ import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/envir
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { APP_FOCUS, textFor, useQuietMotion } from "../surface";
+import { IconTip, PersonAvatar } from "../chrome";
+import { textFor, useQuietMotion } from "../surface";
 import {
 	blocksToDisplay,
 	CHAT_MODELS,
@@ -220,7 +223,7 @@ export function AiChatApp() {
 					pane === "list" ? "flex" : "hidden",
 				)}
 			>
-				<div className="flex items-center gap-2 border-b p-3">
+				<div className="flex items-center gap-2 p-3">
 					<Input
 						type="search"
 						value={query}
@@ -229,62 +232,70 @@ export function AiChatApp() {
 						className="min-w-0 flex-1"
 						onChange={(event) => setQuery(event.target.value)}
 					/>
-					<Button
-						type="button"
-						size="icon-sm"
-						aria-label={t("New chat")}
-						onClick={startNew}
+					<IconTip
+						label={t("New chat")}
+						trigger={
+							<Button
+								type="button"
+								size="icon-sm"
+								aria-label={t("New chat")}
+								onClick={startNew}
+							/>
+						}
 					>
 						<Plus aria-hidden="true" />
-					</Button>
+					</IconTip>
 				</div>
-				<div className="min-h-0 flex-1 overflow-y-auto p-2">
-					{visible.length === 0 ? (
-						<p className="px-2 py-10 text-center text-sm text-muted-foreground">
-							<SaasAdminText>No matching results</SaasAdminText>
-						</p>
-					) : (
-						<ul className="space-y-1">
-							{visible.map((chat) => {
-								const current = chat.id === selectedId;
-								return (
-									<li key={chat.id}>
-										<button
-											type="button"
-											aria-current={current ? "true" : undefined}
-											onClick={() => openChat(chat.id)}
-											className={cn(
-												"flex w-full flex-col gap-1 rounded-xl px-3 py-2.5 text-left transition-colors motion-reduce:transition-none",
-												APP_FOCUS,
-												current
-													? "bg-muted"
-													: "hover:bg-muted/70",
-											)}
-										>
-											<span className="flex items-center gap-2">
-												<span className="min-w-0 flex-1 truncate text-sm font-medium">
-													{textFor(locale, chat.title, chat.titleZh)}
+				<Separator />
+				<ScrollArea className="min-h-0 flex-1">
+					<div className="p-2">
+						{visible.length === 0 ? (
+							<p className="px-2 py-10 text-center text-sm text-muted-foreground">
+								<SaasAdminText>No matching results</SaasAdminText>
+							</p>
+						) : (
+							<ul className="space-y-1">
+								{visible.map((chat) => {
+									const current = chat.id === selectedId;
+									const title = textFor(locale, chat.title, chat.titleZh);
+									return (
+										<li key={chat.id}>
+											<Button
+												type="button"
+												variant="ghost"
+												aria-current={current ? "true" : undefined}
+												onClick={() => openChat(chat.id)}
+												className={cn(
+													"h-auto w-full flex-col items-start gap-1 whitespace-normal px-3 py-2.5 text-left",
+													current && "bg-muted",
+												)}
+											>
+												<span className="flex w-full items-center gap-2">
+													<PersonAvatar name={title} size="sm" />
+													<span className="min-w-0 flex-1 truncate text-sm font-medium">
+														{title}
+													</span>
+													{chat.pinned ? (
+														<Pin
+															aria-hidden="true"
+															className="size-3 text-muted-foreground"
+														/>
+													) : null}
 												</span>
-												{chat.pinned ? (
-													<Pin
-														aria-hidden="true"
-														className="size-3 text-muted-foreground"
-													/>
-												) : null}
-											</span>
-											<span className="truncate text-xs text-muted-foreground">
-												{textFor(locale, chat.preview, chat.previewZh)}
-											</span>
-											<span className="text-[11px] text-muted-foreground">
-												{textFor(locale, chat.updated, chat.updatedZh)}
-											</span>
-										</button>
-									</li>
-								);
-							})}
-						</ul>
-					)}
-				</div>
+												<span className="truncate text-xs font-normal text-muted-foreground">
+													{textFor(locale, chat.preview, chat.previewZh)}
+												</span>
+												<span className="text-[11px] font-normal text-muted-foreground">
+													{textFor(locale, chat.updated, chat.updatedZh)}
+												</span>
+											</Button>
+										</li>
+									);
+								})}
+							</ul>
+						)}
+					</div>
+				</ScrollArea>
 			</section>
 			<section
 				aria-label={t("AI Chat")}
@@ -293,17 +304,22 @@ export function AiChatApp() {
 					pane === "thread" ? "flex" : "hidden md:flex",
 				)}
 			>
-				<header className="flex items-center gap-2 border-b px-3 py-3 md:px-5">
-					<Button
-						type="button"
-						variant="ghost"
-						size="icon-sm"
-						className="md:hidden"
-						aria-label={t("Back to conversations")}
-						onClick={() => setPane("list")}
+				<header className="flex items-center gap-2 px-3 py-3 md:px-5">
+					<IconTip
+						label={t("Back to conversations")}
+						trigger={
+							<Button
+								type="button"
+								variant="ghost"
+								size="icon-sm"
+								className="md:hidden"
+								aria-label={t("Back to conversations")}
+								onClick={() => setPane("list")}
+							/>
+						}
 					>
 						<ArrowLeft aria-hidden="true" />
-					</Button>
+					</IconTip>
 					<div className="min-w-0 flex-1">
 						<h2
 							ref={threadTitle}
@@ -319,6 +335,7 @@ export function AiChatApp() {
 						</p>
 					</div>
 				</header>
+				<Separator />
 				<div className="sr-only" aria-live="polite">
 					{streamingId
 						? announceStream(
@@ -328,7 +345,7 @@ export function AiChatApp() {
 							)
 						: ""}
 				</div>
-				<div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
+				<ScrollArea className="min-h-0 min-w-0 flex-1 overflow-x-hidden">
 					{!selected ? (
 						<div className="mx-auto flex h-full max-w-2xl flex-col justify-center gap-6 px-4 py-10">
 							<div>
@@ -428,25 +445,32 @@ export function AiChatApp() {
 							<div ref={threadEnd} />
 						</Thread>
 					)}
-				</div>
-				<div className="border-t p-3 md:p-4">
+				</ScrollArea>
+				<Separator />
+				<div className="p-3 md:p-4">
 					{attachments.length ? (
 						<div className="mb-2 flex flex-wrap gap-1.5">
 							{attachments.map((name) => (
 								<Badge key={name} variant="secondary" className="gap-1 pr-1">
 									{name}
-									<button
-										type="button"
-										className={cn("rounded-full p-0.5", APP_FOCUS)}
-										aria-label={t("Remove attachment")}
-										onClick={() =>
-											setAttachments((current) =>
-												current.filter((item) => item !== name),
-											)
+									<IconTip
+										label={t("Remove attachment")}
+										trigger={
+											<Button
+												type="button"
+												variant="ghost"
+												size="icon-xs"
+												aria-label={t("Remove attachment")}
+												onClick={() =>
+													setAttachments((current) =>
+														current.filter((item) => item !== name),
+													)
+												}
+											/>
 										}
 									>
-										<X aria-hidden="true" className="size-3" />
-									</button>
+										<X aria-hidden="true" />
+									</IconTip>
 								</Badge>
 							))}
 						</div>
@@ -546,18 +570,23 @@ function CopyableCodeBlock({
 		<div className="min-w-0 max-w-full rounded-xl bg-[var(--wb-code-block)]">
 			<div className="flex items-center justify-between gap-2 px-3 pt-2">
 				<span className="text-xs text-muted-foreground">{language}</span>
-				<Button
-					type="button"
-					variant="ghost"
-					size="xs"
-					data-code-copied={copied ? "true" : undefined}
-					aria-label={copied ? t("Copied") : t("Copy code")}
-					onClick={async () => {
-						await navigator.clipboard?.writeText(code);
-						setCopied(true);
-						if (timer.current) window.clearTimeout(timer.current);
-						timer.current = window.setTimeout(() => setCopied(false), 1600);
-					}}
+				<IconTip
+					label={copied ? t("Copied") : t("Copy code")}
+					trigger={
+						<Button
+							type="button"
+							variant="ghost"
+							size="xs"
+							data-code-copied={copied ? "true" : undefined}
+							aria-label={copied ? t("Copied") : t("Copy code")}
+							onClick={async () => {
+								await navigator.clipboard?.writeText(code);
+								setCopied(true);
+								if (timer.current) window.clearTimeout(timer.current);
+								timer.current = window.setTimeout(() => setCopied(false), 1600);
+							}}
+						/>
+					}
 				>
 					{copied ? (
 						<Check aria-hidden="true" />
@@ -565,7 +594,7 @@ function CopyableCodeBlock({
 						<Copy aria-hidden="true" />
 					)}
 					{copied ? t("Copied") : t("Copy code")}
-				</Button>
+				</IconTip>
 			</div>
 			<div
 				data-code-scroll=""

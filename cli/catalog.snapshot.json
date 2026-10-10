@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T00:04:20.688Z",
+  "generatedAt": "2026-10-10T00:13:41.606Z",
   "count": 576,
   "items": [
     {
@@ -1122,7 +1122,7 @@
         "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
         "components/ui/checkbox.tsx"
       ],
-      "sourceVersion": "6d3f0f0224838cd5bd0d11df5295c0383aac4eccd0ee0011b38446ccefca741a",
+      "sourceVersion": "e6fbd2241d029412f559bcd743c7db1583ee0d541a86355e1bce095711ec643d",
       "installTargets": [
         "saas-admin-users-page"
       ]
@@ -1716,21 +1716,26 @@
         "components/pages/saas-admin/theme.tsx",
         "components/ui/sonner.tsx",
         "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/chrome.tsx",
         "components/pages/saas-admin/views/apps/surface.ts",
         "components/pages/saas-admin/views/apps/kanban/data.ts",
+        "components/ui/badge.tsx",
         "components/ui/button.tsx",
         "components/ui/input.tsx",
+        "components/ui/scroll-area.tsx",
+        "components/ui/separator.tsx",
         "lib/utils.ts",
         "components/pages/saas-admin/assets/images.ts",
         "components/pages/saas-admin/assets/font-license.ts",
         "components/pages/saas-admin/styles.css",
         "lib/theme-kits/blue-ink-colors.ts",
         "lib/theme-kits/saas-admin-default-colors.ts",
+        "components/ui/avatar.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "00ae45aa14d3dc4e1980462a063e757a264bb1caa663772e530543fa6d50b5be",
+      "sourceVersion": "a527e1c2610e161941ecfc2ee1c780007ae90ba546a9f15ff2f5f580a3f07deb",
       "installTargets": [
         "saas-admin-kanban-page"
       ]
@@ -1781,22 +1786,29 @@
         "components/pages/saas-admin/theme.tsx",
         "components/ui/sonner.tsx",
         "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/chrome.tsx",
         "components/pages/saas-admin/views/apps/surface.ts",
         "components/pages/saas-admin/views/apps/mail/data.ts",
+        "components/ui/badge.tsx",
         "components/ui/button.tsx",
         "components/ui/input.tsx",
+        "components/ui/scroll-area.tsx",
+        "components/ui/separator.tsx",
         "components/ui/textarea.tsx",
+        "components/ui/toggle-group.tsx",
         "lib/utils.ts",
         "components/pages/saas-admin/assets/images.ts",
         "components/pages/saas-admin/assets/font-license.ts",
         "components/pages/saas-admin/styles.css",
         "lib/theme-kits/blue-ink-colors.ts",
         "lib/theme-kits/saas-admin-default-colors.ts",
+        "components/ui/avatar.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/ui/toggle.tsx",
         "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "8b66a78db09ae62146c86baa5f49eb59a71237685b7bfb29c0fc883ff09fd750",
+      "sourceVersion": "fff302318ac4f19ec57795c3aece3c6bb78d4f8a69a3eda458577556a7765409",
       "installTargets": [
         "saas-admin-mail-page"
       ]
@@ -1847,20 +1859,25 @@
         "components/pages/saas-admin/theme.tsx",
         "components/ui/sonner.tsx",
         "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/chrome.tsx",
         "components/pages/saas-admin/views/apps/surface.ts",
         "components/pages/saas-admin/views/apps/calendar/data.ts",
+        "components/ui/badge.tsx",
         "components/ui/button.tsx",
+        "components/ui/scroll-area.tsx",
+        "components/ui/separator.tsx",
         "lib/utils.ts",
         "components/pages/saas-admin/assets/images.ts",
         "components/pages/saas-admin/assets/font-license.ts",
         "components/pages/saas-admin/styles.css",
         "lib/theme-kits/blue-ink-colors.ts",
         "lib/theme-kits/saas-admin-default-colors.ts",
+        "components/ui/avatar.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "07ac79e98516d63ae963cca1dd84252b7eba65be45098bc472677dfca33ddd2f",
+      "sourceVersion": "9e7c271426a96ecff50c9148e5026a810ef07fe41a9f602140469a7f7bd7105b",
       "installTargets": [
         "saas-admin-calendar-page"
       ]
@@ -1911,6 +1928,7 @@
         "components/pages/saas-admin/theme.tsx",
         "components/ui/sonner.tsx",
         "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/chrome.tsx",
         "components/pages/saas-admin/views/apps/surface.ts",
         "components/pages/saas-admin/views/apps/ai-chat/data.ts",
         "components/agents/prompt-input.tsx",
@@ -1920,12 +1938,15 @@
         "components/ui/badge.tsx",
         "components/ui/button.tsx",
         "components/ui/input.tsx",
+        "components/ui/scroll-area.tsx",
+        "components/ui/separator.tsx",
         "lib/utils.ts",
         "components/pages/saas-admin/assets/images.ts",
         "components/pages/saas-admin/assets/font-license.ts",
         "components/pages/saas-admin/styles.css",
         "lib/theme-kits/blue-ink-colors.ts",
         "lib/theme-kits/saas-admin-default-colors.ts",
+        "components/ui/avatar.tsx",
         "lib/ease.ts",
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/motion/button/index.tsx",
@@ -1945,7 +1966,7 @@
         "lib/hooks/use-hover-capable.ts",
         "components/motion/magnetic.tsx"
       ],
-      "sourceVersion": "807b0081948a764179ae953226fb23b5752dcada4770dd113db4a4f2b39d797a",
+      "sourceVersion": "8fc45e13e74d9cf90fd16d41848b8314b683dd6ddad8c25cadf117f89bb3bc88",
       "installTargets": [
         "saas-admin-ai-chat-page"
       ]
@@ -1996,14 +2017,15 @@
         "components/pages/saas-admin/theme.tsx",
         "components/ui/sonner.tsx",
         "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/chrome.tsx",
         "components/pages/saas-admin/views/apps/surface.ts",
         "components/pages/saas-admin/views/apps/ai-usage/data.ts",
         "components/motion/agent-thread/index.tsx",
-        "components/ui/button.tsx",
         "components/ui/card.tsx",
         "components/ui/chart.tsx",
         "components/ui/progress.tsx",
         "components/ui/table.tsx",
+        "components/ui/toggle-group.tsx",
         "lib/ease.ts",
         "lib/utils.ts",
         "components/pages/saas-admin/assets/images.ts",
@@ -2011,12 +2033,14 @@
         "components/pages/saas-admin/styles.css",
         "lib/theme-kits/blue-ink-colors.ts",
         "lib/theme-kits/saas-admin-default-colors.ts",
+        "components/ui/avatar.tsx",
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/motion/agent-thread/cards.tsx",
         "components/motion/agent-thread/status.tsx",
+        "components/ui/toggle.tsx",
         "components/pages/saas-admin/assets/fonts.css"
       ],
-      "sourceVersion": "d9558ee22200128399e0f9212bb3485cb30dd19935b96c16b4c72a1d79dc7253",
+      "sourceVersion": "16c25294487e5ec7f68e67e68c9ae7afc2bf3edefbf5e14b4e758f33a22a3418",
       "installTargets": [
         "saas-admin-ai-usage-page"
       ]
@@ -2318,6 +2342,7 @@
         "components/ui/input.tsx",
         "components/ui/sheet.tsx",
         "lib/hooks/use-mobile.ts",
+        "components/pages/saas-admin/views/apps/chrome.tsx",
         "components/pages/saas-admin/views/apps/surface.ts",
         "components/pages/saas-admin/views/apps/ai-chat/data.ts",
         "components/agents/prompt-input.tsx",
@@ -2325,11 +2350,13 @@
         "components/agents/suggestion.tsx",
         "components/motion/agent-thread/index.tsx",
         "components/ui/badge.tsx",
+        "components/ui/scroll-area.tsx",
         "components/pages/saas-admin/views/apps/ai-usage/data.ts",
         "components/ui/card.tsx",
         "components/ui/chart.tsx",
         "components/ui/progress.tsx",
         "components/ui/table.tsx",
+        "components/ui/toggle-group.tsx",
         "lib/ease.ts",
         "components/pages/saas-admin/views/apps/calendar/data.ts",
         "components/pages/saas-admin/views/datatables/basic/index.tsx",
@@ -2379,7 +2406,6 @@
         "components/ui/field.tsx",
         "components/ui/popover.tsx",
         "components/ui/select.tsx",
-        "components/ui/toggle-group.tsx",
         "components/motion/button/index.tsx",
         "components/motion/popover-morph.tsx",
         "components/motion/select.tsx",
@@ -2387,6 +2413,7 @@
         "components/agents/loading-states/thinking-shimmer.tsx",
         "components/motion/agent-thread/cards.tsx",
         "components/motion/agent-thread/status.tsx",
+        "components/ui/toggle.tsx",
         "components/pages/saas-admin/views/datatables/basic/basic-datatable.tsx",
         "components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx",
         "components/pages/saas-admin/views/datatables/pinnable-columns/pinnable-columns-datatable.tsx",
@@ -2410,7 +2437,6 @@
         "components/pages/saas-admin/views/apps/users/view/tabs/connections-tab.tsx",
         "components/pages/saas-admin/views/apps/users/view/tabs/notifications-tab.tsx",
         "components/pages/saas-admin/views/apps/users/view/tabs/security-tab.tsx",
-        "components/ui/toggle.tsx",
         "components/motion/button/base.tsx",
         "components/motion/button/magnetic.tsx",
         "components/motion/button/metallic.tsx",
@@ -2447,7 +2473,7 @@
         "components/ui/dialog.tsx",
         "components/ui/command.tsx"
       ],
-      "sourceVersion": "686fb6322404d41f7b3a0835157e961c7d580e899aab670850b37616aa0cf292",
+      "sourceVersion": "408b83912359fb846a6d731872836b88751f054077b2520a7b0bfb1c1767604c",
       "installTargets": [
         "saas-admin-site"
       ]

@@ -4,16 +4,17 @@
 // Revision: dd1afd2f3a794ea9e746197de314f81d43670ea1; path: src/views/apps/users/list/index.tsx
 // Adaptation: named exports and portable import/navigation boundaries.
 
+import { AddEditUserSheet } from "../dialogs/add-edit-user-sheet";
 
-// Hook Imports
-import { useUserApp } from "@/components/pages/saas-admin/hooks/use-user-app";
+// Component Imports
+import { Card } from "@/components/ui/card";
 import { UserPagination } from "@/components/pages/saas-admin/views/apps/users/list/user-pagination";
 import { UserTable } from "@/components/pages/saas-admin/views/apps/users/list/user-table";
 import { UserTableFilters } from "@/components/pages/saas-admin/views/apps/users/list/user-table-filters";
 import { UserTableToolbar } from "@/components/pages/saas-admin/views/apps/users/list/user-table-toolbar";
-// Component Imports
-import { Card } from "@/components/ui/card";
-import { AddEditUserSheet } from "../dialogs/add-edit-user-sheet";
+
+// Hook Imports
+import { useUserApp } from "@/components/pages/saas-admin/hooks/use-user-app";
 
 const UserListApp = () => {
 	const {

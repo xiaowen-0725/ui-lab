@@ -1,31 +1,34 @@
 "use client";
-// Third-party Imports
-import { CheckSquareIcon, LayoutGridIcon } from "lucide-react";
-// Config Imports
-import { getInitialsFromName } from "@/components/pages/saas-admin/configs/mailConfig";
 import {
 	SaasAdminText,
 	useSaasAdmin,
 } from "@/components/pages/saas-admin/environment";
+
+// Source: shadcn/studio Free AdminCN, MIT, copyright 2026.
+// Revision: dd1afd2f3a794ea9e746197de314f81d43670ea1; path: src/views/apps/users/view/user-view-left-panel.tsx
+// Adaptation: named exports and portable import/navigation boundaries.
+import {
+	useAdminSubmit,
+	AdminSubmitFeedback,
+} from "@/components/pages/saas-admin/use-submit";
+// Third-party Imports
+import { CheckSquareIcon, LayoutGridIcon } from "lucide-react";
 
 // Type Imports
 import type {
 	AppUser,
 	UserStatus,
 } from "@/components/pages/saas-admin/types/apps/user-types";
-// Source: shadcn/studio Free AdminCN, MIT, copyright 2026.
-// Revision: dd1afd2f3a794ea9e746197de314f81d43670ea1; path: src/views/apps/users/view/user-view-left-panel.tsx
-// Adaptation: named exports and portable import/navigation boundaries.
-import {
-	AdminSubmitFeedback,
-	useAdminSubmit,
-} from "@/components/pages/saas-admin/use-submit";
+
 // Component Imports
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+
+// Config Imports
+import { getInitialsFromName } from "@/components/pages/saas-admin/configs/mailConfig";
 
 // Util Imports
 import { cn } from "@/lib/utils";

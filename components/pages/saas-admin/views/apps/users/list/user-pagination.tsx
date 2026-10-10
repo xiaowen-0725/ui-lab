@@ -10,8 +10,7 @@ import {
 
 // Third-party Imports
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-// Hook Imports
-import { usePagination } from "@/components/pages/saas-admin/hooks/use-pagination";
+
 // Component Imports
 import { Button } from "@/components/ui/button";
 import {
@@ -20,6 +19,9 @@ import {
 	PaginationEllipsis,
 	PaginationItem,
 } from "@/components/ui/pagination";
+
+// Hook Imports
+import { usePagination } from "@/components/pages/saas-admin/hooks/use-pagination";
 
 export interface UserPaginationProps {
 	showingFrom: number;

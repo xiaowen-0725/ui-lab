@@ -1,4 +1,16 @@
 "use client";
+import {
+	SaasAdminText,
+	useSaasAdmin,
+} from "@/components/pages/saas-admin/environment";
+
+// Source: shadcn/studio Free AdminCN, MIT, copyright 2026.
+// Revision: dd1afd2f3a794ea9e746197de314f81d43670ea1; path: src/views/apps/users/list/user-table-toolbar.tsx
+// Adaptation: named exports and portable import/navigation boundaries.
+import {
+	useAdminSubmit,
+	AdminSubmitFeedback,
+} from "@/components/pages/saas-admin/use-submit";
 // Third-party Imports
 import {
 	DownloadIcon,
@@ -8,17 +20,6 @@ import {
 	SearchIcon,
 	UploadIcon,
 } from "lucide-react";
-import {
-	SaasAdminText,
-	useSaasAdmin,
-} from "@/components/pages/saas-admin/environment";
-// Source: shadcn/studio Free AdminCN, MIT, copyright 2026.
-// Revision: dd1afd2f3a794ea9e746197de314f81d43670ea1; path: src/views/apps/users/list/user-table-toolbar.tsx
-// Adaptation: named exports and portable import/navigation boundaries.
-import {
-	AdminSubmitFeedback,
-	useAdminSubmit,
-} from "@/components/pages/saas-admin/use-submit";
 
 // Component Imports
 import { Button } from "@/components/ui/button";

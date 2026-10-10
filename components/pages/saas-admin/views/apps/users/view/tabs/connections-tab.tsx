@@ -1,5 +1,9 @@
 "use client";
 import {
+	SaasAdminText,
+	useSaasAdmin,
+} from "@/components/pages/saas-admin/environment";
+import {
 	imageImagesBrandsAsanaIconCircleWebp,
 	imageImagesBrandsGithubWhiteWebp,
 	imageImagesBrandsGoogleIconWebp,
@@ -7,33 +11,31 @@ import {
 	imageImagesBrandsSlackIconWebp,
 } from "@/components/pages/saas-admin/assets/images";
 import {
-	SaasAdminText,
-	useSaasAdmin,
-} from "@/components/pages/saas-admin/environment";
-import {
-	AdminSubmitFeedback,
 	useAdminSubmit,
+	AdminSubmitFeedback,
 } from "@/components/pages/saas-admin/use-submit";
 
 // Source: shadcn/studio Free AdminCN, MIT, copyright 2026.
 // Revision: dd1afd2f3a794ea9e746197de314f81d43670ea1; path: src/views/apps/users/view/tabs/connections-tab.tsx
 // Adaptation: named exports and portable import/navigation boundaries.
 
+// React Imports
+import { useState, type ComponentType, type SVGAttributes } from "react";
 
 // Third-party Imports
 import { LinkIcon, PaletteIcon, Trash2Icon } from "lucide-react";
-// React Imports
-import { type ComponentType, type SVGAttributes, useState } from "react";
-// Component Imports
-import { FacebookIcon } from "@/components/pages/saas-admin/assets/svg/facebook-icon";
-import { GithubIcon } from "@/components/pages/saas-admin/assets/svg/github-icon";
-import { LinkedinIcon } from "@/components/pages/saas-admin/assets/svg/linkedin-icon";
-import { TwitterIcon } from "@/components/pages/saas-admin/assets/svg/twitter-icon";
+
 // Type Imports
 import type {
 	AppUser,
 	SocialPlatform,
 } from "@/components/pages/saas-admin/types/apps/user-types";
+
+// Component Imports
+import { FacebookIcon } from "@/components/pages/saas-admin/assets/svg/facebook-icon";
+import { GithubIcon } from "@/components/pages/saas-admin/assets/svg/github-icon";
+import { LinkedinIcon } from "@/components/pages/saas-admin/assets/svg/linkedin-icon";
+import { TwitterIcon } from "@/components/pages/saas-admin/assets/svg/twitter-icon";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

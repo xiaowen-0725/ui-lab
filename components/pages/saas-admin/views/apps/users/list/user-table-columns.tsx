@@ -10,6 +10,11 @@ import {
 // Revision: dd1afd2f3a794ea9e746197de314f81d43670ea1; path: src/views/apps/users/list/user-table-columns.tsx
 // Adaptation: named exports and portable import/navigation boundaries.
 
+// React Imports
+import type { ReactNode } from "react";
+
+// Next Imports
+import { SaasAdminLink as Link } from "@/components/pages/saas-admin/environment";
 
 // Third-party Imports
 import type { ColumnDef } from "@tanstack/react-table";
@@ -27,12 +32,7 @@ import {
 	UserRoundIcon,
 	UserXIcon,
 } from "lucide-react";
-// React Imports
-import type { ReactNode } from "react";
-// Config Imports
-import { getInitialsFromName } from "@/components/pages/saas-admin/configs/mailConfig";
-// Next Imports
-import { SaasAdminLink as Link } from "@/components/pages/saas-admin/environment";
+
 // Type Imports
 import type {
 	AppUser,
@@ -40,6 +40,7 @@ import type {
 	UserRole,
 	UserStatus,
 } from "@/components/pages/saas-admin/types/apps/user-types";
+
 // Component Imports
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -57,6 +58,9 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
+
+// Config Imports
+import { getInitialsFromName } from "@/components/pages/saas-admin/configs/mailConfig";
 
 // Util Imports
 import { cn } from "@/lib/utils";

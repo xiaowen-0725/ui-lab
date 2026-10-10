@@ -5,7 +5,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Bar, BarChart, CartesianGrid, Cell, XAxis, YAxis } from "recharts";
 import { ThreadUsage } from "@/components/motion/agent-thread";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
 	type ChartConfig,
@@ -22,8 +21,10 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";
+import { PersonAvatar } from "../chrome";
 import { textFor, useQuietMotion } from "../surface";
 import {
 	DAILY_USAGE,
@@ -76,20 +77,21 @@ export function AiUsageApp() {
 				</p>
 				<fieldset className="m-0 border-0 p-0">
 					<legend className="sr-only">{t("Filter usage")}</legend>
-					<div className="flex flex-wrap gap-1.5">
+					<ToggleGroup
+						value={[filter]}
+						onValueChange={(values) => {
+							if (values[0]) setFilter(values[0] as UsageModelFilter);
+						}}
+						variant="outline"
+						spacing={1}
+						className="flex-wrap"
+					>
 						{FILTERS.map((item) => (
-							<Button
-								key={item.id}
-								type="button"
-								size="sm"
-								variant={filter === item.id ? "default" : "outline"}
-								aria-pressed={filter === item.id}
-								onClick={() => setFilter(item.id)}
-							>
+							<ToggleGroupItem key={item.id} value={item.id} size="sm">
 								<SaasAdminText>{item.label}</SaasAdminText>
-							</Button>
+							</ToggleGroupItem>
 						))}
-					</div>
+					</ToggleGroup>
 				</fieldset>
 			</div>
 			<div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
@@ -274,7 +276,8 @@ export function AiUsageApp() {
 									<h3 className="text-sm font-medium">
 										{textFor(locale, query.title, query.titleZh)}
 									</h3>
-									<span className="text-xs text-muted-foreground">
+									<span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+										<PersonAvatar name={query.model} size="sm" />
 										{query.model}
 									</span>
 								</div>
