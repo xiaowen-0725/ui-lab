@@ -70,6 +70,7 @@ export const ADMIN_ZH: Record<string, string> = {
 	"Clear column": "清空此列",
 	"Delete column": "删除此列",
 	"Actions for {column}": "{column}的操作",
+	"Column actions": "列操作",
 	"Untitled item": "未命名事项",
 	"New column": "新列",
 	"Added a column": "已添加一列",

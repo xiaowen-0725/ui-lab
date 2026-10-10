@@ -6,7 +6,7 @@ import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/envir
 import { AvatarGroup } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -44,18 +44,14 @@ const PRIORITY_KEY: Record<TaskPriority, string> = {
 	low: "Low",
 };
 
-const PRIORITY_BADGE: Record<
-	TaskPriority,
-	{ variant: "destructive" | "outline" | "secondary"; className?: string }
-> = {
-	high: { variant: "destructive" },
-	medium: {
-		variant: "outline",
-		className:
-			"border-transparent bg-amber-500/15 text-amber-800 dark:bg-amber-400/15 dark:text-amber-200",
-	},
-	low: { variant: "secondary" },
+const PRIORITY_BADGE: Record<TaskPriority, string> = {
+	high: "border-transparent bg-destructive/10 text-destructive capitalize",
+	medium: "border-transparent bg-amber-600/10 text-amber-600 capitalize",
+	low: "border-transparent bg-sky-600/10 text-sky-700 capitalize dark:text-sky-400",
 };
+
+const HOVER_CHROME =
+	"opacity-100 md:opacity-0 md:group-hover/kanban:opacity-100 md:group-focus-within/kanban:opacity-100";
 
 interface DragState {
 	id: string;
@@ -126,8 +122,14 @@ export function KanbanApp() {
 		return null;
 	}
 
-	function onGripDown(event: PointerEvent<HTMLButtonElement>, task: Task) {
+	function onGripDown(event: PointerEvent<HTMLElement>, task: Task) {
 		if (event.button !== 0) return;
+		if (
+			event.target instanceof Element &&
+			event.target.closest("button") &&
+			!event.currentTarget.matches("button")
+		)
+			return;
 		const card = event.currentTarget.closest("[data-task-id]");
 		if (!(card instanceof HTMLElement)) return;
 		const rect = card.getBoundingClientRect();
@@ -143,7 +145,7 @@ export function KanbanApp() {
 		});
 	}
 
-	function onGripMove(event: PointerEvent<HTMLButtonElement>) {
+	function onGripMove(event: PointerEvent<HTMLElement>) {
 		const current = dragRef.current;
 		if (
 			!current ||
@@ -247,22 +249,25 @@ export function KanbanApp() {
 						const hot = drag?.over === column.id;
 						const name = columnTitle(column);
 						return (
-							<section
+							<Card
 								key={column.id}
+								size="sm"
+								data-slot="kanban-column"
 								ref={(node) => {
 									wells.current[column.id] = node;
 								}}
+								role="region"
 								aria-label={name}
 								className={cn(
-									"flex w-[min(85vw,18rem)] shrink-0 flex-col rounded-xl bg-muted/50 p-3 transition-colors motion-reduce:transition-none",
-									hot && "bg-muted",
+									"group/kanban mb-2.5 w-72 max-w-[85vw] shrink-0 gap-0 bg-muted py-4 shadow-xs transition-colors motion-reduce:transition-none",
+									hot && "bg-muted/80",
 								)}
 							>
-								<header className="mb-3 flex items-center gap-2">
-									<h2 className="min-w-0 flex-1 truncate text-sm font-medium">
+								<CardHeader className="grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-2 px-4">
+									<h2 className="min-w-0 truncate text-sm font-medium">
 										{name}
 									</h2>
-									<Badge variant="secondary" className="tabular-nums">
+									<Badge variant="outline" className="tabular-nums">
 										{cards.length}
 									</Badge>
 									<DropdownMenu>
@@ -272,10 +277,11 @@ export function KanbanApp() {
 													type="button"
 													variant="ghost"
 													size="icon-xs"
-													aria-label={fill(t("Actions for {column}"), {
-														column: name,
-													})}
-													className="text-muted-foreground"
+													aria-label={t("Column actions")}
+													className={cn(
+														"text-muted-foreground",
+														HOVER_CHROME,
+													)}
 												/>
 											}
 										>
@@ -294,46 +300,52 @@ export function KanbanApp() {
 											</DropdownMenuItem>
 										</DropdownMenuContent>
 									</DropdownMenu>
-								</header>
-								<ScrollArea className="max-h-[calc(100vh-18rem)] min-h-0 flex-1">
-									<div className="flex flex-col gap-2.5 pr-1 pb-1">
-										{cards.length === 0 ? (
-											<p className="px-1 py-8 text-center text-xs text-muted-foreground">
-												<SaasAdminText>
-													{query ? "No matching results" : "This column is empty"}
-												</SaasAdminText>
-											</p>
-										) : (
-											cards.map((task) => (
-												<TaskCard
-													key={task.id}
-													task={task}
-													dragging={drag?.id === task.id}
-													onGripDown={onGripDown}
-													onGripMove={onGripMove}
-													onGripUp={onGripUp}
-													onKeyDown={onCardKey}
-												/>
-											))
-										)}
-									</div>
-								</ScrollArea>
-								<Button
-									type="button"
-									variant="ghost"
-									className="mt-2 h-8 w-full justify-start text-xs text-muted-foreground"
-									onClick={() => createItem(column)}
-								>
-									<Plus className="size-3.5" aria-hidden="true" />
-									<SaasAdminText>Add New Item</SaasAdminText>
-								</Button>
-							</section>
+								</CardHeader>
+								<CardContent className="gap-2.5 px-4">
+									<ScrollArea className="max-h-[calc(100vh-18rem)] min-h-0 flex-1">
+										<div className="flex flex-col gap-2.5 pr-1 pb-1">
+											{cards.length === 0 ? (
+												<p className="px-1 py-8 text-center text-xs text-muted-foreground">
+													<SaasAdminText>
+														{query
+															? "No matching results"
+															: "This column is empty"}
+													</SaasAdminText>
+												</p>
+											) : (
+												cards.map((task) => (
+													<TaskCard
+														key={task.id}
+														task={task}
+														dragging={drag?.id === task.id}
+														onGripDown={onGripDown}
+														onGripMove={onGripMove}
+														onGripUp={onGripUp}
+														onKeyDown={onCardKey}
+													/>
+												))
+											)}
+										</div>
+									</ScrollArea>
+									<Button
+										type="button"
+										variant="ghost"
+										data-slot="kanban-add-item"
+										className="h-8 w-full justify-start text-xs text-muted-foreground"
+										onClick={() => createItem(column)}
+									>
+										<Plus className="size-3.5" aria-hidden="true" />
+										<SaasAdminText>Add New Item</SaasAdminText>
+									</Button>
+								</CardContent>
+							</Card>
 						);
 					})}
 					<Button
 						type="button"
 						variant="outline"
-						className="h-10 min-w-44 shrink-0 justify-start border-dashed"
+						data-slot="kanban-add-column"
+						className="h-9 w-64 shrink-0 justify-start border-dashed"
 						onClick={createColumn}
 					>
 						<Plus className="size-4" aria-hidden="true" />
@@ -368,9 +380,8 @@ export function KanbanApp() {
 }
 
 function PriorityBadge({ priority }: { priority: TaskPriority }) {
-	const tone = PRIORITY_BADGE[priority];
 	return (
-		<Badge variant={tone.variant} className={tone.className}>
+		<Badge variant="outline" className={PRIORITY_BADGE[priority]}>
 			<SaasAdminText>{PRIORITY_KEY[priority]}</SaasAdminText>
 		</Badge>
 	);
@@ -386,8 +397,8 @@ function TaskCard({
 }: {
 	task: Task;
 	dragging: boolean;
-	onGripDown: (event: PointerEvent<HTMLButtonElement>, task: Task) => void;
-	onGripMove: (event: PointerEvent<HTMLButtonElement>) => void;
+	onGripDown: (event: PointerEvent<HTMLElement>, task: Task) => void;
+	onGripMove: (event: PointerEvent<HTMLElement>) => void;
 	onGripUp: () => void;
 	onKeyDown: (event: KeyboardEvent<HTMLElement>, task: Task) => void;
 }) {
@@ -401,15 +412,20 @@ function TaskCard({
 		<Card
 			size="sm"
 			data-task-id={task.id}
+			data-slot="kanban-item"
 			tabIndex={0}
 			aria-label={fill(t("Move {title} with the arrow keys"), { title })}
 			onKeyDown={(event) => onKeyDown(event, task)}
+			onPointerDown={(event) => onGripDown(event, task)}
+			onPointerMove={onGripMove}
+			onPointerUp={onGripUp}
+			onPointerCancel={onGripUp}
 			className={cn(
-				"gap-0 border-border/60 bg-card py-0 shadow-xs hover:shadow-sm",
+				"group/kanban cursor-move gap-0 bg-card py-3 shadow-xs",
 				dragging && "opacity-40",
 			)}
 		>
-			<CardContent className="gap-2.5 px-3 py-3">
+			<CardContent className="gap-2 px-3">
 				<div className="flex items-start justify-between gap-2">
 					<PriorityBadge priority={task.priority} />
 					<IconTip
@@ -420,7 +436,10 @@ function TaskCard({
 								variant="ghost"
 								size="icon-xs"
 								aria-label={fill(t("Drag {title}"), { title })}
-								className="-mr-1 -mt-0.5 cursor-grab touch-none text-muted-foreground hover:text-foreground active:cursor-grabbing"
+								className={cn(
+									"-mr-1 -mt-0.5 cursor-grab touch-none text-muted-foreground hover:text-foreground active:cursor-grabbing",
+									HOVER_CHROME,
+								)}
 								onPointerDown={(event) => onGripDown(event, task)}
 								onPointerMove={onGripMove}
 								onPointerUp={onGripUp}
@@ -439,9 +458,9 @@ function TaskCard({
 						style={{ backgroundImage: `url("${task.cover}")` }}
 					/>
 				) : null}
-				<h3 className="text-sm leading-snug font-medium">{title}</h3>
+				<p className="line-clamp-2 text-sm leading-snug font-medium">{title}</p>
 				<div className="flex items-center justify-between gap-2">
-					<AvatarGroup className="*:data-[slot=avatar]:size-6">
+					<AvatarGroup className="*:data-[slot=avatar]:size-5">
 						{task.assignees.map((person) => (
 							<PersonAvatar
 								key={`${task.id}-${person.name}`}
