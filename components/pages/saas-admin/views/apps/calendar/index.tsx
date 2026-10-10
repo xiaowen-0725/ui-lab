@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
@@ -66,7 +67,7 @@ export function CalendarApp() {
 	}
 
 	return (
-		<div className="flex min-h-[36rem] flex-col overflow-hidden rounded-xl bg-card ring-1 ring-foreground/10">
+		<Card className="min-h-[36rem] gap-0 py-0">
 			<header className="flex shrink-0 flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between">
 				<p className="text-sm text-muted-foreground">
 					<SaasAdminText>
@@ -226,11 +227,12 @@ export function CalendarApp() {
 								</p>
 							) : (
 								agenda.map((event) => (
-									<article
+									<Card
 										key={event.id}
-										className="rounded-xl bg-muted/40 p-3 ring-1 ring-foreground/10"
+										size="sm"
+										className="gap-2 bg-muted/40 py-3 shadow-none"
 									>
-										<div className="flex items-center justify-between gap-2">
+										<CardHeader className="flex-row items-center justify-between gap-2">
 											<Badge
 												variant="secondary"
 												className={cn("border-0", KIND_CLASS[event.kind])}
@@ -240,14 +242,16 @@ export function CalendarApp() {
 											<time className="text-xs text-muted-foreground tabular-nums">
 												{event.time}
 											</time>
-										</div>
-										<h3 className="mt-2 text-sm font-medium">
-											{textFor(locale, event.title, event.titleZh)}
-										</h3>
-										<p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-											{textFor(locale, event.detail, event.detailZh)}
-										</p>
-									</article>
+										</CardHeader>
+										<CardContent className="gap-1">
+											<h3 className="text-sm font-medium">
+												{textFor(locale, event.title, event.titleZh)}
+											</h3>
+											<p className="text-xs leading-relaxed text-muted-foreground">
+												{textFor(locale, event.detail, event.detailZh)}
+											</p>
+										</CardContent>
+									</Card>
 								))
 							)}
 						</motion.div>
@@ -256,6 +260,6 @@ export function CalendarApp() {
 					</ScrollArea>
 				</aside>
 			</div>
-		</div>
+		</Card>
 	);
 }

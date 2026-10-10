@@ -6,6 +6,8 @@ import { useMemo, useRef, useState } from "react";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
@@ -130,7 +132,7 @@ export function MailApp() {
 	}
 
 	return (
-		<div className="flex min-h-[36rem] flex-col overflow-hidden rounded-xl bg-card ring-1 ring-foreground/10">
+		<Card className="min-h-[36rem] gap-0 py-0">
 			<header className="flex shrink-0 flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between">
 				<p className="text-sm text-muted-foreground">
 					<SaasAdminText>
@@ -320,10 +322,10 @@ export function MailApp() {
 								<Separator />
 								<ScrollArea className="min-h-0 flex-1">
 								<div className="flex min-h-0 flex-1 flex-col gap-3 p-4 md:p-6">
-									<div className="grid gap-1 text-xs text-muted-foreground">
-										<label htmlFor="saas-admin-mail-to">
+									<Field>
+										<FieldLabel htmlFor="saas-admin-mail-to">
 											<SaasAdminText>To</SaasAdminText>
-										</label>
+										</FieldLabel>
 										<Input
 											id="saas-admin-mail-to"
 											ref={composeTo}
@@ -333,11 +335,11 @@ export function MailApp() {
 												setDraft({ ...draft, to: event.target.value })
 											}
 										/>
-									</div>
-									<div className="grid gap-1 text-xs text-muted-foreground">
-										<label htmlFor="saas-admin-mail-subject">
+									</Field>
+									<Field>
+										<FieldLabel htmlFor="saas-admin-mail-subject">
 											<SaasAdminText>Subject</SaasAdminText>
-										</label>
+										</FieldLabel>
 										<Input
 											id="saas-admin-mail-subject"
 											value={draft.subject}
@@ -345,11 +347,11 @@ export function MailApp() {
 												setDraft({ ...draft, subject: event.target.value })
 											}
 										/>
-									</div>
-									<div className="grid min-h-40 flex-1 gap-1 text-xs text-muted-foreground">
-										<label htmlFor="saas-admin-mail-body">
+									</Field>
+									<Field className="min-h-40 flex-1">
+										<FieldLabel htmlFor="saas-admin-mail-body">
 											<SaasAdminText>Message body</SaasAdminText>
-										</label>
+										</FieldLabel>
 										<Textarea
 											id="saas-admin-mail-body"
 											value={draft.body}
@@ -358,7 +360,7 @@ export function MailApp() {
 											}
 											className="min-h-40 flex-1"
 										/>
-									</div>
+									</Field>
 									{error ? (
 										<p role="alert" className="text-sm text-destructive">
 											{error}
@@ -448,11 +450,12 @@ export function MailApp() {
 								<ScrollArea className="min-h-0 flex-1">
 								<div className="space-y-4 p-4 md:p-6">
 									{selected.messages.map((message) => (
-										<article
+										<Card
 											key={message.id}
-											className="rounded-xl bg-muted/40 p-4 ring-1 ring-foreground/10"
+											size="sm"
+											className="gap-3 bg-muted/40 py-4 shadow-none"
 										>
-											<header className="flex items-center gap-3">
+											<CardHeader className="flex-row items-center gap-3">
 												<PersonAvatar
 													name={textFor(locale, message.author, message.authorZh)}
 												/>
@@ -465,11 +468,13 @@ export function MailApp() {
 														{textFor(locale, message.at, message.atZh)}
 													</p>
 												</div>
-											</header>
-											<p className="mt-3 text-sm leading-relaxed">
-												{textFor(locale, message.body, message.bodyZh)}
-											</p>
-										</article>
+											</CardHeader>
+											<CardContent>
+												<p className="text-sm leading-relaxed">
+													{textFor(locale, message.body, message.bodyZh)}
+												</p>
+											</CardContent>
+										</Card>
 									))}
 								</div>
 								</ScrollArea>
@@ -488,6 +493,6 @@ export function MailApp() {
 					</AnimatePresence>
 				</section>
 			</div>
-		</div>
+		</Card>
 	);
 }

@@ -5,6 +5,7 @@ import { type PointerEvent, useRef, useState } from "react";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
@@ -98,8 +99,8 @@ export function KanbanApp() {
 
 	function onGripDown(event: PointerEvent<HTMLButtonElement>, task: Task) {
 		if (event.button !== 0) return;
-		const card = event.currentTarget.closest("article");
-		if (!card) return;
+		const card = event.currentTarget.closest("[data-task-id]");
+		if (!(card instanceof HTMLElement)) return;
 		const rect = card.getBoundingClientRect();
 		event.currentTarget.setPointerCapture(event.pointerId);
 		setDragState({
@@ -117,7 +118,9 @@ export function KanbanApp() {
 		const current = dragRef.current;
 		if (
 			!current ||
-			current.id !== event.currentTarget.closest("article")?.dataset.taskId
+			current.id !==
+				event.currentTarget.closest<HTMLElement>("[data-task-id]")?.dataset
+					.taskId
 		)
 			return;
 		setDragState({
@@ -138,7 +141,7 @@ export function KanbanApp() {
 	const dragging = tasks.find((task) => task.id === drag?.id) ?? null;
 
 	return (
-		<div className="flex min-h-[36rem] flex-col overflow-hidden rounded-xl bg-card ring-1 ring-foreground/10">
+		<Card className="min-h-[36rem] gap-0 py-0">
 			<header className="flex shrink-0 flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between">
 				<div>
 					<p className="text-sm text-muted-foreground">
@@ -201,14 +204,16 @@ export function KanbanApp() {
 											const later = neighborColumn(task.column, 1);
 											const title = textFor(locale, task.title, task.titleZh);
 											return (
-												<article
+												<Card
 													key={task.id}
+													size="sm"
 													data-task-id={task.id}
 													className={cn(
-														"rounded-xl bg-card p-3 shadow-xs ring-1 ring-foreground/10",
+														"gap-3 py-3",
 														drag?.id === task.id && "opacity-40",
 													)}
 												>
+													<CardContent className="gap-3 px-3">
 													<div className="flex items-start gap-2">
 														<IconTip
 															label={fill(t("Drag {title}"), { title })}
@@ -309,7 +314,8 @@ export function KanbanApp() {
 															<ChevronRight aria-hidden="true" />
 														</IconTip>
 													</div>
-												</article>
+													</CardContent>
+												</Card>
 											);
 										})
 									)}
@@ -321,10 +327,11 @@ export function KanbanApp() {
 				</div>
 			</div>
 			{drag && dragging ? (
-				<div
+				<Card
+					size="sm"
 					aria-hidden="true"
 					className={cn(
-						"pointer-events-none fixed z-50 rounded-xl bg-card p-3 shadow-lg ring-1 ring-foreground/20",
+						"pointer-events-none fixed z-50 gap-0 py-3 shadow-lg",
 						!quiet && "scale-[1.02]",
 					)}
 					style={{
@@ -333,11 +340,13 @@ export function KanbanApp() {
 						top: drag.y - drag.offsetY,
 					}}
 				>
-					<p className="text-sm font-medium">
-						{textFor(locale, dragging.title, dragging.titleZh)}
-					</p>
-				</div>
+					<CardContent className="px-3">
+						<p className="text-sm font-medium">
+							{textFor(locale, dragging.title, dragging.titleZh)}
+						</p>
+					</CardContent>
+				</Card>
 			) : null}
-		</div>
+		</Card>
 	);
 }

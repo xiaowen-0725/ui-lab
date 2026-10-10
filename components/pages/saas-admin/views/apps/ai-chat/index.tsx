@@ -21,6 +21,7 @@ import {
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
@@ -212,8 +213,8 @@ export function AiChatApp() {
 	}
 
 	return (
-		<div
-			className="flex min-h-[38rem] w-full min-w-0 max-w-full overflow-x-hidden rounded-xl bg-card ring-1 ring-foreground/10"
+		<Card
+			className="min-h-[38rem] w-full min-w-0 max-w-full flex-row gap-0 overflow-x-hidden py-0"
 			style={WB_BRIDGE}
 		>
 			<section
@@ -502,7 +503,7 @@ export function AiChatApp() {
 					/>
 				</div>
 			</section>
-		</div>
+		</Card>
 	);
 }
 
