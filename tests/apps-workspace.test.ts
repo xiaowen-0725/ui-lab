@@ -32,6 +32,7 @@ import {
 	COLUMN_IDS,
 	COLUMNS,
 	clearColumn,
+	moveColumn,
 	moveTask,
 	neighborColumn,
 	removeColumn,
@@ -126,6 +127,23 @@ test("board helpers add, clear and remove visit-local columns", () => {
 	const removed = removeColumn(extra, withItem, "column-2");
 	expect(removed.columns).toHaveLength(4);
 	expect(removeColumn(COLUMNS, TASKS, "queued").columns).toHaveLength(3);
+});
+
+test("moving a column inserts it at the target index", () => {
+	expect(moveColumn(COLUMNS, "queued", "queued")).toEqual([...COLUMNS]);
+	expect(moveColumn(COLUMNS, "missing", "done")).toEqual([...COLUMNS]);
+	expect(moveColumn(COLUMNS, "queued", "done").map((column) => column.id)).toEqual([
+		"doing",
+		"review",
+		"done",
+		"queued",
+	]);
+	expect(moveColumn(COLUMNS, "done", "queued").map((column) => column.id)).toEqual([
+		"done",
+		"queued",
+		"doing",
+		"review",
+	]);
 });
 
 test("starred mail excludes the archive", () => {

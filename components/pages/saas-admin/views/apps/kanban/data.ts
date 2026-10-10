@@ -237,3 +237,19 @@ export function removeColumn(
 		tasks: tasks.filter((task) => task.column !== id),
 	};
 }
+
+export function moveColumn(
+	columns: readonly BoardColumn[],
+	id: string,
+	target: string,
+): BoardColumn[] {
+	if (id === target) return [...columns];
+	const from = columns.findIndex((column) => column.id === id);
+	const to = columns.findIndex((column) => column.id === target);
+	if (from < 0 || to < 0) return [...columns];
+	const next = [...columns];
+	const [moved] = next.splice(from, 1);
+	if (!moved) return [...columns];
+	next.splice(to, 0, moved);
+	return next;
+}

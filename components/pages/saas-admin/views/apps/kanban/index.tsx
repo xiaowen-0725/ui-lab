@@ -33,6 +33,7 @@ import {
 	type BoardColumn,
 	COLUMNS,
 	clearColumn,
+	moveColumn,
 	moveTask,
 	neighborColumn,
 	removeColumn,
@@ -61,6 +62,7 @@ const COLUMN_HOVER_CHROME =
 	"opacity-100 md:opacity-0 md:group-hover/column:opacity-100 md:group-focus-within/column:opacity-100";
 
 interface DragState {
+	kind: "task" | "column";
 	id: string;
 	x: number;
 	y: number;
@@ -118,6 +120,13 @@ export function KanbanApp() {
 		);
 	}
 
+	function reorder(id: string, target: string) {
+		const column = columns.find((item) => item.id === id);
+		if (!column || id === target) return;
+		setColumns((current) => moveColumn(current, id, target));
+		announce(fill(t("Moved {column}"), { column: columnTitle(column) }));
+	}
+
 	function columnAt(x: number, y: number) {
 		for (const id of columnIds) {
 			const node = wells.current[id];
@@ -129,7 +138,13 @@ export function KanbanApp() {
 		return null;
 	}
 
-	function onGripDown(event: PointerEvent<HTMLElement>, task: Task) {
+	function beginDrag(
+		event: PointerEvent<HTMLElement>,
+		kind: DragState["kind"],
+		id: string,
+		startOver: string,
+		selector: string,
+	) {
 		if (event.button !== 0) return;
 		if (
 			event.target instanceof Element &&
@@ -137,29 +152,31 @@ export function KanbanApp() {
 			!event.currentTarget.matches("button")
 		)
 			return;
-		const card = event.currentTarget.closest("[data-task-id]");
-		if (!(card instanceof HTMLElement)) return;
-		const rect = card.getBoundingClientRect();
+		const node = event.currentTarget.closest(selector);
+		if (!(node instanceof HTMLElement)) return;
+		const rect = node.getBoundingClientRect();
 		event.currentTarget.setPointerCapture(event.pointerId);
 		setDragState({
-			id: task.id,
+			kind,
+			id,
 			x: event.clientX,
 			y: event.clientY,
 			width: rect.width,
 			offsetX: event.clientX - rect.left,
 			offsetY: event.clientY - rect.top,
-			over: task.column,
+			over: startOver,
 		});
 	}
 
-	function onGripMove(event: PointerEvent<HTMLElement>) {
+	function onDragMove(
+		event: PointerEvent<HTMLElement>,
+		kind: DragState["kind"],
+		selector: string,
+		attr: "taskId" | "columnId",
+	) {
 		const current = dragRef.current;
-		if (
-			!current ||
-			current.id !==
-				event.currentTarget.closest<HTMLElement>("[data-task-id]")?.dataset
-					.taskId
-		)
+		if (!current || current.kind !== kind) return;
+		if (current.id !== event.currentTarget.closest<HTMLElement>(selector)?.dataset[attr])
 			return;
 		setDragState({
 			...current,
@@ -169,10 +186,13 @@ export function KanbanApp() {
 		});
 	}
 
-	function onGripUp() {
+	function onDragUp() {
 		const current = dragRef.current;
 		if (!current) return;
-		if (current.over) move(current.id, current.over);
+		if (current.over) {
+			if (current.kind === "task") move(current.id, current.over);
+			else reorder(current.id, current.over);
+		}
 		setDragState(null);
 	}
 
@@ -186,6 +206,19 @@ export function KanbanApp() {
 		if (event.key === "ArrowRight" && later) {
 			event.preventDefault();
 			move(task.id, later);
+		}
+	}
+
+	function onColumnKey(event: KeyboardEvent<HTMLElement>, column: BoardColumn) {
+		const earlier = neighborColumn(column.id, -1, columnIds);
+		const later = neighborColumn(column.id, 1, columnIds);
+		if (event.key === "ArrowLeft" && earlier) {
+			event.preventDefault();
+			reorder(column.id, earlier);
+		}
+		if (event.key === "ArrowRight" && later) {
+			event.preventDefault();
+			reorder(column.id, later);
 		}
 	}
 
@@ -221,7 +254,11 @@ export function KanbanApp() {
 		announce(fill(t("Removed {column}"), { column: columnTitle(column) }));
 	}
 
-	const dragging = tasks.find((task) => task.id === drag?.id) ?? null;
+	const draggingTask = tasks.find((task) => task.id === drag?.id) ?? null;
+	const draggingColumn =
+		drag?.kind === "column"
+			? (columns.find((column) => column.id === drag.id) ?? null)
+			: null;
 
 	return (
 		<div className="flex min-h-[36rem] flex-col gap-4">
@@ -255,28 +292,68 @@ export function KanbanApp() {
 						);
 						const hot = drag?.over === column.id;
 						const name = columnTitle(column);
+						const draggingThis = drag?.kind === "column" && drag.id === column.id;
 						return (
 							<Card
 								key={column.id}
 								size="sm"
 								data-slot="kanban-column"
+								data-column-id={column.id}
 								ref={(node) => {
 									wells.current[column.id] = node;
 								}}
 								role="region"
 								aria-label={name}
 								className={cn(
-									"group/column mb-2.5 w-64 max-w-[85vw] shrink-0 gap-0 bg-muted py-4 shadow-xs transition-colors motion-reduce:transition-none",
+									"group/column mb-2.5 w-72 max-w-[85vw] shrink-0 gap-0 rounded-xl bg-muted py-4 shadow-xs ring-1 transition-colors motion-reduce:transition-none",
 									hot && "bg-muted/80",
+									draggingThis && "opacity-40",
 								)}
 							>
-								<CardHeader className="grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-2 px-4">
+								<CardHeader className="grid-cols-[minmax(0,1fr)_auto_auto_auto] items-center gap-2 px-4">
 									<h2 className="min-w-0 truncate text-sm font-medium">
 										{name}
 									</h2>
 									<Badge variant="outline" className="tabular-nums">
 										{cards.length}
 									</Badge>
+									<IconTip
+										label={fill(t("Drag {column}"), { column: name })}
+										trigger={
+											<Button
+												type="button"
+												variant="ghost"
+												size="icon-xs"
+												aria-label={fill(t("Drag {column}"), { column: name })}
+												className={cn(
+													"cursor-grab touch-none text-muted-foreground hover:text-foreground active:cursor-grabbing",
+													COLUMN_HOVER_CHROME,
+												)}
+												onPointerDown={(event) =>
+													beginDrag(
+														event,
+														"column",
+														column.id,
+														column.id,
+														"[data-column-id]",
+													)
+												}
+												onPointerMove={(event) =>
+													onDragMove(
+														event,
+														"column",
+														"[data-column-id]",
+														"columnId",
+													)
+												}
+												onPointerUp={onDragUp}
+												onPointerCancel={onDragUp}
+												onKeyDown={(event) => onColumnKey(event, column)}
+											/>
+										}
+									>
+										<GripVertical aria-hidden="true" />
+									</IconTip>
 									<DropdownMenu>
 										<DropdownMenuTrigger
 											render={
@@ -284,7 +361,6 @@ export function KanbanApp() {
 													type="button"
 													variant="ghost"
 													size="icon-xs"
-													aria-label={t("Column actions")}
 													className={cn(
 														"text-muted-foreground",
 														COLUMN_HOVER_CHROME,
@@ -293,6 +369,7 @@ export function KanbanApp() {
 											}
 										>
 											<MoreHorizontal aria-hidden="true" />
+											<span className="sr-only">{t("Column actions")}</span>
 										</DropdownMenuTrigger>
 										<DropdownMenuContent align="end" className="w-40">
 											<DropdownMenuItem onClick={() => emptyColumn(column)}>
@@ -324,10 +401,27 @@ export function KanbanApp() {
 													<TaskCard
 														key={task.id}
 														task={task}
-														dragging={drag?.id === task.id}
-														onGripDown={onGripDown}
-														onGripMove={onGripMove}
-														onGripUp={onGripUp}
+														dragging={
+															drag?.kind === "task" && drag.id === task.id
+														}
+														onGripDown={(event, item) =>
+															beginDrag(
+																event,
+																"task",
+																item.id,
+																item.column,
+																"[data-task-id]",
+															)
+														}
+														onGripMove={(event) =>
+															onDragMove(
+																event,
+																"task",
+																"[data-task-id]",
+																"taskId",
+															)
+														}
+														onGripUp={onDragUp}
 														onKeyDown={onCardKey}
 													/>
 												))
@@ -338,7 +432,7 @@ export function KanbanApp() {
 										type="button"
 										variant="ghost"
 										data-slot="kanban-add-item"
-										className="h-8 w-full justify-start text-xs text-muted-foreground"
+										className="kanban-add-item h-8 w-full justify-start text-xs text-muted-foreground"
 										onClick={() => createItem(column)}
 									>
 										<Plus className="size-3.5" aria-hidden="true" />
@@ -352,7 +446,7 @@ export function KanbanApp() {
 						type="button"
 						variant="outline"
 						data-slot="kanban-add-column"
-						className="h-9 w-64 shrink-0 justify-start border-dashed"
+						className="kanban-add-column h-9 w-64 shrink-0 justify-start border-dashed"
 						onClick={createColumn}
 					>
 						<Plus className="size-4" aria-hidden="true" />
@@ -360,12 +454,12 @@ export function KanbanApp() {
 					</Button>
 				</div>
 			</div>
-			{drag && dragging ? (
+			{drag && draggingColumn ? (
 				<Card
 					size="sm"
 					aria-hidden="true"
 					className={cn(
-						"pointer-events-none fixed z-50 gap-0 py-3 shadow-lg",
+						"pointer-events-none fixed z-50 gap-0 rounded-xl bg-muted py-4 shadow-lg ring-1",
 						!quiet && "scale-[1.02]",
 					)}
 					style={{
@@ -374,10 +468,31 @@ export function KanbanApp() {
 						top: drag.y - drag.offsetY,
 					}}
 				>
-					<CardContent className="px-3">
-						<PriorityBadge priority={dragging.priority} />
-						<p className="mt-2 text-sm font-medium">
-							{textFor(locale, dragging.title, dragging.titleZh)}
+					<CardHeader className="px-4">
+						<h2 className="text-sm font-medium">
+							{columnTitle(draggingColumn)}
+						</h2>
+					</CardHeader>
+				</Card>
+			) : null}
+			{drag && draggingTask ? (
+				<Card
+					size="sm"
+					aria-hidden="true"
+					className={cn(
+						"pointer-events-none fixed z-50 gap-0 rounded-xl bg-card py-3 shadow-lg ring-1",
+						!quiet && "scale-[1.02]",
+					)}
+					style={{
+						width: drag.width,
+						left: drag.x - drag.offsetX,
+						top: drag.y - drag.offsetY,
+					}}
+				>
+					<CardContent className="gap-2 px-3">
+						<PriorityBadge priority={draggingTask.priority} />
+						<p className="line-clamp-2 font-medium">
+							{textFor(locale, draggingTask.title, draggingTask.titleZh)}
 						</p>
 					</CardContent>
 				</Card>
@@ -412,83 +527,81 @@ function TaskCard({
 	const { locale, t } = useSaasAdmin();
 	const title = textFor(locale, task.title, task.titleZh);
 	const due = textFor(locale, task.due, task.dueZh);
-	const owners = task.assignees
-		.map((person) => textFor(locale, person.name, person.nameZh))
-		.join(", ");
 	return (
-		<Card
-			size="sm"
+		<div
 			data-task-id={task.id}
 			data-slot="kanban-item"
-			tabIndex={0}
-			aria-label={fill(t("Move {title} with the arrow keys"), { title })}
-			onKeyDown={(event) => onKeyDown(event, task)}
-			onPointerDown={(event) => onGripDown(event, task)}
-			onPointerMove={onGripMove}
-			onPointerUp={onGripUp}
-			onPointerCancel={onGripUp}
-			className={cn(
-				"group/item cursor-move gap-0 bg-card py-3 shadow-xs",
-				dragging && "opacity-40",
-			)}
+			className={cn(dragging && "opacity-40")}
 		>
-			<CardContent className="gap-2 px-3">
-				<div className="flex items-start justify-between gap-2">
-					<PriorityBadge priority={task.priority} />
-					<IconTip
-						label={fill(t("Drag {title}"), { title })}
-						trigger={
-							<Button
-								type="button"
-								variant="ghost"
-								size="icon-xs"
-								aria-label={fill(t("Drag {title}"), { title })}
-								className={cn(
-									"-mr-1 -mt-0.5 cursor-grab touch-none text-muted-foreground hover:text-foreground active:cursor-grabbing",
-									HOVER_CHROME,
-								)}
-								onPointerDown={(event) => onGripDown(event, task)}
-								onPointerMove={onGripMove}
-								onPointerUp={onGripUp}
-								onPointerCancel={onGripUp}
-								onKeyDown={(event) => onKeyDown(event, task)}
+			<Card
+				size="sm"
+				tabIndex={0}
+				aria-label={fill(t("Move {title} with the arrow keys"), { title })}
+				onKeyDown={(event) => onKeyDown(event, task)}
+				onPointerDown={(event) => onGripDown(event, task)}
+				onPointerMove={onGripMove}
+				onPointerUp={onGripUp}
+				onPointerCancel={onGripUp}
+				className="group/item cursor-move gap-0 rounded-xl bg-card py-3 shadow-xs ring-1"
+			>
+				<CardContent className="gap-2 px-3">
+					<div className="flex items-start justify-between gap-2">
+						<PriorityBadge priority={task.priority} />
+						<IconTip
+							label={fill(t("Drag {title}"), { title })}
+							trigger={
+								<Button
+									type="button"
+									variant="ghost"
+									size="icon-xs"
+									aria-label={fill(t("Drag {title}"), { title })}
+									className={cn(
+										"-mr-1 -mt-0.5 cursor-grab touch-none text-muted-foreground hover:text-foreground active:cursor-grabbing",
+										HOVER_CHROME,
+									)}
+									onPointerDown={(event) => onGripDown(event, task)}
+									onPointerMove={onGripMove}
+									onPointerUp={onGripUp}
+									onPointerCancel={onGripUp}
+									onKeyDown={(event) => onKeyDown(event, task)}
+								/>
+							}
+						>
+							<GripVertical aria-hidden="true" />
+						</IconTip>
+					</div>
+					{task.cover ? (
+						<div className="overflow-hidden rounded-md">
+							{/* biome-ignore lint/performance/noImgElement: generated SVG data URI; page stays vite-portable without next/image. */}
+							<img
+								src={task.cover}
+								alt=""
+								className="aspect-[16/9] w-full object-cover"
 							/>
-						}
-					>
-						<GripVertical aria-hidden="true" />
-					</IconTip>
-				</div>
-				{task.cover ? (
-					<div
-						aria-hidden="true"
-						className="aspect-video overflow-hidden rounded-md bg-muted bg-cover bg-center"
-						style={{ backgroundImage: `url("${task.cover}")` }}
-					/>
-				) : null}
-				<p className="line-clamp-2 text-sm leading-snug font-medium">{title}</p>
-				<div className="flex items-center justify-between gap-2">
-					<AvatarGroup className="*:data-[slot=avatar]:size-5">
-						{task.assignees.map((person) => {
-							const name = textFor(locale, person.name, person.nameZh);
-							return (
-								<Tooltip key={`${task.id}-${person.name}`}>
-									<TooltipTrigger render={<span className="inline-flex" />}>
-										<PersonAvatar name={name} size="sm" />
-									</TooltipTrigger>
-									<TooltipContent>{name}</TooltipContent>
-								</Tooltip>
-							);
-						})}
-					</AvatarGroup>
-					<span
-						className="flex shrink-0 items-center gap-1 text-[11px] text-muted-foreground"
-						title={owners}
-					>
-						<Calendar className="size-3.5" aria-hidden="true" />
-						<time>{due}</time>
-					</span>
-				</div>
-			</CardContent>
-		</Card>
+						</div>
+					) : null}
+					<p className="line-clamp-2 font-medium">{title}</p>
+					<div className="flex items-center justify-between gap-2">
+						<AvatarGroup className="*:data-[slot=avatar]:size-5">
+							{task.assignees.map((person) => {
+								const name = textFor(locale, person.name, person.nameZh);
+								return (
+									<Tooltip key={`${task.id}-${person.name}`}>
+										<TooltipTrigger render={<span className="inline-flex" />}>
+											<PersonAvatar name={name} size="sm" />
+										</TooltipTrigger>
+										<TooltipContent>{name}</TooltipContent>
+									</Tooltip>
+								);
+							})}
+						</AvatarGroup>
+						<span className="flex shrink-0 items-center gap-1 text-[11px] text-muted-foreground">
+							<Calendar className="size-3.5" aria-hidden="true" />
+							<time>{due}</time>
+						</span>
+					</div>
+				</CardContent>
+			</Card>
+		</div>
 	);
 }

@@ -28,7 +28,7 @@
 
 ### 变更
 
-- SaaS Admin 任务板改成浅灰列井 Card + 白底任务卡：优先级 Badge、可选封面、标题、头像与截止日期；列头有计数和悬停溢出菜单，列脚与板右侧可在本次浏览里添加事项/列。去掉卡片左右箭头，整卡可拖、把手悬停出现，方向键仍可移动。搜索留在页头，整板不再套外层 Card。
+- SaaS Admin 任务板改成浅灰列井 Card + 白底任务卡：优先级 Badge、可选本地 SVG 封面、标题、头像与截止日期；列宽 `w-72`，列头有计数、悬停列把手（可拖拽/方向键重排）和 sr-only「Column actions」菜单，列脚与板右侧可在本次浏览里添加事项/列。去掉卡片左右箭头，整卡可拖、把手与菜单悬停出现。搜索留在页头，整板不再套外层 Card。
 
 - SaaS Admin Apps 页默认改用 `components/ui` 的 Avatar、ScrollArea、Tooltip、ToggleGroup、Badge、Separator、Button、Card 与 InputGroup；对话/收件箱/日程外壳改走 Card，任务板仅任务卡用 Card，搜索走 InputGroup，写信表单改走 Field。对话模型选择继续走既有 PromptInput（其内部是 motion Select）。用户页无关 import 整理已撤回。
 
