@@ -125,6 +125,7 @@ export const ADMIN_ZH: Record<string, string> = {
 	"Usage by model": "按模型",
 	Model: "模型",
 	"Daily tokens": "每日 Token",
+	Today: "今天",
 	"Rate limits": "速率上限",
 	"Recent queries": "最近提问",
 	List: "列表",

@@ -15,6 +15,7 @@ export interface DailyUsage {
 	label: string;
 	labelZh: string;
 	tokens: number;
+	byModel: Record<ModelUsage["id"], number>;
 }
 
 export interface UsageQuery {
@@ -72,14 +73,58 @@ export const MODEL_USAGE: readonly ModelUsage[] = [
 	},
 ];
 
+export const USAGE_TODAY = "2026-10-09";
+
 export const DAILY_USAGE: readonly DailyUsage[] = [
-	{ date: "2026-10-03", label: "Fri 3", labelZh: "3日", tokens: 720_000 },
-	{ date: "2026-10-04", label: "Sat 4", labelZh: "4日", tokens: 410_000 },
-	{ date: "2026-10-05", label: "Sun 5", labelZh: "5日", tokens: 380_000 },
-	{ date: "2026-10-06", label: "Mon 6", labelZh: "6日", tokens: 980_000 },
-	{ date: "2026-10-07", label: "Tue 7", labelZh: "7日", tokens: 1_120_000 },
-	{ date: "2026-10-08", label: "Wed 8", labelZh: "8日", tokens: 1_050_000 },
-	{ date: "2026-10-09", label: "Thu 9", labelZh: "9日", tokens: 760_800 },
+	{
+		date: "2026-10-03",
+		label: "Fri 3",
+		labelZh: "3日",
+		tokens: 720_000,
+		byModel: { pulse: 352_554, atlas: 264_640, draft: 102_806 },
+	},
+	{
+		date: "2026-10-04",
+		label: "Sat 4",
+		labelZh: "4日",
+		tokens: 410_000,
+		byModel: { pulse: 200_760, atlas: 150_698, draft: 58_542 },
+	},
+	{
+		date: "2026-10-05",
+		label: "Sun 5",
+		labelZh: "5日",
+		tokens: 380_000,
+		byModel: { pulse: 186_070, atlas: 139_671, draft: 54_259 },
+	},
+	{
+		date: "2026-10-06",
+		label: "Mon 6",
+		labelZh: "6日",
+		tokens: 980_000,
+		byModel: { pulse: 479_865, atlas: 360_204, draft: 139_931 },
+	},
+	{
+		date: "2026-10-07",
+		label: "Tue 7",
+		labelZh: "7日",
+		tokens: 1_120_000,
+		byModel: { pulse: 548_417, atlas: 411_662, draft: 159_921 },
+	},
+	{
+		date: "2026-10-08",
+		label: "Wed 8",
+		labelZh: "8日",
+		tokens: 1_050_000,
+		byModel: { pulse: 514_141, atlas: 385_933, draft: 149_926 },
+	},
+	{
+		date: "2026-10-09",
+		label: "Thu 9",
+		labelZh: "9日",
+		tokens: 760_800,
+		byModel: { pulse: 372_536, atlas: 279_639, draft: 108_625 },
+	},
 ];
 
 export const RECENT_QUERIES: readonly UsageQuery[] = [
@@ -146,6 +191,42 @@ export function queriesForFilter(
 	if (filter === "all") return [...queries];
 	const name = MODEL_USAGE.find((model) => model.id === filter)?.name;
 	return queries.filter((query) => query.model === name);
+}
+
+export function summaryForFilter(filter: UsageModelFilter) {
+	if (filter === "all") {
+		return {
+			requests: USAGE_SUMMARY.requests,
+			tokens: USAGE_SUMMARY.tokens,
+			cost: USAGE_SUMMARY.cost,
+			errorRate: USAGE_SUMMARY.errorRate,
+		};
+	}
+	const model = MODEL_USAGE.find((item) => item.id === filter);
+	if (!model) {
+		return {
+			requests: USAGE_SUMMARY.requests,
+			tokens: USAGE_SUMMARY.tokens,
+			cost: USAGE_SUMMARY.cost,
+			errorRate: USAGE_SUMMARY.errorRate,
+		};
+	}
+	return {
+		requests: model.requests,
+		tokens: model.inputTokens + model.outputTokens,
+		cost: model.cost,
+		errorRate: model.errorRate,
+	};
+}
+
+export function dailyForFilter(
+	days: readonly DailyUsage[],
+	filter: UsageModelFilter,
+) {
+	return days.map((day) => ({
+		...day,
+		tokens: filter === "all" ? day.tokens : (day.byModel[filter] ?? 0),
+	}));
 }
 
 export function formatTokens(count: number) {

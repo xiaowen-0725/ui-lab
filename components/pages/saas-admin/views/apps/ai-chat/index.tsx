@@ -15,7 +15,6 @@ import {
 	ThreadInlineCode,
 	ThreadItem,
 	ThreadMessage,
-	ThreadStreamingCaret,
 	ThreadUsage,
 	ThreadUserMessage,
 } from "@/components/motion/agent-thread";
@@ -26,7 +25,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { APP_FOCUS, textFor, useQuietMotion } from "../surface";
 import {
-	blocksToPlain,
+	blocksToDisplay,
 	CHAT_MODELS,
 	type ChatBlock,
 	type ChatConversation,
@@ -34,8 +33,10 @@ import {
 	type ChatTurn,
 	CONVERSATIONS,
 	conversationMatches,
+	displayLength,
 	replyForPrompt,
 	SAMPLE_FILES,
+	sliceBlocks,
 	SUGGESTED_PROMPTS,
 } from "./data";
 
@@ -67,7 +68,7 @@ export function AiChatApp() {
 	const [model, setModel] = useState<ChatModelId>("pulse");
 	const [attachments, setAttachments] = useState<string[]>([]);
 	const [streamingId, setStreamingId] = useState<string | null>(null);
-	const [streamed, setStreamed] = useState("");
+	const [streamedChars, setStreamedChars] = useState(0);
 	const [nextId, setNextId] = useState(1);
 	const timer = useRef<number | null>(null);
 	const threadEnd = useRef<HTMLDivElement | null>(null);
@@ -118,20 +119,23 @@ export function AiChatApp() {
 		if (next) setAttachments((current) => [...current, next.name]);
 	}
 
-	function streamReply(turnId: string, full: string) {
+	function streamReply(turnId: string, totalChars: number) {
 		if (quiet) {
-			setStreamed(full);
+			setStreamedChars(totalChars);
 			setStreamingId(null);
 			return;
 		}
-		setStreamed("");
+		setStreamedChars(0);
 		setStreamingId(turnId);
 		let index = 0;
 		const step = () => {
-			index = Math.min(full.length, index + Math.max(2, Math.round(full.length / 36)));
-			setStreamed(full.slice(0, index));
+			index = Math.min(
+				totalChars,
+				index + Math.max(2, Math.round(totalChars / 36)),
+			);
+			setStreamedChars(index);
 			threadEnd.current?.scrollIntoView({ block: "end" });
-			if (index < full.length) {
+			if (index < totalChars) {
 				timer.current = window.setTimeout(step, 22);
 			} else {
 				timer.current = null;
@@ -164,7 +168,9 @@ export function AiChatApp() {
 			role: "assistant",
 			...reply,
 		};
-		const full = blocksToPlain(reply.blocks, locale) || textFor(locale, reply.text, reply.textZh);
+		const totalChars = reply.blocks?.length
+			? displayLength(reply.blocks, locale)
+			: textFor(locale, reply.text, reply.textZh).length;
 
 		if (!selected) {
 			const chatId = `local-${nextId}`;
@@ -181,7 +187,7 @@ export function AiChatApp() {
 			};
 			setChats((current) => [created, ...current]);
 			setSelectedId(chatId);
-			streamReply(assistantId, full);
+			streamReply(assistantId, totalChars);
 		} else {
 			setChats((current) =>
 				current.map((chat) =>
@@ -196,7 +202,7 @@ export function AiChatApp() {
 						: chat,
 				),
 			);
-			streamReply(assistantId, full);
+			streamReply(assistantId, totalChars);
 		}
 		setDraft("");
 		setAttachments([]);
@@ -204,7 +210,7 @@ export function AiChatApp() {
 
 	return (
 		<div
-			className="flex min-h-[38rem] overflow-hidden rounded-xl bg-card ring-1 ring-foreground/10"
+			className="flex min-h-[38rem] w-full min-w-0 max-w-full overflow-x-hidden rounded-xl bg-card ring-1 ring-foreground/10"
 			style={WB_BRIDGE}
 		>
 			<section
@@ -314,9 +320,15 @@ export function AiChatApp() {
 					</div>
 				</header>
 				<div className="sr-only" aria-live="polite">
-					{streamingId ? streamed : ""}
+					{streamingId
+						? announceStream(
+								selected?.turns.find((turn) => turn.id === streamingId),
+								locale,
+								streamedChars,
+							)
+						: ""}
 				</div>
-				<div className="min-h-0 flex-1 overflow-y-auto">
+				<div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
 					{!selected ? (
 						<div className="mx-auto flex h-full max-w-2xl flex-col justify-center gap-6 px-4 py-10">
 							<div>
@@ -340,12 +352,12 @@ export function AiChatApp() {
 							</Suggestions>
 						</div>
 					) : (
-						<Thread className="py-6">
+						<Thread className="min-w-0 py-6">
 							{selected.turns.map((turn) => {
 								const live = turn.id === streamingId;
 								if (turn.role === "user") {
 									return (
-										<ThreadItem key={turn.id}>
+										<ThreadItem key={turn.id} className="min-w-0">
 											<ThreadUserMessage>
 												{textFor(locale, turn.text, turn.textZh)}
 											</ThreadUserMessage>
@@ -353,8 +365,8 @@ export function AiChatApp() {
 									);
 								}
 								return (
-									<ThreadItem key={turn.id}>
-										<div className="group/turn space-y-3 py-2">
+									<ThreadItem key={turn.id} className="min-w-0">
+										<div className="group/turn min-w-0 space-y-3 py-2">
 											{turn.reasoning ? (
 												<Reasoning
 													isStreaming={live}
@@ -381,19 +393,26 @@ export function AiChatApp() {
 													</ReasoningContent>
 												</Reasoning>
 											) : null}
-											<ThreadMessage streaming={false}>
-												{live ? (
-													<p>
-														{streamed}
-														<ThreadStreamingCaret />
-													</p>
-												) : (
-													<MessageBlocks
-														blocks={turn.blocks}
-														locale={locale}
-														fallback={textFor(locale, turn.text, turn.textZh)}
-													/>
-												)}
+											<ThreadMessage streaming={live} className="min-w-0">
+												<MessageBlocks
+													blocks={
+														live && turn.blocks
+															? sliceBlocks(turn.blocks, locale, streamedChars)
+															: turn.blocks
+													}
+													locale={locale}
+													fallback={
+														live && turn.blocks?.length
+															? ""
+															: live
+																? textFor(
+																		locale,
+																		turn.text,
+																		turn.textZh,
+																	).slice(0, streamedChars)
+																: textFor(locale, turn.text, turn.textZh)
+													}
+												/>
 											</ThreadMessage>
 											{!live && turn.usage ? (
 												<ThreadUsage
@@ -472,9 +491,9 @@ function MessageBlocks({
 	locale: string;
 	fallback: string;
 }) {
-	if (!blocks?.length) return <p>{fallback}</p>;
+	if (!blocks?.length) return fallback ? <p>{fallback}</p> : null;
 	return (
-		<div className="space-y-3">
+		<div className="min-w-0 space-y-3">
 			{blocks.map((block) => {
 				if (block.type === "p") {
 					return (
@@ -524,13 +543,14 @@ function CopyableCodeBlock({
 	}, []);
 
 	return (
-		<div className="overflow-hidden rounded-xl bg-[var(--wb-code-block)]">
+		<div className="min-w-0 max-w-full rounded-xl bg-[var(--wb-code-block)]">
 			<div className="flex items-center justify-between gap-2 px-3 pt-2">
 				<span className="text-xs text-muted-foreground">{language}</span>
 				<Button
 					type="button"
 					variant="ghost"
 					size="xs"
+					data-code-copied={copied ? "true" : undefined}
 					aria-label={copied ? t("Copied") : t("Copy code")}
 					onClick={async () => {
 						await navigator.clipboard?.writeText(code);
@@ -547,9 +567,28 @@ function CopyableCodeBlock({
 					{copied ? t("Copied") : t("Copy code")}
 				</Button>
 			</div>
-			<ThreadCodeBlock className="mb-0">{code}</ThreadCodeBlock>
+			<div
+				data-code-scroll=""
+				className="min-w-0 overflow-x-auto overscroll-x-contain [scrollbar-width:thin] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-foreground/35"
+			>
+				<ThreadCodeBlock className="mb-0 [&>pre]:w-max [&>pre]:min-w-full [&>pre]:overflow-visible [&>pre]:rounded-none">
+					{code}
+				</ThreadCodeBlock>
+			</div>
 		</div>
 	);
+}
+
+function announceStream(
+	turn: ChatTurn | undefined,
+	locale: string,
+	chars: number,
+) {
+	if (!turn) return "";
+	if (turn.blocks?.length) {
+		return blocksToDisplay(sliceBlocks(turn.blocks, locale, chars), locale);
+	}
+	return textFor(locale, turn.text, turn.textZh).slice(0, chars);
 }
 
 function InlineMarks({ text }: { text: string }) {

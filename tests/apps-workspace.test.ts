@@ -2,15 +2,21 @@ import { expect, test } from "bun:test";
 import { navItems } from "@/components/pages/saas-admin/configs/navConfig";
 import { SAAS_ADMIN_ROUTES } from "@/components/pages/saas-admin/routes";
 import {
+	blocksToDisplay,
 	CONVERSATIONS,
 	conversationMatches,
+	displayLength,
 	replyForPrompt,
+	sliceBlocks,
 } from "@/components/pages/saas-admin/views/apps/ai-chat/data";
 import {
+	DAILY_USAGE,
+	dailyForFilter,
 	MODEL_USAGE,
 	modelsForFilter,
 	queriesForFilter,
 	RECENT_QUERIES,
+	summaryForFilter,
 	USAGE_SUMMARY,
 } from "@/components/pages/saas-admin/views/apps/ai-usage/data";
 import {
@@ -133,4 +139,45 @@ test("ai chat samples stay local and match either language", () => {
 		"draft",
 	]);
 	expect(queriesForFilter(RECENT_QUERIES, "all")).toHaveLength(RECENT_QUERIES.length);
+	const letterBlocks = CONVERSATIONS[0]?.turns[1]?.blocks;
+	expect(letterBlocks).toBeDefined();
+	expect(displayLength(letterBlocks, "zh")).toBeGreaterThan(80);
+	expect(blocksToDisplay(letterBlocks, "zh")).not.toContain("**");
+	expect(blocksToDisplay(letterBlocks, "zh")).not.toContain("```");
+	const midBold = sliceBlocks(letterBlocks, "zh", 18);
+	expect(midBold[0]?.type).toBe("p");
+	if (midBold[0]?.type === "p") {
+		expect(midBold[0].zh).toContain("**工作室版**");
+	}
+	expect(blocksToDisplay(midBold, "zh")).not.toContain("*");
+	expect(blocksToDisplay(midBold, "zh")).not.toContain("`");
+	const intoCode = sliceBlocks(letterBlocks, "zh", displayLength(letterBlocks, "zh") - 8);
+	expect(intoCode.some((block) => block.type === "code")).toBe(true);
+	expect(blocksToDisplay(intoCode, "zh")).not.toContain("```");
+});
+
+test("usage filter drives cards, daily bars and recent prompts together", () => {
+	const pulse = summaryForFilter("pulse");
+	expect(pulse).toEqual({
+		requests: 1104,
+		tokens: 3_144_000,
+		cost: 38.2,
+		errorRate: 0.008,
+	});
+	expect(summaryForFilter("all")).toEqual({
+		requests: USAGE_SUMMARY.requests,
+		tokens: USAGE_SUMMARY.tokens,
+		cost: USAGE_SUMMARY.cost,
+		errorRate: USAGE_SUMMARY.errorRate,
+	});
+	expect(summaryForFilter("draft").tokens).toBe(916_800);
+	expect(dailyForFilter(DAILY_USAGE, "atlas").map((day) => day.tokens)).toEqual(
+		DAILY_USAGE.map((day) => day.byModel.atlas),
+	);
+	expect(dailyForFilter(DAILY_USAGE, "all").reduce((sum, day) => sum + day.tokens, 0)).toBe(
+		DAILY_USAGE.reduce((sum, day) => sum + day.tokens, 0),
+	);
+	for (const day of DAILY_USAGE) {
+		expect(day.byModel.pulse + day.byModel.atlas + day.byModel.draft).toBe(day.tokens);
+	}
 });

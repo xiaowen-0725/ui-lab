@@ -71,12 +71,12 @@ function SaasAdminShellFrame({
 							<SaasAdminText>Skip to content</SaasAdminText>
 						</a>
 						<SidebarLayout />
-						<SidebarInset className="flex flex-1 flex-col">
+						<SidebarInset className="flex min-w-0 flex-1 flex-col">
 							<Header />
 							<div
 								id="saas-admin-content"
 								tabIndex={-1}
-								className="saas-admin-container mx-auto size-full max-w-360 flex-1 px-4 py-6 sm:px-6"
+								className="saas-admin-container mx-auto size-full min-w-0 max-w-360 flex-1 px-4 py-6 sm:px-6"
 							>
 								{children}
 							</div>

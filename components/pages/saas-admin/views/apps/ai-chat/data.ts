@@ -279,3 +279,138 @@ export function blocksToPlain(blocks: ChatBlock[] | undefined, locale: string) {
 		})
 		.join("\n\n");
 }
+
+type InlinePart =
+	| { kind: "text"; text: string }
+	| { kind: "strong"; text: string }
+	| { kind: "code"; text: string };
+
+function parseInline(text: string): InlinePart[] {
+	return text
+		.split(/(\*\*[^*]+\*\*|`[^`]+`)/g)
+		.filter(Boolean)
+		.map((part) => {
+			if (part.startsWith("**") && part.endsWith("**") && part.length >= 4) {
+				return { kind: "strong" as const, text: part.slice(2, -2) };
+			}
+			if (part.startsWith("`") && part.endsWith("`") && part.length >= 2) {
+				return { kind: "code" as const, text: part.slice(1, -1) };
+			}
+			return { kind: "text" as const, text: part };
+		});
+}
+
+function serializeInline(parts: InlinePart[]) {
+	return parts
+		.map((part) => {
+			if (part.kind === "strong") return `**${part.text}**`;
+			if (part.kind === "code") return `\`${part.text}\``;
+			return part.text;
+		})
+		.join("");
+}
+
+function inlineLength(text: string) {
+	return parseInline(text).reduce((sum, part) => sum + part.text.length, 0);
+}
+
+function sliceInline(text: string, chars: number) {
+	const out: InlinePart[] = [];
+	let left = chars;
+	for (const part of parseInline(text)) {
+		if (left <= 0) break;
+		const take = Math.min(part.text.length, left);
+		out.push({ ...part, text: part.text.slice(0, take) });
+		left -= take;
+	}
+	return { text: serializeInline(out), rest: left };
+}
+
+export function displayLength(blocks: ChatBlock[] | undefined, locale: string) {
+	if (!blocks?.length) return 0;
+	return blocks.reduce((sum, block) => {
+		if (block.type === "p") {
+			return sum + inlineLength(locale === "zh" ? block.zh : block.en);
+		}
+		if (block.type === "list") {
+			return (
+				sum +
+				block.items.reduce(
+					(count, item) =>
+						count + inlineLength(locale === "zh" ? item.zh : item.en),
+					0,
+				)
+			);
+		}
+		return sum + block.code.length;
+	}, 0);
+}
+
+export function sliceBlocks(
+	blocks: ChatBlock[] | undefined,
+	locale: string,
+	chars: number,
+): ChatBlock[] {
+	if (!blocks?.length || chars <= 0) return [];
+	let left = chars;
+	const visible: ChatBlock[] = [];
+	for (const block of blocks) {
+		if (left <= 0) break;
+		if (block.type === "p") {
+			const source = locale === "zh" ? block.zh : block.en;
+			const sliced = sliceInline(source, left);
+			const used = left - sliced.rest;
+			left = sliced.rest;
+			if (used > 0) {
+				visible.push({ type: "p", en: sliced.text, zh: sliced.text });
+			}
+			continue;
+		}
+		if (block.type === "list") {
+			const items: { en: string; zh: string }[] = [];
+			for (const item of block.items) {
+				if (left <= 0) break;
+				const source = locale === "zh" ? item.zh : item.en;
+				const sliced = sliceInline(source, left);
+				const used = left - sliced.rest;
+				left = sliced.rest;
+				if (used > 0) items.push({ en: sliced.text, zh: sliced.text });
+			}
+			if (items.length) visible.push({ type: "list", items });
+			continue;
+		}
+		const take = Math.min(block.code.length, left);
+		left -= take;
+		if (take > 0) {
+			visible.push({
+				type: "code",
+				language: block.language,
+				code: block.code.slice(0, take),
+			});
+		}
+	}
+	return visible;
+}
+
+export function blocksToDisplay(blocks: ChatBlock[] | undefined, locale: string) {
+	if (!blocks?.length) return "";
+	return blocks
+		.map((block) => {
+			if (block.type === "p") {
+				return parseInline(locale === "zh" ? block.zh : block.en)
+					.map((part) => part.text)
+					.join("");
+			}
+			if (block.type === "list") {
+				return block.items
+					.map((item) =>
+						parseInline(locale === "zh" ? item.zh : item.en)
+							.map((part) => part.text)
+							.join(""),
+					)
+					.join(" ");
+			}
+			return block.code;
+		})
+		.join(" ");
+}

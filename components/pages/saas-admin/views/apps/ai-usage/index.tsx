@@ -1,10 +1,18 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { animate } from "motion/react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Bar, BarChart, CartesianGrid, Cell, XAxis, YAxis } from "recharts";
 import { ThreadUsage } from "@/components/motion/agent-thread";
 import { SaasAdminText, useSaasAdmin } from "@/components/pages/saas-admin/environment";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+	type ChartConfig,
+	ChartContainer,
+	ChartTooltip,
+	ChartTooltipContent,
+} from "@/components/ui/chart";
 import { Progress, ProgressLabel } from "@/components/ui/progress";
 import {
 	Table,
@@ -14,30 +22,49 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import { textFor } from "../surface";
+import { EASE_OUT } from "@/lib/ease";
+import { cn } from "@/lib/utils";
+import { textFor, useQuietMotion } from "../surface";
 import {
 	DAILY_USAGE,
+	dailyForFilter,
 	formatTokens,
 	formatUsd,
 	MODEL_USAGE,
 	modelsForFilter,
 	queriesForFilter,
 	RECENT_QUERIES,
-	USAGE_SUMMARY,
+	summaryForFilter,
+	USAGE_TODAY,
 	type UsageModelFilter,
 } from "./data";
 
-const peak = Math.max(...DAILY_USAGE.map((day) => day.tokens));
 const FILTERS: { id: UsageModelFilter; label: string }[] = [
 	{ id: "all", label: "All models" },
 	...MODEL_USAGE.map((model) => ({ id: model.id, label: model.name })),
 ];
 
+const chartConfig = {
+	tokens: {
+		label: "Tokens",
+		color: "var(--primary)",
+	},
+} satisfies ChartConfig;
+
 export function AiUsageApp() {
 	const { locale, t } = useSaasAdmin();
 	const [filter, setFilter] = useState<UsageModelFilter>("all");
-	const models = useMemo(() => modelsForFilter(MODEL_USAGE, filter), [filter]);
+	const summary = useMemo(() => summaryForFilter(filter), [filter]);
+	const limits = useMemo(() => modelsForFilter(MODEL_USAGE, filter), [filter]);
 	const queries = useMemo(() => queriesForFilter(RECENT_QUERIES, filter), [filter]);
+	const days = useMemo(
+		() =>
+			dailyForFilter(DAILY_USAGE, filter).map((day) => ({
+				...day,
+				dayLabel: textFor(locale, day.label, day.labelZh),
+			})),
+		[filter, locale],
+	);
 
 	return (
 		<div className="space-y-4">
@@ -68,13 +95,17 @@ export function AiUsageApp() {
 			<div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
 				<Metric
 					label="Requests"
-					value={USAGE_SUMMARY.requests.toLocaleString(locale === "zh" ? "zh-CN" : "en-US")}
+					value={summary.requests}
+					format={(value) =>
+						Math.round(value).toLocaleString(locale === "zh" ? "zh-CN" : "en-US")
+					}
 				/>
-				<Metric label="Tokens" value={formatTokens(USAGE_SUMMARY.tokens)} />
-				<Metric label="Cost" value={formatUsd(USAGE_SUMMARY.cost)} />
+				<Metric label="Tokens" value={summary.tokens} format={formatTokens} />
+				<Metric label="Cost" value={summary.cost} format={formatUsd} />
 				<Metric
 					label="Error rate"
-					value={`${(USAGE_SUMMARY.errorRate * 100).toFixed(1)}%`}
+					value={summary.errorRate}
+					format={(value) => `${(value * 100).toFixed(1)}%`}
 				/>
 			</div>
 			<div className="grid gap-4 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
@@ -103,22 +134,31 @@ export function AiUsageApp() {
 								</TableRow>
 							</TableHeader>
 							<TableBody>
-								{models.map((model) => (
-									<TableRow key={model.id}>
-										<TableCell className="font-medium">{model.name}</TableCell>
-										<TableCell className="text-right tabular-nums">
-											{model.requests.toLocaleString(
-												locale === "zh" ? "zh-CN" : "en-US",
+								{MODEL_USAGE.map((model) => {
+									const selected = filter === model.id;
+									return (
+										<TableRow
+											key={model.id}
+											data-state={selected ? "selected" : undefined}
+											className={cn(
+												filter !== "all" && !selected && "opacity-50",
 											)}
-										</TableCell>
-										<TableCell className="text-right tabular-nums">
-											{formatTokens(model.inputTokens + model.outputTokens)}
-										</TableCell>
-										<TableCell className="text-right tabular-nums">
-											{formatUsd(model.cost)}
-										</TableCell>
-									</TableRow>
-								))}
+										>
+											<TableCell className="font-medium">{model.name}</TableCell>
+											<TableCell className="text-right tabular-nums">
+												{model.requests.toLocaleString(
+													locale === "zh" ? "zh-CN" : "en-US",
+												)}
+											</TableCell>
+											<TableCell className="text-right tabular-nums">
+												{formatTokens(model.inputTokens + model.outputTokens)}
+											</TableCell>
+											<TableCell className="text-right tabular-nums">
+												{formatUsd(model.cost)}
+											</TableCell>
+										</TableRow>
+									);
+								})}
 							</TableBody>
 						</Table>
 					</CardContent>
@@ -129,23 +169,72 @@ export function AiUsageApp() {
 							<SaasAdminText>Daily tokens</SaasAdminText>
 						</CardTitle>
 					</CardHeader>
-					<CardContent className="space-y-3">
-						{DAILY_USAGE.map((day) => (
-							<div key={day.date} className="grid grid-cols-[4.5rem_1fr_3.5rem] items-center gap-3">
-								<span className="text-xs text-muted-foreground">
-									{textFor(locale, day.label, day.labelZh)}
-								</span>
-								<div className="h-2 overflow-hidden rounded-full bg-muted">
-									<div
-										className="h-full rounded-full bg-primary"
-										style={{ width: `${Math.round((day.tokens / peak) * 100)}%` }}
-									/>
-								</div>
-								<span className="text-right text-xs tabular-nums text-muted-foreground">
-									{formatTokens(day.tokens)}
-								</span>
-							</div>
-						))}
+					<CardContent>
+						<ChartContainer
+							config={chartConfig}
+							className="aspect-auto h-56 w-full"
+							aria-label={t("Daily tokens")}
+						>
+							<BarChart
+								accessibilityLayer
+								data={days}
+								margin={{ left: 4, right: 8, top: 8, bottom: 0 }}
+							>
+								<CartesianGrid vertical={false} />
+								<XAxis
+									dataKey="dayLabel"
+									tickLine={false}
+									axisLine={false}
+									interval={0}
+								/>
+								<YAxis
+									tickLine={false}
+									axisLine={false}
+									width={40}
+									tickFormatter={(value) => formatTokens(Number(value))}
+								/>
+								<ChartTooltip
+									cursor={{
+										fill: "color-mix(in oklab, var(--primary) 8%, transparent)",
+									}}
+									content={
+										<ChartTooltipContent
+											labelFormatter={(_, payload) => {
+												const day = payload?.[0]?.payload as
+													| { dayLabel?: string; date?: string }
+													| undefined;
+												if (!day?.dayLabel) return "";
+												return day.date === USAGE_TODAY
+													? `${day.dayLabel} · ${t("Today")}`
+													: day.dayLabel;
+											}}
+											formatter={(value) => (
+												<>
+													<span className="text-muted-foreground">
+														{t("Tokens")}
+													</span>
+													<span className="ml-auto font-mono font-medium tabular-nums">
+														{formatTokens(Number(value))}
+													</span>
+												</>
+											)}
+										/>
+									}
+								/>
+								<Bar dataKey="tokens" radius={6} maxBarSize={36}>
+									{days.map((day) => (
+										<Cell
+											key={day.date}
+											fill={
+												day.date === USAGE_TODAY
+													? "var(--primary)"
+													: "color-mix(in oklab, var(--primary) 55%, transparent)"
+											}
+										/>
+									))}
+								</Bar>
+							</BarChart>
+						</ChartContainer>
 					</CardContent>
 				</Card>
 			</div>
@@ -157,7 +246,7 @@ export function AiUsageApp() {
 						</CardTitle>
 					</CardHeader>
 					<CardContent className="space-y-4">
-						{models.map((model) => (
+						{limits.map((model) => (
 							<Progress
 								key={model.id}
 								value={Math.round((model.used / model.limit) * 100)}
@@ -206,7 +295,16 @@ export function AiUsageApp() {
 	);
 }
 
-function Metric({ label, value }: { label: string; value: string }) {
+function Metric({
+	label,
+	value,
+	format,
+}: {
+	label: string;
+	value: number;
+	format: (value: number) => string;
+}) {
+	const display = useTweenedNumber(value);
 	return (
 		<Card size="sm">
 			<CardHeader>
@@ -215,8 +313,31 @@ function Metric({ label, value }: { label: string; value: string }) {
 				</CardTitle>
 			</CardHeader>
 			<CardContent>
-				<p className="text-2xl font-semibold tabular-nums">{value}</p>
+				<p className="text-2xl font-semibold tabular-nums">{format(display)}</p>
 			</CardContent>
 		</Card>
 	);
+}
+
+function useTweenedNumber(value: number) {
+	const quiet = useQuietMotion();
+	const [display, setDisplay] = useState(value);
+	const fromRef = useRef(value);
+
+	useEffect(() => {
+		if (quiet) {
+			fromRef.current = value;
+			setDisplay(value);
+			return;
+		}
+		const controls = animate(fromRef.current, value, {
+			duration: 0.4,
+			ease: EASE_OUT,
+			onUpdate: (next) => setDisplay(next),
+		});
+		fromRef.current = value;
+		return () => controls.stop();
+	}, [value, quiet]);
+
+	return display;
 }
