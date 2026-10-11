@@ -6,6 +6,10 @@
 
 ## [Unreleased]
 
+### 修复
+
+- Catalog 详情的 Manual 安装改为打开标签后再读取 `/r/<slug>`，不再把整份安装源码图 Shiki 进 ISR HTML。SaaS Admin 整站与组件详情因此低于 Vercel 20MB fallback 上限；main 上主题定制器引入的同构超限一并修掉。
+
 ### Added
 
 - SaaS Admin Apps 组新增对话、用量、任务板、收件箱与日程；全部落在既有 saas-admin 外壳、路由合同和主题定制里。对话页复用 Thread / PromptInput / Suggestion / Reasoning / ThreadCodeBlock / ThreadUsage，用量页复用 ThreadUsage。客户册整支删除，不新建、不并入用户页。参考 AdminCN / Promptly 的信息架构，不复制其源码、素材或专有文案。

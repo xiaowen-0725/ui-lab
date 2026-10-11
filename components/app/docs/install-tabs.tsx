@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
   Tabs,
   TabsContent,
@@ -9,8 +9,8 @@ import {
 } from "@/components/motion/tabs";
 
 /**
- * CLI / Manual switch for installing a component. Both panels are rendered on
- * the server and passed in as nodes; this only owns the tab state.
+ * CLI / Manual switch. Manual mounts after the tab is opened so catalog pages
+ * do not prerender the install source graph into the ISR HTML.
  */
 export function InstallTabs({
   cli,
@@ -19,8 +19,18 @@ export function InstallTabs({
   cli: ReactNode;
   manual: ReactNode;
 }) {
+  const [value, setValue] = useState("cli");
+  const [manualOpened, setManualOpened] = useState(false);
+
   return (
-    <Tabs defaultValue="cli" variant="segment">
+    <Tabs
+      value={value}
+      onValueChange={(next) => {
+        setValue(next);
+        if (next === "manual") setManualOpened(true);
+      }}
+      variant="segment"
+    >
       <TabsList>
         <TabsTrigger value="cli">CLI</TabsTrigger>
         <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -29,7 +39,7 @@ export function InstallTabs({
         {cli}
       </TabsContent>
       <TabsContent value="manual" className="mt-4">
-        {manual}
+        {manualOpened ? manual : null}
       </TabsContent>
     </Tabs>
   );
