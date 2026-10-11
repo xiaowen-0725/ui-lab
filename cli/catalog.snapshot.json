@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-09T05:32:55.101Z",
-  "count": 571,
+  "generatedAt": "2026-10-10T06:36:31.810Z",
+  "count": 576,
   "items": [
     {
       "kind": "component",
@@ -1016,7 +1016,7 @@
         "components/ui/alert.tsx",
         "components/ui/alert-dialog.tsx"
       ],
-      "sourceVersion": "36580fad039fcde3844af46a069d0fbcdf929a5ed0e0ef24dfcab39c7d30417f",
+      "sourceVersion": "5d7227d48a89a4f9c3da2fd0b94db684ecf9ab73091359485b3eb0a96e76ac48",
       "installTargets": [
         "saas-admin-orders-page"
       ]
@@ -1122,7 +1122,7 @@
         "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
         "components/ui/checkbox.tsx"
       ],
-      "sourceVersion": "84daf08a5e9e7553f7a104e18fc85f58519ed3a70a5255ccada606539959d6d4",
+      "sourceVersion": "bca7809a5f9351f111c07d5333729b0ed3b08b66636e495d5071c9f66bad1877",
       "installTargets": [
         "saas-admin-users-page"
       ]
@@ -1207,7 +1207,7 @@
         "components/ui/progress.tsx",
         "components/ui/table.tsx"
       ],
-      "sourceVersion": "cff67f96d94fc9e150c669ae6980edf0a19f67bef0379e8f705167b3c44fc3f2",
+      "sourceVersion": "dc177763a96d5dae3eec8a9231779491cd6824bea4e0a5ea6e1e31bb5e78ae8e",
       "installTargets": [
         "saas-admin-profile-page"
       ]
@@ -1294,7 +1294,7 @@
         "components/ui/popover.tsx",
         "components/ui/alert.tsx"
       ],
-      "sourceVersion": "1f847bf640ad823498da8ffd2050ed32543adb9c8577c11087fc4ed23d0c05d2",
+      "sourceVersion": "03710a8f10d7703555b557e7e51db4297812a144c0bc3bf9a7c6b0bdecf7c63f",
       "installTargets": [
         "saas-admin-settings-page"
       ]
@@ -1368,7 +1368,7 @@
         "components/ui/button.tsx",
         "components/ui/dropdown-menu.tsx"
       ],
-      "sourceVersion": "f09fcbde41e8384e7be4bb13586cd1ae7e6363244c5bd2de19f9a3036dfe739a",
+      "sourceVersion": "ed678a7b7b1d2d4697af76a75fbf84d51f8dc0689dd742d4b15f66074f2af2c1",
       "installTargets": [
         "saas-admin-data-table-page"
       ]
@@ -1446,7 +1446,7 @@
         "components/ui/label.tsx",
         "components/ui/separator.tsx"
       ],
-      "sourceVersion": "af326fe7a614d45a1c747a617bea614db556b759aee03ad3a15b3a17b7f0417d",
+      "sourceVersion": "65234211609534b8347e6d713c140a74d84768a091b3f334359c0b66902d7857",
       "installTargets": [
         "saas-admin-forms-page"
       ]
@@ -1520,7 +1520,7 @@
         "components/ui/label.tsx",
         "components/ui/textarea.tsx"
       ],
-      "sourceVersion": "bb202089b97b62455b05e64bbf3aa3daf709af5c27a691c9b58cef2b447401fb",
+      "sourceVersion": "0f2992876a37ced3a2629896e64ed481e69a505e7e2825cef1420bbbcf7f8c20",
       "installTargets": [
         "saas-admin-login-page"
       ]
@@ -1594,7 +1594,7 @@
         "components/ui/label.tsx",
         "components/ui/textarea.tsx"
       ],
-      "sourceVersion": "cd15183ea1a1744ec2a4d82581dd299e73a47849907da4cf9eb8c4fce5cb5801",
+      "sourceVersion": "16c8c2da069e4c83510ed1feaa546c640123e6790094961fb1386e093065a067",
       "installTargets": [
         "saas-admin-register-page"
       ]
@@ -1665,9 +1665,395 @@
         "components/ui/label.tsx",
         "components/ui/separator.tsx"
       ],
-      "sourceVersion": "13c46cdb32691c522bf8296a466f88af7278528c5bb9c3cd0c937d59a3e5e1d9",
+      "sourceVersion": "896ce80c283c0d967b94e02101f2a41757746277d5845c11ccc3b307e4581268",
       "installTargets": [
         "saas-admin-forgot-password-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-kanban-page",
+      "name": "SaaS Admin Kanban Page",
+      "nameZh": "SaaS 后台任务板页",
+      "aliases": [
+        "SaaS admin",
+        "任务板",
+        "看板"
+      ],
+      "description": "A muted-well task board with priority cards, pointer drag, keyboard moves, and local search.",
+      "descriptionZh": "浅灰列井任务板，卡片含优先级，支持拖动手把、键盘移动和本地搜索。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-kanban-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-kanban-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-kanban-page"
+      },
+      "sourceFile": "components/pages/saas-admin-kanban-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-kanban-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-kanban-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/kanban/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/chrome.tsx",
+        "components/pages/saas-admin/views/apps/surface.ts",
+        "components/pages/saas-admin/views/apps/kanban/data.ts",
+        "components/ui/avatar.tsx",
+        "components/ui/badge.tsx",
+        "components/ui/button.tsx",
+        "components/ui/card.tsx",
+        "components/ui/dropdown-menu.tsx",
+        "components/ui/input-group.tsx",
+        "components/ui/scroll-area.tsx",
+        "lib/utils.ts",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/ui/input.tsx",
+        "components/ui/textarea.tsx",
+        "components/pages/saas-admin/assets/fonts.css"
+      ],
+      "sourceVersion": "f5e85e2cad90ed606cc452d514404ec36ed7a327a4873ef916d872129c1a3503",
+      "installTargets": [
+        "saas-admin-kanban-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-mail-page",
+      "name": "SaaS Admin Mail Page",
+      "nameZh": "SaaS 后台收件箱页",
+      "aliases": [
+        "SaaS admin",
+        "收件箱",
+        "邮件"
+      ],
+      "description": "Foldered mail with a local compose path that only files a sent thread in this visit.",
+      "descriptionZh": "按文件夹阅读往来，写一封信只留在这次浏览。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-mail-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-mail-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-mail-page"
+      },
+      "sourceFile": "components/pages/saas-admin-mail-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-mail-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-mail-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/mail/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/chrome.tsx",
+        "components/pages/saas-admin/views/apps/surface.ts",
+        "components/pages/saas-admin/views/apps/mail/data.ts",
+        "components/ui/badge.tsx",
+        "components/ui/button.tsx",
+        "components/ui/card.tsx",
+        "components/ui/field.tsx",
+        "components/ui/input.tsx",
+        "components/ui/input-group.tsx",
+        "components/ui/scroll-area.tsx",
+        "components/ui/separator.tsx",
+        "components/ui/textarea.tsx",
+        "components/ui/toggle-group.tsx",
+        "lib/utils.ts",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "components/ui/avatar.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/ui/label.tsx",
+        "components/ui/toggle.tsx",
+        "components/pages/saas-admin/assets/fonts.css"
+      ],
+      "sourceVersion": "1ec15a6099700b784bccba32ae811979b217f17de3abdd77d705bafa0aecadb7",
+      "installTargets": [
+        "saas-admin-mail-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-calendar-page",
+      "name": "SaaS Admin Calendar Page",
+      "nameZh": "SaaS 后台日程页",
+      "aliases": [
+        "SaaS admin",
+        "日程",
+        "日历"
+      ],
+      "description": "A Monday-start month grid anchored to 9 October 2026 with a same-day agenda.",
+      "descriptionZh": "周一起始的月历，锚在 2026 年 10 月 9 日，并带当天安排。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-calendar-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-calendar-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-calendar-page"
+      },
+      "sourceFile": "components/pages/saas-admin-calendar-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-calendar-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-calendar-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/calendar/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/chrome.tsx",
+        "components/pages/saas-admin/views/apps/surface.ts",
+        "components/pages/saas-admin/views/apps/calendar/data.ts",
+        "components/ui/badge.tsx",
+        "components/ui/button.tsx",
+        "components/ui/card.tsx",
+        "components/ui/scroll-area.tsx",
+        "components/ui/separator.tsx",
+        "lib/utils.ts",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "components/ui/avatar.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/pages/saas-admin/assets/fonts.css"
+      ],
+      "sourceVersion": "23f9e64b9de94bbfd2486ecec0f6cfbec7f3b5e520666811ad25b6da6b358502",
+      "installTargets": [
+        "saas-admin-calendar-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-ai-chat-page",
+      "name": "SaaS Admin AI Chat Page",
+      "nameZh": "SaaS 后台对话页",
+      "aliases": [
+        "SaaS admin",
+        "对话",
+        "AI 聊天"
+      ],
+      "description": "A local AI conversation workspace with thread history, model picker, attachments, and streaming-style replies.",
+      "descriptionZh": "本地对话工作区：会话列表、模型选择、附件和流式回复演示。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-ai-chat-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-ai-chat-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-ai-chat-page"
+      },
+      "sourceFile": "components/pages/saas-admin-ai-chat-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-ai-chat-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-ai-chat-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/ai-chat/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/chrome.tsx",
+        "components/pages/saas-admin/views/apps/surface.ts",
+        "components/pages/saas-admin/views/apps/ai-chat/data.ts",
+        "components/agents/prompt-input.tsx",
+        "components/agents/reasoning.tsx",
+        "components/agents/suggestion.tsx",
+        "components/motion/agent-thread/index.tsx",
+        "components/ui/badge.tsx",
+        "components/ui/button.tsx",
+        "components/ui/card.tsx",
+        "components/ui/input-group.tsx",
+        "components/ui/scroll-area.tsx",
+        "components/ui/separator.tsx",
+        "lib/utils.ts",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "components/ui/avatar.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/motion/button/index.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/select.tsx",
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/agent-thread/cards.tsx",
+        "components/motion/agent-thread/status.tsx",
+        "components/ui/input.tsx",
+        "components/ui/textarea.tsx",
+        "components/pages/saas-admin/assets/fonts.css",
+        "components/motion/button/base.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/hooks/use-hover-capable.ts",
+        "components/motion/magnetic.tsx"
+      ],
+      "sourceVersion": "502e7af51c80afca14f3f3ef9d5a4be64fb5ea84b7b1538d395fe7354ca8b814",
+      "installTargets": [
+        "saas-admin-ai-chat-page"
+      ]
+    },
+    {
+      "kind": "component",
+      "category": "pages",
+      "assetRole": "page",
+      "profiles": [
+        "next-app",
+        "vite-app"
+      ],
+      "components": [],
+      "related": [],
+      "slug": "saas-admin-ai-usage-page",
+      "name": "SaaS Admin AI Usage Page",
+      "nameZh": "SaaS 后台用量页",
+      "aliases": [
+        "SaaS admin",
+        "用量",
+        "Token"
+      ],
+      "description": "Token, cost and rate-limit samples for the same local conversation workspace.",
+      "descriptionZh": "同一本地对话工作区的 Token、费用和速率上限示例。",
+      "pageUrl": "http://localhost:3000/pages/saas-admin-ai-usage-page",
+      "fetch": {
+        "method": "shadcn",
+        "command": "npx shadcn@latest add http://localhost:3000/r/saas-admin-ai-usage-page.json",
+        "endpoint": "http://localhost:3000/r/saas-admin-ai-usage-page"
+      },
+      "sourceFile": "components/pages/saas-admin-ai-usage-page.tsx",
+      "sourceFiles": [
+        "components/pages/saas-admin-ai-usage-page.tsx"
+      ],
+      "installationFiles": [
+        "components/pages/saas-admin-ai-usage-page.tsx",
+        "components/pages/saas-admin/environment.tsx",
+        "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/ai-usage/index.tsx",
+        "components/pages/saas-admin/appearance.ts",
+        "components/pages/saas-admin/content.ts",
+        "components/pages/saas-admin/fake-db/apps/users.ts",
+        "components/pages/saas-admin/fake-db/pages/user-profile.ts",
+        "components/pages/saas-admin/fake-db/transaction-samples.ts",
+        "components/pages/saas-admin/types/apps/user-types.ts",
+        "components/pages/saas-admin/types/pages/user-profile-types.ts",
+        "components/pages/saas-admin/types/transaction-types.ts",
+        "components/pages/saas-admin/theme.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/tooltip.tsx",
+        "components/pages/saas-admin/views/apps/chrome.tsx",
+        "components/pages/saas-admin/views/apps/surface.ts",
+        "components/pages/saas-admin/views/apps/ai-usage/data.ts",
+        "components/motion/agent-thread/index.tsx",
+        "components/ui/card.tsx",
+        "components/ui/chart.tsx",
+        "components/ui/progress.tsx",
+        "components/ui/table.tsx",
+        "components/ui/toggle-group.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts",
+        "components/pages/saas-admin/assets/images.ts",
+        "components/pages/saas-admin/assets/font-license.ts",
+        "components/pages/saas-admin/styles.css",
+        "lib/theme-kits/blue-ink-colors.ts",
+        "lib/theme-kits/saas-admin-default-colors.ts",
+        "components/ui/avatar.tsx",
+        "lib/hooks/use-hydrated-reduced-motion.ts",
+        "components/motion/agent-thread/cards.tsx",
+        "components/motion/agent-thread/status.tsx",
+        "components/ui/toggle.tsx",
+        "components/pages/saas-admin/assets/fonts.css"
+      ],
+      "sourceVersion": "1431860661594774d9bf418215484838bffa5a5bbbb2880f936cde17c482b6a1",
+      "installTargets": [
+        "saas-admin-ai-usage-page"
       ]
     },
     {
@@ -1785,7 +2171,12 @@
         "saas-admin-forms-page",
         "saas-admin-login-page",
         "saas-admin-register-page",
-        "saas-admin-forgot-password-page"
+        "saas-admin-forgot-password-page",
+        "saas-admin-kanban-page",
+        "saas-admin-mail-page",
+        "saas-admin-calendar-page",
+        "saas-admin-ai-chat-page",
+        "saas-admin-ai-usage-page"
       ],
       "pages": [
         "saas-admin-orders-page",
@@ -1796,7 +2187,12 @@
         "saas-admin-forms-page",
         "saas-admin-login-page",
         "saas-admin-register-page",
-        "saas-admin-forgot-password-page"
+        "saas-admin-forgot-password-page",
+        "saas-admin-kanban-page",
+        "saas-admin-mail-page",
+        "saas-admin-calendar-page",
+        "saas-admin-ai-chat-page",
+        "saas-admin-ai-usage-page"
       ],
       "shellComponent": "saas-admin-shell",
       "useCase": "workspace",
@@ -1841,6 +2237,26 @@
         {
           "kind": "component",
           "slug": "saas-admin-forgot-password-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-kanban-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-mail-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-calendar-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-ai-chat-page"
+        },
+        {
+          "kind": "component",
+          "slug": "saas-admin-ai-usage-page"
         }
       ],
       "slug": "saas-admin-site",
@@ -1851,8 +2267,8 @@
         "后台模板",
         "整站模板"
       ],
-      "description": "Nine frontend page responsibilities and twelve routes sharing an official Base UI shell, neutral and Blue Ink themes.",
-      "descriptionZh": "九类前端页面、十二个路由，共用官方 Base UI 控件外壳，支持默认与 Blue Ink 主题。",
+      "description": "Fourteen frontend page responsibilities and seventeen routes sharing an official Base UI shell, neutral and Blue Ink themes.",
+      "descriptionZh": "十四类前端页面、十七个路由，共用官方 Base UI 控件外壳，支持默认与 Blue Ink 主题。",
       "pageUrl": "http://localhost:3000/sites/saas-admin-site",
       "fetch": {
         "method": "shadcn",
@@ -1866,10 +2282,15 @@
       "installationFiles": [
         "components/site-shells/saas-admin-site.tsx",
         "components/site-shells/saas-admin-shell.tsx",
+        "components/pages/saas-admin-ai-chat-page.tsx",
+        "components/pages/saas-admin-ai-usage-page.tsx",
+        "components/pages/saas-admin-calendar-page.tsx",
         "components/pages/saas-admin-data-table-page.tsx",
         "components/pages/saas-admin-forgot-password-page.tsx",
         "components/pages/saas-admin-forms-page.tsx",
+        "components/pages/saas-admin-kanban-page.tsx",
         "components/pages/saas-admin-login-page.tsx",
+        "components/pages/saas-admin-mail-page.tsx",
         "components/pages/saas-admin-orders-page.tsx",
         "components/pages/saas-admin-profile-page.tsx",
         "components/pages/saas-admin-register-page.tsx",
@@ -1886,12 +2307,17 @@
         "components/pages/saas-admin/components/layout/Sidebar.tsx",
         "components/ui/sidebar.tsx",
         "components/pages/saas-admin/page-frame.tsx",
+        "components/pages/saas-admin/views/apps/ai-chat/index.tsx",
+        "components/pages/saas-admin/views/apps/ai-usage/index.tsx",
+        "components/pages/saas-admin/views/apps/calendar/index.tsx",
         "components/pages/saas-admin/views/datatables/index.tsx",
         "components/pages/saas-admin/views/pages/auth/forgot-password/index.tsx",
         "components/pages/saas-admin/views/forms/form-layouts/horizontal/index.tsx",
         "components/pages/saas-admin/views/forms/form-layouts/vertical/index.tsx",
         "components/pages/saas-admin/views/forms/form-validation/index.tsx",
+        "components/pages/saas-admin/views/apps/kanban/index.tsx",
         "components/pages/saas-admin/views/pages/auth/login/index.tsx",
+        "components/pages/saas-admin/views/apps/mail/index.tsx",
         "components/pages/saas-admin/assets/fonts-mono.css",
         "components/pages/saas-admin/views/orders.tsx",
         "components/pages/saas-admin/views/pages/user-profile/index.tsx",
@@ -1927,21 +2353,43 @@
         "components/ui/input.tsx",
         "components/ui/sheet.tsx",
         "lib/hooks/use-mobile.ts",
+        "components/pages/saas-admin/views/apps/chrome.tsx",
+        "components/pages/saas-admin/views/apps/surface.ts",
+        "components/pages/saas-admin/views/apps/ai-chat/data.ts",
+        "components/agents/prompt-input.tsx",
+        "components/agents/reasoning.tsx",
+        "components/agents/suggestion.tsx",
+        "components/motion/agent-thread/index.tsx",
+        "components/ui/badge.tsx",
+        "components/ui/card.tsx",
+        "components/ui/input-group.tsx",
+        "components/ui/scroll-area.tsx",
+        "components/pages/saas-admin/views/apps/ai-usage/data.ts",
+        "components/ui/chart.tsx",
+        "components/ui/progress.tsx",
+        "components/ui/table.tsx",
+        "components/ui/toggle-group.tsx",
+        "lib/ease.ts",
+        "components/pages/saas-admin/views/apps/calendar/data.ts",
         "components/pages/saas-admin/views/datatables/basic/index.tsx",
         "components/pages/saas-admin/views/datatables/filters/index.tsx",
         "components/pages/saas-admin/views/datatables/pinnable-columns/index.tsx",
         "components/pages/saas-admin/assets/svg/auth-background-shape.tsx",
         "components/pages/saas-admin/components/shared/Logo.tsx",
         "components/pages/saas-admin/views/pages/auth/forgot-password/forgot-password-form.tsx",
-        "components/ui/card.tsx",
         "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form.tsx",
         "components/pages/saas-admin/views/forms/form-layouts/horizontal/basic-form-with-icon.tsx",
         "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form.tsx",
         "components/pages/saas-admin/views/forms/form-layouts/vertical/basic-form-with-icon.tsx",
         "components/pages/saas-admin/views/forms/form-validation/registration-demo-form.tsx",
         "components/pages/saas-admin/views/forms/form-validation/validation-demos.tsx",
+        "components/pages/saas-admin/views/apps/kanban/data.ts",
+        "components/ui/avatar.tsx",
         "components/pages/saas-admin/use-submit.tsx",
         "components/pages/saas-admin/views/pages/auth/login/login-form.tsx",
+        "components/pages/saas-admin/views/apps/mail/data.ts",
+        "components/ui/field.tsx",
+        "components/ui/textarea.tsx",
         "components/pages/saas-admin/assets/images.ts",
         "components/pages/saas-admin/views/dashboards/charts/chart-sales-metrics.tsx",
         "components/pages/saas-admin/views/dashboards/statistics/statistics-card-01.tsx",
@@ -1950,7 +2398,6 @@
         "components/pages/saas-admin/views/datatables/datatable-transaction.tsx",
         "components/pages/saas-admin/blocks/profile-background.tsx",
         "components/pages/saas-admin/views/pages/user-profile/user-profile-tabs.tsx",
-        "components/ui/avatar.tsx",
         "lib/hooks/use-hydrated-reduced-motion.ts",
         "components/pages/saas-admin/views/pages/auth/register/register-form.tsx",
         "components/pages/saas-admin/views/pages/user-settings/user-settings-tabs.tsx",
@@ -1969,39 +2416,44 @@
         "components/pages/saas-admin/assets/svg/icon-sidebar-floating.tsx",
         "components/pages/saas-admin/assets/svg/icon-sidebar-inset.tsx",
         "components/pages/saas-admin/assets/svg/icon-sidebar-sidebar.tsx",
-        "components/ui/field.tsx",
         "components/ui/popover.tsx",
         "components/ui/select.tsx",
-        "components/ui/toggle-group.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/select.tsx",
+        "components/agents/agent-collapsible.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/agent-thread/cards.tsx",
+        "components/motion/agent-thread/status.tsx",
+        "components/ui/toggle.tsx",
         "components/pages/saas-admin/views/datatables/basic/basic-datatable.tsx",
         "components/pages/saas-admin/views/datatables/filters/filters-datatable.tsx",
         "components/pages/saas-admin/views/datatables/pinnable-columns/pinnable-columns-datatable.tsx",
-        "components/ui/input-group.tsx",
-        "components/ui/textarea.tsx",
         "components/ui/radio-group.tsx",
         "components/ui/alert.tsx",
         "components/ui/checkbox.tsx",
-        "components/ui/chart.tsx",
-        "components/ui/progress.tsx",
+        "components/ui/label.tsx",
         "components/pages/saas-admin/blocks/delete-confirmation.tsx",
         "components/pages/saas-admin/hooks/use-pagination.ts",
-        "components/ui/badge.tsx",
         "components/ui/pagination.tsx",
-        "components/ui/table.tsx",
         "components/pages/saas-admin/views/pages/user-profile/connections/index.tsx",
         "components/pages/saas-admin/views/pages/user-profile/profile/index.tsx",
         "components/ui/tabs.tsx",
         "components/pages/saas-admin/views/pages/user-settings/general/index.tsx",
         "components/pages/saas-admin/views/pages/user-settings/workspace/index.tsx",
         "components/pages/saas-admin/views/apps/users/list/user-table-columns.tsx",
-        "components/ui/label.tsx",
         "components/pages/saas-admin/configs/mailConfig.ts",
         "components/pages/saas-admin/views/apps/users/view/tabs/account-tab.tsx",
         "components/pages/saas-admin/views/apps/users/view/tabs/billing-tab.tsx",
         "components/pages/saas-admin/views/apps/users/view/tabs/connections-tab.tsx",
         "components/pages/saas-admin/views/apps/users/view/tabs/notifications-tab.tsx",
         "components/pages/saas-admin/views/apps/users/view/tabs/security-tab.tsx",
-        "components/ui/toggle.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/motion/text-shimmer.tsx",
         "components/ui/alert-dialog.tsx",
         "components/pages/saas-admin/views/pages/user-profile/profile/about-section.tsx",
         "components/pages/saas-admin/views/pages/user-profile/profile/activity-timeline.tsx",
@@ -2026,11 +2478,13 @@
         "components/pages/saas-admin/assets/svg/linkedin-icon.tsx",
         "components/pages/saas-admin/assets/svg/twitter-icon.tsx",
         "components/ui/switch.tsx",
+        "lib/hooks/use-hover-capable.ts",
+        "components/motion/magnetic.tsx",
         "components/pages/saas-admin/blocks/activity-timeline-primitives.tsx",
         "components/ui/dialog.tsx",
         "components/ui/command.tsx"
       ],
-      "sourceVersion": "092dc45f9871b853eabac0c88cee06f6d2bc3e579000c116e250849308492db7",
+      "sourceVersion": "bc3b362259c369e6ae4c8bfe76b71e00979caf3a8d611d2428f34a6ea9fb4a48",
       "installTargets": [
         "saas-admin-site"
       ]
@@ -7281,7 +7735,7 @@
         "components/ui/label.tsx",
         "components/ui/toggle.tsx"
       ],
-      "sourceVersion": "11faa2e47ef58e0c7425dcefe443243a9b5424d69d3b4a7ffeae741ab5f9f351",
+      "sourceVersion": "2db88144e36128e80e40fa0ceac21c17972f19891c118dc7c9b3597114a2a7d4",
       "installTargets": [
         "saas-admin-shell"
       ]

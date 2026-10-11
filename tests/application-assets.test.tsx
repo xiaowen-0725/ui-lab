@@ -3,14 +3,14 @@ import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-li
 import { useState } from "react";
 import ts from "typescript";
 import {
+  type ApplicationPageState,
   SaasLandingPage,
   WorkbenchArtifactPage,
   WorkbenchConversationPage,
-  WorkbenchSettingsPage,
-  type ApplicationPageState,
   type WorkbenchPreferences,
+  WorkbenchSettingsPage,
 } from "@/components/pages";
-import { SECTION_VARIANTS, FeaturesGrid, HeroCentered, NavbarSimple } from "@/components/sections";
+import { FeaturesGrid, HeroCentered, NavbarSimple, SECTION_VARIANTS } from "@/components/sections";
 import { AgentWorkbenchSite, type WorkbenchSitePage } from "@/components/site-shells";
 import { PAGES } from "@/lib/pages";
 import { SITES } from "@/lib/sites";
@@ -425,7 +425,7 @@ describe("multi-page site using the shared shell", () => {
 
 describe("application asset distribution contracts", () => {
   test("the frozen data refers to real page slugs and source entry files", async () => {
-    expect(PAGES).toHaveLength(13);
+    expect(PAGES).toHaveLength(18);
     expect(SITES).toHaveLength(2);
     for (const page of PAGES) {
       expect(page.pagePath).toBe(`/pages/${page.slug}`);

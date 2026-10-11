@@ -6,7 +6,13 @@
 
 ## [Unreleased]
 
+### 修复
+
+- Catalog 详情的 Manual 安装改为打开标签后再读取 `/r/<slug>`，不再把整份安装源码图 Shiki 进 ISR HTML。SaaS Admin 整站与组件详情因此低于 Vercel 20MB fallback 上限；main 上主题定制器引入的同构超限一并修掉。
+
 ### Added
+
+- SaaS Admin Apps 组新增对话、用量、任务板、收件箱与日程；全部落在既有 saas-admin 外壳、路由合同和主题定制里。对话页复用 Thread / PromptInput / Suggestion / Reasoning / ThreadCodeBlock / ThreadUsage，用量页复用 ThreadUsage。客户册整支删除，不新建、不并入用户页。参考 AdminCN / Promptly 的信息架构，不复制其源码、素材或专有文案。
 
 - SaaS Admin 新增顶栏主题定制面板：品牌、字体、模式、圆角、内容宽度、尺寸与侧栏配置；复用shadcn-admin的MIT示意图提供Sidebar/Layout可视卡片，接入官方Sidebar既有props与开合状态。支持外观重置、消费者受控接口及预览偏好恢复，保留页面和草稿；官方既有控件源码/API保持。
 
@@ -19,10 +25,18 @@
 
 ### 移除
 
+- 删除未发布的管理工作区外壳、独立 `/apps` 门与客户册页面、数据、登记和测试；任务板、收件箱与日程改由 SaaS Admin Apps 呈现。
+
 - 按用户要求删除未发布的自写项目工作区模板：移除整站、8 个专属页面、外壳/分页/趋势组件及其 12 个安装入口、专属源码/用法/预览/全屏路由、验证夹具和截图，清理 Catalog 与 CLI 快照。共享资产和独立主题保留；计划008仅保留历史证据，新的 SaaS 后台按 shadcn/ui Base UI 与免费 AdminCN 基线重新定义。
 - 移除「工坊 / Studio」完整模块：删除 `/studio`、组装预览与订单 API、Token Studio、System Preset / Order Manifest / candidate evidence 实验，以及对应 Catalog、CLI、导航、搜索、文案、脚本、测试和静态截图。通用 Agent Workbench 组件、Recipe、设计系统展馆与 Theme Kit 基础能力保留；Greenfield benchmark 解耦旧 System Preset，改为无用户批准语义的 Graphite 工程回归夹具。新的创建/选择工作流待重新定义后再实现。
 
 ### 变更
+
+- SaaS Admin 任务板改成浅灰列井 Card + 白底任务卡：优先级 Badge、可选本地 SVG 封面、标题、头像与截止日期；列宽 `w-72`，列头有计数、悬停列把手（可拖拽/方向键重排）和 sr-only「Column actions」菜单，列脚与板右侧可在本次浏览里添加事项/列。去掉卡片左右箭头，整卡可拖、把手与菜单悬停出现。搜索留在页头，整板不再套外层 Card。
+
+- SaaS Admin Apps 页默认改用 `components/ui` 的 Avatar、ScrollArea、Tooltip、ToggleGroup、Badge、Separator、Button、Card 与 InputGroup；对话/收件箱/日程外壳改走 Card，任务板仅任务卡用 Card，搜索走 InputGroup，写信表单改走 Field。对话模型选择继续走既有 PromptInput（其内部是 motion Select）。用户页无关 import 整理已撤回。
+
+- SaaS Admin 对话流式回复按显示字逐步渲染同一套 Markdown（粗体、列表、代码块），不再闪出原始标记；代码块在容器内横向滚动，不裁切、不撑出页面。用量筛选同步四张摘要卡、模型表高亮、每日 Token 柱状图、速率上限和最近提问，数字轻量过渡并尊重减少动效。
 
 - 简化 SaaS Admin 环境文案继承判断和单页框架的 Provider 组合，整理整站与 Catalog 包装的类型/import，移除源码解析的重复候选；保持现有控件、路由、状态和异步分包行为，同步来源台账与安装快照。
 

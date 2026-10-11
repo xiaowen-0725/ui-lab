@@ -5,16 +5,21 @@
 // Adaptation: named exports and portable import/navigation boundaries.
 // Third-party Imports
 import {
-	Package,
-	UsersRound,
-	UserRound,
-	Settings,
-	Table2,
-	TextCursorInput,
+	CalendarDays,
+	ChartNoAxesCombined,
+	KeyRound,
 	ListChecks,
 	LogIn,
+	Mail,
+	Package,
+	Settings,
+	Sparkles,
+	SquareKanban,
+	Table2,
+	TextCursorInput,
 	UserPlus,
-	KeyRound,
+	UserRound,
+	UsersRound,
 } from "lucide-react";
 export const NAV_ICONS = {
 	Package,
@@ -27,6 +32,11 @@ export const NAV_ICONS = {
 	LogIn,
 	UserPlus,
 	KeyRound,
+	SquareKanban,
+	Mail,
+	CalendarDays,
+	Sparkles,
+	ChartNoAxesCombined,
 };
 
 type IconName = keyof typeof NAV_ICONS;
@@ -87,6 +97,11 @@ export const navItems: NavItem[] = [
 					{ label: "View", href: "/apps/users/view" },
 				],
 			},
+			{ icon: "Sparkles", label: "AI Chat", href: "/apps/ai-chat" },
+			{ icon: "ChartNoAxesCombined", label: "AI Usage", href: "/apps/ai-usage" },
+			{ icon: "SquareKanban", label: "Kanban", href: "/apps/kanban" },
+			{ icon: "Mail", label: "Mail", href: "/apps/mail" },
+			{ icon: "CalendarDays", label: "Calendar", href: "/apps/calendar" },
 		],
 	},
 	{

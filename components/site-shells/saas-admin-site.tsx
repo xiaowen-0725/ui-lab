@@ -57,19 +57,45 @@ const SaasAdminForgotPasswordPage = lazy(() =>
 		(module) => ({ default: module.SaasAdminForgotPasswordPage }),
 	),
 );
-export {
-	SAAS_ADMIN_ROUTES,
-	isSaasAdminRoute,
-} from "@/components/pages/saas-admin/routes";
-export type { SaasAdminRoute } from "@/components/pages/saas-admin/routes";
+const SaasAdminKanbanPage = lazy(() =>
+	import("@/components/pages/saas-admin-kanban-page").then((module) => ({
+		default: module.SaasAdminKanbanPage,
+	})),
+);
+const SaasAdminMailPage = lazy(() =>
+	import("@/components/pages/saas-admin-mail-page").then((module) => ({
+		default: module.SaasAdminMailPage,
+	})),
+);
+const SaasAdminCalendarPage = lazy(() =>
+	import("@/components/pages/saas-admin-calendar-page").then((module) => ({
+		default: module.SaasAdminCalendarPage,
+	})),
+);
+const SaasAdminAiChatPage = lazy(() =>
+	import("@/components/pages/saas-admin-ai-chat-page").then((module) => ({
+		default: module.SaasAdminAiChatPage,
+	})),
+);
+const SaasAdminAiUsagePage = lazy(() =>
+	import("@/components/pages/saas-admin-ai-usage-page").then((module) => ({
+		default: module.SaasAdminAiUsagePage,
+	})),
+);
+
 export type {
-	SaasAdminEnvironmentProps,
 	SaasAdminAction,
+	SaasAdminAppearance,
 	SaasAdminBrand,
+	SaasAdminEnvironmentProps,
 	SaasAdminLocale,
 	SaasAdminMode,
-	SaasAdminAppearance,
 } from "@/components/pages/saas-admin/environment";
+export type { SaasAdminRoute } from "@/components/pages/saas-admin/routes";
+export {
+	isSaasAdminRoute,
+	SAAS_ADMIN_ROUTES,
+} from "@/components/pages/saas-admin/routes";
 
 function PageContent(): JSX.Element {
 	const { pathname, search, t } = useSaasAdmin();
@@ -86,6 +112,16 @@ function PageContent(): JSX.Element {
 					view="detail"
 				/>
 			);
+		case "/apps/kanban":
+			return <SaasAdminKanbanPage />;
+		case "/apps/mail":
+			return <SaasAdminMailPage />;
+		case "/apps/calendar":
+			return <SaasAdminCalendarPage />;
+		case "/apps/ai-chat":
+			return <SaasAdminAiChatPage />;
+		case "/apps/ai-usage":
+			return <SaasAdminAiUsagePage />;
 		case "/pages/user-profile":
 			return <SaasAdminProfilePage />;
 		case "/pages/user-settings":
@@ -129,7 +165,7 @@ interface SaasAdminSiteProps extends SaasAdminEnvironmentProps {
 	shell?: boolean;
 }
 
-/** Nine actual page entries share one environment, data store and shell. */
+/** Fourteen page entries share one environment, data store and shell. */
 export function SaasAdminSite({
 	className,
 	shell = true,
