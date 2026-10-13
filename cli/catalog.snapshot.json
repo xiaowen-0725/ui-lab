@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-10T06:36:31.810Z",
-  "count": 576,
+  "generatedAt": "2026-10-13T15:18:24.817Z",
+  "count": 586,
   "items": [
     {
       "kind": "component",
@@ -10968,6 +10968,9 @@
       "prompt": "Install UI Lab input and use it for a single-line text field.",
       "promptZh": "安装 UI Lab 的 input，用它做单行输入框。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/text-field",
+      "confusableWith": [
+        "concept-caret"
+      ],
       "fetch": {
         "method": "copy-prompt",
         "value": "Install UI Lab input and use it for a single-line text field."
@@ -11138,6 +11141,15 @@
       "prompt": "Install UI Lab select when the person picks one value from a list and cannot type their own.",
       "promptZh": "人要从清单里选一个、不能自己输入时，安装 UI Lab 的 select。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/select",
+      "confusableWith": [
+        "concept-dropdown-menu",
+        "concept-combobox"
+      ],
+      "crossNames": {
+        "antd": "Select",
+        "shadcn": "Select",
+        "spectrum": "Picker"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Install UI Lab select when the person picks one value from a list and cannot type their own."
@@ -11158,13 +11170,24 @@
       "aliases": [
         "autocomplete",
         "typeahead",
-        "可输入下拉"
+        "可输入下拉",
+        "可搜下拉",
+        "组合框"
       ],
       "description": "A field where a person can type and also pick from suggestions.",
       "descriptionZh": "既能打字，也能从建议里选的输入框。",
       "prompt": "Use a combobox when the person may type and may also pick a suggestion. Use a select when they can only pick.",
       "promptZh": "既能输入又能从建议里选，用组合框。只能从清单里选，用下拉选择。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/combobox",
+      "confusableWith": [
+        "concept-select",
+        "concept-command"
+      ],
+      "crossNames": {
+        "antd": "AutoComplete / Select showSearch",
+        "shadcn": "Combobox",
+        "spectrum": "ComboBox"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a combobox when the person may type and may also pick a suggestion. Use a select when they can only pick."
@@ -11256,6 +11279,15 @@
       "prompt": "Install UI Lab tabs when one row of labels switches the panel underneath.",
       "promptZh": "一排标签切换下面的内容时，安装 UI Lab 的 tabs。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/tabs",
+      "confusableWith": [
+        "concept-segmented-control",
+        "concept-navigation-menu"
+      ],
+      "crossNames": {
+        "antd": "Tabs",
+        "shadcn": "Tabs",
+        "spectrum": "Tabs"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Install UI Lab tabs when one row of labels switches the panel underneath."
@@ -11388,13 +11420,26 @@
       "aliases": [
         "modal",
         "弹窗",
-        "popup"
+        "popup",
+        "对话框",
+        "Modal 弹框"
       ],
       "description": "A panel that asks for attention and sits over the page.",
       "descriptionZh": "浮在页面上、要人先处理的一块面板。",
       "prompt": "Use a dialog when the person should deal with this panel before going back to the page. Keep the title and a way to close it.",
       "promptZh": "要人先处理这块面板再回到页面时，用对话框。写上标题，并给一个关闭的办法。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/dialog",
+      "confusableWith": [
+        "concept-drawer",
+        "concept-sheet",
+        "concept-alert-dialog",
+        "concept-scrim"
+      ],
+      "crossNames": {
+        "antd": "Modal",
+        "shadcn": "Dialog",
+        "spectrum": "Dialog"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a dialog when the person should deal with this panel before going back to the page. Keep the title and a way to close it."
@@ -11413,15 +11458,26 @@
       "name": "Drawer",
       "nameZh": "抽屉",
       "aliases": [
-        "sheet",
         "side sheet",
-        "侧滑"
+        "侧滑",
+        "侧栏面板",
+        "滑出层"
       ],
       "description": "A panel that slides in from the edge and covers part of the page.",
       "descriptionZh": "从屏幕边缘滑入、盖住页面一部分的面板。",
       "prompt": "Install UI Lab drawer when a panel slides in from the side and then leaves. A sidebar stays put.",
       "promptZh": "面板从侧面滑入、然后再离开，安装 UI Lab 的 drawer。一直留在旁边的是侧边栏。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/drawer",
+      "confusableWith": [
+        "concept-dialog",
+        "concept-sheet",
+        "concept-scrim"
+      ],
+      "crossNames": {
+        "antd": "Drawer",
+        "shadcn": "Sheet (side)",
+        "spectrum": "Tray"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Install UI Lab drawer when a panel slides in from the side and then leaves. A sidebar stays put."
@@ -11449,6 +11505,15 @@
       "prompt": "Install UI Lab popover for a panel anchored to its trigger.",
       "promptZh": "小面板要锚在触发它的那一块旁边时，安装 UI Lab 的 popover。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/popover",
+      "confusableWith": [
+        "concept-dropdown-menu",
+        "concept-tooltip"
+      ],
+      "crossNames": {
+        "antd": "Popover",
+        "shadcn": "Popover",
+        "spectrum": "Popover"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Install UI Lab popover for a panel anchored to its trigger."
@@ -11468,13 +11533,22 @@
       "nameZh": "文字提示",
       "aliases": [
         "hint",
-        "hover tip"
+        "hover tip",
+        "气泡提示"
       ],
       "description": "A short hint that appears on hover or focus.",
       "descriptionZh": "悬停或聚焦时出现的一句短提示。",
       "prompt": "Install UI Lab tooltip for a short hint on hover or keyboard focus.",
       "promptZh": "悬停或键盘聚焦时给一句短提示，安装 UI Lab 的 tooltip。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/tooltip",
+      "confusableWith": [
+        "concept-popover"
+      ],
+      "crossNames": {
+        "antd": "Tooltip",
+        "shadcn": "Tooltip",
+        "spectrum": "Tooltip"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Install UI Lab tooltip for a short hint on hover or keyboard focus."
@@ -11494,13 +11568,25 @@
       "nameZh": "下拉菜单",
       "aliases": [
         "pulldown",
-        "弹出菜单"
+        "弹出菜单",
+        "三个点",
+        "更多菜单",
+        "three dots"
       ],
       "description": "A list of commands that opens from a button and closes after a choice.",
       "descriptionZh": "从按钮展开的命令列表，选完就收起。",
       "prompt": "Install UI Lab dropdown-menu when commands open from a button and close after one is chosen.",
       "promptZh": "命令从按钮展开、选完就收起时，安装 UI Lab 的 dropdown-menu。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/dropdown-menu",
+      "confusableWith": [
+        "concept-popover",
+        "concept-select"
+      ],
+      "crossNames": {
+        "antd": "Dropdown",
+        "shadcn": "Dropdown Menu",
+        "spectrum": "Menu"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Install UI Lab dropdown-menu when commands open from a button and close after one is chosen."
@@ -11521,13 +11607,23 @@
       "aliases": [
         "snackbar",
         "消息条",
-        "notification"
+        "notification",
+        "轻提示"
       ],
       "description": "A short message that appears, then leaves on its own.",
       "descriptionZh": "短暂出现、然后自己走开的一句消息。",
       "prompt": "Install UI Lab animated-toast-stack for a short message that appears and then leaves.",
       "promptZh": "一句消息短暂出现再离开，安装 UI Lab 的 animated-toast-stack。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/toast",
+      "confusableWith": [
+        "concept-alert",
+        "concept-banner"
+      ],
+      "crossNames": {
+        "antd": "message / notification",
+        "shadcn": "Sonner (toast)",
+        "spectrum": "Toast"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Install UI Lab animated-toast-stack for a short message that appears and then leaves."
@@ -11546,7 +11642,6 @@
       "name": "Alert",
       "nameZh": "警告",
       "aliases": [
-        "banner",
         "callout",
         "提示条"
       ],
@@ -11555,6 +11650,15 @@
       "prompt": "Use an alert for a message that stays in the page. Use a toast when the message should leave on its own.",
       "promptZh": "消息要留在页面里用警告。消息自己走开用提示。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/alert",
+      "confusableWith": [
+        "concept-toast",
+        "concept-banner"
+      ],
+      "crossNames": {
+        "antd": "Alert",
+        "shadcn": "Alert",
+        "spectrum": "InlineAlert"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Use an alert for a message that stays in the page. Use a toast when the message should leave on its own."
@@ -11570,13 +11674,23 @@
       "aliases": [
         "count",
         "status dot",
-        "角标"
+        "角标",
+        "计数"
       ],
       "description": "A small mark for a count or a status.",
       "descriptionZh": "标个数或状态的一小块。",
       "prompt": "Install UI Lab animated-badge for a small status or count mark.",
       "promptZh": "用一小块标出状态或数量时，安装 UI Lab 的 animated-badge。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/badge",
+      "confusableWith": [
+        "concept-avatar",
+        "concept-tag"
+      ],
+      "crossNames": {
+        "antd": "Badge",
+        "shadcn": "Badge",
+        "spectrum": "Badge"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Install UI Lab animated-badge for a small status or count mark."
@@ -11596,13 +11710,22 @@
       "nameZh": "进度",
       "aliases": [
         "progress bar",
-        "进度条"
+        "进度条",
+        "进度"
       ],
       "description": "A bar that shows how far a task has gone.",
       "descriptionZh": "一条用来表示事情做到哪的条。",
       "prompt": "Use a progress bar when you know how much of the task is done. Use a spinner when you only know that it is still working.",
       "promptZh": "知道做到多少时用进度条。只知道还在进行时用加载。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/progress",
+      "confusableWith": [
+        "concept-spinner"
+      ],
+      "crossNames": {
+        "antd": "Progress",
+        "shadcn": "Progress",
+        "spectrum": "ProgressBar"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a progress bar when you know how much of the task is done. Use a spinner when you only know that it is still working."
@@ -11618,13 +11741,24 @@
       "aliases": [
         "loader",
         "throbber",
-        "忙碌指示"
+        "忙碌指示",
+        "转圈",
+        "菊花"
       ],
       "description": "A mark that something is still working, without saying how far.",
       "descriptionZh": "表示还在进行，但不说出做到多少。",
       "prompt": "Install UI Lab loader when work is in progress and the amount done is unknown.",
       "promptZh": "还在进行、又不知道做到多少时，安装 UI Lab 的 loader。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/spinner",
+      "confusableWith": [
+        "concept-skeleton",
+        "concept-progress"
+      ],
+      "crossNames": {
+        "antd": "Spin",
+        "shadcn": "Spinner",
+        "spectrum": "ProgressCircle"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Install UI Lab loader when work is in progress and the amount done is unknown."
@@ -11645,13 +11779,23 @@
       "aliases": [
         "placeholder",
         "shimmer",
-        "占位"
+        "占位",
+        "骨架屏",
+        "灰块",
+        "grey blocks"
       ],
       "description": "Gray blocks in the shape of the content that is about to arrive.",
       "descriptionZh": "用灰色块先占住即将出现的内容的形状。",
       "prompt": "Install UI Lab skeleton while the real content is still loading.",
       "promptZh": "真正的内容还在加载时，安装 UI Lab 的 skeleton 先占住形状。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/skeleton",
+      "confusableWith": [
+        "concept-spinner"
+      ],
+      "crossNames": {
+        "antd": "Skeleton",
+        "shadcn": "Skeleton"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Install UI Lab skeleton while the real content is still loading."
@@ -11745,13 +11889,22 @@
       "nameZh": "头像",
       "aliases": [
         "profile picture",
-        "用户头像"
+        "用户头像",
+        "头像"
       ],
       "description": "A picture or initials that stand for a person.",
       "descriptionZh": "用图片或首字母代表一个人。",
       "prompt": "Use an avatar for a person. Use initials when there is no picture.",
       "promptZh": "代表一个人时用头像。没有图片就用姓名的首字母。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/avatar",
+      "confusableWith": [
+        "concept-badge"
+      ],
+      "crossNames": {
+        "antd": "Avatar",
+        "shadcn": "Avatar",
+        "spectrum": "Avatar"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Use an avatar for a person. Use initials when there is no picture."
@@ -11767,13 +11920,21 @@
       "aliases": [
         "chip",
         "pill",
-        "徽章"
+        "徽章",
+        "标签"
       ],
       "description": "A small label that names a category.",
       "descriptionZh": "标出一个分类的小块文字。",
       "prompt": "Use a tag to name a category on a piece of content. A badge is for a count or a status.",
       "promptZh": "给内容标一个分类用标签。标数量或状态用徽标。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/tag",
+      "confusableWith": [
+        "concept-badge"
+      ],
+      "crossNames": {
+        "antd": "Tag",
+        "shadcn": "Badge"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a tag to name a category on a piece of content. A badge is for a count or a status."
@@ -11788,14 +11949,22 @@
       "nameZh": "手风琴",
       "aliases": [
         "disclosure",
-        "collapsible",
-        "折叠面板"
+        "折叠面板",
+        "手风琴"
       ],
       "description": "A heading that opens and closes the text under it.",
       "descriptionZh": "点标题，展开或收起下面的文字。",
       "prompt": "Install UI Lab bouncy-accordion when a heading opens and closes the text under it.",
       "promptZh": "点标题展开或收起下面的文字时，安装 UI Lab 的 bouncy-accordion。",
       "pageUrl": "http://localhost:3000/dictionary/concepts/accordion",
+      "confusableWith": [
+        "concept-collapsible"
+      ],
+      "crossNames": {
+        "antd": "Collapse (accordion)",
+        "shadcn": "Accordion",
+        "spectrum": "Accordion"
+      },
       "fetch": {
         "method": "copy-prompt",
         "value": "Install UI Lab bouncy-accordion when a heading opens and closes the text under it."
@@ -11826,6 +11995,317 @@
       "fetch": {
         "method": "copy-prompt",
         "value": "Use a list when items stack in one column. Use a table when those items have columns to compare."
+      },
+      "related": []
+    },
+    {
+      "kind": "vocabulary",
+      "category": "concept",
+      "slug": "concept-sheet",
+      "name": "Sheet",
+      "nameZh": "底部面板",
+      "aliases": [
+        "bottom sheet",
+        "action sheet",
+        "动作面板",
+        "底栏浮层"
+      ],
+      "description": "A light panel that rises from the bottom edge, often draggable, for a short list of actions.",
+      "descriptionZh": "从底边升起的轻量面板，常可拖动，放几项操作或辅助内容。",
+      "prompt": "Install UI Lab bottom-sheet for a panel that rises from the bottom with snap points and can be dragged away. Use a drawer when a full panel slides in from the side.",
+      "promptZh": "从底部升起、有吸附点、可以拖走的面板，安装 UI Lab 的 bottom-sheet。整块面板从侧边滑入时用抽屉。",
+      "pageUrl": "http://localhost:3000/dictionary/concepts/sheet",
+      "confusableWith": [
+        "concept-dialog",
+        "concept-drawer"
+      ],
+      "crossNames": {
+        "antd": "Drawer (placement)",
+        "shadcn": "Sheet / Drawer",
+        "spectrum": "Tray"
+      },
+      "fetch": {
+        "method": "copy-prompt",
+        "value": "Install UI Lab bottom-sheet for a panel that rises from the bottom with snap points and can be dragged away. Use a drawer when a full panel slides in from the side."
+      },
+      "related": [
+        {
+          "kind": "component",
+          "slug": "bottom-sheet"
+        }
+      ]
+    },
+    {
+      "kind": "vocabulary",
+      "category": "concept",
+      "slug": "concept-alert-dialog",
+      "name": "Alert dialog",
+      "nameZh": "确认对话框",
+      "aliases": [
+        "confirm dialog",
+        "确认框",
+        "二次确认"
+      ],
+      "description": "A dialog that stops the person until they choose, usually to confirm something risky.",
+      "descriptionZh": "必须做出选择才能继续的对话框，多用于确认有风险的操作。",
+      "prompt": "Use an alert dialog with role=\"alertdialog\" for a destructive confirmation: a short title, one sentence on the consequence, Cancel and a danger action. Clicking outside does not close it; Escape cancels.",
+      "promptZh": "删除这类危险操作用确认对话框，role=\"alertdialog\"：短标题、一句后果说明、取消和危险按钮。点外面不关闭，Esc 等于取消。",
+      "pageUrl": "http://localhost:3000/dictionary/concepts/alert-dialog",
+      "confusableWith": [
+        "concept-dialog"
+      ],
+      "crossNames": {
+        "antd": "Modal.confirm / Popconfirm",
+        "shadcn": "Alert Dialog",
+        "spectrum": "AlertDialog"
+      },
+      "fetch": {
+        "method": "copy-prompt",
+        "value": "Use an alert dialog with role=\"alertdialog\" for a destructive confirmation: a short title, one sentence on the consequence, Cancel and a danger action. Clicking outside does not close it; Escape cancels."
+      },
+      "related": []
+    },
+    {
+      "kind": "vocabulary",
+      "category": "concept",
+      "slug": "concept-scrim",
+      "name": "Scrim",
+      "nameZh": "遮罩",
+      "aliases": [
+        "backdrop",
+        "overlay",
+        "蒙层",
+        "灰罩"
+      ],
+      "description": "The dimmed layer behind a dialog or drawer that pushes the page back.",
+      "descriptionZh": "对话框或抽屉背后那层半透明暗色，把页面往后推。",
+      "prompt": "Put a scrim behind the overlay: a fixed full-screen layer in foreground color at about 40% opacity. Decide whether clicking it closes the overlay, and lock page scroll while it shows.",
+      "promptZh": "在浮层背后加一层遮罩：铺满屏幕、前景色约 40% 透明度。想清楚点遮罩是否关闭浮层，显示期间锁住页面滚动。",
+      "pageUrl": "http://localhost:3000/dictionary/concepts/scrim",
+      "confusableWith": [
+        "concept-dialog",
+        "concept-drawer"
+      ],
+      "crossNames": {
+        "antd": "mask",
+        "shadcn": "DialogOverlay",
+        "spectrum": "Underlay"
+      },
+      "fetch": {
+        "method": "copy-prompt",
+        "value": "Put a scrim behind the overlay: a fixed full-screen layer in foreground color at about 40% opacity. Decide whether clicking it closes the overlay, and lock page scroll while it shows."
+      },
+      "related": []
+    },
+    {
+      "kind": "vocabulary",
+      "category": "concept",
+      "slug": "concept-segmented-control",
+      "name": "Segmented control",
+      "nameZh": "分段控件",
+      "aliases": [
+        "segmented button",
+        "toggle group",
+        "分段选择"
+      ],
+      "description": "A compact row of options where exactly one is on, used to switch a view or a value.",
+      "descriptionZh": "一排紧凑的互斥选项，只能选中一个，用来切换视图或取值。",
+      "prompt": "Use a segmented control with two to five short options and exactly one selected, for example Day / Week / Month. It changes a value on the same view; use tabs when each option owns its own panel.",
+      "promptZh": "用分段控件放二到五个短选项、只选一个，例如日 / 周 / 月。它改的是同一视图里的取值；每个选项各有一块面板时用标签页。",
+      "pageUrl": "http://localhost:3000/dictionary/concepts/segmented-control",
+      "confusableWith": [
+        "concept-tabs"
+      ],
+      "crossNames": {
+        "antd": "Segmented",
+        "shadcn": "Toggle Group",
+        "spectrum": "SegmentedControl"
+      },
+      "fetch": {
+        "method": "copy-prompt",
+        "value": "Use a segmented control with two to five short options and exactly one selected, for example Day / Week / Month. It changes a value on the same view; use tabs when each option owns its own panel."
+      },
+      "related": []
+    },
+    {
+      "kind": "vocabulary",
+      "category": "concept",
+      "slug": "concept-navigation-menu",
+      "name": "Navigation menu",
+      "nameZh": "导航菜单",
+      "aliases": [
+        "nav menu",
+        "mega menu",
+        "顶部导航",
+        "站点导航"
+      ],
+      "description": "The site-level links that take a person to other pages, sometimes opening a panel of sub-links.",
+      "descriptionZh": "站点级的一组链接，去往其他页面，有时展开一块子链接面板。",
+      "prompt": "Build a navigation menu inside <nav> with real links, aria-current on the active page, and an optional panel of sub-links that opens on click or focus. It changes the page; tabs change a panel on the same page.",
+      "promptZh": "在 <nav> 里做导航菜单，用真实链接，当前页带 aria-current，可选一块点击或聚焦展开的子链接面板。它换的是页面；标签页换的是同页面板。",
+      "pageUrl": "http://localhost:3000/dictionary/concepts/navigation-menu",
+      "confusableWith": [
+        "concept-tabs"
+      ],
+      "crossNames": {
+        "antd": "Menu (horizontal)",
+        "shadcn": "Navigation Menu",
+        "spectrum": "SideNav"
+      },
+      "fetch": {
+        "method": "copy-prompt",
+        "value": "Build a navigation menu inside <nav> with real links, aria-current on the active page, and an optional panel of sub-links that opens on click or focus. It changes the page; tabs change a panel on the same page."
+      },
+      "related": []
+    },
+    {
+      "kind": "vocabulary",
+      "category": "concept",
+      "slug": "concept-command",
+      "name": "Command palette",
+      "nameZh": "命令面板",
+      "aliases": [
+        "⌘K",
+        "cmd+k",
+        "command menu",
+        "快捷命令"
+      ],
+      "description": "A keyboard-first box that opens over everything and runs an action or jumps somewhere by typing.",
+      "descriptionZh": "按快捷键浮在一切之上的输入框，打几个字就执行操作或跳转。",
+      "prompt": "Install UI Lab command-palette for a ⌘K palette with a fuzzy filter, grouped results and arrow-key navigation. A combobox picks a value for one field; a command palette runs actions.",
+      "promptZh": "要 ⌘K 命令面板、模糊过滤、分组结果和方向键选择，安装 UI Lab 的 command-palette。可输入下拉是给一个字段选值，命令面板是执行操作。",
+      "pageUrl": "http://localhost:3000/dictionary/concepts/command",
+      "confusableWith": [
+        "concept-combobox"
+      ],
+      "crossNames": {
+        "shadcn": "Command",
+        "spectrum": "SearchField + Menu"
+      },
+      "fetch": {
+        "method": "copy-prompt",
+        "value": "Install UI Lab command-palette for a ⌘K palette with a fuzzy filter, grouped results and arrow-key navigation. A combobox picks a value for one field; a command palette runs actions."
+      },
+      "related": [
+        {
+          "kind": "component",
+          "slug": "command-palette"
+        }
+      ]
+    },
+    {
+      "kind": "vocabulary",
+      "category": "concept",
+      "slug": "concept-banner",
+      "name": "Banner",
+      "nameZh": "通知横幅",
+      "aliases": [
+        "announcement bar",
+        "top bar",
+        "公告条",
+        "顶部通知"
+      ],
+      "description": "A full-width strip at the top or bottom of the page that stays until it is dismissed.",
+      "descriptionZh": "贴在页面顶部或底部的通栏，一直在，直到被关掉。",
+      "prompt": "Add a full-width banner at the top of the page for a site-wide notice, with one short sentence, an optional link and a close button. It persists across pages; an alert sits inside content and a toast disappears on its own.",
+      "promptZh": "在页面顶部加一条通栏通知横幅：一句短话、可选链接和关闭按钮。它跨页面一直在；警示块待在内容里，轻提示会自己消失。",
+      "pageUrl": "http://localhost:3000/dictionary/concepts/banner",
+      "confusableWith": [
+        "concept-alert",
+        "concept-toast"
+      ],
+      "crossNames": {
+        "antd": "Alert (banner)",
+        "spectrum": "Banner"
+      },
+      "fetch": {
+        "method": "copy-prompt",
+        "value": "Add a full-width banner at the top of the page for a site-wide notice, with one short sentence, an optional link and a close button. It persists across pages; an alert sits inside content and a toast disappears on its own."
+      },
+      "related": []
+    },
+    {
+      "kind": "vocabulary",
+      "category": "concept",
+      "slug": "concept-collapsible",
+      "name": "Collapsible",
+      "nameZh": "折叠区",
+      "aliases": [
+        "expand / collapse",
+        "show more",
+        "展开收起",
+        "disclosure"
+      ],
+      "description": "One block of content with a trigger that shows or hides it.",
+      "descriptionZh": "一块内容加一个开关，点一下展开或收起。",
+      "prompt": "Use a collapsible for one section: a button with aria-expanded toggles the content below it. Use an accordion when several such sections sit together as a group.",
+      "promptZh": "单独一块内容用折叠区：带 aria-expanded 的按钮控制下方内容展开收起。好几块并排成组时用折叠面板。",
+      "pageUrl": "http://localhost:3000/dictionary/concepts/collapsible",
+      "confusableWith": [
+        "concept-accordion"
+      ],
+      "crossNames": {
+        "antd": "Collapse (single panel)",
+        "shadcn": "Collapsible",
+        "spectrum": "Disclosure"
+      },
+      "fetch": {
+        "method": "copy-prompt",
+        "value": "Use a collapsible for one section: a button with aria-expanded toggles the content below it. Use an accordion when several such sections sit together as a group."
+      },
+      "related": []
+    },
+    {
+      "kind": "vocabulary",
+      "category": "concept",
+      "slug": "concept-focus-ring",
+      "name": "Focus ring",
+      "nameZh": "焦点环",
+      "aliases": [
+        "focus outline",
+        "focus-visible",
+        "聚焦框",
+        "键盘焦点"
+      ],
+      "description": "The outline that shows which control the keyboard is on.",
+      "descriptionZh": "告诉人键盘现在停在哪个控件上的那圈描边。",
+      "prompt": "Give every interactive element a visible focus ring on :focus-visible, a 2px outline with offset in the theme ring color. Never remove the outline without a replacement.",
+      "promptZh": "所有可交互元素在 :focus-visible 时显示焦点环：2px 描边加偏移，用主题的 ring 色。不要去掉 outline 却不给替代。",
+      "pageUrl": "http://localhost:3000/dictionary/concepts/focus-ring",
+      "crossNames": {
+        "antd": "focus outline token",
+        "shadcn": "ring",
+        "spectrum": "Focus indicator"
+      },
+      "fetch": {
+        "method": "copy-prompt",
+        "value": "Give every interactive element a visible focus ring on :focus-visible, a 2px outline with offset in the theme ring color. Never remove the outline without a replacement."
+      },
+      "related": []
+    },
+    {
+      "kind": "vocabulary",
+      "category": "concept",
+      "slug": "concept-caret",
+      "name": "Caret",
+      "nameZh": "插入符",
+      "aliases": [
+        "text cursor",
+        "光标",
+        "闪的竖线",
+        "chevron (in menus)"
+      ],
+      "description": "The blinking line in a text field where the next character goes. In menus the word also means the small down arrow.",
+      "descriptionZh": "输入框里一闪一闪、标出下一个字落点的竖线。在菜单里这个词也指那个向下的小箭头。",
+      "prompt": "Style the text caret with caret-color in the primary color. When you mean the small down arrow on a select or menu trigger, say chevron instead of caret.",
+      "promptZh": "用 caret-color 把输入框插入符设成主色。如果指的是下拉触发器上的小箭头，对 AI 说 chevron，不要说 caret。",
+      "pageUrl": "http://localhost:3000/dictionary/concepts/caret",
+      "confusableWith": [
+        "concept-text-field"
+      ],
+      "fetch": {
+        "method": "copy-prompt",
+        "value": "Style the text caret with caret-color in the primary color. When you mean the small down arrow on a select or menu trigger, say chevron instead of caret."
       },
       "related": []
     },

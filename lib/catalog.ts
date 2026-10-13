@@ -77,6 +77,10 @@ export type CatalogItem = {
   kind: CatalogKind;
   related?: readonly { kind: CatalogKind; slug: string; relationship?: "example" | "dependency";
 	}[];
+  /** Vocabulary items people often mix up with this one (catalog slugs of the same kind). */
+  confusableWith?: readonly string[];
+  /** Names other libraries use for the same concept. */
+  crossNames?: { antd?: string; shadcn?: string; spectrum?: string };
   section?: { slug: string; variant: string };
   reference?: {
     url: string;
@@ -535,6 +539,9 @@ export async function buildCatalog(): Promise<CatalogItem[]> {
       if (!identities.has(`${reference.kind}/${reference.slug}`)) {
         throw new Error(`Unresolved Catalog relation ${item.kind}/${item.slug} -> ${reference.kind}/${reference.slug}`);
       }
+    }
+    for (const slug of item.confusableWith ?? []) {
+      if (!identities.has(`${item.kind}/${slug}`)) throw new Error(`Unresolved confusable ${item.kind}/${item.slug} -> ${slug}`);
     }
   }
   return items;

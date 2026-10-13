@@ -38,6 +38,10 @@ export default async function ConceptPage({
     <ConceptEntryView
       entry={entry}
       locale={locale}
+      confusables={(entry.confusableWith ?? []).flatMap((other) => {
+        const found = findConcept(other);
+        return found ? [found] : [];
+      })}
       labels={{
         eyebrow: t("concepts.eyebrow"),
         alsoCalled: t("alsoCalled"),
@@ -46,6 +50,8 @@ export default async function ConceptPage({
         openComponent: t("entry.openComponent"),
         sameComponent: t("entry.sameComponent"),
         oneWay: t("entry.oneWay"),
+        confusable: t("entry.confusable"),
+        crossNames: t("entry.crossNames"),
       }}
     />
   );

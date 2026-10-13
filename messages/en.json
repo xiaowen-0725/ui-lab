@@ -99,7 +99,9 @@
       "install": "Install",
       "openComponent": "Open the component",
       "sameComponent": "Also in this component",
-      "oneWay": "One way we ship it"
+      "oneWay": "One way we ship it",
+      "confusable": "Often confused with",
+      "crossNames": "Elsewhere called"
     },
     "dictionary": {
       "eyebrow": "Dictionary",
@@ -109,7 +111,11 @@
     "concepts": {
       "eyebrow": "Concepts",
       "title": "Concept dictionary",
-      "intro": "Everyday interface concepts and the words people use for them. Open one for the live sample. When we already ship that concept, you can install it."
+      "intro": "Everyday interface concepts and the words people use for them. Open one for the live sample. When we already ship that concept, you can install it.",
+      "searchLabel": "Search concepts",
+      "searchPlaceholder": "Search the way you would say it, e.g. \"three dots\", \"grey blocks\", \"Drawer\"",
+      "empty": "Nothing matches. Try another word or the English name.",
+      "allGroups": "All"
     },
     "motion": {
       "eyebrow": "Motion",

@@ -3,6 +3,7 @@
 import { Eye, EyeOff, MoreVertical, Search } from "lucide-react";
 import { useLocale } from "next-intl";
 import { useMemo, useState } from "react";
+import { MORE_FACES, MORE_SAMPLES } from "@/components/app/catalog/concept-samples-more";
 import { Button } from "@/components/motion/button";
 import { Checkbox } from "@/components/motion/checkbox";
 import { Input } from "@/components/motion/input";
@@ -370,6 +371,7 @@ const SAMPLES = {
   avatar: AvatarSample,
   tag: TagSample,
   list: ListSample,
+  ...MORE_SAMPLES,
 } as const;
 
 export function ConceptSample({ slug }: { slug: string }) {
@@ -692,6 +694,7 @@ const FACES = {
   tag: TagSample,
   accordion: AccordionFace,
   list: ListSample,
+  ...MORE_FACES,
 } as const;
 
 export function ConceptCardFace({ slug }: { slug: string }) {

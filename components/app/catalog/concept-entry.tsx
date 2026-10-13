@@ -29,18 +29,30 @@ type DictionaryEntry = {
     name: string;
     nameZh: string;
   };
+  crossNames?: { antd?: string; shadcn?: string; spectrum?: string };
+};
+
+type Confusable = {
+  slug: string;
+  name: string;
+  nameZh: string;
+  sentence: string;
+  sentenceZh: string;
 };
 
 export function ConceptEntryView({
   entry,
   locale,
   sample,
+  confusables = [],
   labels,
 }: {
   entry: DictionaryEntry;
   locale: Locale;
   /** Shown when this entry has no component preview. */
   sample?: ReactNode;
+  /** Concept entries people mix this one up with; each links back here. */
+  confusables?: readonly Confusable[];
   labels: {
     eyebrow: string;
     alsoCalled: string;
@@ -49,6 +61,8 @@ export function ConceptEntryView({
     openComponent: string;
     sameComponent: string;
     oneWay: string;
+    confusable?: string;
+    crossNames?: string;
   };
 }) {
   const zh = locale === "zh";
@@ -86,6 +100,14 @@ export function ConceptEntryView({
             </p>
           ) : null}
           <p className="mt-4 text-sm leading-relaxed text-foreground">{sentence}</p>
+          {entry.crossNames && labels.crossNames ? (
+            <p className="mt-3 text-xs text-muted-foreground">
+              {labels.crossNames}{" "}
+              {Object.entries(entry.crossNames)
+                .map(([library, crossName]) => `${library} ${crossName}`)
+                .join(" · ")}
+            </p>
+          ) : null}
 
           <section className="mt-8">
             <div className="flex items-center justify-between gap-3">
@@ -102,6 +124,34 @@ export function ConceptEntryView({
               {prompt}
             </p>
           </section>
+
+          {confusables.length > 0 && labels.confusable ? (
+            <section className="mt-8">
+              <h2 className="text-sm font-medium text-foreground">
+                {labels.confusable}
+              </h2>
+              <ul className="mt-3 grid gap-2">
+                {confusables.map((other) => (
+                  <li key={other.slug}>
+                    <Link
+                      href={`/dictionary/concepts/${other.slug}`}
+                      className="block rounded-xl border border-border px-3 py-2 transition-colors hover:border-(--color-border-strong)"
+                    >
+                      <span className="text-sm font-medium text-foreground">
+                        {zh ? other.nameZh : other.name}
+                      </span>
+                      <span className="ml-2 text-xs text-muted-foreground">
+                        {zh ? other.name : other.nameZh}
+                      </span>
+                      <span className="mt-1 block text-xs leading-relaxed text-muted-foreground">
+                        {zh ? other.sentenceZh : other.sentence}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
 
           {component && componentHref ? (
             <section className="mt-8">

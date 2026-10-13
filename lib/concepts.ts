@@ -21,6 +21,12 @@ export type ConceptComponent = {
   installSlug: string;
 };
 
+export type ConceptCrossNames = {
+  antd?: string;
+  shadcn?: string;
+  spectrum?: string;
+};
+
 export type ConceptEntry = {
   slug: string;
   group: ConceptGroup;
@@ -32,6 +38,10 @@ export type ConceptEntry = {
   prompt: string;
   promptZh: string;
   component?: ConceptComponent;
+  /** Slugs of concepts people mix this one up with. Kept two-way by a test. */
+  confusableWith?: readonly string[];
+  /** What other well-known libraries call the same thing. */
+  crossNames?: ConceptCrossNames;
   /** One way we ship the idea. The sample on the page stays the plain concept. */
   related?: {
     category: "motion" | "blocks";
@@ -92,6 +102,7 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     name: "Text field",
     nameZh: "输入框",
     aliases: ["input", "text box", "单行输入"],
+    confusableWith: ["caret"],
     sentence: "One line where a person types.",
     sentenceZh: "让人打一行字的地方。",
     prompt: "Install UI Lab input and use it for a single-line text field.",
@@ -197,6 +208,8 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     name: "Select",
     nameZh: "下拉选择",
     aliases: ["dropdown", "picker", "选择器"],
+    confusableWith: ["dropdown-menu", "combobox"],
+    crossNames: { antd: "Select", shadcn: "Select", spectrum: "Picker" },
     sentence: "A closed list. The person opens it and picks one. They do not type a new value.",
     sentenceZh: "收起的一张清单。打开后选一个，不能另打一个新值。",
     prompt:
@@ -214,7 +227,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "choice",
     name: "Combobox",
     nameZh: "组合框",
-    aliases: ["autocomplete", "typeahead", "可输入下拉"],
+    aliases: ["autocomplete", "typeahead", "可输入下拉", "可搜下拉", "组合框"],
+    confusableWith: ["select", "command"],
+    crossNames: { antd: "AutoComplete / Select showSearch", shadcn: "Combobox", spectrum: "ComboBox" },
     sentence: "A field where a person can type and also pick from suggestions.",
     sentenceZh: "既能打字，也能从建议里选的输入框。",
     prompt:
@@ -268,6 +283,8 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     name: "Tabs",
     nameZh: "选项卡",
     aliases: ["tab bar", "tabbed panels"],
+    confusableWith: ["segmented-control", "navigation-menu"],
+    crossNames: { antd: "Tabs", shadcn: "Tabs", spectrum: "Tabs" },
     sentence: "A row of labels that switches which panel is visible.",
     sentenceZh: "一排标签，用来切换眼前的那一块内容。",
     prompt: "Install UI Lab tabs when one row of labels switches the panel underneath.",
@@ -349,7 +366,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "overlay",
     name: "Dialog",
     nameZh: "对话框",
-    aliases: ["modal", "弹窗", "popup"],
+    aliases: ["modal", "弹窗", "popup", "对话框", "Modal 弹框"],
+    confusableWith: ["drawer", "sheet", "alert-dialog", "scrim"],
+    crossNames: { antd: "Modal", shadcn: "Dialog", spectrum: "Dialog" },
     sentence: "A panel that asks for attention and sits over the page.",
     sentenceZh: "浮在页面上、要人先处理的一块面板。",
     prompt:
@@ -367,7 +386,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "overlay",
     name: "Drawer",
     nameZh: "抽屉",
-    aliases: ["sheet", "side sheet", "侧滑"],
+    aliases: ["side sheet", "侧滑", "侧栏面板", "滑出层"],
+    confusableWith: ["dialog", "sheet", "scrim"],
+    crossNames: { antd: "Drawer", shadcn: "Sheet (side)", spectrum: "Tray" },
     sentence: "A panel that slides in from the edge and covers part of the page.",
     sentenceZh: "从屏幕边缘滑入、盖住页面一部分的面板。",
     prompt:
@@ -386,6 +407,8 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     name: "Popover",
     nameZh: "气泡",
     aliases: ["flyout", "popup panel", "浮层"],
+    confusableWith: ["dropdown-menu", "tooltip"],
+    crossNames: { antd: "Popover", shadcn: "Popover", spectrum: "Popover" },
     sentence: "A small panel anchored to the thing that opened it.",
     sentenceZh: "锚在打开它的那一块旁边的小面板。",
     prompt: "Install UI Lab popover for a panel anchored to its trigger.",
@@ -402,7 +425,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "overlay",
     name: "Tooltip",
     nameZh: "文字提示",
-    aliases: ["hint", "hover tip"],
+    aliases: ["hint", "hover tip", "气泡提示"],
+    confusableWith: ["popover"],
+    crossNames: { antd: "Tooltip", shadcn: "Tooltip", spectrum: "Tooltip" },
     sentence: "A short hint that appears on hover or focus.",
     sentenceZh: "悬停或聚焦时出现的一句短提示。",
     prompt: "Install UI Lab tooltip for a short hint on hover or keyboard focus.",
@@ -419,7 +444,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "overlay",
     name: "Dropdown menu",
     nameZh: "下拉菜单",
-    aliases: ["pulldown", "弹出菜单"],
+    aliases: ["pulldown", "弹出菜单", "三个点", "更多菜单", "three dots"],
+    confusableWith: ["popover", "select"],
+    crossNames: { antd: "Dropdown", shadcn: "Dropdown Menu", spectrum: "Menu" },
     sentence: "A list of commands that opens from a button and closes after a choice.",
     sentenceZh: "从按钮展开的命令列表，选完就收起。",
     prompt: "Install UI Lab dropdown-menu when commands open from a button and close after one is chosen.",
@@ -436,7 +463,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "overlay",
     name: "Toast",
     nameZh: "提示",
-    aliases: ["snackbar", "消息条", "notification"],
+    aliases: ["snackbar", "消息条", "notification", "轻提示"],
+    confusableWith: ["alert", "banner"],
+    crossNames: { antd: "message / notification", shadcn: "Sonner (toast)", spectrum: "Toast" },
     sentence: "A short message that appears, then leaves on its own.",
     sentenceZh: "短暂出现、然后自己走开的一句消息。",
     prompt: "Install UI Lab animated-toast-stack for a short message that appears and then leaves.",
@@ -453,7 +482,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "feedback",
     name: "Alert",
     nameZh: "警告",
-    aliases: ["banner", "callout", "提示条"],
+    aliases: ["callout", "提示条"],
+    confusableWith: ["toast", "banner"],
+    crossNames: { antd: "Alert", shadcn: "Alert", spectrum: "InlineAlert" },
     sentence: "A message that stays on the page until the person handles it.",
     sentenceZh: "留在页面上、等人处理的一条消息。",
     prompt:
@@ -465,7 +496,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "feedback",
     name: "Badge",
     nameZh: "徽标",
-    aliases: ["count", "status dot", "角标"],
+    aliases: ["count", "status dot", "角标", "计数"],
+    confusableWith: ["avatar", "tag"],
+    crossNames: { antd: "Badge", shadcn: "Badge", spectrum: "Badge" },
     sentence: "A small mark for a count or a status.",
     sentenceZh: "标个数或状态的一小块。",
     prompt: "Install UI Lab animated-badge for a small status or count mark.",
@@ -482,7 +515,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "feedback",
     name: "Progress",
     nameZh: "进度",
-    aliases: ["progress bar", "进度条"],
+    aliases: ["progress bar", "进度条", "进度"],
+    confusableWith: ["spinner"],
+    crossNames: { antd: "Progress", shadcn: "Progress", spectrum: "ProgressBar" },
     sentence: "A bar that shows how far a task has gone.",
     sentenceZh: "一条用来表示事情做到哪的条。",
     prompt:
@@ -494,7 +529,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "feedback",
     name: "Spinner",
     nameZh: "加载",
-    aliases: ["loader", "throbber", "忙碌指示"],
+    aliases: ["loader", "throbber", "忙碌指示", "转圈", "菊花"],
+    confusableWith: ["skeleton", "progress"],
+    crossNames: { antd: "Spin", shadcn: "Spinner", spectrum: "ProgressCircle" },
     sentence: "A mark that something is still working, without saying how far.",
     sentenceZh: "表示还在进行，但不说出做到多少。",
     prompt: "Install UI Lab loader when work is in progress and the amount done is unknown.",
@@ -511,7 +548,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "feedback",
     name: "Skeleton",
     nameZh: "骨架屏",
-    aliases: ["placeholder", "shimmer", "占位"],
+    aliases: ["placeholder", "shimmer", "占位", "骨架屏", "灰块", "grey blocks"],
+    confusableWith: ["spinner"],
+    crossNames: { antd: "Skeleton", shadcn: "Skeleton" },
     sentence: "Gray blocks in the shape of the content that is about to arrive.",
     sentenceZh: "用灰色块先占住即将出现的内容的形状。",
     prompt: "Install UI Lab skeleton while the real content is still loading.",
@@ -574,7 +613,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "content",
     name: "Avatar",
     nameZh: "头像",
-    aliases: ["profile picture", "用户头像"],
+    aliases: ["profile picture", "用户头像", "头像"],
+    confusableWith: ["badge"],
+    crossNames: { antd: "Avatar", shadcn: "Avatar", spectrum: "Avatar" },
     sentence: "A picture or initials that stand for a person.",
     sentenceZh: "用图片或首字母代表一个人。",
     prompt: "Use an avatar for a person. Use initials when there is no picture.",
@@ -585,7 +626,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "content",
     name: "Tag",
     nameZh: "标签",
-    aliases: ["chip", "pill", "徽章"],
+    aliases: ["chip", "pill", "徽章", "标签"],
+    confusableWith: ["badge"],
+    crossNames: { antd: "Tag", shadcn: "Badge" },
     sentence: "A small label that names a category.",
     sentenceZh: "标出一个分类的小块文字。",
     prompt: "Use a tag to name a category on a piece of content. A badge is for a count or a status.",
@@ -596,7 +639,9 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     group: "content",
     name: "Accordion",
     nameZh: "手风琴",
-    aliases: ["disclosure", "collapsible", "折叠面板"],
+    aliases: ["disclosure", "折叠面板", "手风琴"],
+    confusableWith: ["collapsible"],
+    crossNames: { antd: "Collapse (accordion)", shadcn: "Accordion", spectrum: "Accordion" },
     sentence: "A heading that opens and closes the text under it.",
     sentenceZh: "点标题，展开或收起下面的文字。",
     prompt: "Install UI Lab bouncy-accordion when a heading opens and closes the text under it.",
@@ -619,8 +664,177 @@ export const CONCEPTS: readonly ConceptEntry[] = [
     prompt: "Use a list when items stack in one column. Use a table when those items have columns to compare.",
     promptZh: "条目只是往下排，用列表。条目有好几列要对着看，用表格。",
   },
+  {
+    slug: "sheet",
+    group: "overlay",
+    name: "Sheet",
+    nameZh: "底部面板",
+    aliases: ["bottom sheet", "action sheet", "动作面板", "底栏浮层"],
+    confusableWith: ["dialog", "drawer"],
+    crossNames: { antd: "Drawer (placement)", shadcn: "Sheet / Drawer", spectrum: "Tray" },
+    sentence: "A light panel that rises from the bottom edge, often draggable, for a short list of actions.",
+    sentenceZh: "从底边升起的轻量面板，常可拖动，放几项操作或辅助内容。",
+    prompt:
+      "Install UI Lab bottom-sheet for a panel that rises from the bottom with snap points and can be dragged away. Use a drawer when a full panel slides in from the side.",
+    promptZh:
+      "从底部升起、有吸附点、可以拖走的面板，安装 UI Lab 的 bottom-sheet。整块面板从侧边滑入时用抽屉。",
+    component: {
+      category: "motion",
+      slug: "bottom-sheet",
+      previewKey: "motion/bottom-sheet",
+      installSlug: "bottom-sheet",
+    },
+  },
+  {
+    slug: "alert-dialog",
+    group: "overlay",
+    name: "Alert dialog",
+    nameZh: "确认对话框",
+    aliases: ["confirm dialog", "确认框", "二次确认"],
+    confusableWith: ["dialog"],
+    crossNames: { antd: "Modal.confirm / Popconfirm", shadcn: "Alert Dialog", spectrum: "AlertDialog" },
+    sentence: "A dialog that stops the person until they choose, usually to confirm something risky.",
+    sentenceZh: "必须做出选择才能继续的对话框，多用于确认有风险的操作。",
+    prompt:
+      "Use an alert dialog with role=\"alertdialog\" for a destructive confirmation: a short title, one sentence on the consequence, Cancel and a danger action. Clicking outside does not close it; Escape cancels.",
+    promptZh:
+      "删除这类危险操作用确认对话框，role=\"alertdialog\"：短标题、一句后果说明、取消和危险按钮。点外面不关闭，Esc 等于取消。",
+  },
+  {
+    slug: "scrim",
+    group: "overlay",
+    name: "Scrim",
+    nameZh: "遮罩",
+    aliases: ["backdrop", "overlay", "蒙层", "灰罩"],
+    confusableWith: ["dialog", "drawer"],
+    crossNames: { antd: "mask", shadcn: "DialogOverlay", spectrum: "Underlay" },
+    sentence: "The dimmed layer behind a dialog or drawer that pushes the page back.",
+    sentenceZh: "对话框或抽屉背后那层半透明暗色，把页面往后推。",
+    prompt:
+      "Put a scrim behind the overlay: a fixed full-screen layer in foreground color at about 40% opacity. Decide whether clicking it closes the overlay, and lock page scroll while it shows.",
+    promptZh:
+      "在浮层背后加一层遮罩：铺满屏幕、前景色约 40% 透明度。想清楚点遮罩是否关闭浮层，显示期间锁住页面滚动。",
+  },
+  {
+    slug: "segmented-control",
+    group: "choice",
+    name: "Segmented control",
+    nameZh: "分段控件",
+    aliases: ["segmented button", "toggle group", "分段选择"],
+    confusableWith: ["tabs"],
+    crossNames: { antd: "Segmented", shadcn: "Toggle Group", spectrum: "SegmentedControl" },
+    sentence: "A compact row of options where exactly one is on, used to switch a view or a value.",
+    sentenceZh: "一排紧凑的互斥选项，只能选中一个，用来切换视图或取值。",
+    prompt:
+      "Use a segmented control with two to five short options and exactly one selected, for example Day / Week / Month. It changes a value on the same view; use tabs when each option owns its own panel.",
+    promptZh:
+      "用分段控件放二到五个短选项、只选一个，例如日 / 周 / 月。它改的是同一视图里的取值；每个选项各有一块面板时用标签页。",
+  },
+  {
+    slug: "navigation-menu",
+    group: "navigation",
+    name: "Navigation menu",
+    nameZh: "导航菜单",
+    aliases: ["nav menu", "mega menu", "顶部导航", "站点导航"],
+    confusableWith: ["tabs"],
+    crossNames: { antd: "Menu (horizontal)", shadcn: "Navigation Menu", spectrum: "SideNav" },
+    sentence: "The site-level links that take a person to other pages, sometimes opening a panel of sub-links.",
+    sentenceZh: "站点级的一组链接，去往其他页面，有时展开一块子链接面板。",
+    prompt:
+      "Build a navigation menu inside <nav> with real links, aria-current on the active page, and an optional panel of sub-links that opens on click or focus. It changes the page; tabs change a panel on the same page.",
+    promptZh:
+      "在 <nav> 里做导航菜单，用真实链接，当前页带 aria-current，可选一块点击或聚焦展开的子链接面板。它换的是页面；标签页换的是同页面板。",
+  },
+  {
+    slug: "command",
+    group: "navigation",
+    name: "Command palette",
+    nameZh: "命令面板",
+    aliases: ["⌘K", "cmd+k", "command menu", "快捷命令"],
+    confusableWith: ["combobox"],
+    crossNames: { shadcn: "Command", spectrum: "SearchField + Menu" },
+    sentence: "A keyboard-first box that opens over everything and runs an action or jumps somewhere by typing.",
+    sentenceZh: "按快捷键浮在一切之上的输入框，打几个字就执行操作或跳转。",
+    prompt:
+      "Install UI Lab command-palette for a ⌘K palette with a fuzzy filter, grouped results and arrow-key navigation. A combobox picks a value for one field; a command palette runs actions.",
+    promptZh:
+      "要 ⌘K 命令面板、模糊过滤、分组结果和方向键选择，安装 UI Lab 的 command-palette。可输入下拉是给一个字段选值，命令面板是执行操作。",
+    component: {
+      category: "blocks",
+      slug: "command-palette",
+      previewKey: "blocks/command-palette",
+      installSlug: "command-palette",
+    },
+  },
+  {
+    slug: "banner",
+    group: "feedback",
+    name: "Banner",
+    nameZh: "通知横幅",
+    aliases: ["announcement bar", "top bar", "公告条", "顶部通知"],
+    confusableWith: ["alert", "toast"],
+    crossNames: { antd: "Alert (banner)", spectrum: "Banner" },
+    sentence: "A full-width strip at the top or bottom of the page that stays until it is dismissed.",
+    sentenceZh: "贴在页面顶部或底部的通栏，一直在，直到被关掉。",
+    prompt:
+      "Add a full-width banner at the top of the page for a site-wide notice, with one short sentence, an optional link and a close button. It persists across pages; an alert sits inside content and a toast disappears on its own.",
+    promptZh:
+      "在页面顶部加一条通栏通知横幅：一句短话、可选链接和关闭按钮。它跨页面一直在；警示块待在内容里，轻提示会自己消失。",
+  },
+  {
+    slug: "collapsible",
+    group: "content",
+    name: "Collapsible",
+    nameZh: "折叠区",
+    aliases: ["expand / collapse", "show more", "展开收起", "disclosure"],
+    confusableWith: ["accordion"],
+    crossNames: { antd: "Collapse (single panel)", shadcn: "Collapsible", spectrum: "Disclosure" },
+    sentence: "One block of content with a trigger that shows or hides it.",
+    sentenceZh: "一块内容加一个开关，点一下展开或收起。",
+    prompt:
+      "Use a collapsible for one section: a button with aria-expanded toggles the content below it. Use an accordion when several such sections sit together as a group.",
+    promptZh:
+      "单独一块内容用折叠区：带 aria-expanded 的按钮控制下方内容展开收起。好几块并排成组时用折叠面板。",
+  },
+  {
+    slug: "focus-ring",
+    group: "jargon",
+    name: "Focus ring",
+    nameZh: "焦点环",
+    aliases: ["focus outline", "focus-visible", "聚焦框", "键盘焦点"],
+    crossNames: { antd: "focus outline token", shadcn: "ring", spectrum: "Focus indicator" },
+    sentence: "The outline that shows which control the keyboard is on.",
+    sentenceZh: "告诉人键盘现在停在哪个控件上的那圈描边。",
+    prompt:
+      "Give every interactive element a visible focus ring on :focus-visible, a 2px outline with offset in the theme ring color. Never remove the outline without a replacement.",
+    promptZh:
+      "所有可交互元素在 :focus-visible 时显示焦点环：2px 描边加偏移，用主题的 ring 色。不要去掉 outline 却不给替代。",
+  },
+  {
+    slug: "caret",
+    group: "jargon",
+    name: "Caret",
+    nameZh: "插入符",
+    aliases: ["text cursor", "光标", "闪的竖线", "chevron (in menus)"],
+    confusableWith: ["text-field"],
+    sentence: "The blinking line in a text field where the next character goes. In menus the word also means the small down arrow.",
+    sentenceZh: "输入框里一闪一闪、标出下一个字落点的竖线。在菜单里这个词也指那个向下的小箭头。",
+    prompt:
+      "Style the text caret with caret-color in the primary color. When you mean the small down arrow on a select or menu trigger, say chevron instead of caret.",
+    promptZh:
+      "用 caret-color 把输入框插入符设成主色。如果指的是下拉触发器上的小箭头，对 AI 说 chevron，不要说 caret。",
+  },
 ];
 
 export function findConcept(slug: string) {
   return CONCEPTS.find((entry) => entry.slug === slug);
+}
+
+/** Lower-cased names, slug and aliases with spaces and dashes removed, so
+ * colloquial queries such as 三个点 or "grey blocks" find the entry. */
+export function conceptHaystack(entry: ConceptEntry) {
+  return [entry.slug, entry.name, entry.nameZh, ...entry.aliases]
+    .join("|")
+    .toLowerCase()
+    .replace(/[\s\-_·]+/g, "");
 }
