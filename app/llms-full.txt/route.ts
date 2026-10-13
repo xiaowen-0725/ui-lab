@@ -24,6 +24,8 @@ function renderItem(item: CatalogItem): string[] {
   if (item.assetRole) lines.push(`Role: ${item.assetRole}`);
   if (item.exportName) lines.push(`Import: ${item.exportName} from the installed ${item.sourceFile}`);
   if (item.sourceVersion) lines.push(`Source revision: ${item.sourceVersion}`);
+  if (item.confusableWith?.length) lines.push(`Often confused with: ${item.confusableWith.join(", ")}`);
+  if (item.crossNames) lines.push(`Elsewhere called: ${Object.entries(item.crossNames).map(([lib, name]) => `${lib} ${name}`).join("; ")}`);
   if (item.related?.length) lines.push(`Related: ${item.related.map((ref) => `${ref.kind}/${ref.slug}`).join(", ")}`);
   if (item.reference) {
     lines.push(`Reference: ${item.reference.url}; rights: ${item.reference.rightsStatus}${item.reference.documentLicense ? `; document license: ${item.reference.documentLicense}` : ""}; reviewed: ${item.reference.reviewedAt}`);

@@ -12,6 +12,8 @@
 
 ### Added
 
+- 概念词典：新增「易混对照」（`confusableWith`，双向由测试保证）与「别的库叫」（`crossNames`，antd / shadcn / Spectrum）；补 10 条概念（底部面板、确认对话框、遮罩、分段控件、导航菜单、命令面板、通知横幅、折叠区、焦点环、插入符），modal / chip / disclosure 并为既有词条别名。列表页加口语搜索（中英名、slug、别名，如「三个点」「灰块」）与分组芯片。只链到已发布组件（bottom-sheet、command-palette 等），其余只给复制 prompt。`/catalog.json` 与 `llms-full.txt` 同步带出新字段。
+
 - SaaS Admin Apps 组新增对话、用量、任务板、收件箱与日程；全部落在既有 saas-admin 外壳、路由合同和主题定制里。对话页复用 Thread / PromptInput / Suggestion / Reasoning / ThreadCodeBlock / ThreadUsage，用量页复用 ThreadUsage。客户册整支删除，不新建、不并入用户页。参考 AdminCN / Promptly 的信息架构，不复制其源码、素材或专有文案。
 
 - SaaS Admin 新增顶栏主题定制面板：品牌、字体、模式、圆角、内容宽度、尺寸与侧栏配置；复用shadcn-admin的MIT示意图提供Sidebar/Layout可视卡片，接入官方Sidebar既有props与开合状态。支持外观重置、消费者受控接口及预览偏好恢复，保留页面和草稿；官方既有控件源码/API保持。

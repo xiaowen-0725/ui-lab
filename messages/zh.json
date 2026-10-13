@@ -99,7 +99,9 @@
       "install": "安装",
       "openComponent": "在组件里打开",
       "sameComponent": "同一组件里还有",
-      "oneWay": "我们的一种做法"
+      "oneWay": "我们的一种做法",
+      "confusable": "易混对照",
+      "crossNames": "别的库叫"
     },
     "dictionary": {
       "eyebrow": "词典",
@@ -109,7 +111,11 @@
     "concepts": {
       "eyebrow": "概念",
       "title": "概念词典",
-      "intro": "前端日常会用到的概念和黑话。点进去看到活样本。正好有我们的组件时，可以安装那一个。"
+      "intro": "前端日常会用到的概念和黑话。点进去看到活样本。正好有我们的组件时，可以安装那一个。",
+      "searchLabel": "搜索概念",
+      "searchPlaceholder": "用口语搜，例如「三个点」「灰块」「Drawer」",
+      "empty": "没有找到。换个说法试试，或用英文名。",
+      "allGroups": "全部"
     },
     "motion": {
       "eyebrow": "动效",

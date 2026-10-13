@@ -18,6 +18,8 @@ export function buildVocabularyItems(): CatalogItem[] {
       description: entry.sentence, descriptionZh: entry.sentenceZh,
       prompt: entry.prompt, promptZh: entry.promptZh,
       pageUrl: `${SITE_URL}/dictionary/concepts/${entry.slug}`,
+      ...(entry.confusableWith?.length ? { confusableWith: entry.confusableWith.map((slug) => `concept-${slug}`) } : {}),
+      ...(entry.crossNames ? { crossNames: entry.crossNames } : {}),
       fetch: { method: "copy-prompt", value: entry.prompt },
       related: entry.component ? [{ kind: "component", slug: entry.component.installSlug }] : entry.related ? [{ kind: "component", slug: entry.related.slug }] : [],
     })),
